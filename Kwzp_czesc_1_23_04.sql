@@ -121,92 +121,93 @@ CREATE TABLE Faktury_Zewnetrzne (
 ---------------------------------------------------------POCZATEK MAGAZYN---------------------------------------------------------
 --Magazyn tabele słownikowe
 
-CREATE TABLE Magazyn_Polki_Rozmiary (
+CREATE TABLE Polki_Rozmiary (
 ID_Rozmiar_Polki char(5) PRIMARY KEY,
 Wysokosc int,
 Szerokosc int,
 Glebokosc int
 )
-CREATE TABLE Magazyn_Elementy_Typy (
+CREATE TABLE Elementy_Typy (
 ID_Element_Typ int IDENTITY(1,1) PRIMARY KEY,
 Typ char(15)
 )
-CREATE TABLE Magazyn_Elementy_Jednostki (
+CREATE TABLE Elementy_Jednostki (
 ID_jednostka int IDENTITY(1,1) PRIMARY KEY,
 Jednostka char(10)
 )
-CREATE TABLE Magazyn_Elementy_Cechy_Slownik(
+CREATE TABLE Elementy_Cechy_Slownik(
 ID_Cecha int IDENTITY(1,1) PRIMARY KEY,
 Cecha char(20)
 )
-CREATE TABLE Magazyn_Polki (
+CREATE TABLE Polki (
 ID_Polka char(10) PRIMARY KEY,
 ID_Rozmiar_Polki char(5) 
 	FOREIGN KEY REFERENCES 
-	Magazyn_Polki_Rozmiary(ID_Rozmiar_Polki)
+	Polki_Rozmiary(ID_Rozmiar_Polki)
 )
-CREATE TABLE Magazyn_Dostawcy_Zaopatrzenie (
+CREATE TABLE Dostawcy_Zaopatrzenie (
 ID_Dostawcy char(10) PRIMARY KEY,
 Nazwa char(20),
 Telefon_1 int, 
 Telefon_2 int, 
 Email char(20)
 )
-CREATE TABLE Magazyn_Kurierzy (
+CREATE TABLE Kurierzy (
 ID_Kurier char(10) PRIMARY KEY,
 Nazwa char(20),
 Telefon_1 int, 
 Telefon_2 int, 
 Email char(20)
 )
-CREATE TABLE Magazyn_Miejsca (
+CREATE TABLE Miejsca (
 ID_Miejsca char(10) PRIMARY KEY,
 Nazwa char(20),
 )
 ---------------------------------------------------------TABELE Z KLUCZAMI OBCYMI MAGAZYN ---------------------------------------------------------
-CREATE TABLE Magazyn_Elementy (
+CREATE TABLE Elementy (
 ID_Element int IDENTITY(1,1) PRIMARY KEY,
 ID_Element_Typ int
 	FOREIGN KEY REFERENCES
-	Magazyn_Elementy_Typy (ID_Element_Typ),
+	Elementy_Typy (ID_Element_Typ),
 Element_Nazwa char(20),
 Element_Oznaczenie char(20),
 Okres_Przydatnosci_Miesiace int,
 Element_Ilosc_W_Paczce real, 
 ID_Jednostka int
 	FOREIGN KEY REFERENCES
-	Magazyn_Elementy_Jednostki(ID_Jednostka)
+	Elementy_Jednostki(ID_Jednostka)
 )
 
-CREATE TABLE Magazyn_Elementy_Cechy(
+CREATE TABLE Elementy_Cechy(
+ID_Elementy_Cechy int IDENTITY(1,1) PRIMARY KEY,
 ID_Element int 
 	FOREIGN KEY REFERENCES
-	Magazyn_Elementy (ID_Element),
+	Elementy (ID_Element),
 ID_Cecha int 
 	FOREIGN KEY REFERENCES
-	Magazyn_Elementy_Cechy_Slownik(ID_Cecha),
+	Elementy_Cechy_Slownik(ID_Cecha),
 Wartosc_Cechy real
 )
 
-CREATE TABLE Magazyn_Umowy_Kurierzy (
+CREATE TABLE Umowy_Kurierzy (
 ID_Umowy int IDENTITY(1,1) PRIMARY KEY,
 ID_Kurier char(10) 
 	FOREIGN KEY REFERENCES 
-	Magazyn_Kurierzy(ID_Kurier),
+	Kurierzy(ID_Kurier),
 Data_Zawarcia date,
 Czas_Dostawy time,
 Koszt_Km int, 
 Koszt_Staly int,
 )
 
-CREATE TABLE Magazyn_Oferta (
+CREATE TABLE Oferta (
 ID_Oferta char(10) PRIMARY KEY,
 ID_Element int 
 	FOREIGN KEY REFERENCES 
-	Magazyn_Elementy(ID_Element), 
+	Elementy(ID_Element), 
 ID_Dostawcy char(10) 
 	FOREIGN KEY REFERENCES  
-	Magazyn_Dostawcy_Zaopatrzenie(ID_Dostawcy),
+	Dostawcy_Zaopatrzenie(ID_Dostawcy),
 Cena_Jedn money,
 Cena money,
 Data_Oferty char(10),
@@ -216,7 +217,8 @@ Ilosc_W_Opakowaniu_Zbiorczym int
 )
 
 ---------------------------------------------------------WYMAGA TABELI ZAMOWIEN I PRACOWNIKOW---------------------------------------------------------
-CREATE TABLE Magazyn_Zamowienia_Przydzial (
+CREATE TABLE Zamowienia_Przydzial (
+ID_Zamowienia_Przydzial int IDENTITY(1,1) PRIMARY KEY,
 ID_Zamowienia int 
 	FOREIGN KEY REFERENCES  
 	Zamowienia(ID_Zamowienia), 
@@ -225,9 +227,9 @@ ID_Pracownicy int
 	Pracownicy(ID_Pracownika), 
 ID_Umowy int 
 	FOREIGN KEY REFERENCES 
-	Magazyn_Umowy_Kurierzy(ID_Umowy)
+	Umowy_Kurierzy(ID_Umowy)
 )
-CREATE TABLE Magazyn_Zamowienia_Dostawy (
+CREATE TABLE Zamowienia_Dostawy (
 ID_Dostawy int IDENTITY(1,1) PRIMARY KEY,
 ID_Zamowienia int 
 	FOREIGN KEY REFERENCES
@@ -236,66 +238,70 @@ Data_Dostawy_Planowana char(10),
 Data_Dostawy_Rzeczywista char(10),
 )
 
-CREATE TABLE Magazyn_Zawartosc (
+CREATE TABLE Zawartosc (
+ID_Zawartosc int IDENTITY(1,1) PRIMARY KEY,
 ID_Polka char(10) UNIQUE
 	FOREIGN KEY REFERENCES 
-	Magazyn_Polki(ID_Polka),
+	Polki(ID_Polka),
 ID_Element int
 	FOREIGN KEY REFERENCES 
-	Magazyn_Elementy(ID_Element),
+	Elementy(ID_Element),
 ID_Dostawy int
 	FOREIGN KEY REFERENCES
-	Magazyn_Zamowienia_Dostawy(ID_Dostawy),
+	Zamowienia_Dostawy(ID_Dostawy),
 Ilosc_Paczek int
 )
 
 
-CREATE TABLE Magazyn_Dostawcy_Oferta (
+CREATE TABLE Dostawcy_Oferta (
+ID_Dostawcy_Oferta int IDENTITY(1,1) PRIMARY KEY,
 ID_Oferta char(10) 
 	FOREIGN KEY REFERENCES  
-	Magazyn_Oferta(ID_Oferta), 
+	Oferta(ID_Oferta), 
 ID_Zamowienia int 
 	FOREIGN KEY REFERENCES  
 	Zamowienia(ID_Zamowienia), 
 )
 
 CREATE TABLE Dostawy_Zawartosc (
+ID_Dostawy_Zawartosc int IDENTITY(1,1) PRIMARY KEY,
 ID_Dostawy int
 	FOREIGN KEY REFERENCES
-	Magazyn_Zamowienia_Dostawy(ID_Dostawy),
+	Zamowienia_Dostawy(ID_Dostawy),
 ID_Element int
 	FOREIGN KEY REFERENCES 
-	Magazyn_Elementy(ID_Element),
+	Elementy(ID_Element),
 Ilosc_Dostarczona int
 )
 
 CREATE TABLE Zamowienia_Zawartosc (
+ID_Zamowienia_Zawartosc int IDENTITY(1,1) PRIMARY KEY,
 ID_Zamowienia int 
 	FOREIGN KEY REFERENCES
 	Zamowienia(ID_Zamowienia),
 ID_Oferta char(10)
 	FOREIGN KEY REFERENCES 
-	Magazyn_Oferta(ID_Oferta),
+	Oferta(ID_Oferta),
 Ilosc_Zamawiana int)
 
 
-CREATE TABLE Magazyn_Dostarczenia_Wewn (
-ID_Dostarczenia int PRIMARY KEY,
+CREATE TABLE Dostarczenia_Wewn (
+ID_Dostarczenia int IDENTITY(1,1) PRIMARY KEY,
 ID_Pracownicy int
 	FOREIGN KEY REFERENCES
 	Pracownicy (ID_Pracownika),
 ID_Dostawy int
 	FOREIGN KEY REFERENCES
-	Magazyn_Zamowienia_Dostawy (ID_Dostawy),
+	Zamowienia_Dostawy (ID_Dostawy),
 Ilosc_Dostarczona float,
 ID_Miejsca char(10) 
 	FOREIGN KEY REFERENCES
-	Magazyn_Miejsca(ID_Miejsca),
+	Miejsca(ID_Miejsca),
 Data_Dostarczenia char(10),
 )
 
-CREATE TABLE Magazyn_Dostarczenia_Zewn (
-ID_Dostarczenia int PRIMARY KEY,
+CREATE TABLE Dostarczenia_Zewn (
+ID_Dostarczenia int IDENTITY(1,1) PRIMARY KEY,
 ID_Pracownicy int
 	FOREIGN KEY REFERENCES
 	Pracownicy (ID_Pracownika),
@@ -305,18 +311,19 @@ ID_Zamowienia int
 Ilosc_Dostarczona float,
 ID_Miejsca char(10) 
 	FOREIGN KEY REFERENCES
-	Magazyn_Miejsca(ID_Miejsca),
+	Miejsca(ID_Miejsca),
 Data_Dostarczenia char(10),
 )
 
 CREATE TABLE Koszt_Jednostkowy (
-	ID_Element int FOREIGN KEY REFERENCES Magazyn_Elementy(ID_Element),
+	ID_Koszt_Jednostkowy int IDENTITY(1,1) PRIMARY KEY,
+	ID_Element int FOREIGN KEY REFERENCES Elementy(ID_Element),
 	Koszt_Produkcji int not null,
 );
 CREATE TABLE Zamowienie_Produkt (
 	ID int IDENTITY (1,1) PRIMARY KEY,
 	ID_Zamowienia int FOREIGN KEY REFERENCES Zamowienia(ID_Zamowienia),
-	ID_Element int FOREIGN KEY REFERENCES Magazyn_Elementy(ID_Element),
+	ID_Element int FOREIGN KEY REFERENCES Elementy(ID_Element),
 	Ilosc int not null,
 );
 
@@ -328,7 +335,7 @@ CREATE TABLE Zamowienie_Produkt (
 
 create table Czesci_Obsluga (
 	ID_Obslugi  int IDENTITY(1,1) not null PRIMARY KEY,
-	ID_Element int not null FOREIGN KEY REFERENCES Magazyn_Elementy (ID_Element),
+	ID_Element int not null FOREIGN KEY REFERENCES Elementy (ID_Element),
 	Ilosc int not null,
 );
 GO
@@ -419,7 +426,7 @@ GO
 
 create table Elementy_Proces (
 	ID_Proces_Technologiczny int IDENTITY(1,1) not null PRIMARY KEY,
-	ID_Element int not null FOREIGN KEY REFERENCES Magazyn_Elementy (ID_Element),
+	ID_Element int not null FOREIGN KEY REFERENCES Elementy (ID_Element),
 	Liczba int not null,
 );
 GO
@@ -480,9 +487,9 @@ Uwagi char(300) NULL);
 
 CREATE TABLE Material_Na_Produkcji
 (ID_Procesu_Produkcyjnego int FOREIGN KEY REFERENCES Proces_Produkcyjny (ID_Procesu_Produkcyjnego) NOT NULL, 
-ID_Element int FOREIGN KEY REFERENCES Magazyn_Elementy (ID_Element) NOT NULL,
+ID_Element int FOREIGN KEY REFERENCES Elementy (ID_Element) NOT NULL,
 Liczba float NOT NULL,
-ID_Jednostka int FOREIGN KEY REFERENCES Magazyn_Elementy_Jednostki(ID_Jednostka) NOT NULL,
+ID_Jednostka int FOREIGN KEY REFERENCES Elementy_Jednostki(ID_Jednostka) NOT NULL,
 Odpad float NULL);
 
 CREATE TABLE Realizacja_Procesu
@@ -501,7 +508,7 @@ ID_Maszyny int FOREIGN KEY REFERENCES Maszyny (ID_Maszyny) NOT NULL);
 
 CREATE TABLE Zapotrzebowanie_Opakowan 
 (ID_Procesu_Produkcyjnego int FOREIGN KEY REFERENCES Proces_Produkcyjny (ID_Procesu_Produkcyjnego) NOT NULL, 
-ID_Element int FOREIGN KEY REFERENCES Magazyn_Elementy (ID_Element) NOT NULL, 
+ID_Element int FOREIGN KEY REFERENCES Elementy (ID_Element) NOT NULL, 
 Liczba int NOT NULL,
 Czy_Otrzymano bit NULL,
 Uwagi char(300) NULL);
