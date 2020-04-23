@@ -57,6 +57,7 @@ CREATE TABLE Pracownicy (
 	
 );
 CREATE TABLE Pracownicy_Zatrudnienie (
+	ID_Pracownicy_Zatrudnienie int IDENTITY(1,1) PRIMARY KEY,
 	ID_Pracownika int FOREIGN KEY REFERENCES Pracownicy(ID_Pracownika),
 	ID_Stanowiska int FOREIGN KEY REFERENCES Stanowisko(ID_Stanowiska),
 	ID_Etatu int FOREIGN KEY REFERENCES  Etat(ID_Etat),
@@ -486,7 +487,8 @@ ID_Dokumentacja_Proces int FOREIGN KEY REFERENCES Dokumentacja_Proces (ID_Dokume
 Uwagi char(300) NULL);
 
 CREATE TABLE Material_Na_Produkcji
-(ID_Procesu_Produkcyjnego int FOREIGN KEY REFERENCES Proces_Produkcyjny (ID_Procesu_Produkcyjnego) NOT NULL, 
+(ID_Material_Na_Produkcji int IDENTITY(1,1) PRIMARY KEY,
+ID_Procesu_Produkcyjnego int FOREIGN KEY REFERENCES Proces_Produkcyjny (ID_Procesu_Produkcyjnego) NOT NULL, 
 ID_Element int FOREIGN KEY REFERENCES Elementy (ID_Element) NOT NULL,
 Liczba float NOT NULL,
 ID_Jednostka int FOREIGN KEY REFERENCES Elementy_Jednostki(ID_Jednostka) NOT NULL,
@@ -502,19 +504,22 @@ Data_Kontroli SMALLDATETIME NULL,
 Uwagi_Kontroli char(300) NOT NULL);
 
 CREATE TABLE Przydzial_Zasobow 
-(ID_Realizacji_Procesu int FOREIGN KEY REFERENCES Realizacja_Procesu (ID_Realizacji_Procesu) NOT NULL,
+(ID_Przydzial_Zasobow int IDENTITY(1,1) PRIMARY KEY,
+ID_Realizacji_Procesu int FOREIGN KEY REFERENCES Realizacja_Procesu (ID_Realizacji_Procesu) NOT NULL,
 ID_Pracownika int FOREIGN KEY REFERENCES Pracownicy (ID_Pracownika) NOT NULL,
 ID_Maszyny int FOREIGN KEY REFERENCES Maszyny (ID_Maszyny) NOT NULL);
 
 CREATE TABLE Zapotrzebowanie_Opakowan 
-(ID_Procesu_Produkcyjnego int FOREIGN KEY REFERENCES Proces_Produkcyjny (ID_Procesu_Produkcyjnego) NOT NULL, 
+(ID_Zapotrzebowanie_opakowan int IDENTITY(1,1) PRIMARY KEY,
+ID_Procesu_Produkcyjnego int FOREIGN KEY REFERENCES Proces_Produkcyjny (ID_Procesu_Produkcyjnego) NOT NULL, 
 ID_Element int FOREIGN KEY REFERENCES Elementy (ID_Element) NOT NULL, 
 Liczba int NOT NULL,
 Czy_Otrzymano bit NULL,
 Uwagi char(300) NULL);
 
 CREATE TABLE Kontrola_Efektywnosci 
-(ID_Procesu_Produkcyjnego int FOREIGN KEY REFERENCES Proces_Produkcyjny (ID_Procesu_Produkcyjnego) NOT NULL, 
+(ID_Kontrola_Efektywnosci int IDENTITY(1,1) PRIMARY KEY,
+ID_Procesu_Produkcyjnego int FOREIGN KEY REFERENCES Proces_Produkcyjny (ID_Procesu_Produkcyjnego) NOT NULL, 
 Data_Kontroli smalldatetime NOT NULL,
 Dokument image NOT NULL,
 Uwagi char(300) NULL,
