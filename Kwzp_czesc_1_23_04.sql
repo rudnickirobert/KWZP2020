@@ -122,7 +122,7 @@ CREATE TABLE Faktury_Zewnetrzne (
 --Magazyn tabele słownikowe
 
 CREATE TABLE Polki_Rozmiary (
-ID_Rozmiar_Polki char(5) PRIMARY KEY,
+ID_Rozmiar_Polki int IDENTITY(1,1) PRIMARY KEY,
 Wysokosc int,
 Szerokosc int,
 Glebokosc int
@@ -141,7 +141,7 @@ Cecha char(20)
 )
 CREATE TABLE Polki (
 ID_Polka char(10) PRIMARY KEY,
-ID_Rozmiar_Polki char(5) 
+ID_Rozmiar_Polki int 
 	FOREIGN KEY REFERENCES 
 	Polki_Rozmiary(ID_Rozmiar_Polki)
 )
