@@ -141,27 +141,27 @@ ID_Cecha int IDENTITY(1,1) PRIMARY KEY,
 Cecha char(20)
 )
 CREATE TABLE Polki (
-ID_Polka char(10) PRIMARY KEY,
+ID_Polka int IDENTITY(1,1) PRIMARY KEY,
 ID_Rozmiar_Polki int 
 	FOREIGN KEY REFERENCES 
 	Polki_Rozmiary(ID_Rozmiar_Polki)
 )
 CREATE TABLE Dostawcy_Zaopatrzenie (
-ID_Dostawcy char(10) PRIMARY KEY,
+ID_Dostawcy  int IDENTITY(1,1) PRIMARY KEY,
 Nazwa char(20),
 Telefon_1 int, 
 Telefon_2 int, 
 Email char(20)
 )
 CREATE TABLE Kurierzy (
-ID_Kurier char(10) PRIMARY KEY,
+ID_Kurier int IDENTITY(1,1) PRIMARY KEY,
 Nazwa char(20),
 Telefon_1 int, 
 Telefon_2 int, 
 Email char(20)
 )
 CREATE TABLE Miejsca (
-ID_Miejsca char(10) PRIMARY KEY,
+ID_Miejsca int IDENTITY(1,1) PRIMARY KEY,
 Nazwa char(20),
 )
 ---------------------------------------------------------TABELE Z KLUCZAMI OBCYMI MAGAZYN ---------------------------------------------------------
@@ -171,7 +171,6 @@ ID_Element_Typ int
 	FOREIGN KEY REFERENCES
 	Elementy_Typy (ID_Element_Typ),
 Element_Nazwa char(20),
-Element_Oznaczenie char(20),
 Okres_Przydatnosci_Miesiace int,
 Element_Ilosc_W_Paczce real, 
 ID_Jednostka int
@@ -187,16 +186,17 @@ ID_Element int
 ID_Cecha int 
 	FOREIGN KEY REFERENCES
 	Elementy_Cechy_Slownik(ID_Cecha),
-Wartosc_Cechy real
+Wartosc_Cechy_Liczbowa real,
+Wartosc_Cechy_Slowna char(30)
 )
 
 CREATE TABLE Umowy_Kurierzy (
 ID_Umowy int IDENTITY(1,1) PRIMARY KEY,
-ID_Kurier char(10) 
+ID_Kurier int
 	FOREIGN KEY REFERENCES 
 	Kurierzy(ID_Kurier),
 Data_Zawarcia date,
-Czas_Dostawy time,
+Czas_Dostawy int,
 Koszt_Km int, 
 Koszt_Staly int,
 )
@@ -205,8 +205,9 @@ CREATE TABLE Oferta (
 ID_Oferta char(10) PRIMARY KEY,
 ID_Element int 
 	FOREIGN KEY REFERENCES 
-	Elementy(ID_Element), 
-ID_Dostawcy char(10) 
+	Elementy(ID_Element),	
+Element_Oznaczenie char(20),
+ID_Dostawcy int 
 	FOREIGN KEY REFERENCES  
 	Dostawcy_Zaopatrzenie(ID_Dostawcy),
 Cena_Jedn money,
@@ -241,7 +242,7 @@ Data_Dostawy_Rzeczywista char(10),
 
 CREATE TABLE Zawartosc (
 ID_Zawartosc int IDENTITY(1,1) PRIMARY KEY,
-ID_Polka char(10) UNIQUE
+ID_Polka int UNIQUE
 	FOREIGN KEY REFERENCES 
 	Polki(ID_Polka),
 ID_Element int
@@ -295,7 +296,7 @@ ID_Dostawy int
 	FOREIGN KEY REFERENCES
 	Zamowienia_Dostawy (ID_Dostawy),
 Ilosc_Dostarczona float,
-ID_Miejsca char(10) 
+ID_Miejsca int
 	FOREIGN KEY REFERENCES
 	Miejsca(ID_Miejsca),
 Data_Dostarczenia char(10),
@@ -310,7 +311,7 @@ ID_Zamowienia int
 	FOREIGN KEY REFERENCES
 	Zamowienia(ID_Zamowienia),
 Ilosc_Dostarczona float,
-ID_Miejsca char(10) 
+ID_Miejsca int
 	FOREIGN KEY REFERENCES
 	Miejsca(ID_Miejsca),
 Data_Dostarczenia char(10),
@@ -526,7 +527,3 @@ Uwagi char(300) NULL,
 Zgodnosc_Zamowienia bit NOT NULL,
 Liczba_Poprawnych int NOT NULL,
 Liczba_Blednych int NOT NULL);
-
-
-
-
