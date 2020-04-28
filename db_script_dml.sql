@@ -1,3 +1,5 @@
+USE Szwalnia
+
 -------------------------------Inserty zarz¹dzanie i finanse-------------------------
 INSERT INTO Rodzaj_Etapu (Nazwa)
 VALUES
