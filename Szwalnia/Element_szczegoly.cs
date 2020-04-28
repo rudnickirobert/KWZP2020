@@ -12,7 +12,7 @@ namespace Szwalnia
 {
     public partial class Element_szczegoly : Form
     {
-        public Element_szczegoly()
+        public Element_szczegoly(SzwalniaEntities db, int ID)
         {
             InitializeComponent();
         }
