@@ -11,6 +11,7 @@ VALUES
     ('Pakowanie'),
     ('Metkowanie - pistolet'),
     ( 'Wszywanie suwaków');
+
 INSERT INTO Produkt(Nazwa) 
 VALUES  
     ('Koszulka'), 
@@ -18,6 +19,7 @@ VALUES
     ('Sukienka'), 
     ('Koszula'), 
     ('Bluza'); 
+
 INSERT into Klienci(Imie, Nazwisko, Nazwa_Firmy, NIP, Adres,Telefon, E_Mail)
 VALUES
 ('Jan','Jankowski','Firmowo','1213141516','Firmowa 2, Warszawa','987548362','Mailfirmowy@gmail.com'),
@@ -25,6 +27,7 @@ VALUES
 ('Pawe³','Paw³owski','Ulandia','7654827346','Aleje Religijne 784, Mr¹gowo','526374583','Tomasz.Rogulski@gmail.com'),
 ('Kamil','Kamilowski','Primaris','2845401300','Królewska 1, Warszawa','748372421','FirmowyMail@gmail.com'),
 ('Ferrus','Manus','IOM','1113123125','Pa³acowa 1, Terra','777838352','IOM.mail@gmail.com');
+
 INSERT into Pensja(Pensja)
 VALUES
 ('2500'),
@@ -32,6 +35,7 @@ VALUES
 ('4000'),
 ('4500'),
 ('10000');
+
 INSERT into Stanowisko(Stanowisko,Opis,ID_Pensji)
 VALUES
 ('Operator Maszyn Laserowych','Brak','3'),
@@ -43,10 +47,12 @@ VALUES
 ('Technolog','Brak','4'),
 ('Technik utrzymania ruchu','Brak','3'),
 ('Projektant', 'Brak', '3');
+
 INSERT into Rodzaj_Umowy(Rodzaj_Umowy, Uwagi)
 VALUES
 ('Zlecenie','Umowa uniemo¿liwa zdobycie premii'),
 ('O pracê','Umowa umo¿liwa zdobycie premii');
+
 INSERT into Etat(Wymiar_Etatu, Uwagi)
 VALUES
 ('1/1','Brak'),
@@ -54,6 +60,7 @@ VALUES
 ('1/4','Brak'),
 ('3/4','Brak'),
 ('1/8','Brak');
+
 INSERT into Pracownicy (Imie, Nazwisko, Pesel, Adres, Telefon)
 VALUES 
 ('Antoni','Kropka','86100512368','Kopalniana 2, Warszawa','511325698'),
@@ -74,6 +81,7 @@ VALUES
 ('Stanis³aw','Osieñko','93112400382','Obroñców Grodna 77, Warszawa','532658963'),
 ('Stanis³aw','Polak','90110369852','Widok 22, Warszawa','511569569'),
 ('Marcel','Wê¿yk','88062207956','Okopowa 7, Warszawa','603605604');
+
 INSERT into Urlop (ID_Pracownika, Data_rozpoczêcia, Data_zakonczenia)
 VALUES
 ('1','2020-03-15','2020-03-17'),
@@ -81,6 +89,7 @@ VALUES
 ('6','2020-03-20','2020-03-25'),
 ('8','2020-03-27','2020-04-05'),
 ('18','2020-04-20','2020-05-30');
+
 INSERT into Pracownicy_Zatrudnienie (ID_Pracownika, ID_Stanowiska, ID_Etatu, ID_Rodzaju_Umowy, Data_Zatrudnienia, Koniec_umowy)
 VALUES
 ('1','1','1','1','2020-03-01','2050-03-01'),
@@ -101,6 +110,7 @@ VALUES
 ('16','8','5','2','2020-03-01','2020-05-25'),
 ('17','9','5','1','2020-03-01','2050-03-01'),
 ('18','9','5','2','2020-03-01','2020-06-01');
+
 INSERT into Jezyk(Jezyk, Informacje_Dodatkowe)
 VALUES
 ('Niemiecki','Brak'),
@@ -108,6 +118,7 @@ VALUES
 ('Hiszpañski','Brak'),
 ('Rosyjski','Brak'),
 ('Grecki','Brak');
+
 INSERT into Znajomosc_Jezykow(ID_Jezyka, ID_Pracownika)
 VALUES
 ('1','1'),
@@ -118,6 +129,7 @@ VALUES
 ('4','4'),
 ('2','5'),
 ('4','5');
+
 INSERT into Zamowienia(ID_Klienta, Data_Zlozenia, Data_Zakonczenia, Dokumentacja, ID_Pracownika)
 VALUES
 ('1','2020-04-10','2020-04-15','1', '7'),
@@ -125,6 +137,7 @@ VALUES
 ('3','2020-04-14','2020-04-21','1', '7'),
 ('4','2020-04-18','2020-04-22','1', '8'),
 ('5','2020-04-20','2020-04-24','1', '8');
+
 INSERT into Faktury(ID_Zamowienia, ID_Klienta, Cena_Netto, Cena_Brutto, Podatek_VAT)
 VALUES
 ('1','1','2000','2500','500'),
@@ -132,6 +145,7 @@ VALUES
 ('3','3','3000','3750','750'),
 ('4','4','4600','5750','1150'),
 ('5','5','3200','4000','800');
+
 INSERT into Grupa(Nazwa)
 VALUES
 ('Czynsz'),
@@ -139,6 +153,7 @@ VALUES
 ('Zamowienia Materia³y'),
 ('Dostawy'),
 ('Inne');
+
 INSERT into Faktury_Zewnetrzne(Nr_Faktury, ID_Grupa, Nazwa_Firmy, Netto, Brutto, Podatek)
 VALUES
 ('1826731623','1','Urzad_dzielnicy','2000','2500','500' ),
@@ -150,6 +165,7 @@ VALUES
 ('7872398524','4','Grusome','500','700','200'),
 ('3958349856','4','Hurrasz','400','450','50'),
 ('4873409245','4','Kolettoea','750','800','50');
+
 INSERT INTO Zamowienie_Produkt(ID_Zamowienia, ID_Produkt, Ilosc)
 VALUES
 ('1','2','300'),
@@ -161,6 +177,7 @@ VALUES
 ('4','3','100'),
 ('5','5','200'),
 ('5','2','200');
+
 ---------------------INSERTY MAGAZYN---------------------------------------------------------
 INSERT INTO 
 	Polki_rozmiary (Wysokosc,Szerokosc,Glebokosc)
@@ -170,6 +187,7 @@ VALUES
 	(200,300,100),
 	(100,300,100),
 	(500,500,100)
+
 INSERT INTO 
 Elementy_Typy (Typ)
 VALUES
@@ -179,6 +197,7 @@ VALUES
 	('Guziki'),
 	('Opakowania'),
 	('Gumka')
+
 INSERT INTO 
 	Elementy_Jednostki (Jednostka)
 VALUES
@@ -190,6 +209,7 @@ VALUES
 	('cal'),
 	('kg'),
 	('szt')
+
 INSERT INTO 
 	Elementy_Cechy_Slownik (Cecha)
 VALUES
@@ -203,6 +223,7 @@ VALUES
 	('Material'),
 	('Splot'),
 	('Wysokosc')
+
 INSERT INTO 
 	Polki (ID_Rozmiar_Polki)
 VALUES
@@ -217,6 +238,7 @@ VALUES
 	(5),
 	(5),
 	(5)
+
 INSERT INTO 
 	Dostawcy_Zaopatrzenie (Nazwa,Telefon_1,Telefon_2,Email)
 VALUES
@@ -227,12 +249,14 @@ VALUES
 	('BestMaks', 600869875, 533987137,'m.korbka@bestmaks-dostawcy.pl'),
 	('AlleLogistics', 997644654, 498755653, 'allekontakt@gmail.com'),
 	('Tanio&Bezpiecznie', 666997420, 420699865, 'kontakt@taniocha.pl')
+
 INSERT INTO 
 	Dostawcy_Zaopatrzenie (Nazwa,Telefon_1,Email)
 VALUES
 	('MaterialX',999666333,'materialy@mat.pl'),
 	('GuzikProd',777444111,'guzpro@guzpro.pl'),
 	('HurtMat',000555444,'zamow@hurtmat.pl')
+
 INSERT INTO 
 	Kurierzy (Nazwa,Telefon_1,Telefon_2,Email)
 VALUES
@@ -242,11 +266,13 @@ VALUES
 	('TNT', 444888354, 789343190, 'krzysztof.zalewski@tntpaczki.com'),
 	('Paczka w RUCHu', 500333505, 155987515, 'pomoc@paczki.ruch.pl'),
 	('Inpost', 714800800, 567787333, 'twojkurier@inpost.com')
+
 INSERT INTO 
 	Kurierzy (Nazwa,Telefon_1,Email)
 VALUES
 	('DPD',505015145,'darbur@dpd.pl'),
 	('SpeedeX',964746852,'truespeed@lan.pl')
+
 INSERT INTO 
 	Miejsca (Nazwa)
 VALUES
@@ -255,6 +281,7 @@ VALUES
 	('Utrzymanie ruchu'),
 	('Biuro'),
 	('Dzial finansow')
+
 INSERT INTO
 	Elementy (
 	ID_Element_Typ,Element_Nazwa,
@@ -271,6 +298,7 @@ VALUES
 	(1,'Kolo pasowe',0,5,8),
 	(5,'Karton klapowy',0,100,8),
 	(5,'Foliopaki',48,100,8)
+
 INSERT INTO 
 	Elementy_Cechy (ID_Element,ID_Cecha,Wartosc_Cechy_Liczbowa,ID_Jednostka,Wartosc_Cechy_Slowna)
 VALUES
@@ -288,6 +316,7 @@ VALUES
 	(10,2,40,2,null),
 	(11,2,40,2,null),
 	(11,3,30,2,null)
+
 INSERT INTO 
 	Umowy_Kurierzy (ID_Kurier,Data_Zawarcia,Czas_Dostawy,Koszt_Km,Koszt_Staly)
 VALUES
@@ -296,6 +325,7 @@ VALUES
 	(3,'2020-04-05',24,0,50),
 	(4,'2020-03-15',12,5,10),
 	(5,'2020-03-25',24,1.05,0)
+
 INSERT INTO
 	Oferta (ID_Element,Element_Oznaczenie,ID_Dostawcy,Cena_Jedn,Data_Oferty,Ilosc_Minimalna,Ilosc_Maksymalna,Ilosc_W_Opakowaniu_Zbiorczym)
 	--zastanawiam siê, czy iloœæ w opakowaniu zbiorczym jest konieczna? Wprowadza niepewnoœæ - iloœæ minimalna to ilosc paczek? Iloœæ paczek w paczkach? To nie czteropak coli
@@ -333,6 +363,7 @@ VALUES
 	(11,'FJP040',1,0.2,'2020-03-15',200,10000,100),
 	(11,'FJP041',3,0.3,'2020-04-15',100,5000,100),
 	(11,'FJP042',2,0.4,'2020-03-19',100,4000,50)
+
 INSERT INTO Zamowienia_Przydzial(ID_Zamowienia, ID_pracownicy, ID_umowy) 
 VALUES 
 	(1,2,3),
@@ -340,6 +371,7 @@ VALUES
 	(5,4,3),
 	(3,3,2),
 	(4,2,1)
+
 INSERT INTO 
 	Zamowienia_Dostawy(ID_zamowienia,Data_dostawy_planowana,Data_dostawy_rzeczywista) 
 VALUES 
@@ -348,6 +380,7 @@ VALUES
 	(3,'2020-04-09','2020-04-08'),
 	(4,'2020-04-12','2020-04-14'),
 	(5,'2020-04-16','2020-04-16')
+
 INSERT INTO 
 	Zawartosc(ID_Polka,ID_Element,ID_Dostawy,Ilosc_Paczek) 
 VALUES 
@@ -356,6 +389,7 @@ VALUES
 	(4,1,2,10),
 	(5,3,4,1),
 	(3,3,5,10);
+
 INSERT INTO 
 	Dostawcy_Oferta(ID_Oferta,ID_Zamowienia) 
 VALUES 
@@ -364,6 +398,7 @@ VALUES
 	(1,1),
 	(1,2),
 	(3,5);
+
 INSERT INTO 
 	Dostawy_zawartosc(ID_dostawy,ID_element,Ilosc_dostarczona) 
 VALUES 
@@ -372,6 +407,7 @@ VALUES
 	(2,2,10),
 	(3,3,2),
 	(4,5,1)
+
 INSERT INTO 
 	Zamowienia_zawartosc(ID_zamowienia,ID_oferta,Ilosc_zamawiana) 
 VALUES 
@@ -380,6 +416,7 @@ VALUES
 	(2,1,50),
 	(3,5,100),
 	(5,5,200)
+
 INSERT INTO		
 	Dostarczenia_Wewn(ID_pracownicy,ID_dostawy,Ilosc_dostarczona,ID_miejsca,Data_dostarczenia) 
 VALUES 
@@ -388,6 +425,7 @@ VALUES
 	(5,3,15,3,'2020-04-10'),
 	(5,4,8,3,'2020-04-15'),
 	(5,4,10,3,'2020-04-17')
+
 INSERT INTO 
 	Dostarczenia_Zewn(ID_pracownicy,ID_zamowienia,Ilosc_dostarczona,ID_miejsca,Data_dostarczenia) 
 VALUES 
@@ -397,10 +435,12 @@ VALUES
 	(4,3,2000,3,'2020-04-25'),
 	(4,3,100,3,'2020-04-26')
 	------------- INSERTY PRZYGOTOANIE PRODUKCJI
+
 	INSERT INTO Rodzaj_Dokumentacji(Nazwa)
 VALUES
 ('Kod na wycinarkê'),
 ('Dokumentacja 2D');
+
 INSERT INTO Dokumentacje(ID_Rodzaj_Dokumentacji,ID_Pracownika,Data_Wykonania)
 VALUES
 (2,17,2020-03-01),
@@ -409,6 +449,7 @@ VALUES
 (1,14,2020-04-01),
 (1,13,2020-04-10),
 (2,18,2020-05-11);
+
 INSERT INTO Dokumentacja_proces(ID_Dokumentacji)
 VALUES
 (1),
@@ -419,6 +460,7 @@ VALUES
 (5),
 (5),
 (6);
+
 INSERT into Proces_Technologiczny(ID_Dokumentacja_Proces,ID_Pracownika)
 VALUES
 (1,13),
@@ -427,6 +469,7 @@ VALUES
 (4,14),
 (4,13),
 (1,13);
+
 INSERT INTO Rodzaj_Maszyny (Rodzaj_Maszyny)
 VALUES
 ('Maszyna_Do_Szycia'),
@@ -434,6 +477,7 @@ VALUES
 ('Pralka'),
 ('Suszarka'),
 ('Maszyna_Do_Prasowania');
+
 INSERT INTO Maszyny (Model, ID_Rodzaj_Maszyny, Producent, Gwarancja_Do, Data_Zakupu, Resurs_Rbh, Resurs_Data_Serwisu)
 VALUES
 ('Pelikan_MD2', 1, '£ucznik', '2022-04-10', '2020-04-10', 200, '2020-07-10'),
@@ -455,11 +499,13 @@ VALUES
 ('Air_Dryer_HK2', 4, 'Whirpool', '2022-04-06', '2020-04-06', 200, '2020-10-06'),
 ('Iron_Cast_v2', 5, 'Bosh', '2022-04-05', '2020-05-06', 300, '2020-10-05'),
 ('Iron_Cast_v2', 5, 'Bosh', '2022-04-05', '2020-05-06', 300, '2020-10-05');
+
 INSERT INTO Rodzaj_Obslugi(Nazwa)
 VALUES
 ('Serwis'),
 ('Naprawa'),
 ('Przezbrojenie');
+
 INSERT INTO Obsluga_Techniczna (ID_Maszyny, ID_Rodzaj_Obslugi, Data_Wykonania, ID_Pracownika)
 VALUES
 (1,2,2020-04-22,4),
@@ -467,6 +513,7 @@ VALUES
 (11,1,2020-04-27,4),
 (3,3,2020-04-23,4),
 (4,3,2020-04-23,4);
+
 INSERT into Czesci_Obsluga(ID_Element, Ilosc)
 VALUES
 (1,2),
@@ -478,6 +525,7 @@ VALUES
 (1,2),
 (7,1),
 (8,2);
+
 INSERT INTO Maszyny_Proces ( ID_Proces_Technologiczny, ID_Rodzaj_Maszyny, Liczba, Liczba_Rbh)
 VALUES
 (1, 1, 3, 240),
@@ -494,6 +542,7 @@ VALUES
 (3, 2, 1, 80),
 (3, 3, 2, 160),
 (3, 4, 2, 100);
+
 INSERT INTO Proces_Zamowienie(ID_Proces_Technologiczny,ID_Zamowienie_Produkt)
 VALUES
 (1,2),
@@ -502,6 +551,7 @@ VALUES
 (4,3),
 (5,1),
 (6,2);
+
 INSERT INTO Elementy_Proces(ID_Proces_Technologiczny,ID_Element,Liczba)
 VALUES
 (1,2,15),
@@ -513,6 +563,7 @@ VALUES
 (5,2,30),
 (6,2,50),
 (6,4,15);
+
 INSERT INTO Etapy_W_Procesie (ID_Proces_Technologiczny, ID_Etapu, Czas)
 VALUES
 (1, 1, 1),
@@ -565,6 +616,7 @@ VALUES
 (4, 4, '2020-04-20 12:20:00', '2020-04-21 13:15:00', 4, 'brak uwag'),
 (5, 5, '2020-04-22 09:25:00', '2020-04-23 21:45:00', 5, 'brak uwag'),
 (6, 6, '2020-04-22', '2020-04-23', 6, 'brak uwag');
+
 INSERT INTO Material_Na_Produkcji (ID_Procesu_Produkcyjnego, ID_Element, Liczba, ID_Jednostka, Odpad)
 VALUES
 (1, 2, 15, 4, 0.5), 
@@ -576,6 +628,7 @@ VALUES
 (5, 2, 30, 4, 2.5), 
 (6, 2, 50, 4, 1.5), 
 (6, 4, 15, 8, 1); 
+
 INSERT INTO Realizacja_Procesu (ID_Procesu_Produkcyjnego, ID_Etapu, Data_Rozpoczecia_Procesu, Data_Zakonczenia_Procesu, Data_Kontroli, Uwagi_Kontroli)
 VALUES
 (1, 1, '2020-04-12 09:21:15', '2020-04-12 10:21:15', '2020-04-12 10:25:00', 'brak uwag'),
@@ -608,6 +661,7 @@ VALUES
 (4, 3, '2020-04-20 15:35:00','2020-04-20 18:30:00', '2020-04-20 18:32:00','brak uwag'),
 (4, 5, '2020-04-20 18:36:00','2020-04-21 17:40:00', '2020-04-21 17:45:00','brak uwag'),
 (4, 8, '2020-04-21 07:50:00','2020-04-21 13:02:00', '2020-04-21 13:08:00','brak uwag');
+
 INSERT INTO Przydzial_Zasobow (ID_Realizacji_Procesu, ID_Pracownika , ID_Maszyny)
 VALUES
 (1, 1, 10),
@@ -615,6 +669,7 @@ VALUES
 (2, 9, 18),
 (3, 5, 1),
 (3, 6, 2);
+
 INSERT INTO Zapotrzebowanie_Opakowan (ID_Procesu_Produkcyjnego, ID_Element, Liczba, Czy_Otrzymano, Uwagi)
 VALUES
 (1, 11, 300, 1, 'brak uwag'), 
@@ -625,6 +680,7 @@ VALUES
 (3, 10, 10, 1, 'brak uwag'),
 (4, 11, 270, 1, 'brak uwag'),
 (4, 10, 10, 1, 'brak uwag');
+
 INSERT INTO Kontrola_Efektywnosci (ID_Procesu_Produkcyjnego, Data_Kontroli, Dokument, Uwagi, Zgodnosc_Zamowienia , Liczba_Poprawnych, Liczba_Blednych)
 VALUES
 (1, '2020-04-14 18:50:00', 'dok_1.img', 'brak uwag', 1, 300, 0),
