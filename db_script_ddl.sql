@@ -7,22 +7,22 @@ USE Szwalnia
 
 CREATE TABLE Rodzaj_Etapu  
 (ID_Etapu int IDENTITY(1,1) PRIMARY KEY, 
-Nazwa char(30) NOT NULL); 
+Nazwa varchar(30) NOT NULL); 
 
 CREATE TABLE Produkt 
 (ID_Produkt int IDENTITY(1,1) PRIMARY KEY, 
-Nazwa char(30) NOT NULL); 
+Nazwa varchar(30) NOT NULL); 
 
 ----------------------------------Finanse i Zarz¹dzanie--------------------------------------------------- 
 CREATE TABLE Klienci ( 
 ID_Klienta int IDENTITY(1,1) PRIMARY KEY, 
-Imie char(50) not null, 
-Nazwisko char(50) not null, 
-Nazwa_Firmy char(100) unique,  
-NIP char(10) UNIQUE,  
-Adres char(100) not null, 
-Telefon char(15) not null unique,  
-E_Mail char(50) not null unique 
+Imie varchar(50) not null, 
+Nazwisko varchar(50) not null, 
+Nazwa_Firmy varchar(100) unique,  
+NIP varchar(10) UNIQUE,  
+Adres varchar(100) not null, 
+Telefon varchar(15) not null unique,  
+E_Mail varchar(50) not null unique 
 ); 
 CREATE TABLE Pensja ( 
 ID_Pensja int IDENTITY (1,1) PRIMARY KEY, 
@@ -30,27 +30,27 @@ Pensja real not null
 ); 
 CREATE TABLE Stanowisko ( 
 ID_Stanowiska int IDENTITY (1,1) PRIMARY KEY,  
-Stanowisko char(50) not null,  
-Opis char(200) not null, 
+Stanowisko varchar(50) not null,  
+Opis varchar(200) not null, 
 ID_Pensji int FOREIGN KEY REFERENCES Pensja(ID_Pensja) 
 ); 
 CREATE TABLE Rodzaj_Umowy ( 
 ID_Rodzaj_Umowy int IDENTITY (1,1) PRIMARY KEY,   
-Rodzaj_Umowy char(30) not null unique,  
-Uwagi char(100) 
+Rodzaj_Umowy varchar(30) not null unique,  
+Uwagi varchar(100) 
 );  
 CREATE TABLE Etat ( 
 ID_Etat int IDENTITY (1,1) PRIMARY KEY,  
-Wymiar_Etatu char(5) not null unique,  
-Uwagi char(100) 
+Wymiar_Etatu varchar(5) not null unique,  
+Uwagi varchar(100) 
 ); 
 CREATE TABLE Pracownicy ( 
 ID_Pracownika int IDENTITY (1,1) PRIMARY KEY,  
-Imie char(50) not null, 
-Nazwisko char(50) not null, 
-Pesel char(11) not null unique, 
-Adres char(100) not null, 
-Telefon char(15) not null unique,
+Imie varchar(50) not null, 
+Nazwisko varchar(50) not null, 
+Pesel varchar(11) not null unique, 
+Adres varchar(100) not null, 
+Telefon varchar(15) not null unique,
 ); 
 CREATE TABLE Urlop ( 
 ID_Urlop int IDENTITY (1,1) PRIMARY KEY, 
@@ -69,8 +69,8 @@ Koniec_umowy DATE not null default GETDATE(),
 ); 
 CREATE TABLE Jezyk ( 
 ID_Jezyk int IDENTITY (1,1) PRIMARY KEY,  
-Jezyk char(40) not null unique,  
-Informacje_Dodatkowe char(200) not null 
+Jezyk varchar(40) not null unique,  
+Informacje_Dodatkowe varchar(200) not null 
 ); 
 CREATE TABLE Znajomosc_Jezykow ( 
 ID_Znajomosc_Jezykow int IDENTITY (1,1) PRIMARY KEY, 
@@ -95,13 +95,13 @@ Podatek_VAT real not null
 ); 
 CREATE TABLE Grupa ( 
 ID_Grupa int IDENTITY (1,1) PRIMARY KEY, 
-Nazwa char(100) unique 
+Nazwa varchar(100) unique 
 ); 
 CREATE TABLE Faktury_Zewnetrzne ( 
 ID_Faktura_zewnetrzna int IDENTITY (1,1) PRIMARY KEY, 
 Nr_Faktury real not null, 
 ID_Grupa int FOREIGN KEY REFERENCES Grupa(ID_Grupa), 
-Nazwa_Firmy char(100) unique, 
+Nazwa_Firmy varchar(100) unique, 
 Netto real not null, 
 Brutto real not null, 
 Podatek real not null, 
@@ -117,15 +117,15 @@ Glebokosc int
 )
 CREATE TABLE Elementy_Typy (
 ID_Element_Typ int IDENTITY(1,1) PRIMARY KEY,
-Typ char(15)
+Typ varchar(15)
 )
 CREATE TABLE Elementy_Jednostki (
 ID_jednostka int IDENTITY(1,1) PRIMARY KEY,
-Jednostka char(10)
+Jednostka varchar(10)
 )
 CREATE TABLE Elementy_Cechy_Slownik(
 ID_Cecha int IDENTITY(1,1) PRIMARY KEY,
-Cecha char(20)
+Cecha varchar(20)
 )
 CREATE TABLE Polki (
 ID_Polka int IDENTITY(1,1) PRIMARY KEY,
@@ -135,21 +135,21 @@ ID_Rozmiar_Polki int
 )
 CREATE TABLE Dostawcy_Zaopatrzenie (
 ID_Dostawcy  int IDENTITY(1,1) PRIMARY KEY,
-Nazwa char(40),
+Nazwa varchar(40),
 Telefon_1 int, 
 Telefon_2 int, 
-Email char(40)
+Email varchar(40)
 )
 CREATE TABLE Kurierzy (
 ID_Kurier int IDENTITY(1,1) PRIMARY KEY,
-Nazwa char(20),
+Nazwa varchar(20),
 Telefon_1 int, 
 Telefon_2 int, 
-Email char(40)
+Email varchar(40)
 )
 CREATE TABLE Miejsca (
 ID_Miejsca int IDENTITY(1,1) PRIMARY KEY,
-Nazwa char(20),
+Nazwa varchar(20),
 )
 ---------------------------------------------------------TABELE Z KLUCZAMI OBCYMI MAGAZYN ---------------------------------------------------------
 CREATE TABLE Elementy (
@@ -157,7 +157,7 @@ ID_Element int IDENTITY(1,1) PRIMARY KEY,
 ID_Element_Typ int
 	FOREIGN KEY REFERENCES
 	Elementy_Typy (ID_Element_Typ),
-Element_Nazwa char(20),
+Element_Nazwa varchar(20),
 Okres_Przydatnosci_Miesiace int,
 Element_Ilosc_W_Paczce real, 
 ID_Jednostka int
@@ -176,7 +176,7 @@ Wartosc_Cechy_Liczbowa real,
 ID_Jednostka int
 	FOREIGN KEY REFERENCES
 	Elementy_Jednostki(ID_Jednostka),
-Wartosc_Cechy_Slowna char(30)
+Wartosc_Cechy_Slowna varchar(30)
 )
 CREATE TABLE Umowy_Kurierzy (
 ID_Umowy int IDENTITY(1,1) PRIMARY KEY,
@@ -193,7 +193,7 @@ ID_Oferta int IDENTITY(1,1) PRIMARY KEY,
 ID_Element int 
 	FOREIGN KEY REFERENCES 
 	Elementy(ID_Element),	
-Element_Oznaczenie char(20),
+Element_Oznaczenie varchar(20),
 ID_Dostawcy int 
 	FOREIGN KEY REFERENCES  
 	Dostawcy_Zaopatrzenie(ID_Dostawcy),
@@ -278,7 +278,7 @@ Ilosc_Dostarczona float,
 ID_Miejsca int
 	FOREIGN KEY REFERENCES
 	Miejsca(ID_Miejsca),
-Data_Dostarczenia char(10),
+Data_Dostarczenia varchar(10),
 )
 CREATE TABLE Dostarczenia_Zewn (
 ID_Dostarczenia int IDENTITY(1,1) PRIMARY KEY,
@@ -292,7 +292,7 @@ Ilosc_Dostarczona float,
 ID_Miejsca int
 	FOREIGN KEY REFERENCES
 	Miejsca(ID_Miejsca),
-Data_Dostarczenia char(10),
+Data_Dostarczenia varchar(10),
 )
 CREATE TABLE Koszt_Jednostkowy (
 	ID_Koszt_Jednostkowy int IDENTITY(1,1) PRIMARY KEY,
@@ -316,18 +316,18 @@ create table Czesci_Obsluga (
 GO 
 create table Rodzaj_Obslugi ( 
     ID_Rodzaj_Obslugi int IDENTITY(1,1) not null PRIMARY KEY,  
-    Nazwa char(20) not null,
+    Nazwa varchar(20) not null,
 ); 
 GO 
 create table Rodzaj_Maszyny ( 
     ID_Rodzaj_Maszyny int IDENTITY(1,1) not null PRIMARY KEY,  
-    Rodzaj_Maszyny char(30) not null, 
+    Rodzaj_Maszyny varchar(30) not null, 
 ); 
 GO 
   
   create table Rodzaj_Dokumentacji ( 
     ID_Rodzaj_Dokumentacji int IDENTITY(1,1) not null PRIMARY KEY,   
-    Nazwa char(25) not null, 
+    Nazwa varchar(25) not null, 
 ); 
 GO 
   
@@ -365,9 +365,9 @@ GO
   
 create table Maszyny ( 
     ID_Maszyny int IDENTITY(1,1) not null PRIMARY KEY,  
-    Model char(20) not null, 
+    Model varchar(20) not null, 
     ID_Rodzaj_Maszyny int not null FOREIGN KEY REFERENCES Rodzaj_Maszyny (ID_Rodzaj_Maszyny), 
-    Producent char(20) not null, 
+    Producent varchar(20) not null, 
     Gwarancja_do smalldatetime not null, 
     Data_zakupu smalldatetime not null, 
     Resurs_rbh int not null, 
@@ -430,7 +430,7 @@ ID_Proces_Technologiczny int FOREIGN KEY REFERENCES Proces_Technologiczny (ID_Pr
 Data_Rozpoczecia smalldatetime NULL, 
 Data_Zakonczenia smalldatetime NULL, 
 ID_Dokumentacja_Proces int FOREIGN KEY REFERENCES Dokumentacja_Proces (ID_Dokumentacja_Proces) NULL,  
-Uwagi char(300) NULL); 
+Uwagi varchar(300) NULL); 
   
 CREATE TABLE Material_Na_Produkcji 
 (ID_Material_Na_Produkcji int IDENTITY(1,1) PRIMARY KEY NOT NULL, 
@@ -447,7 +447,7 @@ ID_Etapu int FOREIGN KEY REFERENCES Rodzaj_Etapu (ID_Etapu) NOT NULL,
 Data_Rozpoczecia_Procesu SMALLDATETIME NOT NULL, 
 Data_Zakonczenia_Procesu SMALLDATETIME NULL, 
 Data_Kontroli SMALLDATETIME NULL, 
-Uwagi_Kontroli char(300) NOT NULL); 
+Uwagi_Kontroli varchar(300) NOT NULL); 
   
 CREATE TABLE Przydzial_Zasobow  
 (ID_Przydzial_Zasobow int IDENTITY(1,1) PRIMARY KEY NOT NULL, 
@@ -461,14 +461,14 @@ ID_Procesu_Produkcyjnego int FOREIGN KEY REFERENCES Proces_Produkcyjny (ID_Proce
 ID_Element int FOREIGN KEY REFERENCES Elementy (ID_Element) NOT NULL,  
 Liczba int NOT NULL, 
 Czy_Otrzymano bit NULL, 
-Uwagi char(300) NULL); 
+Uwagi varchar(300) NULL); 
   
 CREATE TABLE Kontrola_Efektywnosci  
 (ID_Kontrola_Efektywnosci int IDENTITY(1,1) PRIMARY KEY NOT NULL, 
 ID_Procesu_Produkcyjnego int FOREIGN KEY REFERENCES Proces_Produkcyjny (ID_Procesu_Produkcyjnego) NOT NULL,  
 Data_Kontroli smalldatetime NOT NULL, 
 Dokument image NOT NULL, 
-Uwagi char(300) NULL, 
+Uwagi varchar(300) NULL, 
 Zgodnosc_Zamowienia bit NOT NULL, 
 Liczba_Poprawnych int NOT NULL, 
 Liczba_Blednych int NOT NULL); 
