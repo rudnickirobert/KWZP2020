@@ -15,6 +15,8 @@ namespace Szwalnia
         public Element_szczegoly(SzwalniaEntities db, int ID)
         {
             InitializeComponent();
+            Elementy element = db.Elementy.Where(wybrany => wybrany.ID_Element == ID).First();
+            lblElement.Text = "Szczegoly elementu o ID: " + element.ID_Element;
         }
 
         private void Element_szczegoly_Load(object sender, EventArgs e)
