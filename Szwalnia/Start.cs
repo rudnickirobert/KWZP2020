@@ -10,12 +10,20 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
+    
     public partial class Start : Form 
-    { 
-    public Start()
+    {
+        public SzwalniaEntities db;
+        public Start()
         {
             InitializeComponent();
+            db = new SzwalniaEntities();
+        }
 
+        private void btnElementy_Click(object sender, EventArgs e)
+        {
+            Wybor_elementu wybor = new Wybor_elementu(db);
+            wybor.Show();
         }
     }
 }
