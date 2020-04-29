@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SzwalniaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SzwalniaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Czesci_Obsluga">
           <Key>
             <PropertyRef Name="ID_Obslugi" />
@@ -442,16 +442,6 @@
           <Property Name="Opis" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="ID_Pensji" Type="int" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="Umowy_Kurierzy">
           <Key>
             <PropertyRef Name="ID_Umowy" />
@@ -552,12 +542,13 @@
 warning 6002: The table/view 'Szwalnia.dbo.vCechyElementu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vCechyElementu">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="ID_Element" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID_Element" Type="int" Nullable="false" />
           <Property Name="Cecha" Type="varchar" MaxLength="20" />
-          <Property Name="Wartosc liczbowa" Type="real" />
+          <Property Name="Wartosc_Cechy_Liczbowa" Type="real" />
           <Property Name="Jednostka" Type="varchar" MaxLength="10" />
+          <Property Name="Wartosc_Cechy_Slowna" Type="varchar" MaxLength="30" />
         </EntityType>
         <Association Name="FK__Czesci_Ob__ID_El__2645B050">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
@@ -1519,7 +1510,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vCechyElementu' does not have a prima
           <EntitySet Name="Rodzaj_Obslugi" EntityType="Self.Rodzaj_Obslugi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rodzaj_Umowy" EntityType="Self.Rodzaj_Umowy" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Stanowisko" EntityType="Self.Stanowisko" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Umowy_Kurierzy" EntityType="Self.Umowy_Kurierzy" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Urlop" EntityType="Self.Urlop" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zamowienia" EntityType="Self.Zamowienia" Schema="dbo" store:Type="Tables" />
@@ -1532,10 +1522,11 @@ warning 6002: The table/view 'Szwalnia.dbo.vCechyElementu' does not have a prima
           <EntitySet Name="Znajomosc_Jezykow" EntityType="Self.Znajomosc_Jezykow" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="vCechyElementu" EntityType="Self.vCechyElementu" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [vCechyElementu].[ID] AS [ID], 
+    [vCechyElementu].[ID_Element] AS [ID_Element], 
     [vCechyElementu].[Cecha] AS [Cecha], 
-    [vCechyElementu].[Wartosc liczbowa] AS [Wartosc liczbowa], 
-    [vCechyElementu].[Jednostka] AS [Jednostka]
+    [vCechyElementu].[Wartosc_Cechy_Liczbowa] AS [Wartosc_Cechy_Liczbowa], 
+    [vCechyElementu].[Jednostka] AS [Jednostka], 
+    [vCechyElementu].[Wartosc_Cechy_Slowna] AS [Wartosc_Cechy_Slowna]
     FROM [dbo].[vCechyElementu] AS [vCechyElementu]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__Czesci_Ob__ID_El__2645B050" Association="Self.FK__Czesci_Ob__ID_El__2645B050">
@@ -1843,8 +1834,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vCechyElementu' does not have a prima
             <End Role="Znajomosc_Jezykow" EntitySet="Znajomosc_Jezykow" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SzwalniaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -2546,11 +2536,15 @@ warning 6002: The table/view 'Szwalnia.dbo.vCechyElementu' does not have a prima
         <EntityType Name="vCechyElementu">
           <Key>
             <PropertyRef Name="ID" />
+            <PropertyRef Name="ID_Element" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Cecha" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Wartosc_liczbowa" Type="Single" />
           <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Element" Type="Int32" Nullable="false" />
+          <Property Name="Wartosc_Cechy_Liczbowa" Type="Single" />
+          <Property Name="Wartosc_Cechy_Slowna" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK__Czesci_Ob__ID_El__2645B050">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
@@ -4319,17 +4313,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vCechyElementu' does not have a prima
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="SzwalniaModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Umowy_Kurierzy">
             <EntityTypeMapping TypeName="SzwalniaModel.Umowy_Kurierzy">
               <MappingFragment StoreEntitySet="Umowy_Kurierzy">
@@ -4439,9 +4422,10 @@ warning 6002: The table/view 'Szwalnia.dbo.vCechyElementu' does not have a prima
           <EntitySetMapping Name="vCechyElementu">
             <EntityTypeMapping TypeName="SzwalniaModel.vCechyElementu">
               <MappingFragment StoreEntitySet="vCechyElementu">
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Wartosc_Cechy_Slowna" ColumnName="Wartosc_Cechy_Slowna" />
+                <ScalarProperty Name="Wartosc_Cechy_Liczbowa" ColumnName="Wartosc_Cechy_Liczbowa" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
                 <ScalarProperty Name="Cecha" ColumnName="Cecha" />
-                <ScalarProperty Name="Wartosc_liczbowa" ColumnName="Wartosc liczbowa" />
                 <ScalarProperty Name="Jednostka" ColumnName="Jednostka" />
               </MappingFragment>
             </EntityTypeMapping>
