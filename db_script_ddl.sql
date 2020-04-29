@@ -494,12 +494,15 @@ Liczba_Blednych int NOT NULL);
 ---------------------Koniec Produkcji----------------------------------------------------------------------------------
 
 ---- Widok cech elementu
+
 GO
-CREATE VIEW [vCechyElementu]
+
+CREATE VIEW [dbo].[vCechyElementu]
 AS
-SELECT Cecha, Wartosc_Cechy_Liczbowa, Jednostka, Wartosc_Cechy_Slowna 
+SELECT Elementy.ID_Element,Cecha, Wartosc_Cechy_Liczbowa, Jednostka, Wartosc_Cechy_Slowna 
 FROM Elementy INNER JOIN 
 	Elementy_Cechy ON Elementy.ID_Element = Elementy_Cechy.ID_Element INNER JOIN 
 	Elementy_Cechy_Slownik ON Elementy_Cechy.ID_Cecha = Elementy_Cechy_Slownik.ID_Cecha INNER JOIN 
 	Elementy_Jednostki ON Elementy_Cechy.ID_Jednostka = Elementy_Jednostki.ID_jednostka
 GO
+

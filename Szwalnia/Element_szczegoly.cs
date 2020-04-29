@@ -15,13 +15,35 @@ namespace Szwalnia
         public Element_szczegoly(SzwalniaEntities db, int ID)
         {
             InitializeComponent();
-            Elementy element = db.Elementy.Where(wybrany => wybrany.ID_Element == ID).First();
+            Elementy element = db.Elementy.Where(wybrany => wybrany.Element_Nazwa == "Karton klapowy").First();
             lblElement.Text = "Szczegoly elementu o ID: " + element.ID_Element;
+            txtNazwa.Text = element.Element_Nazwa;
+            if (element.Okres_Przydatnosci_Miesiace == 0)
+                {
+                txtOkres.Text = "Nie dotyczy";
+            }
+            else
+            {
+                txtOkres.Text = element.Okres_Przydatnosci_Miesiace.ToString();
+            }    
+            txtIlosc.Text = element.Element_Ilosc_W_Paczce.ToString();
+            txtJednostka.Text = db.Elementy_Jednostki.Where(unit => unit.ID_jednostka == element.ID_Jednostka).First().Jednostka;
+            
+            //vCechyElementu vcecha = db.vCechyElementu.Where(details => details.ID == element.ID_Element).First();
+            //label1.Text = vcecha.Jednostka;
+            dgvSzczegol.DataSource = db.vCechyElementu.Where(details => details.ID == element.ID_Element).First();
+             
         }
 
         private void Element_szczegoly_Load(object sender, EventArgs e)
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
