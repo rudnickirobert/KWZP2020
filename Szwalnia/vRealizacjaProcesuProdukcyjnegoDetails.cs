@@ -12,12 +12,12 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagrams
+    public partial class vRealizacjaProcesuProdukcyjnegoDetails
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int ID_Procesu_Produkcyjnego { get; set; }
+        public int ID_Realizacji_Procesu { get; set; }
+        public string Nazwa_etapu { get; set; }
+        public System.DateTime Data_Rozpoczecia_Procesu { get; set; }
+        public Nullable<System.DateTime> Data_Zakonczenia_Procesu { get; set; }
     }
 }

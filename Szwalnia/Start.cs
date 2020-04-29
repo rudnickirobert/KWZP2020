@@ -25,5 +25,16 @@ namespace Szwalnia
             Wybor_elementu wybor = new Wybor_elementu(db);
             wybor.Show();
         }
+
+        private void Start_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRealProc_Click(object sender, EventArgs e)
+        {
+            Realizacja_proc_szcz real_proc = new Realizacja_proc_szcz(db);
+            real_proc.Show();
+        }
     }
 }
