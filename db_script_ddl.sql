@@ -506,3 +506,11 @@ FROM Elementy INNER JOIN
 	Elementy_Jednostki ON Elementy_Cechy.ID_Jednostka = Elementy_Jednostki.ID_jednostka
 GO
 
+
+CREATE VIEW [dbo].[vElementy]
+AS
+SELECT    dbo.Elementy.ID_Element AS ID, dbo.Elementy.Element_Nazwa AS Nazwa, dbo.Elementy.Element_Ilosc_W_Paczce AS [Ilosc w paczce], dbo.Elementy_Jednostki.Jednostka, dbo.Elementy_Typy.Typ
+FROM		dbo.Elementy INNER JOIN
+			dbo.Elementy_Jednostki ON dbo.Elementy.ID_Jednostka = dbo.Elementy_Jednostki.ID_jednostka INNER JOIN
+            dbo.Elementy_Typy ON dbo.Elementy.ID_Element_Typ = dbo.Elementy_Typy.ID_Element_Typ
+GO
