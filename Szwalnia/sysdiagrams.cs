@@ -12,11 +12,12 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vCechyElementu
+    public partial class sysdiagrams
     {
-        public int ID { get; set; }
-        public string Cecha { get; set; }
-        public Nullable<float> Wartosc_liczbowa { get; set; }
-        public string Jednostka { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

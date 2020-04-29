@@ -15,7 +15,7 @@ namespace Szwalnia
         public Element_szczegoly(SzwalniaEntities db, int ID)
         {
             InitializeComponent();
-            Elementy element = db.Elementy.Where(wybrany => wybrany.Element_Nazwa == "Karton klapowy").First();
+            Elementy element = db.Elementy.Where(wybrany => wybrany.ID_Element == ID).First();
             lblElement.Text = "Szczegoly elementu o ID: " + element.ID_Element;
             txtNazwa.Text = element.Element_Nazwa;
             if (element.Okres_Przydatnosci_Miesiace == 0)
@@ -28,11 +28,9 @@ namespace Szwalnia
             }    
             txtIlosc.Text = element.Element_Ilosc_W_Paczce.ToString();
             txtJednostka.Text = db.Elementy_Jednostki.Where(unit => unit.ID_jednostka == element.ID_Jednostka).First().Jednostka;
-
-            //vCechyElementu vcecha = db.vCechyElementu.Where(details => details.ID == element.ID_Element).First();
-            //label1.Text = vcecha.Jednostka;
-            //lblElement.Text = db.vCechyElementu.Where(pick => pick.ID == element.ID_Element).First().Opis_slowny;
-            dgvSzczegol.DataSource = db.vCechyElementu.Where(details => details.ID == element.ID_Element).First();
+            //txtJednostka.Text = db.vCechyElementu.Where(details => details.ID == element.ID_Element).First().Jednostka;
+            //lblElement.Text = db.vCechyElementu.Where(pick => pick.ID == element.ID_Element).First().Jednostka;
+            dgvSzczegol.DataSource = db.vCechyElementu.Where(details => details.ID == element.ID_Element).ToList();
              
         }
 
