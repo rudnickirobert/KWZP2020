@@ -28,9 +28,10 @@ namespace Szwalnia
             }    
             txtIlosc.Text = element.Element_Ilosc_W_Paczce.ToString();
             txtJednostka.Text = db.Elementy_Jednostki.Where(unit => unit.ID_jednostka == element.ID_Jednostka).First().Jednostka;
-            
+
             //vCechyElementu vcecha = db.vCechyElementu.Where(details => details.ID == element.ID_Element).First();
             //label1.Text = vcecha.Jednostka;
+            //lblElement.Text = db.vCechyElementu.Where(pick => pick.ID == element.ID_Element).First().Opis_slowny;
             dgvSzczegol.DataSource = db.vCechyElementu.Where(details => details.ID == element.ID_Element).First();
              
         }
