@@ -17,19 +17,19 @@ namespace Szwalnia
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Elementy_Jednostki()
         {
-            this.Elementy = new HashSet<Elementy>();
             this.Elementy_Cechy = new HashSet<Elementy_Cechy>();
             this.Material_Na_Produkcji = new HashSet<Material_Na_Produkcji>();
+            this.Oferta = new HashSet<Oferta>();
         }
     
         public int ID_jednostka { get; set; }
         public string Jednostka { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Elementy> Elementy { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Elementy_Cechy> Elementy_Cechy { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Material_Na_Produkcji> Material_Na_Produkcji { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Oferta> Oferta { get; set; }
     }
 }

@@ -287,8 +287,9 @@ VALUES
 INSERT INTO
 	Elementy (
 	ID_Element_Typ,Element_Nazwa,
-	Okres_Przydatnosci_Miesiace,Element_Ilosc_W_Paczce,ID_Jednostka)
+	Okres_Przydatnosci_Miesiace)
 VALUES
+/*
 	(1,'£o¿ysko',24,1,8),
 	(2,'Bawe³na',48,100,5),
 	(3,'Bawe³na',48,200,5),
@@ -300,7 +301,18 @@ VALUES
 	(1,'Kolo pasowe',0,5,8),
 	(5,'Karton klapowy',0,100,8),
 	(5,'Foliopaki',48,100,8)
-
+	*/
+	(1,'£o¿ysko',24),
+	(2,'Bawe³na',48),
+	(3,'Bawe³na',48),
+	(4,'Guzik',0),
+	(5,'Tektura falista',0),
+	(1,'Sruba',0),
+	(1,'Bêbenek',48),
+	(1,'Igla do dzianin',0),
+	(1,'Kolo pasowe',0),
+	(5,'Karton klapowy',0),
+	(5,'Foliopaki',48)
 INSERT INTO 
 	Elementy_Cechy (ID_Element,ID_Cecha,Wartosc_Cechy_Liczbowa,ID_Jednostka,Wartosc_Cechy_Slowna)
 VALUES
@@ -393,31 +405,15 @@ VALUES
 	(3,3,5,10);
 
 INSERT INTO 
-	Dostawcy_Oferta(ID_Oferta,ID_Zamowienia) 
+	Dostawy_zawartosc(ID_dostawy,ID_element,ID_oferta,Ilosc_dostarczona) 
 VALUES 
-	(2,3),
-	(2,4),
-	(1,1),
-	(1,2),
-	(3,5);
+	(1,2,4,5),
+	(1,3,8,5),
+	(2,2,5,10),
+	(3,3,9,2),
+	(4,5,14,1)
 
-INSERT INTO 
-	Dostawy_zawartosc(ID_dostawy,ID_element,Ilosc_dostarczona) 
-VALUES 
-	(1,2,5),
-	(1,3,5),
-	(2,2,10),
-	(3,3,2),
-	(4,5,1)
 
-INSERT INTO 
-	Zamowienia_zawartosc(ID_zamowienia,ID_oferta,Ilosc_zamawiana) 
-VALUES 
-	(1,2,80),
-	(1,3,20),
-	(2,1,50),
-	(3,5,100),
-	(5,5,200)
 
 INSERT INTO		
 	Dostarczenia_Wewn(ID_pracownicy,ID_dostawy,Ilosc_dostarczona,ID_miejsca,Data_dostarczenia) 
@@ -690,3 +686,4 @@ VALUES
 (3, '2020-04-19 13:30:01', 'dok_3.img', 'brak uwag', 1, 500, 0),
 (4, '2020-04-21 13:15:00', 'dok_4.img', 'brak uwag', 1, 280, 5),
 (5, '2020-04-23 21:40:00', 'dok_4.img', 'brak uwag', 1, 103, 1);
+use master

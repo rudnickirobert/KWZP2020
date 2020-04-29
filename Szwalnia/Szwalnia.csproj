@@ -70,9 +70,6 @@
     <Compile Include="Dostarczenia_Zewn.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Dostawcy_Oferta.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Dostawcy_Zaopatrzenie.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -250,9 +247,6 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Zamowienia_Przydzial.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Zamowienia_Zawartosc.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Zamowienie_Produkt.cs">

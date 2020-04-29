@@ -32,12 +32,8 @@
             this.lblElement = new System.Windows.Forms.Label();
             this.dgvSzczegol = new System.Windows.Forms.DataGridView();
             this.txtOkres = new System.Windows.Forms.TextBox();
-            this.txtIlosc = new System.Windows.Forms.TextBox();
-            this.txtJednostka = new System.Windows.Forms.TextBox();
             this.lblNazwa = new System.Windows.Forms.Label();
             this.lblOkres = new System.Windows.Forms.Label();
-            this.lblIloscOpak = new System.Windows.Forms.Label();
-            this.lblJednostka = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSzczegol)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,20 +69,6 @@
             this.txtOkres.Size = new System.Drawing.Size(100, 20);
             this.txtOkres.TabIndex = 2;
             // 
-            // txtIlosc
-            // 
-            this.txtIlosc.Location = new System.Drawing.Point(352, 62);
-            this.txtIlosc.Name = "txtIlosc";
-            this.txtIlosc.Size = new System.Drawing.Size(100, 20);
-            this.txtIlosc.TabIndex = 2;
-            // 
-            // txtJednostka
-            // 
-            this.txtJednostka.Location = new System.Drawing.Point(352, 100);
-            this.txtJednostka.Name = "txtJednostka";
-            this.txtJednostka.Size = new System.Drawing.Size(100, 20);
-            this.txtJednostka.TabIndex = 2;
-            // 
             // lblNazwa
             // 
             this.lblNazwa.AutoSize = true;
@@ -105,38 +87,15 @@
             this.lblOkres.TabIndex = 5;
             this.lblOkres.Text = "Okres przydatnosci";
             // 
-            // lblIloscOpak
-            // 
-            this.lblIloscOpak.AutoSize = true;
-            this.lblIloscOpak.Location = new System.Drawing.Point(242, 61);
-            this.lblIloscOpak.Name = "lblIloscOpak";
-            this.lblIloscOpak.Size = new System.Drawing.Size(101, 13);
-            this.lblIloscOpak.TabIndex = 5;
-            this.lblIloscOpak.Text = "Ilosc w opakowaniu";
-            this.lblIloscOpak.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // lblJednostka
-            // 
-            this.lblJednostka.AutoSize = true;
-            this.lblJednostka.Location = new System.Drawing.Point(242, 107);
-            this.lblJednostka.Name = "lblJednostka";
-            this.lblJednostka.Size = new System.Drawing.Size(56, 13);
-            this.lblJednostka.TabIndex = 5;
-            this.lblJednostka.Text = "Jednostka";
-            // 
             // Element_szczegoly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lblJednostka);
             this.Controls.Add(this.lblOkres);
-            this.Controls.Add(this.lblIloscOpak);
             this.Controls.Add(this.lblNazwa);
             this.Controls.Add(this.dgvSzczegol);
             this.Controls.Add(this.lblElement);
-            this.Controls.Add(this.txtJednostka);
-            this.Controls.Add(this.txtIlosc);
             this.Controls.Add(this.txtOkres);
             this.Controls.Add(this.txtNazwa);
             this.Name = "Element_szczegoly";
@@ -153,11 +112,7 @@
         private System.Windows.Forms.Label lblElement;
         private System.Windows.Forms.DataGridView dgvSzczegol;
         private System.Windows.Forms.TextBox txtOkres;
-        private System.Windows.Forms.TextBox txtIlosc;
-        private System.Windows.Forms.TextBox txtJednostka;
         private System.Windows.Forms.Label lblNazwa;
         private System.Windows.Forms.Label lblOkres;
-        private System.Windows.Forms.Label lblIloscOpak;
-        private System.Windows.Forms.Label lblJednostka;
     }
 }

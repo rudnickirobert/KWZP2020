@@ -32,9 +32,9 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.numID = new System.Windows.Forms.NumericUpDown();
             this.lblError = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvListaElementow = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.numID)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaElementow)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInfo
@@ -78,20 +78,20 @@
             this.lblError.TabIndex = 4;
             this.lblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dataGridView1
+            // dgvListaElementow
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(18, 173);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(474, 258);
-            this.dataGridView1.TabIndex = 5;
+            this.dgvListaElementow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaElementow.Location = new System.Drawing.Point(18, 173);
+            this.dgvListaElementow.Name = "dgvListaElementow";
+            this.dgvListaElementow.Size = new System.Drawing.Size(474, 258);
+            this.dgvListaElementow.TabIndex = 5;
             // 
             // Wybor_elementu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(504, 443);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvListaElementow);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.numID);
             this.Controls.Add(this.btnSearch);
@@ -100,7 +100,7 @@
             this.Text = "Okno wyboru elementow";
             this.Load += new System.EventHandler(this.Wybor_elementu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numID)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaElementow)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,6 +112,6 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.NumericUpDown numID;
         private System.Windows.Forms.Label lblError;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvListaElementow;
     }
 }

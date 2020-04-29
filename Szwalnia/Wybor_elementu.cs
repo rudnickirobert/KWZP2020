@@ -20,8 +20,9 @@ namespace Szwalnia
         {
             InitializeComponent();
             db = przekazana;
-        }
 
+            //dgvListaElementow = db.vElementy.Where(to => to.ID != null).ToList();
+        }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
