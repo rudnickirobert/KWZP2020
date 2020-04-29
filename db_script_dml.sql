@@ -289,19 +289,6 @@ INSERT INTO
 	ID_Element_Typ,Element_Nazwa,
 	Okres_Przydatnosci_Miesiace)
 VALUES
-/*
-	(1,'£o¿ysko',24,1,8),
-	(2,'Bawe³na',48,100,5),
-	(3,'Bawe³na',48,200,5),
-	(4,'Guzik',0,100,8),
-	(5,'Tektura falista',0,100,5),
-	(1,'Sruba',0,10,8),
-	(1,'Bêbenek',48,1,8),
-	(1,'Igla do dzianin',0,10,8),
-	(1,'Kolo pasowe',0,5,8),
-	(5,'Karton klapowy',0,100,8),
-	(5,'Foliopaki',48,100,8)
-	*/
 	(1,'£o¿ysko',24),
 	(2,'Bawe³na',48),
 	(3,'Bawe³na',48),

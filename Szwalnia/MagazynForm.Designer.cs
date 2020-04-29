@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnElementy = new System.Windows.Forms.Button();
+            this.btnElementyForm = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnElementy
+            // btnElementyForm
             // 
-            this.btnElementy.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnElementy.Location = new System.Drawing.Point(12, 12);
-            this.btnElementy.Name = "btnElementy";
-            this.btnElementy.Size = new System.Drawing.Size(279, 80);
-            this.btnElementy.TabIndex = 0;
-            this.btnElementy.Text = "Elementy";
-            this.btnElementy.UseVisualStyleBackColor = true;
-            this.btnElementy.Click += new System.EventHandler(this.button1_Click);
+            this.btnElementyForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnElementyForm.Location = new System.Drawing.Point(12, 12);
+            this.btnElementyForm.Name = "btnElementyForm";
+            this.btnElementyForm.Size = new System.Drawing.Size(218, 67);
+            this.btnElementyForm.TabIndex = 0;
+            this.btnElementyForm.Text = "Elementy";
+            this.btnElementyForm.UseVisualStyleBackColor = true;
+            this.btnElementyForm.Click += new System.EventHandler(this.btnElementyForm_Click);
             // 
             // MagazynForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnElementy);
+            this.Controls.Add(this.btnElementyForm);
             this.Name = "MagazynForm";
             this.Text = "Moduł magazynowy";
             this.ResumeLayout(false);
@@ -56,6 +56,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnElementy;
+
+        private System.Windows.Forms.Button btnElementyForm;
     }
 }

@@ -488,14 +488,3 @@ FROM Elementy INNER JOIN
 	Elementy_Cechy_Slownik ON Elementy_Cechy.ID_Cecha = Elementy_Cechy_Slownik.ID_Cecha INNER JOIN 
 	Elementy_Jednostki ON Elementy_Cechy.ID_Jednostka = Elementy_Jednostki.ID_jednostka
 GO
-/*
-use [szwalnia]
-GO
-CREATE VIEW [dbo].[vElementy]
-AS
-SELECT    dbo.Elementy.ID_Element AS ID, dbo.Elementy.Element_Nazwa AS Nazwa, dbo.Elementy_Jednostki.Jednostka, dbo.Elementy_Typy.Typ
-FROM		dbo.Elementy INNER JOIN
-			dbo.Elementy_Jednostki ON dbo.Elementy.ID_Jednostka = dbo.Elementy_Jednostki.ID_jednostka INNER JOIN
-            dbo.Elementy_Typy ON dbo.Elementy.ID_Element_Typ = dbo.Elementy_Typy.ID_Element_Typ
-GO
-*/
