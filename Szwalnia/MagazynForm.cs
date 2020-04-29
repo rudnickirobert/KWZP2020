@@ -10,20 +10,20 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    
-    public partial class Start : Form 
+    public partial class MagazynForm : Form
     {
         public SzwalniaEntities db;
-        public Start()
+        public MagazynForm(SzwalniaEntities przekazane)
         {
+            db = przekazane;
             InitializeComponent();
-            db = new SzwalniaEntities();
         }
 
-        private void btnMagazyn_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            MagazynForm MagForm = new MagazynForm(db);
-            MagForm.Show();
+            Wybor_elementu wybor = new Wybor_elementu(db);
+            wybor.Show();
+            this.Close();
         }
     }
 }

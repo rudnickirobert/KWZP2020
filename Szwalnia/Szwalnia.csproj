@@ -130,6 +130,12 @@
     <Compile Include="Kurierzy.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="MagazynForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MagazynForm.Designer.cs">
+      <DependentUpon>MagazynForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Maszyny.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -263,6 +269,9 @@
     </Compile>
     <EmbeddedResource Include="Element_szczegoly.resx">
       <DependentUpon>Element_szczegoly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MagazynForm.resx">
+      <DependentUpon>MagazynForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Wybor_elementu.resx">
       <DependentUpon>Wybor_elementu.cs</DependentUpon>
