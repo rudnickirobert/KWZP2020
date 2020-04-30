@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.btnElementy = new System.Windows.Forms.Button();
+            this.btnFakturyZewnetrzne = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnElementy
@@ -42,14 +43,28 @@
             this.btnElementy.UseVisualStyleBackColor = true;
             this.btnElementy.Click += new System.EventHandler(this.btnElementy_Click);
             // 
+            // btnFakturyZewnetrzne
+            // 
+            this.btnFakturyZewnetrzne.Font = new System.Drawing.Font("Microsoft Sans Serif", 31F);
+            this.btnFakturyZewnetrzne.Location = new System.Drawing.Point(270, 34);
+            this.btnFakturyZewnetrzne.Name = "btnFakturyZewnetrzne";
+            this.btnFakturyZewnetrzne.Size = new System.Drawing.Size(419, 92);
+            this.btnFakturyZewnetrzne.TabIndex = 1;
+            this.btnFakturyZewnetrzne.Text = "Faktury zewnetrzne";
+            this.btnFakturyZewnetrzne.UseVisualStyleBackColor = true;
+            this.btnFakturyZewnetrzne.Click += new System.EventHandler(this.btnKlienci_Click);
+            this.btnFakturyZewnetrzne.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnFakturyZewnetrzne_MouseClick);
+            // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(724, 633);
+            this.Controls.Add(this.btnFakturyZewnetrzne);
             this.Controls.Add(this.btnElementy);
             this.Name = "Start";
             this.Text = "Szwalnia";
+            this.Load += new System.EventHandler(this.Start_Load);
             this.ResumeLayout(false);
 
         }
@@ -57,6 +72,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnElementy;
+        private System.Windows.Forms.Button btnFakturyZewnetrzne;
     }
 }
 

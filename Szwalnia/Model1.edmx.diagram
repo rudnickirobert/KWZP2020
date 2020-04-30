@@ -22,7 +22,7 @@
         <EntityTypeShape EntityType="SzwalniaModel.Etapy_W_Procesie" Width="1.5" PointX="15.75" PointY="29.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Etat" Width="1.5" PointX="3.75" PointY="25.625" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Faktury" Width="1.5" PointX="11.25" PointY="41" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.Faktury_Zewnetrzne" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.Faktury_Zewnetrzne" Width="2.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Grupa" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Jezyk" Width="1.5" PointX="6.75" PointY="50.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Klienci" Width="1.5" PointX="3.75" PointY="43.75" IsExpanded="true" />
@@ -140,6 +140,7 @@
         <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_Za__22751F6C" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_Za__7D439ABD" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Zawartosc__ID_Do__07C12930" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SzwalniaModel.vFakturyZewnetrzne" Width="2.125" PointX="6.375" PointY="1.25" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

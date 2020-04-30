@@ -506,3 +506,10 @@ FROM Elementy INNER JOIN
 	Elementy_Jednostki ON Elementy_Cechy.ID_Jednostka = Elementy_Jednostki.ID_jednostka
 GO
 
+CREATE VIEW [dbo].[vFakturyZewnetrzne]
+AS
+SELECT        dbo.Faktury_Zewnetrzne.ID_Faktura_zewnetrzna, dbo.Faktury_Zewnetrzne.Nr_Faktury, dbo.Faktury_Zewnetrzne.ID_Grupa, dbo.Faktury_Zewnetrzne.Nazwa_Firmy, dbo.Faktury_Zewnetrzne.Netto, 
+                         dbo.Faktury_Zewnetrzne.Brutto, dbo.Faktury_Zewnetrzne.Podatek, dbo.Grupa.ID_Grupa AS Expr1, dbo.Grupa.Nazwa
+FROM            dbo.Faktury_Zewnetrzne INNER JOIN
+                         dbo.Grupa ON dbo.Faktury_Zewnetrzne.ID_Grupa = dbo.Grupa.ID_Grupa
+Go
