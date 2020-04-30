@@ -138,10 +138,10 @@ CREATE TABLE Elementy_Jednostki (
 ID_jednostka int IDENTITY(1,1) PRIMARY KEY,
 Jednostka varchar(10)
 )
-
 CREATE TABLE Elementy_Cechy_Slownik(
 ID_Cecha int IDENTITY(1,1) PRIMARY KEY,
-Cecha varchar(20)
+Cecha varchar(20),
+Czy_wlasne bit not null default 0
 )
 
 CREATE TABLE Polki (
@@ -178,11 +178,7 @@ ID_Element_Typ int
 	FOREIGN KEY REFERENCES
 	Elementy_Typy (ID_Element_Typ),
 Element_Nazwa varchar(20),
-Okres_Przydatnosci_Miesiace int,
-Element_Ilosc_W_Paczce real, 
-ID_Jednostka int
-	FOREIGN KEY REFERENCES
-	Elementy_Jednostki(ID_Jednostka)
+Okres_Przydatnosci_Miesiace int
 )
 
 CREATE TABLE Elementy_Cechy(
@@ -224,8 +220,12 @@ Cena_Jedn money,
 Data_Oferty date,
 Ilosc_Minimalna int,
 Ilosc_Maksymalna int,
+Ilosc_W_Opakowaniu_Pojedynczym real, 
+ID_Jednostka int
+	FOREIGN KEY REFERENCES
+	Elementy_Jednostki(ID_Jednostka),
 Ilosc_W_Opakowaniu_Zbiorczym int,
-Deklarowany_czas_dostawy int,
+Deklarowany_czas_dostawy int
 )
 
 ---------------------------------------------------------WYMAGA TABELI ZAMOWIEN I PRACOWNIKOW---------------------------------------------------------
@@ -265,16 +265,6 @@ ID_Dostawy int
 Ilosc_Paczek int
 )
 
-CREATE TABLE Dostawcy_Oferta (
-ID_Dostawcy_Oferta int IDENTITY(1,1) PRIMARY KEY,
-ID_Oferta int
-	FOREIGN KEY REFERENCES  
-	Oferta(ID_Oferta), 
-ID_Zamowienia int 
-	FOREIGN KEY REFERENCES  
-	Zamowienia(ID_Zamowienia), 
-)
-
 CREATE TABLE Dostawy_Zawartosc (
 ID_Dostawy_Zawartosc int IDENTITY(1,1) PRIMARY KEY,
 ID_Dostawy int
@@ -283,18 +273,11 @@ ID_Dostawy int
 ID_Element int
 	FOREIGN KEY REFERENCES 
 	Elementy(ID_Element),
+ID_oferta int
+	FOREIGN KEY REFERENCES
+	Oferta (ID_oferta),
 Ilosc_Dostarczona int
 )
-
-CREATE TABLE Zamowienia_Zawartosc (
-ID_Zamowienia_Zawartosc int IDENTITY(1,1) PRIMARY KEY,
-ID_Zamowienia int 
-	FOREIGN KEY REFERENCES
-	Zamowienia(ID_Zamowienia),
-ID_Oferta int
-	FOREIGN KEY REFERENCES 
-	Oferta(ID_Oferta),
-Ilosc_Zamawiana int)
 
 CREATE TABLE Dostarczenia_Wewn (
 ID_Dostarczenia int IDENTITY(1,1) PRIMARY KEY,
@@ -505,4 +488,3 @@ FROM Elementy INNER JOIN
 	Elementy_Cechy_Slownik ON Elementy_Cechy.ID_Cecha = Elementy_Cechy_Slownik.ID_Cecha INNER JOIN 
 	Elementy_Jednostki ON Elementy_Cechy.ID_Jednostka = Elementy_Jednostki.ID_jednostka
 GO
-

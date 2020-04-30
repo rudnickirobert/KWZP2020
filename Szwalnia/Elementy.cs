@@ -32,8 +32,6 @@ namespace Szwalnia
         public Nullable<int> ID_Element_Typ { get; set; }
         public string Element_Nazwa { get; set; }
         public Nullable<int> Okres_Przydatnosci_Miesiace { get; set; }
-        public Nullable<float> Element_Ilosc_W_Paczce { get; set; }
-        public Nullable<int> ID_Jednostka { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Czesci_Obsluga> Czesci_Obsluga { get; set; }
@@ -44,7 +42,6 @@ namespace Szwalnia
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Elementy_Cechy> Elementy_Cechy { get; set; }
         public virtual Elementy_Typy Elementy_Typy { get; set; }
-        public virtual Elementy_Jednostki Elementy_Jednostki { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Koszt_Jednostkowy> Koszt_Jednostkowy { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
