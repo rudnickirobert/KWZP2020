@@ -14,14 +14,12 @@ namespace Szwalnia
 {
     public partial class Wybor_elementu : Form
     {
-        public SzwalniaEntities db;
+        public SzwalniaEntities szwalnia_passed;
 
-        public Wybor_elementu(SzwalniaEntities przekazana)
+        public Wybor_elementu(SzwalniaEntities szwalnia)
         {
             InitializeComponent();
-            db = przekazana;
-
-            //dgvListaElementow = db.vElementy.Where(to => to.ID != null).ToList();
+            szwalnia_passed = szwalnia;
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -38,7 +36,7 @@ namespace Szwalnia
             if (numID.Value > 0)
             {
                 lblError.Text = "";
-                Element_szczegoly Szczegoly_element = new Element_szczegoly(db, Decimal.ToInt32(numID.Value));
+                Element_szczegoly Szczegoly_element = new Element_szczegoly(szwalnia_passed, Decimal.ToInt32(numID.Value));
                 Szczegoly_element.Show();
                 this.Close();
             }
