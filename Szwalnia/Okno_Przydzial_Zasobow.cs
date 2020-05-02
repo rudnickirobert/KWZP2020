@@ -15,28 +15,17 @@ namespace Szwalnia
     {
         private SzwalniaEntities db;
 
-        public Okno_Przydzial_Zasobow()
+        public Okno_Przydzial_Zasobow(SzwalniaEntities zasob)
         {
             InitializeComponent();
-            btnClose.Enabled = false;
-            db = new SzwalniaEntities();
+            db = zasob;
         }
-
-        private void chkButtomEnabled_CheckedChanged(object sender, EventArgs e)
-       {
-          btnClose.Enabled = chkButtomEnabled.Checked;
-        }
+       
         private void btnClose_Click(object sender, EventArgs e)
         {
             Szczegoly szczegoly = new Szczegoly(db, Decimal.ToInt32(numericID.Value));
             szczegoly.Show();
+            this.Close();
         }
-
-        private void Okno_Przydzial_Zasobow_Load(object sender, EventArgs e)
-        {
-
-        }
-
-    
     }
 }

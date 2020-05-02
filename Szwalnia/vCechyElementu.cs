@@ -14,9 +14,10 @@ namespace Szwalnia
     
     public partial class vCechyElementu
     {
-        public int ID { get; set; }
+        public int ID_Element { get; set; }
         public string Cecha { get; set; }
-        public Nullable<float> Wartosc_liczbowa { get; set; }
+        public Nullable<float> Wartosc_Cechy_Liczbowa { get; set; }
         public string Jednostka { get; set; }
+        public string Wartosc_Cechy_Slowna { get; set; }
     }
 }

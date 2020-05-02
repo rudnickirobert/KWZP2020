@@ -12,18 +12,13 @@ namespace Szwalnia
 {
     public partial class Szczegoly : Form
     {
-        public Szczegoly(SzwalniaEntities db, int sourcesidPP)
+        public Szczegoly(SzwalniaEntities db, int sourcesIdProcesuProdukcyjnego)
         {
             InitializeComponent();
-            lblID.Text = sourcesidPP.ToString();
-            Przydzial_Zasobow sources = db.Przydzial_Zasobow.Where(przydzial => przydzial.ID_Realizacji_Procesu == sourcesidPP).First();
+            lblId.Text = sourcesIdProcesuProdukcyjnego.ToString();
+            Realizacja_Procesu sources = db.Realizacja_Procesu.Where(przydzial => przydzial.ID_Procesu_Produkcyjnego == sourcesIdProcesuProdukcyjnego).First();
 
-            dvg.DataSource = db.v_PrzydzialZasobow.Where(view => view.ID_Realizacji_Procesu == sources.ID_Realizacji_Procesu).ToList();
-        }
-
-        private void Szczegoly_Load(object sender, EventArgs e)
-        {
-
+            dvg.DataSource = db.v_Przydzial_Zasobow.Where(view => view.ID_Procesu_Produkcyjnego == sources.ID_Procesu_Produkcyjnego).ToList();
         }
     }
 }
