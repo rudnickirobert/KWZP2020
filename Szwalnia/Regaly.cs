@@ -10,23 +10,28 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class btnSearch : Form
+    public partial class RegalyForm : Form
     {
         public SzwalniaEntities szwalnia_passed;
-        public btnSearch(SzwalniaEntities szwalnia)
+        public RegalyForm(SzwalniaEntities szwalnia)
         {
             InitializeComponent();
             szwalnia_passed = szwalnia;
+            btnSearch.Enabled = false;
         }
 
         private void txtRegal_TextChanged(object sender, EventArgs e)
         {
-
+            if (txtRegal.TextLength > 0)
+                { btnSearch.Enabled = true;
+            };
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
-
+            Zapelnienie_regalu regal = new Zapelnienie_regalu(szwalnia_passed, txtRegal.Text);
+            regal.Show();
+            this.Close();
         }
     }
 }
