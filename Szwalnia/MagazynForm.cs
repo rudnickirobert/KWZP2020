@@ -26,5 +26,11 @@ namespace Szwalnia
             this.Close();
         }
 
+        private void btnPolki_Click(object sender, EventArgs e)
+        {
+            Regaly regal = new Regaly(szwalnia_passed);
+            regal.Show();
+            this.Close();
+        }
     }
 }

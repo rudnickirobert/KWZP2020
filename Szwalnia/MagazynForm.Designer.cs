@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.btnElementyForm = new System.Windows.Forms.Button();
+            this.btnPolki = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnElementyForm
@@ -42,11 +43,23 @@
             this.btnElementyForm.UseVisualStyleBackColor = true;
             this.btnElementyForm.Click += new System.EventHandler(this.btnElementyForm_Click);
             // 
+            // btnPolki
+            // 
+            this.btnPolki.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.btnPolki.Location = new System.Drawing.Point(12, 94);
+            this.btnPolki.Name = "btnPolki";
+            this.btnPolki.Size = new System.Drawing.Size(218, 68);
+            this.btnPolki.TabIndex = 1;
+            this.btnPolki.Text = "Półki";
+            this.btnPolki.UseVisualStyleBackColor = true;
+            this.btnPolki.Click += new System.EventHandler(this.btnPolki_Click);
+            // 
             // MagazynForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnPolki);
             this.Controls.Add(this.btnElementyForm);
             this.Name = "MagazynForm";
             this.Text = "Moduł magazynowy";
@@ -58,5 +71,6 @@
 
 
         private System.Windows.Forms.Button btnElementyForm;
+        private System.Windows.Forms.Button btnPolki;
     }
 }

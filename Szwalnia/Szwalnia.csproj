@@ -112,6 +112,12 @@
     <Compile Include="Faktury_Zewnetrzne.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Regaly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Regaly.Designer.cs">
+      <DependentUpon>Regaly.cs</DependentUpon>
+    </Compile>
     <Compile Include="Grupa.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
