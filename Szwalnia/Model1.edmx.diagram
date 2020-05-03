@@ -134,6 +134,24 @@
         <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_Za__1CBC4616" />
         <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_Za__7E37BEF6" />
         <AssociationConnector Association="SzwalniaModel.FK__Zawartosc__ID_Do__08B54D69" />
+        <EntityTypeShape EntityType="SzwalniaModel.Dzialy" Width="1.5" PointX="2.5" PointY="26.125" />
+        <EntityTypeShape EntityType="SzwalniaModel.Regaly" Width="1.5" PointX="6.25" PointY="4.875" />
+        <EntityTypeShape EntityType="SzwalniaModel.Rodzaj_Urlopu" Width="1.5" PointX="2.5" PointY="57.875" />
+        <EntityTypeShape EntityType="SzwalniaModel.Srodki_Trwale" Width="1.5" PointX="16.25" PointY="20" />
+        <EntityTypeShape EntityType="SzwalniaModel.Statusy" Width="1.5" PointX="7.75" PointY="18.25" />
+        <EntityTypeShape EntityType="SzwalniaModel.Zamowienie_Element" Width="1.5" PointX="17.25" PointY="42.5" />
+        <AssociationConnector Association="SzwalniaModel.FK__Czesci_Ob__ID_Ob__4B7734FF" />
+        <AssociationConnector Association="SzwalniaModel.FK__Proces_Pr__ID_Do__5BAD9CC8" />
+        <AssociationConnector Association="SzwalniaModel.FK__Pracownic__ID_Dz__4D94879B" />
+        <AssociationConnector Association="SzwalniaModel.FK__Srodki_Tr__ID_Dz__31EC6D26" />
+        <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_El__2BFE89A6" />
+        <AssociationConnector Association="SzwalniaModel.FK__Material___ID_El__5F7E2DAC" />
+        <AssociationConnector Association="SzwalniaModel.FK__Maszyny__ID_Srod__42E1EEFE" />
+        <AssociationConnector Association="SzwalniaModel.FK__Proces_Pr__ID_Za__5AB9788F" />
+        <AssociationConnector Association="SzwalniaModel.FK__Proces_Za__ID_Za__503BEA1C" />
+        <AssociationConnector Association="SzwalniaModel.FK__Urlop__ID_Rodzaj__46E78A0C" />
+        <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_st__14270015" />
+        <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_Za__2B0A656D" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

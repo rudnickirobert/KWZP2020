@@ -276,6 +276,9 @@
     <EmbeddedResource Include="MagazynForm.resx">
       <DependentUpon>MagazynForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Regaly.resx">
+      <DependentUpon>Regaly.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Wybor_elementu.resx">
       <DependentUpon>Wybor_elementu.cs</DependentUpon>
     </EmbeddedResource>
