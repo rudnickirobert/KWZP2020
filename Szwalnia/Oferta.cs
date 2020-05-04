@@ -17,8 +17,7 @@ namespace Szwalnia
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Oferta()
         {
-            this.Dostawcy_Oferta = new HashSet<Dostawcy_Oferta>();
-            this.Zamowienia_Zawartosc = new HashSet<Zamowienia_Zawartosc>();
+            this.Dostawy_Zawartosc = new HashSet<Dostawy_Zawartosc>();
         }
     
         public int ID_Oferta { get; set; }
@@ -29,14 +28,15 @@ namespace Szwalnia
         public Nullable<System.DateTime> Data_Oferty { get; set; }
         public Nullable<int> Ilosc_Minimalna { get; set; }
         public Nullable<int> Ilosc_Maksymalna { get; set; }
+        public Nullable<float> Ilosc_W_Opakowaniu_Pojedynczym { get; set; }
+        public Nullable<int> ID_Jednostka { get; set; }
         public Nullable<int> Ilosc_W_Opakowaniu_Zbiorczym { get; set; }
         public Nullable<int> Deklarowany_czas_dostawy { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Dostawcy_Oferta> Dostawcy_Oferta { get; set; }
         public virtual Dostawcy_Zaopatrzenie Dostawcy_Zaopatrzenie { get; set; }
-        public virtual Elementy Elementy { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Zamowienia_Zawartosc> Zamowienia_Zawartosc { get; set; }
+        public virtual ICollection<Dostawy_Zawartosc> Dostawy_Zawartosc { get; set; }
+        public virtual Elementy Elementy { get; set; }
+        public virtual Elementy_Jednostki Elementy_Jednostki { get; set; }
     }
 }

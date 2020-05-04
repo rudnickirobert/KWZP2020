@@ -30,7 +30,6 @@ namespace Szwalnia
         public virtual DbSet<Dokumentacje> Dokumentacje { get; set; }
         public virtual DbSet<Dostarczenia_Wewn> Dostarczenia_Wewn { get; set; }
         public virtual DbSet<Dostarczenia_Zewn> Dostarczenia_Zewn { get; set; }
-        public virtual DbSet<Dostawcy_Oferta> Dostawcy_Oferta { get; set; }
         public virtual DbSet<Dostawcy_Zaopatrzenie> Dostawcy_Zaopatrzenie { get; set; }
         public virtual DbSet<Dostawy_Zawartosc> Dostawy_Zawartosc { get; set; }
         public virtual DbSet<Elementy> Elementy { get; set; }
@@ -77,7 +76,6 @@ namespace Szwalnia
         public virtual DbSet<Zamowienia> Zamowienia { get; set; }
         public virtual DbSet<Zamowienia_Dostawy> Zamowienia_Dostawy { get; set; }
         public virtual DbSet<Zamowienia_Przydzial> Zamowienia_Przydzial { get; set; }
-        public virtual DbSet<Zamowienia_Zawartosc> Zamowienia_Zawartosc { get; set; }
         public virtual DbSet<Zamowienie_Produkt> Zamowienie_Produkt { get; set; }
         public virtual DbSet<Zapotrzebowanie_Opakowan> Zapotrzebowanie_Opakowan { get; set; }
         public virtual DbSet<Zawartosc> Zawartosc { get; set; }

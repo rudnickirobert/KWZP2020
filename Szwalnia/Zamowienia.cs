@@ -18,10 +18,8 @@ namespace Szwalnia
         public Zamowienia()
         {
             this.Dostarczenia_Zewn = new HashSet<Dostarczenia_Zewn>();
-            this.Dostawcy_Oferta = new HashSet<Dostawcy_Oferta>();
             this.Faktury = new HashSet<Faktury>();
             this.Zamowienia_Dostawy = new HashSet<Zamowienia_Dostawy>();
-            this.Zamowienia_Zawartosc = new HashSet<Zamowienia_Zawartosc>();
             this.Zamowienie_Produkt = new HashSet<Zamowienie_Produkt>();
             this.Zamowienia_Przydzial = new HashSet<Zamowienia_Przydzial>();
         }
@@ -36,15 +34,11 @@ namespace Szwalnia
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dostarczenia_Zewn> Dostarczenia_Zewn { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Dostawcy_Oferta> Dostawcy_Oferta { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Faktury> Faktury { get; set; }
         public virtual Klienci Klienci { get; set; }
         public virtual Pracownicy Pracownicy { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zamowienia_Dostawy> Zamowienia_Dostawy { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Zamowienia_Zawartosc> Zamowienia_Zawartosc { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zamowienie_Produkt> Zamowienie_Produkt { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

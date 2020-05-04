@@ -13,17 +13,17 @@ namespace Szwalnia
     
     public partial class Start : Form 
     {
-        public SzwalniaEntities db;
+        public SzwalniaEntities szwalnia;
         public Start()
         {
             InitializeComponent();
-            db = new SzwalniaEntities();
+            szwalnia = new SzwalniaEntities();
         }
 
-        private void btnElementy_Click(object sender, EventArgs e)
+        private void btnMagazyn_Click(object sender, EventArgs e)
         {
-            Wybor_elementu wybor = new Wybor_elementu(db);
-            wybor.Show();
+            MagazynForm magForm = new MagazynForm(szwalnia);
+            magForm.Show();
         }
 
         private void Start_Load(object sender, EventArgs e)

@@ -22,6 +22,7 @@ namespace Szwalnia
     
         public int ID_Cecha { get; set; }
         public string Cecha { get; set; }
+        public bool Czy_wlasne { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Elementy_Cechy> Elementy_Cechy { get; set; }
