@@ -19,10 +19,11 @@ namespace Szwalnia
             InitializeComponent();
             db = szwalnia;
         }
-        private void btnSzukaj_Click (object sender, EventArgs e)
+
+        private void btnSzukaj_MouseClick(object sender, MouseEventArgs e)
         {
             Klienci_szczegoly klienci_Szczegoly = new Klienci_szczegoly(db, txtNazwaFirmy.Text);
-            klienci_Szczegoly.Show();        
+            klienci_Szczegoly.Show();
         }
     }
 }

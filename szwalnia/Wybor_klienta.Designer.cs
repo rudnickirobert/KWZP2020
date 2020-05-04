@@ -44,6 +44,7 @@
             this.btnSzukaj.TabIndex = 0;
             this.btnSzukaj.Text = "Szukaj";
             this.btnSzukaj.UseVisualStyleBackColor = true;
+            this.btnSzukaj.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnSzukaj_MouseClick);
             // 
             // lblInformacja
             // 
@@ -51,7 +52,7 @@
             this.lblInformacja.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblInformacja.Location = new System.Drawing.Point(102, 34);
             this.lblInformacja.Name = "lblInformacja";
-            this.lblInformacja.Size = new System.Drawing.Size(650, 39);
+            this.lblInformacja.Size = new System.Drawing.Size(627, 38);
             this.lblInformacja.TabIndex = 1;
             this.lblInformacja.Text = "Wprowadz nazwę firmy szukanego klienta";
             // 
