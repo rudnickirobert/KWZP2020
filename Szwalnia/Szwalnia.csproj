@@ -288,6 +288,9 @@
     <EmbeddedResource Include="Element_szczegoly.resx">
       <DependentUpon>Element_szczegoly.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Regaly_polkiForm.resx">
+      <DependentUpon>Regaly_polkiForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Zapelnienie_regalu.resx">
       <DependentUpon>Zapelnienie_regalu.cs</DependentUpon>
     </EmbeddedResource>
