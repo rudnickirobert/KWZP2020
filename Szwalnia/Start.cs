@@ -25,5 +25,7 @@ namespace Szwalnia
             MagazynForm MagForm = new MagazynForm(Szwalnia);
             MagForm.Show();
         }
+
+   
     }
 }

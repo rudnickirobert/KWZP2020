@@ -26,5 +26,16 @@ namespace Szwalnia.Properties
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-1G03Q45\\KWZP2020;Initial Catalog=Szwalnia;Integrated Security" +
+            "=True")]
+        public string SzwalniaConnectionString {
+            get {
+                return ((string)(this["SzwalniaConnectionString"]));
+            }
+        }
     }
 }
