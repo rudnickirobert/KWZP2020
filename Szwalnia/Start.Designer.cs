@@ -65,7 +65,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Start";
             this.Text = "Szwalnia";
-            this.Load += new System.EventHandler(this.Start_Load);
             this.ResumeLayout(false);
 
         }

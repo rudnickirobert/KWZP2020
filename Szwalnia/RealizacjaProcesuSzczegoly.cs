@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class Realizacja_procesu_szczegoly : Form
+    public partial class RealizacjaProcesuSzczegoly : Form
     {
         SzwalniaEntities db;
-        public Realizacja_procesu_szczegoly(SzwalniaEntities db)
+        public RealizacjaProcesuSzczegoly(SzwalniaEntities db)
         {
             this.db = db;
             InitializeComponent();
@@ -22,7 +22,7 @@ namespace Szwalnia
 
         private void btnRealizacjaProcesuSzczegoly_Click(object sender, EventArgs e)
         {
-                       dgvRealProc.DataSource = this.db.vRealizacjaProcesuProdukcyjnegoDetails.Where(details => details.ID_Procesu_Produkcyjnego == numIDProcP.Value).ToList();
+           dgvRealizacjaProcesu.DataSource = this.db.vRealizacjaProcesuProdukcyjnegoDetails.Where(details => details.ID_Procesu_Produkcyjnego == numIDProcesuProdukcyjnego.Value).ToList();
         }
 
     }
