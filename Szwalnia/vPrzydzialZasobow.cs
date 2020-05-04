@@ -12,7 +12,7 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Przydzial_Zasobow
+    public partial class vPrzydzialZasobow
     {
         public int ID_Procesu_Produkcyjnego { get; set; }
         public int ID_Realizacji_Procesu { get; set; }

@@ -539,8 +539,20 @@
           <Property Name="ID_Pracownika" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'Szwalnia.dbo.v_Przydzial_Zasobow' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="v_Przydzial_Zasobow">
+warning 6002: The table/view 'Szwalnia.dbo.vCechyElementu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vCechyElementu">
+          <Key>
+            <PropertyRef Name="ID_Element" />
+          </Key>
+          <Property Name="ID_Element" Type="int" Nullable="false" />
+          <Property Name="Cecha" Type="varchar" MaxLength="20" />
+          <Property Name="Wartosc_Cechy_Liczbowa" Type="real" />
+          <Property Name="Jednostka" Type="varchar" MaxLength="10" />
+          <Property Name="Wartosc_Cechy_Slowna" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vPrzydzialZasobow">
           <Key>
             <PropertyRef Name="ID_Procesu_Produkcyjnego" />
             <PropertyRef Name="ID_Realizacji_Procesu" />
@@ -557,20 +569,6 @@ warning 6002: The table/view 'Szwalnia.dbo.v_Przydzial_Zasobow' does not have a 
           <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ID_Maszyny" Type="int" Nullable="false" />
           <Property Name="Model" Type="varchar" MaxLength="20" Nullable="false" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'Szwalnia.dbo.v_PrzydzialZasobow' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'Szwalnia.dbo.vCechyElementu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="vCechyElementu">
-          <Key>
-            <PropertyRef Name="ID_Element" />
-          </Key>
-          <Property Name="ID_Element" Type="int" Nullable="false" />
-          <Property Name="Cecha" Type="varchar" MaxLength="20" />
-          <Property Name="Wartosc_Cechy_Liczbowa" Type="real" />
-          <Property Name="Jednostka" Type="varchar" MaxLength="10" />
-          <Property Name="Wartosc_Cechy_Slowna" Type="varchar" MaxLength="30" />
         </EntityType>
         <Association Name="FK__Czesci_Ob__ID_El__2645B050">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
@@ -1542,17 +1540,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vCechyElementu' does not have a prima
           <EntitySet Name="Zapotrzebowanie_Opakowan" EntityType="Self.Zapotrzebowanie_Opakowan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zawartosc" EntityType="Self.Zawartosc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Znajomosc_Jezykow" EntityType="Self.Znajomosc_Jezykow" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="v_Przydzial_Zasobow" EntityType="Self.v_Przydzial_Zasobow" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [v_Przydzial_Zasobow].[ID_Procesu_Produkcyjnego] AS [ID_Procesu_Produkcyjnego], 
-    [v_Przydzial_Zasobow].[ID_Realizacji_Procesu] AS [ID_Realizacji_Procesu], 
-    [v_Przydzial_Zasobow].[ID_Pracownika] AS [ID_Pracownika], 
-    [v_Przydzial_Zasobow].[Imie] AS [Imie], 
-    [v_Przydzial_Zasobow].[Nazwisko] AS [Nazwisko], 
-    [v_Przydzial_Zasobow].[ID_Maszyny] AS [ID_Maszyny], 
-    [v_Przydzial_Zasobow].[Model] AS [Model]
-    FROM [dbo].[v_Przydzial_Zasobow] AS [v_Przydzial_Zasobow]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="vCechyElementu" EntityType="Self.vCechyElementu" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vCechyElementu].[ID_Element] AS [ID_Element], 
@@ -1561,6 +1548,17 @@ warning 6002: The table/view 'Szwalnia.dbo.vCechyElementu' does not have a prima
     [vCechyElementu].[Jednostka] AS [Jednostka], 
     [vCechyElementu].[Wartosc_Cechy_Slowna] AS [Wartosc_Cechy_Slowna]
     FROM [dbo].[vCechyElementu] AS [vCechyElementu]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vPrzydzialZasobow" EntityType="Self.vPrzydzialZasobow" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vPrzydzialZasobow].[ID_Procesu_Produkcyjnego] AS [ID_Procesu_Produkcyjnego], 
+    [vPrzydzialZasobow].[ID_Realizacji_Procesu] AS [ID_Realizacji_Procesu], 
+    [vPrzydzialZasobow].[ID_Pracownika] AS [ID_Pracownika], 
+    [vPrzydzialZasobow].[Imie] AS [Imie], 
+    [vPrzydzialZasobow].[Nazwisko] AS [Nazwisko], 
+    [vPrzydzialZasobow].[ID_Maszyny] AS [ID_Maszyny], 
+    [vPrzydzialZasobow].[Model] AS [Model]
+    FROM [dbo].[vPrzydzialZasobow] AS [vPrzydzialZasobow]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__Czesci_Ob__ID_El__2645B050" Association="Self.FK__Czesci_Ob__ID_El__2645B050">
             <End Role="Elementy" EntitySet="Elementy" />
@@ -3841,9 +3839,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vCechyElementu' does not have a prima
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
-          <EntitySet Name="v_Przydzial_Zasobow" EntityType="SzwalniaModel.v_Przydzial_Zasobow" />
+          <EntitySet Name="vPrzydzialZasobow" EntityType="SzwalniaModel.vPrzydzialZasobow" />
         </EntityContainer>
-        <EntityType Name="v_Przydzial_Zasobow">
+        <EntityType Name="vPrzydzialZasobow">
           <Key>
             <PropertyRef Name="ID_Procesu_Produkcyjnego" />
             <PropertyRef Name="ID_Realizacji_Procesu" />
@@ -4468,9 +4466,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vCechyElementu' does not have a prima
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="v_Przydzial_Zasobow">
-            <EntityTypeMapping TypeName="SzwalniaModel.v_Przydzial_Zasobow">
-              <MappingFragment StoreEntitySet="v_Przydzial_Zasobow">
+          <EntitySetMapping Name="vPrzydzialZasobow">
+            <EntityTypeMapping TypeName="SzwalniaModel.vPrzydzialZasobow">
+              <MappingFragment StoreEntitySet="vPrzydzialZasobow">
                 <ScalarProperty Name="Model" ColumnName="Model" />
                 <ScalarProperty Name="ID_Maszyny" ColumnName="ID_Maszyny" />
                 <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />

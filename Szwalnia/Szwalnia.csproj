@@ -238,7 +238,7 @@
     <Compile Include="vCechyElementu.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="v_Przydzial_Zasobow.cs">
+    <Compile Include="vPrzydzialZasobow.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Wybor_elementu.cs">

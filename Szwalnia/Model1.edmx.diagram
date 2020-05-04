@@ -139,7 +139,7 @@
         <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_Za__22751F6C" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_Za__7D439ABD" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Zawartosc__ID_Do__07C12930" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="SzwalniaModel.v_Przydzial_Zasobow" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vPrzydzialZasobow" Width="1.5" PointX="5.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

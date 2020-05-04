@@ -83,6 +83,6 @@ namespace Szwalnia
         public virtual DbSet<Zawartosc> Zawartosc { get; set; }
         public virtual DbSet<Znajomosc_Jezykow> Znajomosc_Jezykow { get; set; }
         public virtual DbSet<vCechyElementu> vCechyElementu { get; set; }
-        public virtual DbSet<v_Przydzial_Zasobow> v_Przydzial_Zasobow { get; set; }
+        public virtual DbSet<vPrzydzialZasobow> vPrzydzialZasobow { get; set; }
     }
 }
