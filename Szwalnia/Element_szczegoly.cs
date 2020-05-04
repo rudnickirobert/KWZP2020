@@ -27,13 +27,6 @@ namespace Szwalnia
                 txtOkres.Text = element.Okres_Przydatnosci_Miesiace.ToString();
             }
             dgvSzczegol.DataSource = szwalnia.vCechyElementu.Where(details => details.ID_Element == element.ID_Element).ToList();
-             
         }
-
-        private void Element_szczegoly_Load(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

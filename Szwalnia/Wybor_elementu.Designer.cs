@@ -98,7 +98,6 @@
             this.Controls.Add(this.lblInfo);
             this.Name = "Wybor_elementu";
             this.Text = "Okno wyboru elementow";
-            this.Load += new System.EventHandler(this.Wybor_elementu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaElementow)).EndInit();
             this.ResumeLayout(false);

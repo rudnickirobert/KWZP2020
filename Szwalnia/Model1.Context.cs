@@ -83,5 +83,6 @@ namespace Szwalnia
         public virtual DbSet<Znajomosc_Jezykow> Znajomosc_Jezykow { get; set; }
         public virtual DbSet<vCechyElementu> vCechyElementu { get; set; }
         public virtual DbSet<vPolki_na_regalach> vPolki_na_regalach { get; set; }
+        public virtual DbSet<vZawartosc_polki> vZawartosc_polki { get; set; }
     }
 }

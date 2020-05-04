@@ -21,16 +21,6 @@ namespace Szwalnia
             InitializeComponent();
             szwalnia_passed = szwalnia;
         }
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Wybor_elementu_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
             if (numID.Value > 0)

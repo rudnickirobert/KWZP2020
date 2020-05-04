@@ -193,17 +193,17 @@
     <Compile Include="Regaly.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Regaly_polkiForm.cs">
+    <Compile Include="RegalyPolkiForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Regaly_polkiForm.Designer.cs">
-      <DependentUpon>Regaly_polkiForm.cs</DependentUpon>
+    <Compile Include="RegalyPolkiForm.Designer.cs">
+      <DependentUpon>RegalyPolkiForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Polki_na_regale.cs">
+    <Compile Include="PolkiNaRegaleForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Polki_na_regale.Designer.cs">
-      <DependentUpon>Polki_na_regale.cs</DependentUpon>
+    <Compile Include="PolkiNaRegaleForm.Designer.cs">
+      <DependentUpon>PolkiNaRegaleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MagazynForm.cs">
       <SubType>Form</SubType>
@@ -250,6 +250,9 @@
     <Compile Include="vPolki_na_regalach.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="vZawartosc_polki.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Wybor_elementu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -291,11 +294,11 @@
     <EmbeddedResource Include="Element_szczegoly.resx">
       <DependentUpon>Element_szczegoly.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Regaly_polkiForm.resx">
-      <DependentUpon>Regaly_polkiForm.cs</DependentUpon>
+    <EmbeddedResource Include="RegalyPolkiForm.resx">
+      <DependentUpon>RegalyPolkiForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Polki_na_regale.resx">
-      <DependentUpon>Polki_na_regale.cs</DependentUpon>
+    <EmbeddedResource Include="PolkiNaRegaleForm.resx">
+      <DependentUpon>PolkiNaRegaleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MagazynForm.resx">
       <DependentUpon>MagazynForm.cs</DependentUpon>

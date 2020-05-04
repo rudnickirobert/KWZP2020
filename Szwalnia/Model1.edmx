@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SzwalniaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SzwalniaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Czesci_Obsluga">
           <Key>
             <PropertyRef Name="ID_Czesci_Obsluga" />
@@ -291,12 +291,6 @@
           <Property Name="Rozszerzenie_ID" Type="varchar" MaxLength="2" />
           <Property Name="ID_Rozmiar_Polki" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'Szwalnia.dbo.Polki_regaly' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="Polki_regaly">
-          <Property Name="ID_Regal" Type="int" />
-          <Property Name="ID_Polka" Type="int" />
-        </EntityType>-->
         <EntityType Name="Polki_Rozmiary">
           <Key>
             <PropertyRef Name="ID_Rozmiar_Polki" />
@@ -463,12 +457,6 @@ warning 6013: The table/view 'Szwalnia.dbo.Polki_regaly' does not have a primary
           <Property Name="ID_statusu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Status_zatw" Type="varchar" MaxLength="12" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'Szwalnia.dbo.Typy_cechy_rejestr' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="Typy_cechy_rejestr">
-          <Property Name="ID_typ" Type="int" />
-          <Property Name="ID_cecha" Type="int" />
-        </EntityType>-->
         <EntityType Name="Umowy_Kurierzy">
           <Key>
             <PropertyRef Name="ID_Umowy" />
@@ -573,15 +561,20 @@ warning 6002: The table/view 'Szwalnia.dbo.vPolki_na_regalach' does not have a p
           <Property Name="Glebokosc" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'Szwalnia.dbo.vZawartosc polki' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="vZawartosc polki">
+warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vZawartosc_polki">
+          <Key>
+            <PropertyRef Name="ID_Regal" />
+          </Key>
+          <Property Name="ID_Regal" Type="int" Nullable="false" />
+          <Property Name="Oznaczenie" Type="varchar" MaxLength="10" />
           <Property Name="ID_Polka" Type="int" />
           <Property Name="Element_Nazwa" Type="varchar" MaxLength="20" />
           <Property Name="Ilosc_Paczek" Type="int" />
           <Property Name="Ilosc_W_Opakowaniu_Pojedynczym" Type="real" />
           <Property Name="Jednostka" Type="varchar" MaxLength="10" />
           <Property Name="Ile_sztuk" Type="real" />
-        </EntityType>-->
+        </EntityType>
         <Association Name="FK__Czesci_Ob__ID_El__4C6B5938">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
           <End Role="Czesci_Obsluga" Type="Self.Czesci_Obsluga" Multiplicity="*" />
@@ -1026,12 +1019,6 @@ warning 6013: The table/view 'Szwalnia.dbo.vZawartosc polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <!--Errors Found During Generation:
-error 6004: The table 'Szwalnia.dbo.Polki_regaly' is referenced by a relationship, but cannot be found.
-        <Association Name="FK__Polki_reg__ID_Po__03F0984C" />-->
-        <!--Errors Found During Generation:
-error 6004: The table 'Szwalnia.dbo.Polki_regaly' is referenced by a relationship, but cannot be found.
-        <Association Name="FK__Polki_reg__ID_Re__02FC7413" />-->
         <Association Name="FK__Pracownic__ID_Dz__4D94879B">
           <End Role="Dzialy" Type="Self.Dzialy" Multiplicity="0..1" />
           <End Role="Pracownicy_Zatrudnienie" Type="Self.Pracownicy_Zatrudnienie" Multiplicity="*" />
@@ -1248,12 +1235,6 @@ error 6004: The table 'Szwalnia.dbo.Polki_regaly' is referenced by a relationshi
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <!--Errors Found During Generation:
-error 6004: The table 'Szwalnia.dbo.Typy_cechy_rejestr' is referenced by a relationship, but cannot be found.
-        <Association Name="FK__Typy_cech__ID_ce__787EE5A0" />-->
-        <!--Errors Found During Generation:
-error 6004: The table 'Szwalnia.dbo.Typy_cechy_rejestr' is referenced by a relationship, but cannot be found.
-        <Association Name="FK__Typy_cech__ID_ty__778AC167" />-->
         <Association Name="FK__Umowy_Kur__ID_Ku__06CD04F7">
           <End Role="Kurierzy" Type="Self.Kurierzy" Multiplicity="0..1" />
           <End Role="Umowy_Kurierzy" Type="Self.Umowy_Kurierzy" Multiplicity="*" />
@@ -1532,6 +1513,18 @@ error 6004: The table 'Szwalnia.dbo.Typy_cechy_rejestr' is referenced by a relat
     [vPolki_na_regalach].[Szerokosc] AS [Szerokosc], 
     [vPolki_na_regalach].[Glebokosc] AS [Glebokosc]
     FROM [dbo].[vPolki_na_regalach] AS [vPolki_na_regalach]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vZawartosc_polki" EntityType="Self.vZawartosc_polki" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vZawartosc_polki].[ID_Regal] AS [ID_Regal], 
+    [vZawartosc_polki].[Oznaczenie] AS [Oznaczenie], 
+    [vZawartosc_polki].[ID_Polka] AS [ID_Polka], 
+    [vZawartosc_polki].[Element_Nazwa] AS [Element_Nazwa], 
+    [vZawartosc_polki].[Ilosc_Paczek] AS [Ilosc_Paczek], 
+    [vZawartosc_polki].[Ilosc_W_Opakowaniu_Pojedynczym] AS [Ilosc_W_Opakowaniu_Pojedynczym], 
+    [vZawartosc_polki].[Jednostka] AS [Jednostka], 
+    [vZawartosc_polki].[Ile_sztuk] AS [Ile_sztuk]
+    FROM [dbo].[vZawartosc_polki] AS [vZawartosc_polki]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__Czesci_Ob__ID_El__4C6B5938" Association="Self.FK__Czesci_Ob__ID_El__4C6B5938">
             <End Role="Elementy" EntitySet="Elementy" />
@@ -1822,8 +1815,7 @@ error 6004: The table 'Szwalnia.dbo.Typy_cechy_rejestr' is referenced by a relat
             <End Role="Znajomosc_Jezykow" EntitySet="Znajomosc_Jezykow" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SzwalniaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -2511,16 +2503,6 @@ error 6004: The table 'Szwalnia.dbo.Typy_cechy_rejestr' is referenced by a relat
           <Property Name="Wartosc_Cechy_Liczbowa" Type="Single" />
           <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Wartosc_Cechy_Slowna" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="vPolki_na_regalach">
-          <Key>
-            <PropertyRef Name="ID_Polka" />
-          </Key>
-          <Property Name="Oznaczenie" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="ID_Polka" Type="Int32" Nullable="false" />
-          <Property Name="Wysokosc" Type="Int32" />
-          <Property Name="Szerokosc" Type="Int32" />
-          <Property Name="Glebokosc" Type="Int32" />
         </EntityType>
         <Association Name="FK__Czesci_Ob__ID_El__4C6B5938">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
@@ -3444,7 +3426,6 @@ error 6004: The table 'Szwalnia.dbo.Typy_cechy_rejestr' is referenced by a relat
           <EntitySet Name="Zawartosc" EntityType="Self.Zawartosc" />
           <EntitySet Name="Znajomosc_Jezykow" EntityType="Self.Znajomosc_Jezykow" />
           <EntitySet Name="vCechyElementu" EntityType="Self.vCechyElementu" />
-          <EntitySet Name="vPolki_na_regalach" EntityType="Self.vPolki_na_regalach" />
           <AssociationSet Name="FK__Czesci_Ob__ID_El__4C6B5938" Association="Self.FK__Czesci_Ob__ID_El__4C6B5938">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Czesci_Obsluga" EntitySet="Czesci_Obsluga" />
@@ -3733,7 +3714,32 @@ error 6004: The table 'Szwalnia.dbo.Typy_cechy_rejestr' is referenced by a relat
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
+          <EntitySet Name="vPolki_na_regalach" EntityType="SzwalniaModel.vPolki_na_regalach" />
+          <EntitySet Name="vZawartosc_polki" EntityType="SzwalniaModel.vZawartosc_polki" />
         </EntityContainer>
+        <EntityType Name="vPolki_na_regalach">
+          <Key>
+            <PropertyRef Name="ID_Polka" />
+          </Key>
+          <Property Name="Oznaczenie" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Polka" Type="Int32" Nullable="false" />
+          <Property Name="Wysokosc" Type="Int32" />
+          <Property Name="Szerokosc" Type="Int32" />
+          <Property Name="Glebokosc" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vZawartosc_polki">
+          <Key>
+            <PropertyRef Name="ID_Regal" />
+          </Key>
+          <Property Name="ID_Regal" Type="Int32" Nullable="false" />
+          <Property Name="Oznaczenie" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Polka" Type="Int32" />
+          <Property Name="Element_Nazwa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Ilosc_Paczek" Type="Int32" />
+          <Property Name="Ilosc_W_Opakowaniu_Pojedynczym" Type="Single" />
+          <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Ile_sztuk" Type="Single" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4341,11 +4347,25 @@ error 6004: The table 'Szwalnia.dbo.Typy_cechy_rejestr' is referenced by a relat
           <EntitySetMapping Name="vPolki_na_regalach">
             <EntityTypeMapping TypeName="SzwalniaModel.vPolki_na_regalach">
               <MappingFragment StoreEntitySet="vPolki_na_regalach">
-                <ScalarProperty Name="Oznaczenie" ColumnName="Oznaczenie" />
-                <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
-                <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
-                <ScalarProperty Name="Szerokosc" ColumnName="Szerokosc" />
                 <ScalarProperty Name="Glebokosc" ColumnName="Glebokosc" />
+                <ScalarProperty Name="Szerokosc" ColumnName="Szerokosc" />
+                <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
+                <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
+                <ScalarProperty Name="Oznaczenie" ColumnName="Oznaczenie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vZawartosc_polki">
+            <EntityTypeMapping TypeName="SzwalniaModel.vZawartosc_polki">
+              <MappingFragment StoreEntitySet="vZawartosc_polki">
+                <ScalarProperty Name="Ile_sztuk" ColumnName="Ile_sztuk" />
+                <ScalarProperty Name="Jednostka" ColumnName="Jednostka" />
+                <ScalarProperty Name="Ilosc_W_Opakowaniu_Pojedynczym" ColumnName="Ilosc_W_Opakowaniu_Pojedynczym" />
+                <ScalarProperty Name="Ilosc_Paczek" ColumnName="Ilosc_Paczek" />
+                <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
+                <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
+                <ScalarProperty Name="Oznaczenie" ColumnName="Oznaczenie" />
+                <ScalarProperty Name="ID_Regal" ColumnName="ID_Regal" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

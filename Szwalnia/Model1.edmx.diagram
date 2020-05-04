@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="108fb763fcab4b34a18e32b50cae4292" Name="Diagram1">
+      <Diagram DiagramId="7368271609334ba09d2423a178a76ee6" Name="Diagram1" ZoomLevel="81">
         <EntityTypeShape EntityType="SzwalniaModel.Czesci_Obsluga" Width="1.5" PointX="8.25" PointY="34.625" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Dokumentacja_Proces" Width="1.5" PointX="5.25" PointY="33.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Dokumentacje" Width="1.5" PointX="3" PointY="26.375" IsExpanded="true" />
@@ -62,7 +62,6 @@
         <EntityTypeShape EntityType="SzwalniaModel.Zawartosc" Width="1.5" PointX="19.5" PointY="26.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Znajomosc_Jezykow" Width="1.5" PointX="9" PointY="22.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vCechyElementu" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.vPolki_na_regalach" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
         <AssociationConnector Association="SzwalniaModel.FK__Czesci_Ob__ID_El__4C6B5938" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Czesci_Ob__ID_Ob__4B7734FF" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Dokumenta__ID_Do__3864608B" ManuallyRouted="false" />
@@ -135,6 +134,8 @@
         <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_Za__1332DBDC" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_Za__2B0A656D" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Zawartosc__ID_Do__19DFD96B" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SzwalniaModel.vPolki_na_regalach" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vZawartosc_polki" Width="1.5" PointX="5.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
