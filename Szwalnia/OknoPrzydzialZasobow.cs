@@ -10,18 +10,15 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class Okno_Przydzial_Zasobow : Form
-
+    public partial class OknoPrzydzialZasobow : Form
     {
         private SzwalniaEntities db;
-
-        public Okno_Przydzial_Zasobow(SzwalniaEntities zasob)
+        public OknoPrzydzialZasobow(SzwalniaEntities zasob)
         {
             InitializeComponent();
             db = zasob;
         }
-       
-        private void btnClose_Click(object sender, EventArgs e)
+        private void btnSzczegoly_Click(object sender, EventArgs e)
         {
             Szczegoly szczegoly = new Szczegoly(db, Decimal.ToInt32(numericID.Value));
             szczegoly.Show();

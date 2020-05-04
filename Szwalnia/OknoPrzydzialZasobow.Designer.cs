@@ -1,6 +1,6 @@
 ﻿namespace Szwalnia
 {
-    partial class Okno_Przydzial_Zasobow
+    partial class OknoPrzydzialZasobow
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Okno_Przydzial_Zasobow));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OknoPrzydzialZasobow));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.numericID = new System.Windows.Forms.NumericUpDown();
-            this.btnClose = new System.Windows.Forms.Button();
+            this.btnSzczegoly = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericID)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,23 +51,23 @@
             resources.ApplyResources(this.numericID, "numericID");
             this.numericID.Name = "numericID";
             // 
-            // btnClose
+            // btnSzczegoly
             // 
-            resources.ApplyResources(this.btnClose, "btnClose");
-            this.btnClose.Name = "btnClose";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            resources.ApplyResources(this.btnSzczegoly, "btnSzczegoly");
+            this.btnSzczegoly.Name = "btnSzczegoly";
+            this.btnSzczegoly.UseVisualStyleBackColor = true;
+            this.btnSzczegoly.Click += new System.EventHandler(this.btnSzczegoly_Click);
             // 
-            // Okno_Przydzial_Zasobow
+            // OknoPrzydzialZasobow
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnSzczegoly);
             this.Controls.Add(this.numericID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Okno_Przydzial_Zasobow";
+            this.Name = "OknoPrzydzialZasobow";
             ((System.ComponentModel.ISupportInitialize)(this.numericID)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -78,6 +78,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown numericID;
-        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnSzczegoly;
     }
 }

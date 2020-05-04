@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.lblTitle = new System.Windows.Forms.Label();
-            this.dvg = new System.Windows.Forms.DataGridView();
+            this.dgvPrzydzialZasobow = new System.Windows.Forms.DataGridView();
             this.lblTytul = new System.Windows.Forms.Label();
-            this.lblId = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dvg)).BeginInit();
+            this.lblId = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPrzydzialZasobow)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -44,18 +44,18 @@
             this.lblTitle.Size = new System.Drawing.Size(0, 17);
             this.lblTitle.TabIndex = 0;
             // 
-            // dvg
+            // dgvPrzydzialZasobow
             // 
-            this.dvg.AllowUserToAddRows = false;
-            this.dvg.AllowUserToDeleteRows = false;
-            this.dvg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvg.Location = new System.Drawing.Point(12, 76);
-            this.dvg.Name = "dvg";
-            this.dvg.ReadOnly = true;
-            this.dvg.RowHeadersWidth = 51;
-            this.dvg.RowTemplate.Height = 24;
-            this.dvg.Size = new System.Drawing.Size(1087, 399);
-            this.dvg.TabIndex = 13;
+            this.dgvPrzydzialZasobow.AllowUserToAddRows = false;
+            this.dgvPrzydzialZasobow.AllowUserToDeleteRows = false;
+            this.dgvPrzydzialZasobow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPrzydzialZasobow.Location = new System.Drawing.Point(12, 76);
+            this.dgvPrzydzialZasobow.Name = "dgvPrzydzialZasobow";
+            this.dgvPrzydzialZasobow.ReadOnly = true;
+            this.dgvPrzydzialZasobow.RowHeadersWidth = 51;
+            this.dgvPrzydzialZasobow.RowTemplate.Height = 24;
+            this.dgvPrzydzialZasobow.Size = new System.Drawing.Size(1087, 399);
+            this.dgvPrzydzialZasobow.TabIndex = 13;
             // 
             // lblTytul
             // 
@@ -67,16 +67,6 @@
             this.lblTytul.TabIndex = 14;
             this.lblTytul.Text = "Przydział Zasobów";
             // 
-            // lblId
-            // 
-            this.lblId.AutoSize = true;
-            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblId.Location = new System.Drawing.Point(394, 43);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(25, 24);
-            this.lblId.TabIndex = 15;
-            this.lblId.Text = "Id";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -87,21 +77,31 @@
             this.label1.TabIndex = 16;
             this.label1.Text = "Szczegóły dla ID Procesu Produkcyjnego:";
             // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblId.Location = new System.Drawing.Point(420, 41);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(28, 25);
+            this.lblId.TabIndex = 17;
+            this.lblId.Text = "Id";
+            // 
             // Szczegoly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(1111, 516);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblId);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblTytul);
-            this.Controls.Add(this.dvg);
+            this.Controls.Add(this.dgvPrzydzialZasobow);
             this.Controls.Add(this.lblTitle);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "Szczegoly";
             this.Text = "Szczegoly";
-            ((System.ComponentModel.ISupportInitialize)(this.dvg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPrzydzialZasobow)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -110,9 +110,9 @@
         #endregion
 
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.DataGridView dvg;
+        private System.Windows.Forms.DataGridView dgvPrzydzialZasobow;
         private System.Windows.Forms.Label lblTytul;
-        private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblId;
     }
 }

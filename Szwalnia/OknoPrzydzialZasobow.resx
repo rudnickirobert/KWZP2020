@@ -126,7 +126,7 @@
     <value>Microsoft Sans Serif, 10.2pt</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>136, 101</value>
+    <value>150, 99</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>271, 20</value>
@@ -156,7 +156,7 @@
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>176, 36</value>
+    <value>200, 33</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>176, 25</value>
@@ -183,7 +183,7 @@
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="numericID.Location" type="System.Drawing.Point, System.Drawing">
-    <value>157, 138</value>
+    <value>181, 148</value>
   </data>
   <data name="numericID.Size" type="System.Drawing.Size, System.Drawing">
     <value>195, 30</value>
@@ -207,31 +207,31 @@
   <data name="&gt;&gt;numericID.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="btnClose.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnSzczegoly.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10.2pt</value>
   </data>
-  <data name="btnClose.Location" type="System.Drawing.Point, System.Drawing">
-    <value>192, 184</value>
+  <data name="btnSzczegoly.Location" type="System.Drawing.Point, System.Drawing">
+    <value>414, 145</value>
   </data>
-  <data name="btnClose.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnSzczegoly.Size" type="System.Drawing.Size, System.Drawing">
     <value>112, 33</value>
   </data>
-  <data name="btnClose.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnSzczegoly.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="btnClose.Text" xml:space="preserve">
+  <data name="btnSzczegoly.Text" xml:space="preserve">
     <value>Szukaj</value>
   </data>
-  <data name="&gt;&gt;btnClose.Name" xml:space="preserve">
-    <value>btnClose</value>
+  <data name="&gt;&gt;btnSzczegoly.Name" xml:space="preserve">
+    <value>btnSzczegoly</value>
   </data>
-  <data name="&gt;&gt;btnClose.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnSzczegoly.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnClose.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnSzczegoly.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnClose.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnSzczegoly.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -241,13 +241,13 @@
     <value>8, 16</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>574, 238</value>
+    <value>574, 217</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>PrzydzialZasobow </value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Okno_Przydzial_Zasobow</value>
+    <value>OknoPrzydzialZasobow</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

@@ -36,7 +36,7 @@
             // 
             this.btnElementy.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnElementy.Location = new System.Drawing.Point(37, 42);
-            this.btnElementy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnElementy.Margin = new System.Windows.Forms.Padding(4);
             this.btnElementy.Name = "btnElementy";
             this.btnElementy.Size = new System.Drawing.Size(285, 92);
             this.btnElementy.TabIndex = 0;
@@ -46,9 +46,10 @@
             // 
             // btnPrzydzialZasobow
             // 
-            this.btnPrzydzialZasobow.Location = new System.Drawing.Point(770, 75);
+            this.btnPrzydzialZasobow.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnPrzydzialZasobow.Location = new System.Drawing.Point(671, 49);
             this.btnPrzydzialZasobow.Name = "btnPrzydzialZasobow";
-            this.btnPrzydzialZasobow.Size = new System.Drawing.Size(75, 23);
+            this.btnPrzydzialZasobow.Size = new System.Drawing.Size(254, 92);
             this.btnPrzydzialZasobow.TabIndex = 1;
             this.btnPrzydzialZasobow.Text = "Przydzial Zasobow";
             this.btnPrzydzialZasobow.UseVisualStyleBackColor = true;
@@ -61,7 +62,7 @@
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.btnPrzydzialZasobow);
             this.Controls.Add(this.btnElementy);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Start";
             this.Text = "Szwalnia";
             this.ResumeLayout(false);

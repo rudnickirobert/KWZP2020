@@ -28,7 +28,7 @@ namespace Szwalnia
 
         private void btnPrzydzialZasobow_Click(object sender, EventArgs e)
         {
-            Okno_Przydzial_Zasobow zasob = new Okno_Przydzial_Zasobow(db);
+            OknoPrzydzialZasobow zasob = new OknoPrzydzialZasobow(db);
             zasob.Show();
         }
     }

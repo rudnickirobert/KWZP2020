@@ -18,7 +18,8 @@ namespace Szwalnia
             lblId.Text = sourcesIdProcesuProdukcyjnego.ToString();
             Realizacja_Procesu sources = db.Realizacja_Procesu.Where(przydzial => przydzial.ID_Procesu_Produkcyjnego == sourcesIdProcesuProdukcyjnego).First();
 
-            dvg.DataSource = db.v_Przydzial_Zasobow.Where(view => view.ID_Procesu_Produkcyjnego == sources.ID_Procesu_Produkcyjnego).ToList();
+            dgvPrzydzialZasobow.DataSource = db.v_Przydzial_Zasobow.Where(view => view.ID_Procesu_Produkcyjnego == sources.ID_Procesu_Produkcyjnego).ToList();
+            dgvPrzydzialZasobow.Columns[0].Visible = false;
         }
     }
 }
