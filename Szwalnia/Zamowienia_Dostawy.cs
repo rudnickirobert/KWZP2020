@@ -26,11 +26,13 @@ namespace Szwalnia
         public Nullable<int> ID_Zamowienia { get; set; }
         public Nullable<System.DateTime> Data_Dostawy_Planowana { get; set; }
         public Nullable<System.DateTime> Data_Dostawy_Rzeczywista { get; set; }
+        public Nullable<int> ID_statusu { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dostarczenia_Wewn> Dostarczenia_Wewn { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dostawy_Zawartosc> Dostawy_Zawartosc { get; set; }
+        public virtual Statusy Statusy { get; set; }
         public virtual Zamowienia Zamowienia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zawartosc> Zawartosc { get; set; }

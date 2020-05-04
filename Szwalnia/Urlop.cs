@@ -18,7 +18,9 @@ namespace Szwalnia
         public Nullable<int> ID_Pracownika { get; set; }
         public System.DateTime Data_rozpoczęcia { get; set; }
         public System.DateTime Data_zakonczenia { get; set; }
+        public Nullable<int> ID_Rodzaj_Urlopu { get; set; }
     
         public virtual Pracownicy Pracownicy { get; set; }
+        public virtual Rodzaj_Urlopu Rodzaj_Urlopu { get; set; }
     }
 }

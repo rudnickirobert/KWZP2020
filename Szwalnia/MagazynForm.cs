@@ -28,7 +28,7 @@ namespace Szwalnia
 
         private void btnPolki_Click(object sender, EventArgs e)
         {
-            RegalyForm regal = new RegalyForm(szwalnia_passed);
+            Regaly_polkiForm regal = new Regaly_polkiForm(szwalnia_passed);
             regal.Show();
             this.Close();
         }

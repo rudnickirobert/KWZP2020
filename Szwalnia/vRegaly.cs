@@ -12,12 +12,12 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class Koszt_Jednostkowy
+    public partial class vRegaly
     {
-        public int ID_Koszt_Jednostkowy { get; set; }
-        public Nullable<int> ID_Element { get; set; }
-        public int Koszt_Produkcji { get; set; }
-    
-        public virtual Elementy Elementy { get; set; }
+        public string Oznaczenie { get; set; }
+        public int ID_Polka { get; set; }
+        public string Element_Nazwa { get; set; }
+        public Nullable<int> Ilosc_Paczek { get; set; }
+        public string Jednostka { get; set; }
     }
 }

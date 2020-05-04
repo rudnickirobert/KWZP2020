@@ -21,6 +21,7 @@ namespace Szwalnia
         }
     
         public int ID_Polka { get; set; }
+        public string Rozszerzenie_ID { get; set; }
         public Nullable<int> ID_Rozmiar_Polki { get; set; }
     
         public virtual Polki_Rozmiary Polki_Rozmiary { get; set; }

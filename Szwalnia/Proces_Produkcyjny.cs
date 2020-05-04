@@ -20,27 +20,23 @@ namespace Szwalnia
             this.Kontrola_Efektywnosci = new HashSet<Kontrola_Efektywnosci>();
             this.Material_Na_Produkcji = new HashSet<Material_Na_Produkcji>();
             this.Realizacja_Procesu = new HashSet<Realizacja_Procesu>();
-            this.Zapotrzebowanie_Opakowan = new HashSet<Zapotrzebowanie_Opakowan>();
         }
     
         public int ID_Procesu_Produkcyjnego { get; set; }
-        public int ID_Zamowienie_Produkt { get; set; }
-        public int ID_Proces_Technologiczny { get; set; }
+        public int ID_Zamowienie_Element { get; set; }
+        public Nullable<System.DateTime> Proponowana_data_dostawy_materialu { get; set; }
+        public Nullable<int> ID_Dostarczenia { get; set; }
         public Nullable<System.DateTime> Data_Rozpoczecia { get; set; }
         public Nullable<System.DateTime> Data_Zakonczenia { get; set; }
-        public Nullable<int> ID_Dokumentacja_Proces { get; set; }
         public string Uwagi { get; set; }
     
-        public virtual Dokumentacja_Proces Dokumentacja_Proces { get; set; }
+        public virtual Dostarczenia_Wewn Dostarczenia_Wewn { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Kontrola_Efektywnosci> Kontrola_Efektywnosci { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Material_Na_Produkcji> Material_Na_Produkcji { get; set; }
-        public virtual Proces_Technologiczny Proces_Technologiczny { get; set; }
-        public virtual Zamowienie_Produkt Zamowienie_Produkt { get; set; }
+        public virtual Zamowienie_Element Zamowienie_Element { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Realizacja_Procesu> Realizacja_Procesu { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Zapotrzebowanie_Opakowan> Zapotrzebowanie_Opakowan { get; set; }
     }
 }

@@ -12,18 +12,18 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class Produkt
+    public partial class Statusy
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Produkt()
+        public Statusy()
         {
-            this.Zamowienie_Produkt = new HashSet<Zamowienie_Produkt>();
+            this.Zamowienia_Dostawy = new HashSet<Zamowienia_Dostawy>();
         }
     
-        public int ID_Produkt { get; set; }
-        public string Nazwa { get; set; }
+        public int ID_statusu { get; set; }
+        public string Status_zatw { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Zamowienie_Produkt> Zamowienie_Produkt { get; set; }
+        public virtual ICollection<Zamowienia_Dostawy> Zamowienia_Dostawy { get; set; }
     }
 }

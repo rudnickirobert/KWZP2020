@@ -15,6 +15,8 @@ namespace Szwalnia
         public Zapelnienie_regalu(SzwalniaEntities szwalnia_passed, string oznaczenie)
         {
             InitializeComponent();
+            
+            //lblTitle.Text = 
         }
     }
 }

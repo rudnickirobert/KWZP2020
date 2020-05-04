@@ -1,6 +1,6 @@
 ﻿namespace Szwalnia
 {
-    partial class Zapelnienie_regalu
+    partial class Regaly_polkiForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // Zapelnienie_regalu
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "Zapelnienie_regalu";
-            this.Text = "Zapełnienie regału";
-            this.ResumeLayout(false);
-
+            this.Text = "Regaly_polkiForm";
         }
 
         #endregion

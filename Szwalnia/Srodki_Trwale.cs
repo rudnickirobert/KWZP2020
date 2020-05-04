@@ -12,19 +12,26 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class Elementy_Typy
+    public partial class Srodki_Trwale
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Elementy_Typy()
+        public Srodki_Trwale()
         {
-            this.Elementy = new HashSet<Elementy>();
+            this.Maszyny = new HashSet<Maszyny>();
         }
     
-        public int ID_Element_Typ { get; set; }
-        public string Typ { get; set; }
-        public bool Czy_wlasne { get; set; }
+        public int ID_Srodki_trwale { get; set; }
+        public string Nazwa { get; set; }
+        public string Producent { get; set; }
+        public string Numer_seryjny { get; set; }
+        public Nullable<int> ID_Dzialu { get; set; }
+        public string Koszt_zakupu { get; set; }
+        public string Roczny_stopien_amortyzacji { get; set; }
+        public System.DateTime Gwarancja { get; set; }
+        public bool Zamortyzowane { get; set; }
     
+        public virtual Dzialy Dzialy { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Elementy> Elementy { get; set; }
+        public virtual ICollection<Maszyny> Maszyny { get; set; }
     }
 }

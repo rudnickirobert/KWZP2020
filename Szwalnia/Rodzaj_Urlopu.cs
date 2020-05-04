@@ -12,19 +12,18 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class Elementy_Typy
+    public partial class Rodzaj_Urlopu
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Elementy_Typy()
+        public Rodzaj_Urlopu()
         {
-            this.Elementy = new HashSet<Elementy>();
+            this.Urlop = new HashSet<Urlop>();
         }
     
-        public int ID_Element_Typ { get; set; }
-        public string Typ { get; set; }
-        public bool Czy_wlasne { get; set; }
+        public int ID_Rodzaj_Urlopu { get; set; }
+        public string Nazwa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Elementy> Elementy { get; set; }
+        public virtual ICollection<Urlop> Urlop { get; set; }
     }
 }

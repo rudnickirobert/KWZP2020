@@ -14,6 +14,12 @@ namespace Szwalnia
     
     public partial class Dostarczenia_Wewn
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Dostarczenia_Wewn()
+        {
+            this.Proces_Produkcyjny = new HashSet<Proces_Produkcyjny>();
+        }
+    
         public int ID_Dostarczenia { get; set; }
         public Nullable<int> ID_Pracownicy { get; set; }
         public Nullable<int> ID_Dostawy { get; set; }
@@ -24,5 +30,7 @@ namespace Szwalnia
         public virtual Zamowienia_Dostawy Zamowienia_Dostawy { get; set; }
         public virtual Miejsca Miejsca { get; set; }
         public virtual Pracownicy Pracownicy { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Proces_Produkcyjny> Proces_Produkcyjny { get; set; }
     }
 }

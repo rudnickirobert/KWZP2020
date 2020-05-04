@@ -21,10 +21,8 @@ namespace Szwalnia
             this.Dostawy_Zawartosc = new HashSet<Dostawy_Zawartosc>();
             this.Elementy_Proces = new HashSet<Elementy_Proces>();
             this.Elementy_Cechy = new HashSet<Elementy_Cechy>();
-            this.Koszt_Jednostkowy = new HashSet<Koszt_Jednostkowy>();
-            this.Material_Na_Produkcji = new HashSet<Material_Na_Produkcji>();
             this.Oferta = new HashSet<Oferta>();
-            this.Zapotrzebowanie_Opakowan = new HashSet<Zapotrzebowanie_Opakowan>();
+            this.Zamowienie_Element = new HashSet<Zamowienie_Element>();
             this.Zawartosc = new HashSet<Zawartosc>();
         }
     
@@ -43,13 +41,9 @@ namespace Szwalnia
         public virtual ICollection<Elementy_Cechy> Elementy_Cechy { get; set; }
         public virtual Elementy_Typy Elementy_Typy { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Koszt_Jednostkowy> Koszt_Jednostkowy { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Material_Na_Produkcji> Material_Na_Produkcji { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Oferta> Oferta { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Zapotrzebowanie_Opakowan> Zapotrzebowanie_Opakowan { get; set; }
+        public virtual ICollection<Zamowienie_Element> Zamowienie_Element { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zawartosc> Zawartosc { get; set; }
     }

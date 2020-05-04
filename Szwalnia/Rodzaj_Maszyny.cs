@@ -23,6 +23,7 @@ namespace Szwalnia
     
         public int ID_Rodzaj_Maszyny { get; set; }
         public string Rodzaj_Maszyny1 { get; set; }
+        public int Koszt_Rbh { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Maszyny> Maszyny { get; set; }
