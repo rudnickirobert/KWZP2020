@@ -44,29 +44,7 @@
             this.btnElementyForm.Text = "Elementy";
             this.btnElementyForm.UseVisualStyleBackColor = true;
             this.btnElementyForm.Click += new System.EventHandler(this.btnElementyForm_Click);
-            // 
-            // btnKurierzy
-            // 
-            this.btnKurierzy.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnKurierzy.Location = new System.Drawing.Point(12, 150);
-            this.btnKurierzy.Name = "btnKurierzy";
-            this.btnKurierzy.Size = new System.Drawing.Size(218, 67);
-            this.btnKurierzy.TabIndex = 1;
-            this.btnKurierzy.Text = "Kurierzy";
-            this.btnKurierzy.UseVisualStyleBackColor = true;
-            this.btnKurierzy.Click += new System.EventHandler(this.btnKurierzy_Click);
-            // 
-            // btnOferty
-            // 
-            this.btnOferty.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnOferty.Location = new System.Drawing.Point(16, 139);
-            this.btnOferty.Margin = new System.Windows.Forms.Padding(4);
-            this.btnOferty.Name = "btnOferty";
-            this.btnOferty.Size = new System.Drawing.Size(291, 82);
-            this.btnOferty.TabIndex = 1;
-            this.btnOferty.Text = "Oferty";
-            this.btnOferty.UseVisualStyleBackColor = true;
-            this.btnOferty.Click += new System.EventHandler(this.btnOferty_Click);
+          
             // 
             // MagazynForm
             // 
