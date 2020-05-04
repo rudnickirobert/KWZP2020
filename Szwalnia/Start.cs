@@ -25,5 +25,11 @@ namespace Szwalnia
             MagazynForm magForm = new MagazynForm(szwalnia);
             magForm.Show();
         }
+
+        private void btnZarzadzanie_Click (object sender, EventArgs e)
+        {
+            ZarzadzanieForm zarzForm = new ZarzadzanieForm(szwalnia);
+            zarzForm.Show();
+        }
     }
 }

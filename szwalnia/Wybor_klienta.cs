@@ -10,23 +10,19 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class ZarzadzanieForm : Form
+    public partial class Wybor_klienta : Form
     {
         public SzwalniaEntities db;
-        public ZarzadzanieForm(SzwalniaEntities szwalnia)
 
+        public Wybor_klienta(SzwalniaEntities szwalnia)
         {
-            db = szwalnia;
             InitializeComponent();
+            db = szwalnia;
         }
-        private void btnKlienciForm_Click(object sender, EventArgs e)
+        private void btnSzukaj_Click (object sender, EventArgs e)
         {
-            Wybor_klienta wybor = new Wybor_klienta(db);
-            wybor.Show();
-            this.Close();
+            Klienci_szczegoly klienci_Szczegoly = new Klienci_szczegoly(db, txtNazwaFirmy.Text);
+            klienci_Szczegoly.Show();          
         }
-    
-
-
     }
 }
