@@ -142,6 +142,24 @@
     <Compile Include="Maszyny_Proces.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Maszyny_Proces_Szukaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maszyny_Proces_Szukaj.Designer.cs">
+      <DependentUpon>Maszyny_Proces_Szukaj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maszyny_Proces_Wykonaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maszyny_Proces_Wykonaj.Designer.cs">
+      <DependentUpon>Maszyny_Proces_Wykonaj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maszyny_Serwis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maszyny_Serwis.Designer.cs">
+      <DependentUpon>Maszyny_Serwis.cs</DependentUpon>
+    </Compile>
     <Compile Include="Material_Na_Produkcji.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -162,6 +180,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Obsluga szukaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Obsluga szukaj.Designer.cs">
+      <DependentUpon>Obsluga szukaj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Obsluga_done.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Obsluga_done.Designer.cs">
+      <DependentUpon>Obsluga_done.cs</DependentUpon>
     </Compile>
     <Compile Include="Obsluga_Techniczna.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -199,6 +229,12 @@
     <Compile Include="Przydzial_Zasobow.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Przygotowanie_Produkcji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Przygotowanie_Produkcji.Designer.cs">
+      <DependentUpon>Przygotowanie_Produkcji.cs</DependentUpon>
+    </Compile>
     <Compile Include="Realizacja_Procesu.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -217,7 +253,22 @@
     <Compile Include="Rodzaj_Umowy.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Srednia_Il_Maszyn_Pokaz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Srednia_Il_Maszyn_Pokaz.Designer.cs">
+      <DependentUpon>Srednia_Il_Maszyn_Pokaz.cs</DependentUpon>
+    </Compile>
     <Compile Include="Stanowisko.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Suma_Czasu_Pokaz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Suma_Czasu_Pokaz.Designer.cs">
+      <DependentUpon>Suma_Czasu_Pokaz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Umowy_Kurierzy.cs">
@@ -227,6 +278,21 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="vCechyElementu.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vMaszyny_rdz_lb.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vMaszyny_Serwis.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vObsluga.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vSrednia_Il_Maszyn.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vSuma_Czasu_Proces.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Wybor_elementu.cs">
@@ -269,6 +335,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MagazynForm.resx">
       <DependentUpon>MagazynForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maszyny_Proces_Szukaj.resx">
+      <DependentUpon>Maszyny_Proces_Szukaj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maszyny_Proces_Wykonaj.resx">
+      <DependentUpon>Maszyny_Proces_Wykonaj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maszyny_Serwis.resx">
+      <DependentUpon>Maszyny_Serwis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Obsluga szukaj.resx">
+      <DependentUpon>Obsluga szukaj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Obsluga_done.resx">
+      <DependentUpon>Obsluga_done.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Przygotowanie_Produkcji.resx">
+      <DependentUpon>Przygotowanie_Produkcji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Srednia_Il_Maszyn_Pokaz.resx">
+      <DependentUpon>Srednia_Il_Maszyn_Pokaz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Suma_Czasu_Pokaz.resx">
+      <DependentUpon>Suma_Czasu_Pokaz.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Wybor_elementu.resx">
       <DependentUpon>Wybor_elementu.cs</DependentUpon>

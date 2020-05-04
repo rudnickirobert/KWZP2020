@@ -25,5 +25,11 @@ namespace Szwalnia
             MagazynForm magForm = new MagazynForm(szwalnia);
             magForm.Show();
         }
+
+        private void btnPrzygotowanieProdukcji_Click(object sender, EventArgs e)
+        {
+            Przygotowanie_Produkcji przygotowanie_Produkcji = new Przygotowanie_Produkcji();
+            przygotowanie_Produkcji.Show();
+        }
     }
 }
