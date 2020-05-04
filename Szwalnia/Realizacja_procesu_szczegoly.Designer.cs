@@ -1,6 +1,6 @@
 ﻿namespace Szwalnia
 {
-    partial class Realizacja_proc_szcz
+    partial class Realizacja_procesu_szczegoly
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnRealProcSzcz = new System.Windows.Forms.Button();
+            this.btnRealizacjaProcesuSzczczegoly = new System.Windows.Forms.Button();
             this.dgvRealProc = new System.Windows.Forms.DataGridView();
             this.numIDProcP = new System.Windows.Forms.NumericUpDown();
             this.lbl1 = new System.Windows.Forms.Label();
@@ -36,16 +36,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.numIDProcP)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnRealProcSzcz
+            // btnRealizacjaProcesuSzczczegoly
             // 
-            this.btnRealProcSzcz.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnRealProcSzcz.Location = new System.Drawing.Point(309, 58);
-            this.btnRealProcSzcz.Name = "btnRealProcSzcz";
-            this.btnRealProcSzcz.Size = new System.Drawing.Size(174, 27);
-            this.btnRealProcSzcz.TabIndex = 1;
-            this.btnRealProcSzcz.Text = "Pokaż szczegóły";
-            this.btnRealProcSzcz.UseVisualStyleBackColor = true;
-            this.btnRealProcSzcz.Click += new System.EventHandler(this.btnRealProcSzcz_Click);
+            this.btnRealizacjaProcesuSzczczegoly.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnRealizacjaProcesuSzczczegoly.Location = new System.Drawing.Point(309, 58);
+            this.btnRealizacjaProcesuSzczczegoly.Name = "btnRealizacjaProcesuSzczczegoly";
+            this.btnRealizacjaProcesuSzczczegoly.Size = new System.Drawing.Size(174, 27);
+            this.btnRealizacjaProcesuSzczczegoly.TabIndex = 1;
+            this.btnRealizacjaProcesuSzczczegoly.Text = "Pokaż szczegóły";
+            this.btnRealizacjaProcesuSzczczegoly.UseVisualStyleBackColor = true;
+            this.btnRealizacjaProcesuSzczczegoly.Click += new System.EventHandler(this.btnRealizacjaProcesuSzczegoly_Click);
             // 
             // dgvRealProc
             // 
@@ -75,7 +75,7 @@
             this.lbl1.TabIndex = 4;
             this.lbl1.Text = "ID Procesu Produkcyjnego";
             // 
-            // Realizacja_proc_szcz
+            // Realizacja_procesu_szczegoly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -83,8 +83,8 @@
             this.Controls.Add(this.lbl1);
             this.Controls.Add(this.numIDProcP);
             this.Controls.Add(this.dgvRealProc);
-            this.Controls.Add(this.btnRealProcSzcz);
-            this.Name = "Realizacja_proc_szcz";
+            this.Controls.Add(this.btnRealizacjaProcesuSzczczegoly);
+            this.Name = "Realizacja_procesu_szczegoly";
             this.Text = "Realizacja_proc_szcz";
             ((System.ComponentModel.ISupportInitialize)(this.dgvRealProc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIDProcP)).EndInit();
@@ -94,7 +94,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnRealProcSzcz;
+        private System.Windows.Forms.Button btnRealizacjaProcesuSzczczegoly;
         private System.Windows.Forms.DataGridView dgvRealProc;
         private System.Windows.Forms.NumericUpDown numIDProcP;
         private System.Windows.Forms.Label lbl1;

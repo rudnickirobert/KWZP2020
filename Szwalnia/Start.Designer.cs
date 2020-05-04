@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnElementy = new System.Windows.Forms.Button();
-            this.btnRealProc = new System.Windows.Forms.Button();
+            this.btnRealizacjaProcesu = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnElementy
@@ -44,24 +44,24 @@
             this.btnElementy.UseVisualStyleBackColor = true;
             this.btnElementy.Click += new System.EventHandler(this.btnElementy_Click);
             // 
-            // btnRealProc
+            // btnRealizacjaProcesu
             // 
-            this.btnRealProc.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnRealProc.Location = new System.Drawing.Point(37, 201);
-            this.btnRealProc.Name = "btnRealProc";
-            this.btnRealProc.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnRealProc.Size = new System.Drawing.Size(285, 88);
-            this.btnRealProc.TabIndex = 1;
-            this.btnRealProc.Text = "Realizacja procesu";
-            this.btnRealProc.UseVisualStyleBackColor = true;
-            this.btnRealProc.Click += new System.EventHandler(this.btnRealProc_Click);
+            this.btnRealizacjaProcesu.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnRealizacjaProcesu.Location = new System.Drawing.Point(37, 201);
+            this.btnRealizacjaProcesu.Name = "btnRealizacjaProcesu";
+            this.btnRealizacjaProcesu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnRealizacjaProcesu.Size = new System.Drawing.Size(285, 88);
+            this.btnRealizacjaProcesu.TabIndex = 1;
+            this.btnRealizacjaProcesu.Text = "Realizacja procesu";
+            this.btnRealizacjaProcesu.UseVisualStyleBackColor = true;
+            this.btnRealizacjaProcesu.Click += new System.EventHandler(this.btnRealizacjaProcesu_Click);
             // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.btnRealProc);
+            this.Controls.Add(this.btnRealizacjaProcesu);
             this.Controls.Add(this.btnElementy);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Start";
@@ -74,7 +74,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnElementy;
-        private System.Windows.Forms.Button btnRealProc;
+        private System.Windows.Forms.Button btnRealizacjaProcesu;
     }
 }
 

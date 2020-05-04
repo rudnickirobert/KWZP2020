@@ -31,9 +31,9 @@ namespace Szwalnia
 
         }
 
-        private void btnRealProc_Click(object sender, EventArgs e)
+        private void btnRealizacjaProcesu_Click(object sender, EventArgs e)
         {
-            Realizacja_proc_szcz real_proc = new Realizacja_proc_szcz(db);
+            Realizacja_procesu_szczegoly real_proc = new Realizacja_procesu_szczegoly(db);
             real_proc.Show();
         }
     }
