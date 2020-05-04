@@ -18,14 +18,17 @@ namespace Szwalnia
             db = szwalnia;
             InitializeComponent();
         }
-        private void btnKlienciForm_Click(object sender, EventArgs e)
+
+        private void ZarzadzanieForm_Load(object sender, EventArgs e)
         {
-            Wybor_klienta wybor = new Wybor_klienta(db);
-            wybor.Show();
+
+        }
+
+        private void btnKlienciForm_MouseClick(object sender, MouseEventArgs e)
+        {
+            Wybor_klienta wyborKlienta = new Wybor_klienta(db);
+            wyborKlienta.Show();
             this.Close();
         }
-    
-
-
     }
 }

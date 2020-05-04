@@ -40,6 +40,7 @@
             this.btnKlienciForm.TabIndex = 0;
             this.btnKlienciForm.Text = "Klienci";
             this.btnKlienciForm.UseVisualStyleBackColor = true;
+            this.btnKlienciForm.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnKlienciForm_MouseClick);
             // 
             // ZarzadzanieForm
             // 
@@ -49,6 +50,7 @@
             this.Controls.Add(this.btnKlienciForm);
             this.Name = "ZarzadzanieForm";
             this.Text = "Moduł Zarządzanie";
+            this.Load += new System.EventHandler(this.ZarzadzanieForm_Load);
             this.ResumeLayout(false);
 
         }

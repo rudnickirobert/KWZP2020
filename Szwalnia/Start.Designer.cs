@@ -36,7 +36,7 @@
             // 
             this.btnMagazyn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnMagazyn.Location = new System.Drawing.Point(37, 42);
-            this.btnMagazyn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMagazyn.Margin = new System.Windows.Forms.Padding(4);
             this.btnMagazyn.Name = "btnMagazyn";
             this.btnMagazyn.Size = new System.Drawing.Size(285, 92);
             this.btnMagazyn.TabIndex = 0;
@@ -53,6 +53,7 @@
             this.btnZarzadzanie.TabIndex = 1;
             this.btnZarzadzanie.Text = "Zarządzanie";
             this.btnZarzadzanie.UseVisualStyleBackColor = true;
+            this.btnZarzadzanie.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnZarzadzanie_MouseClick);
             // 
             // Start
             // 
@@ -61,9 +62,10 @@
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.btnZarzadzanie);
             this.Controls.Add(this.btnMagazyn);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Start";
             this.Text = "Szwalnia";
+            this.Load += new System.EventHandler(this.Start_Load);
             this.ResumeLayout(false);
 
         }
