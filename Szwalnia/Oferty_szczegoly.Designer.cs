@@ -47,6 +47,16 @@
             this.txt6 = new System.Windows.Forms.TextBox();
             this.txt5 = new System.Windows.Forms.TextBox();
             this.txt4 = new System.Windows.Forms.TextBox();
+            this.txt7 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txt8 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txt9 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txt10 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txt11 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ofertaBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -173,11 +183,105 @@
             this.txt4.Size = new System.Drawing.Size(201, 22);
             this.txt4.TabIndex = 16;
             // 
+            // txt7
+            // 
+            this.txt7.Location = new System.Drawing.Point(226, 273);
+            this.txt7.Name = "txt7";
+            this.txt7.Size = new System.Drawing.Size(201, 22);
+            this.txt7.TabIndex = 20;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(118, 273);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(98, 17);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Ilość w paczce";
+            // 
+            // txt8
+            // 
+            this.txt8.Location = new System.Drawing.Point(226, 301);
+            this.txt8.Name = "txt8";
+            this.txt8.Size = new System.Drawing.Size(201, 22);
+            this.txt8.TabIndex = 22;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(143, 301);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(73, 17);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Jednostka";
+            // 
+            // txt9
+            // 
+            this.txt9.AllowDrop = true;
+            this.txt9.Location = new System.Drawing.Point(226, 329);
+            this.txt9.Name = "txt9";
+            this.txt9.Size = new System.Drawing.Size(201, 22);
+            this.txt9.TabIndex = 24;
+            this.txt9.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.AllowDrop = true;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(36, 329);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(177, 17);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "Ilość paczek w opakowaniu";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // txt10
+            // 
+            this.txt10.Location = new System.Drawing.Point(226, 357);
+            this.txt10.Name = "txt10";
+            this.txt10.Size = new System.Drawing.Size(201, 22);
+            this.txt10.TabIndex = 26;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(29, 357);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(184, 17);
+            this.label10.TabIndex = 25;
+            this.label10.Text = "Deklarowyany czas dostawy";
+            // 
+            // txt11
+            // 
+            this.txt11.Location = new System.Drawing.Point(226, 385);
+            this.txt11.Name = "txt11";
+            this.txt11.Size = new System.Drawing.Size(201, 22);
+            this.txt11.TabIndex = 28;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(135, 385);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(78, 17);
+            this.label11.TabIndex = 27;
+            this.label11.Text = "Data oferty";
+            // 
             // Oferty_szczegoly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(597, 450);
+            this.Controls.Add(this.txt11);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.txt10);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.txt9);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.txt8);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.txt7);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.txt6);
             this.Controls.Add(this.txt5);
             this.Controls.Add(this.txt4);
@@ -221,5 +325,15 @@
         private System.Windows.Forms.TextBox txt6;
         private System.Windows.Forms.TextBox txt5;
         private System.Windows.Forms.TextBox txt4;
+        private System.Windows.Forms.TextBox txt7;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txt8;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txt9;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txt10;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txt11;
+        private System.Windows.Forms.Label label11;
     }
 }
