@@ -26,6 +26,11 @@ namespace Szwalnia
             this.Close();
         }
 
- 
+        private void btnKurierzy_Click(object sender, EventArgs e)
+        {
+            Wybor_kuriera wybor = new Wybor_kuriera(Szwalnia);
+            wybor.Show();
+            this.Close();
+        }
     }
 }
