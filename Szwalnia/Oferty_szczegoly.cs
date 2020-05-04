@@ -51,7 +51,7 @@ namespace Szwalnia
 
         private void Oferty_szczegoly_Load(object sender, EventArgs e)
         {
-           
+            
 
         }
 
