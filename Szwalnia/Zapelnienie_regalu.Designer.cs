@@ -28,19 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvRegaly = new System.Windows.Forms.ListView();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.dgvRegaly = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRegaly)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvRegaly
-            // 
-            this.dgvRegaly.HideSelection = false;
-            this.dgvRegaly.Location = new System.Drawing.Point(88, 209);
-            this.dgvRegaly.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.dgvRegaly.Name = "dgvRegaly";
-            this.dgvRegaly.Size = new System.Drawing.Size(1018, 364);
-            this.dgvRegaly.TabIndex = 3;
-            this.dgvRegaly.UseCompatibleStateImageBehavior = false;
             // 
             // lblTitle
             // 
@@ -52,25 +43,34 @@
             this.lblTitle.TabIndex = 4;
             this.lblTitle.Text = "label1";
             // 
+            // dgvRegaly
+            // 
+            this.dgvRegaly.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRegaly.Location = new System.Drawing.Point(317, 167);
+            this.dgvRegaly.Name = "dgvRegaly";
+            this.dgvRegaly.RowHeadersWidth = 25;
+            this.dgvRegaly.Size = new System.Drawing.Size(571, 396);
+            this.dgvRegaly.TabIndex = 5;
+            // 
             // Zapelnienie_regalu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 38F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1208, 606);
-            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.dgvRegaly);
+            this.Controls.Add(this.lblTitle);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
             this.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.Name = "Zapelnienie_regalu";
             this.Text = "Zapełnienie regału";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRegaly)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ListView dgvRegaly;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.DataGridView dgvRegaly;
     }
 }

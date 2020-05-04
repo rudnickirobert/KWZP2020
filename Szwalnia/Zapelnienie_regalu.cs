@@ -15,8 +15,11 @@ namespace Szwalnia
         public Zapelnienie_regalu(SzwalniaEntities szwalnia_passed, string oznaczenie)
         {
             InitializeComponent();
-            
-            //lblTitle.Text = 
+            vRegaly storage = szwalnia_passed.vRegaly.Where(regal => regal.Oznaczenie == oznaczenie).First();
+
+            lblTitle.Text = "REGAL " + storage.Oznaczenie;
+
+            dgvRegaly.DataSource = szwalnia_passed.vRegaly.Where(regal => regal.Oznaczenie == storage.Oznaczenie).ToList();
         }
     }
 }
