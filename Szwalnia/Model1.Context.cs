@@ -71,6 +71,7 @@ namespace Szwalnia
         public virtual DbSet<Rodzaj_Obslugi> Rodzaj_Obslugi { get; set; }
         public virtual DbSet<Rodzaj_Umowy> Rodzaj_Umowy { get; set; }
         public virtual DbSet<Stanowisko> Stanowisko { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Umowy_Kurierzy> Umowy_Kurierzy { get; set; }
         public virtual DbSet<Urlop> Urlop { get; set; }
         public virtual DbSet<Zamowienia> Zamowienia { get; set; }
