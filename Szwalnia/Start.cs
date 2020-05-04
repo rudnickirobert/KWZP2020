@@ -26,10 +26,6 @@ namespace Szwalnia
             magForm.Show();
         }
 
-        private void btnOferta_Click(object sender, EventArgs e)
-        {
-            Wybor_oferty oferta_Form = new Wybor_oferty(szwalnia);
-            oferta_Form.Show();
-        }
+   
     }
 }
