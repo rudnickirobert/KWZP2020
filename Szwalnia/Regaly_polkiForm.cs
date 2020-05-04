@@ -35,7 +35,7 @@ namespace Szwalnia
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Zapelnienie_regalu regal = new Zapelnienie_regalu(szwalnia_passed, textBox2.Text);
+            Polki_na_regale regal = new Polki_na_regale(szwalnia_passed, textBox2.Text);
             regal.Show();
             this.Close();
         }

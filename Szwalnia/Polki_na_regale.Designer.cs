@@ -1,6 +1,6 @@
 ﻿namespace Szwalnia
 {
-    partial class Zapelnienie_regalu
+    partial class Polki_na_regale
     {
         /// <summary>
         /// Required designer variable.
@@ -36,33 +36,35 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(530, 78);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
+            this.lblTitle.Location = new System.Drawing.Point(252, 32);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(109, 39);
+            this.lblTitle.Size = new System.Drawing.Size(107, 39);
             this.lblTitle.TabIndex = 4;
-            this.lblTitle.Text = "label1";
+            this.lblTitle.Text = "Regal";
             // 
             // dgvRegaly
             // 
             this.dgvRegaly.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRegaly.Location = new System.Drawing.Point(317, 167);
+            this.dgvRegaly.Location = new System.Drawing.Point(68, 107);
+            this.dgvRegaly.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.dgvRegaly.Name = "dgvRegaly";
             this.dgvRegaly.RowHeadersWidth = 25;
-            this.dgvRegaly.Size = new System.Drawing.Size(571, 396);
+            this.dgvRegaly.Size = new System.Drawing.Size(529, 371);
             this.dgvRegaly.TabIndex = 5;
             // 
-            // Zapelnienie_regalu
+            // Polki_na_regale
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 38F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1208, 606);
+            this.ClientSize = new System.Drawing.Size(665, 516);
             this.Controls.Add(this.dgvRegaly);
             this.Controls.Add(this.lblTitle);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
-            this.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.Name = "Zapelnienie_regalu";
-            this.Text = "Zapełnienie regału";
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Name = "Polki_na_regale";
+            this.Text = "Półki na regałach";
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegaly)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

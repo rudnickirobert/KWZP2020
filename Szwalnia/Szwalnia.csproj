@@ -232,7 +232,7 @@
     <Compile Include="vCechyElementu.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="vRegaly.cs">
+    <Compile Include="vPolki_na_regalach.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Zamowienia.cs">
@@ -247,11 +247,11 @@
     <Compile Include="Zamowienie_Element.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Zapelnienie_regalu.cs">
+    <Compile Include="Polki_na_regale.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Zapelnienie_regalu.Designer.cs">
-      <DependentUpon>Zapelnienie_regalu.cs</DependentUpon>
+    <Compile Include="Polki_na_regale.Designer.cs">
+      <DependentUpon>Polki_na_regale.cs</DependentUpon>
     </Compile>
     <Compile Include="Regaly.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -291,8 +291,8 @@
     <EmbeddedResource Include="Regaly_polkiForm.resx">
       <DependentUpon>Regaly_polkiForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Zapelnienie_regalu.resx">
-      <DependentUpon>Zapelnienie_regalu.cs</DependentUpon>
+    <EmbeddedResource Include="Polki_na_regale.resx">
+      <DependentUpon>Polki_na_regale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MagazynForm.resx">
       <DependentUpon>MagazynForm.cs</DependentUpon>
