@@ -28,30 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnElementy = new System.Windows.Forms.Button();
             this.btnRealizacjaProcesu = new System.Windows.Forms.Button();
             this.btnMagazyn = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // btnMagazyn
-            // 
-            this.btnElementy.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnElementy.Location = new System.Drawing.Point(37, 42);
-            this.btnElementy.Margin = new System.Windows.Forms.Padding(4);
-            this.btnElementy.Name = "btnElementy";
-            this.btnElementy.Size = new System.Drawing.Size(285, 92);
-            this.btnElementy.TabIndex = 0;
-            this.btnElementy.Text = "Elementy";
-            this.btnElementy.UseVisualStyleBackColor = true;
-            this.btnElementy.Click += new System.EventHandler(this.btnElementy_Click);
-            this.btnMagazyn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnMagazyn.Location = new System.Drawing.Point(28, 34);
-            this.btnMagazyn.Name = "btnMagazyn";
-            this.btnMagazyn.Size = new System.Drawing.Size(214, 75);
-            this.btnMagazyn.TabIndex = 0;
-            this.btnMagazyn.Text = "Magazyn";
-            this.btnMagazyn.UseVisualStyleBackColor = true;
-            this.btnMagazyn.Click += new System.EventHandler(this.btnMagazyn_Click);
             // 
             // btnRealizacjaProcesu
             // 
@@ -65,16 +44,25 @@
             this.btnRealizacjaProcesu.UseVisualStyleBackColor = true;
             this.btnRealizacjaProcesu.Click += new System.EventHandler(this.btnRealizacjaProcesu_Click);
             // 
+            // btnMagazyn
+            // 
+            this.btnMagazyn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnMagazyn.Location = new System.Drawing.Point(28, 34);
+            this.btnMagazyn.Name = "btnMagazyn";
+            this.btnMagazyn.Size = new System.Drawing.Size(214, 75);
+            this.btnMagazyn.TabIndex = 0;
+            this.btnMagazyn.Text = "Magazyn";
+            this.btnMagazyn.UseVisualStyleBackColor = true;
+            this.btnMagazyn.Click += new System.EventHandler(this.btnMagazyn_Click);
+            // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.btnRealizacjaProcesu);
-            this.Controls.Add(this.btnElementy);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnRealizacjaProcesu);
             this.Controls.Add(this.btnMagazyn);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Start";
             this.Text = "Szwalnia";
             this.Load += new System.EventHandler(this.Start_Load);
@@ -83,8 +71,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnElementy;
         private System.Windows.Forms.Button btnRealizacjaProcesu;
         private System.Windows.Forms.Button btnMagazyn;
     }
