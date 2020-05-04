@@ -30,6 +30,7 @@
         {
             this.lblTitle = new System.Windows.Forms.Label();
             this.dgvRegaly = new System.Windows.Forms.DataGridView();
+            this.lblTest = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegaly)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,12 +54,23 @@
             this.dgvRegaly.RowHeadersWidth = 25;
             this.dgvRegaly.Size = new System.Drawing.Size(529, 371);
             this.dgvRegaly.TabIndex = 5;
+            this.dgvRegaly.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegaly_CellContentDoubleClick);
+            // 
+            // lblTest
+            // 
+            this.lblTest.AutoSize = true;
+            this.lblTest.Location = new System.Drawing.Point(307, 508);
+            this.lblTest.Name = "lblTest";
+            this.lblTest.Size = new System.Drawing.Size(51, 20);
+            this.lblTest.TabIndex = 6;
+            this.lblTest.Text = "label1";
             // 
             // Polki_na_regale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(665, 516);
+            this.ClientSize = new System.Drawing.Size(665, 559);
+            this.Controls.Add(this.lblTest);
             this.Controls.Add(this.dgvRegaly);
             this.Controls.Add(this.lblTitle);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -74,5 +86,6 @@
         #endregion
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.DataGridView dgvRegaly;
+        private System.Windows.Forms.Label lblTest;
     }
 }
