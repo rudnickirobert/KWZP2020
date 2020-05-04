@@ -26,5 +26,11 @@ namespace Szwalnia
             this.Close();
         }
 
+        private void btnOferty_Click(object sender, EventArgs e)
+        {
+            Wybor_oferty wybor2 = new Wybor_oferty(szwalnia_passed);
+            wybor2.Show();
+            this.Close();
+        }
     }
 }

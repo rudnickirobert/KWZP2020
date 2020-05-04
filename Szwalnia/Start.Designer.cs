@@ -34,9 +34,10 @@
             // btnMagazyn
             // 
             this.btnMagazyn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnMagazyn.Location = new System.Drawing.Point(28, 34);
+            this.btnMagazyn.Location = new System.Drawing.Point(37, 42);
+            this.btnMagazyn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMagazyn.Name = "btnMagazyn";
-            this.btnMagazyn.Size = new System.Drawing.Size(214, 75);
+            this.btnMagazyn.Size = new System.Drawing.Size(285, 92);
             this.btnMagazyn.TabIndex = 0;
             this.btnMagazyn.Text = "Magazyn";
             this.btnMagazyn.UseVisualStyleBackColor = true;
@@ -44,10 +45,11 @@
             // 
             // Start
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.btnMagazyn);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Start";
             this.Text = "Szwalnia";
             this.ResumeLayout(false);
