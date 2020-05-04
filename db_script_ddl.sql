@@ -488,3 +488,13 @@ FROM Elementy INNER JOIN
 	Elementy_Cechy_Slownik ON Elementy_Cechy.ID_Cecha = Elementy_Cechy_Slownik.ID_Cecha INNER JOIN 
 	Elementy_Jednostki ON Elementy_Cechy.ID_Jednostka = Elementy_Jednostki.ID_jednostka
 GO
+
+CREATE VIEW [dbo].[vZamowienieProcesyProdukcyjne]
+AS
+SELECT        dbo.Proces_Produkcyjny.ID_Procesu_Produkcyjnego, dbo.Zamowienie_Produkt.ID_Zamowienia, dbo.Proces_Produkcyjny.ID_Zamowienie_Produkt, dbo.Produkt.Nazwa AS Nazwa_Produktu, 
+                         dbo.Proces_Produkcyjny.ID_Proces_Technologiczny, dbo.Proces_Produkcyjny.Data_Rozpoczecia, dbo.Proces_Produkcyjny.Data_Zakonczenia, dbo.Proces_Produkcyjny.ID_Dokumentacja_Proces, 
+                         dbo.Proces_Produkcyjny.Uwagi
+FROM            dbo.Proces_Produkcyjny INNER JOIN
+                         dbo.Zamowienie_Produkt ON dbo.Proces_Produkcyjny.ID_Zamowienie_Produkt = dbo.Zamowienie_Produkt.ID_Zamowienie_Produkt INNER JOIN
+                         dbo.Produkt ON dbo.Zamowienie_Produkt.ID_Produkt = dbo.Produkt.ID_Produkt
+GO
