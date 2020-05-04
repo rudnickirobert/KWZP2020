@@ -22,7 +22,7 @@ namespace Szwalnia
         private void btnSzukaj_Click (object sender, EventArgs e)
         {
             Klienci_szczegoly klienci_Szczegoly = new Klienci_szczegoly(db, txtNazwaFirmy.Text);
-            klienci_Szczegoly.Show();          
+            klienci_Szczegoly.Show();        
         }
     }
 }

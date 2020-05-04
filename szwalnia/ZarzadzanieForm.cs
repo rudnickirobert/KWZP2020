@@ -14,7 +14,6 @@ namespace Szwalnia
     {
         public SzwalniaEntities db;
         public ZarzadzanieForm(SzwalniaEntities szwalnia)
-
         {
             db = szwalnia;
             InitializeComponent();
