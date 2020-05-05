@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class Wybor_elementu : Form
+    public partial class WyborElementu : Form
     {
         public SzwalniaEntities szwalnia_passed;
 
-        public Wybor_elementu(SzwalniaEntities szwalnia)
+        public WyborElementu(SzwalniaEntities szwalnia)
         {
             InitializeComponent();
             szwalnia_passed = szwalnia;

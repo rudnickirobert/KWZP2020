@@ -253,11 +253,11 @@
     <Compile Include="vZawartosc_polki.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Wybor_elementu.cs">
+    <Compile Include="WyborElementu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Wybor_elementu.Designer.cs">
-      <DependentUpon>Wybor_elementu.cs</DependentUpon>
+    <Compile Include="WyborElementu.Designer.cs">
+      <DependentUpon>WyborElementu.cs</DependentUpon>
     </Compile>
     <Compile Include="Start.cs">
       <SubType>Form</SubType>
@@ -282,11 +282,11 @@
     <Compile Include="Zawartosc.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Zawartosc_polkiForm.cs">
+    <Compile Include="ZawartoscPolkiForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Zawartosc_polkiForm.Designer.cs">
-      <DependentUpon>Zawartosc_polkiForm.cs</DependentUpon>
+    <Compile Include="ZawartoscPolkiForm.Designer.cs">
+      <DependentUpon>ZawartoscPolkiForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Znajomosc_Jezykow.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -303,8 +303,8 @@
     <EmbeddedResource Include="MagazynForm.resx">
       <DependentUpon>MagazynForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Wybor_elementu.resx">
-      <DependentUpon>Wybor_elementu.cs</DependentUpon>
+    <EmbeddedResource Include="WyborElementu.resx">
+      <DependentUpon>WyborElementu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Start.resx">
       <DependentUpon>Start.cs</DependentUpon>
@@ -318,8 +318,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Zawartosc_polkiForm.resx">
-      <DependentUpon>Zawartosc_polkiForm.cs</DependentUpon>
+    <EmbeddedResource Include="ZawartoscPolkiForm.resx">
+      <DependentUpon>ZawartoscPolkiForm.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

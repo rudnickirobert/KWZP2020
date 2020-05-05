@@ -1,6 +1,6 @@
 ﻿namespace Szwalnia
 {
-    partial class Zawartosc_polkiForm
+    partial class ZawartoscPolkiForm
     {
         /// <summary>
         /// Required designer variable.

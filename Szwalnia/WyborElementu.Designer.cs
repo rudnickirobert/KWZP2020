@@ -1,6 +1,6 @@
 ﻿namespace Szwalnia
 {
-    partial class Wybor_elementu
+    partial class WyborElementu
     {
         /// <summary>
         /// Required designer variable.

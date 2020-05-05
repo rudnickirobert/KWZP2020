@@ -20,7 +20,7 @@ namespace Szwalnia
         }
         private void btnElementyForm_Click(object sender, EventArgs e)
         {
-            Wybor_elementu wybor = new Wybor_elementu(db);
+            WyborElementu wybor = new WyborElementu(db);
             wybor.Show();
             this.Close();
         }

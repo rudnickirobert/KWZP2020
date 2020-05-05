@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class Zawartosc_polkiForm : Form
+    public partial class ZawartoscPolkiForm : Form
     {
-        public Zawartosc_polkiForm(SzwalniaEntities szwalnia_passed, int numer_polki)
+        public ZawartoscPolkiForm(SzwalniaEntities szwalnia_passed, int numer_polki)
         {
             InitializeComponent();
             //tutaj prace trwaja, stad komentarze
