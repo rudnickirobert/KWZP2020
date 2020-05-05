@@ -1,6 +1,6 @@
 ﻿namespace Szwalnia
 {
-    partial class Maszyny_Serwis
+    partial class MaszynySerwis
     {
         /// <summary>
         /// Required designer variable.
@@ -54,7 +54,6 @@
             this.Controls.Add(this.dgvMaszynySerwis);
             this.Name = "Maszyny_Serwis";
             this.Text = "Maszyny_Serwis";
-            this.Load += new System.EventHandler(this.Maszyny_Serwis_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaszynySerwis)).EndInit();
             this.ResumeLayout(false);
 

@@ -12,7 +12,7 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vMaszyny_Serwis
+    public partial class vMaszyny_serwis
     {
         public int ID_Maszyny { get; set; }
         public string Model { get; set; }

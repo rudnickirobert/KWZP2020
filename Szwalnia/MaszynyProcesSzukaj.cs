@@ -10,19 +10,17 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class Suma_Czasu_Pokaz : Form
+    public partial class MaszynyProcesSzukaj : Form
     {
         private SzwalniaEntities db;
-        public Suma_Czasu_Pokaz()
+        public MaszynyProcesSzukaj(SzwalniaEntities db)
         {
             InitializeComponent();
-            db = new SzwalniaEntities();
-            dgv_Suma_Czas.DataSource = db.vSuma_Czasu_Proces.ToList();
         }
-
-        private void Suma_Czasu_Pokaz_Load(object sender, EventArgs e)
+        private void btnSzukaj_Click(object sender, EventArgs e)
         {
-
+            MaszynyProcesWykonaj maszynyProcesWykonaj = new MaszynyProcesWykonaj(db, txtbSzukaj.Text);
+            maszynyProcesWykonaj.Show();
         }
     }
 }

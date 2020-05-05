@@ -12,7 +12,7 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vMaszyny_rdz_lb
+    public partial class vMaszyny_rodzaj_liczba
     {
         public int ID_Maszyny_Proces { get; set; }
         public string Rodzaj_Maszyny { get; set; }

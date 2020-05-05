@@ -8,25 +8,25 @@ FROM     dbo.Elementy INNER JOIN
                   dbo.Maszyny ON dbo.Obsluga_Techniczna.ID_Maszyny = dbo.Maszyny.ID_Maszyny
 GO
 
-CREATE VIEW vMaszyny_rdz_lb AS
+CREATE VIEW vMaszyny_rodzaj_liczba AS
 SELECT        dbo.Maszyny_Proces.ID_Maszyny_Proces, dbo.Rodzaj_Maszyny.Rodzaj_Maszyny, dbo.Maszyny_Proces.Liczba, dbo.Maszyny_Proces.Liczba_Rbh
 FROM            dbo.Maszyny_Proces INNER JOIN
                          dbo.Rodzaj_Maszyny ON dbo.Maszyny_Proces.ID_Rodzaj_Maszyny = dbo.Rodzaj_Maszyny.ID_Rodzaj_Maszyny
 GO
 
-CREATE VIEW vMaszyny_Serwis AS 
+CREATE VIEW vMaszyny_serwis AS 
 SELECT ID_Maszyny, Model, Producent, Resurs_rbh, Resurs_data_serwisu
 FROM     dbo.Maszyny
 WHERE  (Resurs_data_serwisu <= DATEADD(MM, 2, GETDATE())) OR
                   (Resurs_rbh < 80)
 GO
 
-Create view vSuma_Czasu_Proces as 
+Create view vSuma_czasu_proces as 
 (SELECT ID_Proces_Technologiczny, SUM(Czas) as suma_czasu  
 from Etapy_W_Procesie GROUP BY ID_Proces_Technologiczny);
 GO
 
-CREATE VIEW vSrednia_Il_Maszyn AS
+CREATE VIEW vSrednia_ilosc_maszyn AS
 SELECT dbo.Rodzaj_Maszyny.Rodzaj_Maszyny, SUM(dbo.Maszyny_Proces.Liczba) / COUNT(dbo.Proces_Zamowienie.ID_Proces_Zamowienie) AS srednia_ilosc_maszyn
 FROM     dbo.Proces_Zamowienie INNER JOIN
                   dbo.Maszyny_Proces ON dbo.Maszyny_Proces.ID_Proces_Technologiczny = dbo.Proces_Zamowienie.ID_Proces_Technologiczny INNER JOIN

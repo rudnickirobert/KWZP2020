@@ -10,19 +10,17 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class Maszyny_Serwis : Form
+    public partial class ObslugaSzukaj : Form
     {
         private SzwalniaEntities db;
-        public Maszyny_Serwis()
+        public ObslugaSzukaj(SzwalniaEntities db)
         {
             InitializeComponent();
-            db = new SzwalniaEntities();
-            dgvMaszynySerwis.DataSource = db.vMaszyny_Serwis.ToList();
         }
-
-        private void Maszyny_Serwis_Load(object sender, EventArgs e)
+        private void btnSzukaj_Click(object sender, EventArgs e)
         {
-
+            ObslugaZrobione obslugaZrobione = new ObslugaZrobione(db, txtbSzukaj.Text);
+            obslugaZrobione.Show();
         }
     }
 }

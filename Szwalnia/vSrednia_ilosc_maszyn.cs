@@ -12,7 +12,7 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vSrednia_Il_Maszyn
+    public partial class vSrednia_ilosc_maszyn
     {
         public string Rodzaj_Maszyny { get; set; }
         public Nullable<int> srednia_ilosc_maszyn { get; set; }

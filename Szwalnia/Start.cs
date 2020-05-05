@@ -28,7 +28,7 @@ namespace Szwalnia
 
         private void btnPrzygotowanieProdukcji_Click(object sender, EventArgs e)
         {
-            Przygotowanie_Produkcji przygotowanie_Produkcji = new Przygotowanie_Produkcji();
+            PrzygotowanieProdukcji przygotowanie_Produkcji = new PrzygotowanieProdukcji();
             przygotowanie_Produkcji.Show();
         }
     }

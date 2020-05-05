@@ -1,6 +1,6 @@
 ﻿namespace Szwalnia
 {
-    partial class Maszyny_Proces_Szukaj
+    partial class MaszynyProcesSzukaj
     {
         /// <summary>
         /// Required designer variable.
@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblOpis = new System.Windows.Forms.Label();
             this.lblLaboratoria = new System.Windows.Forms.Label();
-            this.txtbox = new System.Windows.Forms.TextBox();
-            this.btn = new System.Windows.Forms.Button();
+            this.txtbSzukaj = new System.Windows.Forms.TextBox();
+            this.btnSzukaj = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lblOpis
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(51, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(177, 17);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Wpisz ID_Maszyny_proces";
+            this.lblOpis.AutoSize = true;
+            this.lblOpis.Location = new System.Drawing.Point(51, 45);
+            this.lblOpis.Name = "lblOpis";
+            this.lblOpis.Size = new System.Drawing.Size(177, 17);
+            this.lblOpis.TabIndex = 13;
+            this.lblOpis.Text = "Wpisz ID_Maszyny_proces";
             // 
             // lblLaboratoria
             // 
@@ -53,37 +53,36 @@
             this.lblLaboratoria.TabIndex = 12;
             this.lblLaboratoria.Text = "Laboratoria KWZP 2020";
             // 
-            // txtbox
+            // txtbSzukaj
             // 
-            this.txtbox.Location = new System.Drawing.Point(12, 64);
-            this.txtbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtbox.Name = "txtbox";
-            this.txtbox.Size = new System.Drawing.Size(267, 22);
-            this.txtbox.TabIndex = 11;
+            this.txtbSzukaj.Location = new System.Drawing.Point(12, 64);
+            this.txtbSzukaj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtbSzukaj.Name = "txtbSzukaj";
+            this.txtbSzukaj.Size = new System.Drawing.Size(267, 22);
+            this.txtbSzukaj.TabIndex = 11;
             // 
-            // btn
+            // btnSzukaj
             // 
-            this.btn.Location = new System.Drawing.Point(12, 109);
-            this.btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn.Name = "btn";
-            this.btn.Size = new System.Drawing.Size(267, 36);
-            this.btn.TabIndex = 10;
-            this.btn.Text = "Szukaj";
-            this.btn.UseVisualStyleBackColor = true;
-            this.btn.Click += new System.EventHandler(this.btn_Click);
+            this.btnSzukaj.Location = new System.Drawing.Point(12, 109);
+            this.btnSzukaj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSzukaj.Name = "btnSzukaj";
+            this.btnSzukaj.Size = new System.Drawing.Size(267, 36);
+            this.btnSzukaj.TabIndex = 10;
+            this.btnSzukaj.Text = "Szukaj";
+            this.btnSzukaj.UseVisualStyleBackColor = true;
+            this.btnSzukaj.Click += new System.EventHandler(this.btnSzukaj_Click);
             // 
-            // Maszyny_Proces_Szukaj
+            // MaszynyProcesSzukaj
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(297, 166);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblOpis);
             this.Controls.Add(this.lblLaboratoria);
-            this.Controls.Add(this.txtbox);
-            this.Controls.Add(this.btn);
-            this.Name = "Maszyny_Proces_Szukaj";
+            this.Controls.Add(this.txtbSzukaj);
+            this.Controls.Add(this.btnSzukaj);
+            this.Name = "MaszynyProcesSzukaj";
             this.Text = "Maszyny_Proces_Szukaj";
-            this.Load += new System.EventHandler(this.Maszyny_Proces_Szukaj_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -91,9 +90,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblOpis;
         private System.Windows.Forms.Label lblLaboratoria;
-        private System.Windows.Forms.TextBox txtbox;
-        private System.Windows.Forms.Button btn;
+        private System.Windows.Forms.TextBox txtbSzukaj;
+        private System.Windows.Forms.Button btnSzukaj;
     }
 }
