@@ -37,11 +37,11 @@
             // btnRealizacjaProcesu
             // 
             this.btnRealizacjaProcesu.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnRealizacjaProcesu.Location = new System.Drawing.Point(28, 163);
+            this.btnRealizacjaProcesu.Location = new System.Drawing.Point(21, 132);
             this.btnRealizacjaProcesu.Margin = new System.Windows.Forms.Padding(2);
             this.btnRealizacjaProcesu.Name = "btnRealizacjaProcesu";
             this.btnRealizacjaProcesu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnRealizacjaProcesu.Size = new System.Drawing.Size(214, 72);
+            this.btnRealizacjaProcesu.Size = new System.Drawing.Size(160, 58);
             this.btnRealizacjaProcesu.TabIndex = 1;
             this.btnRealizacjaProcesu.Text = "Realizacja procesu";
             this.btnRealizacjaProcesu.UseVisualStyleBackColor = true;
@@ -50,10 +50,9 @@
             // btnMagazyn
             // 
             this.btnMagazyn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnMagazyn.Location = new System.Drawing.Point(37, 42);
-            this.btnMagazyn.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMagazyn.Location = new System.Drawing.Point(28, 34);
             this.btnMagazyn.Name = "btnMagazyn";
-            this.btnMagazyn.Size = new System.Drawing.Size(285, 92);
+            this.btnMagazyn.Size = new System.Drawing.Size(214, 75);
             this.btnMagazyn.TabIndex = 0;
             this.btnMagazyn.Text = "Magazyn";
             this.btnMagazyn.UseVisualStyleBackColor = true;
@@ -62,10 +61,10 @@
             // btnPrzydzialZasobow
             // 
             this.btnPrzydzialZasobow.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnPrzydzialZasobow.Location = new System.Drawing.Point(503, 40);
+            this.btnPrzydzialZasobow.Location = new System.Drawing.Point(377, 32);
             this.btnPrzydzialZasobow.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrzydzialZasobow.Name = "btnPrzydzialZasobow";
-            this.btnPrzydzialZasobow.Size = new System.Drawing.Size(190, 75);
+            this.btnPrzydzialZasobow.Size = new System.Drawing.Size(142, 61);
             this.btnPrzydzialZasobow.TabIndex = 1;
             this.btnPrzydzialZasobow.Text = "Przydzial Zasobow";
             this.btnPrzydzialZasobow.UseVisualStyleBackColor = true;
@@ -83,25 +82,26 @@
             // btnZarzadzanie
             // 
             this.btnZarzadzanie.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnZarzadzanie.Location = new System.Drawing.Point(28, 294);
+            this.btnZarzadzanie.Location = new System.Drawing.Point(21, 239);
+            this.btnZarzadzanie.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnZarzadzanie.Name = "btnZarzadzanie";
-            this.btnZarzadzanie.Size = new System.Drawing.Size(294, 88);
+            this.btnZarzadzanie.Size = new System.Drawing.Size(220, 72);
             this.btnZarzadzanie.TabIndex = 0;
             this.btnZarzadzanie.Text = "Zarzadzanie";
             this.btnZarzadzanie.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnZarzadzanie_MouseClick);
             // 
             // Start
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.btnZarzadzanie);
             this.Controls.Add(this.btnRealizacjaProcesu);
             this.Controls.Add(this.btnMagazyn);
             this.Controls.Add(this.btnPrzydzialZasobow);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Start";
             this.Text = "Szwalnia";
+            this.Load += new System.EventHandler(this.Start_Load);
             this.ResumeLayout(false);
 
         }

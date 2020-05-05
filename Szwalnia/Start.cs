@@ -37,5 +37,10 @@ namespace Szwalnia
             ZarzadzanieForm zarzadzanieForm = new ZarzadzanieForm(szwalnia);
             zarzadzanieForm.Show();
         }
+
+        private void Start_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
