@@ -30,6 +30,9 @@
             this.btnRealizacjaProcesu = new System.Windows.Forms.Button();
             this.btnMagazyn = new System.Windows.Forms.Button();
             this.btnPrzydzialZasobow = new System.Windows.Forms.Button();
+            this.btnPrzygotowanieProdukcji = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnZamowienieProces = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnZamowienieProces = new System.Windows.Forms.Button();
             this.btnZarzadzanie = new System.Windows.Forms.Button();
@@ -59,6 +62,17 @@
             this.btnMagazyn.Text = "Magazyn";
             this.btnMagazyn.UseVisualStyleBackColor = true;
             this.btnMagazyn.Click += new System.EventHandler(this.btnMagazyn_Click);
+            // 
+            // btnPrzygotowanieProdukcji
+            // 
+            this.btnPrzygotowanieProdukcji.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnPrzygotowanieProdukcji.Location = new System.Drawing.Point(37, 169);
+            this.btnPrzygotowanieProdukcji.Name = "btnPrzygotowanieProdukcji";
+            this.btnPrzygotowanieProdukcji.Size = new System.Drawing.Size(285, 90);
+            this.btnPrzygotowanieProdukcji.TabIndex = 1;
+            this.btnPrzygotowanieProdukcji.Text = "Przygotowanie produkcji";
+            this.btnPrzygotowanieProdukcji.UseVisualStyleBackColor = true;
+            this.btnPrzygotowanieProdukcji.Click += new System.EventHandler(this.btnPrzygotowanieProdukcji_Click);
             // 
             // btnPrzydzialZasobow
             // 
@@ -127,6 +141,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnZamowienieProces;
         private System.Windows.Forms.Button btnZarzadzanie;
+        private System.Windows.Forms.Button btnPrzygotowanieProdukcji;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnZamowienieProces;
     }
 }
 
