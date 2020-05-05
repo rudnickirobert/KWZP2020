@@ -26,6 +26,12 @@ namespace Szwalnia
             magForm.Show();
         }
 
+        private void btnRealizacjaProcesu_Click(object sender, EventArgs e)
+        {
+            RealizacjaProcesuSzczegoly realizacjaProcesu = new RealizacjaProcesuSzczegoly(szwalnia);
+            realizacjaProcesu.Show();
+        }
+
         private void btnPrzygotowanieProdukcji_Click(object sender, EventArgs e)
         {
             PrzygotowanieProdukcji przygotowanieProdukcji = new PrzygotowanieProdukcji(szwalnia);
