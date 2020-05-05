@@ -12,14 +12,12 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class Zamowienia_Zawartosc
+    public partial class vRealizacjaProcesuProdukcyjnegoDetails
     {
-        public int ID_Zamowienia_Zawartosc { get; set; }
-        public Nullable<int> ID_Zamowienia { get; set; }
-        public Nullable<int> ID_Oferta { get; set; }
-        public Nullable<int> Ilosc_Zamawiana { get; set; }
-    
-        public virtual Oferta Oferta { get; set; }
-        public virtual Zamowienia Zamowienia { get; set; }
+        public int ID_Procesu_Produkcyjnego { get; set; }
+        public int ID_Realizacji_Procesu { get; set; }
+        public string Nazwa_etapu { get; set; }
+        public System.DateTime Data_Rozpoczecia_Procesu { get; set; }
+        public Nullable<System.DateTime> Data_Zakonczenia_Procesu { get; set; }
     }
 }

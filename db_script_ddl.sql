@@ -13,7 +13,7 @@ CREATE TABLE Produkt
 (ID_Produkt int IDENTITY(1,1) PRIMARY KEY, 
 Nazwa varchar(30) NOT NULL); 
 
-----------------------------------Finanse i Zarz¹dzanie--------------------------------------------------- 
+----------------------------------Finanse i ZarzÂ¹dzanie--------------------------------------------------- 
 CREATE TABLE Klienci ( 
 ID_Klienta int IDENTITY(1,1) PRIMARY KEY, 
 Imie varchar(50) not null, 
@@ -61,7 +61,7 @@ Telefon varchar(15) not null unique,
 CREATE TABLE Urlop ( 
 ID_Urlop int IDENTITY (1,1) PRIMARY KEY, 
 ID_Pracownika int FOREIGN KEY REFERENCES Pracownicy(ID_Pracownika), 
-Data_rozpoczêcia DATE not null default GETDATE(), 
+Data_rozpoczÃªcia DATE not null default GETDATE(), 
 Data_zakonczenia DATE not null default GETDATE(), 
 );  
 
@@ -121,7 +121,7 @@ Podatek real not null,
 ); 
 
 --------------------------------------------------------- MAGAZYN--------------------------------------------------------- 
---Magazyn tabele s³ownikowe 
+--Magazyn tabele sÂ³ownikowe 
 CREATE TABLE Polki_Rozmiary (
 ID_Rozmiar_Polki int IDENTITY(1,1) PRIMARY KEY,
 Wysokosc int,
@@ -138,10 +138,10 @@ CREATE TABLE Elementy_Jednostki (
 ID_jednostka int IDENTITY(1,1) PRIMARY KEY,
 Jednostka varchar(10)
 )
-
 CREATE TABLE Elementy_Cechy_Slownik(
 ID_Cecha int IDENTITY(1,1) PRIMARY KEY,
-Cecha varchar(20)
+Cecha varchar(20),
+Czy_wlasne bit not null default 0
 )
 
 CREATE TABLE Polki (
@@ -178,11 +178,7 @@ ID_Element_Typ int
 	FOREIGN KEY REFERENCES
 	Elementy_Typy (ID_Element_Typ),
 Element_Nazwa varchar(20),
-Okres_Przydatnosci_Miesiace int,
-Element_Ilosc_W_Paczce real, 
-ID_Jednostka int
-	FOREIGN KEY REFERENCES
-	Elementy_Jednostki(ID_Jednostka)
+Okres_Przydatnosci_Miesiace int
 )
 
 CREATE TABLE Elementy_Cechy(
@@ -224,8 +220,12 @@ Cena_Jedn money,
 Data_Oferty date,
 Ilosc_Minimalna int,
 Ilosc_Maksymalna int,
+Ilosc_W_Opakowaniu_Pojedynczym real, 
+ID_Jednostka int
+	FOREIGN KEY REFERENCES
+	Elementy_Jednostki(ID_Jednostka),
 Ilosc_W_Opakowaniu_Zbiorczym int,
-Deklarowany_czas_dostawy int,
+Deklarowany_czas_dostawy int
 )
 
 ---------------------------------------------------------WYMAGA TABELI ZAMOWIEN I PRACOWNIKOW---------------------------------------------------------
@@ -265,16 +265,6 @@ ID_Dostawy int
 Ilosc_Paczek int
 )
 
-CREATE TABLE Dostawcy_Oferta (
-ID_Dostawcy_Oferta int IDENTITY(1,1) PRIMARY KEY,
-ID_Oferta int
-	FOREIGN KEY REFERENCES  
-	Oferta(ID_Oferta), 
-ID_Zamowienia int 
-	FOREIGN KEY REFERENCES  
-	Zamowienia(ID_Zamowienia), 
-)
-
 CREATE TABLE Dostawy_Zawartosc (
 ID_Dostawy_Zawartosc int IDENTITY(1,1) PRIMARY KEY,
 ID_Dostawy int
@@ -283,18 +273,11 @@ ID_Dostawy int
 ID_Element int
 	FOREIGN KEY REFERENCES 
 	Elementy(ID_Element),
+ID_oferta int
+	FOREIGN KEY REFERENCES
+	Oferta (ID_oferta),
 Ilosc_Dostarczona int
 )
-
-CREATE TABLE Zamowienia_Zawartosc (
-ID_Zamowienia_Zawartosc int IDENTITY(1,1) PRIMARY KEY,
-ID_Zamowienia int 
-	FOREIGN KEY REFERENCES
-	Zamowienia(ID_Zamowienia),
-ID_Oferta int
-	FOREIGN KEY REFERENCES 
-	Oferta(ID_Oferta),
-Ilosc_Zamawiana int)
 
 CREATE TABLE Dostarczenia_Wewn (
 ID_Dostarczenia int IDENTITY(1,1) PRIMARY KEY,
@@ -341,7 +324,7 @@ CREATE TABLE Zamowienie_Produkt (
 
 ---------------------------------------------------------KONIEC MAGAZYN---------------------------------------------------------
  
----------------------- Pocz¹tek Przygotowanie produkcji------------------------- 
+---------------------- PoczÂ¹tek Przygotowanie produkcji------------------------- 
 create table Czesci_Obsluga ( 
     ID_Obslugi  int IDENTITY(1,1) not null PRIMARY KEY, 
     ID_Element int not null FOREIGN KEY REFERENCES Elementy (ID_Element), 
@@ -506,6 +489,26 @@ FROM Elementy INNER JOIN
 	Elementy_Jednostki ON Elementy_Cechy.ID_Jednostka = Elementy_Jednostki.ID_jednostka
 GO
 
+CREATE VIEW [dbo].[vZamowienieProcesyProdukcyjne]
+AS
+SELECT        dbo.Proces_Produkcyjny.ID_Procesu_Produkcyjnego, dbo.Zamowienie_Produkt.ID_Zamowienia, dbo.Proces_Produkcyjny.ID_Zamowienie_Produkt, dbo.Produkt.Nazwa AS Nazwa_Produktu, 
+                         dbo.Proces_Produkcyjny.ID_Proces_Technologiczny, dbo.Proces_Produkcyjny.Data_Rozpoczecia, dbo.Proces_Produkcyjny.Data_Zakonczenia, dbo.Proces_Produkcyjny.ID_Dokumentacja_Proces, 
+                         dbo.Proces_Produkcyjny.Uwagi
+FROM            dbo.Proces_Produkcyjny INNER JOIN
+                         dbo.Zamowienie_Produkt ON dbo.Proces_Produkcyjny.ID_Zamowienie_Produkt = dbo.Zamowienie_Produkt.ID_Zamowienie_Produkt INNER JOIN
+                         dbo.Produkt ON dbo.Zamowienie_Produkt.ID_Produkt = dbo.Produkt.ID_Produkt
+GO
+
+CREATE VIEW vRealizacjaProcesuProdukcyjnegoDetails 
+AS
+SELECT dbo.Proces_Produkcyjny.ID_Procesu_Produkcyjnego, dbo.Realizacja_Procesu.ID_Realizacji_Procesu, dbo.Rodzaj_Etapu.Nazwa as 'Nazwa etapu', dbo.Realizacja_Procesu.Data_Rozpoczecia_Procesu, 
+                  dbo.Realizacja_Procesu.Data_Zakonczenia_Procesu
+FROM     dbo.Realizacja_Procesu INNER JOIN
+                  dbo.Rodzaj_Etapu ON dbo.Realizacja_Procesu.ID_Etapu = dbo.Rodzaj_Etapu.ID_Etapu INNER JOIN
+                  dbo.Proces_Produkcyjny ON dbo.Realizacja_Procesu.ID_Procesu_Produkcyjnego = dbo.Proces_Produkcyjny.ID_Procesu_Produkcyjnego
+				  
+				  
+GO
 ---- Widok przydzial zasobow
 
 GO
