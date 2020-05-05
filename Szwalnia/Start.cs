@@ -36,6 +36,11 @@ namespace Szwalnia
         {
             PrzygotowanieProdukcji przygotowanieProdukcji = new PrzygotowanieProdukcji(szwalnia);
             przygotowanieProdukcji.Show();
+
+        private void btnZamowienieProces_Click(object sender, EventArgs e)
+        {
+            ZamowienieProcesyProdukcyjne zamowienieProcesy = new ZamowienieProcesyProdukcyjne(szwalnia);
+            zamowienieProcesy.Show();
         }
     }
 }
