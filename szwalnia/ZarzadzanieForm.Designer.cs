@@ -67,7 +67,6 @@
             this.btnFakturyZewnetrzne.TabIndex = 1;
             this.btnFakturyZewnetrzne.Text = "Faktury Zewnętrzne";
             this.btnFakturyZewnetrzne.UseVisualStyleBackColor = true;
-            this.btnFakturyZewnetrzne.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnFakturyZewnetrzne_MouseClick);
             // 
             // ZarzadzanieForm
             // 

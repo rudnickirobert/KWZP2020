@@ -40,6 +40,7 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.dgvKlienci = new System.Windows.Forms.DataGridView();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.btnWrocKlienci = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlienci)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,7 +131,7 @@
             this.dgvKlienci.Name = "dgvKlienci";
             this.dgvKlienci.RowHeadersWidth = 51;
             this.dgvKlienci.RowTemplate.Height = 24;
-            this.dgvKlienci.Size = new System.Drawing.Size(603, 240);
+            this.dgvKlienci.Size = new System.Drawing.Size(773, 240);
             this.dgvKlienci.TabIndex = 11;
             // 
             // lblTitle
@@ -142,11 +143,22 @@
             this.lblTitle.TabIndex = 12;
             this.lblTitle.Text = "Nazwa firmy";
             // 
-            // Klienci_szczegoly
+            // btnWrocKlienci
+            // 
+            this.btnWrocKlienci.Location = new System.Drawing.Point(672, 131);
+            this.btnWrocKlienci.Name = "btnWrocKlienci";
+            this.btnWrocKlienci.Size = new System.Drawing.Size(115, 44);
+            this.btnWrocKlienci.TabIndex = 13;
+            this.btnWrocKlienci.Text = "Wróć";
+            this.btnWrocKlienci.UseVisualStyleBackColor = true;
+            this.btnWrocKlienci.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnWrocKlienci_MouseClick);
+            // 
+            // KlienciSzczegoly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnWrocKlienci);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.dgvKlienci);
             this.Controls.Add(this.lblEmail);
@@ -159,7 +171,7 @@
             this.Controls.Add(this.txtAdres);
             this.Controls.Add(this.txtNIP);
             this.Controls.Add(this.txtNazwa);
-            this.Name = "Klienci_szczegoly";
+            this.Name = "KlienciSzczegoly";
             this.Text = "Klienci_szczegoly";
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlienci)).EndInit();
             this.ResumeLayout(false);
@@ -181,5 +193,6 @@
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.DataGridView dgvKlienci;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Button btnWrocKlienci;
     }
 }
