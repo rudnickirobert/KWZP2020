@@ -121,11 +121,11 @@
     <Compile Include="Klienci.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Klienci_szczegoly.cs">
+    <Compile Include="KlienciSzczegoly.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Klienci_szczegoly.Designer.cs">
-      <DependentUpon>Klienci_szczegoly.cs</DependentUpon>
+    <Compile Include="KlienciSzczegoly.Designer.cs">
+      <DependentUpon>KlienciSzczegoly.cs</DependentUpon>
     </Compile>
     <Compile Include="Kontrola_Efektywnosci.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -309,8 +309,8 @@
     <EmbeddedResource Include="RealizacjaProcesuSzczegoly.resx">
       <DependentUpon>RealizacjaProcesuSzczegoly.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Klienci_szczegoly.resx">
-      <DependentUpon>Klienci_szczegoly.cs</DependentUpon>
+    <EmbeddedResource Include="KlienciSzczegoly.resx">
+      <DependentUpon>KlienciSzczegoly.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MagazynForm.resx">
       <DependentUpon>MagazynForm.cs</DependentUpon>

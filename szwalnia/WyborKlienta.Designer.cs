@@ -52,6 +52,7 @@
             this.dgvListaKlientow.RowTemplate.Height = 24;
             this.dgvListaKlientow.Size = new System.Drawing.Size(776, 363);
             this.dgvListaKlientow.TabIndex = 2;
+            this.dgvListaKlientow.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvListaKlientow_CellMouseDoubleClick);
             // 
             // WyborKlienta
             // 

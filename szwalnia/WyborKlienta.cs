@@ -21,7 +21,7 @@ namespace Szwalnia
             dgvListaKlientow.DataSource = db.Klienci.ToList();
         }
 
-        private void dgvListaKlientow_CellDoubleClik(object sender, DataGridViewCellEventArgs e)
+        private void dgvListaKlientow_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             int numID = Convert.ToInt32(dgvListaKlientow.CurrentRow.Cells[0].Value);
             KlienciSzczegoly klienciSzczegoly = new KlienciSzczegoly(db, Decimal.ToInt32(numID));
