@@ -55,7 +55,6 @@
             this.btnWroc.TabIndex = 0;
             this.btnWroc.Text = "Zamknij";
             this.btnWroc.UseVisualStyleBackColor = true;
-            this.btnWroc.Click += new System.EventHandler(this.btnZamknij);
             this.btnWroc.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnZamknij_MouseClick);
             // 
             // btnFakturyZewnetrzne
@@ -67,8 +66,6 @@
             this.btnFakturyZewnetrzne.TabIndex = 1;
             this.btnFakturyZewnetrzne.Text = "Faktury Zewnętrzne";
             this.btnFakturyZewnetrzne.UseVisualStyleBackColor = true;
-            this.btnFakturyZewnetrzne.Click += new System.EventHandler(this.btnFakturyZewnetrzne_Click);
-            this.btnFakturyZewnetrzne.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnFakturyZewnetrzne_MouseClick);
             // 
             // ZarzadzanieForm
             // 
@@ -81,7 +78,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ZarzadzanieForm";
             this.Text = "Moduł Zarządzanie";
-            this.Load += new System.EventHandler(this.ZarzadzanieForm_Load);
             this.ResumeLayout(false);
 
         }
