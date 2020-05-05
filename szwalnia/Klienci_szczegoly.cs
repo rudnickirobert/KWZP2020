@@ -12,19 +12,19 @@ namespace Szwalnia
 {
     public partial class Klienci_szczegoly : Form
     {
-        public Klienci_szczegoly( SzwalniaEntities db, String employeeNazwaFirmy)
+        public Klienci_szczegoly( SzwalniaEntities db, String customerNazwaFirmy)
         {
             InitializeComponent();
 
-            Klienci employee = db.Klienci
-                .Where(klient => klient.Nazwa_Firmy == employeeNazwaFirmy).First();
+            Klienci customer = db.Klienci
+                .Where(klient => klient.Nazwa_Firmy == customerNazwaFirmy).First();
 
-            lblTitle.Text = employee.Nazwa_Firmy;
-            txtNazwa.Text = employee.Nazwa_Firmy;
-            txtNIP.Text = employee.NIP;
-            txtAdres.Text = employee.Adres;
-            txtTelefon.Text = employee.Telefon;
-            txtEmail.Text = employee.E_Mail;
+            lblTitle.Text = customer.Nazwa_Firmy;
+            txtNazwa.Text = customer.Nazwa_Firmy;
+            txtNIP.Text = customer.NIP;
+            txtAdres.Text = customer.Adres;
+            txtTelefon.Text = customer.Telefon;
+            txtEmail.Text = customer.E_Mail;
 
         }
     }

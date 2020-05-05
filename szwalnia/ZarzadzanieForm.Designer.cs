@@ -50,7 +50,6 @@
             this.Controls.Add(this.btnKlienciForm);
             this.Name = "ZarzadzanieForm";
             this.Text = "Moduł Zarządzanie";
-            this.Load += new System.EventHandler(this.ZarzadzanieForm_Load);
             this.ResumeLayout(false);
 
         }

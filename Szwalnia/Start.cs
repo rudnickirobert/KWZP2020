@@ -26,16 +26,10 @@ namespace Szwalnia
             magForm.Show();
         }
 
-
-        private void Start_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnZarzadzanie_MouseClick(object sender, MouseEventArgs e)
         {
-            ZarzadzanieForm zarzForm = new ZarzadzanieForm(szwalnia);
-            zarzForm.Show();
+            ZarzadzanieForm zarzadzanieForm = new ZarzadzanieForm(szwalnia);
+            zarzadzanieForm.Show();
         }
     }
 }
