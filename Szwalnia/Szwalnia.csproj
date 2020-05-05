@@ -76,6 +76,12 @@
     <Compile Include="Dostawy_Zawartosc.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ElementSzczegoly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElementSzczegoly.Designer.cs">
+      <DependentUpon>ElementSzczegoly.cs</DependentUpon>
+    </Compile>
     <Compile Include="Elementy.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -93,12 +99,6 @@
     </Compile>
     <Compile Include="Elementy_Typy.cs">
       <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ElementSzczegoly.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ElementSzczegoly.Designer.cs">
-      <DependentUpon>ElementSzczegoly.cs</DependentUpon>
     </Compile>
     <Compile Include="Etapy_W_Procesie.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -222,6 +222,12 @@
     </Compile>
     <Compile Include="Proces_Zamowienie.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Produkcja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Produkcja.Designer.cs">
+      <DependentUpon>Produkcja.cs</DependentUpon>
     </Compile>
     <Compile Include="Produkt.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -350,6 +356,9 @@
     </Compile>
     <EmbeddedResource Include="ElementSzczegoly.resx">
       <DependentUpon>ElementSzczegoly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produkcja.resx">
+      <DependentUpon>Produkcja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RealizacjaProcesuSzczegoly.resx">
       <DependentUpon>RealizacjaProcesuSzczegoly.cs</DependentUpon>
