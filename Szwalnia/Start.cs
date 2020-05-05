@@ -23,5 +23,17 @@ namespace Szwalnia
             MagazynForm magForm = new MagazynForm(szwalnia);
             magForm.Show();
         }
+
+        private void btnRealizacjaProcesu_Click(object sender, EventArgs e)
+        {
+            RealizacjaProcesuSzczegoly realizacjaProcesu = new RealizacjaProcesuSzczegoly(szwalnia);
+            realizacjaProcesu.Show();
+        }
+
+        private void btnPrzydzialZasobow_Click(object sender, EventArgs e)
+        {
+            OknoPrzydzialZasobow zasob = new OknoPrzydzialZasobow(db);
+            zasob.Show();
+        }
     }
 }
