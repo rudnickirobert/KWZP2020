@@ -12,7 +12,7 @@ namespace Szwalnia
 {
     public partial class ZawartoscPolkiForm : Form
     {
-        public ZawartoscPolkiForm(SzwalniaEntities szwalnia_passed, int numer_polki)
+        public ZawartoscPolkiForm(SzwalniaEntities db, int numerPolki)
         {
             InitializeComponent();
         }

@@ -26,7 +26,7 @@ namespace Szwalnia
         public string Nazwa_Firmy { get; set; }
         public string NIP { get; set; }
         public string Adres { get; set; }
-        public int Odleglosc_km { get; set; }
+        public string Odleglosc_km { get; set; }
         public string Telefon { get; set; }
         public string E_Mail { get; set; }
     

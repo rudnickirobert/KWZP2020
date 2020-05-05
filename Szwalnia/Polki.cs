@@ -18,6 +18,7 @@ namespace Szwalnia
         public Polki()
         {
             this.Zawartosc = new HashSet<Zawartosc>();
+            this.Polki_regaly = new HashSet<Polki_regaly>();
         }
     
         public int ID_Polka { get; set; }
@@ -27,5 +28,7 @@ namespace Szwalnia
         public virtual Polki_Rozmiary Polki_Rozmiary { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zawartosc> Zawartosc { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Polki_regaly> Polki_regaly { get; set; }
     }
 }

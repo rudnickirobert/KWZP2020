@@ -75,6 +75,7 @@ namespace Szwalnia
         public virtual DbSet<Statusy> Statusy { get; set; }
         public virtual DbSet<Umowy_Kurierzy> Umowy_Kurierzy { get; set; }
         public virtual DbSet<Urlop> Urlop { get; set; }
+        public virtual DbSet<Wymiar_Urlopu> Wymiar_Urlopu { get; set; }
         public virtual DbSet<Zamowienia> Zamowienia { get; set; }
         public virtual DbSet<Zamowienia_Dostawy> Zamowienia_Dostawy { get; set; }
         public virtual DbSet<Zamowienia_Przydzial> Zamowienia_Przydzial { get; set; }
@@ -84,5 +85,7 @@ namespace Szwalnia
         public virtual DbSet<vCechyElementu> vCechyElementu { get; set; }
         public virtual DbSet<vPolki_na_regalach> vPolki_na_regalach { get; set; }
         public virtual DbSet<vZawartosc_polki> vZawartosc_polki { get; set; }
+        public virtual DbSet<Polki_regaly> Polki_regaly { get; set; }
+        public virtual DbSet<Typy_cechy_rejestr> Typy_cechy_rejestr { get; set; }
     }
 }

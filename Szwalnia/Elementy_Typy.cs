@@ -18,6 +18,7 @@ namespace Szwalnia
         public Elementy_Typy()
         {
             this.Elementy = new HashSet<Elementy>();
+            this.Typy_cechy_rejestr = new HashSet<Typy_cechy_rejestr>();
         }
     
         public int ID_Element_Typ { get; set; }
@@ -26,5 +27,7 @@ namespace Szwalnia
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Elementy> Elementy { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Typy_cechy_rejestr> Typy_cechy_rejestr { get; set; }
     }
 }

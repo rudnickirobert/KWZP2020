@@ -14,19 +14,19 @@ namespace Szwalnia
 {
     public partial class WyborElementu : Form
     {
-        public SzwalniaEntities szwalnia_passed;
+        public SzwalniaEntities db;
 
         public WyborElementu(SzwalniaEntities szwalnia)
         {
             InitializeComponent();
-            szwalnia_passed = szwalnia;
+            db = szwalnia;
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {
             if (numID.Value > 0)
             {
                 lblError.Text = "";
-                Element_szczegoly Szczegoly_element = new Element_szczegoly(szwalnia_passed, Decimal.ToInt32(numID.Value));
+                ElementSzczegoly Szczegoly_element = new ElementSzczegoly(db, Decimal.ToInt32(numID.Value));
                 Szczegoly_element.Show();
                 this.Close();
             }

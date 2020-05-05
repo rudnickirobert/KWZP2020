@@ -1,6 +1,6 @@
 ﻿namespace Szwalnia
 {
-    partial class Element_szczegoly
+    partial class ElementSzczegoly
     {
         /// <summary>
         /// Required designer variable.

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class Element_szczegoly : Form
+    public partial class ElementSzczegoly : Form
     {
-        public Element_szczegoly(SzwalniaEntities szwalnia, int ID)
+        public ElementSzczegoly(SzwalniaEntities szwalnia, int ID)
         {
             InitializeComponent();
             Elementy element = szwalnia.Elementy.Where(wybrany => wybrany.ID_Element == ID).First();
