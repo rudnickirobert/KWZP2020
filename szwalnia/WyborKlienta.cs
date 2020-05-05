@@ -23,8 +23,10 @@ namespace Szwalnia
 
         private void dgvListaKlientow_CellDoubleClik(object sender, DataGridViewCellEventArgs e)
         {
-            Klienci_szczegoly klienci_Szczegoly = new Klienci_szczegoly(db, txtNazwaFirmy.Text);
-            klienci_Szczegoly.Show();
+            int numID = Convert.ToInt32(dgvListaKlientow.CurrentRow.Cells[0].Value);
+            KlienciSzczegoly klienciSzczegoly = new KlienciSzczegoly(db, Decimal.ToInt32(numID));
+            klienciSzczegoly.Show();
+            this.Close();
         }
     }
 }

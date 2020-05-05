@@ -20,7 +20,7 @@ namespace Szwalnia
         }
         private void btnKlienciForm_MouseClick(object sender, MouseEventArgs e)
         {
-            Wybor_klienta wyborKlienta = new Wybor_klienta(db);
+            WyborKlienta wyborKlienta = new WyborKlienta(db);
             wyborKlienta.Show();
             this.Close();
         }

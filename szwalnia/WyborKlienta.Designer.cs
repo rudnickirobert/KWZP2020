@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.lblInformacja = new System.Windows.Forms.Label();
-            this.davListaKlientow = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.davListaKlientow)).BeginInit();
+            this.dgvListaKlientow = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaKlientow)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInformacja
@@ -43,26 +43,26 @@
             this.lblInformacja.TabIndex = 1;
             this.lblInformacja.Text = "Wybierz klienta z listy";
             // 
-            // davListaKlientow
+            // dgvListaKlientow
             // 
-            this.davListaKlientow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.davListaKlientow.Location = new System.Drawing.Point(12, 75);
-            this.davListaKlientow.Name = "davListaKlientow";
-            this.davListaKlientow.RowHeadersWidth = 51;
-            this.davListaKlientow.RowTemplate.Height = 24;
-            this.davListaKlientow.Size = new System.Drawing.Size(776, 363);
-            this.davListaKlientow.TabIndex = 2;
+            this.dgvListaKlientow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaKlientow.Location = new System.Drawing.Point(12, 75);
+            this.dgvListaKlientow.Name = "dgvListaKlientow";
+            this.dgvListaKlientow.RowHeadersWidth = 51;
+            this.dgvListaKlientow.RowTemplate.Height = 24;
+            this.dgvListaKlientow.Size = new System.Drawing.Size(776, 363);
+            this.dgvListaKlientow.TabIndex = 2;
             // 
-            // Wybor_klienta
+            // WyborKlienta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.davListaKlientow);
+            this.Controls.Add(this.dgvListaKlientow);
             this.Controls.Add(this.lblInformacja);
-            this.Name = "Wybor_klienta";
+            this.Name = "WyborKlienta";
             this.Text = "Wybor_klienta";
-            ((System.ComponentModel.ISupportInitialize)(this.davListaKlientow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaKlientow)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -70,6 +70,6 @@
 
         #endregion
         private System.Windows.Forms.Label lblInformacja;
-        private System.Windows.Forms.DataGridView davListaKlientow;
+        private System.Windows.Forms.DataGridView dgvListaKlientow;
     }
 }

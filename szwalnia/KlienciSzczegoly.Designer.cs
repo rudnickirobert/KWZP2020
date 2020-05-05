@@ -1,6 +1,6 @@
 ﻿namespace Szwalnia
 {
-    partial class Klienci_szczegoly
+    partial class KlienciSzczegoly
     {
         /// <summary>
         /// Required designer variable.

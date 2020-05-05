@@ -10,22 +10,18 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class Klienci_szczegoly : Form
+    public partial class KlienciSzczegoly : Form
     {
-        public Klienci_szczegoly( SzwalniaEntities db, String customerNazwaFirmy)
+        public KlienciSzczegoly( SzwalniaEntities db, int ID)
         {
             InitializeComponent();
-
-            Klienci customer = db.Klienci
-                .Where(klient => klient.Nazwa_Firmy == customerNazwaFirmy).First();
-
-            lblTitle.Text = customer.Nazwa_Firmy;
+            Klienci customer = db.Klienci.Where(wybrane => wybrane.ID_Klienta == ID).First();
+            lblTitle.Text = "Dane klienta o ID: " + customer.ID_Klienta;
             txtNazwa.Text = customer.Nazwa_Firmy;
             txtNIP.Text = customer.NIP;
             txtAdres.Text = customer.Adres;
             txtTelefon.Text = customer.Telefon;
             txtEmail.Text = customer.E_Mail;
-
         }
     }
 }
