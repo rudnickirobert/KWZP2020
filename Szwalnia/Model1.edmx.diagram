@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6147b0a4d5aa46afa5ed6ebf3d21666a" Name="Diagram1">
+      <Diagram DiagramId="4aee363189bf4397bea2896ac048b55c" Name="Diagram1">
         <EntityTypeShape EntityType="SzwalniaModel.Czesci_Obsluga" Width="1.5" PointX="15.75" PointY="55.625" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Dokumentacja_Proces" Width="1.5" PointX="5.25" PointY="41.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Dokumentacje" Width="1.5" PointX="3" PointY="33.125" IsExpanded="true" />
@@ -60,9 +60,10 @@
         <EntityTypeShape EntityType="SzwalniaModel.Zapotrzebowanie_Opakowan" Width="1.5" PointX="15.75" PointY="47" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Zawartosc" Width="1.5" PointX="13.5" PointY="36.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Znajomosc_Jezykow" Width="1.5" PointX="9" PointY="33.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.vCechyElementu" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.vRealizacjaProcesuProdukcyjnegoDetails" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.vZamowienieProcesyProdukcyjne" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.v_Przydzial_Zasobow" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vCechyElementu" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vRealizacjaProcesuProdukcyjnegoDetails" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vZamowienieProcesyProdukcyjne" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="SzwalniaModel.FK__Czesci_Ob__ID_El__208CD6FA" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Dokumenta__ID_Do__2CF2ADDF" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Proces_Pr__ID_Do__4C6B5938" ManuallyRouted="false" />

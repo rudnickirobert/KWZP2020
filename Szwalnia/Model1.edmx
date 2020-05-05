@@ -524,6 +524,26 @@
           <Property Name="ID_Pracownika" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.v_Przydzial_Zasobow' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Przydzial_Zasobow">
+          <Key>
+            <PropertyRef Name="ID_Procesu_Produkcyjnego" />
+            <PropertyRef Name="ID_Realizacji_Procesu" />
+            <PropertyRef Name="ID_Pracownika" />
+            <PropertyRef Name="Imie" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="ID_Maszyny" />
+            <PropertyRef Name="Model" />
+          </Key>
+          <Property Name="ID_Procesu_Produkcyjnego" Type="int" Nullable="false" />
+          <Property Name="ID_Realizacji_Procesu" Type="int" Nullable="false" />
+          <Property Name="ID_Pracownika" Type="int" Nullable="false" />
+          <Property Name="Imie" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_Maszyny" Type="int" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vCechyElementu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vCechyElementu">
           <Key>
@@ -1501,6 +1521,17 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
           <EntitySet Name="Zapotrzebowanie_Opakowan" EntityType="Self.Zapotrzebowanie_Opakowan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zawartosc" EntityType="Self.Zawartosc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Znajomosc_Jezykow" EntityType="Self.Znajomosc_Jezykow" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="v_Przydzial_Zasobow" EntityType="Self.v_Przydzial_Zasobow" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Przydzial_Zasobow].[ID_Procesu_Produkcyjnego] AS [ID_Procesu_Produkcyjnego], 
+    [v_Przydzial_Zasobow].[ID_Realizacji_Procesu] AS [ID_Realizacji_Procesu], 
+    [v_Przydzial_Zasobow].[ID_Pracownika] AS [ID_Pracownika], 
+    [v_Przydzial_Zasobow].[Imie] AS [Imie], 
+    [v_Przydzial_Zasobow].[Nazwisko] AS [Nazwisko], 
+    [v_Przydzial_Zasobow].[ID_Maszyny] AS [ID_Maszyny], 
+    [v_Przydzial_Zasobow].[Model] AS [Model]
+    FROM [dbo].[v_Przydzial_Zasobow] AS [v_Przydzial_Zasobow]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vCechyElementu" EntityType="Self.vCechyElementu" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vCechyElementu].[ID_Element] AS [ID_Element], 
@@ -2494,6 +2525,24 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
           <NavigationProperty Name="Jezyk" Relationship="Self.FK__Znajomosc__ID_Je__4BAC3F29" FromRole="Znajomosc_Jezykow" ToRole="Jezyk" />
           <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Znajomosc__ID_Pr__4CA06362" FromRole="Znajomosc_Jezykow" ToRole="Pracownicy" />
         </EntityType>
+        <EntityType Name="v_Przydzial_Zasobow">
+          <Key>
+            <PropertyRef Name="ID_Procesu_Produkcyjnego" />
+            <PropertyRef Name="ID_Realizacji_Procesu" />
+            <PropertyRef Name="ID_Pracownika" />
+            <PropertyRef Name="Imie" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="ID_Maszyny" />
+            <PropertyRef Name="Model" />
+          </Key>
+          <Property Name="ID_Procesu_Produkcyjnego" Type="Int32" Nullable="false" />
+          <Property Name="ID_Realizacji_Procesu" Type="Int32" Nullable="false" />
+          <Property Name="ID_Pracownika" Type="Int32" Nullable="false" />
+          <Property Name="Imie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_Maszyny" Type="Int32" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
         <EntityType Name="vCechyElementu">
           <Key>
             <PropertyRef Name="ID_Element" />
@@ -3466,6 +3515,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
           <EntitySet Name="Zapotrzebowanie_Opakowan" EntityType="Self.Zapotrzebowanie_Opakowan" />
           <EntitySet Name="Zawartosc" EntityType="Self.Zawartosc" />
           <EntitySet Name="Znajomosc_Jezykow" EntityType="Self.Znajomosc_Jezykow" />
+          <EntitySet Name="v_Przydzial_Zasobow" EntityType="Self.v_Przydzial_Zasobow" />
           <EntitySet Name="vCechyElementu" EntityType="Self.vCechyElementu" />
           <EntitySet Name="vRealizacjaProcesuProdukcyjnegoDetails" EntityType="Self.vRealizacjaProcesuProdukcyjnegoDetails" />
           <EntitySet Name="vZamowienieProcesyProdukcyjne" EntityType="Self.vZamowienieProcesyProdukcyjne" />
@@ -4338,6 +4388,19 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
                 <ScalarProperty Name="ID_Znajomosc_Jezykow" ColumnName="ID_Znajomosc_Jezykow" />
                 <ScalarProperty Name="ID_Jezyka" ColumnName="ID_Jezyka" />
                 <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Przydzial_Zasobow">
+            <EntityTypeMapping TypeName="SzwalniaModel.v_Przydzial_Zasobow">
+              <MappingFragment StoreEntitySet="v_Przydzial_Zasobow">
+                <ScalarProperty Name="ID_Procesu_Produkcyjnego" ColumnName="ID_Procesu_Produkcyjnego" />
+                <ScalarProperty Name="ID_Realizacji_Procesu" ColumnName="ID_Realizacji_Procesu" />
+                <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="ID_Maszyny" ColumnName="ID_Maszyny" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
