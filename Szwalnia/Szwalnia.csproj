@@ -169,6 +169,12 @@
     <Compile Include="Oferta.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="OknoPrzydzialZasobow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OknoPrzydzialZasobow.Designer.cs">
+      <DependentUpon>OknoPrzydzialZasobow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pensja.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -226,6 +232,12 @@
     <Compile Include="Stanowisko.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Szczegoly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Szczegoly.Designer.cs">
+      <DependentUpon>Szczegoly.cs</DependentUpon>
+    </Compile>
     <Compile Include="Umowy_Kurierzy.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -233,6 +245,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="vCechyElementu.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vPrzydzialZasobow.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="vRealizacjaProcesuProdukcyjnegoDetails.cs">
@@ -287,6 +302,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MagazynForm.resx">
       <DependentUpon>MagazynForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OknoPrzydzialZasobow.resx">
+      <DependentUpon>OknoPrzydzialZasobow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Szczegoly.resx">
+      <DependentUpon>Szczegoly.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Wybor_elementu.resx">
       <DependentUpon>Wybor_elementu.cs</DependentUpon>
