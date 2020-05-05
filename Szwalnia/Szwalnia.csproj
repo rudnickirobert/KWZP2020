@@ -238,9 +238,6 @@
     <Compile Include="vRealizacjaProcesuProdukcyjnegoDetails.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="vZamowienieProcesyProdukcyjne.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="WyborElementu.cs">
       <SubType>Form</SubType>
     </Compile>
