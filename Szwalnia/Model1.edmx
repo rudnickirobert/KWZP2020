@@ -453,7 +453,7 @@
           </Key>
           <Property Name="ID_Urlop" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Pracownika" Type="int" />
-          <Property Name="Data_rozpoczęcia" Type="date" Nullable="false" />
+          <Property Name="Data_rozpoczecia" Type="date" Nullable="false" />
           <Property Name="Data_zakonczenia" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="Zamowienia">
@@ -524,6 +524,26 @@
           <Property Name="ID_Pracownika" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.v_Przydzial_Zasobow' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Przydzial_Zasobow">
+          <Key>
+            <PropertyRef Name="ID_Procesu_Produkcyjnego" />
+            <PropertyRef Name="ID_Realizacji_Procesu" />
+            <PropertyRef Name="ID_Pracownika" />
+            <PropertyRef Name="Imie" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="ID_Maszyny" />
+            <PropertyRef Name="Model" />
+          </Key>
+          <Property Name="ID_Procesu_Produkcyjnego" Type="int" Nullable="false" />
+          <Property Name="ID_Realizacji_Procesu" Type="int" Nullable="false" />
+          <Property Name="ID_Pracownika" Type="int" Nullable="false" />
+          <Property Name="Imie" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_Maszyny" Type="int" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vCechyElementu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vCechyElementu">
           <Key>
@@ -549,6 +569,25 @@ warning 6002: The table/view 'Szwalnia.dbo.vRealizacjaProcesuProdukcyjnegoDetail
           <Property Name="Nazwa etapu" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="Data_Rozpoczecia_Procesu" Type="smalldatetime" Nullable="false" />
           <Property Name="Data_Zakonczenia_Procesu" Type="smalldatetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vZamowienieProcesyProdukcyjne">
+          <Key>
+            <PropertyRef Name="ID_Procesu_Produkcyjnego" />
+            <PropertyRef Name="ID_Zamowienie_Produkt" />
+            <PropertyRef Name="Nazwa_Produktu" />
+            <PropertyRef Name="ID_Proces_Technologiczny" />
+          </Key>
+          <Property Name="ID_Procesu_Produkcyjnego" Type="int" Nullable="false" />
+          <Property Name="ID_Zamowienia" Type="int" />
+          <Property Name="ID_Zamowienie_Produkt" Type="int" Nullable="false" />
+          <Property Name="Nazwa_Produktu" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ID_Proces_Technologiczny" Type="int" Nullable="false" />
+          <Property Name="Data_Rozpoczecia" Type="smalldatetime" />
+          <Property Name="Data_Zakonczenia" Type="smalldatetime" />
+          <Property Name="ID_Dokumentacja_Proces" Type="int" />
+          <Property Name="Uwagi" Type="varchar" MaxLength="300" />
         </EntityType>
         <Association Name="FK__Czesci_Ob__ID_El__208CD6FA">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
@@ -1482,6 +1521,17 @@ warning 6002: The table/view 'Szwalnia.dbo.vRealizacjaProcesuProdukcyjnegoDetail
           <EntitySet Name="Zapotrzebowanie_Opakowan" EntityType="Self.Zapotrzebowanie_Opakowan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zawartosc" EntityType="Self.Zawartosc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Znajomosc_Jezykow" EntityType="Self.Znajomosc_Jezykow" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="v_Przydzial_Zasobow" EntityType="Self.v_Przydzial_Zasobow" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Przydzial_Zasobow].[ID_Procesu_Produkcyjnego] AS [ID_Procesu_Produkcyjnego], 
+    [v_Przydzial_Zasobow].[ID_Realizacji_Procesu] AS [ID_Realizacji_Procesu], 
+    [v_Przydzial_Zasobow].[ID_Pracownika] AS [ID_Pracownika], 
+    [v_Przydzial_Zasobow].[Imie] AS [Imie], 
+    [v_Przydzial_Zasobow].[Nazwisko] AS [Nazwisko], 
+    [v_Przydzial_Zasobow].[ID_Maszyny] AS [ID_Maszyny], 
+    [v_Przydzial_Zasobow].[Model] AS [Model]
+    FROM [dbo].[v_Przydzial_Zasobow] AS [v_Przydzial_Zasobow]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vCechyElementu" EntityType="Self.vCechyElementu" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vCechyElementu].[ID_Element] AS [ID_Element], 
@@ -1499,6 +1549,19 @@ warning 6002: The table/view 'Szwalnia.dbo.vRealizacjaProcesuProdukcyjnegoDetail
     [vRealizacjaProcesuProdukcyjnegoDetails].[Data_Rozpoczecia_Procesu] AS [Data_Rozpoczecia_Procesu], 
     [vRealizacjaProcesuProdukcyjnegoDetails].[Data_Zakonczenia_Procesu] AS [Data_Zakonczenia_Procesu]
     FROM [dbo].[vRealizacjaProcesuProdukcyjnegoDetails] AS [vRealizacjaProcesuProdukcyjnegoDetails]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vZamowienieProcesyProdukcyjne" EntityType="Self.vZamowienieProcesyProdukcyjne" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vZamowienieProcesyProdukcyjne].[ID_Procesu_Produkcyjnego] AS [ID_Procesu_Produkcyjnego], 
+    [vZamowienieProcesyProdukcyjne].[ID_Zamowienia] AS [ID_Zamowienia], 
+    [vZamowienieProcesyProdukcyjne].[ID_Zamowienie_Produkt] AS [ID_Zamowienie_Produkt], 
+    [vZamowienieProcesyProdukcyjne].[Nazwa_Produktu] AS [Nazwa_Produktu], 
+    [vZamowienieProcesyProdukcyjne].[ID_Proces_Technologiczny] AS [ID_Proces_Technologiczny], 
+    [vZamowienieProcesyProdukcyjne].[Data_Rozpoczecia] AS [Data_Rozpoczecia], 
+    [vZamowienieProcesyProdukcyjne].[Data_Zakonczenia] AS [Data_Zakonczenia], 
+    [vZamowienieProcesyProdukcyjne].[ID_Dokumentacja_Proces] AS [ID_Dokumentacja_Proces], 
+    [vZamowienieProcesyProdukcyjne].[Uwagi] AS [Uwagi]
+    FROM [dbo].[vZamowienieProcesyProdukcyjne] AS [vZamowienieProcesyProdukcyjne]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__Czesci_Ob__ID_El__208CD6FA" Association="Self.FK__Czesci_Ob__ID_El__208CD6FA">
             <End Role="Elementy" EntitySet="Elementy" />
@@ -1853,8 +1916,10 @@ warning 6002: The table/view 'Szwalnia.dbo.vRealizacjaProcesuProdukcyjnegoDetail
           <EntitySet Name="Zapotrzebowanie_Opakowan" EntityType="SzwalniaModel.Zapotrzebowanie_Opakowan" />
           <EntitySet Name="Zawartosc" EntityType="SzwalniaModel.Zawartosc" />
           <EntitySet Name="Znajomosc_Jezykow" EntityType="SzwalniaModel.Znajomosc_Jezykow" />
+          <EntitySet Name="v_Przydzial_Zasobow" EntityType="SzwalniaModel.v_Przydzial_Zasobow" />
           <EntitySet Name="vCechyElementu" EntityType="SzwalniaModel.vCechyElementu" />
           <EntitySet Name="vRealizacjaProcesuProdukcyjnegoDetails" EntityType="SzwalniaModel.vRealizacjaProcesuProdukcyjnegoDetails" />
+          <EntitySet Name="vZamowienieProcesyProdukcyjne" EntityType="SzwalniaModel.vZamowienieProcesyProdukcyjne" />
           <AssociationSet Name="FK__Czesci_Ob__ID_El__208CD6FA" Association="SzwalniaModel.FK__Czesci_Ob__ID_El__208CD6FA">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Czesci_Obsluga" EntitySet="Czesci_Obsluga" />
@@ -2716,7 +2781,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vRealizacjaProcesuProdukcyjnegoDetail
           </Key>
           <Property Name="ID_Urlop" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Pracownika" Type="Int32" />
-          <Property Name="Data_rozpoczęcia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Data_rozpoczecia" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Data_zakonczenia" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="Pracownicy" Relationship="SzwalniaModel.FK__Urlop__ID_Pracow__3C69FB99" FromRole="Urlop" ToRole="Pracownicy" />
         </EntityType>
@@ -2812,6 +2877,24 @@ warning 6002: The table/view 'Szwalnia.dbo.vRealizacjaProcesuProdukcyjnegoDetail
           <NavigationProperty Name="Jezyk" Relationship="SzwalniaModel.FK__Znajomosc__ID_Je__4BAC3F29" FromRole="Znajomosc_Jezykow" ToRole="Jezyk" />
           <NavigationProperty Name="Pracownicy" Relationship="SzwalniaModel.FK__Znajomosc__ID_Pr__4CA06362" FromRole="Znajomosc_Jezykow" ToRole="Pracownicy" />
         </EntityType>
+        <EntityType Name="v_Przydzial_Zasobow">
+          <Key>
+            <PropertyRef Name="ID_Procesu_Produkcyjnego" />
+            <PropertyRef Name="ID_Realizacji_Procesu" />
+            <PropertyRef Name="ID_Pracownika" />
+            <PropertyRef Name="Imie" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="ID_Maszyny" />
+            <PropertyRef Name="Model" />
+          </Key>
+          <Property Name="ID_Procesu_Produkcyjnego" Type="Int32" Nullable="false" />
+          <Property Name="ID_Realizacji_Procesu" Type="Int32" Nullable="false" />
+          <Property Name="ID_Pracownika" Type="Int32" Nullable="false" />
+          <Property Name="Imie" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nazwisko" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Maszyny" Type="Int32" Nullable="false" />
+          <Property Name="Model" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="vCechyElementu">
           <Key>
             <PropertyRef Name="ID_Element" />
@@ -2834,6 +2917,23 @@ warning 6002: The table/view 'Szwalnia.dbo.vRealizacjaProcesuProdukcyjnegoDetail
           <Property Name="Nazwa_etapu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Data_Rozpoczecia_Procesu" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Data_Zakonczenia_Procesu" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="vZamowienieProcesyProdukcyjne">
+          <Key>
+            <PropertyRef Name="ID_Procesu_Produkcyjnego" />
+            <PropertyRef Name="ID_Zamowienie_Produkt" />
+            <PropertyRef Name="Nazwa_Produktu" />
+            <PropertyRef Name="ID_Proces_Technologiczny" />
+          </Key>
+          <Property Name="ID_Procesu_Produkcyjnego" Type="Int32" Nullable="false" />
+          <Property Name="ID_Zamowienia" Type="Int32" />
+          <Property Name="ID_Zamowienie_Produkt" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_Produktu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Proces_Technologiczny" Type="Int32" Nullable="false" />
+          <Property Name="Data_Rozpoczecia" Type="DateTime" Precision="0" />
+          <Property Name="Data_Zakonczenia" Type="DateTime" Precision="0" />
+          <Property Name="ID_Dokumentacja_Proces" Type="Int32" />
+          <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK__Czesci_Ob__ID_El__208CD6FA">
           <End Type="SzwalniaModel.Elementy" Role="Elementy" Multiplicity="1" />
@@ -3711,7 +3811,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vRealizacjaProcesuProdukcyjnegoDetail
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -4210,7 +4310,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vRealizacjaProcesuProdukcyjnegoDetail
             <EntityTypeMapping TypeName="SzwalniaModel.Urlop">
               <MappingFragment StoreEntitySet="Urlop">
                 <ScalarProperty Name="Data_zakonczenia" ColumnName="Data_zakonczenia" />
-                <ScalarProperty Name="Data_rozpoczęcia" ColumnName="Data_rozpoczęcia" />
+                <ScalarProperty Name="Data_rozpoczecia" ColumnName="Data_rozpoczecia" />
                 <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
                 <ScalarProperty Name="ID_Urlop" ColumnName="ID_Urlop" />
               </MappingFragment>
@@ -4290,6 +4390,19 @@ warning 6002: The table/view 'Szwalnia.dbo.vRealizacjaProcesuProdukcyjnegoDetail
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="v_Przydzial_Zasobow">
+            <EntityTypeMapping TypeName="SzwalniaModel.v_Przydzial_Zasobow">
+              <MappingFragment StoreEntitySet="v_Przydzial_Zasobow">
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ID_Maszyny" ColumnName="ID_Maszyny" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
+                <ScalarProperty Name="ID_Realizacji_Procesu" ColumnName="ID_Realizacji_Procesu" />
+                <ScalarProperty Name="ID_Procesu_Produkcyjnego" ColumnName="ID_Procesu_Produkcyjnego" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="vCechyElementu">
             <EntityTypeMapping TypeName="SzwalniaModel.vCechyElementu">
               <MappingFragment StoreEntitySet="vCechyElementu">
@@ -4308,6 +4421,21 @@ warning 6002: The table/view 'Szwalnia.dbo.vRealizacjaProcesuProdukcyjnegoDetail
                 <ScalarProperty Name="Data_Rozpoczecia_Procesu" ColumnName="Data_Rozpoczecia_Procesu" />
                 <ScalarProperty Name="Nazwa_etapu" ColumnName="Nazwa etapu" />
                 <ScalarProperty Name="ID_Realizacji_Procesu" ColumnName="ID_Realizacji_Procesu" />
+                <ScalarProperty Name="ID_Procesu_Produkcyjnego" ColumnName="ID_Procesu_Produkcyjnego" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vZamowienieProcesyProdukcyjne">
+            <EntityTypeMapping TypeName="SzwalniaModel.vZamowienieProcesyProdukcyjne">
+              <MappingFragment StoreEntitySet="vZamowienieProcesyProdukcyjne">
+                <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
+                <ScalarProperty Name="ID_Dokumentacja_Proces" ColumnName="ID_Dokumentacja_Proces" />
+                <ScalarProperty Name="Data_Zakonczenia" ColumnName="Data_Zakonczenia" />
+                <ScalarProperty Name="Data_Rozpoczecia" ColumnName="Data_Rozpoczecia" />
+                <ScalarProperty Name="ID_Proces_Technologiczny" ColumnName="ID_Proces_Technologiczny" />
+                <ScalarProperty Name="Nazwa_Produktu" ColumnName="Nazwa_Produktu" />
+                <ScalarProperty Name="ID_Zamowienie_Produkt" ColumnName="ID_Zamowienie_Produkt" />
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
                 <ScalarProperty Name="ID_Procesu_Produkcyjnego" ColumnName="ID_Procesu_Produkcyjnego" />
               </MappingFragment>
             </EntityTypeMapping>
