@@ -40,5 +40,12 @@ namespace Szwalnia
         {
 
         }
+
+        private void btnPracownicy_Click(object sender, EventArgs e)
+        {
+            WyborPracownika wyborPracownika = new WyborPracownika(db);
+            wyborPracownika.Show();
+            this.Close();
+        }
     }
 }
