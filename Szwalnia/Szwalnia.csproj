@@ -94,11 +94,11 @@
     <Compile Include="Elementy_Typy.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Element_szczegoly.cs">
+    <Compile Include="ElementSzczegoly.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Element_szczegoly.Designer.cs">
-      <DependentUpon>Element_szczegoly.cs</DependentUpon>
+    <Compile Include="ElementSzczegoly.Designer.cs">
+      <DependentUpon>ElementSzczegoly.cs</DependentUpon>
     </Compile>
     <Compile Include="Etapy_W_Procesie.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -169,12 +169,6 @@
     <Compile Include="Oferta.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="OknoPrzydzialZasobow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OknoPrzydzialZasobow.Designer.cs">
-      <DependentUpon>OknoPrzydzialZasobow.cs</DependentUpon>
-    </Compile>
     <Compile Include="Pensja.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -205,14 +199,14 @@
     <Compile Include="Przydzial_Zasobow.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Realizacja_Procesu.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="RealizacjaProcesuSzczegoly.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RealizacjaProcesuSzczegoly.Designer.cs">
       <DependentUpon>RealizacjaProcesuSzczegoly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Realizacja_Procesu.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Rodzaj_Dokumentacji.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -232,12 +226,6 @@
     <Compile Include="Stanowisko.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Szczegoly.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Szczegoly.Designer.cs">
-      <DependentUpon>Szczegoly.cs</DependentUpon>
-    </Compile>
     <Compile Include="Umowy_Kurierzy.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -247,17 +235,17 @@
     <Compile Include="vCechyElementu.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="vPrzydzialZasobow.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="vRealizacjaProcesuProdukcyjnegoDetails.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Wybor_elementu.cs">
+    <Compile Include="vZamowienieProcesyProdukcyjne.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WyborElementu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Wybor_elementu.Designer.cs">
-      <DependentUpon>Wybor_elementu.cs</DependentUpon>
+    <Compile Include="WyborElementu.Designer.cs">
+      <DependentUpon>WyborElementu.cs</DependentUpon>
     </Compile>
     <Compile Include="Start.cs">
       <SubType>Form</SubType>
@@ -294,8 +282,8 @@
     <Compile Include="Znajomosc_Jezykow.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Element_szczegoly.resx">
-      <DependentUpon>Element_szczegoly.cs</DependentUpon>
+    <EmbeddedResource Include="ElementSzczegoly.resx">
+      <DependentUpon>ElementSzczegoly.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RealizacjaProcesuSzczegoly.resx">
       <DependentUpon>RealizacjaProcesuSzczegoly.cs</DependentUpon>
@@ -303,14 +291,8 @@
     <EmbeddedResource Include="MagazynForm.resx">
       <DependentUpon>MagazynForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OknoPrzydzialZasobow.resx">
-      <DependentUpon>OknoPrzydzialZasobow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Szczegoly.resx">
-      <DependentUpon>Szczegoly.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wybor_elementu.resx">
-      <DependentUpon>Wybor_elementu.cs</DependentUpon>
+    <EmbeddedResource Include="WyborElementu.resx">
+      <DependentUpon>WyborElementu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Start.resx">
       <DependentUpon>Start.cs</DependentUpon>

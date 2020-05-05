@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SzwalniaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SzwalniaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Czesci_Obsluga">
           <Key>
             <PropertyRef Name="ID_Obslugi" />
@@ -51,14 +51,6 @@
           <Property Name="ID_Miejsca" Type="int" />
           <Property Name="Data_Dostarczenia" Type="varchar" MaxLength="10" />
         </EntityType>
-        <EntityType Name="Dostawcy_Oferta">
-          <Key>
-            <PropertyRef Name="ID_Dostawcy_Oferta" />
-          </Key>
-          <Property Name="ID_Dostawcy_Oferta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ID_Oferta" Type="int" />
-          <Property Name="ID_Zamowienia" Type="int" />
-        </EntityType>
         <EntityType Name="Dostawcy_Zaopatrzenie">
           <Key>
             <PropertyRef Name="ID_Dostawcy" />
@@ -76,6 +68,7 @@
           <Property Name="ID_Dostawy_Zawartosc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Dostawy" Type="int" />
           <Property Name="ID_Element" Type="int" />
+          <Property Name="ID_oferta" Type="int" />
           <Property Name="Ilosc_Dostarczona" Type="int" />
         </EntityType>
         <EntityType Name="Elementy">
@@ -86,8 +79,6 @@
           <Property Name="ID_Element_Typ" Type="int" />
           <Property Name="Element_Nazwa" Type="varchar" MaxLength="20" />
           <Property Name="Okres_Przydatnosci_Miesiace" Type="int" />
-          <Property Name="Element_Ilosc_W_Paczce" Type="real" />
-          <Property Name="ID_Jednostka" Type="int" />
         </EntityType>
         <EntityType Name="Elementy_Cechy">
           <Key>
@@ -106,6 +97,7 @@
           </Key>
           <Property Name="ID_Cecha" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Cecha" Type="varchar" MaxLength="20" />
+          <Property Name="Czy_wlasne" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Elementy_Jednostki">
           <Key>
@@ -292,6 +284,8 @@
           <Property Name="Data_Oferty" Type="date" />
           <Property Name="Ilosc_Minimalna" Type="int" />
           <Property Name="Ilosc_Maksymalna" Type="int" />
+          <Property Name="Ilosc_W_Opakowaniu_Pojedynczym" Type="real" />
+          <Property Name="ID_Jednostka" Type="int" />
           <Property Name="Ilosc_W_Opakowaniu_Zbiorczym" Type="int" />
           <Property Name="Deklarowany_czas_dostawy" Type="int" />
         </EntityType>
@@ -459,7 +453,7 @@
           </Key>
           <Property Name="ID_Urlop" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Pracownika" Type="int" />
-          <Property Name="Data_rozpoczęcia" Type="date" Nullable="false" />
+          <Property Name="Data_rozpoczecia" Type="date" Nullable="false" />
           <Property Name="Data_zakonczenia" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="Zamowienia">
@@ -490,15 +484,6 @@
           <Property Name="ID_Zamowienia" Type="int" />
           <Property Name="ID_Pracownicy" Type="int" />
           <Property Name="ID_Umowy" Type="int" />
-        </EntityType>
-        <EntityType Name="Zamowienia_Zawartosc">
-          <Key>
-            <PropertyRef Name="ID_Zamowienia_Zawartosc" />
-          </Key>
-          <Property Name="ID_Zamowienia_Zawartosc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ID_Zamowienia" Type="int" />
-          <Property Name="ID_Oferta" Type="int" />
-          <Property Name="Ilosc_Zamawiana" Type="int" />
         </EntityType>
         <EntityType Name="Zamowienie_Produkt">
           <Key>
@@ -551,26 +536,40 @@ warning 6002: The table/view 'Szwalnia.dbo.vCechyElementu' does not have a prima
           <Property Name="Wartosc_Cechy_Slowna" Type="varchar" MaxLength="30" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="vPrzydzialZasobow">
+warning 6002: The table/view 'Szwalnia.dbo.vRealizacjaProcesuProdukcyjnegoDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vRealizacjaProcesuProdukcyjnegoDetails">
           <Key>
             <PropertyRef Name="ID_Procesu_Produkcyjnego" />
             <PropertyRef Name="ID_Realizacji_Procesu" />
-            <PropertyRef Name="ID_Pracownika" />
-            <PropertyRef Name="Imie" />
-            <PropertyRef Name="Nazwisko" />
-            <PropertyRef Name="ID_Maszyny" />
-            <PropertyRef Name="Model" />
+            <PropertyRef Name="Nazwa etapu" />
+            <PropertyRef Name="Data_Rozpoczecia_Procesu" />
           </Key>
           <Property Name="ID_Procesu_Produkcyjnego" Type="int" Nullable="false" />
           <Property Name="ID_Realizacji_Procesu" Type="int" Nullable="false" />
-          <Property Name="ID_Pracownika" Type="int" Nullable="false" />
-          <Property Name="Imie" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="ID_Maszyny" Type="int" Nullable="false" />
-          <Property Name="Model" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Nazwa etapu" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Data_Rozpoczecia_Procesu" Type="smalldatetime" Nullable="false" />
+          <Property Name="Data_Zakonczenia_Procesu" Type="smalldatetime" />
         </EntityType>
-        <Association Name="FK__Czesci_Ob__ID_El__2645B050">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vZamowienieProcesyProdukcyjne">
+          <Key>
+            <PropertyRef Name="ID_Procesu_Produkcyjnego" />
+            <PropertyRef Name="ID_Zamowienie_Produkt" />
+            <PropertyRef Name="Nazwa_Produktu" />
+            <PropertyRef Name="ID_Proces_Technologiczny" />
+          </Key>
+          <Property Name="ID_Procesu_Produkcyjnego" Type="int" Nullable="false" />
+          <Property Name="ID_Zamowienia" Type="int" />
+          <Property Name="ID_Zamowienie_Produkt" Type="int" Nullable="false" />
+          <Property Name="Nazwa_Produktu" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ID_Proces_Technologiczny" Type="int" Nullable="false" />
+          <Property Name="Data_Rozpoczecia" Type="smalldatetime" />
+          <Property Name="Data_Zakonczenia" Type="smalldatetime" />
+          <Property Name="ID_Dokumentacja_Proces" Type="int" />
+          <Property Name="Uwagi" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <Association Name="FK__Czesci_Ob__ID_El__208CD6FA">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
           <End Role="Czesci_Obsluga" Type="Self.Czesci_Obsluga" Multiplicity="*" />
           <ReferentialConstraint>
@@ -582,7 +581,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dokumenta__ID_Do__32AB8735">
+        <Association Name="FK__Dokumenta__ID_Do__2CF2ADDF">
           <End Role="Dokumentacje" Type="Self.Dokumentacje" Multiplicity="1" />
           <End Role="Dokumentacja_Proces" Type="Self.Dokumentacja_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -594,7 +593,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dokumenta__ID_Pr__2FCF1A8A">
+        <Association Name="FK__Dokumenta__ID_Pr__2A164134">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
           <End Role="Dokumentacje" Type="Self.Dokumentacje" Multiplicity="*" />
           <ReferentialConstraint>
@@ -606,7 +605,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dokumenta__ID_Ro__2EDAF651">
+        <Association Name="FK__Dokumenta__ID_Ro__29221CFB">
           <End Role="Rodzaj_Dokumentacji" Type="Self.Rodzaj_Dokumentacji" Multiplicity="1" />
           <End Role="Dokumentacje" Type="Self.Dokumentacje" Multiplicity="*" />
           <ReferentialConstraint>
@@ -618,7 +617,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostarcze__ID_Do__17036CC0">
+        <Association Name="FK__Dostarcze__ID_Do__114A936A">
           <End Role="Zamowienia_Dostawy" Type="Self.Zamowienia_Dostawy" Multiplicity="0..1" />
           <End Role="Dostarczenia_Wewn" Type="Self.Dostarczenia_Wewn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -630,7 +629,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostarcze__ID_Mi__17F790F9">
+        <Association Name="FK__Dostarcze__ID_Mi__123EB7A3">
           <End Role="Miejsca" Type="Self.Miejsca" Multiplicity="0..1" />
           <End Role="Dostarczenia_Wewn" Type="Self.Dostarczenia_Wewn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -642,7 +641,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostarcze__ID_Mi__1CBC4616">
+        <Association Name="FK__Dostarcze__ID_Mi__17036CC0">
           <End Role="Miejsca" Type="Self.Miejsca" Multiplicity="0..1" />
           <End Role="Dostarczenia_Zewn" Type="Self.Dostarczenia_Zewn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -654,7 +653,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostarcze__ID_Pr__160F4887">
+        <Association Name="FK__Dostarcze__ID_Pr__10566F31">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
           <End Role="Dostarczenia_Wewn" Type="Self.Dostarczenia_Wewn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -666,7 +665,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostarcze__ID_Pr__1AD3FDA4">
+        <Association Name="FK__Dostarcze__ID_Pr__151B244E">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
           <End Role="Dostarczenia_Zewn" Type="Self.Dostarczenia_Zewn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -678,7 +677,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostarcze__ID_Za__1BC821DD">
+        <Association Name="FK__Dostarcze__ID_Za__160F4887">
           <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
           <End Role="Dostarczenia_Zewn" Type="Self.Dostarczenia_Zewn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -690,31 +689,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostawcy___ID_Of__0A9D95DB">
-          <End Role="Oferta" Type="Self.Oferta" Multiplicity="0..1" />
-          <End Role="Dostawcy_Oferta" Type="Self.Dostawcy_Oferta" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Oferta">
-              <PropertyRef Name="ID_Oferta" />
-            </Principal>
-            <Dependent Role="Dostawcy_Oferta">
-              <PropertyRef Name="ID_Oferta" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Dostawcy___ID_Za__0B91BA14">
-          <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
-          <End Role="Dostawcy_Oferta" Type="Self.Dostawcy_Oferta" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Zamowienia">
-              <PropertyRef Name="ID_Zamowienia" />
-            </Principal>
-            <Dependent Role="Dostawcy_Oferta">
-              <PropertyRef Name="ID_Zamowienia" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Dostawy_Z__ID_Do__0E6E26BF">
+        <Association Name="FK__Dostawy_Z__ID_Do__0B91BA14">
           <End Role="Zamowienia_Dostawy" Type="Self.Zamowienia_Dostawy" Multiplicity="0..1" />
           <End Role="Dostawy_Zawartosc" Type="Self.Dostawy_Zawartosc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -726,7 +701,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostawy_Z__ID_El__0F624AF8">
+        <Association Name="FK__Dostawy_Z__ID_El__0C85DE4D">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="0..1" />
           <End Role="Dostawy_Zawartosc" Type="Self.Dostawy_Zawartosc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -735,6 +710,18 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Principal>
             <Dependent Role="Dostawy_Zawartosc">
               <PropertyRef Name="ID_Element" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Dostawy_Z__ID_of__0D7A0286">
+          <End Role="Oferta" Type="Self.Oferta" Multiplicity="0..1" />
+          <End Role="Dostawy_Zawartosc" Type="Self.Dostawy_Zawartosc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oferta">
+              <PropertyRef Name="ID_Oferta" />
+            </Principal>
+            <Dependent Role="Dostawy_Zawartosc">
+              <PropertyRef Name="ID_oferta" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -750,7 +737,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Elementy___ID_El__498EEC8D">
+        <Association Name="FK__Elementy___ID_El__43D61337">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
           <End Role="Elementy_Proces" Type="Self.Elementy_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -786,7 +773,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Elementy___ID_Pr__489AC854">
+        <Association Name="FK__Elementy___ID_Pr__42E1EEFE">
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
           <End Role="Elementy_Proces" Type="Self.Elementy_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -798,7 +785,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Elementy__ID_Ele__6E01572D">
+        <Association Name="FK__Elementy__ID_Ele__6EF57B66">
           <End Role="Elementy_Typy" Type="Self.Elementy_Typy" Multiplicity="0..1" />
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="*" />
           <ReferentialConstraint>
@@ -810,19 +797,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Elementy__ID_Jed__6EF57B66">
-          <End Role="Elementy_Jednostki" Type="Self.Elementy_Jednostki" Multiplicity="0..1" />
-          <End Role="Elementy" Type="Self.Elementy" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Elementy_Jednostki">
-              <PropertyRef Name="ID_jednostka" />
-            </Principal>
-            <Dependent Role="Elementy">
-              <PropertyRef Name="ID_Jednostka" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Etapy_W_P__ID_Et__4D5F7D71">
+        <Association Name="FK__Etapy_W_P__ID_Et__47A6A41B">
           <End Role="Rodzaj_Etapu" Type="Self.Rodzaj_Etapu" Multiplicity="1" />
           <End Role="Etapy_W_Procesie" Type="Self.Etapy_W_Procesie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -834,7 +809,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Etapy_W_P__ID_Pr__4C6B5938">
+        <Association Name="FK__Etapy_W_P__ID_Pr__46B27FE2">
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
           <End Role="Etapy_W_Procesie" Type="Self.Etapy_W_Procesie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -882,7 +857,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Kontrola___ID_Pr__662B2B3B">
+        <Association Name="FK__Kontrola___ID_Pr__607251E5">
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="1" />
           <End Role="Kontrola_Efektywnosci" Type="Self.Kontrola_Efektywnosci" Multiplicity="*" />
           <ReferentialConstraint>
@@ -894,7 +869,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Koszt_Jed__ID_El__1F98B2C1">
+        <Association Name="FK__Koszt_Jed__ID_El__19DFD96B">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="0..1" />
           <End Role="Koszt_Jednostkowy" Type="Self.Koszt_Jednostkowy" Multiplicity="*" />
           <ReferentialConstraint>
@@ -906,7 +881,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Maszyny__ID_Rodz__3D2915A8">
+        <Association Name="FK__Maszyny__ID_Rodz__37703C52">
           <End Role="Rodzaj_Maszyny" Type="Self.Rodzaj_Maszyny" Multiplicity="1" />
           <End Role="Maszyny" Type="Self.Maszyny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -918,7 +893,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Maszyny_P__ID_Pr__395884C4">
+        <Association Name="FK__Maszyny_P__ID_Pr__339FAB6E">
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
           <End Role="Maszyny_Proces" Type="Self.Maszyny_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -930,7 +905,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Maszyny_P__ID_Ro__3A4CA8FD">
+        <Association Name="FK__Maszyny_P__ID_Ro__3493CFA7">
           <End Role="Rodzaj_Maszyny" Type="Self.Rodzaj_Maszyny" Multiplicity="1" />
           <End Role="Maszyny_Proces" Type="Self.Maszyny_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -942,7 +917,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Material___ID_El__55F4C372">
+        <Association Name="FK__Material___ID_El__503BEA1C">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
           <End Role="Material_Na_Produkcji" Type="Self.Material_Na_Produkcji" Multiplicity="*" />
           <ReferentialConstraint>
@@ -954,7 +929,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Material___ID_Je__56E8E7AB">
+        <Association Name="FK__Material___ID_Je__51300E55">
           <End Role="Elementy_Jednostki" Type="Self.Elementy_Jednostki" Multiplicity="1" />
           <End Role="Material_Na_Produkcji" Type="Self.Material_Na_Produkcji" Multiplicity="*" />
           <ReferentialConstraint>
@@ -966,7 +941,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Material___ID_Pr__55009F39">
+        <Association Name="FK__Material___ID_Pr__4F47C5E3">
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="1" />
           <End Role="Material_Na_Produkcji" Type="Self.Material_Na_Produkcji" Multiplicity="*" />
           <ReferentialConstraint>
@@ -978,7 +953,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Obsluga_T__ID_Ma__40058253">
+        <Association Name="FK__Obsluga_T__ID_Ma__3A4CA8FD">
           <End Role="Maszyny" Type="Self.Maszyny" Multiplicity="1" />
           <End Role="Obsluga_Techniczna" Type="Self.Obsluga_Techniczna" Multiplicity="*" />
           <ReferentialConstraint>
@@ -990,7 +965,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Obsluga_T__ID_Pr__41EDCAC5">
+        <Association Name="FK__Obsluga_T__ID_Pr__3C34F16F">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
           <End Role="Obsluga_Techniczna" Type="Self.Obsluga_Techniczna" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1002,7 +977,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Obsluga_T__ID_Ro__40F9A68C">
+        <Association Name="FK__Obsluga_T__ID_Ro__3B40CD36">
           <End Role="Rodzaj_Obslugi" Type="Self.Rodzaj_Obslugi" Multiplicity="1" />
           <End Role="Obsluga_Techniczna" Type="Self.Obsluga_Techniczna" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1038,7 +1013,19 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Polki__ID_Rozmia__656C112C">
+        <Association Name="FK__Oferta__ID_Jedno__7B5B524B">
+          <End Role="Elementy_Jednostki" Type="Self.Elementy_Jednostki" Multiplicity="0..1" />
+          <End Role="Oferta" Type="Self.Oferta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Elementy_Jednostki">
+              <PropertyRef Name="ID_jednostka" />
+            </Principal>
+            <Dependent Role="Oferta">
+              <PropertyRef Name="ID_Jednostka" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Polki__ID_Rozmia__66603565">
           <End Role="Polki_Rozmiary" Type="Self.Polki_Rozmiary" Multiplicity="0..1" />
           <End Role="Polki" Type="Self.Polki" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1098,7 +1085,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Proces_Pr__ID_Do__5224328E">
+        <Association Name="FK__Proces_Pr__ID_Do__4C6B5938">
           <End Role="Dokumentacja_Proces" Type="Self.Dokumentacja_Proces" Multiplicity="0..1" />
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1110,7 +1097,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Proces_Pr__ID_Pr__51300E55">
+        <Association Name="FK__Proces_Pr__ID_Pr__4B7734FF">
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1122,7 +1109,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Proces_Pr__ID_Za__503BEA1C">
+        <Association Name="FK__Proces_Pr__ID_Za__4A8310C6">
           <End Role="Zamowienie_Produkt" Type="Self.Zamowienie_Produkt" Multiplicity="1" />
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1134,7 +1121,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Proces_Te__ID_Do__3587F3E0">
+        <Association Name="FK__Proces_Te__ID_Do__2FCF1A8A">
           <End Role="Dokumentacja_Proces" Type="Self.Dokumentacja_Proces" Multiplicity="1" />
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1146,7 +1133,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Proces_Te__ID_Pr__367C1819">
+        <Association Name="FK__Proces_Te__ID_Pr__30C33EC3">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1158,7 +1145,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Proces_Za__ID_Pr__44CA3770">
+        <Association Name="FK__Proces_Za__ID_Pr__3F115E1A">
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
           <End Role="Proces_Zamowienie" Type="Self.Proces_Zamowienie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1170,7 +1157,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Proces_Za__ID_Za__45BE5BA9">
+        <Association Name="FK__Proces_Za__ID_Za__40058253">
           <End Role="Zamowienie_Produkt" Type="Self.Zamowienie_Produkt" Multiplicity="1" />
           <End Role="Proces_Zamowienie" Type="Self.Proces_Zamowienie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1182,7 +1169,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Przydzial__ID_Ma__5F7E2DAC">
+        <Association Name="FK__Przydzial__ID_Ma__59C55456">
           <End Role="Maszyny" Type="Self.Maszyny" Multiplicity="1" />
           <End Role="Przydzial_Zasobow" Type="Self.Przydzial_Zasobow" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1194,7 +1181,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Przydzial__ID_Pr__5E8A0973">
+        <Association Name="FK__Przydzial__ID_Pr__58D1301D">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
           <End Role="Przydzial_Zasobow" Type="Self.Przydzial_Zasobow" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1206,7 +1193,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Przydzial__ID_Re__5D95E53A">
+        <Association Name="FK__Przydzial__ID_Re__57DD0BE4">
           <End Role="Realizacja_Procesu" Type="Self.Realizacja_Procesu" Multiplicity="1" />
           <End Role="Przydzial_Zasobow" Type="Self.Przydzial_Zasobow" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1218,7 +1205,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Realizacj__ID_Et__5AB9788F">
+        <Association Name="FK__Realizacj__ID_Et__55009F39">
           <End Role="Rodzaj_Etapu" Type="Self.Rodzaj_Etapu" Multiplicity="1" />
           <End Role="Realizacja_Procesu" Type="Self.Realizacja_Procesu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1230,7 +1217,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Realizacj__ID_Pr__59C55456">
+        <Association Name="FK__Realizacj__ID_Pr__540C7B00">
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="1" />
           <End Role="Realizacja_Procesu" Type="Self.Realizacja_Procesu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1290,19 +1277,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zamowieni__ID_Of__1332DBDC">
-          <End Role="Oferta" Type="Self.Oferta" Multiplicity="0..1" />
-          <End Role="Zamowienia_Zawartosc" Type="Self.Zamowienia_Zawartosc" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Oferta">
-              <PropertyRef Name="ID_Oferta" />
-            </Principal>
-            <Dependent Role="Zamowienia_Zawartosc">
-              <PropertyRef Name="ID_Oferta" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Zamowieni__ID_Pr__236943A5">
+        <Association Name="FK__Zamowieni__ID_Pr__1DB06A4F">
           <End Role="Produkt" Type="Self.Produkt" Multiplicity="0..1" />
           <End Role="Zamowienie_Produkt" Type="Self.Zamowienie_Produkt" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1326,7 +1301,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zamowieni__ID_Pr__7E37BEF6">
+        <Association Name="FK__Zamowieni__ID_Pr__7F2BE32F">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
           <End Role="Zamowienia_Przydzial" Type="Self.Zamowienia_Przydzial" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1338,7 +1313,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zamowieni__ID_Um__7F2BE32F">
+        <Association Name="FK__Zamowieni__ID_Um__00200768">
           <End Role="Umowy_Kurierzy" Type="Self.Umowy_Kurierzy" Multiplicity="0..1" />
           <End Role="Zamowienia_Przydzial" Type="Self.Zamowienia_Przydzial" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1350,7 +1325,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zamowieni__ID_Za__02084FDA">
+        <Association Name="FK__Zamowieni__ID_Za__02FC7413">
           <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
           <End Role="Zamowienia_Dostawy" Type="Self.Zamowienia_Dostawy" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1362,19 +1337,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zamowieni__ID_Za__123EB7A3">
-          <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
-          <End Role="Zamowienia_Zawartosc" Type="Self.Zamowienia_Zawartosc" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Zamowienia">
-              <PropertyRef Name="ID_Zamowienia" />
-            </Principal>
-            <Dependent Role="Zamowienia_Zawartosc">
-              <PropertyRef Name="ID_Zamowienia" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Zamowieni__ID_Za__22751F6C">
+        <Association Name="FK__Zamowieni__ID_Za__1CBC4616">
           <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
           <End Role="Zamowienie_Produkt" Type="Self.Zamowienie_Produkt" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1386,7 +1349,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zamowieni__ID_Za__7D439ABD">
+        <Association Name="FK__Zamowieni__ID_Za__7E37BEF6">
           <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
           <End Role="Zamowienia_Przydzial" Type="Self.Zamowienia_Przydzial" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1398,7 +1361,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zapotrzeb__ID_El__634EBE90">
+        <Association Name="FK__Zapotrzeb__ID_El__5D95E53A">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
           <End Role="Zapotrzebowanie_Opakowan" Type="Self.Zapotrzebowanie_Opakowan" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1410,7 +1373,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zapotrzeb__ID_Pr__625A9A57">
+        <Association Name="FK__Zapotrzeb__ID_Pr__5CA1C101">
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="1" />
           <End Role="Zapotrzebowanie_Opakowan" Type="Self.Zapotrzebowanie_Opakowan" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1422,7 +1385,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zawartosc__ID_Do__07C12930">
+        <Association Name="FK__Zawartosc__ID_Do__08B54D69">
           <End Role="Zamowienia_Dostawy" Type="Self.Zamowienia_Dostawy" Multiplicity="0..1" />
           <End Role="Zawartosc" Type="Self.Zawartosc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1434,7 +1397,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zawartosc__ID_El__06CD04F7">
+        <Association Name="FK__Zawartosc__ID_El__07C12930">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="0..1" />
           <End Role="Zawartosc" Type="Self.Zawartosc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1446,7 +1409,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zawartosc__ID_Po__05D8E0BE">
+        <Association Name="FK__Zawartosc__ID_Po__06CD04F7">
           <End Role="Polki" Type="Self.Polki" Multiplicity="0..1" />
           <End Role="Zawartosc" Type="Self.Zawartosc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1488,7 +1451,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <EntitySet Name="Dokumentacje" EntityType="Self.Dokumentacje" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Dostarczenia_Wewn" EntityType="Self.Dostarczenia_Wewn" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Dostarczenia_Zewn" EntityType="Self.Dostarczenia_Zewn" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Dostawcy_Oferta" EntityType="Self.Dostawcy_Oferta" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Dostawcy_Zaopatrzenie" EntityType="Self.Dostawcy_Zaopatrzenie" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Dostawy_Zawartosc" EntityType="Self.Dostawy_Zawartosc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Elementy" EntityType="Self.Elementy" Schema="dbo" store:Type="Tables" />
@@ -1535,7 +1497,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <EntitySet Name="Zamowienia" EntityType="Self.Zamowienia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zamowienia_Dostawy" EntityType="Self.Zamowienia_Dostawy" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zamowienia_Przydzial" EntityType="Self.Zamowienia_Przydzial" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Zamowienia_Zawartosc" EntityType="Self.Zamowienia_Zawartosc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zamowienie_Produkt" EntityType="Self.Zamowienie_Produkt" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zapotrzebowanie_Opakowan" EntityType="Self.Zapotrzebowanie_Opakowan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zawartosc" EntityType="Self.Zawartosc" Schema="dbo" store:Type="Tables" />
@@ -1549,78 +1510,85 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
     [vCechyElementu].[Wartosc_Cechy_Slowna] AS [Wartosc_Cechy_Slowna]
     FROM [dbo].[vCechyElementu] AS [vCechyElementu]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vPrzydzialZasobow" EntityType="Self.vPrzydzialZasobow" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="vRealizacjaProcesuProdukcyjnegoDetails" EntityType="Self.vRealizacjaProcesuProdukcyjnegoDetails" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [vPrzydzialZasobow].[ID_Procesu_Produkcyjnego] AS [ID_Procesu_Produkcyjnego], 
-    [vPrzydzialZasobow].[ID_Realizacji_Procesu] AS [ID_Realizacji_Procesu], 
-    [vPrzydzialZasobow].[ID_Pracownika] AS [ID_Pracownika], 
-    [vPrzydzialZasobow].[Imie] AS [Imie], 
-    [vPrzydzialZasobow].[Nazwisko] AS [Nazwisko], 
-    [vPrzydzialZasobow].[ID_Maszyny] AS [ID_Maszyny], 
-    [vPrzydzialZasobow].[Model] AS [Model]
-    FROM [dbo].[vPrzydzialZasobow] AS [vPrzydzialZasobow]</DefiningQuery>
+    [vRealizacjaProcesuProdukcyjnegoDetails].[ID_Procesu_Produkcyjnego] AS [ID_Procesu_Produkcyjnego], 
+    [vRealizacjaProcesuProdukcyjnegoDetails].[ID_Realizacji_Procesu] AS [ID_Realizacji_Procesu], 
+    [vRealizacjaProcesuProdukcyjnegoDetails].[Nazwa etapu] AS [Nazwa etapu], 
+    [vRealizacjaProcesuProdukcyjnegoDetails].[Data_Rozpoczecia_Procesu] AS [Data_Rozpoczecia_Procesu], 
+    [vRealizacjaProcesuProdukcyjnegoDetails].[Data_Zakonczenia_Procesu] AS [Data_Zakonczenia_Procesu]
+    FROM [dbo].[vRealizacjaProcesuProdukcyjnegoDetails] AS [vRealizacjaProcesuProdukcyjnegoDetails]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__Czesci_Ob__ID_El__2645B050" Association="Self.FK__Czesci_Ob__ID_El__2645B050">
+          <EntitySet Name="vZamowienieProcesyProdukcyjne" EntityType="Self.vZamowienieProcesyProdukcyjne" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vZamowienieProcesyProdukcyjne].[ID_Procesu_Produkcyjnego] AS [ID_Procesu_Produkcyjnego], 
+    [vZamowienieProcesyProdukcyjne].[ID_Zamowienia] AS [ID_Zamowienia], 
+    [vZamowienieProcesyProdukcyjne].[ID_Zamowienie_Produkt] AS [ID_Zamowienie_Produkt], 
+    [vZamowienieProcesyProdukcyjne].[Nazwa_Produktu] AS [Nazwa_Produktu], 
+    [vZamowienieProcesyProdukcyjne].[ID_Proces_Technologiczny] AS [ID_Proces_Technologiczny], 
+    [vZamowienieProcesyProdukcyjne].[Data_Rozpoczecia] AS [Data_Rozpoczecia], 
+    [vZamowienieProcesyProdukcyjne].[Data_Zakonczenia] AS [Data_Zakonczenia], 
+    [vZamowienieProcesyProdukcyjne].[ID_Dokumentacja_Proces] AS [ID_Dokumentacja_Proces], 
+    [vZamowienieProcesyProdukcyjne].[Uwagi] AS [Uwagi]
+    FROM [dbo].[vZamowienieProcesyProdukcyjne] AS [vZamowienieProcesyProdukcyjne]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Czesci_Ob__ID_El__208CD6FA" Association="Self.FK__Czesci_Ob__ID_El__208CD6FA">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Czesci_Obsluga" EntitySet="Czesci_Obsluga" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dokumenta__ID_Do__32AB8735" Association="Self.FK__Dokumenta__ID_Do__32AB8735">
+          <AssociationSet Name="FK__Dokumenta__ID_Do__2CF2ADDF" Association="Self.FK__Dokumenta__ID_Do__2CF2ADDF">
             <End Role="Dokumentacje" EntitySet="Dokumentacje" />
             <End Role="Dokumentacja_Proces" EntitySet="Dokumentacja_Proces" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dokumenta__ID_Pr__2FCF1A8A" Association="Self.FK__Dokumenta__ID_Pr__2FCF1A8A">
+          <AssociationSet Name="FK__Dokumenta__ID_Pr__2A164134" Association="Self.FK__Dokumenta__ID_Pr__2A164134">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Dokumentacje" EntitySet="Dokumentacje" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dokumenta__ID_Ro__2EDAF651" Association="Self.FK__Dokumenta__ID_Ro__2EDAF651">
+          <AssociationSet Name="FK__Dokumenta__ID_Ro__29221CFB" Association="Self.FK__Dokumenta__ID_Ro__29221CFB">
             <End Role="Rodzaj_Dokumentacji" EntitySet="Rodzaj_Dokumentacji" />
             <End Role="Dokumentacje" EntitySet="Dokumentacje" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Do__17036CC0" Association="Self.FK__Dostarcze__ID_Do__17036CC0">
+          <AssociationSet Name="FK__Dostarcze__ID_Do__114A936A" Association="Self.FK__Dostarcze__ID_Do__114A936A">
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Mi__17F790F9" Association="Self.FK__Dostarcze__ID_Mi__17F790F9">
+          <AssociationSet Name="FK__Dostarcze__ID_Mi__123EB7A3" Association="Self.FK__Dostarcze__ID_Mi__123EB7A3">
             <End Role="Miejsca" EntitySet="Miejsca" />
             <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Mi__1CBC4616" Association="Self.FK__Dostarcze__ID_Mi__1CBC4616">
+          <AssociationSet Name="FK__Dostarcze__ID_Mi__17036CC0" Association="Self.FK__Dostarcze__ID_Mi__17036CC0">
             <End Role="Miejsca" EntitySet="Miejsca" />
             <End Role="Dostarczenia_Zewn" EntitySet="Dostarczenia_Zewn" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Pr__160F4887" Association="Self.FK__Dostarcze__ID_Pr__160F4887">
+          <AssociationSet Name="FK__Dostarcze__ID_Pr__10566F31" Association="Self.FK__Dostarcze__ID_Pr__10566F31">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Pr__1AD3FDA4" Association="Self.FK__Dostarcze__ID_Pr__1AD3FDA4">
+          <AssociationSet Name="FK__Dostarcze__ID_Pr__151B244E" Association="Self.FK__Dostarcze__ID_Pr__151B244E">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Dostarczenia_Zewn" EntitySet="Dostarczenia_Zewn" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Za__1BC821DD" Association="Self.FK__Dostarcze__ID_Za__1BC821DD">
+          <AssociationSet Name="FK__Dostarcze__ID_Za__160F4887" Association="Self.FK__Dostarcze__ID_Za__160F4887">
             <End Role="Zamowienia" EntitySet="Zamowienia" />
             <End Role="Dostarczenia_Zewn" EntitySet="Dostarczenia_Zewn" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostawcy___ID_Of__0A9D95DB" Association="Self.FK__Dostawcy___ID_Of__0A9D95DB">
-            <End Role="Oferta" EntitySet="Oferta" />
-            <End Role="Dostawcy_Oferta" EntitySet="Dostawcy_Oferta" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Dostawcy___ID_Za__0B91BA14" Association="Self.FK__Dostawcy___ID_Za__0B91BA14">
-            <End Role="Zamowienia" EntitySet="Zamowienia" />
-            <End Role="Dostawcy_Oferta" EntitySet="Dostawcy_Oferta" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Dostawy_Z__ID_Do__0E6E26BF" Association="Self.FK__Dostawy_Z__ID_Do__0E6E26BF">
+          <AssociationSet Name="FK__Dostawy_Z__ID_Do__0B91BA14" Association="Self.FK__Dostawy_Z__ID_Do__0B91BA14">
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Dostawy_Zawartosc" EntitySet="Dostawy_Zawartosc" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostawy_Z__ID_El__0F624AF8" Association="Self.FK__Dostawy_Z__ID_El__0F624AF8">
+          <AssociationSet Name="FK__Dostawy_Z__ID_El__0C85DE4D" Association="Self.FK__Dostawy_Z__ID_El__0C85DE4D">
             <End Role="Elementy" EntitySet="Elementy" />
+            <End Role="Dostawy_Zawartosc" EntitySet="Dostawy_Zawartosc" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dostawy_Z__ID_of__0D7A0286" Association="Self.FK__Dostawy_Z__ID_of__0D7A0286">
+            <End Role="Oferta" EntitySet="Oferta" />
             <End Role="Dostawy_Zawartosc" EntitySet="Dostawy_Zawartosc" />
           </AssociationSet>
           <AssociationSet Name="FK__Elementy___ID_Ce__72C60C4A" Association="Self.FK__Elementy___ID_Ce__72C60C4A">
             <End Role="Elementy_Cechy_Slownik" EntitySet="Elementy_Cechy_Slownik" />
             <End Role="Elementy_Cechy" EntitySet="Elementy_Cechy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Elementy___ID_El__498EEC8D" Association="Self.FK__Elementy___ID_El__498EEC8D">
+          <AssociationSet Name="FK__Elementy___ID_El__43D61337" Association="Self.FK__Elementy___ID_El__43D61337">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Elementy_Proces" EntitySet="Elementy_Proces" />
           </AssociationSet>
@@ -1632,23 +1600,19 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             <End Role="Elementy_Jednostki" EntitySet="Elementy_Jednostki" />
             <End Role="Elementy_Cechy" EntitySet="Elementy_Cechy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Elementy___ID_Pr__489AC854" Association="Self.FK__Elementy___ID_Pr__489AC854">
+          <AssociationSet Name="FK__Elementy___ID_Pr__42E1EEFE" Association="Self.FK__Elementy___ID_Pr__42E1EEFE">
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
             <End Role="Elementy_Proces" EntitySet="Elementy_Proces" />
           </AssociationSet>
-          <AssociationSet Name="FK__Elementy__ID_Ele__6E01572D" Association="Self.FK__Elementy__ID_Ele__6E01572D">
+          <AssociationSet Name="FK__Elementy__ID_Ele__6EF57B66" Association="Self.FK__Elementy__ID_Ele__6EF57B66">
             <End Role="Elementy_Typy" EntitySet="Elementy_Typy" />
             <End Role="Elementy" EntitySet="Elementy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Elementy__ID_Jed__6EF57B66" Association="Self.FK__Elementy__ID_Jed__6EF57B66">
-            <End Role="Elementy_Jednostki" EntitySet="Elementy_Jednostki" />
-            <End Role="Elementy" EntitySet="Elementy" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Etapy_W_P__ID_Et__4D5F7D71" Association="Self.FK__Etapy_W_P__ID_Et__4D5F7D71">
+          <AssociationSet Name="FK__Etapy_W_P__ID_Et__47A6A41B" Association="Self.FK__Etapy_W_P__ID_Et__47A6A41B">
             <End Role="Rodzaj_Etapu" EntitySet="Rodzaj_Etapu" />
             <End Role="Etapy_W_Procesie" EntitySet="Etapy_W_Procesie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Etapy_W_P__ID_Pr__4C6B5938" Association="Self.FK__Etapy_W_P__ID_Pr__4C6B5938">
+          <AssociationSet Name="FK__Etapy_W_P__ID_Pr__46B27FE2" Association="Self.FK__Etapy_W_P__ID_Pr__46B27FE2">
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
             <End Role="Etapy_W_Procesie" EntitySet="Etapy_W_Procesie" />
           </AssociationSet>
@@ -1664,47 +1628,47 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             <End Role="Grupa" EntitySet="Grupa" />
             <End Role="Faktury_Zewnetrzne" EntitySet="Faktury_Zewnetrzne" />
           </AssociationSet>
-          <AssociationSet Name="FK__Kontrola___ID_Pr__662B2B3B" Association="Self.FK__Kontrola___ID_Pr__662B2B3B">
+          <AssociationSet Name="FK__Kontrola___ID_Pr__607251E5" Association="Self.FK__Kontrola___ID_Pr__607251E5">
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
             <End Role="Kontrola_Efektywnosci" EntitySet="Kontrola_Efektywnosci" />
           </AssociationSet>
-          <AssociationSet Name="FK__Koszt_Jed__ID_El__1F98B2C1" Association="Self.FK__Koszt_Jed__ID_El__1F98B2C1">
+          <AssociationSet Name="FK__Koszt_Jed__ID_El__19DFD96B" Association="Self.FK__Koszt_Jed__ID_El__19DFD96B">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Koszt_Jednostkowy" EntitySet="Koszt_Jednostkowy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Maszyny__ID_Rodz__3D2915A8" Association="Self.FK__Maszyny__ID_Rodz__3D2915A8">
+          <AssociationSet Name="FK__Maszyny__ID_Rodz__37703C52" Association="Self.FK__Maszyny__ID_Rodz__37703C52">
             <End Role="Rodzaj_Maszyny" EntitySet="Rodzaj_Maszyny" />
             <End Role="Maszyny" EntitySet="Maszyny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Maszyny_P__ID_Pr__395884C4" Association="Self.FK__Maszyny_P__ID_Pr__395884C4">
+          <AssociationSet Name="FK__Maszyny_P__ID_Pr__339FAB6E" Association="Self.FK__Maszyny_P__ID_Pr__339FAB6E">
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
             <End Role="Maszyny_Proces" EntitySet="Maszyny_Proces" />
           </AssociationSet>
-          <AssociationSet Name="FK__Maszyny_P__ID_Ro__3A4CA8FD" Association="Self.FK__Maszyny_P__ID_Ro__3A4CA8FD">
+          <AssociationSet Name="FK__Maszyny_P__ID_Ro__3493CFA7" Association="Self.FK__Maszyny_P__ID_Ro__3493CFA7">
             <End Role="Rodzaj_Maszyny" EntitySet="Rodzaj_Maszyny" />
             <End Role="Maszyny_Proces" EntitySet="Maszyny_Proces" />
           </AssociationSet>
-          <AssociationSet Name="FK__Material___ID_El__55F4C372" Association="Self.FK__Material___ID_El__55F4C372">
+          <AssociationSet Name="FK__Material___ID_El__503BEA1C" Association="Self.FK__Material___ID_El__503BEA1C">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Material_Na_Produkcji" EntitySet="Material_Na_Produkcji" />
           </AssociationSet>
-          <AssociationSet Name="FK__Material___ID_Je__56E8E7AB" Association="Self.FK__Material___ID_Je__56E8E7AB">
+          <AssociationSet Name="FK__Material___ID_Je__51300E55" Association="Self.FK__Material___ID_Je__51300E55">
             <End Role="Elementy_Jednostki" EntitySet="Elementy_Jednostki" />
             <End Role="Material_Na_Produkcji" EntitySet="Material_Na_Produkcji" />
           </AssociationSet>
-          <AssociationSet Name="FK__Material___ID_Pr__55009F39" Association="Self.FK__Material___ID_Pr__55009F39">
+          <AssociationSet Name="FK__Material___ID_Pr__4F47C5E3" Association="Self.FK__Material___ID_Pr__4F47C5E3">
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
             <End Role="Material_Na_Produkcji" EntitySet="Material_Na_Produkcji" />
           </AssociationSet>
-          <AssociationSet Name="FK__Obsluga_T__ID_Ma__40058253" Association="Self.FK__Obsluga_T__ID_Ma__40058253">
+          <AssociationSet Name="FK__Obsluga_T__ID_Ma__3A4CA8FD" Association="Self.FK__Obsluga_T__ID_Ma__3A4CA8FD">
             <End Role="Maszyny" EntitySet="Maszyny" />
             <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
           </AssociationSet>
-          <AssociationSet Name="FK__Obsluga_T__ID_Pr__41EDCAC5" Association="Self.FK__Obsluga_T__ID_Pr__41EDCAC5">
+          <AssociationSet Name="FK__Obsluga_T__ID_Pr__3C34F16F" Association="Self.FK__Obsluga_T__ID_Pr__3C34F16F">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
           </AssociationSet>
-          <AssociationSet Name="FK__Obsluga_T__ID_Ro__40F9A68C" Association="Self.FK__Obsluga_T__ID_Ro__40F9A68C">
+          <AssociationSet Name="FK__Obsluga_T__ID_Ro__3B40CD36" Association="Self.FK__Obsluga_T__ID_Ro__3B40CD36">
             <End Role="Rodzaj_Obslugi" EntitySet="Rodzaj_Obslugi" />
             <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
           </AssociationSet>
@@ -1716,7 +1680,11 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Oferta" EntitySet="Oferta" />
           </AssociationSet>
-          <AssociationSet Name="FK__Polki__ID_Rozmia__656C112C" Association="Self.FK__Polki__ID_Rozmia__656C112C">
+          <AssociationSet Name="FK__Oferta__ID_Jedno__7B5B524B" Association="Self.FK__Oferta__ID_Jedno__7B5B524B">
+            <End Role="Elementy_Jednostki" EntitySet="Elementy_Jednostki" />
+            <End Role="Oferta" EntitySet="Oferta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Polki__ID_Rozmia__66603565" Association="Self.FK__Polki__ID_Rozmia__66603565">
             <End Role="Polki_Rozmiary" EntitySet="Polki_Rozmiary" />
             <End Role="Polki" EntitySet="Polki" />
           </AssociationSet>
@@ -1736,51 +1704,51 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             <End Role="Stanowisko" EntitySet="Stanowisko" />
             <End Role="Pracownicy_Zatrudnienie" EntitySet="Pracownicy_Zatrudnienie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Proces_Pr__ID_Do__5224328E" Association="Self.FK__Proces_Pr__ID_Do__5224328E">
+          <AssociationSet Name="FK__Proces_Pr__ID_Do__4C6B5938" Association="Self.FK__Proces_Pr__ID_Do__4C6B5938">
             <End Role="Dokumentacja_Proces" EntitySet="Dokumentacja_Proces" />
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Proces_Pr__ID_Pr__51300E55" Association="Self.FK__Proces_Pr__ID_Pr__51300E55">
+          <AssociationSet Name="FK__Proces_Pr__ID_Pr__4B7734FF" Association="Self.FK__Proces_Pr__ID_Pr__4B7734FF">
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Proces_Pr__ID_Za__503BEA1C" Association="Self.FK__Proces_Pr__ID_Za__503BEA1C">
+          <AssociationSet Name="FK__Proces_Pr__ID_Za__4A8310C6" Association="Self.FK__Proces_Pr__ID_Za__4A8310C6">
             <End Role="Zamowienie_Produkt" EntitySet="Zamowienie_Produkt" />
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Proces_Te__ID_Do__3587F3E0" Association="Self.FK__Proces_Te__ID_Do__3587F3E0">
+          <AssociationSet Name="FK__Proces_Te__ID_Do__2FCF1A8A" Association="Self.FK__Proces_Te__ID_Do__2FCF1A8A">
             <End Role="Dokumentacja_Proces" EntitySet="Dokumentacja_Proces" />
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Proces_Te__ID_Pr__367C1819" Association="Self.FK__Proces_Te__ID_Pr__367C1819">
+          <AssociationSet Name="FK__Proces_Te__ID_Pr__30C33EC3" Association="Self.FK__Proces_Te__ID_Pr__30C33EC3">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Proces_Za__ID_Pr__44CA3770" Association="Self.FK__Proces_Za__ID_Pr__44CA3770">
+          <AssociationSet Name="FK__Proces_Za__ID_Pr__3F115E1A" Association="Self.FK__Proces_Za__ID_Pr__3F115E1A">
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
             <End Role="Proces_Zamowienie" EntitySet="Proces_Zamowienie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Proces_Za__ID_Za__45BE5BA9" Association="Self.FK__Proces_Za__ID_Za__45BE5BA9">
+          <AssociationSet Name="FK__Proces_Za__ID_Za__40058253" Association="Self.FK__Proces_Za__ID_Za__40058253">
             <End Role="Zamowienie_Produkt" EntitySet="Zamowienie_Produkt" />
             <End Role="Proces_Zamowienie" EntitySet="Proces_Zamowienie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Przydzial__ID_Ma__5F7E2DAC" Association="Self.FK__Przydzial__ID_Ma__5F7E2DAC">
+          <AssociationSet Name="FK__Przydzial__ID_Ma__59C55456" Association="Self.FK__Przydzial__ID_Ma__59C55456">
             <End Role="Maszyny" EntitySet="Maszyny" />
             <End Role="Przydzial_Zasobow" EntitySet="Przydzial_Zasobow" />
           </AssociationSet>
-          <AssociationSet Name="FK__Przydzial__ID_Pr__5E8A0973" Association="Self.FK__Przydzial__ID_Pr__5E8A0973">
+          <AssociationSet Name="FK__Przydzial__ID_Pr__58D1301D" Association="Self.FK__Przydzial__ID_Pr__58D1301D">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Przydzial_Zasobow" EntitySet="Przydzial_Zasobow" />
           </AssociationSet>
-          <AssociationSet Name="FK__Przydzial__ID_Re__5D95E53A" Association="Self.FK__Przydzial__ID_Re__5D95E53A">
+          <AssociationSet Name="FK__Przydzial__ID_Re__57DD0BE4" Association="Self.FK__Przydzial__ID_Re__57DD0BE4">
             <End Role="Realizacja_Procesu" EntitySet="Realizacja_Procesu" />
             <End Role="Przydzial_Zasobow" EntitySet="Przydzial_Zasobow" />
           </AssociationSet>
-          <AssociationSet Name="FK__Realizacj__ID_Et__5AB9788F" Association="Self.FK__Realizacj__ID_Et__5AB9788F">
+          <AssociationSet Name="FK__Realizacj__ID_Et__55009F39" Association="Self.FK__Realizacj__ID_Et__55009F39">
             <End Role="Rodzaj_Etapu" EntitySet="Rodzaj_Etapu" />
             <End Role="Realizacja_Procesu" EntitySet="Realizacja_Procesu" />
           </AssociationSet>
-          <AssociationSet Name="FK__Realizacj__ID_Pr__59C55456" Association="Self.FK__Realizacj__ID_Pr__59C55456">
+          <AssociationSet Name="FK__Realizacj__ID_Pr__540C7B00" Association="Self.FK__Realizacj__ID_Pr__540C7B00">
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
             <End Role="Realizacja_Procesu" EntitySet="Realizacja_Procesu" />
           </AssociationSet>
@@ -1800,11 +1768,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             <End Role="Klienci" EntitySet="Klienci" />
             <End Role="Zamowienia" EntitySet="Zamowienia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Of__1332DBDC" Association="Self.FK__Zamowieni__ID_Of__1332DBDC">
-            <End Role="Oferta" EntitySet="Oferta" />
-            <End Role="Zamowienia_Zawartosc" EntitySet="Zamowienia_Zawartosc" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Pr__236943A5" Association="Self.FK__Zamowieni__ID_Pr__236943A5">
+          <AssociationSet Name="FK__Zamowieni__ID_Pr__1DB06A4F" Association="Self.FK__Zamowieni__ID_Pr__1DB06A4F">
             <End Role="Produkt" EntitySet="Produkt" />
             <End Role="Zamowienie_Produkt" EntitySet="Zamowienie_Produkt" />
           </AssociationSet>
@@ -1812,47 +1776,43 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Zamowienia" EntitySet="Zamowienia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Pr__7E37BEF6" Association="Self.FK__Zamowieni__ID_Pr__7E37BEF6">
+          <AssociationSet Name="FK__Zamowieni__ID_Pr__7F2BE32F" Association="Self.FK__Zamowieni__ID_Pr__7F2BE32F">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Zamowienia_Przydzial" EntitySet="Zamowienia_Przydzial" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Um__7F2BE32F" Association="Self.FK__Zamowieni__ID_Um__7F2BE32F">
+          <AssociationSet Name="FK__Zamowieni__ID_Um__00200768" Association="Self.FK__Zamowieni__ID_Um__00200768">
             <End Role="Umowy_Kurierzy" EntitySet="Umowy_Kurierzy" />
             <End Role="Zamowienia_Przydzial" EntitySet="Zamowienia_Przydzial" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Za__02084FDA" Association="Self.FK__Zamowieni__ID_Za__02084FDA">
+          <AssociationSet Name="FK__Zamowieni__ID_Za__02FC7413" Association="Self.FK__Zamowieni__ID_Za__02FC7413">
             <End Role="Zamowienia" EntitySet="Zamowienia" />
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Za__123EB7A3" Association="Self.FK__Zamowieni__ID_Za__123EB7A3">
-            <End Role="Zamowienia" EntitySet="Zamowienia" />
-            <End Role="Zamowienia_Zawartosc" EntitySet="Zamowienia_Zawartosc" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Za__22751F6C" Association="Self.FK__Zamowieni__ID_Za__22751F6C">
+          <AssociationSet Name="FK__Zamowieni__ID_Za__1CBC4616" Association="Self.FK__Zamowieni__ID_Za__1CBC4616">
             <End Role="Zamowienia" EntitySet="Zamowienia" />
             <End Role="Zamowienie_Produkt" EntitySet="Zamowienie_Produkt" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Za__7D439ABD" Association="Self.FK__Zamowieni__ID_Za__7D439ABD">
+          <AssociationSet Name="FK__Zamowieni__ID_Za__7E37BEF6" Association="Self.FK__Zamowieni__ID_Za__7E37BEF6">
             <End Role="Zamowienia" EntitySet="Zamowienia" />
             <End Role="Zamowienia_Przydzial" EntitySet="Zamowienia_Przydzial" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zapotrzeb__ID_El__634EBE90" Association="Self.FK__Zapotrzeb__ID_El__634EBE90">
+          <AssociationSet Name="FK__Zapotrzeb__ID_El__5D95E53A" Association="Self.FK__Zapotrzeb__ID_El__5D95E53A">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Zapotrzebowanie_Opakowan" EntitySet="Zapotrzebowanie_Opakowan" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zapotrzeb__ID_Pr__625A9A57" Association="Self.FK__Zapotrzeb__ID_Pr__625A9A57">
+          <AssociationSet Name="FK__Zapotrzeb__ID_Pr__5CA1C101" Association="Self.FK__Zapotrzeb__ID_Pr__5CA1C101">
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
             <End Role="Zapotrzebowanie_Opakowan" EntitySet="Zapotrzebowanie_Opakowan" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zawartosc__ID_Do__07C12930" Association="Self.FK__Zawartosc__ID_Do__07C12930">
+          <AssociationSet Name="FK__Zawartosc__ID_Do__08B54D69" Association="Self.FK__Zawartosc__ID_Do__08B54D69">
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zawartosc__ID_El__06CD04F7" Association="Self.FK__Zawartosc__ID_El__06CD04F7">
+          <AssociationSet Name="FK__Zawartosc__ID_El__07C12930" Association="Self.FK__Zawartosc__ID_El__07C12930">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zawartosc__ID_Po__05D8E0BE" Association="Self.FK__Zawartosc__ID_Po__05D8E0BE">
+          <AssociationSet Name="FK__Zawartosc__ID_Po__06CD04F7" Association="Self.FK__Zawartosc__ID_Po__06CD04F7">
             <End Role="Polki" EntitySet="Polki" />
             <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
@@ -1865,7 +1825,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             <End Role="Znajomosc_Jezykow" EntitySet="Znajomosc_Jezykow" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SzwalniaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1876,7 +1837,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="ID_Obslugi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Element" Type="Int32" Nullable="false" />
           <Property Name="Ilosc" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Elementy" Relationship="Self.FK__Czesci_Ob__ID_El__2645B050" FromRole="Czesci_Obsluga" ToRole="Elementy" />
+          <NavigationProperty Name="Elementy" Relationship="Self.FK__Czesci_Ob__ID_El__208CD6FA" FromRole="Czesci_Obsluga" ToRole="Elementy" />
         </EntityType>
         <EntityType Name="Dokumentacja_Proces">
           <Key>
@@ -1884,9 +1845,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           </Key>
           <Property Name="ID_Dokumentacja_Proces" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Dokumentacji" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Dokumentacje" Relationship="Self.FK__Dokumenta__ID_Do__32AB8735" FromRole="Dokumentacja_Proces" ToRole="Dokumentacje" />
-          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Proces_Pr__ID_Do__5224328E" FromRole="Dokumentacja_Proces" ToRole="Proces_Produkcyjny" />
-          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Proces_Te__ID_Do__3587F3E0" FromRole="Dokumentacja_Proces" ToRole="Proces_Technologiczny" />
+          <NavigationProperty Name="Dokumentacje" Relationship="Self.FK__Dokumenta__ID_Do__2CF2ADDF" FromRole="Dokumentacja_Proces" ToRole="Dokumentacje" />
+          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Proces_Pr__ID_Do__4C6B5938" FromRole="Dokumentacja_Proces" ToRole="Proces_Produkcyjny" />
+          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Proces_Te__ID_Do__2FCF1A8A" FromRole="Dokumentacja_Proces" ToRole="Proces_Technologiczny" />
         </EntityType>
         <EntityType Name="Dokumentacje">
           <Key>
@@ -1896,9 +1857,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="ID_Rodzaj_Dokumentacji" Type="Int32" Nullable="false" />
           <Property Name="ID_Pracownika" Type="Int32" Nullable="false" />
           <Property Name="Data_Wykonania" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Dokumentacja_Proces" Relationship="Self.FK__Dokumenta__ID_Do__32AB8735" FromRole="Dokumentacje" ToRole="Dokumentacja_Proces" />
-          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Dokumenta__ID_Pr__2FCF1A8A" FromRole="Dokumentacje" ToRole="Pracownicy" />
-          <NavigationProperty Name="Rodzaj_Dokumentacji" Relationship="Self.FK__Dokumenta__ID_Ro__2EDAF651" FromRole="Dokumentacje" ToRole="Rodzaj_Dokumentacji" />
+          <NavigationProperty Name="Dokumentacja_Proces" Relationship="Self.FK__Dokumenta__ID_Do__2CF2ADDF" FromRole="Dokumentacje" ToRole="Dokumentacja_Proces" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Dokumenta__ID_Pr__2A164134" FromRole="Dokumentacje" ToRole="Pracownicy" />
+          <NavigationProperty Name="Rodzaj_Dokumentacji" Relationship="Self.FK__Dokumenta__ID_Ro__29221CFB" FromRole="Dokumentacje" ToRole="Rodzaj_Dokumentacji" />
         </EntityType>
         <EntityType Name="Dostarczenia_Wewn">
           <Key>
@@ -1910,9 +1871,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="Ilosc_Dostarczona" Type="Double" />
           <Property Name="ID_Miejsca" Type="Int32" />
           <Property Name="Data_Dostarczenia" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Zamowienia_Dostawy" Relationship="Self.FK__Dostarcze__ID_Do__17036CC0" FromRole="Dostarczenia_Wewn" ToRole="Zamowienia_Dostawy" />
-          <NavigationProperty Name="Miejsca" Relationship="Self.FK__Dostarcze__ID_Mi__17F790F9" FromRole="Dostarczenia_Wewn" ToRole="Miejsca" />
-          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Dostarcze__ID_Pr__160F4887" FromRole="Dostarczenia_Wewn" ToRole="Pracownicy" />
+          <NavigationProperty Name="Zamowienia_Dostawy" Relationship="Self.FK__Dostarcze__ID_Do__114A936A" FromRole="Dostarczenia_Wewn" ToRole="Zamowienia_Dostawy" />
+          <NavigationProperty Name="Miejsca" Relationship="Self.FK__Dostarcze__ID_Mi__123EB7A3" FromRole="Dostarczenia_Wewn" ToRole="Miejsca" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Dostarcze__ID_Pr__10566F31" FromRole="Dostarczenia_Wewn" ToRole="Pracownicy" />
         </EntityType>
         <EntityType Name="Dostarczenia_Zewn">
           <Key>
@@ -1924,19 +1885,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="Ilosc_Dostarczona" Type="Double" />
           <Property Name="ID_Miejsca" Type="Int32" />
           <Property Name="Data_Dostarczenia" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Miejsca" Relationship="Self.FK__Dostarcze__ID_Mi__1CBC4616" FromRole="Dostarczenia_Zewn" ToRole="Miejsca" />
-          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Dostarcze__ID_Pr__1AD3FDA4" FromRole="Dostarczenia_Zewn" ToRole="Pracownicy" />
-          <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Dostarcze__ID_Za__1BC821DD" FromRole="Dostarczenia_Zewn" ToRole="Zamowienia" />
-        </EntityType>
-        <EntityType Name="Dostawcy_Oferta">
-          <Key>
-            <PropertyRef Name="ID_Dostawcy_Oferta" />
-          </Key>
-          <Property Name="ID_Dostawcy_Oferta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ID_Oferta" Type="Int32" />
-          <Property Name="ID_Zamowienia" Type="Int32" />
-          <NavigationProperty Name="Oferta" Relationship="Self.FK__Dostawcy___ID_Of__0A9D95DB" FromRole="Dostawcy_Oferta" ToRole="Oferta" />
-          <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Dostawcy___ID_Za__0B91BA14" FromRole="Dostawcy_Oferta" ToRole="Zamowienia" />
+          <NavigationProperty Name="Miejsca" Relationship="Self.FK__Dostarcze__ID_Mi__17036CC0" FromRole="Dostarczenia_Zewn" ToRole="Miejsca" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Dostarcze__ID_Pr__151B244E" FromRole="Dostarczenia_Zewn" ToRole="Pracownicy" />
+          <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Dostarcze__ID_Za__160F4887" FromRole="Dostarczenia_Zewn" ToRole="Zamowienia" />
         </EntityType>
         <EntityType Name="Dostawcy_Zaopatrzenie">
           <Key>
@@ -1956,9 +1907,11 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="ID_Dostawy_Zawartosc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Dostawy" Type="Int32" />
           <Property Name="ID_Element" Type="Int32" />
+          <Property Name="ID_oferta" Type="Int32" />
           <Property Name="Ilosc_Dostarczona" Type="Int32" />
-          <NavigationProperty Name="Zamowienia_Dostawy" Relationship="Self.FK__Dostawy_Z__ID_Do__0E6E26BF" FromRole="Dostawy_Zawartosc" ToRole="Zamowienia_Dostawy" />
-          <NavigationProperty Name="Elementy" Relationship="Self.FK__Dostawy_Z__ID_El__0F624AF8" FromRole="Dostawy_Zawartosc" ToRole="Elementy" />
+          <NavigationProperty Name="Zamowienia_Dostawy" Relationship="Self.FK__Dostawy_Z__ID_Do__0B91BA14" FromRole="Dostawy_Zawartosc" ToRole="Zamowienia_Dostawy" />
+          <NavigationProperty Name="Elementy" Relationship="Self.FK__Dostawy_Z__ID_El__0C85DE4D" FromRole="Dostawy_Zawartosc" ToRole="Elementy" />
+          <NavigationProperty Name="Oferta" Relationship="Self.FK__Dostawy_Z__ID_of__0D7A0286" FromRole="Dostawy_Zawartosc" ToRole="Oferta" />
         </EntityType>
         <EntityType Name="Elementy">
           <Key>
@@ -1968,19 +1921,16 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="ID_Element_Typ" Type="Int32" />
           <Property Name="Element_Nazwa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Okres_Przydatnosci_Miesiace" Type="Int32" />
-          <Property Name="Element_Ilosc_W_Paczce" Type="Single" />
-          <Property Name="ID_Jednostka" Type="Int32" />
-          <NavigationProperty Name="Czesci_Obsluga" Relationship="Self.FK__Czesci_Ob__ID_El__2645B050" FromRole="Elementy" ToRole="Czesci_Obsluga" />
-          <NavigationProperty Name="Dostawy_Zawartosc" Relationship="Self.FK__Dostawy_Z__ID_El__0F624AF8" FromRole="Elementy" ToRole="Dostawy_Zawartosc" />
-          <NavigationProperty Name="Elementy_Proces" Relationship="Self.FK__Elementy___ID_El__498EEC8D" FromRole="Elementy" ToRole="Elementy_Proces" />
+          <NavigationProperty Name="Czesci_Obsluga" Relationship="Self.FK__Czesci_Ob__ID_El__208CD6FA" FromRole="Elementy" ToRole="Czesci_Obsluga" />
+          <NavigationProperty Name="Dostawy_Zawartosc" Relationship="Self.FK__Dostawy_Z__ID_El__0C85DE4D" FromRole="Elementy" ToRole="Dostawy_Zawartosc" />
+          <NavigationProperty Name="Elementy_Proces" Relationship="Self.FK__Elementy___ID_El__43D61337" FromRole="Elementy" ToRole="Elementy_Proces" />
           <NavigationProperty Name="Elementy_Cechy" Relationship="Self.FK__Elementy___ID_El__71D1E811" FromRole="Elementy" ToRole="Elementy_Cechy" />
-          <NavigationProperty Name="Elementy_Typy" Relationship="Self.FK__Elementy__ID_Ele__6E01572D" FromRole="Elementy" ToRole="Elementy_Typy" />
-          <NavigationProperty Name="Elementy_Jednostki" Relationship="Self.FK__Elementy__ID_Jed__6EF57B66" FromRole="Elementy" ToRole="Elementy_Jednostki" />
-          <NavigationProperty Name="Koszt_Jednostkowy" Relationship="Self.FK__Koszt_Jed__ID_El__1F98B2C1" FromRole="Elementy" ToRole="Koszt_Jednostkowy" />
-          <NavigationProperty Name="Material_Na_Produkcji" Relationship="Self.FK__Material___ID_El__55F4C372" FromRole="Elementy" ToRole="Material_Na_Produkcji" />
+          <NavigationProperty Name="Elementy_Typy" Relationship="Self.FK__Elementy__ID_Ele__6EF57B66" FromRole="Elementy" ToRole="Elementy_Typy" />
+          <NavigationProperty Name="Koszt_Jednostkowy" Relationship="Self.FK__Koszt_Jed__ID_El__19DFD96B" FromRole="Elementy" ToRole="Koszt_Jednostkowy" />
+          <NavigationProperty Name="Material_Na_Produkcji" Relationship="Self.FK__Material___ID_El__503BEA1C" FromRole="Elementy" ToRole="Material_Na_Produkcji" />
           <NavigationProperty Name="Oferta" Relationship="Self.FK__Oferta__ID_Eleme__797309D9" FromRole="Elementy" ToRole="Oferta" />
-          <NavigationProperty Name="Zapotrzebowanie_Opakowan" Relationship="Self.FK__Zapotrzeb__ID_El__634EBE90" FromRole="Elementy" ToRole="Zapotrzebowanie_Opakowan" />
-          <NavigationProperty Name="Zawartosc" Relationship="Self.FK__Zawartosc__ID_El__06CD04F7" FromRole="Elementy" ToRole="Zawartosc" />
+          <NavigationProperty Name="Zapotrzebowanie_Opakowan" Relationship="Self.FK__Zapotrzeb__ID_El__5D95E53A" FromRole="Elementy" ToRole="Zapotrzebowanie_Opakowan" />
+          <NavigationProperty Name="Zawartosc" Relationship="Self.FK__Zawartosc__ID_El__07C12930" FromRole="Elementy" ToRole="Zawartosc" />
         </EntityType>
         <EntityType Name="Elementy_Cechy">
           <Key>
@@ -2002,6 +1952,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           </Key>
           <Property Name="ID_Cecha" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Cecha" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Czy_wlasne" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Elementy_Cechy" Relationship="Self.FK__Elementy___ID_Ce__72C60C4A" FromRole="Elementy_Cechy_Slownik" ToRole="Elementy_Cechy" />
         </EntityType>
         <EntityType Name="Elementy_Jednostki">
@@ -2010,9 +1961,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           </Key>
           <Property Name="ID_jednostka" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Elementy" Relationship="Self.FK__Elementy__ID_Jed__6EF57B66" FromRole="Elementy_Jednostki" ToRole="Elementy" />
           <NavigationProperty Name="Elementy_Cechy" Relationship="Self.FK__Elementy___ID_Je__73BA3083" FromRole="Elementy_Jednostki" ToRole="Elementy_Cechy" />
-          <NavigationProperty Name="Material_Na_Produkcji" Relationship="Self.FK__Material___ID_Je__56E8E7AB" FromRole="Elementy_Jednostki" ToRole="Material_Na_Produkcji" />
+          <NavigationProperty Name="Material_Na_Produkcji" Relationship="Self.FK__Material___ID_Je__51300E55" FromRole="Elementy_Jednostki" ToRole="Material_Na_Produkcji" />
+          <NavigationProperty Name="Oferta" Relationship="Self.FK__Oferta__ID_Jedno__7B5B524B" FromRole="Elementy_Jednostki" ToRole="Oferta" />
         </EntityType>
         <EntityType Name="Elementy_Proces">
           <Key>
@@ -2022,8 +1973,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="ID_Proces_Technologiczny" Type="Int32" Nullable="false" />
           <Property Name="ID_Element" Type="Int32" Nullable="false" />
           <Property Name="Liczba" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Elementy" Relationship="Self.FK__Elementy___ID_El__498EEC8D" FromRole="Elementy_Proces" ToRole="Elementy" />
-          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Elementy___ID_Pr__489AC854" FromRole="Elementy_Proces" ToRole="Proces_Technologiczny" />
+          <NavigationProperty Name="Elementy" Relationship="Self.FK__Elementy___ID_El__43D61337" FromRole="Elementy_Proces" ToRole="Elementy" />
+          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Elementy___ID_Pr__42E1EEFE" FromRole="Elementy_Proces" ToRole="Proces_Technologiczny" />
         </EntityType>
         <EntityType Name="Elementy_Typy">
           <Key>
@@ -2031,7 +1982,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           </Key>
           <Property Name="ID_Element_Typ" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Typ" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Elementy" Relationship="Self.FK__Elementy__ID_Ele__6E01572D" FromRole="Elementy_Typy" ToRole="Elementy" />
+          <NavigationProperty Name="Elementy" Relationship="Self.FK__Elementy__ID_Ele__6EF57B66" FromRole="Elementy_Typy" ToRole="Elementy" />
         </EntityType>
         <EntityType Name="Etapy_W_Procesie">
           <Key>
@@ -2041,8 +1992,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="ID_Proces_Technologiczny" Type="Int32" Nullable="false" />
           <Property Name="ID_Etapu" Type="Int32" Nullable="false" />
           <Property Name="Czas" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Rodzaj_Etapu" Relationship="Self.FK__Etapy_W_P__ID_Et__4D5F7D71" FromRole="Etapy_W_Procesie" ToRole="Rodzaj_Etapu" />
-          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Etapy_W_P__ID_Pr__4C6B5938" FromRole="Etapy_W_Procesie" ToRole="Proces_Technologiczny" />
+          <NavigationProperty Name="Rodzaj_Etapu" Relationship="Self.FK__Etapy_W_P__ID_Et__47A6A41B" FromRole="Etapy_W_Procesie" ToRole="Rodzaj_Etapu" />
+          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Etapy_W_P__ID_Pr__46B27FE2" FromRole="Etapy_W_Procesie" ToRole="Proces_Technologiczny" />
         </EntityType>
         <EntityType Name="Etat">
           <Key>
@@ -2123,7 +2074,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="Zgodnosc_Zamowienia" Type="Boolean" Nullable="false" />
           <Property Name="Liczba_Poprawnych" Type="Int32" Nullable="false" />
           <Property Name="Liczba_Blednych" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Kontrola___ID_Pr__662B2B3B" FromRole="Kontrola_Efektywnosci" ToRole="Proces_Produkcyjny" />
+          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Kontrola___ID_Pr__607251E5" FromRole="Kontrola_Efektywnosci" ToRole="Proces_Produkcyjny" />
         </EntityType>
         <EntityType Name="Koszt_Jednostkowy">
           <Key>
@@ -2132,7 +2083,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="ID_Koszt_Jednostkowy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Element" Type="Int32" />
           <Property Name="Koszt_Produkcji" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Elementy" Relationship="Self.FK__Koszt_Jed__ID_El__1F98B2C1" FromRole="Koszt_Jednostkowy" ToRole="Elementy" />
+          <NavigationProperty Name="Elementy" Relationship="Self.FK__Koszt_Jed__ID_El__19DFD96B" FromRole="Koszt_Jednostkowy" ToRole="Elementy" />
         </EntityType>
         <EntityType Name="Kurierzy">
           <Key>
@@ -2157,9 +2108,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="Data_zakupu" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Resurs_rbh" Type="Int32" Nullable="false" />
           <Property Name="Resurs_data_serwisu" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Rodzaj_Maszyny" Relationship="Self.FK__Maszyny__ID_Rodz__3D2915A8" FromRole="Maszyny" ToRole="Rodzaj_Maszyny" />
-          <NavigationProperty Name="Obsluga_Techniczna" Relationship="Self.FK__Obsluga_T__ID_Ma__40058253" FromRole="Maszyny" ToRole="Obsluga_Techniczna" />
-          <NavigationProperty Name="Przydzial_Zasobow" Relationship="Self.FK__Przydzial__ID_Ma__5F7E2DAC" FromRole="Maszyny" ToRole="Przydzial_Zasobow" />
+          <NavigationProperty Name="Rodzaj_Maszyny" Relationship="Self.FK__Maszyny__ID_Rodz__37703C52" FromRole="Maszyny" ToRole="Rodzaj_Maszyny" />
+          <NavigationProperty Name="Obsluga_Techniczna" Relationship="Self.FK__Obsluga_T__ID_Ma__3A4CA8FD" FromRole="Maszyny" ToRole="Obsluga_Techniczna" />
+          <NavigationProperty Name="Przydzial_Zasobow" Relationship="Self.FK__Przydzial__ID_Ma__59C55456" FromRole="Maszyny" ToRole="Przydzial_Zasobow" />
         </EntityType>
         <EntityType Name="Maszyny_Proces">
           <Key>
@@ -2170,8 +2121,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="ID_Rodzaj_Maszyny" Type="Int32" Nullable="false" />
           <Property Name="Liczba" Type="Int32" Nullable="false" />
           <Property Name="Liczba_Rbh" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Maszyny_P__ID_Pr__395884C4" FromRole="Maszyny_Proces" ToRole="Proces_Technologiczny" />
-          <NavigationProperty Name="Rodzaj_Maszyny" Relationship="Self.FK__Maszyny_P__ID_Ro__3A4CA8FD" FromRole="Maszyny_Proces" ToRole="Rodzaj_Maszyny" />
+          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Maszyny_P__ID_Pr__339FAB6E" FromRole="Maszyny_Proces" ToRole="Proces_Technologiczny" />
+          <NavigationProperty Name="Rodzaj_Maszyny" Relationship="Self.FK__Maszyny_P__ID_Ro__3493CFA7" FromRole="Maszyny_Proces" ToRole="Rodzaj_Maszyny" />
         </EntityType>
         <EntityType Name="Material_Na_Produkcji">
           <Key>
@@ -2183,9 +2134,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="Liczba" Type="Double" Nullable="false" />
           <Property Name="ID_Jednostka" Type="Int32" Nullable="false" />
           <Property Name="Odpad" Type="Double" />
-          <NavigationProperty Name="Elementy" Relationship="Self.FK__Material___ID_El__55F4C372" FromRole="Material_Na_Produkcji" ToRole="Elementy" />
-          <NavigationProperty Name="Elementy_Jednostki" Relationship="Self.FK__Material___ID_Je__56E8E7AB" FromRole="Material_Na_Produkcji" ToRole="Elementy_Jednostki" />
-          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Material___ID_Pr__55009F39" FromRole="Material_Na_Produkcji" ToRole="Proces_Produkcyjny" />
+          <NavigationProperty Name="Elementy" Relationship="Self.FK__Material___ID_El__503BEA1C" FromRole="Material_Na_Produkcji" ToRole="Elementy" />
+          <NavigationProperty Name="Elementy_Jednostki" Relationship="Self.FK__Material___ID_Je__51300E55" FromRole="Material_Na_Produkcji" ToRole="Elementy_Jednostki" />
+          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Material___ID_Pr__4F47C5E3" FromRole="Material_Na_Produkcji" ToRole="Proces_Produkcyjny" />
         </EntityType>
         <EntityType Name="Miejsca">
           <Key>
@@ -2193,8 +2144,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           </Key>
           <Property Name="ID_Miejsca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Dostarcze__ID_Mi__17F790F9" FromRole="Miejsca" ToRole="Dostarczenia_Wewn" />
-          <NavigationProperty Name="Dostarczenia_Zewn" Relationship="Self.FK__Dostarcze__ID_Mi__1CBC4616" FromRole="Miejsca" ToRole="Dostarczenia_Zewn" />
+          <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Dostarcze__ID_Mi__123EB7A3" FromRole="Miejsca" ToRole="Dostarczenia_Wewn" />
+          <NavigationProperty Name="Dostarczenia_Zewn" Relationship="Self.FK__Dostarcze__ID_Mi__17036CC0" FromRole="Miejsca" ToRole="Dostarczenia_Zewn" />
         </EntityType>
         <EntityType Name="Obsluga_Techniczna">
           <Key>
@@ -2205,9 +2156,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="ID_Rodzaj_Obslugi" Type="Int32" Nullable="false" />
           <Property Name="Data_Wykonania" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="ID_Pracownika" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Maszyny" Relationship="Self.FK__Obsluga_T__ID_Ma__40058253" FromRole="Obsluga_Techniczna" ToRole="Maszyny" />
-          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Obsluga_T__ID_Pr__41EDCAC5" FromRole="Obsluga_Techniczna" ToRole="Pracownicy" />
-          <NavigationProperty Name="Rodzaj_Obslugi" Relationship="Self.FK__Obsluga_T__ID_Ro__40F9A68C" FromRole="Obsluga_Techniczna" ToRole="Rodzaj_Obslugi" />
+          <NavigationProperty Name="Maszyny" Relationship="Self.FK__Obsluga_T__ID_Ma__3A4CA8FD" FromRole="Obsluga_Techniczna" ToRole="Maszyny" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Obsluga_T__ID_Pr__3C34F16F" FromRole="Obsluga_Techniczna" ToRole="Pracownicy" />
+          <NavigationProperty Name="Rodzaj_Obslugi" Relationship="Self.FK__Obsluga_T__ID_Ro__3B40CD36" FromRole="Obsluga_Techniczna" ToRole="Rodzaj_Obslugi" />
         </EntityType>
         <EntityType Name="Oferta">
           <Key>
@@ -2221,12 +2172,14 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="Data_Oferty" Type="DateTime" Precision="0" />
           <Property Name="Ilosc_Minimalna" Type="Int32" />
           <Property Name="Ilosc_Maksymalna" Type="Int32" />
+          <Property Name="Ilosc_W_Opakowaniu_Pojedynczym" Type="Single" />
+          <Property Name="ID_Jednostka" Type="Int32" />
           <Property Name="Ilosc_W_Opakowaniu_Zbiorczym" Type="Int32" />
           <Property Name="Deklarowany_czas_dostawy" Type="Int32" />
-          <NavigationProperty Name="Dostawcy_Oferta" Relationship="Self.FK__Dostawcy___ID_Of__0A9D95DB" FromRole="Oferta" ToRole="Dostawcy_Oferta" />
           <NavigationProperty Name="Dostawcy_Zaopatrzenie" Relationship="Self.FK__Oferta__ID_Dosta__7A672E12" FromRole="Oferta" ToRole="Dostawcy_Zaopatrzenie" />
+          <NavigationProperty Name="Dostawy_Zawartosc" Relationship="Self.FK__Dostawy_Z__ID_of__0D7A0286" FromRole="Oferta" ToRole="Dostawy_Zawartosc" />
           <NavigationProperty Name="Elementy" Relationship="Self.FK__Oferta__ID_Eleme__797309D9" FromRole="Oferta" ToRole="Elementy" />
-          <NavigationProperty Name="Zamowienia_Zawartosc" Relationship="Self.FK__Zamowieni__ID_Of__1332DBDC" FromRole="Oferta" ToRole="Zamowienia_Zawartosc" />
+          <NavigationProperty Name="Elementy_Jednostki" Relationship="Self.FK__Oferta__ID_Jedno__7B5B524B" FromRole="Oferta" ToRole="Elementy_Jednostki" />
         </EntityType>
         <EntityType Name="Pensja">
           <Key>
@@ -2242,8 +2195,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           </Key>
           <Property Name="ID_Polka" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Rozmiar_Polki" Type="Int32" />
-          <NavigationProperty Name="Polki_Rozmiary" Relationship="Self.FK__Polki__ID_Rozmia__656C112C" FromRole="Polki" ToRole="Polki_Rozmiary" />
-          <NavigationProperty Name="Zawartosc" Relationship="Self.FK__Zawartosc__ID_Po__05D8E0BE" FromRole="Polki" ToRole="Zawartosc" />
+          <NavigationProperty Name="Polki_Rozmiary" Relationship="Self.FK__Polki__ID_Rozmia__66603565" FromRole="Polki" ToRole="Polki_Rozmiary" />
+          <NavigationProperty Name="Zawartosc" Relationship="Self.FK__Zawartosc__ID_Po__06CD04F7" FromRole="Polki" ToRole="Zawartosc" />
         </EntityType>
         <EntityType Name="Polki_Rozmiary">
           <Key>
@@ -2253,7 +2206,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="Wysokosc" Type="Int32" />
           <Property Name="Szerokosc" Type="Int32" />
           <Property Name="Glebokosc" Type="Int32" />
-          <NavigationProperty Name="Polki" Relationship="Self.FK__Polki__ID_Rozmia__656C112C" FromRole="Polki_Rozmiary" ToRole="Polki" />
+          <NavigationProperty Name="Polki" Relationship="Self.FK__Polki__ID_Rozmia__66603565" FromRole="Polki_Rozmiary" ToRole="Polki" />
         </EntityType>
         <EntityType Name="Pracownicy">
           <Key>
@@ -2265,16 +2218,16 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="Pesel" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Adres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Telefon" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Dokumentacje" Relationship="Self.FK__Dokumenta__ID_Pr__2FCF1A8A" FromRole="Pracownicy" ToRole="Dokumentacje" />
-          <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Dostarcze__ID_Pr__160F4887" FromRole="Pracownicy" ToRole="Dostarczenia_Wewn" />
-          <NavigationProperty Name="Dostarczenia_Zewn" Relationship="Self.FK__Dostarcze__ID_Pr__1AD3FDA4" FromRole="Pracownicy" ToRole="Dostarczenia_Zewn" />
-          <NavigationProperty Name="Obsluga_Techniczna" Relationship="Self.FK__Obsluga_T__ID_Pr__41EDCAC5" FromRole="Pracownicy" ToRole="Obsluga_Techniczna" />
+          <NavigationProperty Name="Dokumentacje" Relationship="Self.FK__Dokumenta__ID_Pr__2A164134" FromRole="Pracownicy" ToRole="Dokumentacje" />
+          <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Dostarcze__ID_Pr__10566F31" FromRole="Pracownicy" ToRole="Dostarczenia_Wewn" />
+          <NavigationProperty Name="Dostarczenia_Zewn" Relationship="Self.FK__Dostarcze__ID_Pr__151B244E" FromRole="Pracownicy" ToRole="Dostarczenia_Zewn" />
+          <NavigationProperty Name="Obsluga_Techniczna" Relationship="Self.FK__Obsluga_T__ID_Pr__3C34F16F" FromRole="Pracownicy" ToRole="Obsluga_Techniczna" />
           <NavigationProperty Name="Pracownicy_Zatrudnienie" Relationship="Self.FK__Pracownic__ID_Pr__412EB0B6" FromRole="Pracownicy" ToRole="Pracownicy_Zatrudnienie" />
-          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Proces_Te__ID_Pr__367C1819" FromRole="Pracownicy" ToRole="Proces_Technologiczny" />
-          <NavigationProperty Name="Przydzial_Zasobow" Relationship="Self.FK__Przydzial__ID_Pr__5E8A0973" FromRole="Pracownicy" ToRole="Przydzial_Zasobow" />
+          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Proces_Te__ID_Pr__30C33EC3" FromRole="Pracownicy" ToRole="Proces_Technologiczny" />
+          <NavigationProperty Name="Przydzial_Zasobow" Relationship="Self.FK__Przydzial__ID_Pr__58D1301D" FromRole="Pracownicy" ToRole="Przydzial_Zasobow" />
           <NavigationProperty Name="Urlop" Relationship="Self.FK__Urlop__ID_Pracow__3C69FB99" FromRole="Pracownicy" ToRole="Urlop" />
           <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Zamowieni__ID_Pr__5070F446" FromRole="Pracownicy" ToRole="Zamowienia" />
-          <NavigationProperty Name="Zamowienia_Przydzial" Relationship="Self.FK__Zamowieni__ID_Pr__7E37BEF6" FromRole="Pracownicy" ToRole="Zamowienia_Przydzial" />
+          <NavigationProperty Name="Zamowienia_Przydzial" Relationship="Self.FK__Zamowieni__ID_Pr__7F2BE32F" FromRole="Pracownicy" ToRole="Zamowienia_Przydzial" />
           <NavigationProperty Name="Znajomosc_Jezykow" Relationship="Self.FK__Znajomosc__ID_Pr__4CA06362" FromRole="Pracownicy" ToRole="Znajomosc_Jezykow" />
         </EntityType>
         <EntityType Name="Pracownicy_Zatrudnienie">
@@ -2304,13 +2257,13 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="Data_Zakonczenia" Type="DateTime" Precision="0" />
           <Property Name="ID_Dokumentacja_Proces" Type="Int32" />
           <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Dokumentacja_Proces" Relationship="Self.FK__Proces_Pr__ID_Do__5224328E" FromRole="Proces_Produkcyjny" ToRole="Dokumentacja_Proces" />
-          <NavigationProperty Name="Kontrola_Efektywnosci" Relationship="Self.FK__Kontrola___ID_Pr__662B2B3B" FromRole="Proces_Produkcyjny" ToRole="Kontrola_Efektywnosci" />
-          <NavigationProperty Name="Material_Na_Produkcji" Relationship="Self.FK__Material___ID_Pr__55009F39" FromRole="Proces_Produkcyjny" ToRole="Material_Na_Produkcji" />
-          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Proces_Pr__ID_Pr__51300E55" FromRole="Proces_Produkcyjny" ToRole="Proces_Technologiczny" />
-          <NavigationProperty Name="Zamowienie_Produkt" Relationship="Self.FK__Proces_Pr__ID_Za__503BEA1C" FromRole="Proces_Produkcyjny" ToRole="Zamowienie_Produkt" />
-          <NavigationProperty Name="Realizacja_Procesu" Relationship="Self.FK__Realizacj__ID_Pr__59C55456" FromRole="Proces_Produkcyjny" ToRole="Realizacja_Procesu" />
-          <NavigationProperty Name="Zapotrzebowanie_Opakowan" Relationship="Self.FK__Zapotrzeb__ID_Pr__625A9A57" FromRole="Proces_Produkcyjny" ToRole="Zapotrzebowanie_Opakowan" />
+          <NavigationProperty Name="Dokumentacja_Proces" Relationship="Self.FK__Proces_Pr__ID_Do__4C6B5938" FromRole="Proces_Produkcyjny" ToRole="Dokumentacja_Proces" />
+          <NavigationProperty Name="Kontrola_Efektywnosci" Relationship="Self.FK__Kontrola___ID_Pr__607251E5" FromRole="Proces_Produkcyjny" ToRole="Kontrola_Efektywnosci" />
+          <NavigationProperty Name="Material_Na_Produkcji" Relationship="Self.FK__Material___ID_Pr__4F47C5E3" FromRole="Proces_Produkcyjny" ToRole="Material_Na_Produkcji" />
+          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Proces_Pr__ID_Pr__4B7734FF" FromRole="Proces_Produkcyjny" ToRole="Proces_Technologiczny" />
+          <NavigationProperty Name="Zamowienie_Produkt" Relationship="Self.FK__Proces_Pr__ID_Za__4A8310C6" FromRole="Proces_Produkcyjny" ToRole="Zamowienie_Produkt" />
+          <NavigationProperty Name="Realizacja_Procesu" Relationship="Self.FK__Realizacj__ID_Pr__540C7B00" FromRole="Proces_Produkcyjny" ToRole="Realizacja_Procesu" />
+          <NavigationProperty Name="Zapotrzebowanie_Opakowan" Relationship="Self.FK__Zapotrzeb__ID_Pr__5CA1C101" FromRole="Proces_Produkcyjny" ToRole="Zapotrzebowanie_Opakowan" />
         </EntityType>
         <EntityType Name="Proces_Technologiczny">
           <Key>
@@ -2319,13 +2272,13 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="ID_Proces_Technologiczny" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Dokumentacja_Proces" Type="Int32" Nullable="false" />
           <Property Name="ID_Pracownika" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Dokumentacja_Proces" Relationship="Self.FK__Proces_Te__ID_Do__3587F3E0" FromRole="Proces_Technologiczny" ToRole="Dokumentacja_Proces" />
-          <NavigationProperty Name="Elementy_Proces" Relationship="Self.FK__Elementy___ID_Pr__489AC854" FromRole="Proces_Technologiczny" ToRole="Elementy_Proces" />
-          <NavigationProperty Name="Etapy_W_Procesie" Relationship="Self.FK__Etapy_W_P__ID_Pr__4C6B5938" FromRole="Proces_Technologiczny" ToRole="Etapy_W_Procesie" />
-          <NavigationProperty Name="Maszyny_Proces" Relationship="Self.FK__Maszyny_P__ID_Pr__395884C4" FromRole="Proces_Technologiczny" ToRole="Maszyny_Proces" />
-          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Proces_Te__ID_Pr__367C1819" FromRole="Proces_Technologiczny" ToRole="Pracownicy" />
-          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Proces_Pr__ID_Pr__51300E55" FromRole="Proces_Technologiczny" ToRole="Proces_Produkcyjny" />
-          <NavigationProperty Name="Proces_Zamowienie" Relationship="Self.FK__Proces_Za__ID_Pr__44CA3770" FromRole="Proces_Technologiczny" ToRole="Proces_Zamowienie" />
+          <NavigationProperty Name="Dokumentacja_Proces" Relationship="Self.FK__Proces_Te__ID_Do__2FCF1A8A" FromRole="Proces_Technologiczny" ToRole="Dokumentacja_Proces" />
+          <NavigationProperty Name="Elementy_Proces" Relationship="Self.FK__Elementy___ID_Pr__42E1EEFE" FromRole="Proces_Technologiczny" ToRole="Elementy_Proces" />
+          <NavigationProperty Name="Etapy_W_Procesie" Relationship="Self.FK__Etapy_W_P__ID_Pr__46B27FE2" FromRole="Proces_Technologiczny" ToRole="Etapy_W_Procesie" />
+          <NavigationProperty Name="Maszyny_Proces" Relationship="Self.FK__Maszyny_P__ID_Pr__339FAB6E" FromRole="Proces_Technologiczny" ToRole="Maszyny_Proces" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Proces_Te__ID_Pr__30C33EC3" FromRole="Proces_Technologiczny" ToRole="Pracownicy" />
+          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Proces_Pr__ID_Pr__4B7734FF" FromRole="Proces_Technologiczny" ToRole="Proces_Produkcyjny" />
+          <NavigationProperty Name="Proces_Zamowienie" Relationship="Self.FK__Proces_Za__ID_Pr__3F115E1A" FromRole="Proces_Technologiczny" ToRole="Proces_Zamowienie" />
         </EntityType>
         <EntityType Name="Proces_Zamowienie">
           <Key>
@@ -2334,8 +2287,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="ID_Proces_Zamowienie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Proces_Technologiczny" Type="Int32" Nullable="false" />
           <Property Name="ID_Zamowienie_Produkt" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Proces_Za__ID_Pr__44CA3770" FromRole="Proces_Zamowienie" ToRole="Proces_Technologiczny" />
-          <NavigationProperty Name="Zamowienie_Produkt" Relationship="Self.FK__Proces_Za__ID_Za__45BE5BA9" FromRole="Proces_Zamowienie" ToRole="Zamowienie_Produkt" />
+          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Proces_Za__ID_Pr__3F115E1A" FromRole="Proces_Zamowienie" ToRole="Proces_Technologiczny" />
+          <NavigationProperty Name="Zamowienie_Produkt" Relationship="Self.FK__Proces_Za__ID_Za__40058253" FromRole="Proces_Zamowienie" ToRole="Zamowienie_Produkt" />
         </EntityType>
         <EntityType Name="Produkt">
           <Key>
@@ -2343,7 +2296,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           </Key>
           <Property Name="ID_Produkt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Zamowienie_Produkt" Relationship="Self.FK__Zamowieni__ID_Pr__236943A5" FromRole="Produkt" ToRole="Zamowienie_Produkt" />
+          <NavigationProperty Name="Zamowienie_Produkt" Relationship="Self.FK__Zamowieni__ID_Pr__1DB06A4F" FromRole="Produkt" ToRole="Zamowienie_Produkt" />
         </EntityType>
         <EntityType Name="Przydzial_Zasobow">
           <Key>
@@ -2353,9 +2306,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="ID_Realizacji_Procesu" Type="Int32" Nullable="false" />
           <Property Name="ID_Pracownika" Type="Int32" Nullable="false" />
           <Property Name="ID_Maszyny" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Maszyny" Relationship="Self.FK__Przydzial__ID_Ma__5F7E2DAC" FromRole="Przydzial_Zasobow" ToRole="Maszyny" />
-          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Przydzial__ID_Pr__5E8A0973" FromRole="Przydzial_Zasobow" ToRole="Pracownicy" />
-          <NavigationProperty Name="Realizacja_Procesu" Relationship="Self.FK__Przydzial__ID_Re__5D95E53A" FromRole="Przydzial_Zasobow" ToRole="Realizacja_Procesu" />
+          <NavigationProperty Name="Maszyny" Relationship="Self.FK__Przydzial__ID_Ma__59C55456" FromRole="Przydzial_Zasobow" ToRole="Maszyny" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Przydzial__ID_Pr__58D1301D" FromRole="Przydzial_Zasobow" ToRole="Pracownicy" />
+          <NavigationProperty Name="Realizacja_Procesu" Relationship="Self.FK__Przydzial__ID_Re__57DD0BE4" FromRole="Przydzial_Zasobow" ToRole="Realizacja_Procesu" />
         </EntityType>
         <EntityType Name="Realizacja_Procesu">
           <Key>
@@ -2368,9 +2321,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="Data_Zakonczenia_Procesu" Type="DateTime" Precision="0" />
           <Property Name="Data_Kontroli" Type="DateTime" Precision="0" />
           <Property Name="Uwagi_Kontroli" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Realizacj__ID_Pr__59C55456" FromRole="Realizacja_Procesu" ToRole="Proces_Produkcyjny" />
-          <NavigationProperty Name="Przydzial_Zasobow" Relationship="Self.FK__Przydzial__ID_Re__5D95E53A" FromRole="Realizacja_Procesu" ToRole="Przydzial_Zasobow" />
-          <NavigationProperty Name="Rodzaj_Etapu" Relationship="Self.FK__Realizacj__ID_Et__5AB9788F" FromRole="Realizacja_Procesu" ToRole="Rodzaj_Etapu" />
+          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Realizacj__ID_Pr__540C7B00" FromRole="Realizacja_Procesu" ToRole="Proces_Produkcyjny" />
+          <NavigationProperty Name="Przydzial_Zasobow" Relationship="Self.FK__Przydzial__ID_Re__57DD0BE4" FromRole="Realizacja_Procesu" ToRole="Przydzial_Zasobow" />
+          <NavigationProperty Name="Rodzaj_Etapu" Relationship="Self.FK__Realizacj__ID_Et__55009F39" FromRole="Realizacja_Procesu" ToRole="Rodzaj_Etapu" />
         </EntityType>
         <EntityType Name="Rodzaj_Dokumentacji">
           <Key>
@@ -2378,7 +2331,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           </Key>
           <Property Name="ID_Rodzaj_Dokumentacji" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Dokumentacje" Relationship="Self.FK__Dokumenta__ID_Ro__2EDAF651" FromRole="Rodzaj_Dokumentacji" ToRole="Dokumentacje" />
+          <NavigationProperty Name="Dokumentacje" Relationship="Self.FK__Dokumenta__ID_Ro__29221CFB" FromRole="Rodzaj_Dokumentacji" ToRole="Dokumentacje" />
         </EntityType>
         <EntityType Name="Rodzaj_Etapu">
           <Key>
@@ -2386,8 +2339,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           </Key>
           <Property Name="ID_Etapu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Etapy_W_Procesie" Relationship="Self.FK__Etapy_W_P__ID_Et__4D5F7D71" FromRole="Rodzaj_Etapu" ToRole="Etapy_W_Procesie" />
-          <NavigationProperty Name="Realizacja_Procesu" Relationship="Self.FK__Realizacj__ID_Et__5AB9788F" FromRole="Rodzaj_Etapu" ToRole="Realizacja_Procesu" />
+          <NavigationProperty Name="Etapy_W_Procesie" Relationship="Self.FK__Etapy_W_P__ID_Et__47A6A41B" FromRole="Rodzaj_Etapu" ToRole="Etapy_W_Procesie" />
+          <NavigationProperty Name="Realizacja_Procesu" Relationship="Self.FK__Realizacj__ID_Et__55009F39" FromRole="Rodzaj_Etapu" ToRole="Realizacja_Procesu" />
         </EntityType>
         <EntityType Name="Rodzaj_Maszyny">
           <Key>
@@ -2395,8 +2348,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           </Key>
           <Property Name="ID_Rodzaj_Maszyny" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Rodzaj_Maszyny1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Maszyny" Relationship="Self.FK__Maszyny__ID_Rodz__3D2915A8" FromRole="Rodzaj_Maszyny" ToRole="Maszyny" />
-          <NavigationProperty Name="Maszyny_Proces" Relationship="Self.FK__Maszyny_P__ID_Ro__3A4CA8FD" FromRole="Rodzaj_Maszyny" ToRole="Maszyny_Proces" />
+          <NavigationProperty Name="Maszyny" Relationship="Self.FK__Maszyny__ID_Rodz__37703C52" FromRole="Rodzaj_Maszyny" ToRole="Maszyny" />
+          <NavigationProperty Name="Maszyny_Proces" Relationship="Self.FK__Maszyny_P__ID_Ro__3493CFA7" FromRole="Rodzaj_Maszyny" ToRole="Maszyny_Proces" />
         </EntityType>
         <EntityType Name="Rodzaj_Obslugi">
           <Key>
@@ -2404,7 +2357,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           </Key>
           <Property Name="ID_Rodzaj_Obslugi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Obsluga_Techniczna" Relationship="Self.FK__Obsluga_T__ID_Ro__40F9A68C" FromRole="Rodzaj_Obslugi" ToRole="Obsluga_Techniczna" />
+          <NavigationProperty Name="Obsluga_Techniczna" Relationship="Self.FK__Obsluga_T__ID_Ro__3B40CD36" FromRole="Rodzaj_Obslugi" ToRole="Obsluga_Techniczna" />
         </EntityType>
         <EntityType Name="Rodzaj_Umowy">
           <Key>
@@ -2437,7 +2390,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="Koszt_Km" Type="Int32" />
           <Property Name="Koszt_Staly" Type="Int32" />
           <NavigationProperty Name="Kurierzy" Relationship="Self.FK__Umowy_Kur__ID_Ku__76969D2E" FromRole="Umowy_Kurierzy" ToRole="Kurierzy" />
-          <NavigationProperty Name="Zamowienia_Przydzial" Relationship="Self.FK__Zamowieni__ID_Um__7F2BE32F" FromRole="Umowy_Kurierzy" ToRole="Zamowienia_Przydzial" />
+          <NavigationProperty Name="Zamowienia_Przydzial" Relationship="Self.FK__Zamowieni__ID_Um__00200768" FromRole="Umowy_Kurierzy" ToRole="Zamowienia_Przydzial" />
         </EntityType>
         <EntityType Name="Urlop">
           <Key>
@@ -2445,7 +2398,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           </Key>
           <Property Name="ID_Urlop" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Pracownika" Type="Int32" />
-          <Property Name="Data_rozpoczęcia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Data_rozpoczecia" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Data_zakonczenia" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Urlop__ID_Pracow__3C69FB99" FromRole="Urlop" ToRole="Pracownicy" />
         </EntityType>
@@ -2459,15 +2412,13 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="Data_Zakonczenia" Type="DateTime" Precision="3" />
           <Property Name="Dokumentacja" Type="Boolean" />
           <Property Name="ID_Pracownika" Type="Int32" />
-          <NavigationProperty Name="Dostarczenia_Zewn" Relationship="Self.FK__Dostarcze__ID_Za__1BC821DD" FromRole="Zamowienia" ToRole="Dostarczenia_Zewn" />
-          <NavigationProperty Name="Dostawcy_Oferta" Relationship="Self.FK__Dostawcy___ID_Za__0B91BA14" FromRole="Zamowienia" ToRole="Dostawcy_Oferta" />
+          <NavigationProperty Name="Dostarczenia_Zewn" Relationship="Self.FK__Dostarcze__ID_Za__160F4887" FromRole="Zamowienia" ToRole="Dostarczenia_Zewn" />
           <NavigationProperty Name="Faktury" Relationship="Self.FK__Faktury__ID_Zamo__534D60F1" FromRole="Zamowienia" ToRole="Faktury" />
           <NavigationProperty Name="Klienci" Relationship="Self.FK__Zamowieni__ID_Kl__4F7CD00D" FromRole="Zamowienia" ToRole="Klienci" />
           <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Zamowieni__ID_Pr__5070F446" FromRole="Zamowienia" ToRole="Pracownicy" />
-          <NavigationProperty Name="Zamowienia_Dostawy" Relationship="Self.FK__Zamowieni__ID_Za__02084FDA" FromRole="Zamowienia" ToRole="Zamowienia_Dostawy" />
-          <NavigationProperty Name="Zamowienia_Zawartosc" Relationship="Self.FK__Zamowieni__ID_Za__123EB7A3" FromRole="Zamowienia" ToRole="Zamowienia_Zawartosc" />
-          <NavigationProperty Name="Zamowienie_Produkt" Relationship="Self.FK__Zamowieni__ID_Za__22751F6C" FromRole="Zamowienia" ToRole="Zamowienie_Produkt" />
-          <NavigationProperty Name="Zamowienia_Przydzial" Relationship="Self.FK__Zamowieni__ID_Za__7D439ABD" FromRole="Zamowienia" ToRole="Zamowienia_Przydzial" />
+          <NavigationProperty Name="Zamowienia_Dostawy" Relationship="Self.FK__Zamowieni__ID_Za__02FC7413" FromRole="Zamowienia" ToRole="Zamowienia_Dostawy" />
+          <NavigationProperty Name="Zamowienie_Produkt" Relationship="Self.FK__Zamowieni__ID_Za__1CBC4616" FromRole="Zamowienia" ToRole="Zamowienie_Produkt" />
+          <NavigationProperty Name="Zamowienia_Przydzial" Relationship="Self.FK__Zamowieni__ID_Za__7E37BEF6" FromRole="Zamowienia" ToRole="Zamowienia_Przydzial" />
         </EntityType>
         <EntityType Name="Zamowienia_Dostawy">
           <Key>
@@ -2477,10 +2428,10 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="ID_Zamowienia" Type="Int32" />
           <Property Name="Data_Dostawy_Planowana" Type="DateTime" Precision="0" />
           <Property Name="Data_Dostawy_Rzeczywista" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Dostarcze__ID_Do__17036CC0" FromRole="Zamowienia_Dostawy" ToRole="Dostarczenia_Wewn" />
-          <NavigationProperty Name="Dostawy_Zawartosc" Relationship="Self.FK__Dostawy_Z__ID_Do__0E6E26BF" FromRole="Zamowienia_Dostawy" ToRole="Dostawy_Zawartosc" />
-          <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Zamowieni__ID_Za__02084FDA" FromRole="Zamowienia_Dostawy" ToRole="Zamowienia" />
-          <NavigationProperty Name="Zawartosc" Relationship="Self.FK__Zawartosc__ID_Do__07C12930" FromRole="Zamowienia_Dostawy" ToRole="Zawartosc" />
+          <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Dostarcze__ID_Do__114A936A" FromRole="Zamowienia_Dostawy" ToRole="Dostarczenia_Wewn" />
+          <NavigationProperty Name="Dostawy_Zawartosc" Relationship="Self.FK__Dostawy_Z__ID_Do__0B91BA14" FromRole="Zamowienia_Dostawy" ToRole="Dostawy_Zawartosc" />
+          <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Zamowieni__ID_Za__02FC7413" FromRole="Zamowienia_Dostawy" ToRole="Zamowienia" />
+          <NavigationProperty Name="Zawartosc" Relationship="Self.FK__Zawartosc__ID_Do__08B54D69" FromRole="Zamowienia_Dostawy" ToRole="Zawartosc" />
         </EntityType>
         <EntityType Name="Zamowienia_Przydzial">
           <Key>
@@ -2490,20 +2441,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="ID_Zamowienia" Type="Int32" />
           <Property Name="ID_Pracownicy" Type="Int32" />
           <Property Name="ID_Umowy" Type="Int32" />
-          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Zamowieni__ID_Pr__7E37BEF6" FromRole="Zamowienia_Przydzial" ToRole="Pracownicy" />
-          <NavigationProperty Name="Umowy_Kurierzy" Relationship="Self.FK__Zamowieni__ID_Um__7F2BE32F" FromRole="Zamowienia_Przydzial" ToRole="Umowy_Kurierzy" />
-          <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Zamowieni__ID_Za__7D439ABD" FromRole="Zamowienia_Przydzial" ToRole="Zamowienia" />
-        </EntityType>
-        <EntityType Name="Zamowienia_Zawartosc">
-          <Key>
-            <PropertyRef Name="ID_Zamowienia_Zawartosc" />
-          </Key>
-          <Property Name="ID_Zamowienia_Zawartosc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ID_Zamowienia" Type="Int32" />
-          <Property Name="ID_Oferta" Type="Int32" />
-          <Property Name="Ilosc_Zamawiana" Type="Int32" />
-          <NavigationProperty Name="Oferta" Relationship="Self.FK__Zamowieni__ID_Of__1332DBDC" FromRole="Zamowienia_Zawartosc" ToRole="Oferta" />
-          <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Zamowieni__ID_Za__123EB7A3" FromRole="Zamowienia_Zawartosc" ToRole="Zamowienia" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Zamowieni__ID_Pr__7F2BE32F" FromRole="Zamowienia_Przydzial" ToRole="Pracownicy" />
+          <NavigationProperty Name="Umowy_Kurierzy" Relationship="Self.FK__Zamowieni__ID_Um__00200768" FromRole="Zamowienia_Przydzial" ToRole="Umowy_Kurierzy" />
+          <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Zamowieni__ID_Za__7E37BEF6" FromRole="Zamowienia_Przydzial" ToRole="Zamowienia" />
         </EntityType>
         <EntityType Name="Zamowienie_Produkt">
           <Key>
@@ -2513,10 +2453,10 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="ID_Zamowienia" Type="Int32" />
           <Property Name="ID_Produkt" Type="Int32" />
           <Property Name="Ilosc" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Proces_Pr__ID_Za__503BEA1C" FromRole="Zamowienie_Produkt" ToRole="Proces_Produkcyjny" />
-          <NavigationProperty Name="Proces_Zamowienie" Relationship="Self.FK__Proces_Za__ID_Za__45BE5BA9" FromRole="Zamowienie_Produkt" ToRole="Proces_Zamowienie" />
-          <NavigationProperty Name="Produkt" Relationship="Self.FK__Zamowieni__ID_Pr__236943A5" FromRole="Zamowienie_Produkt" ToRole="Produkt" />
-          <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Zamowieni__ID_Za__22751F6C" FromRole="Zamowienie_Produkt" ToRole="Zamowienia" />
+          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Proces_Pr__ID_Za__4A8310C6" FromRole="Zamowienie_Produkt" ToRole="Proces_Produkcyjny" />
+          <NavigationProperty Name="Proces_Zamowienie" Relationship="Self.FK__Proces_Za__ID_Za__40058253" FromRole="Zamowienie_Produkt" ToRole="Proces_Zamowienie" />
+          <NavigationProperty Name="Produkt" Relationship="Self.FK__Zamowieni__ID_Pr__1DB06A4F" FromRole="Zamowienie_Produkt" ToRole="Produkt" />
+          <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Zamowieni__ID_Za__1CBC4616" FromRole="Zamowienie_Produkt" ToRole="Zamowienia" />
         </EntityType>
         <EntityType Name="Zapotrzebowanie_Opakowan">
           <Key>
@@ -2528,8 +2468,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="Liczba" Type="Int32" Nullable="false" />
           <Property Name="Czy_Otrzymano" Type="Boolean" />
           <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Elementy" Relationship="Self.FK__Zapotrzeb__ID_El__634EBE90" FromRole="Zapotrzebowanie_Opakowan" ToRole="Elementy" />
-          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Zapotrzeb__ID_Pr__625A9A57" FromRole="Zapotrzebowanie_Opakowan" ToRole="Proces_Produkcyjny" />
+          <NavigationProperty Name="Elementy" Relationship="Self.FK__Zapotrzeb__ID_El__5D95E53A" FromRole="Zapotrzebowanie_Opakowan" ToRole="Elementy" />
+          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Zapotrzeb__ID_Pr__5CA1C101" FromRole="Zapotrzebowanie_Opakowan" ToRole="Proces_Produkcyjny" />
         </EntityType>
         <EntityType Name="Zawartosc">
           <Key>
@@ -2540,9 +2480,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="ID_Element" Type="Int32" />
           <Property Name="ID_Dostawy" Type="Int32" />
           <Property Name="Ilosc_Paczek" Type="Int32" />
-          <NavigationProperty Name="Elementy" Relationship="Self.FK__Zawartosc__ID_El__06CD04F7" FromRole="Zawartosc" ToRole="Elementy" />
-          <NavigationProperty Name="Polki" Relationship="Self.FK__Zawartosc__ID_Po__05D8E0BE" FromRole="Zawartosc" ToRole="Polki" />
-          <NavigationProperty Name="Zamowienia_Dostawy" Relationship="Self.FK__Zawartosc__ID_Do__07C12930" FromRole="Zawartosc" ToRole="Zamowienia_Dostawy" />
+          <NavigationProperty Name="Elementy" Relationship="Self.FK__Zawartosc__ID_El__07C12930" FromRole="Zawartosc" ToRole="Elementy" />
+          <NavigationProperty Name="Polki" Relationship="Self.FK__Zawartosc__ID_Po__06CD04F7" FromRole="Zawartosc" ToRole="Polki" />
+          <NavigationProperty Name="Zamowienia_Dostawy" Relationship="Self.FK__Zawartosc__ID_Do__08B54D69" FromRole="Zawartosc" ToRole="Zamowienia_Dostawy" />
         </EntityType>
         <EntityType Name="Znajomosc_Jezykow">
           <Key>
@@ -2564,7 +2504,37 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Wartosc_Cechy_Slowna" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
-        <Association Name="FK__Czesci_Ob__ID_El__2645B050">
+        <EntityType Name="vRealizacjaProcesuProdukcyjnegoDetails">
+          <Key>
+            <PropertyRef Name="ID_Procesu_Produkcyjnego" />
+            <PropertyRef Name="ID_Realizacji_Procesu" />
+            <PropertyRef Name="Nazwa_etapu" />
+            <PropertyRef Name="Data_Rozpoczecia_Procesu" />
+          </Key>
+          <Property Name="ID_Procesu_Produkcyjnego" Type="Int32" Nullable="false" />
+          <Property Name="ID_Realizacji_Procesu" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_etapu" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Data_Rozpoczecia_Procesu" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Data_Zakonczenia_Procesu" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="vZamowienieProcesyProdukcyjne">
+          <Key>
+            <PropertyRef Name="ID_Procesu_Produkcyjnego" />
+            <PropertyRef Name="ID_Zamowienie_Produkt" />
+            <PropertyRef Name="Nazwa_Produktu" />
+            <PropertyRef Name="ID_Proces_Technologiczny" />
+          </Key>
+          <Property Name="ID_Procesu_Produkcyjnego" Type="Int32" Nullable="false" />
+          <Property Name="ID_Zamowienia" Type="Int32" />
+          <Property Name="ID_Zamowienie_Produkt" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_Produktu" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_Proces_Technologiczny" Type="Int32" Nullable="false" />
+          <Property Name="Data_Rozpoczecia" Type="DateTime" Precision="0" />
+          <Property Name="Data_Zakonczenia" Type="DateTime" Precision="0" />
+          <Property Name="ID_Dokumentacja_Proces" Type="Int32" />
+          <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK__Czesci_Ob__ID_El__208CD6FA">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
           <End Role="Czesci_Obsluga" Type="Self.Czesci_Obsluga" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2576,7 +2546,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dokumenta__ID_Do__32AB8735">
+        <Association Name="FK__Dokumenta__ID_Do__2CF2ADDF">
           <End Role="Dokumentacje" Type="Self.Dokumentacje" Multiplicity="1" />
           <End Role="Dokumentacja_Proces" Type="Self.Dokumentacja_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2588,7 +2558,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Proces_Pr__ID_Do__5224328E">
+        <Association Name="FK__Proces_Pr__ID_Do__4C6B5938">
           <End Role="Dokumentacja_Proces" Type="Self.Dokumentacja_Proces" Multiplicity="0..1" />
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2600,7 +2570,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Proces_Te__ID_Do__3587F3E0">
+        <Association Name="FK__Proces_Te__ID_Do__2FCF1A8A">
           <End Role="Dokumentacja_Proces" Type="Self.Dokumentacja_Proces" Multiplicity="1" />
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2612,7 +2582,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dokumenta__ID_Pr__2FCF1A8A">
+        <Association Name="FK__Dokumenta__ID_Pr__2A164134">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
           <End Role="Dokumentacje" Type="Self.Dokumentacje" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2624,7 +2594,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dokumenta__ID_Ro__2EDAF651">
+        <Association Name="FK__Dokumenta__ID_Ro__29221CFB">
           <End Role="Rodzaj_Dokumentacji" Type="Self.Rodzaj_Dokumentacji" Multiplicity="1" />
           <End Role="Dokumentacje" Type="Self.Dokumentacje" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2636,7 +2606,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostarcze__ID_Do__17036CC0">
+        <Association Name="FK__Dostarcze__ID_Do__114A936A">
           <End Role="Zamowienia_Dostawy" Type="Self.Zamowienia_Dostawy" Multiplicity="0..1" />
           <End Role="Dostarczenia_Wewn" Type="Self.Dostarczenia_Wewn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2648,7 +2618,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostarcze__ID_Mi__17F790F9">
+        <Association Name="FK__Dostarcze__ID_Mi__123EB7A3">
           <End Role="Miejsca" Type="Self.Miejsca" Multiplicity="0..1" />
           <End Role="Dostarczenia_Wewn" Type="Self.Dostarczenia_Wewn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2660,7 +2630,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostarcze__ID_Pr__160F4887">
+        <Association Name="FK__Dostarcze__ID_Pr__10566F31">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
           <End Role="Dostarczenia_Wewn" Type="Self.Dostarczenia_Wewn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2672,7 +2642,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostarcze__ID_Mi__1CBC4616">
+        <Association Name="FK__Dostarcze__ID_Mi__17036CC0">
           <End Role="Miejsca" Type="Self.Miejsca" Multiplicity="0..1" />
           <End Role="Dostarczenia_Zewn" Type="Self.Dostarczenia_Zewn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2684,7 +2654,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostarcze__ID_Pr__1AD3FDA4">
+        <Association Name="FK__Dostarcze__ID_Pr__151B244E">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
           <End Role="Dostarczenia_Zewn" Type="Self.Dostarczenia_Zewn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2696,7 +2666,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostarcze__ID_Za__1BC821DD">
+        <Association Name="FK__Dostarcze__ID_Za__160F4887">
           <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
           <End Role="Dostarczenia_Zewn" Type="Self.Dostarczenia_Zewn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2704,30 +2674,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
               <PropertyRef Name="ID_Zamowienia" />
             </Principal>
             <Dependent Role="Dostarczenia_Zewn">
-              <PropertyRef Name="ID_Zamowienia" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Dostawcy___ID_Of__0A9D95DB">
-          <End Role="Oferta" Type="Self.Oferta" Multiplicity="0..1" />
-          <End Role="Dostawcy_Oferta" Type="Self.Dostawcy_Oferta" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Oferta">
-              <PropertyRef Name="ID_Oferta" />
-            </Principal>
-            <Dependent Role="Dostawcy_Oferta">
-              <PropertyRef Name="ID_Oferta" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Dostawcy___ID_Za__0B91BA14">
-          <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
-          <End Role="Dostawcy_Oferta" Type="Self.Dostawcy_Oferta" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Zamowienia">
-              <PropertyRef Name="ID_Zamowienia" />
-            </Principal>
-            <Dependent Role="Dostawcy_Oferta">
               <PropertyRef Name="ID_Zamowienia" />
             </Dependent>
           </ReferentialConstraint>
@@ -2744,7 +2690,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostawy_Z__ID_Do__0E6E26BF">
+        <Association Name="FK__Dostawy_Z__ID_Do__0B91BA14">
           <End Role="Zamowienia_Dostawy" Type="Self.Zamowienia_Dostawy" Multiplicity="0..1" />
           <End Role="Dostawy_Zawartosc" Type="Self.Dostawy_Zawartosc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2756,7 +2702,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostawy_Z__ID_El__0F624AF8">
+        <Association Name="FK__Dostawy_Z__ID_El__0C85DE4D">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="0..1" />
           <End Role="Dostawy_Zawartosc" Type="Self.Dostawy_Zawartosc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2768,7 +2714,19 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Elementy___ID_El__498EEC8D">
+        <Association Name="FK__Dostawy_Z__ID_of__0D7A0286">
+          <End Role="Oferta" Type="Self.Oferta" Multiplicity="0..1" />
+          <End Role="Dostawy_Zawartosc" Type="Self.Dostawy_Zawartosc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oferta">
+              <PropertyRef Name="ID_Oferta" />
+            </Principal>
+            <Dependent Role="Dostawy_Zawartosc">
+              <PropertyRef Name="ID_oferta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Elementy___ID_El__43D61337">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
           <End Role="Elementy_Proces" Type="Self.Elementy_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2792,7 +2750,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Elementy__ID_Ele__6E01572D">
+        <Association Name="FK__Elementy__ID_Ele__6EF57B66">
           <End Role="Elementy_Typy" Type="Self.Elementy_Typy" Multiplicity="0..1" />
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2804,19 +2762,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Elementy__ID_Jed__6EF57B66">
-          <End Role="Elementy_Jednostki" Type="Self.Elementy_Jednostki" Multiplicity="0..1" />
-          <End Role="Elementy" Type="Self.Elementy" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Elementy_Jednostki">
-              <PropertyRef Name="ID_jednostka" />
-            </Principal>
-            <Dependent Role="Elementy">
-              <PropertyRef Name="ID_Jednostka" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Koszt_Jed__ID_El__1F98B2C1">
+        <Association Name="FK__Koszt_Jed__ID_El__19DFD96B">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="0..1" />
           <End Role="Koszt_Jednostkowy" Type="Self.Koszt_Jednostkowy" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2828,7 +2774,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Material___ID_El__55F4C372">
+        <Association Name="FK__Material___ID_El__503BEA1C">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
           <End Role="Material_Na_Produkcji" Type="Self.Material_Na_Produkcji" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2852,7 +2798,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zapotrzeb__ID_El__634EBE90">
+        <Association Name="FK__Zapotrzeb__ID_El__5D95E53A">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
           <End Role="Zapotrzebowanie_Opakowan" Type="Self.Zapotrzebowanie_Opakowan" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2864,7 +2810,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zawartosc__ID_El__06CD04F7">
+        <Association Name="FK__Zawartosc__ID_El__07C12930">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="0..1" />
           <End Role="Zawartosc" Type="Self.Zawartosc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2900,7 +2846,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Material___ID_Je__56E8E7AB">
+        <Association Name="FK__Material___ID_Je__51300E55">
           <End Role="Elementy_Jednostki" Type="Self.Elementy_Jednostki" Multiplicity="1" />
           <End Role="Material_Na_Produkcji" Type="Self.Material_Na_Produkcji" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2912,7 +2858,19 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Elementy___ID_Pr__489AC854">
+        <Association Name="FK__Oferta__ID_Jedno__7B5B524B">
+          <End Role="Elementy_Jednostki" Type="Self.Elementy_Jednostki" Multiplicity="0..1" />
+          <End Role="Oferta" Type="Self.Oferta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Elementy_Jednostki">
+              <PropertyRef Name="ID_jednostka" />
+            </Principal>
+            <Dependent Role="Oferta">
+              <PropertyRef Name="ID_Jednostka" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Elementy___ID_Pr__42E1EEFE">
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
           <End Role="Elementy_Proces" Type="Self.Elementy_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2924,7 +2882,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Etapy_W_P__ID_Et__4D5F7D71">
+        <Association Name="FK__Etapy_W_P__ID_Et__47A6A41B">
           <End Role="Rodzaj_Etapu" Type="Self.Rodzaj_Etapu" Multiplicity="1" />
           <End Role="Etapy_W_Procesie" Type="Self.Etapy_W_Procesie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2936,7 +2894,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Etapy_W_P__ID_Pr__4C6B5938">
+        <Association Name="FK__Etapy_W_P__ID_Pr__46B27FE2">
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
           <End Role="Etapy_W_Procesie" Type="Self.Etapy_W_Procesie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3020,7 +2978,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Kontrola___ID_Pr__662B2B3B">
+        <Association Name="FK__Kontrola___ID_Pr__607251E5">
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="1" />
           <End Role="Kontrola_Efektywnosci" Type="Self.Kontrola_Efektywnosci" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3044,7 +3002,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Maszyny__ID_Rodz__3D2915A8">
+        <Association Name="FK__Maszyny__ID_Rodz__37703C52">
           <End Role="Rodzaj_Maszyny" Type="Self.Rodzaj_Maszyny" Multiplicity="1" />
           <End Role="Maszyny" Type="Self.Maszyny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3056,7 +3014,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Obsluga_T__ID_Ma__40058253">
+        <Association Name="FK__Obsluga_T__ID_Ma__3A4CA8FD">
           <End Role="Maszyny" Type="Self.Maszyny" Multiplicity="1" />
           <End Role="Obsluga_Techniczna" Type="Self.Obsluga_Techniczna" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3068,7 +3026,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Przydzial__ID_Ma__5F7E2DAC">
+        <Association Name="FK__Przydzial__ID_Ma__59C55456">
           <End Role="Maszyny" Type="Self.Maszyny" Multiplicity="1" />
           <End Role="Przydzial_Zasobow" Type="Self.Przydzial_Zasobow" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3080,7 +3038,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Maszyny_P__ID_Pr__395884C4">
+        <Association Name="FK__Maszyny_P__ID_Pr__339FAB6E">
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
           <End Role="Maszyny_Proces" Type="Self.Maszyny_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3092,7 +3050,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Maszyny_P__ID_Ro__3A4CA8FD">
+        <Association Name="FK__Maszyny_P__ID_Ro__3493CFA7">
           <End Role="Rodzaj_Maszyny" Type="Self.Rodzaj_Maszyny" Multiplicity="1" />
           <End Role="Maszyny_Proces" Type="Self.Maszyny_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3104,7 +3062,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Material___ID_Pr__55009F39">
+        <Association Name="FK__Material___ID_Pr__4F47C5E3">
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="1" />
           <End Role="Material_Na_Produkcji" Type="Self.Material_Na_Produkcji" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3116,7 +3074,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Obsluga_T__ID_Pr__41EDCAC5">
+        <Association Name="FK__Obsluga_T__ID_Pr__3C34F16F">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
           <End Role="Obsluga_Techniczna" Type="Self.Obsluga_Techniczna" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3128,7 +3086,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Obsluga_T__ID_Ro__40F9A68C">
+        <Association Name="FK__Obsluga_T__ID_Ro__3B40CD36">
           <End Role="Rodzaj_Obslugi" Type="Self.Rodzaj_Obslugi" Multiplicity="1" />
           <End Role="Obsluga_Techniczna" Type="Self.Obsluga_Techniczna" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3137,18 +3095,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Principal>
             <Dependent Role="Obsluga_Techniczna">
               <PropertyRef Name="ID_Rodzaj_Obslugi" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Zamowieni__ID_Of__1332DBDC">
-          <End Role="Oferta" Type="Self.Oferta" Multiplicity="0..1" />
-          <End Role="Zamowienia_Zawartosc" Type="Self.Zamowienia_Zawartosc" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Oferta">
-              <PropertyRef Name="ID_Oferta" />
-            </Principal>
-            <Dependent Role="Zamowienia_Zawartosc">
-              <PropertyRef Name="ID_Oferta" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3164,7 +3110,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Polki__ID_Rozmia__656C112C">
+        <Association Name="FK__Polki__ID_Rozmia__66603565">
           <End Role="Polki_Rozmiary" Type="Self.Polki_Rozmiary" Multiplicity="0..1" />
           <End Role="Polki" Type="Self.Polki" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3176,7 +3122,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zawartosc__ID_Po__05D8E0BE">
+        <Association Name="FK__Zawartosc__ID_Po__06CD04F7">
           <End Role="Polki" Type="Self.Polki" Multiplicity="0..1" />
           <End Role="Zawartosc" Type="Self.Zawartosc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3200,7 +3146,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Proces_Te__ID_Pr__367C1819">
+        <Association Name="FK__Proces_Te__ID_Pr__30C33EC3">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3212,7 +3158,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Przydzial__ID_Pr__5E8A0973">
+        <Association Name="FK__Przydzial__ID_Pr__58D1301D">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
           <End Role="Przydzial_Zasobow" Type="Self.Przydzial_Zasobow" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3248,7 +3194,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zamowieni__ID_Pr__7E37BEF6">
+        <Association Name="FK__Zamowieni__ID_Pr__7F2BE32F">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
           <End Role="Zamowienia_Przydzial" Type="Self.Zamowienia_Przydzial" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3296,7 +3242,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Proces_Pr__ID_Pr__51300E55">
+        <Association Name="FK__Proces_Pr__ID_Pr__4B7734FF">
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3308,7 +3254,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Proces_Pr__ID_Za__503BEA1C">
+        <Association Name="FK__Proces_Pr__ID_Za__4A8310C6">
           <End Role="Zamowienie_Produkt" Type="Self.Zamowienie_Produkt" Multiplicity="1" />
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3320,7 +3266,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Realizacj__ID_Pr__59C55456">
+        <Association Name="FK__Realizacj__ID_Pr__540C7B00">
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="1" />
           <End Role="Realizacja_Procesu" Type="Self.Realizacja_Procesu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3332,7 +3278,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zapotrzeb__ID_Pr__625A9A57">
+        <Association Name="FK__Zapotrzeb__ID_Pr__5CA1C101">
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="1" />
           <End Role="Zapotrzebowanie_Opakowan" Type="Self.Zapotrzebowanie_Opakowan" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3344,7 +3290,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Proces_Za__ID_Pr__44CA3770">
+        <Association Name="FK__Proces_Za__ID_Pr__3F115E1A">
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
           <End Role="Proces_Zamowienie" Type="Self.Proces_Zamowienie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3356,7 +3302,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Proces_Za__ID_Za__45BE5BA9">
+        <Association Name="FK__Proces_Za__ID_Za__40058253">
           <End Role="Zamowienie_Produkt" Type="Self.Zamowienie_Produkt" Multiplicity="1" />
           <End Role="Proces_Zamowienie" Type="Self.Proces_Zamowienie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3368,7 +3314,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zamowieni__ID_Pr__236943A5">
+        <Association Name="FK__Zamowieni__ID_Pr__1DB06A4F">
           <End Role="Produkt" Type="Self.Produkt" Multiplicity="0..1" />
           <End Role="Zamowienie_Produkt" Type="Self.Zamowienie_Produkt" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3380,7 +3326,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Przydzial__ID_Re__5D95E53A">
+        <Association Name="FK__Przydzial__ID_Re__57DD0BE4">
           <End Role="Realizacja_Procesu" Type="Self.Realizacja_Procesu" Multiplicity="1" />
           <End Role="Przydzial_Zasobow" Type="Self.Przydzial_Zasobow" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3392,7 +3338,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Realizacj__ID_Et__5AB9788F">
+        <Association Name="FK__Realizacj__ID_Et__55009F39">
           <End Role="Rodzaj_Etapu" Type="Self.Rodzaj_Etapu" Multiplicity="1" />
           <End Role="Realizacja_Procesu" Type="Self.Realizacja_Procesu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3404,7 +3350,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zamowieni__ID_Um__7F2BE32F">
+        <Association Name="FK__Zamowieni__ID_Um__00200768">
           <End Role="Umowy_Kurierzy" Type="Self.Umowy_Kurierzy" Multiplicity="0..1" />
           <End Role="Zamowienia_Przydzial" Type="Self.Zamowienia_Przydzial" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3416,7 +3362,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zamowieni__ID_Za__02084FDA">
+        <Association Name="FK__Zamowieni__ID_Za__02FC7413">
           <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
           <End Role="Zamowienia_Dostawy" Type="Self.Zamowienia_Dostawy" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3428,19 +3374,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zamowieni__ID_Za__123EB7A3">
-          <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
-          <End Role="Zamowienia_Zawartosc" Type="Self.Zamowienia_Zawartosc" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Zamowienia">
-              <PropertyRef Name="ID_Zamowienia" />
-            </Principal>
-            <Dependent Role="Zamowienia_Zawartosc">
-              <PropertyRef Name="ID_Zamowienia" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Zamowieni__ID_Za__22751F6C">
+        <Association Name="FK__Zamowieni__ID_Za__1CBC4616">
           <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
           <End Role="Zamowienie_Produkt" Type="Self.Zamowienie_Produkt" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3452,7 +3386,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zamowieni__ID_Za__7D439ABD">
+        <Association Name="FK__Zamowieni__ID_Za__7E37BEF6">
           <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
           <End Role="Zamowienia_Przydzial" Type="Self.Zamowienia_Przydzial" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3464,7 +3398,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zawartosc__ID_Do__07C12930">
+        <Association Name="FK__Zawartosc__ID_Do__08B54D69">
           <End Role="Zamowienia_Dostawy" Type="Self.Zamowienia_Dostawy" Multiplicity="0..1" />
           <End Role="Zawartosc" Type="Self.Zawartosc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3482,7 +3416,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <EntitySet Name="Dokumentacje" EntityType="Self.Dokumentacje" />
           <EntitySet Name="Dostarczenia_Wewn" EntityType="Self.Dostarczenia_Wewn" />
           <EntitySet Name="Dostarczenia_Zewn" EntityType="Self.Dostarczenia_Zewn" />
-          <EntitySet Name="Dostawcy_Oferta" EntityType="Self.Dostawcy_Oferta" />
           <EntitySet Name="Dostawcy_Zaopatrzenie" EntityType="Self.Dostawcy_Zaopatrzenie" />
           <EntitySet Name="Dostawy_Zawartosc" EntityType="Self.Dostawy_Zawartosc" />
           <EntitySet Name="Elementy" EntityType="Self.Elementy" />
@@ -3529,81 +3462,78 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
           <EntitySet Name="Zamowienia" EntityType="Self.Zamowienia" />
           <EntitySet Name="Zamowienia_Dostawy" EntityType="Self.Zamowienia_Dostawy" />
           <EntitySet Name="Zamowienia_Przydzial" EntityType="Self.Zamowienia_Przydzial" />
-          <EntitySet Name="Zamowienia_Zawartosc" EntityType="Self.Zamowienia_Zawartosc" />
           <EntitySet Name="Zamowienie_Produkt" EntityType="Self.Zamowienie_Produkt" />
           <EntitySet Name="Zapotrzebowanie_Opakowan" EntityType="Self.Zapotrzebowanie_Opakowan" />
           <EntitySet Name="Zawartosc" EntityType="Self.Zawartosc" />
           <EntitySet Name="Znajomosc_Jezykow" EntityType="Self.Znajomosc_Jezykow" />
           <EntitySet Name="vCechyElementu" EntityType="Self.vCechyElementu" />
-          <AssociationSet Name="FK__Czesci_Ob__ID_El__2645B050" Association="Self.FK__Czesci_Ob__ID_El__2645B050">
+          <EntitySet Name="vRealizacjaProcesuProdukcyjnegoDetails" EntityType="Self.vRealizacjaProcesuProdukcyjnegoDetails" />
+          <EntitySet Name="vZamowienieProcesyProdukcyjne" EntityType="Self.vZamowienieProcesyProdukcyjne" />
+          <AssociationSet Name="FK__Czesci_Ob__ID_El__208CD6FA" Association="Self.FK__Czesci_Ob__ID_El__208CD6FA">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Czesci_Obsluga" EntitySet="Czesci_Obsluga" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dokumenta__ID_Do__32AB8735" Association="Self.FK__Dokumenta__ID_Do__32AB8735">
+          <AssociationSet Name="FK__Dokumenta__ID_Do__2CF2ADDF" Association="Self.FK__Dokumenta__ID_Do__2CF2ADDF">
             <End Role="Dokumentacje" EntitySet="Dokumentacje" />
             <End Role="Dokumentacja_Proces" EntitySet="Dokumentacja_Proces" />
           </AssociationSet>
-          <AssociationSet Name="FK__Proces_Pr__ID_Do__5224328E" Association="Self.FK__Proces_Pr__ID_Do__5224328E">
+          <AssociationSet Name="FK__Proces_Pr__ID_Do__4C6B5938" Association="Self.FK__Proces_Pr__ID_Do__4C6B5938">
             <End Role="Dokumentacja_Proces" EntitySet="Dokumentacja_Proces" />
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Proces_Te__ID_Do__3587F3E0" Association="Self.FK__Proces_Te__ID_Do__3587F3E0">
+          <AssociationSet Name="FK__Proces_Te__ID_Do__2FCF1A8A" Association="Self.FK__Proces_Te__ID_Do__2FCF1A8A">
             <End Role="Dokumentacja_Proces" EntitySet="Dokumentacja_Proces" />
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dokumenta__ID_Pr__2FCF1A8A" Association="Self.FK__Dokumenta__ID_Pr__2FCF1A8A">
+          <AssociationSet Name="FK__Dokumenta__ID_Pr__2A164134" Association="Self.FK__Dokumenta__ID_Pr__2A164134">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Dokumentacje" EntitySet="Dokumentacje" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dokumenta__ID_Ro__2EDAF651" Association="Self.FK__Dokumenta__ID_Ro__2EDAF651">
+          <AssociationSet Name="FK__Dokumenta__ID_Ro__29221CFB" Association="Self.FK__Dokumenta__ID_Ro__29221CFB">
             <End Role="Rodzaj_Dokumentacji" EntitySet="Rodzaj_Dokumentacji" />
             <End Role="Dokumentacje" EntitySet="Dokumentacje" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Do__17036CC0" Association="Self.FK__Dostarcze__ID_Do__17036CC0">
+          <AssociationSet Name="FK__Dostarcze__ID_Do__114A936A" Association="Self.FK__Dostarcze__ID_Do__114A936A">
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Mi__17F790F9" Association="Self.FK__Dostarcze__ID_Mi__17F790F9">
+          <AssociationSet Name="FK__Dostarcze__ID_Mi__123EB7A3" Association="Self.FK__Dostarcze__ID_Mi__123EB7A3">
             <End Role="Miejsca" EntitySet="Miejsca" />
             <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Pr__160F4887" Association="Self.FK__Dostarcze__ID_Pr__160F4887">
+          <AssociationSet Name="FK__Dostarcze__ID_Pr__10566F31" Association="Self.FK__Dostarcze__ID_Pr__10566F31">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Mi__1CBC4616" Association="Self.FK__Dostarcze__ID_Mi__1CBC4616">
+          <AssociationSet Name="FK__Dostarcze__ID_Mi__17036CC0" Association="Self.FK__Dostarcze__ID_Mi__17036CC0">
             <End Role="Miejsca" EntitySet="Miejsca" />
             <End Role="Dostarczenia_Zewn" EntitySet="Dostarczenia_Zewn" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Pr__1AD3FDA4" Association="Self.FK__Dostarcze__ID_Pr__1AD3FDA4">
+          <AssociationSet Name="FK__Dostarcze__ID_Pr__151B244E" Association="Self.FK__Dostarcze__ID_Pr__151B244E">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Dostarczenia_Zewn" EntitySet="Dostarczenia_Zewn" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Za__1BC821DD" Association="Self.FK__Dostarcze__ID_Za__1BC821DD">
+          <AssociationSet Name="FK__Dostarcze__ID_Za__160F4887" Association="Self.FK__Dostarcze__ID_Za__160F4887">
             <End Role="Zamowienia" EntitySet="Zamowienia" />
             <End Role="Dostarczenia_Zewn" EntitySet="Dostarczenia_Zewn" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Dostawcy___ID_Of__0A9D95DB" Association="Self.FK__Dostawcy___ID_Of__0A9D95DB">
-            <End Role="Oferta" EntitySet="Oferta" />
-            <End Role="Dostawcy_Oferta" EntitySet="Dostawcy_Oferta" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Dostawcy___ID_Za__0B91BA14" Association="Self.FK__Dostawcy___ID_Za__0B91BA14">
-            <End Role="Zamowienia" EntitySet="Zamowienia" />
-            <End Role="Dostawcy_Oferta" EntitySet="Dostawcy_Oferta" />
           </AssociationSet>
           <AssociationSet Name="FK__Oferta__ID_Dosta__7A672E12" Association="Self.FK__Oferta__ID_Dosta__7A672E12">
             <End Role="Dostawcy_Zaopatrzenie" EntitySet="Dostawcy_Zaopatrzenie" />
             <End Role="Oferta" EntitySet="Oferta" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostawy_Z__ID_Do__0E6E26BF" Association="Self.FK__Dostawy_Z__ID_Do__0E6E26BF">
+          <AssociationSet Name="FK__Dostawy_Z__ID_Do__0B91BA14" Association="Self.FK__Dostawy_Z__ID_Do__0B91BA14">
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Dostawy_Zawartosc" EntitySet="Dostawy_Zawartosc" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostawy_Z__ID_El__0F624AF8" Association="Self.FK__Dostawy_Z__ID_El__0F624AF8">
+          <AssociationSet Name="FK__Dostawy_Z__ID_El__0C85DE4D" Association="Self.FK__Dostawy_Z__ID_El__0C85DE4D">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Dostawy_Zawartosc" EntitySet="Dostawy_Zawartosc" />
           </AssociationSet>
-          <AssociationSet Name="FK__Elementy___ID_El__498EEC8D" Association="Self.FK__Elementy___ID_El__498EEC8D">
+          <AssociationSet Name="FK__Dostawy_Z__ID_of__0D7A0286" Association="Self.FK__Dostawy_Z__ID_of__0D7A0286">
+            <End Role="Oferta" EntitySet="Oferta" />
+            <End Role="Dostawy_Zawartosc" EntitySet="Dostawy_Zawartosc" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Elementy___ID_El__43D61337" Association="Self.FK__Elementy___ID_El__43D61337">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Elementy_Proces" EntitySet="Elementy_Proces" />
           </AssociationSet>
@@ -3611,19 +3541,15 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Elementy_Cechy" EntitySet="Elementy_Cechy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Elementy__ID_Ele__6E01572D" Association="Self.FK__Elementy__ID_Ele__6E01572D">
+          <AssociationSet Name="FK__Elementy__ID_Ele__6EF57B66" Association="Self.FK__Elementy__ID_Ele__6EF57B66">
             <End Role="Elementy_Typy" EntitySet="Elementy_Typy" />
             <End Role="Elementy" EntitySet="Elementy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Elementy__ID_Jed__6EF57B66" Association="Self.FK__Elementy__ID_Jed__6EF57B66">
-            <End Role="Elementy_Jednostki" EntitySet="Elementy_Jednostki" />
-            <End Role="Elementy" EntitySet="Elementy" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Koszt_Jed__ID_El__1F98B2C1" Association="Self.FK__Koszt_Jed__ID_El__1F98B2C1">
+          <AssociationSet Name="FK__Koszt_Jed__ID_El__19DFD96B" Association="Self.FK__Koszt_Jed__ID_El__19DFD96B">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Koszt_Jednostkowy" EntitySet="Koszt_Jednostkowy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Material___ID_El__55F4C372" Association="Self.FK__Material___ID_El__55F4C372">
+          <AssociationSet Name="FK__Material___ID_El__503BEA1C" Association="Self.FK__Material___ID_El__503BEA1C">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Material_Na_Produkcji" EntitySet="Material_Na_Produkcji" />
           </AssociationSet>
@@ -3631,11 +3557,11 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Oferta" EntitySet="Oferta" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zapotrzeb__ID_El__634EBE90" Association="Self.FK__Zapotrzeb__ID_El__634EBE90">
+          <AssociationSet Name="FK__Zapotrzeb__ID_El__5D95E53A" Association="Self.FK__Zapotrzeb__ID_El__5D95E53A">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Zapotrzebowanie_Opakowan" EntitySet="Zapotrzebowanie_Opakowan" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zawartosc__ID_El__06CD04F7" Association="Self.FK__Zawartosc__ID_El__06CD04F7">
+          <AssociationSet Name="FK__Zawartosc__ID_El__07C12930" Association="Self.FK__Zawartosc__ID_El__07C12930">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
@@ -3647,19 +3573,23 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             <End Role="Elementy_Jednostki" EntitySet="Elementy_Jednostki" />
             <End Role="Elementy_Cechy" EntitySet="Elementy_Cechy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Material___ID_Je__56E8E7AB" Association="Self.FK__Material___ID_Je__56E8E7AB">
+          <AssociationSet Name="FK__Material___ID_Je__51300E55" Association="Self.FK__Material___ID_Je__51300E55">
             <End Role="Elementy_Jednostki" EntitySet="Elementy_Jednostki" />
             <End Role="Material_Na_Produkcji" EntitySet="Material_Na_Produkcji" />
           </AssociationSet>
-          <AssociationSet Name="FK__Elementy___ID_Pr__489AC854" Association="Self.FK__Elementy___ID_Pr__489AC854">
+          <AssociationSet Name="FK__Oferta__ID_Jedno__7B5B524B" Association="Self.FK__Oferta__ID_Jedno__7B5B524B">
+            <End Role="Elementy_Jednostki" EntitySet="Elementy_Jednostki" />
+            <End Role="Oferta" EntitySet="Oferta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Elementy___ID_Pr__42E1EEFE" Association="Self.FK__Elementy___ID_Pr__42E1EEFE">
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
             <End Role="Elementy_Proces" EntitySet="Elementy_Proces" />
           </AssociationSet>
-          <AssociationSet Name="FK__Etapy_W_P__ID_Et__4D5F7D71" Association="Self.FK__Etapy_W_P__ID_Et__4D5F7D71">
+          <AssociationSet Name="FK__Etapy_W_P__ID_Et__47A6A41B" Association="Self.FK__Etapy_W_P__ID_Et__47A6A41B">
             <End Role="Rodzaj_Etapu" EntitySet="Rodzaj_Etapu" />
             <End Role="Etapy_W_Procesie" EntitySet="Etapy_W_Procesie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Etapy_W_P__ID_Pr__4C6B5938" Association="Self.FK__Etapy_W_P__ID_Pr__4C6B5938">
+          <AssociationSet Name="FK__Etapy_W_P__ID_Pr__46B27FE2" Association="Self.FK__Etapy_W_P__ID_Pr__46B27FE2">
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
             <End Role="Etapy_W_Procesie" EntitySet="Etapy_W_Procesie" />
           </AssociationSet>
@@ -3687,7 +3617,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             <End Role="Klienci" EntitySet="Klienci" />
             <End Role="Zamowienia" EntitySet="Zamowienia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Kontrola___ID_Pr__662B2B3B" Association="Self.FK__Kontrola___ID_Pr__662B2B3B">
+          <AssociationSet Name="FK__Kontrola___ID_Pr__607251E5" Association="Self.FK__Kontrola___ID_Pr__607251E5">
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
             <End Role="Kontrola_Efektywnosci" EntitySet="Kontrola_Efektywnosci" />
           </AssociationSet>
@@ -3695,51 +3625,47 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             <End Role="Kurierzy" EntitySet="Kurierzy" />
             <End Role="Umowy_Kurierzy" EntitySet="Umowy_Kurierzy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Maszyny__ID_Rodz__3D2915A8" Association="Self.FK__Maszyny__ID_Rodz__3D2915A8">
+          <AssociationSet Name="FK__Maszyny__ID_Rodz__37703C52" Association="Self.FK__Maszyny__ID_Rodz__37703C52">
             <End Role="Rodzaj_Maszyny" EntitySet="Rodzaj_Maszyny" />
             <End Role="Maszyny" EntitySet="Maszyny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Obsluga_T__ID_Ma__40058253" Association="Self.FK__Obsluga_T__ID_Ma__40058253">
+          <AssociationSet Name="FK__Obsluga_T__ID_Ma__3A4CA8FD" Association="Self.FK__Obsluga_T__ID_Ma__3A4CA8FD">
             <End Role="Maszyny" EntitySet="Maszyny" />
             <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
           </AssociationSet>
-          <AssociationSet Name="FK__Przydzial__ID_Ma__5F7E2DAC" Association="Self.FK__Przydzial__ID_Ma__5F7E2DAC">
+          <AssociationSet Name="FK__Przydzial__ID_Ma__59C55456" Association="Self.FK__Przydzial__ID_Ma__59C55456">
             <End Role="Maszyny" EntitySet="Maszyny" />
             <End Role="Przydzial_Zasobow" EntitySet="Przydzial_Zasobow" />
           </AssociationSet>
-          <AssociationSet Name="FK__Maszyny_P__ID_Pr__395884C4" Association="Self.FK__Maszyny_P__ID_Pr__395884C4">
+          <AssociationSet Name="FK__Maszyny_P__ID_Pr__339FAB6E" Association="Self.FK__Maszyny_P__ID_Pr__339FAB6E">
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
             <End Role="Maszyny_Proces" EntitySet="Maszyny_Proces" />
           </AssociationSet>
-          <AssociationSet Name="FK__Maszyny_P__ID_Ro__3A4CA8FD" Association="Self.FK__Maszyny_P__ID_Ro__3A4CA8FD">
+          <AssociationSet Name="FK__Maszyny_P__ID_Ro__3493CFA7" Association="Self.FK__Maszyny_P__ID_Ro__3493CFA7">
             <End Role="Rodzaj_Maszyny" EntitySet="Rodzaj_Maszyny" />
             <End Role="Maszyny_Proces" EntitySet="Maszyny_Proces" />
           </AssociationSet>
-          <AssociationSet Name="FK__Material___ID_Pr__55009F39" Association="Self.FK__Material___ID_Pr__55009F39">
+          <AssociationSet Name="FK__Material___ID_Pr__4F47C5E3" Association="Self.FK__Material___ID_Pr__4F47C5E3">
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
             <End Role="Material_Na_Produkcji" EntitySet="Material_Na_Produkcji" />
           </AssociationSet>
-          <AssociationSet Name="FK__Obsluga_T__ID_Pr__41EDCAC5" Association="Self.FK__Obsluga_T__ID_Pr__41EDCAC5">
+          <AssociationSet Name="FK__Obsluga_T__ID_Pr__3C34F16F" Association="Self.FK__Obsluga_T__ID_Pr__3C34F16F">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
           </AssociationSet>
-          <AssociationSet Name="FK__Obsluga_T__ID_Ro__40F9A68C" Association="Self.FK__Obsluga_T__ID_Ro__40F9A68C">
+          <AssociationSet Name="FK__Obsluga_T__ID_Ro__3B40CD36" Association="Self.FK__Obsluga_T__ID_Ro__3B40CD36">
             <End Role="Rodzaj_Obslugi" EntitySet="Rodzaj_Obslugi" />
             <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Of__1332DBDC" Association="Self.FK__Zamowieni__ID_Of__1332DBDC">
-            <End Role="Oferta" EntitySet="Oferta" />
-            <End Role="Zamowienia_Zawartosc" EntitySet="Zamowienia_Zawartosc" />
           </AssociationSet>
           <AssociationSet Name="FK__Stanowisk__ID_Pe__300424B4" Association="Self.FK__Stanowisk__ID_Pe__300424B4">
             <End Role="Pensja" EntitySet="Pensja" />
             <End Role="Stanowisko" EntitySet="Stanowisko" />
           </AssociationSet>
-          <AssociationSet Name="FK__Polki__ID_Rozmia__656C112C" Association="Self.FK__Polki__ID_Rozmia__656C112C">
+          <AssociationSet Name="FK__Polki__ID_Rozmia__66603565" Association="Self.FK__Polki__ID_Rozmia__66603565">
             <End Role="Polki_Rozmiary" EntitySet="Polki_Rozmiary" />
             <End Role="Polki" EntitySet="Polki" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zawartosc__ID_Po__05D8E0BE" Association="Self.FK__Zawartosc__ID_Po__05D8E0BE">
+          <AssociationSet Name="FK__Zawartosc__ID_Po__06CD04F7" Association="Self.FK__Zawartosc__ID_Po__06CD04F7">
             <End Role="Polki" EntitySet="Polki" />
             <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
@@ -3747,11 +3673,11 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Pracownicy_Zatrudnienie" EntitySet="Pracownicy_Zatrudnienie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Proces_Te__ID_Pr__367C1819" Association="Self.FK__Proces_Te__ID_Pr__367C1819">
+          <AssociationSet Name="FK__Proces_Te__ID_Pr__30C33EC3" Association="Self.FK__Proces_Te__ID_Pr__30C33EC3">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Przydzial__ID_Pr__5E8A0973" Association="Self.FK__Przydzial__ID_Pr__5E8A0973">
+          <AssociationSet Name="FK__Przydzial__ID_Pr__58D1301D" Association="Self.FK__Przydzial__ID_Pr__58D1301D">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Przydzial_Zasobow" EntitySet="Przydzial_Zasobow" />
           </AssociationSet>
@@ -3763,7 +3689,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Zamowienia" EntitySet="Zamowienia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Pr__7E37BEF6" Association="Self.FK__Zamowieni__ID_Pr__7E37BEF6">
+          <AssociationSet Name="FK__Zamowieni__ID_Pr__7F2BE32F" Association="Self.FK__Zamowieni__ID_Pr__7F2BE32F">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Zamowienia_Przydzial" EntitySet="Zamowienia_Przydzial" />
           </AssociationSet>
@@ -3779,86 +3705,63 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             <End Role="Stanowisko" EntitySet="Stanowisko" />
             <End Role="Pracownicy_Zatrudnienie" EntitySet="Pracownicy_Zatrudnienie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Proces_Pr__ID_Pr__51300E55" Association="Self.FK__Proces_Pr__ID_Pr__51300E55">
+          <AssociationSet Name="FK__Proces_Pr__ID_Pr__4B7734FF" Association="Self.FK__Proces_Pr__ID_Pr__4B7734FF">
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Proces_Pr__ID_Za__503BEA1C" Association="Self.FK__Proces_Pr__ID_Za__503BEA1C">
+          <AssociationSet Name="FK__Proces_Pr__ID_Za__4A8310C6" Association="Self.FK__Proces_Pr__ID_Za__4A8310C6">
             <End Role="Zamowienie_Produkt" EntitySet="Zamowienie_Produkt" />
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Realizacj__ID_Pr__59C55456" Association="Self.FK__Realizacj__ID_Pr__59C55456">
+          <AssociationSet Name="FK__Realizacj__ID_Pr__540C7B00" Association="Self.FK__Realizacj__ID_Pr__540C7B00">
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
             <End Role="Realizacja_Procesu" EntitySet="Realizacja_Procesu" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zapotrzeb__ID_Pr__625A9A57" Association="Self.FK__Zapotrzeb__ID_Pr__625A9A57">
+          <AssociationSet Name="FK__Zapotrzeb__ID_Pr__5CA1C101" Association="Self.FK__Zapotrzeb__ID_Pr__5CA1C101">
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
             <End Role="Zapotrzebowanie_Opakowan" EntitySet="Zapotrzebowanie_Opakowan" />
           </AssociationSet>
-          <AssociationSet Name="FK__Proces_Za__ID_Pr__44CA3770" Association="Self.FK__Proces_Za__ID_Pr__44CA3770">
+          <AssociationSet Name="FK__Proces_Za__ID_Pr__3F115E1A" Association="Self.FK__Proces_Za__ID_Pr__3F115E1A">
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
             <End Role="Proces_Zamowienie" EntitySet="Proces_Zamowienie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Proces_Za__ID_Za__45BE5BA9" Association="Self.FK__Proces_Za__ID_Za__45BE5BA9">
+          <AssociationSet Name="FK__Proces_Za__ID_Za__40058253" Association="Self.FK__Proces_Za__ID_Za__40058253">
             <End Role="Zamowienie_Produkt" EntitySet="Zamowienie_Produkt" />
             <End Role="Proces_Zamowienie" EntitySet="Proces_Zamowienie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Pr__236943A5" Association="Self.FK__Zamowieni__ID_Pr__236943A5">
+          <AssociationSet Name="FK__Zamowieni__ID_Pr__1DB06A4F" Association="Self.FK__Zamowieni__ID_Pr__1DB06A4F">
             <End Role="Produkt" EntitySet="Produkt" />
             <End Role="Zamowienie_Produkt" EntitySet="Zamowienie_Produkt" />
           </AssociationSet>
-          <AssociationSet Name="FK__Przydzial__ID_Re__5D95E53A" Association="Self.FK__Przydzial__ID_Re__5D95E53A">
+          <AssociationSet Name="FK__Przydzial__ID_Re__57DD0BE4" Association="Self.FK__Przydzial__ID_Re__57DD0BE4">
             <End Role="Realizacja_Procesu" EntitySet="Realizacja_Procesu" />
             <End Role="Przydzial_Zasobow" EntitySet="Przydzial_Zasobow" />
           </AssociationSet>
-          <AssociationSet Name="FK__Realizacj__ID_Et__5AB9788F" Association="Self.FK__Realizacj__ID_Et__5AB9788F">
+          <AssociationSet Name="FK__Realizacj__ID_Et__55009F39" Association="Self.FK__Realizacj__ID_Et__55009F39">
             <End Role="Rodzaj_Etapu" EntitySet="Rodzaj_Etapu" />
             <End Role="Realizacja_Procesu" EntitySet="Realizacja_Procesu" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Um__7F2BE32F" Association="Self.FK__Zamowieni__ID_Um__7F2BE32F">
+          <AssociationSet Name="FK__Zamowieni__ID_Um__00200768" Association="Self.FK__Zamowieni__ID_Um__00200768">
             <End Role="Umowy_Kurierzy" EntitySet="Umowy_Kurierzy" />
             <End Role="Zamowienia_Przydzial" EntitySet="Zamowienia_Przydzial" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Za__02084FDA" Association="Self.FK__Zamowieni__ID_Za__02084FDA">
+          <AssociationSet Name="FK__Zamowieni__ID_Za__02FC7413" Association="Self.FK__Zamowieni__ID_Za__02FC7413">
             <End Role="Zamowienia" EntitySet="Zamowienia" />
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Za__123EB7A3" Association="Self.FK__Zamowieni__ID_Za__123EB7A3">
-            <End Role="Zamowienia" EntitySet="Zamowienia" />
-            <End Role="Zamowienia_Zawartosc" EntitySet="Zamowienia_Zawartosc" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Za__22751F6C" Association="Self.FK__Zamowieni__ID_Za__22751F6C">
+          <AssociationSet Name="FK__Zamowieni__ID_Za__1CBC4616" Association="Self.FK__Zamowieni__ID_Za__1CBC4616">
             <End Role="Zamowienia" EntitySet="Zamowienia" />
             <End Role="Zamowienie_Produkt" EntitySet="Zamowienie_Produkt" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Za__7D439ABD" Association="Self.FK__Zamowieni__ID_Za__7D439ABD">
+          <AssociationSet Name="FK__Zamowieni__ID_Za__7E37BEF6" Association="Self.FK__Zamowieni__ID_Za__7E37BEF6">
             <End Role="Zamowienia" EntitySet="Zamowienia" />
             <End Role="Zamowienia_Przydzial" EntitySet="Zamowienia_Przydzial" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zawartosc__ID_Do__07C12930" Association="Self.FK__Zawartosc__ID_Do__07C12930">
+          <AssociationSet Name="FK__Zawartosc__ID_Do__08B54D69" Association="Self.FK__Zawartosc__ID_Do__08B54D69">
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
-          <EntitySet Name="vPrzydzialZasobow" EntityType="SzwalniaModel.vPrzydzialZasobow" />
         </EntityContainer>
-        <EntityType Name="vPrzydzialZasobow">
-          <Key>
-            <PropertyRef Name="ID_Procesu_Produkcyjnego" />
-            <PropertyRef Name="ID_Realizacji_Procesu" />
-            <PropertyRef Name="ID_Pracownika" />
-            <PropertyRef Name="Imie" />
-            <PropertyRef Name="Nazwisko" />
-            <PropertyRef Name="ID_Maszyny" />
-            <PropertyRef Name="Model" />
-          </Key>
-          <Property Name="ID_Procesu_Produkcyjnego" Type="Int32" Nullable="false" />
-          <Property Name="ID_Realizacji_Procesu" Type="Int32" Nullable="false" />
-          <Property Name="ID_Pracownika" Type="Int32" Nullable="false" />
-          <Property Name="Imie" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Nazwisko" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ID_Maszyny" Type="Int32" Nullable="false" />
-          <Property Name="Model" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3916,15 +3819,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Dostawcy_Oferta">
-            <EntityTypeMapping TypeName="SzwalniaModel.Dostawcy_Oferta">
-              <MappingFragment StoreEntitySet="Dostawcy_Oferta">
-                <ScalarProperty Name="ID_Dostawcy_Oferta" ColumnName="ID_Dostawcy_Oferta" />
-                <ScalarProperty Name="ID_Oferta" ColumnName="ID_Oferta" />
-                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Dostawcy_Zaopatrzenie">
             <EntityTypeMapping TypeName="SzwalniaModel.Dostawcy_Zaopatrzenie">
               <MappingFragment StoreEntitySet="Dostawcy_Zaopatrzenie">
@@ -3942,6 +3836,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
                 <ScalarProperty Name="ID_Dostawy_Zawartosc" ColumnName="ID_Dostawy_Zawartosc" />
                 <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
                 <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="ID_oferta" ColumnName="ID_oferta" />
                 <ScalarProperty Name="Ilosc_Dostarczona" ColumnName="Ilosc_Dostarczona" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -3953,8 +3848,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
                 <ScalarProperty Name="ID_Element_Typ" ColumnName="ID_Element_Typ" />
                 <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
                 <ScalarProperty Name="Okres_Przydatnosci_Miesiace" ColumnName="Okres_Przydatnosci_Miesiace" />
-                <ScalarProperty Name="Element_Ilosc_W_Paczce" ColumnName="Element_Ilosc_W_Paczce" />
-                <ScalarProperty Name="ID_Jednostka" ColumnName="ID_Jednostka" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3975,6 +3868,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
               <MappingFragment StoreEntitySet="Elementy_Cechy_Slownik">
                 <ScalarProperty Name="ID_Cecha" ColumnName="ID_Cecha" />
                 <ScalarProperty Name="Cecha" ColumnName="Cecha" />
+                <ScalarProperty Name="Czy_wlasne" ColumnName="Czy_wlasne" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -4180,6 +4074,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
                 <ScalarProperty Name="Data_Oferty" ColumnName="Data_Oferty" />
                 <ScalarProperty Name="Ilosc_Minimalna" ColumnName="Ilosc_Minimalna" />
                 <ScalarProperty Name="Ilosc_Maksymalna" ColumnName="Ilosc_Maksymalna" />
+                <ScalarProperty Name="Ilosc_W_Opakowaniu_Pojedynczym" ColumnName="Ilosc_W_Opakowaniu_Pojedynczym" />
+                <ScalarProperty Name="ID_Jednostka" ColumnName="ID_Jednostka" />
                 <ScalarProperty Name="Ilosc_W_Opakowaniu_Zbiorczym" ColumnName="Ilosc_W_Opakowaniu_Zbiorczym" />
                 <ScalarProperty Name="Deklarowany_czas_dostawy" ColumnName="Deklarowany_czas_dostawy" />
               </MappingFragment>
@@ -4366,7 +4262,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
               <MappingFragment StoreEntitySet="Urlop">
                 <ScalarProperty Name="ID_Urlop" ColumnName="ID_Urlop" />
                 <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
-                <ScalarProperty Name="Data_rozpoczęcia" ColumnName="Data_rozpoczęcia" />
+                <ScalarProperty Name="Data_rozpoczecia" ColumnName="Data_rozpoczecia" />
                 <ScalarProperty Name="Data_zakonczenia" ColumnName="Data_zakonczenia" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -4400,16 +4296,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
                 <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
                 <ScalarProperty Name="ID_Pracownicy" ColumnName="ID_Pracownicy" />
                 <ScalarProperty Name="ID_Umowy" ColumnName="ID_Umowy" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Zamowienia_Zawartosc">
-            <EntityTypeMapping TypeName="SzwalniaModel.Zamowienia_Zawartosc">
-              <MappingFragment StoreEntitySet="Zamowienia_Zawartosc">
-                <ScalarProperty Name="ID_Zamowienia_Zawartosc" ColumnName="ID_Zamowienia_Zawartosc" />
-                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
-                <ScalarProperty Name="ID_Oferta" ColumnName="ID_Oferta" />
-                <ScalarProperty Name="Ilosc_Zamawiana" ColumnName="Ilosc_Zamawiana" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -4466,16 +4352,29 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vPrzydzialZasobow">
-            <EntityTypeMapping TypeName="SzwalniaModel.vPrzydzialZasobow">
-              <MappingFragment StoreEntitySet="vPrzydzialZasobow">
-                <ScalarProperty Name="Model" ColumnName="Model" />
-                <ScalarProperty Name="ID_Maszyny" ColumnName="ID_Maszyny" />
-                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
-                <ScalarProperty Name="Imie" ColumnName="Imie" />
-                <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
-                <ScalarProperty Name="ID_Realizacji_Procesu" ColumnName="ID_Realizacji_Procesu" />
+          <EntitySetMapping Name="vRealizacjaProcesuProdukcyjnegoDetails">
+            <EntityTypeMapping TypeName="SzwalniaModel.vRealizacjaProcesuProdukcyjnegoDetails">
+              <MappingFragment StoreEntitySet="vRealizacjaProcesuProdukcyjnegoDetails">
                 <ScalarProperty Name="ID_Procesu_Produkcyjnego" ColumnName="ID_Procesu_Produkcyjnego" />
+                <ScalarProperty Name="ID_Realizacji_Procesu" ColumnName="ID_Realizacji_Procesu" />
+                <ScalarProperty Name="Nazwa_etapu" ColumnName="Nazwa etapu" />
+                <ScalarProperty Name="Data_Rozpoczecia_Procesu" ColumnName="Data_Rozpoczecia_Procesu" />
+                <ScalarProperty Name="Data_Zakonczenia_Procesu" ColumnName="Data_Zakonczenia_Procesu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vZamowienieProcesyProdukcyjne">
+            <EntityTypeMapping TypeName="SzwalniaModel.vZamowienieProcesyProdukcyjne">
+              <MappingFragment StoreEntitySet="vZamowienieProcesyProdukcyjne">
+                <ScalarProperty Name="ID_Procesu_Produkcyjnego" ColumnName="ID_Procesu_Produkcyjnego" />
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
+                <ScalarProperty Name="ID_Zamowienie_Produkt" ColumnName="ID_Zamowienie_Produkt" />
+                <ScalarProperty Name="Nazwa_Produktu" ColumnName="Nazwa_Produktu" />
+                <ScalarProperty Name="ID_Proces_Technologiczny" ColumnName="ID_Proces_Technologiczny" />
+                <ScalarProperty Name="Data_Rozpoczecia" ColumnName="Data_Rozpoczecia" />
+                <ScalarProperty Name="Data_Zakonczenia" ColumnName="Data_Zakonczenia" />
+                <ScalarProperty Name="ID_Dokumentacja_Proces" ColumnName="ID_Dokumentacja_Proces" />
+                <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

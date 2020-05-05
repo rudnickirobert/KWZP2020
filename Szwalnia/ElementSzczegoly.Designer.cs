@@ -1,6 +1,6 @@
 ﻿namespace Szwalnia
 {
-    partial class Element_szczegoly
+    partial class ElementSzczegoly
     {
         /// <summary>
         /// Required designer variable.
@@ -100,7 +100,6 @@
             this.Controls.Add(this.txtNazwa);
             this.Name = "Element_szczegoly";
             this.Text = "Okno szczegolow elementow";
-            this.Load += new System.EventHandler(this.Element_szczegoly_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSzczegol)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
