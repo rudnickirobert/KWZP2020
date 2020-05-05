@@ -102,7 +102,6 @@
             this.btnZamowienieProces.TabIndex = 2;
             this.btnZamowienieProces.Text = "Zamowienie Proces Produkcyjny";
             this.btnZamowienieProces.UseVisualStyleBackColor = true;
-            this.btnZamowienieProces.Click += new System.EventHandler(this.btnZamowienieProces_Click);
             // 
             // Start
             // 

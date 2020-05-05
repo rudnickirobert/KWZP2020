@@ -381,9 +381,6 @@
     <EmbeddedResource Include="SumaCzasuPokaz.resx">
       <DependentUpon>SumaCzasuPokaz.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Wybor_elementu.resx">
-      <DependentUpon>Wybor_elementu.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Start.resx">
       <DependentUpon>Start.cs</DependentUpon>
     </EmbeddedResource>
