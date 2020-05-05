@@ -32,7 +32,7 @@ namespace Szwalnia
             realizacjaProcesu.Show();
         }
 
-        private void btnZarzadzanie_MouseClick(object sender, MouseEventArgs e)
+        private void btnZarzadzanie_MouseClick_1(object sender, MouseEventArgs e)
         {
             ZarzadzanieForm zarzadzanieForm = new ZarzadzanieForm(szwalnia);
             zarzadzanieForm.Show();
