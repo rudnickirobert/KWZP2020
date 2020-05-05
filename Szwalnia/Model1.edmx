@@ -535,6 +535,21 @@ warning 6002: The table/view 'Szwalnia.dbo.vCechyElementu' does not have a prima
           <Property Name="Jednostka" Type="varchar" MaxLength="10" />
           <Property Name="Wartosc_Cechy_Slowna" Type="varchar" MaxLength="30" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vRealizacjaProcesuProdukcyjnegoDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vRealizacjaProcesuProdukcyjnegoDetails">
+          <Key>
+            <PropertyRef Name="ID_Procesu_Produkcyjnego" />
+            <PropertyRef Name="ID_Realizacji_Procesu" />
+            <PropertyRef Name="Nazwa etapu" />
+            <PropertyRef Name="Data_Rozpoczecia_Procesu" />
+          </Key>
+          <Property Name="ID_Procesu_Produkcyjnego" Type="int" Nullable="false" />
+          <Property Name="ID_Realizacji_Procesu" Type="int" Nullable="false" />
+          <Property Name="Nazwa etapu" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Data_Rozpoczecia_Procesu" Type="smalldatetime" Nullable="false" />
+          <Property Name="Data_Zakonczenia_Procesu" Type="smalldatetime" />
+        </EntityType>
         <Association Name="FK__Czesci_Ob__ID_El__208CD6FA">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
           <End Role="Czesci_Obsluga" Type="Self.Czesci_Obsluga" Multiplicity="*" />
@@ -1476,6 +1491,15 @@ warning 6002: The table/view 'Szwalnia.dbo.vCechyElementu' does not have a prima
     [vCechyElementu].[Wartosc_Cechy_Slowna] AS [Wartosc_Cechy_Slowna]
     FROM [dbo].[vCechyElementu] AS [vCechyElementu]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vRealizacjaProcesuProdukcyjnegoDetails" EntityType="Self.vRealizacjaProcesuProdukcyjnegoDetails" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vRealizacjaProcesuProdukcyjnegoDetails].[ID_Procesu_Produkcyjnego] AS [ID_Procesu_Produkcyjnego], 
+    [vRealizacjaProcesuProdukcyjnegoDetails].[ID_Realizacji_Procesu] AS [ID_Realizacji_Procesu], 
+    [vRealizacjaProcesuProdukcyjnegoDetails].[Nazwa etapu] AS [Nazwa etapu], 
+    [vRealizacjaProcesuProdukcyjnegoDetails].[Data_Rozpoczecia_Procesu] AS [Data_Rozpoczecia_Procesu], 
+    [vRealizacjaProcesuProdukcyjnegoDetails].[Data_Zakonczenia_Procesu] AS [Data_Zakonczenia_Procesu]
+    FROM [dbo].[vRealizacjaProcesuProdukcyjnegoDetails] AS [vRealizacjaProcesuProdukcyjnegoDetails]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK__Czesci_Ob__ID_El__208CD6FA" Association="Self.FK__Czesci_Ob__ID_El__208CD6FA">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Czesci_Obsluga" EntitySet="Czesci_Obsluga" />
@@ -1830,6 +1854,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vCechyElementu' does not have a prima
           <EntitySet Name="Zawartosc" EntityType="SzwalniaModel.Zawartosc" />
           <EntitySet Name="Znajomosc_Jezykow" EntityType="SzwalniaModel.Znajomosc_Jezykow" />
           <EntitySet Name="vCechyElementu" EntityType="SzwalniaModel.vCechyElementu" />
+          <EntitySet Name="vRealizacjaProcesuProdukcyjnegoDetails" EntityType="SzwalniaModel.vRealizacjaProcesuProdukcyjnegoDetails" />
           <AssociationSet Name="FK__Czesci_Ob__ID_El__208CD6FA" Association="SzwalniaModel.FK__Czesci_Ob__ID_El__208CD6FA">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Czesci_Obsluga" EntitySet="Czesci_Obsluga" />
@@ -2796,6 +2821,19 @@ warning 6002: The table/view 'Szwalnia.dbo.vCechyElementu' does not have a prima
           <Property Name="Wartosc_Cechy_Liczbowa" Type="Single" />
           <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Wartosc_Cechy_Slowna" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vRealizacjaProcesuProdukcyjnegoDetails">
+          <Key>
+            <PropertyRef Name="ID_Procesu_Produkcyjnego" />
+            <PropertyRef Name="ID_Realizacji_Procesu" />
+            <PropertyRef Name="Nazwa_etapu" />
+            <PropertyRef Name="Data_Rozpoczecia_Procesu" />
+          </Key>
+          <Property Name="ID_Procesu_Produkcyjnego" Type="Int32" Nullable="false" />
+          <Property Name="ID_Realizacji_Procesu" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_etapu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Data_Rozpoczecia_Procesu" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Data_Zakonczenia_Procesu" Type="DateTime" Precision="0" />
         </EntityType>
         <Association Name="FK__Czesci_Ob__ID_El__208CD6FA">
           <End Type="SzwalniaModel.Elementy" Role="Elementy" Multiplicity="1" />
@@ -4260,6 +4298,17 @@ warning 6002: The table/view 'Szwalnia.dbo.vCechyElementu' does not have a prima
                 <ScalarProperty Name="Wartosc_Cechy_Liczbowa" ColumnName="Wartosc_Cechy_Liczbowa" />
                 <ScalarProperty Name="Cecha" ColumnName="Cecha" />
                 <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vRealizacjaProcesuProdukcyjnegoDetails">
+            <EntityTypeMapping TypeName="SzwalniaModel.vRealizacjaProcesuProdukcyjnegoDetails">
+              <MappingFragment StoreEntitySet="vRealizacjaProcesuProdukcyjnegoDetails">
+                <ScalarProperty Name="Data_Zakonczenia_Procesu" ColumnName="Data_Zakonczenia_Procesu" />
+                <ScalarProperty Name="Data_Rozpoczecia_Procesu" ColumnName="Data_Rozpoczecia_Procesu" />
+                <ScalarProperty Name="Nazwa_etapu" ColumnName="Nazwa etapu" />
+                <ScalarProperty Name="ID_Realizacji_Procesu" ColumnName="ID_Realizacji_Procesu" />
+                <ScalarProperty Name="ID_Procesu_Produkcyjnego" ColumnName="ID_Procesu_Produkcyjnego" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
