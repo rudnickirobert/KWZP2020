@@ -2,5 +2,6 @@ Debug
 .vs
 obj
 *.htm
+App.config
 Szwalnia/.idea/
 Szwalnia/Szwalnia.sln.DotSettings.user
