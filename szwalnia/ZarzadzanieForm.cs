@@ -24,5 +24,20 @@ namespace Szwalnia
             wyborKlienta.Show();
             this.Close();
         }
+
+        private void btnWroc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnZamknij_MouseClick(object sender, MouseEventArgs e)
+        {
+             this.Close();
+        }
+
+        private void btnZamknij(object sender, EventArgs e)
+        {
+
+        }
     }
 }
