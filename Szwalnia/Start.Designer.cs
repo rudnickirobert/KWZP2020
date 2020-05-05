@@ -64,7 +64,6 @@
             this.btnElementy.TabIndex = 0;
             this.btnElementy.Text = "Elementy";
             this.btnElementy.UseVisualStyleBackColor = true;
-            this.btnElementy.Click += new System.EventHandler(this.btnElementy_Click);
             // 
             // btnPrzydzialZasobow
             // 
@@ -75,7 +74,6 @@
             this.btnPrzydzialZasobow.TabIndex = 1;
             this.btnPrzydzialZasobow.Text = "Przydzial Zasobow";
             this.btnPrzydzialZasobow.UseVisualStyleBackColor = true;
-            this.btnPrzydzialZasobow.Click += new System.EventHandler(this.btnPrzydzialZasobow_Click);
             // 
             // Start
             // 
