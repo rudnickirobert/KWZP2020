@@ -79,7 +79,6 @@
             this.btnPrzygotowanieProdukcji.TabIndex = 1;
             this.btnPrzygotowanieProdukcji.Text = "Przygotowanie produkcji";
             this.btnPrzygotowanieProdukcji.UseVisualStyleBackColor = true;
-            this.btnPrzygotowanieProdukcji.Click += new System.EventHandler(this.btnPrzygotowanieProdukcji_Click);
             // 
             // btnZarzadzanie
             // 
