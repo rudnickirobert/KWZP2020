@@ -12,12 +12,14 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagrams
+    public partial class v_Przydzial_Zasobow
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int ID_Procesu_Produkcyjnego { get; set; }
+        public int ID_Realizacji_Procesu { get; set; }
+        public int ID_Pracownika { get; set; }
+        public string Imie { get; set; }
+        public string Nazwisko { get; set; }
+        public int ID_Maszyny { get; set; }
+        public string Model { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-
+USE Szwalnia
+GO
 CREATE VIEW vObsluga AS 
 SELECT dbo.Obsluga_Techniczna.ID_Obslugi, dbo.Rodzaj_Obslugi.Nazwa, dbo.Maszyny.ID_Maszyny, dbo.Maszyny.Producent, dbo.Maszyny.Model, dbo.Elementy.Element_Nazwa
 FROM     dbo.Elementy INNER JOIN
