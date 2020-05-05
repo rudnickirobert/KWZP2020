@@ -10,17 +10,18 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class Wybor_klienta : Form
+    public partial class WyborKlienta : Form
     {
         public SzwalniaEntities db;
 
-        public Wybor_klienta(SzwalniaEntities szwalnia)
+        public WyborKlienta(SzwalniaEntities szwalnia)
         {
             InitializeComponent();
             db = szwalnia;
+            dgvListaKlientow.DataSource = db.Klienci.ToList();
         }
 
-        private void btnSzukaj_MouseClick(object sender, MouseEventArgs e)
+        private void dgvListaKlientow_CellDoubleClik(object sender, DataGridViewCellEventArgs e)
         {
             Klienci_szczegoly klienci_Szczegoly = new Klienci_szczegoly(db, txtNazwaFirmy.Text);
             klienci_Szczegoly.Show();
