@@ -27,8 +27,8 @@ namespace Szwalnia
 
         private void dgvFakturyZewnetrzne_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            int numerIDKlienta = Convert.ToInt32(dgvFakturyZewnetrzne.CurrentRow.Cells[0].Value);
-            FakturyZewnetrzneSzczegoly fakturyZewnetrzneSzczegoly = new FakturyZewnetrzneSzczegoly(db, Decimal.ToInt32(numerIDKlienta));
+            int numerIDFaktury = Convert.ToInt32(dgvFakturyZewnetrzne.CurrentRow.Cells[0].Value);
+            FakturyZewnetrzneSzczegoly fakturyZewnetrzneSzczegoly = new FakturyZewnetrzneSzczegoly(db, Decimal.ToInt32(numerIDFaktury));
             fakturyZewnetrzneSzczegoly.Show();
             this.Close();
         }

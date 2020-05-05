@@ -63,7 +63,6 @@
             this.lblTytul.Size = new System.Drawing.Size(299, 37);
             this.lblTytul.TabIndex = 25;
             this.lblTytul.Text = "Faktura zewnętrzna";
-            this.lblTytul.Click += new System.EventHandler(this.lblTitle_Click);
             // 
             // lblBrutto
             // 
@@ -174,7 +173,6 @@
             this.Controls.Add(this.txtNrFaktury);
             this.Name = "FakturyZewnetrzneSzczegoly";
             this.Text = "Faktury Zewnętrzne - Szczegóły";
-            this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
