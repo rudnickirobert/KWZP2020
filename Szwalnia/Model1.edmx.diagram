@@ -21,7 +21,7 @@
         <EntityTypeShape EntityType="SzwalniaModel.Etapy_W_Procesie" Width="1.5" PointX="15.75" PointY="39.625" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Etat" Width="1.5" PointX="3.75" PointY="25.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Faktury" Width="1.5" PointX="11.25" PointY="37" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.Faktury_Zewnetrzne" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.Faktury_Zewnetrzne" Width="2" PointX="3.125" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Grupa" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Jezyk" Width="1.5" PointX="6.75" PointY="25.5" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Klienci" Width="1.5" PointX="3.75" PointY="44.875" IsExpanded="true" />

@@ -28,5 +28,10 @@ namespace Szwalnia
             klienciSzczegoly.Show();
             this.Close();
         }
+
+        private void WyborKlienta_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
