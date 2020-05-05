@@ -39,5 +39,22 @@ namespace Szwalnia
         {
 
         }
+
+        private void btnFakturyZewnetrzne_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFakturyZewnetrzne_MouseClick(object sender, MouseEventArgs e)
+        {
+            Faktury_Zewnetrzne faktury_Zewnetrzne = new Faktury_Zewnetrzne();
+            faktury_Zewnetrzne.Show();
+           // this.()
+        }
+
+        private void ZarzadzanieForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
