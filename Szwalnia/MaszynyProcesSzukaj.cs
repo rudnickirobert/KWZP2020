@@ -12,15 +12,15 @@ namespace Szwalnia
 {
     public partial class MaszynyProcesSzukaj : Form
     {
-        private SzwalniaEntities Szwalnia;
+        private SzwalniaEntities szwalnia;
         public MaszynyProcesSzukaj(SzwalniaEntities db)
         {
             InitializeComponent();
-            Szwalnia = db;
+            szwalnia = db;
         }
         private void btnSzukaj_Click(object sender, EventArgs e)
         {
-            MaszynyProcesWykonaj maszynyProcesWykonaj = new MaszynyProcesWykonaj(Szwalnia, txtbSzukaj.Text);
+            MaszynyProcesWykonaj maszynyProcesWykonaj = new MaszynyProcesWykonaj(szwalnia, txtbSzukaj.Text);
             maszynyProcesWykonaj.Show();
         }
     }

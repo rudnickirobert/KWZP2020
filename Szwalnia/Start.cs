@@ -36,7 +36,6 @@ namespace Szwalnia
         {
             PrzygotowanieProdukcji przygotowanieProdukcji = new PrzygotowanieProdukcji(szwalnia);
             przygotowanieProdukcji.Show();
-
-
         }
-    } }
+    } 
+}

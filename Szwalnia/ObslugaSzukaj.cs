@@ -12,15 +12,15 @@ namespace Szwalnia
 {
     public partial class ObslugaSzukaj : Form
     {
-        private SzwalniaEntities Szwalnia;
+        private SzwalniaEntities szwalnia;
         public ObslugaSzukaj(SzwalniaEntities db)
         {
             InitializeComponent();
-            Szwalnia = db;
+            szwalnia = db;
         }
         private void btnSzukaj_Click(object sender, EventArgs e)
         {
-            ObslugaZrobione obslugaZrobione = new ObslugaZrobione(Szwalnia, txtbSzukaj.Text);
+            ObslugaZrobione obslugaZrobione = new ObslugaZrobione(szwalnia, txtbSzukaj.Text);
             obslugaZrobione.Show();
         }
     }
