@@ -509,16 +509,4 @@ FROM     dbo.Realizacja_Procesu INNER JOIN
 				  
 				  
 GO
----- Widok przydzial zasobow
-
-GO
-CREATE VIEW  v_Przydzial_Zasobow
-AS
-SELECT dbo.Realizacja_Procesu.ID_Procesu_Produkcyjnego, dbo.Realizacja_Procesu.ID_Realizacji_Procesu, dbo.Przydzial_Zasobow.ID_Pracownika, 
-	   dbo.Pracownicy.Imie, dbo.Pracownicy.Nazwisko, dbo.Przydzial_Zasobow.ID_Maszyny, dbo.Maszyny.Model
-FROM   dbo.Realizacja_Procesu INNER JOIN
-       dbo.Przydzial_Zasobow ON dbo.Realizacja_Procesu.ID_Realizacji_Procesu = dbo.Przydzial_Zasobow.ID_Realizacji_Procesu INNER JOIN
-       dbo.Pracownicy ON dbo.Przydzial_Zasobow.ID_Pracownika = dbo.Pracownicy.ID_Pracownika INNER JOIN
-       dbo.Maszyny ON dbo.Przydzial_Zasobow.ID_Maszyny = dbo.Maszyny.ID_Maszyny
-GO
 

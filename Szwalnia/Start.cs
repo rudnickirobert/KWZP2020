@@ -37,5 +37,11 @@ namespace Szwalnia
             PrzygotowanieProdukcji przygotowanieProdukcji = new PrzygotowanieProdukcji(szwalnia);
             przygotowanieProdukcji.Show();
         }
+
+        private void btnPrzydzial_Click(object sender, EventArgs e)
+        {
+            OknoPrzydzialZasobow przydzialZasobow = new OknoPrzydzialZasobow(szwalnia);
+            przydzialZasobow.Show();
+        }
     } 
 }

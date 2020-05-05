@@ -34,3 +34,11 @@ FROM     dbo.Proces_Zamowienie INNER JOIN
                   dbo.Rodzaj_Maszyny ON dbo.Maszyny_Proces.ID_Rodzaj_Maszyny = dbo.Rodzaj_Maszyny.ID_Rodzaj_Maszyny
 GROUP BY dbo.Rodzaj_Maszyny.Rodzaj_Maszyny
 GO
+
+CREATE VIEW vPrzydzialZasobow AS
+SELECT dbo.Realizacja_Procesu.ID_Procesu_Produkcyjnego, dbo.Realizacja_Procesu.ID_Realizacji_Procesu, dbo.Pracownicy.Imie, dbo.Pracownicy.Nazwisko, dbo.Rodzaj_Maszyny.Rodzaj_Maszyny
+FROM     dbo.Pracownicy INNER JOIN
+                  dbo.Przydzial_Zasobow ON dbo.Pracownicy.ID_Pracownika = dbo.Przydzial_Zasobow.ID_Pracownika INNER JOIN
+                  dbo.Realizacja_Procesu ON dbo.Przydzial_Zasobow.ID_Realizacji_Procesu = dbo.Realizacja_Procesu.ID_Realizacji_Procesu INNER JOIN
+                  dbo.Maszyny ON dbo.Przydzial_Zasobow.ID_Maszyny = dbo.Maszyny.ID_Maszyny INNER JOIN
+                  dbo.Rodzaj_Maszyny ON dbo.Maszyny.ID_Rodzaj_Maszyny = dbo.Rodzaj_Maszyny.ID_Rodzaj_Maszyny

@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OknoPrzydzialZasobow));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.numericID = new System.Windows.Forms.NumericUpDown();
+            this.numerIdProcesuProdukcyjnego = new System.Windows.Forms.NumericUpDown();
             this.btnSzczegoly = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numerIdProcesuProdukcyjnego)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -46,10 +46,10 @@
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
             // 
-            // numericID
+            // numerIdProcesuProdukcyjnego
             // 
-            resources.ApplyResources(this.numericID, "numericID");
-            this.numericID.Name = "numericID";
+            resources.ApplyResources(this.numerIdProcesuProdukcyjnego, "numerIdProcesuProdukcyjnego");
+            this.numerIdProcesuProdukcyjnego.Name = "numerIdProcesuProdukcyjnego";
             // 
             // btnSzczegoly
             // 
@@ -64,11 +64,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.Controls.Add(this.btnSzczegoly);
-            this.Controls.Add(this.numericID);
+            this.Controls.Add(this.numerIdProcesuProdukcyjnego);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "OknoPrzydzialZasobow";
-            ((System.ComponentModel.ISupportInitialize)(this.numericID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numerIdProcesuProdukcyjnego)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -77,7 +77,7 @@
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericID;
+        private System.Windows.Forms.NumericUpDown numerIdProcesuProdukcyjnego;
         private System.Windows.Forms.Button btnSzczegoly;
     }
 }

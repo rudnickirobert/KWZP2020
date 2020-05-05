@@ -126,7 +126,7 @@
     <value>Microsoft Sans Serif, 10.2pt</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>150, 99</value>
+    <value>44, 82</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>271, 20</value>
@@ -156,7 +156,7 @@
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>200, 33</value>
+    <value>229, 19</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>176, 25</value>
@@ -165,7 +165,7 @@
     <value>4</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>Przydzial Zasobow</value>
+    <value>Przydział Zasobów</value>
   </data>
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
@@ -179,39 +179,39 @@
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="numericID.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="numerIdProcesuProdukcyjnego.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
-  <data name="numericID.Location" type="System.Drawing.Point, System.Drawing">
-    <value>181, 148</value>
+  <data name="numerIdProcesuProdukcyjnego.Location" type="System.Drawing.Point, System.Drawing">
+    <value>334, 76</value>
   </data>
-  <data name="numericID.Size" type="System.Drawing.Size, System.Drawing">
-    <value>195, 30</value>
+  <data name="numerIdProcesuProdukcyjnego.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 30</value>
   </data>
-  <data name="numericID.TabIndex" type="System.Int32, mscorlib">
+  <data name="numerIdProcesuProdukcyjnego.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="numericID.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+  <data name="numerIdProcesuProdukcyjnego.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
   </data>
-  <data name="&gt;&gt;numericID.Name" xml:space="preserve">
-    <value>numericID</value>
+  <data name="&gt;&gt;numerIdProcesuProdukcyjnego.Name" xml:space="preserve">
+    <value>numerIdProcesuProdukcyjnego</value>
   </data>
-  <data name="&gt;&gt;numericID.Type" xml:space="preserve">
+  <data name="&gt;&gt;numerIdProcesuProdukcyjnego.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;numericID.Parent" xml:space="preserve">
+  <data name="&gt;&gt;numerIdProcesuProdukcyjnego.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;numericID.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;numerIdProcesuProdukcyjnego.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="btnSzczegoly.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10.2pt</value>
   </data>
   <data name="btnSzczegoly.Location" type="System.Drawing.Point, System.Drawing">
-    <value>414, 145</value>
+    <value>492, 73</value>
   </data>
   <data name="btnSzczegoly.Size" type="System.Drawing.Size, System.Drawing">
     <value>112, 33</value>
@@ -241,7 +241,7 @@
     <value>8, 16</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>574, 217</value>
+    <value>675, 157</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>PrzydzialZasobow </value>

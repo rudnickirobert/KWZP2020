@@ -80,7 +80,6 @@ namespace Szwalnia
         public virtual DbSet<Zapotrzebowanie_Opakowan> Zapotrzebowanie_Opakowan { get; set; }
         public virtual DbSet<Zawartosc> Zawartosc { get; set; }
         public virtual DbSet<Znajomosc_Jezykow> Znajomosc_Jezykow { get; set; }
-        public virtual DbSet<v_Przydzial_Zasobow> v_Przydzial_Zasobow { get; set; }
         public virtual DbSet<vCechyElementu> vCechyElementu { get; set; }
         public virtual DbSet<vMaszyny_rodzaj_liczba> vMaszyny_rodzaj_liczba { get; set; }
         public virtual DbSet<vMaszyny_serwis> vMaszyny_serwis { get; set; }
@@ -89,5 +88,6 @@ namespace Szwalnia
         public virtual DbSet<vSrednia_ilosc_maszyn> vSrednia_ilosc_maszyn { get; set; }
         public virtual DbSet<vSuma_czasu_proces> vSuma_czasu_proces { get; set; }
         public virtual DbSet<vZamowienieProcesyProdukcyjne> vZamowienieProcesyProdukcyjne { get; set; }
+        public virtual DbSet<vPrzydzialZasobow> vPrzydzialZasobow { get; set; }
     }
 }

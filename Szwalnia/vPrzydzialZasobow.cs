@@ -16,10 +16,8 @@ namespace Szwalnia
     {
         public int ID_Procesu_Produkcyjnego { get; set; }
         public int ID_Realizacji_Procesu { get; set; }
-        public int ID_Pracownika { get; set; }
         public string Imie { get; set; }
         public string Nazwisko { get; set; }
-        public int ID_Maszyny { get; set; }
-        public string Model { get; set; }
+        public string Rodzaj_Maszyny { get; set; }
     }
 }

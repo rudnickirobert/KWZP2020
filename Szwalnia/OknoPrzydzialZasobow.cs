@@ -15,12 +15,12 @@ namespace Szwalnia
         private SzwalniaEntities db;
         public OknoPrzydzialZasobow(SzwalniaEntities zasob)
         {
-            InitializeComponent();
-            db = zasob;
+           InitializeComponent();
+           db = zasob;
         }
         private void btnSzczegoly_Click(object sender, EventArgs e)
         {
-            Szczegoly szczegoly = new Szczegoly(db, Decimal.ToInt32(numericID.Value));
+            Szczegoly szczegoly = new Szczegoly(db, Decimal.ToInt32(numerIdProcesuProdukcyjnego.Value));
             szczegoly.Show();
             this.Close();
         }
