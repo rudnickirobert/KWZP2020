@@ -24,13 +24,7 @@ namespace Szwalnia
         }
         private void dgvRegaly_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvRegaly.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-            {
-                string numer = dgvRegaly.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-                int numer_polki = Int16.Parse(numer);
-                ZawartoscPolkiForm polka = new ZawartoscPolkiForm(db, numer_polki);
-                polka.Show();
-            }
+            
         }
     }    
 }
