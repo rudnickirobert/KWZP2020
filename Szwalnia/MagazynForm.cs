@@ -12,16 +12,16 @@ namespace Szwalnia
 {
     public partial class MagazynForm : Form
     {
-        public SzwalniaEntities szwalnia_passed;
+        public SzwalniaEntities szwalniaPassed;
         public MagazynForm(SzwalniaEntities szwalnia)
         {
-            szwalnia_passed = szwalnia;
+            szwalniaPassed = szwalnia;
             InitializeComponent();
         }
 
         private void btnElementyForm_Click(object sender, EventArgs e)
         {
-            Wybor_elementu wybor = new Wybor_elementu(szwalnia_passed);
+            WyborElementu wybor = new WyborElementu(szwalniaPassed);
             wybor.Show();
             this.Close();
         }
