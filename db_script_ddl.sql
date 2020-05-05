@@ -61,7 +61,7 @@ Telefon varchar(15) not null unique,
 CREATE TABLE Urlop ( 
 ID_Urlop int IDENTITY (1,1) PRIMARY KEY, 
 ID_Pracownika int FOREIGN KEY REFERENCES Pracownicy(ID_Pracownika), 
-Data_rozpoczêcia DATE not null default GETDATE(), 
+Data_rozpoczecia DATE not null default GETDATE(), 
 Data_zakonczenia DATE not null default GETDATE(), 
 );  
 
