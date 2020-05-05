@@ -23,8 +23,8 @@ namespace Szwalnia
 
         private void dgvListaKlientow_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            int numID = Convert.ToInt32(dgvListaKlientow.CurrentRow.Cells[0].Value);
-            KlienciSzczegoly klienciSzczegoly = new KlienciSzczegoly(db, Decimal.ToInt32(numID));
+            int numerIDKlienta = Convert.ToInt32(dgvListaKlientow.CurrentRow.Cells[0].Value);
+            KlienciSzczegoly klienciSzczegoly = new KlienciSzczegoly(db, Decimal.ToInt32(numerIDKlienta));
             klienciSzczegoly.Show();
             this.Close();
         }
