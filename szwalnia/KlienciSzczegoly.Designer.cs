@@ -187,7 +187,6 @@
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "KlienciSzczegoly";
             this.Text = "Klienci_szczegoly";
-            this.Load += new System.EventHandler(this.KlienciSzczegoly_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlienci)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

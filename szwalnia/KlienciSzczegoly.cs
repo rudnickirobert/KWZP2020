@@ -28,10 +28,5 @@ namespace Szwalnia
         {
             this.Close();
         }
-
-        private void KlienciSzczegoly_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

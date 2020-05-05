@@ -109,6 +109,18 @@
     <Compile Include="Faktury.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="FakturyZewnetrzne.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FakturyZewnetrzne.Designer.cs">
+      <DependentUpon>FakturyZewnetrzne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FakturyZewnetrzneSzczegoly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FakturyZewnetrzneSzczegoly.Designer.cs">
+      <DependentUpon>FakturyZewnetrzneSzczegoly.cs</DependentUpon>
+    </Compile>
     <Compile Include="Faktury_Zewnetrzne.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -320,6 +332,12 @@
     </Compile>
     <EmbeddedResource Include="ElementSzczegoly.resx">
       <DependentUpon>ElementSzczegoly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FakturyZewnetrzne.resx">
+      <DependentUpon>FakturyZewnetrzne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FakturyZewnetrzneSzczegoly.resx">
+      <DependentUpon>FakturyZewnetrzneSzczegoly.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RealizacjaProcesuSzczegoly.resx">
       <DependentUpon>RealizacjaProcesuSzczegoly.cs</DependentUpon>
