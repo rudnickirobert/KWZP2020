@@ -13,7 +13,7 @@ CREATE TABLE Produkt
 (ID_Produkt int IDENTITY(1,1) PRIMARY KEY, 
 Nazwa varchar(30) NOT NULL); 
 
-----------------------------------Finanse i Zarz¹dzanie--------------------------------------------------- 
+----------------------------------Finanse i ZarzÂ¹dzanie--------------------------------------------------- 
 CREATE TABLE Klienci ( 
 ID_Klienta int IDENTITY(1,1) PRIMARY KEY, 
 Imie varchar(50) not null, 
@@ -61,7 +61,7 @@ Telefon varchar(15) not null unique,
 CREATE TABLE Urlop ( 
 ID_Urlop int IDENTITY (1,1) PRIMARY KEY, 
 ID_Pracownika int FOREIGN KEY REFERENCES Pracownicy(ID_Pracownika), 
-Data_rozpoczêcia DATE not null default GETDATE(), 
+Data_rozpoczÃªcia DATE not null default GETDATE(), 
 Data_zakonczenia DATE not null default GETDATE(), 
 );  
 
@@ -121,7 +121,7 @@ Podatek real not null,
 ); 
 
 --------------------------------------------------------- MAGAZYN--------------------------------------------------------- 
---Magazyn tabele s³ownikowe 
+--Magazyn tabele sÂ³ownikowe 
 CREATE TABLE Polki_Rozmiary (
 ID_Rozmiar_Polki int IDENTITY(1,1) PRIMARY KEY,
 Wysokosc int,
@@ -324,7 +324,7 @@ CREATE TABLE Zamowienie_Produkt (
 
 ---------------------------------------------------------KONIEC MAGAZYN---------------------------------------------------------
  
----------------------- Pocz¹tek Przygotowanie produkcji------------------------- 
+---------------------- PoczÂ¹tek Przygotowanie produkcji------------------------- 
 create table Czesci_Obsluga ( 
     ID_Obslugi  int IDENTITY(1,1) not null PRIMARY KEY, 
     ID_Element int not null FOREIGN KEY REFERENCES Elementy (ID_Element), 
@@ -488,6 +488,17 @@ FROM Elementy INNER JOIN
 	Elementy_Cechy_Slownik ON Elementy_Cechy.ID_Cecha = Elementy_Cechy_Slownik.ID_Cecha INNER JOIN 
 	Elementy_Jednostki ON Elementy_Cechy.ID_Jednostka = Elementy_Jednostki.ID_jednostka
 GO
+
+CREATE VIEW [dbo].[vZamowienieProcesyProdukcyjne]
+AS
+SELECT        dbo.Proces_Produkcyjny.ID_Procesu_Produkcyjnego, dbo.Zamowienie_Produkt.ID_Zamowienia, dbo.Proces_Produkcyjny.ID_Zamowienie_Produkt, dbo.Produkt.Nazwa AS Nazwa_Produktu, 
+                         dbo.Proces_Produkcyjny.ID_Proces_Technologiczny, dbo.Proces_Produkcyjny.Data_Rozpoczecia, dbo.Proces_Produkcyjny.Data_Zakonczenia, dbo.Proces_Produkcyjny.ID_Dokumentacja_Proces, 
+                         dbo.Proces_Produkcyjny.Uwagi
+FROM            dbo.Proces_Produkcyjny INNER JOIN
+                         dbo.Zamowienie_Produkt ON dbo.Proces_Produkcyjny.ID_Zamowienie_Produkt = dbo.Zamowienie_Produkt.ID_Zamowienie_Produkt INNER JOIN
+                         dbo.Produkt ON dbo.Zamowienie_Produkt.ID_Produkt = dbo.Produkt.ID_Produkt
+GO
+
 CREATE VIEW vRealizacjaProcesuProdukcyjnegoDetails 
 AS
 SELECT dbo.Proces_Produkcyjny.ID_Procesu_Produkcyjnego, dbo.Realizacja_Procesu.ID_Realizacji_Procesu, dbo.Rodzaj_Etapu.Nazwa as 'Nazwa etapu', dbo.Realizacja_Procesu.Data_Rozpoczecia_Procesu, 
@@ -498,4 +509,3 @@ FROM     dbo.Realizacja_Procesu INNER JOIN
 				  
 				  
 GO
-

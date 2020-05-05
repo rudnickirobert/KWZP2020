@@ -261,6 +261,12 @@
     <Compile Include="Zamowienia_Przydzial.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ZamowienieProcesyProdukcyjne.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZamowienieProcesyProdukcyjne.Designer.cs">
+      <DependentUpon>ZamowienieProcesyProdukcyjne.cs</DependentUpon>
+    </Compile>
     <Compile Include="Zamowienie_Produkt.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -297,6 +303,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ZamowienieProcesyProdukcyjne.resx">
+      <DependentUpon>ZamowienieProcesyProdukcyjne.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
