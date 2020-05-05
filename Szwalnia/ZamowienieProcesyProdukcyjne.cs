@@ -18,7 +18,10 @@ namespace Szwalnia
         {
             InitializeComponent();
             this.db = db;
-            
+            dgvProcesyProdukcyjne.DataSource = db.vZamowienieProcesyProdukcyjne.ToList();
+            int ostatniNumer = dgvProcesyProdukcyjne.Rows.Cast<DataGridViewRow>().Max(wartosc => Convert.ToInt32(wartosc.Cells["ID_Zamowienia"].Value));
+            ostatniNumerZamowienia = ostatniNumer;
+
         }
 
         private void btnSzukaj_Click(object sender, EventArgs e)
@@ -27,7 +30,8 @@ namespace Szwalnia
             {
                 if (nudNumerZamowienia.Value <= ostatniNumerZamowienia)
                 {
-                   
+                    dgvProcesyProdukcyjne.DataSource = this.db.vZamowienieProcesyProdukcyjne.Where(zamowienie => zamowienie.ID_Zamowienia == nudNumerZamowienia.Value).ToList();
+                    dgvProcesyProdukcyjne.Columns[1].Visible = false;
                 }
                 else
                     MessageBox.Show("Nie istnieje takie ID Zamowienia!");

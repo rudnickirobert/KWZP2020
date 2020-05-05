@@ -31,5 +31,11 @@ namespace Szwalnia
             RealizacjaProcesuSzczegoly realizacjaProcesu = new RealizacjaProcesuSzczegoly(szwalnia);
             realizacjaProcesu.Show();
         }
+
+        private void btnZamowienieProces_Click(object sender, EventArgs e)
+        {
+            ZamowienieProcesyProdukcyjne zamowienieProcesy = new ZamowienieProcesyProdukcyjne(szwalnia);
+            zamowienieProcesy.Show();
+        }
     }
 }
