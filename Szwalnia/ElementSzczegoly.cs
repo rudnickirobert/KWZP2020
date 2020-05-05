@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class Element_szczegoly : Form
+    public partial class ElementSzczegoly : Form
     {
-        public Element_szczegoly(SzwalniaEntities szwalnia, int ID)
+        public ElementSzczegoly(SzwalniaEntities szwalnia, int ID)
         {
             InitializeComponent();
             Elementy element = szwalnia.Elementy.Where(wybrany => wybrany.ID_Element == ID).First();
@@ -27,12 +27,7 @@ namespace Szwalnia
                 txtOkres.Text = element.Okres_Przydatnosci_Miesiace.ToString();
             }
             dgvSzczegol.DataSource = szwalnia.vCechyElementu.Where(details => details.ID_Element == element.ID_Element).ToList();
-             
-        }
-
-        private void Element_szczegoly_Load(object sender, EventArgs e)
-        {
-
+            dgvSzczegol.Columns[0].Visible = false; 
         }
 
     }
