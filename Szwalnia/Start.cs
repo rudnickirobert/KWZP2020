@@ -22,8 +22,8 @@ namespace Szwalnia
 
         private void btnMagazyn_Click(object sender, EventArgs e)
         {
-            MagazynForm magForm = new MagazynForm(szwalnia);
-            magForm.Show();
+            MagazynForm magazynForm = new MagazynForm(szwalnia);
+            magazynForm.Show();
         }
 
         private void btnRealizacjaProcesu_Click(object sender, EventArgs e)
