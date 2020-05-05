@@ -37,7 +37,7 @@
             // 
             this.btnRealizacjaProcesu.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnRealizacjaProcesu.Location = new System.Drawing.Point(28, 163);
-            this.btnRealizacjaProcesu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRealizacjaProcesu.Margin = new System.Windows.Forms.Padding(2);
             this.btnRealizacjaProcesu.Name = "btnRealizacjaProcesu";
             this.btnRealizacjaProcesu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnRealizacjaProcesu.Size = new System.Drawing.Size(214, 72);
@@ -62,7 +62,7 @@
             // 
             this.btnPrzydzialZasobow.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnPrzydzialZasobow.Location = new System.Drawing.Point(503, 40);
-            this.btnPrzydzialZasobow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPrzydzialZasobow.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrzydzialZasobow.Name = "btnPrzydzialZasobow";
             this.btnPrzydzialZasobow.Size = new System.Drawing.Size(190, 75);
             this.btnPrzydzialZasobow.TabIndex = 1;
@@ -72,7 +72,7 @@
             // btnZarzadzanie
             // 
             this.btnZarzadzanie.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnZarzadzanie.Location = new System.Drawing.Point(37, 156);
+            this.btnZarzadzanie.Location = new System.Drawing.Point(28, 267);
             this.btnZarzadzanie.Name = "btnZarzadzanie";
             this.btnZarzadzanie.Size = new System.Drawing.Size(285, 92);
             this.btnZarzadzanie.TabIndex = 1;
@@ -84,13 +84,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.btnZarzadzanie);
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnZarzadzanie);
             this.Controls.Add(this.btnRealizacjaProcesu);
             this.Controls.Add(this.btnMagazyn);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Controls.Add(this.btnPrzydzialZasobow);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Start";
             this.Text = "Szwalnia";
             this.ResumeLayout(false);
