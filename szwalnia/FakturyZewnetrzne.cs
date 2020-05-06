@@ -19,6 +19,12 @@ namespace Szwalnia
             db = szwalnia;
             dgvFakturyZewnetrzne.DataSource = db.Faktury_Zewnetrzne.ToList();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void dgvFakturyZewnetrzne_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             int numerIDFaktury = Convert.ToInt32(dgvFakturyZewnetrzne.CurrentRow.Cells[0].Value);
