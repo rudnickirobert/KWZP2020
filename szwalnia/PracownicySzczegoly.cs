@@ -20,7 +20,6 @@ namespace Szwalnia
             txtImie.Text = pracownicy.Imie;
             txtNazwisko.Text = pracownicy.Nazwisko;
             txtTelefonPracownika.Text = pracownicy.Telefon;
-
         }
     }
 }
