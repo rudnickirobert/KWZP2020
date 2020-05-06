@@ -43,6 +43,8 @@
             this.btnAnuluj = new System.Windows.Forms.Button();
             this.btnWyzeruj = new System.Windows.Forms.Button();
             this.lblNumerProcesu = new System.Windows.Forms.Label();
+            this.dgvUkryty = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUkryty)).BeginInit();
             this.SuspendLayout();
             // 
             // lblOpisNumer
@@ -159,6 +161,7 @@
             this.btnAnuluj.TabIndex = 3;
             this.btnAnuluj.Text = "Anuluj";
             this.btnAnuluj.UseVisualStyleBackColor = true;
+            this.btnAnuluj.Click += new System.EventHandler(this.btnAnuluj_Click);
             // 
             // btnWyzeruj
             // 
@@ -169,6 +172,7 @@
             this.btnWyzeruj.TabIndex = 3;
             this.btnWyzeruj.Text = "Wyzeruj";
             this.btnWyzeruj.UseVisualStyleBackColor = true;
+            this.btnWyzeruj.Click += new System.EventHandler(this.btnWyzeruj_Click);
             // 
             // lblNumerProcesu
             // 
@@ -180,11 +184,21 @@
             this.lblNumerProcesu.TabIndex = 4;
             this.lblNumerProcesu.Text = "label1";
             // 
+            // dgvUkryty
+            // 
+            this.dgvUkryty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUkryty.Location = new System.Drawing.Point(24, 13);
+            this.dgvUkryty.Name = "dgvUkryty";
+            this.dgvUkryty.Size = new System.Drawing.Size(47, 43);
+            this.dgvUkryty.TabIndex = 5;
+            this.dgvUkryty.Visible = false;
+            // 
             // NowyProces
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(578, 362);
+            this.Controls.Add(this.dgvUkryty);
             this.Controls.Add(this.lblNumerProcesu);
             this.Controls.Add(this.btnWyzeruj);
             this.Controls.Add(this.btnAnuluj);
@@ -202,6 +216,7 @@
             this.Controls.Add(this.lblOpisNumer);
             this.Name = "NowyProces";
             this.Text = "Nowy Proces";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUkryty)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,5 +239,6 @@
         private System.Windows.Forms.Button btnAnuluj;
         private System.Windows.Forms.Button btnWyzeruj;
         private System.Windows.Forms.Label lblNumerProcesu;
+        private System.Windows.Forms.DataGridView dgvUkryty;
     }
 }

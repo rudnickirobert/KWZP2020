@@ -18,5 +18,15 @@ namespace Szwalnia
             InitializeComponent();
             this.db = db;
         }
+
+        private void btnWyzerujEtap_Click(object sender, EventArgs e)
+        {
+            tbNazwaEtapu.Text = "";
+        }
+
+        private void btnAnulujEtap_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

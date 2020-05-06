@@ -62,6 +62,7 @@
             this.btnWyzerujEtap.TabIndex = 4;
             this.btnWyzerujEtap.Text = "Wyzeruj";
             this.btnWyzerujEtap.UseVisualStyleBackColor = true;
+            this.btnWyzerujEtap.Click += new System.EventHandler(this.btnWyzerujEtap_Click);
             // 
             // btnAnulujEtap
             // 
@@ -72,6 +73,7 @@
             this.btnAnulujEtap.TabIndex = 5;
             this.btnAnulujEtap.Text = "Anuluj";
             this.btnAnulujEtap.UseVisualStyleBackColor = true;
+            this.btnAnulujEtap.Click += new System.EventHandler(this.btnAnulujEtap_Click);
             // 
             // btnZapiszEtap
             // 
