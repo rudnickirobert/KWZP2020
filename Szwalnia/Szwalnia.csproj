@@ -112,6 +112,12 @@
     <Compile Include="Faktury_Zewnetrzne.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="DodawanieElementu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodawanieElementu.Designer.cs">
+      <DependentUpon>DodawanieElementu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Grupa.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -354,6 +360,9 @@
     <Compile Include="Znajomosc_Jezykow.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DodawanieElementu.resx">
+      <DependentUpon>DodawanieElementu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ElementSzczegoly.resx">
       <DependentUpon>ElementSzczegoly.cs</DependentUpon>
     </EmbeddedResource>
