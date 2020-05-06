@@ -100,12 +100,6 @@
     <Compile Include="Elementy_Typy.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ElementSzczegoly.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ElementSzczegoly.Designer.cs">
-      <DependentUpon>ElementSzczegoly.cs</DependentUpon>
-    </Compile>
     <Compile Include="Etapy_W_Procesie.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -163,24 +157,6 @@
     <Compile Include="Maszyny.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="MaszynyProcesSzukaj.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MaszynyProcesSzukaj.Designer.cs">
-      <DependentUpon>MaszynyProcesSzukaj.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MaszynyProcesWykonaj.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MaszynyProcesWykonaj.Designer.cs">
-      <DependentUpon>MaszynyProcesWykonaj.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MaszynySerwis.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MaszynySerwis.Designer.cs">
-      <DependentUpon>MaszynySerwis.cs</DependentUpon>
-    </Compile>
     <Compile Include="Maszyny_Proces.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -204,18 +180,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="ObslugaSzukaj.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ObslugaSzukaj.Designer.cs">
-      <DependentUpon>ObslugaSzukaj.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ObslugaZrobione.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ObslugaZrobione.Designer.cs">
-      <DependentUpon>ObslugaZrobione.cs</DependentUpon>
     </Compile>
     <Compile Include="Obsluga_Techniczna.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -253,12 +217,6 @@
     <Compile Include="Proces_Zamowienie.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Produkcja.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Produkcja.Designer.cs">
-      <DependentUpon>Produkcja.cs</DependentUpon>
-    </Compile>
     <Compile Include="Produkt.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -270,12 +228,6 @@
     </Compile>
     <Compile Include="RealizacjaProcesuSzczegoly.Designer.cs">
       <DependentUpon>RealizacjaProcesuSzczegoly.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PrzygotowanieProdukcji.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PrzygotowanieProdukcji.Designer.cs">
-      <DependentUpon>PrzygotowanieProdukcji.cs</DependentUpon>
     </Compile>
     <Compile Include="Realizacja_Procesu.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -295,20 +247,8 @@
     <Compile Include="Rodzaj_Umowy.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="SredniaIloscMaszyPokaz.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SredniaIloscMaszyPokaz.Designer.cs">
-      <DependentUpon>SredniaIloscMaszyPokaz.cs</DependentUpon>
-    </Compile>
     <Compile Include="Stanowisko.cs">
       <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SumaCzasuPokaz.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SumaCzasuPokaz.Designer.cs">
-      <DependentUpon>SumaCzasuPokaz.cs</DependentUpon>
     </Compile>
     <Compile Include="Umowy_Kurierzy.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -414,9 +354,6 @@
     <EmbeddedResource Include="PracownicySzczegoly.resx">
       <DependentUpon>PracownicySzczegoly.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Produkcja.resx">
-      <DependentUpon>Produkcja.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="RealizacjaProcesuSzczegoly.resx">
       <DependentUpon>RealizacjaProcesuSzczegoly.cs</DependentUpon>
     </EmbeddedResource>
@@ -428,15 +365,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WyborElementu.resx">
       <DependentUpon>WyborElementu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PrzygotowanieProdukcji.resx">
-      <DependentUpon>PrzygotowanieProdukcji.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SredniaIloscMaszyPokaz.resx">
-      <DependentUpon>SredniaIloscMaszyPokaz.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SumaCzasuPokaz.resx">
-      <DependentUpon>SumaCzasuPokaz.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Start.resx">
       <DependentUpon>Start.cs</DependentUpon>
