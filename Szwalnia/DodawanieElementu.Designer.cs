@@ -60,7 +60,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(58, 139);
+            this.label2.Location = new System.Drawing.Point(58, 136);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(130, 17);
             this.label2.TabIndex = 2;
@@ -68,7 +68,7 @@
             // 
             // numOkres
             // 
-            this.numOkres.Location = new System.Drawing.Point(194, 137);
+            this.numOkres.Location = new System.Drawing.Point(194, 134);
             this.numOkres.Name = "numOkres";
             this.numOkres.Size = new System.Drawing.Size(120, 22);
             this.numOkres.TabIndex = 3;
@@ -83,7 +83,7 @@
             // dgvListaTypy
             // 
             this.dgvListaTypy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaTypy.Location = new System.Drawing.Point(105, 189);
+            this.dgvListaTypy.Location = new System.Drawing.Point(105, 205);
             this.dgvListaTypy.Name = "dgvListaTypy";
             this.dgvListaTypy.RowHeadersWidth = 51;
             this.dgvListaTypy.RowTemplate.Height = 24;
