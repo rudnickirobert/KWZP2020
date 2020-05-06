@@ -27,7 +27,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnRealizacjaProcesu = new System.Windows.Forms.Button();
             this.btnMagazyn = new System.Windows.Forms.Button();
             this.btnPrzydzialZasobow = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -48,6 +47,11 @@
             this.btnRealizacjaProcesu.UseVisualStyleBackColor = true;
             this.btnRealizacjaProcesu.Click += new System.EventHandler(this.btnRealizacjaProcesu_Click);
             // 
+            this.btnPrzygotowanieProdukcji = new System.Windows.Forms.Button();
+            this.btnProdukcja = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+
             // btnMagazyn
             // 
             this.btnMagazyn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -60,6 +64,7 @@
             this.btnMagazyn.UseVisualStyleBackColor = true;
             this.btnMagazyn.Click += new System.EventHandler(this.btnMagazyn_Click);
             // 
+
             // btnPrzydzialZasobow
             // 
             this.btnPrzydzialZasobow.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -92,6 +97,7 @@
             this.btnZamowienieProces.TabIndex = 2;
             this.btnZamowienieProces.Text = "Zamowienie Proces Produkcyjny";
             this.btnZamowienieProces.UseVisualStyleBackColor = true;
+
             // 
             // btnPrzygotowanieProdukcji
             // 
@@ -115,6 +121,8 @@
             this.Controls.Add(this.btnMagazyn);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnPrzydzialZasobow);
+            this.Controls.Add(this.btnProdukcja);
+            this.Controls.Add(this.btnMagazyn);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Start";
             this.Text = "Szwalnia";
@@ -123,12 +131,12 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnRealizacjaProcesu;
         private System.Windows.Forms.Button btnMagazyn;
         private System.Windows.Forms.Button btnPrzydzialZasobow;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnZamowienieProces;
         private System.Windows.Forms.Button btnPrzygotowanieProdukcji;
+
     }
 }
 
