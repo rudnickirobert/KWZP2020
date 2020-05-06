@@ -26,5 +26,11 @@ namespace Szwalnia
             this.Close();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            UkladMagazynu uklad = new UkladMagazynu(szwalniaPassed);
+            uklad.Show();
+            this.Close();
+        }
     }
 }

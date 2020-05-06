@@ -13,16 +13,22 @@ namespace Szwalnia
     public partial class UkladMagazynu : Form
     {
         public SzwalniaEntities szwalnia;
+        int ostatniaPolka;
         public UkladMagazynu(SzwalniaEntities db)
         {
             InitializeComponent();
             szwalnia = db;
-            int a = db.Polki.Count();
+            ostatniaPolka = db.Polki.Count(); //ile jest polek
         }
 
         private void btnZnajdzPolke_Click(object sender, EventArgs e)
         {
-            
+                if ((nudNumerPolki.Value <= ostatniaPolka) & (nudNumerPolki.Value > 0))
+                {
+                    //vPolki_na_regalach storage = szwalnia.vPolki_na_regalach.Where(regal => regal.Oznaczenie == nudNumerPolki.Value).First();
+                }
+                else
+                MessageBox.Show("Wprowadź poprawny numer półki (wiekszy od 0 i mniejszy od " + ostatniaPolka + ")!");                  
         }
 
         private void btnDodajRegal_Click(object sender, EventArgs e)
