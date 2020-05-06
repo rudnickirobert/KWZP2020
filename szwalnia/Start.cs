@@ -19,28 +19,20 @@ namespace Szwalnia
             InitializeComponent();
             szwalnia = new SzwalniaEntities();
         }
-
         private void btnMagazyn_Click(object sender, EventArgs e)
         {
             MagazynForm magazynForm = new MagazynForm(szwalnia);
             magazynForm.Show();
         }
-
         private void btnRealizacjaProcesu_Click(object sender, EventArgs e)
         {
             RealizacjaProcesuSzczegoly realizacjaProcesu = new RealizacjaProcesuSzczegoly(szwalnia);
             realizacjaProcesu.Show();
         }
-
         private void btnZarzadzanie_MouseClick(object sender, MouseEventArgs e)
         {
             ZarzadzanieForm zarzadzanieForm = new ZarzadzanieForm(szwalnia);
             zarzadzanieForm.Show();
-        }
-
-        private void Start_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
