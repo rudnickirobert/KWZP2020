@@ -33,10 +33,10 @@
             this.btnDodajPolke = new System.Windows.Forms.Button();
             this.btnDodajRozmiar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.nudNumerPolki = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNumerPolki)).BeginInit();
             this.SuspendLayout();
             // 
             // btnZnajdzPolke
@@ -94,13 +94,13 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Układ magazynu";
             // 
-            // numericUpDown1
+            // nudNumerPolki
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown1.Location = new System.Drawing.Point(80, 112);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(77, 26);
-            this.numericUpDown1.TabIndex = 5;
+            this.nudNumerPolki.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nudNumerPolki.Location = new System.Drawing.Point(80, 112);
+            this.nudNumerPolki.Name = "nudNumerPolki";
+            this.nudNumerPolki.Size = new System.Drawing.Size(77, 26);
+            this.nudNumerPolki.TabIndex = 5;
             // 
             // label2
             // 
@@ -129,7 +129,7 @@
             this.ClientSize = new System.Drawing.Size(354, 383);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.nudNumerPolki);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDodajRozmiar);
             this.Controls.Add(this.btnDodajPolke);
@@ -137,7 +137,7 @@
             this.Controls.Add(this.btnZnajdzPolke);
             this.Name = "UkladMagazynu";
             this.Text = "Układ magazynu";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNumerPolki)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,7 +150,7 @@
         private System.Windows.Forms.Button btnDodajPolke;
         private System.Windows.Forms.Button btnDodajRozmiar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nudNumerPolki;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
     }

@@ -12,14 +12,17 @@ namespace Szwalnia
 {
     public partial class UkladMagazynu : Form
     {
-        public UkladMagazynu()
+        public SzwalniaEntities szwalnia;
+        public UkladMagazynu(SzwalniaEntities db)
         {
             InitializeComponent();
+            szwalnia = db;
+            int a = db.Polki.Count();
         }
 
         private void btnZnajdzPolke_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnDodajRegal_Click(object sender, EventArgs e)
