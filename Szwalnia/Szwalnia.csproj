@@ -112,6 +112,24 @@
     <Compile Include="Faktury_Zewnetrzne.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="NowaPolka.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NowaPolka.Designer.cs">
+      <DependentUpon>NowaPolka.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NowyRegal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NowyRegal.Designer.cs">
+      <DependentUpon>NowyRegal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NowyRozmiarPolki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NowyRozmiarPolki.Designer.cs">
+      <DependentUpon>NowyRozmiarPolki.cs</DependentUpon>
+    </Compile>
     <Compile Include="UkladMagazynu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -383,6 +401,15 @@
     </Compile>
     <EmbeddedResource Include="ElementSzczegoly.resx">
       <DependentUpon>ElementSzczegoly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NowaPolka.resx">
+      <DependentUpon>NowaPolka.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NowyRegal.resx">
+      <DependentUpon>NowyRegal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NowyRozmiarPolki.resx">
+      <DependentUpon>NowyRozmiarPolki.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Produkcja.resx">
       <DependentUpon>Produkcja.cs</DependentUpon>
