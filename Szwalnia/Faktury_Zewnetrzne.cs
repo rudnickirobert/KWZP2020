@@ -15,12 +15,12 @@ namespace Szwalnia
     public partial class Faktury_Zewnetrzne
     {
         public int ID_Faktura_zewnetrzna { get; set; }
-        public float Nr_Faktury { get; set; }
+        public string Nr_Faktury { get; set; }
         public Nullable<int> ID_Grupa { get; set; }
         public string Nazwa_Firmy { get; set; }
-        public float Netto { get; set; }
-        public float Brutto { get; set; }
-        public float Podatek { get; set; }
+        public string Netto { get; set; }
+        public string Brutto { get; set; }
+        public string Podatek { get; set; }
     
         public virtual Grupa Grupa { get; set; }
     }

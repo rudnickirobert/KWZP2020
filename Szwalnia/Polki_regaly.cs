@@ -12,16 +12,13 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class Faktury
+    public partial class Polki_regaly
     {
-        public int ID_Faktury { get; set; }
-        public Nullable<int> ID_Zamowienia { get; set; }
-        public Nullable<int> ID_Klienta { get; set; }
-        public float Cena_Netto { get; set; }
-        public float Cena_Brutto { get; set; }
-        public float Podatek_VAT { get; set; }
+        public int ID_Polki_regaly { get; set; }
+        public Nullable<int> ID_regal { get; set; }
+        public Nullable<int> ID_Polka { get; set; }
     
-        public virtual Klienci Klienci { get; set; }
-        public virtual Zamowienia Zamowienia { get; set; }
+        public virtual Polki Polki { get; set; }
+        public virtual Regaly Regaly { get; set; }
     }
 }

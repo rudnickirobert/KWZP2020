@@ -17,7 +17,6 @@ namespace Szwalnia
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Klienci()
         {
-            this.Faktury = new HashSet<Faktury>();
             this.Zamowienia = new HashSet<Zamowienia>();
         }
     
@@ -27,11 +26,10 @@ namespace Szwalnia
         public string Nazwa_Firmy { get; set; }
         public string NIP { get; set; }
         public string Adres { get; set; }
+        public string Odleglosc_km { get; set; }
         public string Telefon { get; set; }
         public string E_Mail { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Faktury> Faktury { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zamowienia> Zamowienia { get; set; }
     }

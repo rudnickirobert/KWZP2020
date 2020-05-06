@@ -12,13 +12,14 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vMaszyny_serwis
+    public partial class Odbior_Dostarczenia
     {
-        public int ID_Maszyny { get; set; }
-        public int Resurs_Rbh { get; set; }
-        public int Serwis_Co_Ile { get; set; }
-        public string Producent { get; set; }
-        public string Nazwa { get; set; }
-        public string Numer_seryjny { get; set; }
+        public int ID_Odbior_Dostarczenia { get; set; }
+        public int ID_Procesu_Produkcyjnego { get; set; }
+        public int ID_Dostarczenia { get; set; }
+        public Nullable<bool> Odebrano { get; set; }
+    
+        public virtual Dostarczenia_Wewn Dostarczenia_Wewn { get; set; }
+        public virtual Proces_Produkcyjny Proces_Produkcyjny { get; set; }
     }
 }
