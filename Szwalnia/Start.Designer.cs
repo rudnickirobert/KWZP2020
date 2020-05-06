@@ -111,8 +111,6 @@
         private System.Windows.Forms.Button btnRealizacjaProcesu;
         private System.Windows.Forms.Button btnMagazyn;
         private System.Windows.Forms.Button btnPrzydzialZasobow;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnZamowienieProces;
         private System.Windows.Forms.Button btnZarzadzanie;
         private System.Windows.Forms.Button btnPrzygotowanieProdukcji;
     }
