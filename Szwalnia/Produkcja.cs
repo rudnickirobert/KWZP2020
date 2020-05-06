@@ -19,12 +19,6 @@ namespace Szwalnia
             this.db = db;
         }
 
-        private void btnProcesyZamowienie_Click(object sender, EventArgs e)
-        {
-            ZamowienieProcesyProdukcyjne zamowienieProcesyProdukcyjne = new ZamowienieProcesyProdukcyjne(db);
-            zamowienieProcesyProdukcyjne.Show();
-        }
-
         private void btnRealizacjaProcesu_Click(object sender, EventArgs e)
         {
             RealizacjaProcesuSzczegoly realizacjaProcesu = new RealizacjaProcesuSzczegoly(db);

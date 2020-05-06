@@ -41,6 +41,7 @@
             this.btnPrzegladProcesow.TabIndex = 0;
             this.btnPrzegladProcesow.Text = "Przegląd procesów";
             this.btnPrzegladProcesow.UseVisualStyleBackColor = true;
+            this.btnPrzegladProcesow.Click += new System.EventHandler(this.btnPrzegladProcesow_Click);
             // 
             // btnNowyProces
             // 

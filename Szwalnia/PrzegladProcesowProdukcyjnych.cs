@@ -10,19 +10,19 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class ProcesProdukcyjny : Form
+    public partial class PrzegladProcesowProdukcyjnych : Form
     {
         public SzwalniaEntities db;
-        public ProcesProdukcyjny(SzwalniaEntities db)
+        public PrzegladProcesowProdukcyjnych(SzwalniaEntities db)
         {
             InitializeComponent();
             this.db = db;
         }
 
-        private void btnPrzegladProcesow_Click(object sender, EventArgs e)
+        private void btnNumerZamowienia_Click(object sender, EventArgs e)
         {
-            PrzegladProcesowProdukcyjnych formularzPrzegladProcesowProdukcyjnych = new PrzegladProcesowProdukcyjnych(db);
-            formularzPrzegladProcesowProdukcyjnych.Show();
+            ZamowienieProcesyProdukcyjne zamowienieProcesyProdukcyjne = new ZamowienieProcesyProdukcyjne(db);
+            zamowienieProcesyProdukcyjne.Show();
         }
     }
 }

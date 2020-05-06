@@ -28,24 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnProcesyZamowienie = new System.Windows.Forms.Button();
             this.btnRealizacjaProcesu = new System.Windows.Forms.Button();
             this.btnPrzydzialZasobow = new System.Windows.Forms.Button();
             this.btnProcesProdukcyjny = new System.Windows.Forms.Button();
             this.btnRaporty = new System.Windows.Forms.Button();
             this.btnInne = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // btnProcesyZamowienie
-            // 
-            this.btnProcesyZamowienie.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnProcesyZamowienie.Location = new System.Drawing.Point(440, 385);
-            this.btnProcesyZamowienie.Name = "btnProcesyZamowienie";
-            this.btnProcesyZamowienie.Size = new System.Drawing.Size(46, 44);
-            this.btnProcesyZamowienie.TabIndex = 0;
-            this.btnProcesyZamowienie.Text = "Procesy produkcyjne w zamowieniu";
-            this.btnProcesyZamowienie.UseVisualStyleBackColor = true;
-            this.btnProcesyZamowienie.Click += new System.EventHandler(this.btnProcesyZamowienie_Click);
             // 
             // btnRealizacjaProcesu
             // 
@@ -111,7 +99,6 @@
             this.Controls.Add(this.btnProcesProdukcyjny);
             this.Controls.Add(this.btnPrzydzialZasobow);
             this.Controls.Add(this.btnRealizacjaProcesu);
-            this.Controls.Add(this.btnProcesyZamowienie);
             this.Name = "Produkcja";
             this.Text = "Produkcja";
             this.ResumeLayout(false);
@@ -119,8 +106,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnProcesyZamowienie;
         private System.Windows.Forms.Button btnRealizacjaProcesu;
         private System.Windows.Forms.Button btnPrzydzialZasobow;
         private System.Windows.Forms.Button btnProcesProdukcyjny;
