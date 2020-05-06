@@ -65,7 +65,6 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "WyborKlienta";
             this.Text = "Wybor_klienta";
-            this.Load += new System.EventHandler(this.WyborKlienta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaKlientow)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
