@@ -10,19 +10,13 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class InneProdukcja : Form
+    public partial class NowyRodzajEtapu : Form
     {
         public SzwalniaEntities db;
-        public InneProdukcja(SzwalniaEntities db)
+        public NowyRodzajEtapu(SzwalniaEntities db)
         {
             InitializeComponent();
             this.db = db;
-        }
-
-        private void btnNowyRodzajEtapu_Click(object sender, EventArgs e)
-        {
-            NowyRodzajEtapu nowyRodzajEtapu = new NowyRodzajEtapu(db);
-            nowyRodzajEtapu.Show();
         }
     }
 }

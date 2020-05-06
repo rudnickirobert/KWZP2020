@@ -187,6 +187,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="NowyProces.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NowyProces.Designer.cs">
+      <DependentUpon>NowyProces.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NowyRodzajEtapu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NowyRodzajEtapu.Designer.cs">
+      <DependentUpon>NowyRodzajEtapu.cs</DependentUpon>
+    </Compile>
     <Compile Include="ObslugaSzukaj.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -389,6 +401,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InneProdukcja.resx">
       <DependentUpon>InneProdukcja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NowyProces.resx">
+      <DependentUpon>NowyProces.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NowyRodzajEtapu.resx">
+      <DependentUpon>NowyRodzajEtapu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProcesProdukcyjny.resx">
       <DependentUpon>ProcesProdukcyjny.cs</DependentUpon>

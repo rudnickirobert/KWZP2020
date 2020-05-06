@@ -36,7 +36,7 @@
             // btnSredniCzasProdukcji
             // 
             this.btnSredniCzasProdukcji.Location = new System.Drawing.Point(94, 30);
-            this.btnSredniCzasProdukcji.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSredniCzasProdukcji.Margin = new System.Windows.Forms.Padding(6);
             this.btnSredniCzasProdukcji.Name = "btnSredniCzasProdukcji";
             this.btnSredniCzasProdukcji.Size = new System.Drawing.Size(300, 120);
             this.btnSredniCzasProdukcji.TabIndex = 0;
@@ -62,7 +62,7 @@
             this.btnNowyRodzajEtapu.TabIndex = 0;
             this.btnNowyRodzajEtapu.Text = "Nowy rodzaj etapu";
             this.btnNowyRodzajEtapu.UseVisualStyleBackColor = true;
-
+            this.btnNowyRodzajEtapu.Click += new System.EventHandler(this.btnNowyRodzajEtapu_Click);
             // 
             // InneProdukcja
             // 
@@ -73,10 +73,9 @@
             this.Controls.Add(this.btnSzacowanyCzas);
             this.Controls.Add(this.btnSredniCzasProdukcji);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "InneProdukcja";
             this.Text = "Inne";
-
             this.ResumeLayout(false);
 
         }

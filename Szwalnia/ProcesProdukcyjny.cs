@@ -24,5 +24,11 @@ namespace Szwalnia
             PrzegladProcesowProdukcyjnych formularzPrzegladProcesowProdukcyjnych = new PrzegladProcesowProdukcyjnych(db);
             formularzPrzegladProcesowProdukcyjnych.Show();
         }
+
+        private void btnNowyProces_Click(object sender, EventArgs e)
+        {
+            NowyProces nowyProces = new NowyProces(db);
+            nowyProces.Show();
+        }
     }
 }

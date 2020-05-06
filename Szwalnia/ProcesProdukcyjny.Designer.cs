@@ -52,6 +52,7 @@
             this.btnNowyProces.TabIndex = 0;
             this.btnNowyProces.Text = "Nowy proces";
             this.btnNowyProces.UseVisualStyleBackColor = true;
+            this.btnNowyProces.Click += new System.EventHandler(this.btnNowyProces_Click);
             // 
             // ProcesProdukcyjny
             // 
