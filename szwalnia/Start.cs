@@ -24,6 +24,11 @@ namespace Szwalnia
             MagazynForm magazynForm = new MagazynForm(szwalnia);
             magazynForm.Show();
         }
+        private void btnRealizacjaProcesu_Click(object sender, EventArgs e)
+        {
+            RealizacjaProcesuSzczegoly realizacjaProcesu = new RealizacjaProcesuSzczegoly(szwalnia);
+            realizacjaProcesu.Show();
+        }
         private void btnZarzadzanie_MouseClick(object sender, MouseEventArgs e)
         {
             ZarzadzanieForm zarzadzanieForm = new ZarzadzanieForm(szwalnia);
