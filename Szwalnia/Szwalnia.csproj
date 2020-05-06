@@ -115,6 +115,12 @@
     <Compile Include="Grupa.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="InneProdukcja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InneProdukcja.Designer.cs">
+      <DependentUpon>InneProdukcja.cs</DependentUpon>
+    </Compile>
     <Compile Include="Jezyk.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -214,6 +220,12 @@
     <Compile Include="Pracownicy_Zatrudnienie.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ProcesProdukcyjny.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProcesProdukcyjny.Designer.cs">
+      <DependentUpon>ProcesProdukcyjny.cs</DependentUpon>
+    </Compile>
     <Compile Include="Proces_Produkcyjny.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -234,6 +246,12 @@
     </Compile>
     <Compile Include="Przydzial_Zasobow.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RaportyProdukcja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RaportyProdukcja.Designer.cs">
+      <DependentUpon>RaportyProdukcja.cs</DependentUpon>
     </Compile>
     <Compile Include="RealizacjaProcesuSzczegoly.cs">
       <SubType>Form</SubType>
@@ -357,8 +375,17 @@
     <EmbeddedResource Include="ElementSzczegoly.resx">
       <DependentUpon>ElementSzczegoly.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InneProdukcja.resx">
+      <DependentUpon>InneProdukcja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProcesProdukcyjny.resx">
+      <DependentUpon>ProcesProdukcyjny.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Produkcja.resx">
       <DependentUpon>Produkcja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportyProdukcja.resx">
+      <DependentUpon>RaportyProdukcja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RealizacjaProcesuSzczegoly.resx">
       <DependentUpon>RealizacjaProcesuSzczegoly.cs</DependentUpon>

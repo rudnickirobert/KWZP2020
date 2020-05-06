@@ -30,5 +30,23 @@ namespace Szwalnia
             RealizacjaProcesuSzczegoly realizacjaProcesu = new RealizacjaProcesuSzczegoly(db);
             realizacjaProcesu.Show();
         }
+
+        private void btnRaporty_Click(object sender, EventArgs e)
+        {
+            RaportyProdukcja formularzRaportyProdukcja = new RaportyProdukcja(db);
+            formularzRaportyProdukcja.Show();
+        }
+
+        private void btnProcesProdukcyjny_Click(object sender, EventArgs e)
+        {
+            ProcesProdukcyjny formularzProcesProdukcyjny = new ProcesProdukcyjny(db);
+            formularzProcesProdukcyjny.Show();
+        }
+
+        private void btnInne_Click(object sender, EventArgs e)
+        {
+            InneProdukcja formularzInneProdukcja = new InneProdukcja(db);
+            formularzInneProdukcja.Show();
+        }
     }
 }
