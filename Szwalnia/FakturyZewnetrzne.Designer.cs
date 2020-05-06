@@ -61,7 +61,6 @@
             this.Controls.Add(this.dgvFakturyZewnetrzne);
             this.Name = "FakturyZewnetrzne";
             this.Text = "Faktury Zewnętrzne";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFakturyZewnetrzne)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
