@@ -18,7 +18,7 @@ namespace Szwalnia
             Obsluga_Techniczna obsulga = db.Obsluga_Techniczna.Where(rodzaj => rodzaj.Rodzaj_Obslugi.Nazwa == rodzajObslugi).First();
             lblTitle.Text = obsulga.Rodzaj_Obslugi.Nazwa;
             txtRodzaj.Text = obsulga.Rodzaj_Obslugi.Nazwa;
-            txtMaszyna.Text = obsulga.Maszyny.Model;
+            txtMaszyna.Text = "UZUPELNIC";
             txtPracownik.Text = obsulga.Pracownicy.Nazwisko;
             txtData.Text = obsulga.Data_Wykonania.ToString();
             dgvObsluga.DataSource = db.vObsluga.Where(rodzaj => rodzaj.Nazwa == rodzajObslugi).ToList();

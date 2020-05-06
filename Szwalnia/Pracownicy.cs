@@ -25,8 +25,8 @@ namespace Szwalnia
             this.Proces_Technologiczny = new HashSet<Proces_Technologiczny>();
             this.Przydzial_Zasobow = new HashSet<Przydzial_Zasobow>();
             this.Urlop = new HashSet<Urlop>();
-            this.Zamowienia = new HashSet<Zamowienia>();
             this.Zamowienia_Przydzial = new HashSet<Zamowienia_Przydzial>();
+            this.Zamowienia = new HashSet<Zamowienia>();
             this.Znajomosc_Jezykow = new HashSet<Znajomosc_Jezykow>();
         }
     
@@ -54,9 +54,9 @@ namespace Szwalnia
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Urlop> Urlop { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Zamowienia> Zamowienia { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zamowienia_Przydzial> Zamowienia_Przydzial { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Zamowienia> Zamowienia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Znajomosc_Jezykow> Znajomosc_Jezykow { get; set; }
     }

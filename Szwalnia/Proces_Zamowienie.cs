@@ -16,9 +16,10 @@ namespace Szwalnia
     {
         public int ID_Proces_Zamowienie { get; set; }
         public int ID_Proces_Technologiczny { get; set; }
-        public int ID_Zamowienie_Produkt { get; set; }
+        public int ID_Zamowienie_Element { get; set; }
+        public bool Kompletny_Proces { get; set; }
     
         public virtual Proces_Technologiczny Proces_Technologiczny { get; set; }
-        public virtual Zamowienie_Produkt Zamowienie_Produkt { get; set; }
+        public virtual Zamowienie_Element Zamowienie_Element { get; set; }
     }
 }

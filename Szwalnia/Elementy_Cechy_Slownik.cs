@@ -18,13 +18,15 @@ namespace Szwalnia
         public Elementy_Cechy_Slownik()
         {
             this.Elementy_Cechy = new HashSet<Elementy_Cechy>();
+            this.Typy_cechy_rejestr = new HashSet<Typy_cechy_rejestr>();
         }
     
         public int ID_Cecha { get; set; }
         public string Cecha { get; set; }
-        public bool Czy_wlasne { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Elementy_Cechy> Elementy_Cechy { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Typy_cechy_rejestr> Typy_cechy_rejestr { get; set; }
     }
 }
