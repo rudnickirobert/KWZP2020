@@ -27,10 +27,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnRealizacjaProcesu = new System.Windows.Forms.Button();
             this.btnMagazyn = new System.Windows.Forms.Button();
-            this.btnPrzydzialZasobow = new System.Windows.Forms.Button();
             this.btnPrzygotowanieProdukcji = new System.Windows.Forms.Button();
+            this.btnProdukcja = new System.Windows.Forms.Button();
             this.btnZarzadzanie = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -49,16 +48,28 @@
             // 
             // btnMagazyn
             // 
-            this.btnMagazyn.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnMagazyn.Location = new System.Drawing.Point(28, 34);
+            this.btnMagazyn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnMagazyn.Location = new System.Drawing.Point(95, 199);
+            this.btnMagazyn.Margin = new System.Windows.Forms.Padding(2);
             this.btnMagazyn.Name = "btnMagazyn";
-            this.btnMagazyn.Size = new System.Drawing.Size(214, 75);
+            this.btnMagazyn.Size = new System.Drawing.Size(170, 90);
             this.btnMagazyn.TabIndex = 0;
             this.btnMagazyn.Text = "Magazyn";
             this.btnMagazyn.UseVisualStyleBackColor = true;
             this.btnMagazyn.Click += new System.EventHandler(this.btnMagazyn_Click);
             // 
-            // btnPrzydzialZasobow
+            // btnPrzygotowanieProdukcji
+            // 
+            this.btnPrzygotowanieProdukcji.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnPrzygotowanieProdukcji.Location = new System.Drawing.Point(337, 66);
+            this.btnPrzygotowanieProdukcji.Name = "btnPrzygotowanieProdukcji";
+            this.btnPrzygotowanieProdukcji.Size = new System.Drawing.Size(170, 90);
+            this.btnPrzygotowanieProdukcji.TabIndex = 3;
+            this.btnPrzygotowanieProdukcji.Text = "Przygotowanie Produkcji";
+            this.btnPrzygotowanieProdukcji.UseVisualStyleBackColor = true;
+            this.btnPrzygotowanieProdukcji.Click += new System.EventHandler(this.btnPrzygotowanieProdukcji_Click);
+            // 
+            // btnProdukcja
             // 
             this.btnPrzydzialZasobow.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnPrzydzialZasobow.Location = new System.Drawing.Point(377, 32);
@@ -78,6 +89,14 @@
             this.btnPrzygotowanieProdukcji.TabIndex = 1;
             this.btnPrzygotowanieProdukcji.Text = "Przygotowanie produkcji";
             this.btnPrzygotowanieProdukcji.UseVisualStyleBackColor = true;
+            this.btnProdukcja.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnProdukcja.Location = new System.Drawing.Point(337, 199);
+            this.btnProdukcja.Name = "btnProdukcja";
+            this.btnProdukcja.Size = new System.Drawing.Size(170, 90);
+            this.btnProdukcja.TabIndex = 4;
+            this.btnProdukcja.Text = "Produkcja";
+            this.btnProdukcja.UseVisualStyleBackColor = true;
+            this.btnProdukcja.Click += new System.EventHandler(this.btnProdukcja_Click);
             // 
             // btnZarzadzanie
             // 
@@ -96,6 +115,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.btnZarzadzanie);
+            this.Controls.Add(this.btnProdukcja);
+            this.Controls.Add(this.btnPrzygotowanieProdukcji);
             this.Controls.Add(this.btnRealizacjaProcesu);
             this.Controls.Add(this.btnMagazyn);
             this.Controls.Add(this.btnPrzydzialZasobow);
@@ -106,13 +127,13 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnRealizacjaProcesu;
         private System.Windows.Forms.Button btnMagazyn;
         private System.Windows.Forms.Button btnPrzydzialZasobow;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnZamowienieProces;
         private System.Windows.Forms.Button btnZarzadzanie;
         private System.Windows.Forms.Button btnPrzygotowanieProdukcji;
+        private System.Windows.Forms.Button btnProdukcja;
     }
 }
 
