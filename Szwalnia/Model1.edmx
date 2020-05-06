@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SzwalniaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Szwalnia.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Czesci_Obsluga">
           <Key>
             <PropertyRef Name="ID_Obslugi" />
@@ -1526,7 +1526,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SzwalniaModelStoreContainer">
+        <EntityContainer Name="SzwalniaStoreContainer">
           <EntitySet Name="Czesci_Obsluga" EntityType="Self.Czesci_Obsluga" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Dokumentacja_Proces" EntityType="Self.Dokumentacja_Proces" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Dokumentacje" EntityType="Self.Dokumentacje" Schema="dbo" store:Type="Tables" />
@@ -1590,6 +1590,33 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
     [vCechyElementu].[Jednostka] AS [Jednostka], 
     [vCechyElementu].[Wartosc_Cechy_Slowna] AS [Wartosc_Cechy_Slowna]
     FROM [dbo].[vCechyElementu] AS [vCechyElementu]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vMaszyny_rodzaj_liczba" EntityType="Self.vMaszyny_rodzaj_liczba" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vMaszyny_rodzaj_liczba].[ID_Maszyny_Proces] AS [ID_Maszyny_Proces], 
+    [vMaszyny_rodzaj_liczba].[Rodzaj_Maszyny] AS [Rodzaj_Maszyny], 
+    [vMaszyny_rodzaj_liczba].[Liczba] AS [Liczba], 
+    [vMaszyny_rodzaj_liczba].[Liczba_Rbh] AS [Liczba_Rbh]
+    FROM [dbo].[vMaszyny_rodzaj_liczba] AS [vMaszyny_rodzaj_liczba]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vMaszyny_serwis" EntityType="Self.vMaszyny_serwis" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vMaszyny_serwis].[ID_Maszyny] AS [ID_Maszyny], 
+    [vMaszyny_serwis].[Model] AS [Model], 
+    [vMaszyny_serwis].[Producent] AS [Producent], 
+    [vMaszyny_serwis].[Resurs_rbh] AS [Resurs_rbh], 
+    [vMaszyny_serwis].[Resurs_data_serwisu] AS [Resurs_data_serwisu]
+    FROM [dbo].[vMaszyny_serwis] AS [vMaszyny_serwis]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vObsluga" EntityType="Self.vObsluga" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vObsluga].[ID_Obslugi] AS [ID_Obslugi], 
+    [vObsluga].[Nazwa] AS [Nazwa], 
+    [vObsluga].[ID_Maszyny] AS [ID_Maszyny], 
+    [vObsluga].[Producent] AS [Producent], 
+    [vObsluga].[Model] AS [Model], 
+    [vObsluga].[Element_Nazwa] AS [Element_Nazwa]
+    FROM [dbo].[vObsluga] AS [vObsluga]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vMaszyny_rodzaj_liczba" EntityType="Self.vMaszyny_rodzaj_liczba" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -1957,7 +1984,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="SzwalniaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Szwalnia" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Czesci_Obsluga">
           <Key>
             <PropertyRef Name="ID_Obslugi" />
@@ -2621,6 +2648,24 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
           <Property Name="ID_Pracownika" Type="Int32" />
           <NavigationProperty Name="Jezyk" Relationship="Self.FK__Znajomosc__ID_Je__4BAC3F29" FromRole="Znajomosc_Jezykow" ToRole="Jezyk" />
           <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Znajomosc__ID_Pr__4CA06362" FromRole="Znajomosc_Jezykow" ToRole="Pracownicy" />
+        </EntityType>
+        <EntityType Name="v_Przydzial_Zasobow">
+          <Key>
+            <PropertyRef Name="ID_Procesu_Produkcyjnego" />
+            <PropertyRef Name="ID_Realizacji_Procesu" />
+            <PropertyRef Name="ID_Pracownika" />
+            <PropertyRef Name="Imie" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="ID_Maszyny" />
+            <PropertyRef Name="Model" />
+          </Key>
+          <Property Name="ID_Procesu_Produkcyjnego" Type="Int32" Nullable="false" />
+          <Property Name="ID_Realizacji_Procesu" Type="Int32" Nullable="false" />
+          <Property Name="ID_Pracownika" Type="Int32" Nullable="false" />
+          <Property Name="Imie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_Maszyny" Type="Int32" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="vCechyElementu">
           <Key>
@@ -3649,6 +3694,365 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
           <EntitySet Name="Zapotrzebowanie_Opakowan" EntityType="Self.Zapotrzebowanie_Opakowan" />
           <EntitySet Name="Zawartosc" EntityType="Self.Zawartosc" />
           <EntitySet Name="Znajomosc_Jezykow" EntityType="Self.Znajomosc_Jezykow" />
+          <EntitySet Name="v_Przydzial_Zasobow" EntityType="Self.v_Przydzial_Zasobow" />
+          <EntitySet Name="vCechyElementu" EntityType="Self.vCechyElementu" />
+          <EntitySet Name="vMaszyny_rodzaj_liczba" EntityType="Self.vMaszyny_rodzaj_liczba" />
+          <EntitySet Name="vMaszyny_serwis" EntityType="Self.vMaszyny_serwis" />
+          <EntitySet Name="vObsluga" EntityType="Self.vObsluga" />
+          <EntitySet Name="vRealizacjaProcesuProdukcyjnegoDetails" EntityType="Self.vRealizacjaProcesuProdukcyjnegoDetails" />
+          <EntitySet Name="vSrednia_ilosc_maszyn" EntityType="Self.vSrednia_ilosc_maszyn" />
+          <EntitySet Name="vSuma_czasu_proces" EntityType="Self.vSuma_czasu_proces" />
+          <EntitySet Name="vZamowienieProcesyProdukcyjne" EntityType="Self.vZamowienieProcesyProdukcyjne" />
+          <AssociationSet Name="FK__Czesci_Ob__ID_El__208CD6FA" Association="Self.FK__Czesci_Ob__ID_El__208CD6FA">
+            <End Role="Elementy" EntitySet="Elementy" />
+            <End Role="Czesci_Obsluga" EntitySet="Czesci_Obsluga" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dokumenta__ID_Do__2CF2ADDF" Association="Self.FK__Dokumenta__ID_Do__2CF2ADDF">
+            <End Role="Dokumentacje" EntitySet="Dokumentacje" />
+            <End Role="Dokumentacja_Proces" EntitySet="Dokumentacja_Proces" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proces_Pr__ID_Do__4C6B5938" Association="Self.FK__Proces_Pr__ID_Do__4C6B5938">
+            <End Role="Dokumentacja_Proces" EntitySet="Dokumentacja_Proces" />
+            <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proces_Te__ID_Do__2FCF1A8A" Association="Self.FK__Proces_Te__ID_Do__2FCF1A8A">
+            <End Role="Dokumentacja_Proces" EntitySet="Dokumentacja_Proces" />
+            <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dokumenta__ID_Pr__2A164134" Association="Self.FK__Dokumenta__ID_Pr__2A164134">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Dokumentacje" EntitySet="Dokumentacje" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dokumenta__ID_Ro__29221CFB" Association="Self.FK__Dokumenta__ID_Ro__29221CFB">
+            <End Role="Rodzaj_Dokumentacji" EntitySet="Rodzaj_Dokumentacji" />
+            <End Role="Dokumentacje" EntitySet="Dokumentacje" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dostarcze__ID_Do__114A936A" Association="Self.FK__Dostarcze__ID_Do__114A936A">
+            <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
+            <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dostarcze__ID_Mi__123EB7A3" Association="Self.FK__Dostarcze__ID_Mi__123EB7A3">
+            <End Role="Miejsca" EntitySet="Miejsca" />
+            <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dostarcze__ID_Pr__10566F31" Association="Self.FK__Dostarcze__ID_Pr__10566F31">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dostarcze__ID_Mi__17036CC0" Association="Self.FK__Dostarcze__ID_Mi__17036CC0">
+            <End Role="Miejsca" EntitySet="Miejsca" />
+            <End Role="Dostarczenia_Zewn" EntitySet="Dostarczenia_Zewn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dostarcze__ID_Pr__151B244E" Association="Self.FK__Dostarcze__ID_Pr__151B244E">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Dostarczenia_Zewn" EntitySet="Dostarczenia_Zewn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dostarcze__ID_Za__160F4887" Association="Self.FK__Dostarcze__ID_Za__160F4887">
+            <End Role="Zamowienia" EntitySet="Zamowienia" />
+            <End Role="Dostarczenia_Zewn" EntitySet="Dostarczenia_Zewn" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Oferta__ID_Dosta__7A672E12" Association="Self.FK__Oferta__ID_Dosta__7A672E12">
+            <End Role="Dostawcy_Zaopatrzenie" EntitySet="Dostawcy_Zaopatrzenie" />
+            <End Role="Oferta" EntitySet="Oferta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dostawy_Z__ID_Do__0B91BA14" Association="Self.FK__Dostawy_Z__ID_Do__0B91BA14">
+            <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
+            <End Role="Dostawy_Zawartosc" EntitySet="Dostawy_Zawartosc" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dostawy_Z__ID_El__0C85DE4D" Association="Self.FK__Dostawy_Z__ID_El__0C85DE4D">
+            <End Role="Elementy" EntitySet="Elementy" />
+            <End Role="Dostawy_Zawartosc" EntitySet="Dostawy_Zawartosc" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dostawy_Z__ID_of__0D7A0286" Association="Self.FK__Dostawy_Z__ID_of__0D7A0286">
+            <End Role="Oferta" EntitySet="Oferta" />
+            <End Role="Dostawy_Zawartosc" EntitySet="Dostawy_Zawartosc" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Elementy___ID_El__43D61337" Association="Self.FK__Elementy___ID_El__43D61337">
+            <End Role="Elementy" EntitySet="Elementy" />
+            <End Role="Elementy_Proces" EntitySet="Elementy_Proces" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Elementy___ID_El__71D1E811" Association="Self.FK__Elementy___ID_El__71D1E811">
+            <End Role="Elementy" EntitySet="Elementy" />
+            <End Role="Elementy_Cechy" EntitySet="Elementy_Cechy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Elementy__ID_Ele__6EF57B66" Association="Self.FK__Elementy__ID_Ele__6EF57B66">
+            <End Role="Elementy_Typy" EntitySet="Elementy_Typy" />
+            <End Role="Elementy" EntitySet="Elementy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Koszt_Jed__ID_El__19DFD96B" Association="Self.FK__Koszt_Jed__ID_El__19DFD96B">
+            <End Role="Elementy" EntitySet="Elementy" />
+            <End Role="Koszt_Jednostkowy" EntitySet="Koszt_Jednostkowy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Material___ID_El__503BEA1C" Association="Self.FK__Material___ID_El__503BEA1C">
+            <End Role="Elementy" EntitySet="Elementy" />
+            <End Role="Material_Na_Produkcji" EntitySet="Material_Na_Produkcji" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Oferta__ID_Eleme__797309D9" Association="Self.FK__Oferta__ID_Eleme__797309D9">
+            <End Role="Elementy" EntitySet="Elementy" />
+            <End Role="Oferta" EntitySet="Oferta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zapotrzeb__ID_El__5D95E53A" Association="Self.FK__Zapotrzeb__ID_El__5D95E53A">
+            <End Role="Elementy" EntitySet="Elementy" />
+            <End Role="Zapotrzebowanie_Opakowan" EntitySet="Zapotrzebowanie_Opakowan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zawartosc__ID_El__07C12930" Association="Self.FK__Zawartosc__ID_El__07C12930">
+            <End Role="Elementy" EntitySet="Elementy" />
+            <End Role="Zawartosc" EntitySet="Zawartosc" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Elementy___ID_Ce__72C60C4A" Association="Self.FK__Elementy___ID_Ce__72C60C4A">
+            <End Role="Elementy_Cechy_Slownik" EntitySet="Elementy_Cechy_Slownik" />
+            <End Role="Elementy_Cechy" EntitySet="Elementy_Cechy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Elementy___ID_Je__73BA3083" Association="Self.FK__Elementy___ID_Je__73BA3083">
+            <End Role="Elementy_Jednostki" EntitySet="Elementy_Jednostki" />
+            <End Role="Elementy_Cechy" EntitySet="Elementy_Cechy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Material___ID_Je__51300E55" Association="Self.FK__Material___ID_Je__51300E55">
+            <End Role="Elementy_Jednostki" EntitySet="Elementy_Jednostki" />
+            <End Role="Material_Na_Produkcji" EntitySet="Material_Na_Produkcji" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Oferta__ID_Jedno__7B5B524B" Association="Self.FK__Oferta__ID_Jedno__7B5B524B">
+            <End Role="Elementy_Jednostki" EntitySet="Elementy_Jednostki" />
+            <End Role="Oferta" EntitySet="Oferta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Elementy___ID_Pr__42E1EEFE" Association="Self.FK__Elementy___ID_Pr__42E1EEFE">
+            <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
+            <End Role="Elementy_Proces" EntitySet="Elementy_Proces" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Etapy_W_P__ID_Et__47A6A41B" Association="Self.FK__Etapy_W_P__ID_Et__47A6A41B">
+            <End Role="Rodzaj_Etapu" EntitySet="Rodzaj_Etapu" />
+            <End Role="Etapy_W_Procesie" EntitySet="Etapy_W_Procesie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Etapy_W_P__ID_Pr__46B27FE2" Association="Self.FK__Etapy_W_P__ID_Pr__46B27FE2">
+            <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
+            <End Role="Etapy_W_Procesie" EntitySet="Etapy_W_Procesie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pracownic__ID_Et__4316F928" Association="Self.FK__Pracownic__ID_Et__4316F928">
+            <End Role="Etat" EntitySet="Etat" />
+            <End Role="Pracownicy_Zatrudnienie" EntitySet="Pracownicy_Zatrudnienie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Faktury__ID_Klie__5441852A" Association="Self.FK__Faktury__ID_Klie__5441852A">
+            <End Role="Klienci" EntitySet="Klienci" />
+            <End Role="Faktury" EntitySet="Faktury" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Faktury__ID_Zamo__534D60F1" Association="Self.FK__Faktury__ID_Zamo__534D60F1">
+            <End Role="Zamowienia" EntitySet="Zamowienia" />
+            <End Role="Faktury" EntitySet="Faktury" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Faktury_Z__ID_Gr__5AEE82B9" Association="Self.FK__Faktury_Z__ID_Gr__5AEE82B9">
+            <End Role="Grupa" EntitySet="Grupa" />
+            <End Role="Faktury_Zewnetrzne" EntitySet="Faktury_Zewnetrzne" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Znajomosc__ID_Je__4BAC3F29" Association="Self.FK__Znajomosc__ID_Je__4BAC3F29">
+            <End Role="Jezyk" EntitySet="Jezyk" />
+            <End Role="Znajomosc_Jezykow" EntitySet="Znajomosc_Jezykow" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zamowieni__ID_Kl__4F7CD00D" Association="Self.FK__Zamowieni__ID_Kl__4F7CD00D">
+            <End Role="Klienci" EntitySet="Klienci" />
+            <End Role="Zamowienia" EntitySet="Zamowienia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Kontrola___ID_Pr__607251E5" Association="Self.FK__Kontrola___ID_Pr__607251E5">
+            <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
+            <End Role="Kontrola_Efektywnosci" EntitySet="Kontrola_Efektywnosci" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Umowy_Kur__ID_Ku__76969D2E" Association="Self.FK__Umowy_Kur__ID_Ku__76969D2E">
+            <End Role="Kurierzy" EntitySet="Kurierzy" />
+            <End Role="Umowy_Kurierzy" EntitySet="Umowy_Kurierzy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maszyny__ID_Rodz__37703C52" Association="Self.FK__Maszyny__ID_Rodz__37703C52">
+            <End Role="Rodzaj_Maszyny" EntitySet="Rodzaj_Maszyny" />
+            <End Role="Maszyny" EntitySet="Maszyny" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Obsluga_T__ID_Ma__3A4CA8FD" Association="Self.FK__Obsluga_T__ID_Ma__3A4CA8FD">
+            <End Role="Maszyny" EntitySet="Maszyny" />
+            <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Przydzial__ID_Ma__59C55456" Association="Self.FK__Przydzial__ID_Ma__59C55456">
+            <End Role="Maszyny" EntitySet="Maszyny" />
+            <End Role="Przydzial_Zasobow" EntitySet="Przydzial_Zasobow" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maszyny_P__ID_Pr__339FAB6E" Association="Self.FK__Maszyny_P__ID_Pr__339FAB6E">
+            <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
+            <End Role="Maszyny_Proces" EntitySet="Maszyny_Proces" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Maszyny_P__ID_Ro__3493CFA7" Association="Self.FK__Maszyny_P__ID_Ro__3493CFA7">
+            <End Role="Rodzaj_Maszyny" EntitySet="Rodzaj_Maszyny" />
+            <End Role="Maszyny_Proces" EntitySet="Maszyny_Proces" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Material___ID_Pr__4F47C5E3" Association="Self.FK__Material___ID_Pr__4F47C5E3">
+            <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
+            <End Role="Material_Na_Produkcji" EntitySet="Material_Na_Produkcji" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Obsluga_T__ID_Pr__3C34F16F" Association="Self.FK__Obsluga_T__ID_Pr__3C34F16F">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Obsluga_T__ID_Ro__3B40CD36" Association="Self.FK__Obsluga_T__ID_Ro__3B40CD36">
+            <End Role="Rodzaj_Obslugi" EntitySet="Rodzaj_Obslugi" />
+            <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Stanowisk__ID_Pe__300424B4" Association="Self.FK__Stanowisk__ID_Pe__300424B4">
+            <End Role="Pensja" EntitySet="Pensja" />
+            <End Role="Stanowisko" EntitySet="Stanowisko" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Polki__ID_Rozmia__66603565" Association="Self.FK__Polki__ID_Rozmia__66603565">
+            <End Role="Polki_Rozmiary" EntitySet="Polki_Rozmiary" />
+            <End Role="Polki" EntitySet="Polki" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zawartosc__ID_Po__06CD04F7" Association="Self.FK__Zawartosc__ID_Po__06CD04F7">
+            <End Role="Polki" EntitySet="Polki" />
+            <End Role="Zawartosc" EntitySet="Zawartosc" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pracownic__ID_Pr__412EB0B6" Association="Self.FK__Pracownic__ID_Pr__412EB0B6">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Pracownicy_Zatrudnienie" EntitySet="Pracownicy_Zatrudnienie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proces_Te__ID_Pr__30C33EC3" Association="Self.FK__Proces_Te__ID_Pr__30C33EC3">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Przydzial__ID_Pr__58D1301D" Association="Self.FK__Przydzial__ID_Pr__58D1301D">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Przydzial_Zasobow" EntitySet="Przydzial_Zasobow" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Urlop__ID_Pracow__3C69FB99" Association="Self.FK__Urlop__ID_Pracow__3C69FB99">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Urlop" EntitySet="Urlop" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zamowieni__ID_Pr__5070F446" Association="Self.FK__Zamowieni__ID_Pr__5070F446">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Zamowienia" EntitySet="Zamowienia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zamowieni__ID_Pr__7F2BE32F" Association="Self.FK__Zamowieni__ID_Pr__7F2BE32F">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Zamowienia_Przydzial" EntitySet="Zamowienia_Przydzial" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Znajomosc__ID_Pr__4CA06362" Association="Self.FK__Znajomosc__ID_Pr__4CA06362">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Znajomosc_Jezykow" EntitySet="Znajomosc_Jezykow" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pracownic__ID_Ro__440B1D61" Association="Self.FK__Pracownic__ID_Ro__440B1D61">
+            <End Role="Rodzaj_Umowy" EntitySet="Rodzaj_Umowy" />
+            <End Role="Pracownicy_Zatrudnienie" EntitySet="Pracownicy_Zatrudnienie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pracownic__ID_St__4222D4EF" Association="Self.FK__Pracownic__ID_St__4222D4EF">
+            <End Role="Stanowisko" EntitySet="Stanowisko" />
+            <End Role="Pracownicy_Zatrudnienie" EntitySet="Pracownicy_Zatrudnienie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proces_Pr__ID_Pr__4B7734FF" Association="Self.FK__Proces_Pr__ID_Pr__4B7734FF">
+            <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
+            <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proces_Pr__ID_Za__4A8310C6" Association="Self.FK__Proces_Pr__ID_Za__4A8310C6">
+            <End Role="Zamowienie_Produkt" EntitySet="Zamowienie_Produkt" />
+            <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Realizacj__ID_Pr__540C7B00" Association="Self.FK__Realizacj__ID_Pr__540C7B00">
+            <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
+            <End Role="Realizacja_Procesu" EntitySet="Realizacja_Procesu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zapotrzeb__ID_Pr__5CA1C101" Association="Self.FK__Zapotrzeb__ID_Pr__5CA1C101">
+            <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
+            <End Role="Zapotrzebowanie_Opakowan" EntitySet="Zapotrzebowanie_Opakowan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proces_Za__ID_Pr__3F115E1A" Association="Self.FK__Proces_Za__ID_Pr__3F115E1A">
+            <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
+            <End Role="Proces_Zamowienie" EntitySet="Proces_Zamowienie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proces_Za__ID_Za__40058253" Association="Self.FK__Proces_Za__ID_Za__40058253">
+            <End Role="Zamowienie_Produkt" EntitySet="Zamowienie_Produkt" />
+            <End Role="Proces_Zamowienie" EntitySet="Proces_Zamowienie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zamowieni__ID_Pr__1DB06A4F" Association="Self.FK__Zamowieni__ID_Pr__1DB06A4F">
+            <End Role="Produkt" EntitySet="Produkt" />
+            <End Role="Zamowienie_Produkt" EntitySet="Zamowienie_Produkt" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Przydzial__ID_Re__57DD0BE4" Association="Self.FK__Przydzial__ID_Re__57DD0BE4">
+            <End Role="Realizacja_Procesu" EntitySet="Realizacja_Procesu" />
+            <End Role="Przydzial_Zasobow" EntitySet="Przydzial_Zasobow" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Realizacj__ID_Et__55009F39" Association="Self.FK__Realizacj__ID_Et__55009F39">
+            <End Role="Rodzaj_Etapu" EntitySet="Rodzaj_Etapu" />
+            <End Role="Realizacja_Procesu" EntitySet="Realizacja_Procesu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zamowieni__ID_Um__00200768" Association="Self.FK__Zamowieni__ID_Um__00200768">
+            <End Role="Umowy_Kurierzy" EntitySet="Umowy_Kurierzy" />
+            <End Role="Zamowienia_Przydzial" EntitySet="Zamowienia_Przydzial" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zamowieni__ID_Za__02FC7413" Association="Self.FK__Zamowieni__ID_Za__02FC7413">
+            <End Role="Zamowienia" EntitySet="Zamowienia" />
+            <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zamowieni__ID_Za__1CBC4616" Association="Self.FK__Zamowieni__ID_Za__1CBC4616">
+            <End Role="Zamowienia" EntitySet="Zamowienia" />
+            <End Role="Zamowienie_Produkt" EntitySet="Zamowienie_Produkt" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zamowieni__ID_Za__7E37BEF6" Association="Self.FK__Zamowieni__ID_Za__7E37BEF6">
+            <End Role="Zamowienia" EntitySet="Zamowienia" />
+            <End Role="Zamowienia_Przydzial" EntitySet="Zamowienia_Przydzial" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zawartosc__ID_Do__08B54D69" Association="Self.FK__Zawartosc__ID_Do__08B54D69">
+            <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
+            <End Role="Zawartosc" EntitySet="Zawartosc" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+        <EntityContainer Name="SzwalniaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Czesci_Obsluga" EntityType="Self.Czesci_Obsluga" />
+          <EntitySet Name="Dokumentacja_Proces" EntityType="Self.Dokumentacja_Proces" />
+          <EntitySet Name="Dokumentacje" EntityType="Self.Dokumentacje" />
+          <EntitySet Name="Dostarczenia_Wewn" EntityType="Self.Dostarczenia_Wewn" />
+          <EntitySet Name="Dostarczenia_Zewn" EntityType="Self.Dostarczenia_Zewn" />
+          <EntitySet Name="Dostawcy_Zaopatrzenie" EntityType="Self.Dostawcy_Zaopatrzenie" />
+          <EntitySet Name="Dostawy_Zawartosc" EntityType="Self.Dostawy_Zawartosc" />
+          <EntitySet Name="Elementy" EntityType="Self.Elementy" />
+          <EntitySet Name="Elementy_Cechy" EntityType="Self.Elementy_Cechy" />
+          <EntitySet Name="Elementy_Cechy_Slownik" EntityType="Self.Elementy_Cechy_Slownik" />
+          <EntitySet Name="Elementy_Jednostki" EntityType="Self.Elementy_Jednostki" />
+          <EntitySet Name="Elementy_Proces" EntityType="Self.Elementy_Proces" />
+          <EntitySet Name="Elementy_Typy" EntityType="Self.Elementy_Typy" />
+          <EntitySet Name="Etapy_W_Procesie" EntityType="Self.Etapy_W_Procesie" />
+          <EntitySet Name="Etat" EntityType="Self.Etat" />
+          <EntitySet Name="Faktury" EntityType="Self.Faktury" />
+          <EntitySet Name="Faktury_Zewnetrzne" EntityType="Self.Faktury_Zewnetrzne" />
+          <EntitySet Name="Grupa" EntityType="Self.Grupa" />
+          <EntitySet Name="Jezyk" EntityType="Self.Jezyk" />
+          <EntitySet Name="Klienci" EntityType="Self.Klienci" />
+          <EntitySet Name="Kontrola_Efektywnosci" EntityType="Self.Kontrola_Efektywnosci" />
+          <EntitySet Name="Koszt_Jednostkowy" EntityType="Self.Koszt_Jednostkowy" />
+          <EntitySet Name="Kurierzy" EntityType="Self.Kurierzy" />
+          <EntitySet Name="Maszyny" EntityType="Self.Maszyny" />
+          <EntitySet Name="Maszyny_Proces" EntityType="Self.Maszyny_Proces" />
+          <EntitySet Name="Material_Na_Produkcji" EntityType="Self.Material_Na_Produkcji" />
+          <EntitySet Name="Miejsca" EntityType="Self.Miejsca" />
+          <EntitySet Name="Obsluga_Techniczna" EntityType="Self.Obsluga_Techniczna" />
+          <EntitySet Name="Oferta" EntityType="Self.Oferta" />
+          <EntitySet Name="Pensja" EntityType="Self.Pensja" />
+          <EntitySet Name="Polki" EntityType="Self.Polki" />
+          <EntitySet Name="Polki_Rozmiary" EntityType="Self.Polki_Rozmiary" />
+          <EntitySet Name="Pracownicy" EntityType="Self.Pracownicy" />
+          <EntitySet Name="Pracownicy_Zatrudnienie" EntityType="Self.Pracownicy_Zatrudnienie" />
+          <EntitySet Name="Proces_Produkcyjny" EntityType="Self.Proces_Produkcyjny" />
+          <EntitySet Name="Proces_Technologiczny" EntityType="Self.Proces_Technologiczny" />
+          <EntitySet Name="Proces_Zamowienie" EntityType="Self.Proces_Zamowienie" />
+          <EntitySet Name="Produkt" EntityType="Self.Produkt" />
+          <EntitySet Name="Przydzial_Zasobow" EntityType="Self.Przydzial_Zasobow" />
+          <EntitySet Name="Realizacja_Procesu" EntityType="Self.Realizacja_Procesu" />
+          <EntitySet Name="Rodzaj_Dokumentacji" EntityType="Self.Rodzaj_Dokumentacji" />
+          <EntitySet Name="Rodzaj_Etapu" EntityType="Self.Rodzaj_Etapu" />
+          <EntitySet Name="Rodzaj_Maszyny" EntityType="Self.Rodzaj_Maszyny" />
+          <EntitySet Name="Rodzaj_Obslugi" EntityType="Self.Rodzaj_Obslugi" />
+          <EntitySet Name="Rodzaj_Umowy" EntityType="Self.Rodzaj_Umowy" />
+          <EntitySet Name="Stanowisko" EntityType="Self.Stanowisko" />
+          <EntitySet Name="Umowy_Kurierzy" EntityType="Self.Umowy_Kurierzy" />
+          <EntitySet Name="Urlop" EntityType="Self.Urlop" />
+          <EntitySet Name="Zamowienia" EntityType="Self.Zamowienia" />
+          <EntitySet Name="Zamowienia_Dostawy" EntityType="Self.Zamowienia_Dostawy" />
+          <EntitySet Name="Zamowienia_Przydzial" EntityType="Self.Zamowienia_Przydzial" />
+          <EntitySet Name="Zamowienie_Produkt" EntityType="Self.Zamowienie_Produkt" />
+          <EntitySet Name="Zapotrzebowanie_Opakowan" EntityType="Self.Zapotrzebowanie_Opakowan" />
+          <EntitySet Name="Zawartosc" EntityType="Self.Zawartosc" />
+          <EntitySet Name="Znajomosc_Jezykow" EntityType="Self.Znajomosc_Jezykow" />
           <EntitySet Name="vCechyElementu" EntityType="Self.vCechyElementu" />
           <EntitySet Name="vMaszyny_rodzaj_liczba" EntityType="Self.vMaszyny_rodzaj_liczba" />
           <EntitySet Name="vMaszyny_serwis" EntityType="Self.vMaszyny_serwis" />
@@ -3970,9 +4374,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SzwalniaModelStoreContainer" CdmEntityContainer="SzwalniaEntities">
+        <EntityContainerMapping StorageEntityContainer="SzwalniaStoreContainer" CdmEntityContainer="SzwalniaEntities">
           <EntitySetMapping Name="Czesci_Obsluga">
-            <EntityTypeMapping TypeName="SzwalniaModel.Czesci_Obsluga">
+            <EntityTypeMapping TypeName="Szwalnia.Czesci_Obsluga">
               <MappingFragment StoreEntitySet="Czesci_Obsluga">
                 <ScalarProperty Name="ID_Obslugi" ColumnName="ID_Obslugi" />
                 <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
@@ -3981,7 +4385,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Dokumentacja_Proces">
-            <EntityTypeMapping TypeName="SzwalniaModel.Dokumentacja_Proces">
+            <EntityTypeMapping TypeName="Szwalnia.Dokumentacja_Proces">
               <MappingFragment StoreEntitySet="Dokumentacja_Proces">
                 <ScalarProperty Name="ID_Dokumentacja_Proces" ColumnName="ID_Dokumentacja_Proces" />
                 <ScalarProperty Name="ID_Dokumentacji" ColumnName="ID_Dokumentacji" />
@@ -3989,7 +4393,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Dokumentacje">
-            <EntityTypeMapping TypeName="SzwalniaModel.Dokumentacje">
+            <EntityTypeMapping TypeName="Szwalnia.Dokumentacje">
               <MappingFragment StoreEntitySet="Dokumentacje">
                 <ScalarProperty Name="ID_Dokumentacji" ColumnName="ID_Dokumentacji" />
                 <ScalarProperty Name="ID_Rodzaj_Dokumentacji" ColumnName="ID_Rodzaj_Dokumentacji" />
@@ -3999,7 +4403,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Dostarczenia_Wewn">
-            <EntityTypeMapping TypeName="SzwalniaModel.Dostarczenia_Wewn">
+            <EntityTypeMapping TypeName="Szwalnia.Dostarczenia_Wewn">
               <MappingFragment StoreEntitySet="Dostarczenia_Wewn">
                 <ScalarProperty Name="ID_Dostarczenia" ColumnName="ID_Dostarczenia" />
                 <ScalarProperty Name="ID_Pracownicy" ColumnName="ID_Pracownicy" />
@@ -4011,7 +4415,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Dostarczenia_Zewn">
-            <EntityTypeMapping TypeName="SzwalniaModel.Dostarczenia_Zewn">
+            <EntityTypeMapping TypeName="Szwalnia.Dostarczenia_Zewn">
               <MappingFragment StoreEntitySet="Dostarczenia_Zewn">
                 <ScalarProperty Name="ID_Dostarczenia" ColumnName="ID_Dostarczenia" />
                 <ScalarProperty Name="ID_Pracownicy" ColumnName="ID_Pracownicy" />
@@ -4023,7 +4427,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Dostawcy_Zaopatrzenie">
-            <EntityTypeMapping TypeName="SzwalniaModel.Dostawcy_Zaopatrzenie">
+            <EntityTypeMapping TypeName="Szwalnia.Dostawcy_Zaopatrzenie">
               <MappingFragment StoreEntitySet="Dostawcy_Zaopatrzenie">
                 <ScalarProperty Name="ID_Dostawcy" ColumnName="ID_Dostawcy" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
@@ -4034,7 +4438,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Dostawy_Zawartosc">
-            <EntityTypeMapping TypeName="SzwalniaModel.Dostawy_Zawartosc">
+            <EntityTypeMapping TypeName="Szwalnia.Dostawy_Zawartosc">
               <MappingFragment StoreEntitySet="Dostawy_Zawartosc">
                 <ScalarProperty Name="ID_Dostawy_Zawartosc" ColumnName="ID_Dostawy_Zawartosc" />
                 <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
@@ -4045,7 +4449,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Elementy">
-            <EntityTypeMapping TypeName="SzwalniaModel.Elementy">
+            <EntityTypeMapping TypeName="Szwalnia.Elementy">
               <MappingFragment StoreEntitySet="Elementy">
                 <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
                 <ScalarProperty Name="ID_Element_Typ" ColumnName="ID_Element_Typ" />
@@ -4055,7 +4459,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Elementy_Cechy">
-            <EntityTypeMapping TypeName="SzwalniaModel.Elementy_Cechy">
+            <EntityTypeMapping TypeName="Szwalnia.Elementy_Cechy">
               <MappingFragment StoreEntitySet="Elementy_Cechy">
                 <ScalarProperty Name="ID_Elementy_Cechy" ColumnName="ID_Elementy_Cechy" />
                 <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
@@ -4067,7 +4471,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Elementy_Cechy_Slownik">
-            <EntityTypeMapping TypeName="SzwalniaModel.Elementy_Cechy_Slownik">
+            <EntityTypeMapping TypeName="Szwalnia.Elementy_Cechy_Slownik">
               <MappingFragment StoreEntitySet="Elementy_Cechy_Slownik">
                 <ScalarProperty Name="ID_Cecha" ColumnName="ID_Cecha" />
                 <ScalarProperty Name="Cecha" ColumnName="Cecha" />
@@ -4076,7 +4480,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Elementy_Jednostki">
-            <EntityTypeMapping TypeName="SzwalniaModel.Elementy_Jednostki">
+            <EntityTypeMapping TypeName="Szwalnia.Elementy_Jednostki">
               <MappingFragment StoreEntitySet="Elementy_Jednostki">
                 <ScalarProperty Name="ID_jednostka" ColumnName="ID_jednostka" />
                 <ScalarProperty Name="Jednostka" ColumnName="Jednostka" />
@@ -4084,7 +4488,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Elementy_Proces">
-            <EntityTypeMapping TypeName="SzwalniaModel.Elementy_Proces">
+            <EntityTypeMapping TypeName="Szwalnia.Elementy_Proces">
               <MappingFragment StoreEntitySet="Elementy_Proces">
                 <ScalarProperty Name="ID_Elementy_Proces" ColumnName="ID_Elementy_Proces" />
                 <ScalarProperty Name="ID_Proces_Technologiczny" ColumnName="ID_Proces_Technologiczny" />
@@ -4094,7 +4498,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Elementy_Typy">
-            <EntityTypeMapping TypeName="SzwalniaModel.Elementy_Typy">
+            <EntityTypeMapping TypeName="Szwalnia.Elementy_Typy">
               <MappingFragment StoreEntitySet="Elementy_Typy">
                 <ScalarProperty Name="ID_Element_Typ" ColumnName="ID_Element_Typ" />
                 <ScalarProperty Name="Typ" ColumnName="Typ" />
@@ -4102,7 +4506,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Etapy_W_Procesie">
-            <EntityTypeMapping TypeName="SzwalniaModel.Etapy_W_Procesie">
+            <EntityTypeMapping TypeName="Szwalnia.Etapy_W_Procesie">
               <MappingFragment StoreEntitySet="Etapy_W_Procesie">
                 <ScalarProperty Name="ID_Etapy_W_Procesie" ColumnName="ID_Etapy_W_Procesie" />
                 <ScalarProperty Name="ID_Proces_Technologiczny" ColumnName="ID_Proces_Technologiczny" />
@@ -4112,7 +4516,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Etat">
-            <EntityTypeMapping TypeName="SzwalniaModel.Etat">
+            <EntityTypeMapping TypeName="Szwalnia.Etat">
               <MappingFragment StoreEntitySet="Etat">
                 <ScalarProperty Name="ID_Etat" ColumnName="ID_Etat" />
                 <ScalarProperty Name="Wymiar_Etatu" ColumnName="Wymiar_Etatu" />
@@ -4121,7 +4525,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Faktury">
-            <EntityTypeMapping TypeName="SzwalniaModel.Faktury">
+            <EntityTypeMapping TypeName="Szwalnia.Faktury">
               <MappingFragment StoreEntitySet="Faktury">
                 <ScalarProperty Name="ID_Faktury" ColumnName="ID_Faktury" />
                 <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
@@ -4133,7 +4537,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Faktury_Zewnetrzne">
-            <EntityTypeMapping TypeName="SzwalniaModel.Faktury_Zewnetrzne">
+            <EntityTypeMapping TypeName="Szwalnia.Faktury_Zewnetrzne">
               <MappingFragment StoreEntitySet="Faktury_Zewnetrzne">
                 <ScalarProperty Name="ID_Faktura_zewnetrzna" ColumnName="ID_Faktura_zewnetrzna" />
                 <ScalarProperty Name="Nr_Faktury" ColumnName="Nr_Faktury" />
@@ -4146,7 +4550,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Grupa">
-            <EntityTypeMapping TypeName="SzwalniaModel.Grupa">
+            <EntityTypeMapping TypeName="Szwalnia.Grupa">
               <MappingFragment StoreEntitySet="Grupa">
                 <ScalarProperty Name="ID_Grupa" ColumnName="ID_Grupa" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
@@ -4154,7 +4558,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Jezyk">
-            <EntityTypeMapping TypeName="SzwalniaModel.Jezyk">
+            <EntityTypeMapping TypeName="Szwalnia.Jezyk">
               <MappingFragment StoreEntitySet="Jezyk">
                 <ScalarProperty Name="ID_Jezyk" ColumnName="ID_Jezyk" />
                 <ScalarProperty Name="Jezyk1" ColumnName="Jezyk" />
@@ -4163,7 +4567,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Klienci">
-            <EntityTypeMapping TypeName="SzwalniaModel.Klienci">
+            <EntityTypeMapping TypeName="Szwalnia.Klienci">
               <MappingFragment StoreEntitySet="Klienci">
                 <ScalarProperty Name="ID_Klienta" ColumnName="ID_Klienta" />
                 <ScalarProperty Name="Imie" ColumnName="Imie" />
@@ -4177,7 +4581,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Kontrola_Efektywnosci">
-            <EntityTypeMapping TypeName="SzwalniaModel.Kontrola_Efektywnosci">
+            <EntityTypeMapping TypeName="Szwalnia.Kontrola_Efektywnosci">
               <MappingFragment StoreEntitySet="Kontrola_Efektywnosci">
                 <ScalarProperty Name="ID_Kontrola_Efektywnosci" ColumnName="ID_Kontrola_Efektywnosci" />
                 <ScalarProperty Name="ID_Procesu_Produkcyjnego" ColumnName="ID_Procesu_Produkcyjnego" />
@@ -4191,7 +4595,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Koszt_Jednostkowy">
-            <EntityTypeMapping TypeName="SzwalniaModel.Koszt_Jednostkowy">
+            <EntityTypeMapping TypeName="Szwalnia.Koszt_Jednostkowy">
               <MappingFragment StoreEntitySet="Koszt_Jednostkowy">
                 <ScalarProperty Name="ID_Koszt_Jednostkowy" ColumnName="ID_Koszt_Jednostkowy" />
                 <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
@@ -4200,7 +4604,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Kurierzy">
-            <EntityTypeMapping TypeName="SzwalniaModel.Kurierzy">
+            <EntityTypeMapping TypeName="Szwalnia.Kurierzy">
               <MappingFragment StoreEntitySet="Kurierzy">
                 <ScalarProperty Name="ID_Kurier" ColumnName="ID_Kurier" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
@@ -4211,7 +4615,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Maszyny">
-            <EntityTypeMapping TypeName="SzwalniaModel.Maszyny">
+            <EntityTypeMapping TypeName="Szwalnia.Maszyny">
               <MappingFragment StoreEntitySet="Maszyny">
                 <ScalarProperty Name="ID_Maszyny" ColumnName="ID_Maszyny" />
                 <ScalarProperty Name="Model" ColumnName="Model" />
@@ -4225,7 +4629,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Maszyny_Proces">
-            <EntityTypeMapping TypeName="SzwalniaModel.Maszyny_Proces">
+            <EntityTypeMapping TypeName="Szwalnia.Maszyny_Proces">
               <MappingFragment StoreEntitySet="Maszyny_Proces">
                 <ScalarProperty Name="ID_Maszyny_Proces" ColumnName="ID_Maszyny_Proces" />
                 <ScalarProperty Name="ID_Proces_Technologiczny" ColumnName="ID_Proces_Technologiczny" />
@@ -4236,7 +4640,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Material_Na_Produkcji">
-            <EntityTypeMapping TypeName="SzwalniaModel.Material_Na_Produkcji">
+            <EntityTypeMapping TypeName="Szwalnia.Material_Na_Produkcji">
               <MappingFragment StoreEntitySet="Material_Na_Produkcji">
                 <ScalarProperty Name="ID_Material_Na_Produkcji" ColumnName="ID_Material_Na_Produkcji" />
                 <ScalarProperty Name="ID_Procesu_Produkcyjnego" ColumnName="ID_Procesu_Produkcyjnego" />
@@ -4248,7 +4652,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Miejsca">
-            <EntityTypeMapping TypeName="SzwalniaModel.Miejsca">
+            <EntityTypeMapping TypeName="Szwalnia.Miejsca">
               <MappingFragment StoreEntitySet="Miejsca">
                 <ScalarProperty Name="ID_Miejsca" ColumnName="ID_Miejsca" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
@@ -4256,7 +4660,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Obsluga_Techniczna">
-            <EntityTypeMapping TypeName="SzwalniaModel.Obsluga_Techniczna">
+            <EntityTypeMapping TypeName="Szwalnia.Obsluga_Techniczna">
               <MappingFragment StoreEntitySet="Obsluga_Techniczna">
                 <ScalarProperty Name="ID_Obslugi" ColumnName="ID_Obslugi" />
                 <ScalarProperty Name="ID_Maszyny" ColumnName="ID_Maszyny" />
@@ -4267,7 +4671,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Oferta">
-            <EntityTypeMapping TypeName="SzwalniaModel.Oferta">
+            <EntityTypeMapping TypeName="Szwalnia.Oferta">
               <MappingFragment StoreEntitySet="Oferta">
                 <ScalarProperty Name="ID_Oferta" ColumnName="ID_Oferta" />
                 <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
@@ -4285,7 +4689,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Pensja">
-            <EntityTypeMapping TypeName="SzwalniaModel.Pensja">
+            <EntityTypeMapping TypeName="Szwalnia.Pensja">
               <MappingFragment StoreEntitySet="Pensja">
                 <ScalarProperty Name="ID_Pensja" ColumnName="ID_Pensja" />
                 <ScalarProperty Name="Pensja1" ColumnName="Pensja" />
@@ -4293,7 +4697,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Polki">
-            <EntityTypeMapping TypeName="SzwalniaModel.Polki">
+            <EntityTypeMapping TypeName="Szwalnia.Polki">
               <MappingFragment StoreEntitySet="Polki">
                 <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
                 <ScalarProperty Name="ID_Rozmiar_Polki" ColumnName="ID_Rozmiar_Polki" />
@@ -4301,7 +4705,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Polki_Rozmiary">
-            <EntityTypeMapping TypeName="SzwalniaModel.Polki_Rozmiary">
+            <EntityTypeMapping TypeName="Szwalnia.Polki_Rozmiary">
               <MappingFragment StoreEntitySet="Polki_Rozmiary">
                 <ScalarProperty Name="ID_Rozmiar_Polki" ColumnName="ID_Rozmiar_Polki" />
                 <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
@@ -4311,7 +4715,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Pracownicy">
-            <EntityTypeMapping TypeName="SzwalniaModel.Pracownicy">
+            <EntityTypeMapping TypeName="Szwalnia.Pracownicy">
               <MappingFragment StoreEntitySet="Pracownicy">
                 <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
                 <ScalarProperty Name="Imie" ColumnName="Imie" />
@@ -4323,7 +4727,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Pracownicy_Zatrudnienie">
-            <EntityTypeMapping TypeName="SzwalniaModel.Pracownicy_Zatrudnienie">
+            <EntityTypeMapping TypeName="Szwalnia.Pracownicy_Zatrudnienie">
               <MappingFragment StoreEntitySet="Pracownicy_Zatrudnienie">
                 <ScalarProperty Name="ID_Pracownicy_Zatrudnienie" ColumnName="ID_Pracownicy_Zatrudnienie" />
                 <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
@@ -4336,7 +4740,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Proces_Produkcyjny">
-            <EntityTypeMapping TypeName="SzwalniaModel.Proces_Produkcyjny">
+            <EntityTypeMapping TypeName="Szwalnia.Proces_Produkcyjny">
               <MappingFragment StoreEntitySet="Proces_Produkcyjny">
                 <ScalarProperty Name="ID_Procesu_Produkcyjnego" ColumnName="ID_Procesu_Produkcyjnego" />
                 <ScalarProperty Name="ID_Zamowienie_Produkt" ColumnName="ID_Zamowienie_Produkt" />
@@ -4349,7 +4753,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Proces_Technologiczny">
-            <EntityTypeMapping TypeName="SzwalniaModel.Proces_Technologiczny">
+            <EntityTypeMapping TypeName="Szwalnia.Proces_Technologiczny">
               <MappingFragment StoreEntitySet="Proces_Technologiczny">
                 <ScalarProperty Name="ID_Proces_Technologiczny" ColumnName="ID_Proces_Technologiczny" />
                 <ScalarProperty Name="ID_Dokumentacja_Proces" ColumnName="ID_Dokumentacja_Proces" />
@@ -4358,7 +4762,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Proces_Zamowienie">
-            <EntityTypeMapping TypeName="SzwalniaModel.Proces_Zamowienie">
+            <EntityTypeMapping TypeName="Szwalnia.Proces_Zamowienie">
               <MappingFragment StoreEntitySet="Proces_Zamowienie">
                 <ScalarProperty Name="ID_Proces_Zamowienie" ColumnName="ID_Proces_Zamowienie" />
                 <ScalarProperty Name="ID_Proces_Technologiczny" ColumnName="ID_Proces_Technologiczny" />
@@ -4367,7 +4771,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Produkt">
-            <EntityTypeMapping TypeName="SzwalniaModel.Produkt">
+            <EntityTypeMapping TypeName="Szwalnia.Produkt">
               <MappingFragment StoreEntitySet="Produkt">
                 <ScalarProperty Name="ID_Produkt" ColumnName="ID_Produkt" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
@@ -4375,7 +4779,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Przydzial_Zasobow">
-            <EntityTypeMapping TypeName="SzwalniaModel.Przydzial_Zasobow">
+            <EntityTypeMapping TypeName="Szwalnia.Przydzial_Zasobow">
               <MappingFragment StoreEntitySet="Przydzial_Zasobow">
                 <ScalarProperty Name="ID_Przydzial_Zasobow" ColumnName="ID_Przydzial_Zasobow" />
                 <ScalarProperty Name="ID_Realizacji_Procesu" ColumnName="ID_Realizacji_Procesu" />
@@ -4385,7 +4789,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Realizacja_Procesu">
-            <EntityTypeMapping TypeName="SzwalniaModel.Realizacja_Procesu">
+            <EntityTypeMapping TypeName="Szwalnia.Realizacja_Procesu">
               <MappingFragment StoreEntitySet="Realizacja_Procesu">
                 <ScalarProperty Name="ID_Realizacji_Procesu" ColumnName="ID_Realizacji_Procesu" />
                 <ScalarProperty Name="ID_Procesu_Produkcyjnego" ColumnName="ID_Procesu_Produkcyjnego" />
@@ -4398,7 +4802,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Rodzaj_Dokumentacji">
-            <EntityTypeMapping TypeName="SzwalniaModel.Rodzaj_Dokumentacji">
+            <EntityTypeMapping TypeName="Szwalnia.Rodzaj_Dokumentacji">
               <MappingFragment StoreEntitySet="Rodzaj_Dokumentacji">
                 <ScalarProperty Name="ID_Rodzaj_Dokumentacji" ColumnName="ID_Rodzaj_Dokumentacji" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
@@ -4406,7 +4810,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Rodzaj_Etapu">
-            <EntityTypeMapping TypeName="SzwalniaModel.Rodzaj_Etapu">
+            <EntityTypeMapping TypeName="Szwalnia.Rodzaj_Etapu">
               <MappingFragment StoreEntitySet="Rodzaj_Etapu">
                 <ScalarProperty Name="ID_Etapu" ColumnName="ID_Etapu" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
@@ -4414,7 +4818,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Rodzaj_Maszyny">
-            <EntityTypeMapping TypeName="SzwalniaModel.Rodzaj_Maszyny">
+            <EntityTypeMapping TypeName="Szwalnia.Rodzaj_Maszyny">
               <MappingFragment StoreEntitySet="Rodzaj_Maszyny">
                 <ScalarProperty Name="ID_Rodzaj_Maszyny" ColumnName="ID_Rodzaj_Maszyny" />
                 <ScalarProperty Name="Rodzaj_Maszyny1" ColumnName="Rodzaj_Maszyny" />
@@ -4422,7 +4826,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Rodzaj_Obslugi">
-            <EntityTypeMapping TypeName="SzwalniaModel.Rodzaj_Obslugi">
+            <EntityTypeMapping TypeName="Szwalnia.Rodzaj_Obslugi">
               <MappingFragment StoreEntitySet="Rodzaj_Obslugi">
                 <ScalarProperty Name="ID_Rodzaj_Obslugi" ColumnName="ID_Rodzaj_Obslugi" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
@@ -4430,7 +4834,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Rodzaj_Umowy">
-            <EntityTypeMapping TypeName="SzwalniaModel.Rodzaj_Umowy">
+            <EntityTypeMapping TypeName="Szwalnia.Rodzaj_Umowy">
               <MappingFragment StoreEntitySet="Rodzaj_Umowy">
                 <ScalarProperty Name="ID_Rodzaj_Umowy" ColumnName="ID_Rodzaj_Umowy" />
                 <ScalarProperty Name="Rodzaj_Umowy1" ColumnName="Rodzaj_Umowy" />
@@ -4439,7 +4843,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Stanowisko">
-            <EntityTypeMapping TypeName="SzwalniaModel.Stanowisko">
+            <EntityTypeMapping TypeName="Szwalnia.Stanowisko">
               <MappingFragment StoreEntitySet="Stanowisko">
                 <ScalarProperty Name="ID_Stanowiska" ColumnName="ID_Stanowiska" />
                 <ScalarProperty Name="Stanowisko1" ColumnName="Stanowisko" />
@@ -4449,7 +4853,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Umowy_Kurierzy">
-            <EntityTypeMapping TypeName="SzwalniaModel.Umowy_Kurierzy">
+            <EntityTypeMapping TypeName="Szwalnia.Umowy_Kurierzy">
               <MappingFragment StoreEntitySet="Umowy_Kurierzy">
                 <ScalarProperty Name="ID_Umowy" ColumnName="ID_Umowy" />
                 <ScalarProperty Name="ID_Kurier" ColumnName="ID_Kurier" />
@@ -4461,7 +4865,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Urlop">
-            <EntityTypeMapping TypeName="SzwalniaModel.Urlop">
+            <EntityTypeMapping TypeName="Szwalnia.Urlop">
               <MappingFragment StoreEntitySet="Urlop">
                 <ScalarProperty Name="ID_Urlop" ColumnName="ID_Urlop" />
                 <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
@@ -4471,7 +4875,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Zamowienia">
-            <EntityTypeMapping TypeName="SzwalniaModel.Zamowienia">
+            <EntityTypeMapping TypeName="Szwalnia.Zamowienia">
               <MappingFragment StoreEntitySet="Zamowienia">
                 <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
                 <ScalarProperty Name="ID_Klienta" ColumnName="ID_Klienta" />
@@ -4483,7 +4887,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Zamowienia_Dostawy">
-            <EntityTypeMapping TypeName="SzwalniaModel.Zamowienia_Dostawy">
+            <EntityTypeMapping TypeName="Szwalnia.Zamowienia_Dostawy">
               <MappingFragment StoreEntitySet="Zamowienia_Dostawy">
                 <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
                 <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
@@ -4493,7 +4897,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Zamowienia_Przydzial">
-            <EntityTypeMapping TypeName="SzwalniaModel.Zamowienia_Przydzial">
+            <EntityTypeMapping TypeName="Szwalnia.Zamowienia_Przydzial">
               <MappingFragment StoreEntitySet="Zamowienia_Przydzial">
                 <ScalarProperty Name="ID_Zamowienia_Przydzial" ColumnName="ID_Zamowienia_Przydzial" />
                 <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
@@ -4503,7 +4907,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Zamowienie_Produkt">
-            <EntityTypeMapping TypeName="SzwalniaModel.Zamowienie_Produkt">
+            <EntityTypeMapping TypeName="Szwalnia.Zamowienie_Produkt">
               <MappingFragment StoreEntitySet="Zamowienie_Produkt">
                 <ScalarProperty Name="ID_Zamowienie_Produkt" ColumnName="ID_Zamowienie_Produkt" />
                 <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
@@ -4513,7 +4917,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Zapotrzebowanie_Opakowan">
-            <EntityTypeMapping TypeName="SzwalniaModel.Zapotrzebowanie_Opakowan">
+            <EntityTypeMapping TypeName="Szwalnia.Zapotrzebowanie_Opakowan">
               <MappingFragment StoreEntitySet="Zapotrzebowanie_Opakowan">
                 <ScalarProperty Name="ID_Zapotrzebowanie_opakowan" ColumnName="ID_Zapotrzebowanie_opakowan" />
                 <ScalarProperty Name="ID_Procesu_Produkcyjnego" ColumnName="ID_Procesu_Produkcyjnego" />
@@ -4525,7 +4929,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Zawartosc">
-            <EntityTypeMapping TypeName="SzwalniaModel.Zawartosc">
+            <EntityTypeMapping TypeName="Szwalnia.Zawartosc">
               <MappingFragment StoreEntitySet="Zawartosc">
                 <ScalarProperty Name="ID_Zawartosc" ColumnName="ID_Zawartosc" />
                 <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
@@ -4536,7 +4940,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Znajomosc_Jezykow">
-            <EntityTypeMapping TypeName="SzwalniaModel.Znajomosc_Jezykow">
+            <EntityTypeMapping TypeName="Szwalnia.Znajomosc_Jezykow">
               <MappingFragment StoreEntitySet="Znajomosc_Jezykow">
                 <ScalarProperty Name="ID_Znajomosc_Jezykow" ColumnName="ID_Znajomosc_Jezykow" />
                 <ScalarProperty Name="ID_Jezyka" ColumnName="ID_Jezyka" />
@@ -4544,8 +4948,21 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="v_Przydzial_Zasobow">
+            <EntityTypeMapping TypeName="Szwalnia.v_Przydzial_Zasobow">
+              <MappingFragment StoreEntitySet="v_Przydzial_Zasobow">
+                <ScalarProperty Name="ID_Procesu_Produkcyjnego" ColumnName="ID_Procesu_Produkcyjnego" />
+                <ScalarProperty Name="ID_Realizacji_Procesu" ColumnName="ID_Realizacji_Procesu" />
+                <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="ID_Maszyny" ColumnName="ID_Maszyny" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="vCechyElementu">
-            <EntityTypeMapping TypeName="SzwalniaModel.vCechyElementu">
+            <EntityTypeMapping TypeName="Szwalnia.vCechyElementu">
               <MappingFragment StoreEntitySet="vCechyElementu">
                 <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
                 <ScalarProperty Name="Cecha" ColumnName="Cecha" />
@@ -4556,7 +4973,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vMaszyny_rodzaj_liczba">
-            <EntityTypeMapping TypeName="SzwalniaModel.vMaszyny_rodzaj_liczba">
+            <EntityTypeMapping TypeName="Szwalnia.vMaszyny_rodzaj_liczba">
               <MappingFragment StoreEntitySet="vMaszyny_rodzaj_liczba">
                 <ScalarProperty Name="ID_Maszyny_Proces" ColumnName="ID_Maszyny_Proces" />
                 <ScalarProperty Name="Rodzaj_Maszyny" ColumnName="Rodzaj_Maszyny" />
@@ -4566,7 +4983,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vMaszyny_serwis">
-            <EntityTypeMapping TypeName="SzwalniaModel.vMaszyny_serwis">
+            <EntityTypeMapping TypeName="Szwalnia.vMaszyny_serwis">
               <MappingFragment StoreEntitySet="vMaszyny_serwis">
                 <ScalarProperty Name="ID_Maszyny" ColumnName="ID_Maszyny" />
                 <ScalarProperty Name="Model" ColumnName="Model" />
@@ -4577,7 +4994,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vObsluga">
-            <EntityTypeMapping TypeName="SzwalniaModel.vObsluga">
+            <EntityTypeMapping TypeName="Szwalnia.vObsluga">
               <MappingFragment StoreEntitySet="vObsluga">
                 <ScalarProperty Name="ID_Obslugi" ColumnName="ID_Obslugi" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
@@ -4589,7 +5006,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vRealizacjaProcesuProdukcyjnegoDetails">
-            <EntityTypeMapping TypeName="SzwalniaModel.vRealizacjaProcesuProdukcyjnegoDetails">
+            <EntityTypeMapping TypeName="Szwalnia.vRealizacjaProcesuProdukcyjnegoDetails">
               <MappingFragment StoreEntitySet="vRealizacjaProcesuProdukcyjnegoDetails">
                 <ScalarProperty Name="ID_Procesu_Produkcyjnego" ColumnName="ID_Procesu_Produkcyjnego" />
                 <ScalarProperty Name="ID_Realizacji_Procesu" ColumnName="ID_Realizacji_Procesu" />
@@ -4600,7 +5017,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vSrednia_ilosc_maszyn">
-            <EntityTypeMapping TypeName="SzwalniaModel.vSrednia_ilosc_maszyn">
+            <EntityTypeMapping TypeName="Szwalnia.vSrednia_ilosc_maszyn">
               <MappingFragment StoreEntitySet="vSrednia_ilosc_maszyn">
                 <ScalarProperty Name="Rodzaj_Maszyny" ColumnName="Rodzaj_Maszyny" />
                 <ScalarProperty Name="srednia_ilosc_maszyn" ColumnName="srednia_ilosc_maszyn" />
@@ -4608,7 +5025,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vSuma_czasu_proces">
-            <EntityTypeMapping TypeName="SzwalniaModel.vSuma_czasu_proces">
+            <EntityTypeMapping TypeName="Szwalnia.vSuma_czasu_proces">
               <MappingFragment StoreEntitySet="vSuma_czasu_proces">
                 <ScalarProperty Name="ID_Proces_Technologiczny" ColumnName="ID_Proces_Technologiczny" />
                 <ScalarProperty Name="suma_czasu" ColumnName="suma_czasu" />
@@ -4616,7 +5033,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vZamowienieProcesyProdukcyjne">
-            <EntityTypeMapping TypeName="SzwalniaModel.vZamowienieProcesyProdukcyjne">
+            <EntityTypeMapping TypeName="Szwalnia.vZamowienieProcesyProdukcyjne">
               <MappingFragment StoreEntitySet="vZamowienieProcesyProdukcyjne">
                 <ScalarProperty Name="ID_Procesu_Produkcyjnego" ColumnName="ID_Procesu_Produkcyjnego" />
                 <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
@@ -4627,6 +5044,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
                 <ScalarProperty Name="Data_Zakonczenia" ColumnName="Data_Zakonczenia" />
                 <ScalarProperty Name="ID_Dokumentacja_Proces" ColumnName="ID_Dokumentacja_Proces" />
                 <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
