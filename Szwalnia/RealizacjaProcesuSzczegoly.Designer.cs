@@ -85,7 +85,7 @@
             this.Controls.Add(this.dgvRealizacjaProcesu);
             this.Controls.Add(this.btnRealizacjaProcesuSzczczegoly);
             this.Name = "RealizacjaProcesuSzczegoly";
-            this.Text = "Realizacja_proc_szcz";
+            this.Text = "Realizacja procesu szczegoly";
             ((System.ComponentModel.ISupportInitialize)(this.dgvRealizacjaProcesu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIDProcesuProdukcyjnego)).EndInit();
             this.ResumeLayout(false);
