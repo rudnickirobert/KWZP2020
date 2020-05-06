@@ -10,8 +10,8 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    
-    public partial class Start : Form 
+
+    public partial class Start : Form
     {
         public SzwalniaEntities Szwalnia;
         public Start()
@@ -26,6 +26,17 @@ namespace Szwalnia
             MagForm.Show();
         }
 
-   
-    }
+
+        private void btnPrzygotowanieProdukcji_Click(object sender, EventArgs e)
+        {
+            PrzygotowanieProdukcji przygotowanieProdukcji = new PrzygotowanieProdukcji(szwalnia);
+            przygotowanieProdukcji.Show();
+        }
+
+        private void btnProdukcja_Click(object sender, EventArgs e)
+        {
+            Produkcja formularzProdukcji = new Produkcja(szwalnia);
+            formularzProdukcji.Show();
+        }
+    } 
 }

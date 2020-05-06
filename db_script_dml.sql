@@ -84,7 +84,7 @@ VALUES
 ('Stanis³aw','Polak','90110369852','Widok 22, Warszawa','511569569'),
 ('Marcel','Wê¿yk','88062207956','Okopowa 7, Warszawa','603605604');
 
-INSERT into Urlop (ID_Pracownika, Data_rozpoczêcia, Data_zakonczenia)
+INSERT into Urlop (ID_Pracownika, Data_rozpoczecia, Data_zakonczenia)
 VALUES
 ('1','2020-03-15','2020-03-17'),
 ('2','2020-03-18','2020-03-25'),

@@ -12,13 +12,9 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class Urlop
+    public partial class vSuma_czasu_proces
     {
-        public int ID_Urlop { get; set; }
-        public Nullable<int> ID_Pracownika { get; set; }
-        public System.DateTime Data_rozpoczecia { get; set; }
-        public System.DateTime Data_zakonczenia { get; set; }
-    
-        public virtual Pracownicy Pracownicy { get; set; }
+        public int ID_Proces_Technologiczny { get; set; }
+        public Nullable<int> suma_czasu { get; set; }
     }
 }
