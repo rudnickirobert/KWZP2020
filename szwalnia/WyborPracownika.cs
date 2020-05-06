@@ -19,7 +19,6 @@ namespace Szwalnia
             db = szwalnia;
             dgvListaPracownikow.DataSource = db.Pracownicy.ToList();
         }
-
         private void dgvListaPracownikow_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             int numerIDPracownika = Convert.ToInt32(dgvListaPracownikow.CurrentRow.Cells[0].Value);
