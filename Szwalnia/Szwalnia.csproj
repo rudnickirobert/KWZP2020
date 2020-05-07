@@ -58,6 +58,24 @@
     <Compile Include="Czesci_Obsluga.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="DodawanieCechy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodawanieCechy.Designer.cs">
+      <DependentUpon>DodawanieCechy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DodawanieJednostki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodawanieJednostki.Designer.cs">
+      <DependentUpon>DodawanieJednostki.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DodawanieTypu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodawanieTypu.Designer.cs">
+      <DependentUpon>DodawanieTypu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dokumentacja_Proces.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -111,6 +129,12 @@
     </Compile>
     <Compile Include="Faktury_Zewnetrzne.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DodawanieElementu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodawanieElementu.Designer.cs">
+      <DependentUpon>DodawanieElementu.cs</DependentUpon>
     </Compile>
     <Compile Include="Grupa.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
@@ -402,17 +426,20 @@
     <Compile Include="Znajomosc_Jezykow.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DodawanieCechy.resx">
+      <DependentUpon>DodawanieCechy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodawanieElementu.resx">
+      <DependentUpon>DodawanieElementu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodawanieJednostki.resx">
+      <DependentUpon>DodawanieJednostki.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodawanieTypu.resx">
+      <DependentUpon>DodawanieTypu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ElementSzczegoly.resx">
       <DependentUpon>ElementSzczegoly.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NowaPolka.resx">
-      <DependentUpon>NowaPolka.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NowyRegal.resx">
-      <DependentUpon>NowyRegal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NowyRozmiarPolki.resx">
-      <DependentUpon>NowyRozmiarPolki.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Produkcja.resx">
       <DependentUpon>Produkcja.cs</DependentUpon>
