@@ -23,7 +23,6 @@ namespace Szwalnia
             txtTelefon.Text = customer.Telefon;
             txtEmail.Text = customer.E_Mail;
         }
-
         private void btnZamknij_Click(object sender, EventArgs e)
         {
             this.Close();
