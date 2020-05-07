@@ -25,5 +25,11 @@ namespace Szwalnia
             szwalniaPassed.Elementy_Jednostki.Add(jednostkaNew);
             //szwalniaPassed.SaveChanges();
         }
+
+        private void DodawanieJednostki_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Start start = new Start();
+            start.Show();
+        }
     }
 }

@@ -34,5 +34,11 @@ namespace Szwalnia
             szwalnia.SaveChanges();
             MessageBox.Show("Pomyślnie dodano do bazy regał " + nowy);
         }
+
+        private void NowyRegal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Start start = new Start();
+            start.Show();
+        }
     }
 }

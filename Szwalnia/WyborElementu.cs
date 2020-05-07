@@ -28,7 +28,13 @@ namespace Szwalnia
             int numID = Convert.ToInt32(dgvListaElementow.CurrentRow.Cells[0].Value);
             ElementSzczegoly szczegolyElement = new ElementSzczegoly(szwalniaPassed, Decimal.ToInt32(numID));
             szczegolyElement.Show();
-            this.Close();
+            this.Hide();
+        }
+
+        private void WyborElementu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Start start = new Start();
+            start.Show();
         }
     }
 }

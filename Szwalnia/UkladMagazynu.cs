@@ -49,5 +49,11 @@ namespace Szwalnia
             rozmiar.Show();
             this.Close();
         }
+
+        private void UkladMagazynu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Start start = new Start();
+            start.Show();
+        }
     }
 }

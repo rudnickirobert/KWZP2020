@@ -16,5 +16,11 @@ namespace Szwalnia
         {
             InitializeComponent();
         }
+
+        private void NowyRozmiarPolki_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Start start = new Start();
+            start.Show();
+        }
     }
 }

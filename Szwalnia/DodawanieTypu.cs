@@ -30,5 +30,11 @@ namespace Szwalnia
             szwalniaPassed.Elementy_Typy.Add(typNew);
             //szwalniaPassed.SaveChanges();
         }
+
+        private void DodawanieTypu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Start start = new Start();
+            start.Show();
+        }
     }
 }

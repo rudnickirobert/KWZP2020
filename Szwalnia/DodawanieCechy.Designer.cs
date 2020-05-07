@@ -36,34 +36,38 @@
             // 
             // txtNazwa
             // 
-            this.txtNazwa.Location = new System.Drawing.Point(194, 92);
+            this.txtNazwa.Location = new System.Drawing.Point(146, 75);
+            this.txtNazwa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNazwa.Name = "txtNazwa";
-            this.txtNazwa.Size = new System.Drawing.Size(151, 22);
+            this.txtNazwa.Size = new System.Drawing.Size(114, 20);
             this.txtNazwa.TabIndex = 9;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(97, 95);
+            this.label1.Location = new System.Drawing.Point(73, 77);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 17);
+            this.label1.Size = new System.Drawing.Size(72, 13);
             this.label1.TabIndex = 6;
             this.label1.Text = "Nazwa cechy";
             // 
             // lblMain
             // 
             this.lblMain.AutoSize = true;
-            this.lblMain.Location = new System.Drawing.Point(163, 37);
+            this.lblMain.Location = new System.Drawing.Point(122, 30);
+            this.lblMain.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMain.Name = "lblMain";
-            this.lblMain.Size = new System.Drawing.Size(119, 17);
+            this.lblMain.Size = new System.Drawing.Size(93, 13);
             this.lblMain.TabIndex = 5;
             this.lblMain.Text = "Dodawanie cechy";
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(347, 146);
+            this.btnDodaj.Location = new System.Drawing.Point(260, 119);
+            this.btnDodaj.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(75, 23);
+            this.btnDodaj.Size = new System.Drawing.Size(56, 19);
             this.btnDodaj.TabIndex = 10;
             this.btnDodaj.Text = "Dodaj";
             this.btnDodaj.UseVisualStyleBackColor = true;
@@ -71,15 +75,17 @@
             // 
             // DodawanieCechy
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(481, 201);
+            this.ClientSize = new System.Drawing.Size(361, 163);
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.txtNazwa);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblMain);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "DodawanieCechy";
             this.Text = "DodawanieCechy";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DodawanieCechy_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -30,5 +30,10 @@ namespace Szwalnia
             dgvSzczegol.Columns[0].Visible = false; 
         }
 
+        private void ElementSzczegoly_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Start start = new Start();
+            start.Show();
+        }
     }
 }

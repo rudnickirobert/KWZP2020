@@ -33,5 +33,11 @@ namespace Szwalnia
             szwalniaPassed.Elementy.Add(elemnetNew);
             //szwalniaPassed.SaveChanges();
         }
+
+        private void DodawanieElementu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Start start = new Start();
+            start.Show();
+        }
     }
 }

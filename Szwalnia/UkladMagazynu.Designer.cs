@@ -137,6 +137,7 @@
             this.Controls.Add(this.btnZnajdzPolke);
             this.Name = "UkladMagazynu";
             this.Text = "Układ magazynu";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UkladMagazynu_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.nudNumerPolki)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
