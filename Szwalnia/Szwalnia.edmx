@@ -662,6 +662,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPolki_na_regalach' does not have a p
           <Property Name="Wysokosc" Type="varchar" MaxLength="4" />
           <Property Name="Szerokosc" Type="varchar" MaxLength="4" />
           <Property Name="Glebokosc" Type="varchar" MaxLength="4" />
+          <Property Name="Wymiar" Type="varchar" MaxLength="21" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vPolki_Rozmiary' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1815,7 +1816,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
     [vPolki_na_regalach].[ID_Polka] AS [ID_Polka], 
     [vPolki_na_regalach].[Wysokosc] AS [Wysokosc], 
     [vPolki_na_regalach].[Szerokosc] AS [Szerokosc], 
-    [vPolki_na_regalach].[Glebokosc] AS [Glebokosc]
+    [vPolki_na_regalach].[Glebokosc] AS [Glebokosc], 
+    [vPolki_na_regalach].[Wymiar] AS [Wymiar]
     FROM [dbo].[vPolki_na_regalach] AS [vPolki_na_regalach]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vPolki_Rozmiary" EntityType="Self.vPolki_Rozmiary" store:Type="Views" store:Schema="dbo">
@@ -2568,9 +2570,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="ID_Polka" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Rozszerzenie_ID" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
           <Property Name="ID_Rozmiar_Polki" Type="Int32" />
-          <NavigationProperty Name="Polki_Rozmiary" Relationship="Self.FK__Polki__ID_Rozmia__6B24EA82" FromRole="Polki" ToRole="Polki_Rozmiary" />
           <NavigationProperty Name="Polki_regaly" Relationship="Self.FK__Polki_reg__ID_Po__7B5B524B" FromRole="Polki" ToRole="Polki_regaly" />
           <NavigationProperty Name="Zawartosc" Relationship="Self.FK__Zawartosc__ID_Po__17036CC0" FromRole="Polki" ToRole="Zawartosc" />
+          <NavigationProperty Name="Polki_Rozmiary" Relationship="SzwalniaModel.FK__Polki__ID_Rozmia__6B24EA82" FromRole="Polki" ToRole="Polki_Rozmiary" />
         </EntityType>
         <EntityType Name="Polki_regaly">
           <Key>
@@ -2581,16 +2583,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="ID_Polka" Type="Int32" />
           <NavigationProperty Name="Polki" Relationship="Self.FK__Polki_reg__ID_Po__7B5B524B" FromRole="Polki_regaly" ToRole="Polki" />
           <NavigationProperty Name="Regaly" Relationship="Self.FK__Polki_reg__ID_re__7A672E12" FromRole="Polki_regaly" ToRole="Regaly" />
-        </EntityType>
-        <EntityType Name="Polki_Rozmiary">
-          <Key>
-            <PropertyRef Name="ID_Rozmiar_Polki" />
-          </Key>
-          <Property Name="ID_Rozmiar_Polki" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Wysokosc" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
-          <Property Name="Szerokosc" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
-          <Property Name="Glebokosc" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Polki" Relationship="Self.FK__Polki__ID_Rozmia__6B24EA82" FromRole="Polki_Rozmiary" ToRole="Polki" />
         </EntityType>
         <EntityType Name="Pracownicy">
           <Key>
@@ -2921,16 +2913,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="ID_Pracownika" Type="Int32" />
           <NavigationProperty Name="Jezyk" Relationship="Self.FK__Znajomosc__ID_Je__534D60F1" FromRole="Znajomosc_Jezykow" ToRole="Jezyk" />
           <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Znajomosc__ID_Pr__5441852A" FromRole="Znajomosc_Jezykow" ToRole="Pracownicy" />
-        </EntityType>
-        <EntityType Name="vPolki_Rozmiary">
-          <Key>
-            <PropertyRef Name="ID_Rozmiar_Polki" />
-          </Key>
-          <Property Name="ID_Rozmiar_Polki" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Wysokosc" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
-          <Property Name="Szerokosc" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
-          <Property Name="Glebokosc" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
-          <Property Name="Wymiar" Type="String" MaxLength="21" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK__Czesci_Ob__ID_El__4D5F7D71">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
@@ -3568,18 +3550,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Polki__ID_Rozmia__6B24EA82">
-          <End Role="Polki_Rozmiary" Type="Self.Polki_Rozmiary" Multiplicity="0..1" />
-          <End Role="Polki" Type="Self.Polki" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Polki_Rozmiary">
-              <PropertyRef Name="ID_Rozmiar_Polki" />
-            </Principal>
-            <Dependent Role="Polki">
-              <PropertyRef Name="ID_Rozmiar_Polki" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Polki_reg__ID_Po__7B5B524B">
           <End Role="Polki" Type="Self.Polki" Multiplicity="0..1" />
           <End Role="Polki_regaly" Type="Self.Polki_regaly" Multiplicity="*" />
@@ -3925,7 +3895,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <EntitySet Name="Pensja" EntityType="Self.Pensja" />
           <EntitySet Name="Polki" EntityType="Self.Polki" />
           <EntitySet Name="Polki_regaly" EntityType="Self.Polki_regaly" />
-          <EntitySet Name="Polki_Rozmiary" EntityType="Self.Polki_Rozmiary" />
           <EntitySet Name="Pracownicy" EntityType="Self.Pracownicy" />
           <EntitySet Name="Pracownicy_Zatrudnienie" EntityType="Self.Pracownicy_Zatrudnienie" />
           <EntitySet Name="Proces_Produkcyjny" EntityType="Self.Proces_Produkcyjny" />
@@ -3953,7 +3922,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <EntitySet Name="Zamowienie_Element" EntityType="Self.Zamowienie_Element" />
           <EntitySet Name="Zawartosc" EntityType="Self.Zawartosc" />
           <EntitySet Name="Znajomosc_Jezykow" EntityType="Self.Znajomosc_Jezykow" />
-          <EntitySet Name="vPolki_Rozmiary" EntityType="Self.vPolki_Rozmiary" />
           <AssociationSet Name="FK__Czesci_Ob__ID_El__4D5F7D71" Association="Self.FK__Czesci_Ob__ID_El__4D5F7D71">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Czesci_Obsluga" EntitySet="Czesci_Obsluga" />
@@ -4166,10 +4134,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             <End Role="Pensja" EntitySet="Pensja" />
             <End Role="Stanowisko" EntitySet="Stanowisko" />
           </AssociationSet>
-          <AssociationSet Name="FK__Polki__ID_Rozmia__6B24EA82" Association="Self.FK__Polki__ID_Rozmia__6B24EA82">
-            <End Role="Polki_Rozmiary" EntitySet="Polki_Rozmiary" />
-            <End Role="Polki" EntitySet="Polki" />
-          </AssociationSet>
           <AssociationSet Name="FK__Polki_reg__ID_Po__7B5B524B" Association="Self.FK__Polki_reg__ID_Po__7B5B524B">
             <End Role="Polki" EntitySet="Polki" />
             <End Role="Polki_regaly" EntitySet="Polki_regaly" />
@@ -4285,6 +4249,12 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <EntitySet Name="vSuma_czasu_procesu" EntityType="SzwalniaModel.vSuma_czasu_procesu" />
           <EntitySet Name="vZamowienieProcesyProdukcyjne" EntityType="SzwalniaModel.vZamowienieProcesyProdukcyjne" />
           <EntitySet Name="vZawartosc_polki" EntityType="SzwalniaModel.vZawartosc_polki" />
+          <EntitySet Name="Polki_Rozmiary" EntityType="SzwalniaModel.Polki_Rozmiary" />
+          <EntitySet Name="vPolki_Rozmiary" EntityType="SzwalniaModel.vPolki_Rozmiary" />
+          <AssociationSet Name="FK__Polki__ID_Rozmia__6B24EA82" Association="SzwalniaModel.FK__Polki__ID_Rozmia__6B24EA82">
+            <End Role="Polki_Rozmiary" EntitySet="Polki_Rozmiary" />
+            <End Role="Polki" EntitySet="Polki" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="vCechyElementu">
           <Key>
@@ -4363,9 +4333,10 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           </Key>
           <Property Name="Oznaczenie" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="ID_Polka" Type="Int32" Nullable="false" />
-          <Property Name="Wysokosc" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
-          <Property Name="Szerokosc" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
-          <Property Name="Glebokosc" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Wysokosc" Type="String" MaxLength="4" Unicode="false" FixedLength="false" />
+          <Property Name="Szerokosc" Type="String" MaxLength="4" Unicode="false" FixedLength="false" />
+          <Property Name="Glebokosc" Type="String" MaxLength="4" Unicode="false" FixedLength="false" />
+          <Property Name="Wymiar" Type="String" MaxLength="21" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="vRealizacjaProcesuProdukcyjnegoDetails">
           <Key>
@@ -4420,6 +4391,38 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Ile_sztuk" Type="Single" />
         </EntityType>
+        <EntityType Name="Polki_Rozmiary">
+          <Key>
+            <PropertyRef Name="ID_Rozmiar_Polki" />
+          </Key>
+          <Property Name="ID_Rozmiar_Polki" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Wysokosc" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Szerokosc" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Glebokosc" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Polki" Relationship="SzwalniaModel.FK__Polki__ID_Rozmia__6B24EA82" FromRole="Polki_Rozmiary" ToRole="Polki" />
+        </EntityType>
+        <EntityType Name="vPolki_Rozmiary">
+          <Key>
+            <PropertyRef Name="ID_Rozmiar_Polki" />
+          </Key>
+          <Property Name="ID_Rozmiar_Polki" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Wysokosc" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Szerokosc" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Glebokosc" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Wymiar" Type="String" MaxLength="21" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK__Polki__ID_Rozmia__6B24EA82">
+          <End Type="SzwalniaModel.Polki_Rozmiary" Role="Polki_Rozmiary" Multiplicity="0..1" />
+          <End Type="SzwalniaModel.Polki" Role="Polki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Polki_Rozmiary">
+              <PropertyRef Name="ID_Rozmiar_Polki" />
+            </Principal>
+            <Dependent Role="Polki">
+              <PropertyRef Name="ID_Rozmiar_Polki" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4764,16 +4767,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Polki_Rozmiary">
-            <EntityTypeMapping TypeName="SzwalniaModel.Polki_Rozmiary">
-              <MappingFragment StoreEntitySet="Polki_Rozmiary">
-                <ScalarProperty Name="ID_Rozmiar_Polki" ColumnName="ID_Rozmiar_Polki" />
-                <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
-                <ScalarProperty Name="Szerokosc" ColumnName="Szerokosc" />
-                <ScalarProperty Name="Glebokosc" ColumnName="Glebokosc" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Pracownicy">
             <EntityTypeMapping TypeName="SzwalniaModel.Pracownicy">
               <MappingFragment StoreEntitySet="Pracownicy">
@@ -5051,17 +5044,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vPolki_Rozmiary">
-            <EntityTypeMapping TypeName="SzwalniaModel.vPolki_Rozmiary">
-              <MappingFragment StoreEntitySet="vPolki_Rozmiary">
-                <ScalarProperty Name="ID_Rozmiar_Polki" ColumnName="ID_Rozmiar_Polki" />
-                <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
-                <ScalarProperty Name="Szerokosc" ColumnName="Szerokosc" />
-                <ScalarProperty Name="Glebokosc" ColumnName="Glebokosc" />
-                <ScalarProperty Name="Wymiar" ColumnName="Wymiar" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vCechyElementu">
             <EntityTypeMapping TypeName="SzwalniaModel.vCechyElementu">
               <MappingFragment StoreEntitySet="vCechyElementu">
@@ -5125,6 +5107,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <EntitySetMapping Name="vPolki_na_regalach">
             <EntityTypeMapping TypeName="SzwalniaModel.vPolki_na_regalach">
               <MappingFragment StoreEntitySet="vPolki_na_regalach">
+                <ScalarProperty Name="Wymiar" ColumnName="Wymiar" />
                 <ScalarProperty Name="Glebokosc" ColumnName="Glebokosc" />
                 <ScalarProperty Name="Szerokosc" ColumnName="Szerokosc" />
                 <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
@@ -5185,6 +5168,27 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
                 <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
                 <ScalarProperty Name="Oznaczenie" ColumnName="Oznaczenie" />
                 <ScalarProperty Name="ID_Regal" ColumnName="ID_Regal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Polki_Rozmiary">
+            <EntityTypeMapping TypeName="SzwalniaModel.Polki_Rozmiary">
+              <MappingFragment StoreEntitySet="Polki_Rozmiary">
+                <ScalarProperty Name="Glebokosc" ColumnName="Glebokosc" />
+                <ScalarProperty Name="Szerokosc" ColumnName="Szerokosc" />
+                <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
+                <ScalarProperty Name="ID_Rozmiar_Polki" ColumnName="ID_Rozmiar_Polki" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vPolki_Rozmiary">
+            <EntityTypeMapping TypeName="SzwalniaModel.vPolki_Rozmiary">
+              <MappingFragment StoreEntitySet="vPolki_Rozmiary">
+                <ScalarProperty Name="Wymiar" ColumnName="Wymiar" />
+                <ScalarProperty Name="Glebokosc" ColumnName="Glebokosc" />
+                <ScalarProperty Name="Szerokosc" ColumnName="Szerokosc" />
+                <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
+                <ScalarProperty Name="ID_Rozmiar_Polki" ColumnName="ID_Rozmiar_Polki" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

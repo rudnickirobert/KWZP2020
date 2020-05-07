@@ -19,5 +19,6 @@ namespace Szwalnia
         public string Wysokosc { get; set; }
         public string Szerokosc { get; set; }
         public string Glebokosc { get; set; }
+        public string Wymiar { get; set; }
     }
 }
