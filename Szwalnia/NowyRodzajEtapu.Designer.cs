@@ -84,6 +84,7 @@
             this.btnZapiszEtap.TabIndex = 6;
             this.btnZapiszEtap.Text = "Zapisz";
             this.btnZapiszEtap.UseVisualStyleBackColor = true;
+            this.btnZapiszEtap.Click += new System.EventHandler(this.btnZapiszEtap_Click);
             // 
             // NowyRodzajEtapu
             // 

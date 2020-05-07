@@ -13,10 +13,18 @@ namespace Szwalnia
     public partial class SzczegolyProcesu : Form
     {
         public SzwalniaEntities db;
-        public SzczegolyProcesu(SzwalniaEntities db)
+        public int IdProcesu;
+        public SzczegolyProcesu(SzwalniaEntities db, int IdProcesu)
         {
             InitializeComponent();
             this.db = db;
+            this.IdProcesu = IdProcesu;
+        }
+
+        private void btnRealizacjaProcesu_Click(object sender, EventArgs e)
+        {
+            RealizacjaProcesu realizacjaProcesu = new RealizacjaProcesu(db,IdProcesu);
+            realizacjaProcesu.Show();
         }
     }
 }

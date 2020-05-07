@@ -28,5 +28,14 @@ namespace Szwalnia
         {
             this.Close();
         }
+
+        private void btnZapiszEtap_Click(object sender, EventArgs e)
+        {
+            Rodzaj_Etapu rodzajEtapu = new Rodzaj_Etapu();
+            rodzajEtapu.Nazwa = tbNazwaEtapu.Text;
+            db.Rodzaj_Etapu.Add(rodzajEtapu);
+            db.SaveChanges();
+            MessageBox.Show("Dodano nowy rodzaj etapu");
+        }
     }
 }

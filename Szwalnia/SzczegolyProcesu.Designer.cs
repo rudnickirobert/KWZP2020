@@ -43,7 +43,6 @@
             this.btnPrzydzialZasobow.TabIndex = 0;
             this.btnPrzydzialZasobow.Text = "Przydział zasobów";
             this.btnPrzydzialZasobow.UseVisualStyleBackColor = true;
-
             // 
             // btnRealizacjaProcesu
             // 
@@ -54,7 +53,7 @@
             this.btnRealizacjaProcesu.TabIndex = 0;
             this.btnRealizacjaProcesu.Text = "Realizacja procesu";
             this.btnRealizacjaProcesu.UseVisualStyleBackColor = true;
-
+            this.btnRealizacjaProcesu.Click += new System.EventHandler(this.btnRealizacjaProcesu_Click);
             // 
             // btnKontrolaEfektywnosci
             // 
@@ -65,7 +64,6 @@
             this.btnKontrolaEfektywnosci.TabIndex = 0;
             this.btnKontrolaEfektywnosci.Text = "Kontrola efektywności";
             this.btnKontrolaEfektywnosci.UseVisualStyleBackColor = true;
-
             // 
             // btnMaterialProdukcja
             // 
@@ -76,7 +74,6 @@
             this.btnMaterialProdukcja.TabIndex = 0;
             this.btnMaterialProdukcja.Text = "Niewkorzystany materiał / Odpad";
             this.btnMaterialProdukcja.UseVisualStyleBackColor = true;
-
             // 
             // SzczegolyProcesu
             // 

@@ -36,5 +36,33 @@ namespace Szwalnia
         {
             this.Close();
         }
+
+        private void btnZapisz_Click(object sender, EventArgs e)
+        {
+            Proces_Produkcyjny proces = new Proces_Produkcyjny();
+            if(string.IsNullOrEmpty(tbIdZamowienieElement.Text))
+            {
+                MessageBox.Show("Uzupełnienie pola ID zamowienie element jest wymagane!");
+            }
+            else
+            {
+                // gdy zostanie wgrana nowa baza danych 
+                /*
+               proces.ID_Zamowienie_Element = Convert.ToInt32(tbIdZamowienieElement.Text);
+               proces.Proponowana_data_dostawy_materialu = Convert.ToDateTime(tbProponowanaData);
+               proces.Data_Rozpoczecia = Convert.ToDateTime(tbDataRozpoczecia);
+               proces.Data_Zakonczenia = Convert.ToDateTime(tbDataZakonczenia);
+               proces.Uwagi = tbUwagi.Text;
+               db.Proces_Produkcyjny.Add(proces);
+               db.SaveChanges();
+               MessageBox.Show("Dodano nowy proces technologiczny");
+               */
+
+
+
+
+
+            }
+        }
     }
 }

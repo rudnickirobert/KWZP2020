@@ -44,6 +44,7 @@
             this.btnWszystkieProcesy.TabIndex = 0;
             this.btnWszystkieProcesy.Text = "Wszystkie";
             this.btnWszystkieProcesy.UseVisualStyleBackColor = true;
+            this.btnWszystkieProcesy.Click += new System.EventHandler(this.btnWszystkieProcesy_Click);
             // 
             // btnNumerProcesu
             // 

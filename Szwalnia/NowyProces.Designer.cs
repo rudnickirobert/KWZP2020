@@ -63,9 +63,9 @@
             this.lblIdZamowienieElement.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblIdZamowienieElement.Location = new System.Drawing.Point(62, 107);
             this.lblIdZamowienieElement.Name = "lblIdZamowienieElement";
-            this.lblIdZamowienieElement.Size = new System.Drawing.Size(162, 18);
+            this.lblIdZamowienieElement.Size = new System.Drawing.Size(161, 18);
             this.lblIdZamowienieElement.TabIndex = 1;
-            this.lblIdZamowienieElement.Text = "ID Zamówienie element";
+            this.lblIdZamowienieElement.Text = "ID zamówienie element";
             // 
             // tbIdZamowienieElement
             // 
@@ -151,6 +151,7 @@
             this.btnZapisz.TabIndex = 3;
             this.btnZapisz.Text = "Zapisz";
             this.btnZapisz.UseVisualStyleBackColor = true;
+            this.btnZapisz.Click += new System.EventHandler(this.btnZapisz_Click);
             // 
             // btnAnuluj
             // 

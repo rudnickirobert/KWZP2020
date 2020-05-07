@@ -24,5 +24,11 @@ namespace Szwalnia
             ZamowienieProcesyProdukcyjne zamowienieProcesyProdukcyjne = new ZamowienieProcesyProdukcyjne(db);
             zamowienieProcesyProdukcyjne.Show();
         }
+
+        private void btnWszystkieProcesy_Click(object sender, EventArgs e)
+        {
+            WszystkieProcesyProdukcyjne wszystkieProcesyProdukcyjne = new WszystkieProcesyProdukcyjne(db);
+            wszystkieProcesyProdukcyjne.Show();
+        }
     }
 }
