@@ -76,11 +76,11 @@
     <Compile Include="DodawanieTypu.Designer.cs">
       <DependentUpon>DodawanieTypu.cs</DependentUpon>
     </Compile>
-    <Compile Include="DodawanieCechElementu.cs">
+    <Compile Include="DodoawanieCechElementu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DodawanieCechElementu.Designer.cs">
-      <DependentUpon>DodawanieCechElementu.cs</DependentUpon>
+    <Compile Include="DodoawanieCechElementu.Designer.cs">
+      <DependentUpon>DodoawanieCechElementu.cs</DependentUpon>
     </Compile>
     <Compile Include="Dokumentacja_Proces.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -141,12 +141,6 @@
     </Compile>
     <Compile Include="DodawanieElementu.Designer.cs">
       <DependentUpon>DodawanieElementu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormularzElementy.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormularzElementy.Designer.cs">
-      <DependentUpon>FormularzElementy.cs</DependentUpon>
     </Compile>
     <Compile Include="Grupa.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -417,14 +411,11 @@
     <EmbeddedResource Include="DodawanieTypu.resx">
       <DependentUpon>DodawanieTypu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DodawanieCechElementu.resx">
-      <DependentUpon>DodawanieCechElementu.cs</DependentUpon>
+    <EmbeddedResource Include="DodoawanieCechElementu.resx">
+      <DependentUpon>DodoawanieCechElementu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ElementSzczegoly.resx">
       <DependentUpon>ElementSzczegoly.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormularzElementy.resx">
-      <DependentUpon>FormularzElementy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Produkcja.resx">
       <DependentUpon>Produkcja.cs</DependentUpon>
