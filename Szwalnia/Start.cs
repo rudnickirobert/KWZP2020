@@ -43,6 +43,12 @@ namespace Szwalnia
         private void Start_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+
+        private void btnZarzadzanie_Click(object sender, EventArgs e)
+        {
+            ZarzadzanieForm zarzadzanieForm = new ZarzadzanieForm(szwalnia);
+            zarzadzanieForm.Show();
+
         }
     } 
 }

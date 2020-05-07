@@ -4,7 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="141d295398104913afee8665bce66733" Name="Diagram1">
+      <Diagram DiagramId="1cb933bfb28b43d88f62197e5d60d1ce" Name="Diagram1" ZoomLevel="64">
+
         <EntityTypeShape EntityType="SzwalniaModel.Czesci_Obsluga" Width="1.5" PointX="8.25" PointY="38.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Dokumentacja_Proces" Width="1.5" PointX="5.25" PointY="40.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Dokumentacje" Width="1.5" PointX="3" PointY="30.875" IsExpanded="true" />
@@ -64,6 +65,23 @@
         <EntityTypeShape EntityType="SzwalniaModel.Zamowienie_Element" Width="1.5" PointX="14.25" PointY="26.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Zawartosc" Width="1.5" PointX="16.5" PointY="22.875" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Znajomosc_Jezykow" Width="1.5" PointX="9" PointY="35.25" IsExpanded="true" />
+
+        <EntityTypeShape EntityType="SzwalniaModel.vCechyElementu" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vIdZamowienieElementProcesProdukcyjny" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vMaszyny_rodzaj_liczba" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vMaszyny_serwis" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vObsluga" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vPolki_na_regalach" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vRealizacjaProcesuProdukcyjnegoDetails" Width="1.5" PointX="6.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vRoznicaDatDni" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vRoznicaDniBezWeekend" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vRoznicaGodzin" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vRozpoczeteProcesy" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vSrednia_ilosc_maszyn" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vSuma_czasu_procesu" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vZamowienieProcesyProdukcyjne" Width="1.5" PointX="5.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vZawartosc_polki" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
+
         <AssociationConnector Association="SzwalniaModel.FK__Czesci_Ob__ID_El__4D5F7D71" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Czesci_Ob__ID_Ob__4C6B5938" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Dokumenta__ID_Do__3C34F16F" ManuallyRouted="false" />
@@ -157,6 +175,11 @@
         <EntityTypeShape EntityType="SzwalniaModel.Polki_Rozmiary" Width="1.5" PointX="12.375" PointY="15.25" />
         <EntityTypeShape EntityType="SzwalniaModel.vPolki_Rozmiary" Width="1.5" PointX="0.75" PointY="4.75" />
         <AssociationConnector Association="SzwalniaModel.FK__Polki__ID_Rozmia__6B24EA82" />
+        <EntityTypeShape EntityType="SzwalniaModel.vNiezuzyteWMiesiacu" Width="1.5" PointX="11.375" PointY="10.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vProcesMaxOdpadMiesiac" Width="1.5" PointX="12.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vSredniCzasWgElementu" Width="1.5" PointX="13.375" PointY="3.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vSzacowanyCzasWykonania" Width="1.5" PointX="13.375" PointY="6.75" />
+
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

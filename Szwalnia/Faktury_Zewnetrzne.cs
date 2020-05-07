@@ -18,9 +18,9 @@ namespace Szwalnia
         public string Nr_Faktury { get; set; }
         public Nullable<int> ID_Grupa { get; set; }
         public string Nazwa_Firmy { get; set; }
-        public string Netto { get; set; }
-        public string Brutto { get; set; }
-        public string Podatek { get; set; }
+        public int Netto { get; set; }
+        public int Brutto { get; set; }
+        public int Podatek { get; set; }
     
         public virtual Grupa Grupa { get; set; }
     }
