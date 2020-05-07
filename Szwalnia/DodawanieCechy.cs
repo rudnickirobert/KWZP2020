@@ -13,16 +13,19 @@ namespace Szwalnia
      public partial class DodawanieCechy : Form
     {
         public SzwalniaEntities szwalniaPassed;
-        public Elementy_Cechy_Slownik cechaNew = new Elementy_Cechy_Slownik();
+        
         public DodawanieCechy()
         {
-            InitializeComponent();
-            cechaNew.Cecha = txtNazwa.Text;
+            InitializeComponent();            
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            szwalniaPassed.Elementy.Add(cechaNew);
+            Elementy_Cechy_Slownik cechaNew = new Elementy_Cechy_Slownik();
+            cechaNew.Cecha = txtNazwa.Text;
+            szwalniaPassed.Elementy_Cechy_Slownik.Add(cechaNew);
+            //szwalniaPassed.SaveChanges();
+            
         }
     }
 }

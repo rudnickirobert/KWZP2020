@@ -16,9 +16,7 @@ namespace Szwalnia
         public Elementy_Cechy elemnetCechaNew = new Elementy_Cechy();
         public DodoawanieCechElementu()
         {
-            InitializeComponent();
-            
-            
+            InitializeComponent();                        
         }
 
         private void DodoawanieCechElementu_Load(object sender, EventArgs e)
@@ -50,7 +48,7 @@ namespace Szwalnia
         }
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            szwalniaPassed.Elementy.Add(elemnetCechaNew);
+            szwalniaPassed.Elementy_Cechy.Add(elemnetCechaNew);
         }
     }
 }

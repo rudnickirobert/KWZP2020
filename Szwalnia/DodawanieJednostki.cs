@@ -22,7 +22,8 @@ namespace Szwalnia
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            szwalniaPassed.Elementy_Typy.Add(jednostkaNew);
+            szwalniaPassed.Elementy_Jednostki.Add(jednostkaNew);
+            //szwalniaPassed.SaveChanges();
         }
     }
 }

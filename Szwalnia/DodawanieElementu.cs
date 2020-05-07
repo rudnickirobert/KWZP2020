@@ -30,7 +30,8 @@ namespace Szwalnia
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            szwalniaPassed.Elementy.Add(elemnetNew);           
+            szwalniaPassed.Elementy.Add(elemnetNew);
+            //szwalniaPassed.SaveChanges();
         }
     }
 }

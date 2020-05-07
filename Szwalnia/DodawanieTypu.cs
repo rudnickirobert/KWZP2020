@@ -20,13 +20,15 @@ namespace Szwalnia
             InitializeComponent();
             typNew.Typ = txtNazwa.Text;
             //if(chBoxWlasny.Checked=true)
-            // { typNew.Czy_wlasne = true; }
+            //{ typNew.Czy_wlasne = true; }
             //else { typNew.Czy_wlasne = false; }
+            //w obecnym modelu nie ma Czy_wlasne
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             szwalniaPassed.Elementy_Typy.Add(typNew);
+            //szwalniaPassed.SaveChanges();
         }
     }
 }
