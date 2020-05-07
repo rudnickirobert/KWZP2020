@@ -12,16 +12,15 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class Faktury_Zewnetrzne
+    public partial class vKosztProcesu
     {
-        public int ID_Faktura_zewnetrzna { get; set; }
-        public string Nr_Faktury { get; set; }
-        public Nullable<int> ID_Grupa { get; set; }
+        public int ID_Zamowienia { get; set; }
+        public string Imie { get; set; }
+        public string Nazwisko { get; set; }
         public string Nazwa_Firmy { get; set; }
-        public float Netto { get; set; }
-        public float Brutto { get; set; }
-        public float Podatek { get; set; }
-    
-        public virtual Grupa Grupa { get; set; }
+        public string NIP { get; set; }
+        public int Koszt_Rbh { get; set; }
+        public Nullable<int> suma_czasu { get; set; }
+        public Nullable<int> Calkowity_koszt_procesu { get; set; }
     }
 }

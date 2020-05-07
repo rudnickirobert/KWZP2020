@@ -325,13 +325,22 @@
     <Compile Include="Urlop.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vCalkowityKosztZamowienia.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vCechyElementu.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vFaktury.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vIdZamowienieElementProcesProdukcyjny.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vKlienciZamowienie.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vKosztProcesu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vMaszyny_rodzaj_liczba.cs">
@@ -353,6 +362,9 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vSuma_czasu_procesu.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vWynagrodzenia.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vZamowienieProcesyProdukcyjne.cs">
