@@ -84,6 +84,7 @@
             this.dgvProcesyProdukcyjne.ReadOnly = true;
             this.dgvProcesyProdukcyjne.Size = new System.Drawing.Size(677, 272);
             this.dgvProcesyProdukcyjne.TabIndex = 4;
+            this.dgvProcesyProdukcyjne.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProcesyProdukcyjne_CellDoubleClick);
             // 
             // ZamowienieProcesyProdukcyjne
             // 

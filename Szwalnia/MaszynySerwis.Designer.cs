@@ -43,16 +43,16 @@
             this.dgvMaszynySerwis.ReadOnly = true;
             this.dgvMaszynySerwis.RowHeadersWidth = 51;
             this.dgvMaszynySerwis.RowTemplate.Height = 24;
-            this.dgvMaszynySerwis.Size = new System.Drawing.Size(675, 374);
+            this.dgvMaszynySerwis.Size = new System.Drawing.Size(899, 374);
             this.dgvMaszynySerwis.TabIndex = 2;
             // 
-            // Maszyny_Serwis
+            // MaszynySerwis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(737, 389);
+            this.ClientSize = new System.Drawing.Size(923, 389);
             this.Controls.Add(this.dgvMaszynySerwis);
-            this.Name = "Maszyny_Serwis";
+            this.Name = "MaszynySerwis";
             this.Text = "Maszyny_Serwis";
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaszynySerwis)).EndInit();
             this.ResumeLayout(false);

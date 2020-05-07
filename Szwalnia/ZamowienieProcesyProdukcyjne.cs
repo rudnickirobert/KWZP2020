@@ -39,5 +39,13 @@ namespace Szwalnia
             else
                 MessageBox.Show("Wprowadź poprawne ID Zamowienia (wieksze od zera)!");
         }
+
+        private void dgvProcesyProdukcyjne_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int numerProcesu = Convert.ToInt32(dgvProcesyProdukcyjne.CurrentRow.Cells[0].Value);
+            SzczegolyProcesu szczegolyProcesu = new SzczegolyProcesu(db, Decimal.ToInt32(numerProcesu));
+            szczegolyProcesu.Show();
+
+        }
     }
 }
