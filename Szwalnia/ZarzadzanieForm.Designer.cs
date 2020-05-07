@@ -43,6 +43,7 @@
             this.btnKlienciForm.TabIndex = 0;
             this.btnKlienciForm.Text = "Klienci";
             this.btnKlienciForm.UseVisualStyleBackColor = true;
+            this.btnKlienciForm.Click += new System.EventHandler(this.btnKlienciForm_Click);
             // 
             // btnPracownicy
             // 
