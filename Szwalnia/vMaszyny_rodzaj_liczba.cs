@@ -14,9 +14,9 @@ namespace Szwalnia
     
     public partial class vMaszyny_rodzaj_liczba
     {
-        public int ID_Maszyny_Proces { get; set; }
+        public int ID_Proces_Technologiczny { get; set; }
         public string Rodzaj_Maszyny { get; set; }
-        public int Liczba { get; set; }
-        public int Liczba_Rbh { get; set; }
+        public string Producent { get; set; }
+        public int Liczba_Maszyn { get; set; }
     }
 }

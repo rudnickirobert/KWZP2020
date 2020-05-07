@@ -16,13 +16,12 @@ namespace Szwalnia
     {
         public int ID_Material_Na_Produkcji { get; set; }
         public int ID_Procesu_Produkcyjnego { get; set; }
-        public int ID_Element { get; set; }
-        public double Liczba { get; set; }
-        public int ID_Jednostka { get; set; }
+        public int ID_Elementy_Proces { get; set; }
         public Nullable<double> Odpad { get; set; }
+        public Nullable<double> Niezuzyty_material { get; set; }
+        public Nullable<bool> Magazyn_odebral_material { get; set; }
     
-        public virtual Elementy Elementy { get; set; }
-        public virtual Elementy_Jednostki Elementy_Jednostki { get; set; }
+        public virtual Elementy_Proces Elementy_Proces { get; set; }
         public virtual Proces_Produkcyjny Proces_Produkcyjny { get; set; }
     }
 }

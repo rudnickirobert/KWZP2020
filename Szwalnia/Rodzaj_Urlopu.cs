@@ -12,13 +12,18 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vMaszyny_serwis
+    public partial class Rodzaj_Urlopu
     {
-        public int ID_Maszyny { get; set; }
-        public int Resurs_Rbh { get; set; }
-        public int Serwis_Co_Ile { get; set; }
-        public string Producent { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Rodzaj_Urlopu()
+        {
+            this.Urlop = new HashSet<Urlop>();
+        }
+    
+        public int ID_Rodzaj_Urlopu { get; set; }
         public string Nazwa { get; set; }
-        public string Numer_seryjny { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Urlop> Urlop { get; set; }
     }
 }

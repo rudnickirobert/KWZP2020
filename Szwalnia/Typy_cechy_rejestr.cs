@@ -12,12 +12,13 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class Czesci_Obsluga
+    public partial class Typy_cechy_rejestr
     {
-        public int ID_Obslugi { get; set; }
-        public int ID_Element { get; set; }
-        public int Ilosc { get; set; }
+        public int ID_Typy_cechy_rejestr { get; set; }
+        public Nullable<int> ID_typ { get; set; }
+        public Nullable<int> ID_cecha { get; set; }
     
-        public virtual Elementy Elementy { get; set; }
+        public virtual Elementy_Cechy_Slownik Elementy_Cechy_Slownik { get; set; }
+        public virtual Elementy_Typy Elementy_Typy { get; set; }
     }
 }

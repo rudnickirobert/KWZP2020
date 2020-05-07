@@ -17,8 +17,8 @@ namespace Szwalnia
         public int ID_Maszyny_Proces { get; set; }
         public int ID_Proces_Technologiczny { get; set; }
         public int ID_Rodzaj_Maszyny { get; set; }
-        public int Liczba { get; set; }
-        public int Liczba_Rbh { get; set; }
+        public int Liczba_Maszyn { get; set; }
+        public int Liczba_Rbh_Maszyna { get; set; }
     
         public virtual Proces_Technologiczny Proces_Technologiczny { get; set; }
         public virtual Rodzaj_Maszyny Rodzaj_Maszyny { get; set; }

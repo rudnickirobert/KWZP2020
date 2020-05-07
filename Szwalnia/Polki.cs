@@ -17,13 +17,17 @@ namespace Szwalnia
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Polki()
         {
+            this.Polki_regaly = new HashSet<Polki_regaly>();
             this.Zawartosc = new HashSet<Zawartosc>();
         }
     
         public int ID_Polka { get; set; }
+        public string Rozszerzenie_ID { get; set; }
         public Nullable<int> ID_Rozmiar_Polki { get; set; }
     
         public virtual Polki_Rozmiary Polki_Rozmiary { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Polki_regaly> Polki_regaly { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zawartosc> Zawartosc { get; set; }
     }

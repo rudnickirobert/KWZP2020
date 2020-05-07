@@ -12,7 +12,7 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vSuma_czasu_proces
+    public partial class vSuma_czasu_procesu
     {
         public int ID_Proces_Technologiczny { get; set; }
         public Nullable<int> suma_czasu { get; set; }
