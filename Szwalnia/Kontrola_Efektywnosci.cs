@@ -19,8 +19,8 @@ namespace Szwalnia
         public System.DateTime Data_Kontroli { get; set; }
         public byte[] Dokument { get; set; }
         public string Uwagi { get; set; }
-        public bool Zgodnosc_Zamowienia { get; set; }
-        public int Liczba_Poprawnych { get; set; }
+        public Nullable<bool> Zgodnosc_Zamowienia { get; set; }
+        public Nullable<int> Liczba_Poprawnych { get; set; }
     
         public virtual Proces_Produkcyjny Proces_Produkcyjny { get; set; }
     }

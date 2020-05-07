@@ -8,7 +8,7 @@ USE	Szwalnia
 CREATE TABLE Rodzaj_Etapu  
 (ID_Etapu int IDENTITY(1,1) PRIMARY KEY, 
 Nazwa varchar(30) NOT NULL); 
-----------------------------------Finanse i Zarz¹dzanie--------------------------------------------------- 
+----------------------------------Finanse i Zarzadzanie--------------------------------------------------- 
 
 CREATE TABLE Klienci ( 
 ID_Klienta int IDENTITY(1,1) PRIMARY KEY, 
@@ -500,7 +500,7 @@ ID_Etapu int FOREIGN KEY REFERENCES Rodzaj_Etapu (ID_Etapu) NOT NULL,
 Data_Rozpoczecia_Procesu SMALLDATETIME NULL, 
 Data_Zakonczenia_Procesu SMALLDATETIME NULL, 
 Data_Kontroli SMALLDATETIME NULL, 
-Uwagi_Kontroli varchar(300) NOT NULL); 
+Uwagi_Kontroli varchar(300) NULL); 
   
 CREATE TABLE Przydzial_Zasobow  
 (ID_Przydzial_Zasobow int IDENTITY(1,1) PRIMARY KEY NOT NULL, 
@@ -514,10 +514,10 @@ CREATE TABLE Kontrola_Efektywnosci
 (ID_Kontrola_Efektywnosci int IDENTITY(1,1) PRIMARY KEY NOT NULL, 
 ID_Procesu_Produkcyjnego int FOREIGN KEY REFERENCES Proces_Produkcyjny (ID_Procesu_Produkcyjnego) NOT NULL,  
 Data_Kontroli smalldatetime NOT NULL, 
-Dokument image NOT NULL, 
+Dokument image NULL, 
 Uwagi varchar(300) NULL, 
-Zgodnosc_Zamowienia bit NOT NULL, 
-Liczba_Poprawnych int NOT NULL);
+Zgodnosc_Zamowienia bit NULL, 
+Liczba_Poprawnych int NULL);
 
 ---------------------Koniec Produkcji--------------------------------------------------------------
 
