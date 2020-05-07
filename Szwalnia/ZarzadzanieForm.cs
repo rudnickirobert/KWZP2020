@@ -46,6 +46,12 @@ namespace Szwalnia
             FaktoryWystawiane fakturyWystawiane = new FaktoryWystawiane(db);
             fakturyWystawiane.Show();
         }
+
+        private void btnBilans_Click(object sender, EventArgs e)
+        {
+            Bilans bilans = new Bilans(db);
+            bilans.Show()
+        }
     }
 }
 

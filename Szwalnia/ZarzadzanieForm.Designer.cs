@@ -95,6 +95,7 @@
             this.btnBilans.TabIndex = 5;
             this.btnBilans.Text = "Bilans";
             this.btnBilans.UseVisualStyleBackColor = true;
+            this.btnBilans.Click += new System.EventHandler(this.btnBilans_Click);
             // 
             // ZarzadzanieForm
             // 
