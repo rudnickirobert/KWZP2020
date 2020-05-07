@@ -157,6 +157,12 @@
     <Compile Include="NowyRozmiarPolki.Designer.cs">
       <DependentUpon>NowyRozmiarPolki.cs</DependentUpon>
     </Compile>
+    <Compile Include="ObslugaZamowien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ObslugaZamowien.Designer.cs">
+      <DependentUpon>ObslugaZamowien.cs</DependentUpon>
+    </Compile>
     <Compile Include="Obsluga_Techniczna.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -222,6 +228,12 @@
     </Compile>
     <Compile Include="Srodki_Trwale.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StanMagazynowy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StanMagazynowy.Designer.cs">
+      <DependentUpon>StanMagazynowy.cs</DependentUpon>
     </Compile>
     <Compile Include="Stanowisko.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
@@ -458,6 +470,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UkladMagazynu.resx">
       <DependentUpon>UkladMagazynu.cs</DependentUpon>
@@ -490,6 +503,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\ikona magazyn.jpg" />
     <Content Include="Szwalnia.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Szwalnia.edmx</DependentUpon>
