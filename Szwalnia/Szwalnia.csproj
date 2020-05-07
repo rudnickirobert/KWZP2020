@@ -58,6 +58,18 @@
     <Compile Include="Czesci_Obsluga.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="DodawanieJednostki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodawanieJednostki.Designer.cs">
+      <DependentUpon>DodawanieJednostki.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DodawanieTypu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodawanieTypu.Designer.cs">
+      <DependentUpon>DodawanieTypu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dokumentacja_Proces.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -362,6 +374,12 @@
     </Compile>
     <EmbeddedResource Include="DodawanieElementu.resx">
       <DependentUpon>DodawanieElementu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodawanieJednostki.resx">
+      <DependentUpon>DodawanieJednostki.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodawanieTypu.resx">
+      <DependentUpon>DodawanieTypu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ElementSzczegoly.resx">
       <DependentUpon>ElementSzczegoly.cs</DependentUpon>
