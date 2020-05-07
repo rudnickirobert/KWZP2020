@@ -12,16 +12,10 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class Kontrola_Efektywnosci
+    public partial class vSzacowanyCzasWykonania
     {
-        public int ID_Kontrola_Efektywnosci { get; set; }
-        public int ID_Procesu_Produkcyjnego { get; set; }
-        public System.DateTime Data_Kontroli { get; set; }
-        public byte[] Dokument { get; set; }
-        public string Uwagi { get; set; }
-        public Nullable<bool> Zgodnosc_Zamowienia { get; set; }
-        public Nullable<int> Liczba_Poprawnych { get; set; }
-    
-        public virtual Proces_Produkcyjny Proces_Produkcyjny { get; set; }
+        public long id { get; set; }
+        public string Typ { get; set; }
+        public Nullable<System.DateTime> Szacowany_czas_wykonania { get; set; }
     }
 }
