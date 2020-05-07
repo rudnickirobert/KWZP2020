@@ -17,7 +17,7 @@ namespace Szwalnia
         {
             InitializeComponent();
             this.db = db;
-            dgvRozpoczeteProcesy.DataSource = db.vRozpoczeteProcesy.ToList();
+         // dgvRozpoczeteProcesy.DataSource = db.vRozpoczeteProcesy.ToList();
         }
     }
 }
