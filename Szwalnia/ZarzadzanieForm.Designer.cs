@@ -53,6 +53,7 @@
             this.btnPracownicy.TabIndex = 1;
             this.btnPracownicy.Text = "Pracownicy";
             this.btnPracownicy.UseVisualStyleBackColor = true;
+            this.btnPracownicy.Click += new System.EventHandler(this.btnPracownicy_Click);
             // 
             // btnFakturyZewnetrzne
             // 

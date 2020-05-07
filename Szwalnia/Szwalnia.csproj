@@ -205,6 +205,12 @@
     <Compile Include="Pracownicy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="PracownicySzczegoly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PracownicySzczegoly.Designer.cs">
+      <DependentUpon>PracownicySzczegoly.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pracownicy_Zatrudnienie.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -360,6 +366,12 @@
     <Compile Include="WyborKlienta.Designer.cs">
       <DependentUpon>WyborKlienta.cs</DependentUpon>
     </Compile>
+    <Compile Include="WyborPracownika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WyborPracownika.Designer.cs">
+      <DependentUpon>WyborPracownika.cs</DependentUpon>
+    </Compile>
     <Compile Include="Wymiar_Urlopu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -398,6 +410,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KlienciSzczegoly.resx">
       <DependentUpon>KlienciSzczegoly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PracownicySzczegoly.resx">
+      <DependentUpon>PracownicySzczegoly.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Produkcja.resx">
       <DependentUpon>Produkcja.cs</DependentUpon>
@@ -446,6 +461,9 @@
     </Compile>
     <EmbeddedResource Include="WyborKlienta.resx">
       <DependentUpon>WyborKlienta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WyborPracownika.resx">
+      <DependentUpon>WyborPracownika.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ZamowienieProcesyProdukcyjne.resx">
       <DependentUpon>ZamowienieProcesyProdukcyjne.cs</DependentUpon>

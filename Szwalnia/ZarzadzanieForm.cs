@@ -29,17 +29,19 @@ namespace Szwalnia
             wyborKlienta.Show();
             this.Close();
         }
+
+        private void btnPracownicy_Click(object sender, EventArgs e)
+        {
+            WyborPracownika wyborPracownika = new WyborPracownika(db);
+            wyborPracownika.Show();
+            this.Close();
+        }
         //        private void btnFakturyZewnetrzne_Click(object sender, EventArgs e)
         //        {
         //            FakturyZewnetrzne fakturyZewnetrzne = new FakturyZewnetrzne(db);
         //            fakturyZewnetrzne.Show();
         //        }
-        //         private void btnPracownicy_Click(object sender, EventArgs e)
-        //        {
-        //             WyborPracownika wyborPracownika = new WyborPracownika(db);
-        //            wyborPracownika.Show();
-        //            this.Close();
-        //        }
+
     }
-    }
+}
 
