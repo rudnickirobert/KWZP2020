@@ -22,14 +22,12 @@ namespace Szwalnia
         {
             WyborKlienta wyborKlienta = new WyborKlienta(db);
             wyborKlienta.Show();
-            this.Close();
         }
 
         private void btnPracownicy_Click(object sender, EventArgs e)
         {
             WyborPracownika wyborPracownika = new WyborPracownika(db);
             wyborPracownika.Show();
-            this.Close();
         }
 
         private void btnFakturyZewnetrzne_Click(object sender, EventArgs e)

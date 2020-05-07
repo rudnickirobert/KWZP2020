@@ -159,9 +159,9 @@
           <Property Name="Nr_Faktury" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="ID_Grupa" Type="int" />
           <Property Name="Nazwa_Firmy" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="Netto" Type="real" Nullable="false" />
-          <Property Name="Brutto" Type="real" Nullable="false" />
-          <Property Name="Podatek" Type="real" Nullable="false" />
+          <Property Name="Netto" Type="int" Nullable="false" />
+          <Property Name="Brutto" Type="int" Nullable="false" />
+          <Property Name="Podatek" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Grupa">
           <Key>
@@ -571,6 +571,14 @@
           <Property Name="ID_Pracownika" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6013: The table/view 'Szwalnia.dbo.vBilans' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="vBilans">
+          <Property Name="Przychody" Type="numeric" Precision="38" Scale="4" />
+          <Property Name="Wydatki" Type="int" />
+          <Property Name="Wyplaty" Type="float" />
+          <Property Name="Bilans" Type="float" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vCalkowityKosztZamowienia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vCalkowityKosztZamowienia">
           <Key>
@@ -722,6 +730,11 @@ warning 6002: The table/view 'Szwalnia.dbo.vPolki_na_regalach' does not have a p
           <Property Name="Glebokosc" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6013: The table/view 'Szwalnia.dbo.vPrzychody' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="vPrzychody">
+          <Property Name="Przychody" Type="numeric" Precision="38" Scale="4" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vRealizacjaProcesuProdukcyjnegoDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vRealizacjaProcesuProdukcyjnegoDetails">
           <Key>
@@ -735,6 +748,12 @@ warning 6002: The table/view 'Szwalnia.dbo.vRealizacjaProcesuProdukcyjnegoDetail
           <Property Name="Data_Rozpoczecia_Procesu" Type="smalldatetime" />
           <Property Name="Data_Zakonczenia_Procesu" Type="smalldatetime" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Szwalnia.dbo.vRozchody' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="vRozchody">
+          <Property Name="Wydatki" Type="int" />
+          <Property Name="Wyplaty" Type="float" />
+        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vSrednia_ilosc_maszyn' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vSrednia_ilosc_maszyn">
@@ -1103,7 +1122,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Faktury_Z__ID_Gr__5DCAEF64">
+        <Association Name="FK__Faktury_Z__ID_Gr__00DF2177">
           <End Role="Grupa" Type="Self.Grupa" Multiplicity="0..1" />
           <End Role="Faktury_Zewnetrzne" Type="Self.Faktury_Zewnetrzne" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2078,7 +2097,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
             <End Role="Etapy_W_Procesie" EntitySet="Etapy_W_Procesie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Faktury_Z__ID_Gr__5DCAEF64" Association="Self.FK__Faktury_Z__ID_Gr__5DCAEF64">
+          <AssociationSet Name="FK__Faktury_Z__ID_Gr__00DF2177" Association="Self.FK__Faktury_Z__ID_Gr__00DF2177">
             <End Role="Grupa" EntitySet="Grupa" />
             <End Role="Faktury_Zewnetrzne" EntitySet="Faktury_Zewnetrzne" />
           </AssociationSet>
@@ -2504,10 +2523,10 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="Nr_Faktury" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ID_Grupa" Type="Int32" />
           <Property Name="Nazwa_Firmy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Netto" Type="Single" Nullable="false" />
-          <Property Name="Brutto" Type="Single" Nullable="false" />
-          <Property Name="Podatek" Type="Single" Nullable="false" />
-          <NavigationProperty Name="Grupa" Relationship="Self.FK__Faktury_Z__ID_Gr__5DCAEF64" FromRole="Faktury_Zewnetrzne" ToRole="Grupa" />
+          <Property Name="Netto" Type="Int32" Nullable="false" />
+          <Property Name="Brutto" Type="Int32" Nullable="false" />
+          <Property Name="Podatek" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Grupa" Relationship="Self.FK__Faktury_Z__ID_Gr__00DF2177" FromRole="Faktury_Zewnetrzne" ToRole="Grupa" />
         </EntityType>
         <EntityType Name="Grupa">
           <Key>
@@ -2515,7 +2534,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           </Key>
           <Property Name="ID_Grupa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Faktury_Zewnetrzne" Relationship="Self.FK__Faktury_Z__ID_Gr__5DCAEF64" FromRole="Grupa" ToRole="Faktury_Zewnetrzne" />
+          <NavigationProperty Name="Faktury_Zewnetrzne" Relationship="Self.FK__Faktury_Z__ID_Gr__00DF2177" FromRole="Grupa" ToRole="Faktury_Zewnetrzne" />
         </EntityType>
         <EntityType Name="Jezyk">
           <Key>
@@ -3673,7 +3692,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Faktury_Z__ID_Gr__5DCAEF64">
+        <Association Name="FK__Faktury_Z__ID_Gr__00DF2177">
           <End Role="Grupa" Type="Self.Grupa" Multiplicity="0..1" />
           <End Role="Faktury_Zewnetrzne" Type="Self.Faktury_Zewnetrzne" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4414,7 +4433,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             <End Role="Etat" EntitySet="Etat" />
             <End Role="Pracownicy_Zatrudnienie" EntitySet="Pracownicy_Zatrudnienie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Faktury_Z__ID_Gr__5DCAEF64" Association="Self.FK__Faktury_Z__ID_Gr__5DCAEF64">
+          <AssociationSet Name="FK__Faktury_Z__ID_Gr__00DF2177" Association="Self.FK__Faktury_Z__ID_Gr__00DF2177">
             <End Role="Grupa" EntitySet="Grupa" />
             <End Role="Faktury_Zewnetrzne" EntitySet="Faktury_Zewnetrzne" />
           </AssociationSet>
