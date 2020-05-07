@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SzwalniaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SzwalniaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Czesci_Obsluga">
           <Key>
             <PropertyRef Name="ID_Czesci_Obsluga" />
@@ -316,9 +316,9 @@
             <PropertyRef Name="ID_Rozmiar_Polki" />
           </Key>
           <Property Name="ID_Rozmiar_Polki" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Wysokosc" Type="int" />
-          <Property Name="Szerokosc" Type="int" />
-          <Property Name="Glebokosc" Type="int" />
+          <Property Name="Wysokosc" Type="varchar" MaxLength="4" />
+          <Property Name="Szerokosc" Type="varchar" MaxLength="4" />
+          <Property Name="Glebokosc" Type="varchar" MaxLength="4" />
         </EntityType>
         <EntityType Name="Pracownicy">
           <Key>
@@ -659,9 +659,21 @@ warning 6002: The table/view 'Szwalnia.dbo.vPolki_na_regalach' does not have a p
           </Key>
           <Property Name="Oznaczenie" Type="varchar" MaxLength="10" />
           <Property Name="ID_Polka" Type="int" Nullable="false" />
-          <Property Name="Wysokosc" Type="int" />
-          <Property Name="Szerokosc" Type="int" />
-          <Property Name="Glebokosc" Type="int" />
+          <Property Name="Wysokosc" Type="varchar" MaxLength="4" />
+          <Property Name="Szerokosc" Type="varchar" MaxLength="4" />
+          <Property Name="Glebokosc" Type="varchar" MaxLength="4" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vPolki_Rozmiary' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vPolki_Rozmiary">
+          <Key>
+            <PropertyRef Name="ID_Rozmiar_Polki" />
+          </Key>
+          <Property Name="ID_Rozmiar_Polki" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Wysokosc" Type="varchar" MaxLength="4" />
+          <Property Name="Szerokosc" Type="varchar" MaxLength="4" />
+          <Property Name="Glebokosc" Type="varchar" MaxLength="4" />
+          <Property Name="Wymiar" Type="varchar" MaxLength="21" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vRealizacjaProcesuProdukcyjnegoDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1806,6 +1818,15 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
     [vPolki_na_regalach].[Glebokosc] AS [Glebokosc]
     FROM [dbo].[vPolki_na_regalach] AS [vPolki_na_regalach]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vPolki_Rozmiary" EntityType="Self.vPolki_Rozmiary" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vPolki_Rozmiary].[ID_Rozmiar_Polki] AS [ID_Rozmiar_Polki], 
+    [vPolki_Rozmiary].[Wysokosc] AS [Wysokosc], 
+    [vPolki_Rozmiary].[Szerokosc] AS [Szerokosc], 
+    [vPolki_Rozmiary].[Glebokosc] AS [Glebokosc], 
+    [vPolki_Rozmiary].[Wymiar] AS [Wymiar]
+    FROM [dbo].[vPolki_Rozmiary] AS [vPolki_Rozmiary]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vRealizacjaProcesuProdukcyjnegoDetails" EntityType="Self.vRealizacjaProcesuProdukcyjnegoDetails" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vRealizacjaProcesuProdukcyjnegoDetails].[ID_Procesu_Produkcyjnego] AS [ID_Procesu_Produkcyjnego], 
@@ -2172,8 +2193,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             <End Role="Znajomosc_Jezykow" EntitySet="Znajomosc_Jezykow" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SzwalniaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -2567,9 +2587,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             <PropertyRef Name="ID_Rozmiar_Polki" />
           </Key>
           <Property Name="ID_Rozmiar_Polki" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Wysokosc" Type="Int32" />
-          <Property Name="Szerokosc" Type="Int32" />
-          <Property Name="Glebokosc" Type="Int32" />
+          <Property Name="Wysokosc" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Szerokosc" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Glebokosc" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Polki" Relationship="Self.FK__Polki__ID_Rozmia__6B24EA82" FromRole="Polki_Rozmiary" ToRole="Polki" />
         </EntityType>
         <EntityType Name="Pracownicy">
@@ -2902,139 +2922,15 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <NavigationProperty Name="Jezyk" Relationship="Self.FK__Znajomosc__ID_Je__534D60F1" FromRole="Znajomosc_Jezykow" ToRole="Jezyk" />
           <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Znajomosc__ID_Pr__5441852A" FromRole="Znajomosc_Jezykow" ToRole="Pracownicy" />
         </EntityType>
-        <EntityType Name="vCechyElementu">
+        <EntityType Name="vPolki_Rozmiary">
           <Key>
-            <PropertyRef Name="ID_Element" />
+            <PropertyRef Name="ID_Rozmiar_Polki" />
           </Key>
-          <Property Name="ID_Element" Type="Int32" Nullable="false" />
-          <Property Name="Cecha" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Wartosc_Cechy_Liczbowa" Type="Single" />
-          <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Wartosc_Cechy_Slowna" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="vIdZamowienieElementProcesProdukcyjny">
-          <Key>
-            <PropertyRef Name="ID_Zamowienie_Element" />
-            <PropertyRef Name="ID_Procesu_Produkcyjnego" />
-            <PropertyRef Name="Expr1" />
-          </Key>
-          <Property Name="ID_Zamowienie_Element" Type="Int32" Nullable="false" />
-          <Property Name="ID_Procesu_Produkcyjnego" Type="Int32" Nullable="false" />
-          <Property Name="Expr1" Type="Int32" Nullable="false" />
-          <Property Name="Proponowana_data_dostawy_materialu" Type="DateTime" Precision="0" />
-          <Property Name="Data_Rozpoczecia" Type="DateTime" Precision="0" />
-          <Property Name="Data_Zakonczenia" Type="DateTime" Precision="0" />
-          <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="vMaszyny_rodzaj_liczba">
-          <Key>
-            <PropertyRef Name="ID_Proces_Technologiczny" />
-            <PropertyRef Name="Rodzaj_Maszyny" />
-            <PropertyRef Name="Producent" />
-            <PropertyRef Name="Liczba_Maszyn" />
-          </Key>
-          <Property Name="ID_Proces_Technologiczny" Type="Int32" Nullable="false" />
-          <Property Name="Rodzaj_Maszyny" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Producent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Liczba_Maszyn" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="vMaszyny_serwis">
-          <Key>
-            <PropertyRef Name="ID_Maszyny" />
-            <PropertyRef Name="Resurs_Rbh" />
-            <PropertyRef Name="Serwis_Co_Ile" />
-            <PropertyRef Name="Producent" />
-            <PropertyRef Name="Nazwa" />
-            <PropertyRef Name="Numer_seryjny" />
-          </Key>
-          <Property Name="ID_Maszyny" Type="Int32" Nullable="false" />
-          <Property Name="Resurs_Rbh" Type="Int32" Nullable="false" />
-          <Property Name="Serwis_Co_Ile" Type="Int32" Nullable="false" />
-          <Property Name="Producent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Numer_seryjny" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-        </EntityType>
-        <EntityType Name="vObsluga">
-          <Key>
-            <PropertyRef Name="ID_Obsluga_Techniczna" />
-            <PropertyRef Name="Nazwa" />
-            <PropertyRef Name="Producent" />
-            <PropertyRef Name="Numer_seryjny" />
-            <PropertyRef Name="Expr1" />
-            <PropertyRef Name="Data_Wykonania" />
-            <PropertyRef Name="Nazwisko" />
-          </Key>
-          <Property Name="ID_Obsluga_Techniczna" Type="Int32" Nullable="false" />
-          <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Producent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Numer_seryjny" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Expr1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Data_Wykonania" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="vPolki_na_regalach">
-          <Key>
-            <PropertyRef Name="ID_Polka" />
-          </Key>
-          <Property Name="Oznaczenie" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="ID_Polka" Type="Int32" Nullable="false" />
-          <Property Name="Wysokosc" Type="Int32" />
-          <Property Name="Szerokosc" Type="Int32" />
-          <Property Name="Glebokosc" Type="Int32" />
-        </EntityType>
-        <EntityType Name="vRealizacjaProcesuProdukcyjnegoDetails">
-          <Key>
-            <PropertyRef Name="ID_Procesu_Produkcyjnego" />
-            <PropertyRef Name="ID_Realizacji_Procesu" />
-            <PropertyRef Name="Nazwa_etapu" />
-          </Key>
-          <Property Name="ID_Procesu_Produkcyjnego" Type="Int32" Nullable="false" />
-          <Property Name="ID_Realizacji_Procesu" Type="Int32" Nullable="false" />
-          <Property Name="Nazwa_etapu" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Data_Rozpoczecia_Procesu" Type="DateTime" Precision="0" />
-          <Property Name="Data_Zakonczenia_Procesu" Type="DateTime" Precision="0" />
-        </EntityType>
-        <EntityType Name="vSrednia_ilosc_maszyn">
-          <Key>
-            <PropertyRef Name="Rodzaj_Maszyny" />
-          </Key>
-          <Property Name="Rodzaj_Maszyny" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="srednia_ilosc_maszyn" Type="Int32" />
-        </EntityType>
-        <EntityType Name="vSuma_czasu_procesu">
-          <Key>
-            <PropertyRef Name="ID_Proces_Technologiczny" />
-          </Key>
-          <Property Name="ID_Proces_Technologiczny" Type="Int32" Nullable="false" />
-          <Property Name="suma_czasu" Type="Int32" />
-        </EntityType>
-        <EntityType Name="vZamowienieProcesyProdukcyjne">
-          <Key>
-            <PropertyRef Name="ID_Procesu_Produkcyjnego" />
-            <PropertyRef Name="ID_Zamowienie_Element" />
-          </Key>
-          <Property Name="ID_Procesu_Produkcyjnego" Type="Int32" Nullable="false" />
-          <Property Name="ID_Zamowienia" Type="Int32" />
-          <Property Name="ID_Zamowienie_Element" Type="Int32" Nullable="false" />
-          <Property Name="Typ" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
-          <Property Name="Proponowana_data_dostawy_materialu" Type="DateTime" Precision="0" />
-          <Property Name="Data_Rozpoczecia" Type="DateTime" Precision="0" />
-          <Property Name="Data_Zakonczenia" Type="DateTime" Precision="0" />
-          <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="vZawartosc_polki">
-          <Key>
-            <PropertyRef Name="ID_Regal" />
-          </Key>
-          <Property Name="ID_Regal" Type="Int32" Nullable="false" />
-          <Property Name="Oznaczenie" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="ID_Polka" Type="Int32" />
-          <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
-          <Property Name="Ilosc_Paczek" Type="Single" />
-          <Property Name="Ilosc_W_Opakowaniu_Pojedynczym" Type="Single" />
-          <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Ile_sztuk" Type="Single" />
+          <Property Name="ID_Rozmiar_Polki" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Wysokosc" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Szerokosc" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Glebokosc" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Wymiar" Type="String" MaxLength="21" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK__Czesci_Ob__ID_El__4D5F7D71">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
@@ -4057,17 +3953,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <EntitySet Name="Zamowienie_Element" EntityType="Self.Zamowienie_Element" />
           <EntitySet Name="Zawartosc" EntityType="Self.Zawartosc" />
           <EntitySet Name="Znajomosc_Jezykow" EntityType="Self.Znajomosc_Jezykow" />
-          <EntitySet Name="vCechyElementu" EntityType="Self.vCechyElementu" />
-          <EntitySet Name="vIdZamowienieElementProcesProdukcyjny" EntityType="Self.vIdZamowienieElementProcesProdukcyjny" />
-          <EntitySet Name="vMaszyny_rodzaj_liczba" EntityType="Self.vMaszyny_rodzaj_liczba" />
-          <EntitySet Name="vMaszyny_serwis" EntityType="Self.vMaszyny_serwis" />
-          <EntitySet Name="vObsluga" EntityType="Self.vObsluga" />
-          <EntitySet Name="vPolki_na_regalach" EntityType="Self.vPolki_na_regalach" />
-          <EntitySet Name="vRealizacjaProcesuProdukcyjnegoDetails" EntityType="Self.vRealizacjaProcesuProdukcyjnegoDetails" />
-          <EntitySet Name="vSrednia_ilosc_maszyn" EntityType="Self.vSrednia_ilosc_maszyn" />
-          <EntitySet Name="vSuma_czasu_procesu" EntityType="Self.vSuma_czasu_procesu" />
-          <EntitySet Name="vZamowienieProcesyProdukcyjne" EntityType="Self.vZamowienieProcesyProdukcyjne" />
-          <EntitySet Name="vZawartosc_polki" EntityType="Self.vZawartosc_polki" />
+          <EntitySet Name="vPolki_Rozmiary" EntityType="Self.vPolki_Rozmiary" />
           <AssociationSet Name="FK__Czesci_Ob__ID_El__4D5F7D71" Association="Self.FK__Czesci_Ob__ID_El__4D5F7D71">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Czesci_Obsluga" EntitySet="Czesci_Obsluga" />
@@ -4388,7 +4274,152 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
+          <EntitySet Name="vCechyElementu" EntityType="SzwalniaModel.vCechyElementu" />
+          <EntitySet Name="vIdZamowienieElementProcesProdukcyjny" EntityType="SzwalniaModel.vIdZamowienieElementProcesProdukcyjny" />
+          <EntitySet Name="vMaszyny_rodzaj_liczba" EntityType="SzwalniaModel.vMaszyny_rodzaj_liczba" />
+          <EntitySet Name="vMaszyny_serwis" EntityType="SzwalniaModel.vMaszyny_serwis" />
+          <EntitySet Name="vObsluga" EntityType="SzwalniaModel.vObsluga" />
+          <EntitySet Name="vPolki_na_regalach" EntityType="SzwalniaModel.vPolki_na_regalach" />
+          <EntitySet Name="vRealizacjaProcesuProdukcyjnegoDetails" EntityType="SzwalniaModel.vRealizacjaProcesuProdukcyjnegoDetails" />
+          <EntitySet Name="vSrednia_ilosc_maszyn" EntityType="SzwalniaModel.vSrednia_ilosc_maszyn" />
+          <EntitySet Name="vSuma_czasu_procesu" EntityType="SzwalniaModel.vSuma_czasu_procesu" />
+          <EntitySet Name="vZamowienieProcesyProdukcyjne" EntityType="SzwalniaModel.vZamowienieProcesyProdukcyjne" />
+          <EntitySet Name="vZawartosc_polki" EntityType="SzwalniaModel.vZawartosc_polki" />
         </EntityContainer>
+        <EntityType Name="vCechyElementu">
+          <Key>
+            <PropertyRef Name="ID_Element" />
+          </Key>
+          <Property Name="ID_Element" Type="Int32" Nullable="false" />
+          <Property Name="Cecha" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Wartosc_Cechy_Liczbowa" Type="Single" />
+          <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Wartosc_Cechy_Slowna" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vIdZamowienieElementProcesProdukcyjny">
+          <Key>
+            <PropertyRef Name="ID_Zamowienie_Element" />
+            <PropertyRef Name="ID_Procesu_Produkcyjnego" />
+            <PropertyRef Name="Expr1" />
+          </Key>
+          <Property Name="ID_Zamowienie_Element" Type="Int32" Nullable="false" />
+          <Property Name="ID_Procesu_Produkcyjnego" Type="Int32" Nullable="false" />
+          <Property Name="Expr1" Type="Int32" Nullable="false" />
+          <Property Name="Proponowana_data_dostawy_materialu" Type="DateTime" Precision="0" />
+          <Property Name="Data_Rozpoczecia" Type="DateTime" Precision="0" />
+          <Property Name="Data_Zakonczenia" Type="DateTime" Precision="0" />
+          <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vMaszyny_rodzaj_liczba">
+          <Key>
+            <PropertyRef Name="ID_Proces_Technologiczny" />
+            <PropertyRef Name="Rodzaj_Maszyny" />
+            <PropertyRef Name="Producent" />
+            <PropertyRef Name="Liczba_Maszyn" />
+          </Key>
+          <Property Name="ID_Proces_Technologiczny" Type="Int32" Nullable="false" />
+          <Property Name="Rodzaj_Maszyny" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Producent" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Liczba_Maszyn" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vMaszyny_serwis">
+          <Key>
+            <PropertyRef Name="ID_Maszyny" />
+            <PropertyRef Name="Resurs_Rbh" />
+            <PropertyRef Name="Serwis_Co_Ile" />
+            <PropertyRef Name="Producent" />
+            <PropertyRef Name="Nazwa" />
+            <PropertyRef Name="Numer_seryjny" />
+          </Key>
+          <Property Name="ID_Maszyny" Type="Int32" Nullable="false" />
+          <Property Name="Resurs_Rbh" Type="Int32" Nullable="false" />
+          <Property Name="Serwis_Co_Ile" Type="Int32" Nullable="false" />
+          <Property Name="Producent" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nazwa" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Numer_seryjny" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vObsluga">
+          <Key>
+            <PropertyRef Name="ID_Obsluga_Techniczna" />
+            <PropertyRef Name="Nazwa" />
+            <PropertyRef Name="Producent" />
+            <PropertyRef Name="Numer_seryjny" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="Data_Wykonania" />
+            <PropertyRef Name="Nazwisko" />
+          </Key>
+          <Property Name="ID_Obsluga_Techniczna" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Producent" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Numer_seryjny" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Expr1" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Data_Wykonania" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Nazwisko" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vPolki_na_regalach">
+          <Key>
+            <PropertyRef Name="ID_Polka" />
+          </Key>
+          <Property Name="Oznaczenie" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Polka" Type="Int32" Nullable="false" />
+          <Property Name="Wysokosc" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Szerokosc" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Glebokosc" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vRealizacjaProcesuProdukcyjnegoDetails">
+          <Key>
+            <PropertyRef Name="ID_Procesu_Produkcyjnego" />
+            <PropertyRef Name="ID_Realizacji_Procesu" />
+            <PropertyRef Name="Nazwa_etapu" />
+          </Key>
+          <Property Name="ID_Procesu_Produkcyjnego" Type="Int32" Nullable="false" />
+          <Property Name="ID_Realizacji_Procesu" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_etapu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Data_Rozpoczecia_Procesu" Type="DateTime" Precision="0" />
+          <Property Name="Data_Zakonczenia_Procesu" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="vSrednia_ilosc_maszyn">
+          <Key>
+            <PropertyRef Name="Rodzaj_Maszyny" />
+          </Key>
+          <Property Name="Rodzaj_Maszyny" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="srednia_ilosc_maszyn" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vSuma_czasu_procesu">
+          <Key>
+            <PropertyRef Name="ID_Proces_Technologiczny" />
+          </Key>
+          <Property Name="ID_Proces_Technologiczny" Type="Int32" Nullable="false" />
+          <Property Name="suma_czasu" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vZamowienieProcesyProdukcyjne">
+          <Key>
+            <PropertyRef Name="ID_Procesu_Produkcyjnego" />
+            <PropertyRef Name="ID_Zamowienie_Element" />
+          </Key>
+          <Property Name="ID_Procesu_Produkcyjnego" Type="Int32" Nullable="false" />
+          <Property Name="ID_Zamowienia" Type="Int32" />
+          <Property Name="ID_Zamowienie_Element" Type="Int32" Nullable="false" />
+          <Property Name="Typ" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="Proponowana_data_dostawy_materialu" Type="DateTime" Precision="0" />
+          <Property Name="Data_Rozpoczecia" Type="DateTime" Precision="0" />
+          <Property Name="Data_Zakonczenia" Type="DateTime" Precision="0" />
+          <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vZawartosc_polki">
+          <Key>
+            <PropertyRef Name="ID_Regal" />
+          </Key>
+          <Property Name="ID_Regal" Type="Int32" Nullable="false" />
+          <Property Name="Oznaczenie" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Polka" Type="Int32" />
+          <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="Ilosc_Paczek" Type="Single" />
+          <Property Name="Ilosc_W_Opakowaniu_Pojedynczym" Type="Single" />
+          <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Ile_sztuk" Type="Single" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -5020,129 +5051,140 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="vPolki_Rozmiary">
+            <EntityTypeMapping TypeName="SzwalniaModel.vPolki_Rozmiary">
+              <MappingFragment StoreEntitySet="vPolki_Rozmiary">
+                <ScalarProperty Name="ID_Rozmiar_Polki" ColumnName="ID_Rozmiar_Polki" />
+                <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
+                <ScalarProperty Name="Szerokosc" ColumnName="Szerokosc" />
+                <ScalarProperty Name="Glebokosc" ColumnName="Glebokosc" />
+                <ScalarProperty Name="Wymiar" ColumnName="Wymiar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="vCechyElementu">
             <EntityTypeMapping TypeName="SzwalniaModel.vCechyElementu">
               <MappingFragment StoreEntitySet="vCechyElementu">
-                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
-                <ScalarProperty Name="Cecha" ColumnName="Cecha" />
-                <ScalarProperty Name="Wartosc_Cechy_Liczbowa" ColumnName="Wartosc_Cechy_Liczbowa" />
-                <ScalarProperty Name="Jednostka" ColumnName="Jednostka" />
                 <ScalarProperty Name="Wartosc_Cechy_Slowna" ColumnName="Wartosc_Cechy_Slowna" />
+                <ScalarProperty Name="Jednostka" ColumnName="Jednostka" />
+                <ScalarProperty Name="Wartosc_Cechy_Liczbowa" ColumnName="Wartosc_Cechy_Liczbowa" />
+                <ScalarProperty Name="Cecha" ColumnName="Cecha" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vIdZamowienieElementProcesProdukcyjny">
             <EntityTypeMapping TypeName="SzwalniaModel.vIdZamowienieElementProcesProdukcyjny">
               <MappingFragment StoreEntitySet="vIdZamowienieElementProcesProdukcyjny">
-                <ScalarProperty Name="ID_Zamowienie_Element" ColumnName="ID_Zamowienie_Element" />
-                <ScalarProperty Name="ID_Procesu_Produkcyjnego" ColumnName="ID_Procesu_Produkcyjnego" />
-                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
-                <ScalarProperty Name="Proponowana_data_dostawy_materialu" ColumnName="Proponowana_data_dostawy_materialu" />
-                <ScalarProperty Name="Data_Rozpoczecia" ColumnName="Data_Rozpoczecia" />
-                <ScalarProperty Name="Data_Zakonczenia" ColumnName="Data_Zakonczenia" />
                 <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
+                <ScalarProperty Name="Data_Zakonczenia" ColumnName="Data_Zakonczenia" />
+                <ScalarProperty Name="Data_Rozpoczecia" ColumnName="Data_Rozpoczecia" />
+                <ScalarProperty Name="Proponowana_data_dostawy_materialu" ColumnName="Proponowana_data_dostawy_materialu" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="ID_Procesu_Produkcyjnego" ColumnName="ID_Procesu_Produkcyjnego" />
+                <ScalarProperty Name="ID_Zamowienie_Element" ColumnName="ID_Zamowienie_Element" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vMaszyny_rodzaj_liczba">
             <EntityTypeMapping TypeName="SzwalniaModel.vMaszyny_rodzaj_liczba">
               <MappingFragment StoreEntitySet="vMaszyny_rodzaj_liczba">
-                <ScalarProperty Name="ID_Proces_Technologiczny" ColumnName="ID_Proces_Technologiczny" />
-                <ScalarProperty Name="Rodzaj_Maszyny" ColumnName="Rodzaj_Maszyny" />
-                <ScalarProperty Name="Producent" ColumnName="Producent" />
                 <ScalarProperty Name="Liczba_Maszyn" ColumnName="Liczba_Maszyn" />
+                <ScalarProperty Name="Producent" ColumnName="Producent" />
+                <ScalarProperty Name="Rodzaj_Maszyny" ColumnName="Rodzaj_Maszyny" />
+                <ScalarProperty Name="ID_Proces_Technologiczny" ColumnName="ID_Proces_Technologiczny" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vMaszyny_serwis">
             <EntityTypeMapping TypeName="SzwalniaModel.vMaszyny_serwis">
               <MappingFragment StoreEntitySet="vMaszyny_serwis">
-                <ScalarProperty Name="ID_Maszyny" ColumnName="ID_Maszyny" />
-                <ScalarProperty Name="Resurs_Rbh" ColumnName="Resurs_Rbh" />
-                <ScalarProperty Name="Serwis_Co_Ile" ColumnName="Serwis_Co_Ile" />
-                <ScalarProperty Name="Producent" ColumnName="Producent" />
-                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
                 <ScalarProperty Name="Numer_seryjny" ColumnName="Numer_seryjny" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Producent" ColumnName="Producent" />
+                <ScalarProperty Name="Serwis_Co_Ile" ColumnName="Serwis_Co_Ile" />
+                <ScalarProperty Name="Resurs_Rbh" ColumnName="Resurs_Rbh" />
+                <ScalarProperty Name="ID_Maszyny" ColumnName="ID_Maszyny" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vObsluga">
             <EntityTypeMapping TypeName="SzwalniaModel.vObsluga">
               <MappingFragment StoreEntitySet="vObsluga">
-                <ScalarProperty Name="ID_Obsluga_Techniczna" ColumnName="ID_Obsluga_Techniczna" />
-                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
-                <ScalarProperty Name="Producent" ColumnName="Producent" />
-                <ScalarProperty Name="Numer_seryjny" ColumnName="Numer_seryjny" />
-                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
-                <ScalarProperty Name="Data_Wykonania" ColumnName="Data_Wykonania" />
-                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
                 <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Data_Wykonania" ColumnName="Data_Wykonania" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="Numer_seryjny" ColumnName="Numer_seryjny" />
+                <ScalarProperty Name="Producent" ColumnName="Producent" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="ID_Obsluga_Techniczna" ColumnName="ID_Obsluga_Techniczna" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vPolki_na_regalach">
             <EntityTypeMapping TypeName="SzwalniaModel.vPolki_na_regalach">
               <MappingFragment StoreEntitySet="vPolki_na_regalach">
-                <ScalarProperty Name="Oznaczenie" ColumnName="Oznaczenie" />
-                <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
-                <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
-                <ScalarProperty Name="Szerokosc" ColumnName="Szerokosc" />
                 <ScalarProperty Name="Glebokosc" ColumnName="Glebokosc" />
+                <ScalarProperty Name="Szerokosc" ColumnName="Szerokosc" />
+                <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
+                <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
+                <ScalarProperty Name="Oznaczenie" ColumnName="Oznaczenie" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vRealizacjaProcesuProdukcyjnegoDetails">
             <EntityTypeMapping TypeName="SzwalniaModel.vRealizacjaProcesuProdukcyjnegoDetails">
               <MappingFragment StoreEntitySet="vRealizacjaProcesuProdukcyjnegoDetails">
-                <ScalarProperty Name="ID_Procesu_Produkcyjnego" ColumnName="ID_Procesu_Produkcyjnego" />
-                <ScalarProperty Name="ID_Realizacji_Procesu" ColumnName="ID_Realizacji_Procesu" />
-                <ScalarProperty Name="Nazwa_etapu" ColumnName="Nazwa etapu" />
-                <ScalarProperty Name="Data_Rozpoczecia_Procesu" ColumnName="Data_Rozpoczecia_Procesu" />
                 <ScalarProperty Name="Data_Zakonczenia_Procesu" ColumnName="Data_Zakonczenia_Procesu" />
+                <ScalarProperty Name="Data_Rozpoczecia_Procesu" ColumnName="Data_Rozpoczecia_Procesu" />
+                <ScalarProperty Name="Nazwa_etapu" ColumnName="Nazwa etapu" />
+                <ScalarProperty Name="ID_Realizacji_Procesu" ColumnName="ID_Realizacji_Procesu" />
+                <ScalarProperty Name="ID_Procesu_Produkcyjnego" ColumnName="ID_Procesu_Produkcyjnego" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vSrednia_ilosc_maszyn">
             <EntityTypeMapping TypeName="SzwalniaModel.vSrednia_ilosc_maszyn">
               <MappingFragment StoreEntitySet="vSrednia_ilosc_maszyn">
-                <ScalarProperty Name="Rodzaj_Maszyny" ColumnName="Rodzaj_Maszyny" />
                 <ScalarProperty Name="srednia_ilosc_maszyn" ColumnName="srednia_ilosc_maszyn" />
+                <ScalarProperty Name="Rodzaj_Maszyny" ColumnName="Rodzaj_Maszyny" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vSuma_czasu_procesu">
             <EntityTypeMapping TypeName="SzwalniaModel.vSuma_czasu_procesu">
               <MappingFragment StoreEntitySet="vSuma_czasu_procesu">
-                <ScalarProperty Name="ID_Proces_Technologiczny" ColumnName="ID_Proces_Technologiczny" />
                 <ScalarProperty Name="suma_czasu" ColumnName="suma_czasu" />
+                <ScalarProperty Name="ID_Proces_Technologiczny" ColumnName="ID_Proces_Technologiczny" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vZamowienieProcesyProdukcyjne">
             <EntityTypeMapping TypeName="SzwalniaModel.vZamowienieProcesyProdukcyjne">
               <MappingFragment StoreEntitySet="vZamowienieProcesyProdukcyjne">
-                <ScalarProperty Name="ID_Procesu_Produkcyjnego" ColumnName="ID_Procesu_Produkcyjnego" />
-                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
-                <ScalarProperty Name="ID_Zamowienie_Element" ColumnName="ID_Zamowienie_Element" />
-                <ScalarProperty Name="Typ" ColumnName="Typ" />
-                <ScalarProperty Name="Proponowana_data_dostawy_materialu" ColumnName="Proponowana_data_dostawy_materialu" />
-                <ScalarProperty Name="Data_Rozpoczecia" ColumnName="Data_Rozpoczecia" />
-                <ScalarProperty Name="Data_Zakonczenia" ColumnName="Data_Zakonczenia" />
                 <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
+                <ScalarProperty Name="Data_Zakonczenia" ColumnName="Data_Zakonczenia" />
+                <ScalarProperty Name="Data_Rozpoczecia" ColumnName="Data_Rozpoczecia" />
+                <ScalarProperty Name="Proponowana_data_dostawy_materialu" ColumnName="Proponowana_data_dostawy_materialu" />
+                <ScalarProperty Name="Typ" ColumnName="Typ" />
+                <ScalarProperty Name="ID_Zamowienie_Element" ColumnName="ID_Zamowienie_Element" />
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
+                <ScalarProperty Name="ID_Procesu_Produkcyjnego" ColumnName="ID_Procesu_Produkcyjnego" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vZawartosc_polki">
             <EntityTypeMapping TypeName="SzwalniaModel.vZawartosc_polki">
               <MappingFragment StoreEntitySet="vZawartosc_polki">
-                <ScalarProperty Name="ID_Regal" ColumnName="ID_Regal" />
-                <ScalarProperty Name="Oznaczenie" ColumnName="Oznaczenie" />
-                <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
-                <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
-                <ScalarProperty Name="Ilosc_Paczek" ColumnName="Ilosc_Paczek" />
-                <ScalarProperty Name="Ilosc_W_Opakowaniu_Pojedynczym" ColumnName="Ilosc_W_Opakowaniu_Pojedynczym" />
-                <ScalarProperty Name="Jednostka" ColumnName="Jednostka" />
                 <ScalarProperty Name="Ile_sztuk" ColumnName="Ile_sztuk" />
+                <ScalarProperty Name="Jednostka" ColumnName="Jednostka" />
+                <ScalarProperty Name="Ilosc_W_Opakowaniu_Pojedynczym" ColumnName="Ilosc_W_Opakowaniu_Pojedynczym" />
+                <ScalarProperty Name="Ilosc_Paczek" ColumnName="Ilosc_Paczek" />
+                <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
+                <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
+                <ScalarProperty Name="Oznaczenie" ColumnName="Oznaczenie" />
+                <ScalarProperty Name="ID_Regal" ColumnName="ID_Regal" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

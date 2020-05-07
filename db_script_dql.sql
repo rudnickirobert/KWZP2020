@@ -15,12 +15,21 @@ GO
 ---- Widok polek na regalach (z wymiarami)
 CREATE VIEW [dbo].[vPolki_na_regalach]
 AS
-SELECT        TOP (100) PERCENT dbo.Regaly.Oznaczenie, dbo.Polki.ID_Polka, dbo.Polki_Rozmiary.Wysokosc, dbo.Polki_Rozmiary.Szerokosc, dbo.Polki_Rozmiary.Glebokosc
+SELECT        TOP (100) PERCENT dbo.Regaly.Oznaczenie, dbo.Polki.ID_Polka, dbo.Polki_Rozmiary.Wysokosc, dbo.Polki_Rozmiary.Szerokosc, dbo.Polki_Rozmiary.Glebokosc,
+				dbo.Polki_Rozmiary.Wysokosc + ' x ' + dbo.Polki_Rozmiary.Szerokosc + ' x ' + dbo.Polki_Rozmiary.Glebokosc + ' cm' AS Wymiar
 FROM            dbo.Regaly INNER JOIN
                          dbo.Polki_regaly ON dbo.Regaly.ID_Regal = dbo.Polki_regaly.ID_Regal INNER JOIN
                          dbo.Polki ON dbo.Polki_regaly.ID_Polka = dbo.Polki.ID_Polka INNER JOIN
                          dbo.Polki_Rozmiary ON dbo.Polki.ID_Rozmiar_Polki = dbo.Polki_Rozmiary.ID_Rozmiar_Polki
 ORDER BY dbo.Polki.ID_Polka
+GO
+
+---- Widok rozmiarow polek (posegregowane po wymiarach)
+CREATE VIEW [dbo].[vPolki_Rozmiary]
+AS
+SELECT        TOP (100) PERCENT ID_Rozmiar_Polki, Wysokosc, Szerokosc, Glebokosc, Wysokosc + ' x ' + Szerokosc + ' x ' + Glebokosc + ' cm' AS Wymiar
+FROM            dbo.Polki_Rozmiary
+ORDER BY Wysokosc, Szerokosc, Glebokosc
 GO
 
 ---- Widok zawartosci polek

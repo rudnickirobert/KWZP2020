@@ -147,9 +147,9 @@ Status_zatw varchar(9)
 
 CREATE TABLE Polki_Rozmiary (
 ID_Rozmiar_Polki int IDENTITY(1,1) PRIMARY KEY,
-Wysokosc int,
-Szerokosc int,
-Glebokosc int
+Wysokosc varchar(4),
+Szerokosc varchar(4),
+Glebokosc varchar(4)
 )
 
 CREATE TABLE Elementy_Typy (
