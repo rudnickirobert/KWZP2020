@@ -26,7 +26,7 @@ namespace Szwalnia
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnUkladMagazynu_Click(object sender, EventArgs e)
         {
             UkladMagazynu uklad = new UkladMagazynu(db);
             uklad.Show();
@@ -49,7 +49,16 @@ namespace Szwalnia
 
         private void btnObslugaDostaw_Click(object sender, EventArgs e)
         {
+            ObslugaDostaw dostawa = new ObslugaDostaw(db);
+            dostawa.Show();
+            this.Close();
+        }
 
+        private void btnKontrahenci_Click(object sender, EventArgs e)
+        {
+            Kontrahenci kontrahenci = new Kontrahenci(db);
+            kontrahenci.Show();
+            this.Close();
         }
     }
 }

@@ -145,6 +145,12 @@
     <Compile Include="Klienci.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="Kontrahenci.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kontrahenci.Designer.cs">
+      <DependentUpon>Kontrahenci.cs</DependentUpon>
+    </Compile>
     <Compile Include="Kontrola_Efektywnosci.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -180,6 +186,12 @@
     </Compile>
     <Compile Include="NowyRozmiarPolki.Designer.cs">
       <DependentUpon>NowyRozmiarPolki.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ObslugaDostaw.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ObslugaDostaw.Designer.cs">
+      <DependentUpon>ObslugaDostaw.cs</DependentUpon>
     </Compile>
     <Compile Include="ObslugaZamowien.cs">
       <SubType>Form</SubType>

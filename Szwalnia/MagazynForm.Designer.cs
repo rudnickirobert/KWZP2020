@@ -44,22 +44,21 @@
             this.btnElementy.Location = new System.Drawing.Point(392, 328);
             this.btnElementy.Name = "btnElementy";
             this.btnElementy.Size = new System.Drawing.Size(159, 78);
-            this.btnElementy.TabIndex = 0;
+            this.btnElementy.TabIndex = 5;
             this.btnElementy.Text = "Elementy";
-            this.btnElementy.UseVisualStyleBackColor = true;
+            this.btnElementy.UseVisualStyleBackColor = false;
             this.btnElementy.Click += new System.EventHandler(this.btnElementyForm_Click);
             // 
             // btnObslugaDostaw
             // 
-            this.btnObslugaDostaw.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnObslugaDostaw.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnObslugaDostaw.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnObslugaDostaw.Location = new System.Drawing.Point(162, 208);
             this.btnObslugaDostaw.Name = "btnObslugaDostaw";
             this.btnObslugaDostaw.Size = new System.Drawing.Size(275, 67);
-            this.btnObslugaDostaw.TabIndex = 3;
+            this.btnObslugaDostaw.TabIndex = 2;
             this.btnObslugaDostaw.Text = "Obsługa dostaw";
-            this.btnObslugaDostaw.UseVisualStyleBackColor = true;
+            this.btnObslugaDostaw.UseVisualStyleBackColor = false;
             this.btnObslugaDostaw.Click += new System.EventHandler(this.btnObslugaDostaw_Click);
             // 
             // btnObslugaZamowien
@@ -70,9 +69,9 @@
             this.btnObslugaZamowien.Location = new System.Drawing.Point(162, 135);
             this.btnObslugaZamowien.Name = "btnObslugaZamowien";
             this.btnObslugaZamowien.Size = new System.Drawing.Size(275, 67);
-            this.btnObslugaZamowien.TabIndex = 5;
+            this.btnObslugaZamowien.TabIndex = 1;
             this.btnObslugaZamowien.Text = "Obsługa zamówień";
-            this.btnObslugaZamowien.UseVisualStyleBackColor = true;
+            this.btnObslugaZamowien.UseVisualStyleBackColor = false;
             this.btnObslugaZamowien.Click += new System.EventHandler(this.btnObslugaZamowien_Click);
             // 
             // btnUkladMagazynu
@@ -82,10 +81,10 @@
             this.btnUkladMagazynu.Location = new System.Drawing.Point(44, 328);
             this.btnUkladMagazynu.Name = "btnUkladMagazynu";
             this.btnUkladMagazynu.Size = new System.Drawing.Size(159, 78);
-            this.btnUkladMagazynu.TabIndex = 1;
+            this.btnUkladMagazynu.TabIndex = 3;
             this.btnUkladMagazynu.Text = "Układ Magazynu";
-            this.btnUkladMagazynu.UseVisualStyleBackColor = true;
-            this.btnUkladMagazynu.Click += new System.EventHandler(this.button1_Click);
+            this.btnUkladMagazynu.UseVisualStyleBackColor = false;
+            this.btnUkladMagazynu.Click += new System.EventHandler(this.btnUkladMagazynu_Click);
             // 
             // btnStanMagazynowy
             // 
@@ -94,9 +93,9 @@
             this.btnStanMagazynowy.Location = new System.Drawing.Point(162, 29);
             this.btnStanMagazynowy.Name = "btnStanMagazynowy";
             this.btnStanMagazynowy.Size = new System.Drawing.Size(275, 75);
-            this.btnStanMagazynowy.TabIndex = 2;
+            this.btnStanMagazynowy.TabIndex = 0;
             this.btnStanMagazynowy.Text = "Stan magazynowy";
-            this.btnStanMagazynowy.UseVisualStyleBackColor = true;
+            this.btnStanMagazynowy.UseVisualStyleBackColor = false;
             this.btnStanMagazynowy.Click += new System.EventHandler(this.btnStanMagazynowy_Click);
             // 
             // btnKontrahenci
@@ -110,7 +109,8 @@
             this.btnKontrahenci.Size = new System.Drawing.Size(159, 78);
             this.btnKontrahenci.TabIndex = 4;
             this.btnKontrahenci.Text = "Kontrahenci";
-            this.btnKontrahenci.UseVisualStyleBackColor = true;
+            this.btnKontrahenci.UseVisualStyleBackColor = false;
+            this.btnKontrahenci.Click += new System.EventHandler(this.btnKontrahenci_Click);
             // 
             // MagazynForm
             // 
