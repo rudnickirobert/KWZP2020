@@ -109,6 +109,18 @@
     <Compile Include="Etat.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="FakturyZewnetrzne.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FakturyZewnetrzne.Designer.cs">
+      <DependentUpon>FakturyZewnetrzne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FakturyZewnetrzneSzczegoly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FakturyZewnetrzneSzczegoly.Designer.cs">
+      <DependentUpon>FakturyZewnetrzneSzczegoly.cs</DependentUpon>
+    </Compile>
     <Compile Include="Faktury_Zewnetrzne.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -120,6 +132,12 @@
     </Compile>
     <Compile Include="Klienci.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KlienciSzczegoly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KlienciSzczegoly.Designer.cs">
+      <DependentUpon>KlienciSzczegoly.cs</DependentUpon>
     </Compile>
     <Compile Include="Kontrola_Efektywnosci.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
@@ -198,6 +216,12 @@
     </Compile>
     <Compile Include="Pracownicy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PracownicySzczegoly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PracownicySzczegoly.Designer.cs">
+      <DependentUpon>PracownicySzczegoly.cs</DependentUpon>
     </Compile>
     <Compile Include="Pracownicy_Zatrudnienie.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
@@ -348,6 +372,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WyborKlienta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WyborKlienta.Designer.cs">
+      <DependentUpon>WyborKlienta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WyborPracownika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WyborPracownika.Designer.cs">
+      <DependentUpon>WyborPracownika.cs</DependentUpon>
+    </Compile>
     <Compile Include="Wymiar_Urlopu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -369,6 +405,12 @@
     <Compile Include="Zamowienie_Element.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="ZarzadzanieForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZarzadzanieForm.Designer.cs">
+      <DependentUpon>ZarzadzanieForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Zawartosc.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -377,6 +419,18 @@
     </Compile>
     <EmbeddedResource Include="ElementSzczegoly.resx">
       <DependentUpon>ElementSzczegoly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FakturyZewnetrzne.resx">
+      <DependentUpon>FakturyZewnetrzne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FakturyZewnetrzneSzczegoly.resx">
+      <DependentUpon>FakturyZewnetrzneSzczegoly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KlienciSzczegoly.resx">
+      <DependentUpon>KlienciSzczegoly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PracownicySzczegoly.resx">
+      <DependentUpon>PracownicySzczegoly.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Produkcja.resx">
       <DependentUpon>Produkcja.cs</DependentUpon>
@@ -423,8 +477,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="WyborKlienta.resx">
+      <DependentUpon>WyborKlienta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WyborPracownika.resx">
+      <DependentUpon>WyborPracownika.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ZamowienieProcesyProdukcyjne.resx">
       <DependentUpon>ZamowienieProcesyProdukcyjne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZarzadzanieForm.resx">
+      <DependentUpon>ZarzadzanieForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
