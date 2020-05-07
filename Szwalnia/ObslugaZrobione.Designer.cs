@@ -52,7 +52,7 @@
             this.dgvObsluga.ReadOnly = true;
             this.dgvObsluga.RowHeadersWidth = 51;
             this.dgvObsluga.RowTemplate.Height = 24;
-            this.dgvObsluga.Size = new System.Drawing.Size(836, 231);
+            this.dgvObsluga.Size = new System.Drawing.Size(1170, 231);
             this.dgvObsluga.TabIndex = 39;
             // 
             // txtData
@@ -136,7 +136,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(871, 514);
+            this.ClientSize = new System.Drawing.Size(1194, 514);
             this.Controls.Add(this.dgvObsluga);
             this.Controls.Add(this.txtData);
             this.Controls.Add(this.txtPracownik);
@@ -148,7 +148,8 @@
             this.Controls.Add(this.lblRodzaj);
             this.Controls.Add(this.lblTitle);
             this.Name = "ObslugaZrobione";
-            this.Text = "Obsluga_done";            ((System.ComponentModel.ISupportInitialize)(this.dgvObsluga)).EndInit();
+            this.Text = "Obsluga_done";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvObsluga)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
