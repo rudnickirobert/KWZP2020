@@ -331,6 +331,9 @@
     <Compile Include="vIdZamowienieElementProcesProdukcyjny.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vKlienciZamowienie.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vMaszyny_rodzaj_liczba.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
