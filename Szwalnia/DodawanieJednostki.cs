@@ -12,7 +12,7 @@ namespace Szwalnia
 {
     public partial class DodawanieJednostki : Form
     {
-        public SzwalniaEntities szwalniaPassed;
+        public SzwalniaEntities db;
         public Elementy_Jednostki jednostkaNew = new Elementy_Jednostki();
         public DodawanieJednostki()
         {
@@ -22,8 +22,7 @@ namespace Szwalnia
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            szwalniaPassed.Elementy_Jednostki.Add(jednostkaNew);
-            //szwalniaPassed.SaveChanges();
+            db.Elementy_Jednostki.Add(jednostkaNew);
         }
 
         private void DodawanieJednostki_FormClosed(object sender, FormClosedEventArgs e)

@@ -19,7 +19,7 @@ namespace Szwalnia
             lblElement.Text = "Szczegoly elementu o ID: " + element.ID_Element;
             txtNazwa.Text = element.Element_Nazwa;
             if (element.Okres_Przydatnosci_Miesiace == 0)
-                {
+            {
                 txtOkres.Text = "Nie dotyczy";
             }
             else

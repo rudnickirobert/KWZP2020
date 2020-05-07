@@ -15,7 +15,6 @@ namespace Szwalnia
     public partial class WyborElementu : Form
     {
         public SzwalniaEntities szwalniaPassed;
-
         public WyborElementu(SzwalniaEntities szwalnia)
         {
             InitializeComponent();

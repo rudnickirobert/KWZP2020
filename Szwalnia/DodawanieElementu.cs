@@ -12,26 +12,25 @@ namespace Szwalnia
 {
     public partial class DodawanieElementu : Form
     {
-        public SzwalniaEntities szwalniaPassed;
-        public Elementy elemnetNew = new Elementy();
+        public SzwalniaEntities db;
+        public Elementy elementNew = new Elementy();
         public DodawanieElementu()
         {
             InitializeComponent();            
-            dgvListaTypy.DataSource = szwalniaPassed.Elementy_Typy.ToList();
-            elemnetNew.Element_Nazwa = txtNazwa.Text;
-            elemnetNew.Okres_Przydatnosci_Miesiace = Decimal.ToInt32(numOkres.Value);
+            dgvListaTypy.DataSource = db.Elementy_Typy.ToList();
+            elementNew.Element_Nazwa = txtNazwa.Text;
+            elementNew.Okres_Przydatnosci_Miesiace = Decimal.ToInt32(numOkres.Value);
         }
 
         private void dgvListaTypy_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int numID = Convert.ToInt32(dgvListaTypy.CurrentRow.Cells[0].Value);
-            elemnetNew.ID_Element_Typ = numID;
+            elementNew.ID_Element_Typ = numID;
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            szwalniaPassed.Elementy.Add(elemnetNew);
-            //szwalniaPassed.SaveChanges();
+            db.Elementy.Add(elementNew);
         }
 
         private void DodawanieElementu_FormClosed(object sender, FormClosedEventArgs e)

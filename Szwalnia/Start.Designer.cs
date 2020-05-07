@@ -91,6 +91,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Start";
             this.Text = "Szwalnia";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Start_FormClosed);
             this.ResumeLayout(false);
 
         }

@@ -12,8 +12,7 @@ namespace Szwalnia
 {
      public partial class DodawanieCechy : Form
     {
-        public SzwalniaEntities szwalniaPassed;
-        
+        public SzwalniaEntities db;
         public DodawanieCechy()
         {
             InitializeComponent();            
@@ -23,9 +22,7 @@ namespace Szwalnia
         {
             Elementy_Cechy_Slownik cechaNew = new Elementy_Cechy_Slownik();
             cechaNew.Cecha = txtNazwa.Text;
-            szwalniaPassed.Elementy_Cechy_Slownik.Add(cechaNew);
-            //szwalniaPassed.SaveChanges();
-            
+            db.Elementy_Cechy_Slownik.Add(cechaNew);
         }
 
         private void DodawanieCechy_FormClosed(object sender, FormClosedEventArgs e)

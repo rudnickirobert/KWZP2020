@@ -12,23 +12,18 @@ namespace Szwalnia
 {
     public partial class DodawanieTypu : Form
     {
-        public SzwalniaEntities szwalniaPassed;
+        public SzwalniaEntities db;
         public Elementy_Typy typNew = new Elementy_Typy();
         public DodawanieTypu()
-
         {
             InitializeComponent();
             typNew.Typ = txtNazwa.Text;
-            //if(chBoxWlasny.Checked=true)
-            //{ typNew.Czy_wlasne = true; }
-            //else { typNew.Czy_wlasne = false; }
             //w obecnym modelu nie ma Czy_wlasne
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            szwalniaPassed.Elementy_Typy.Add(typNew);
-            //szwalniaPassed.SaveChanges();
+            db.Elementy_Typy.Add(typNew);
         }
 
         private void DodawanieTypu_FormClosed(object sender, FormClosedEventArgs e)

@@ -39,5 +39,10 @@ namespace Szwalnia
             Produkcja formularzProdukcji = new Produkcja(szwalnia);
             formularzProdukcji.Show();
         }
+
+        private void Start_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     } 
 }

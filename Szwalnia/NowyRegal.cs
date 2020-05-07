@@ -12,11 +12,11 @@ namespace Szwalnia
 {
     public partial class NowyRegal : Form
     {
-        SzwalniaEntities szwalnia;
-        public NowyRegal(SzwalniaEntities db)
+        SzwalniaEntities db;
+        public NowyRegal(SzwalniaEntities szwalnia)
         {
             InitializeComponent();
-            szwalnia = db;
+            db = szwalnia;
             btnDodajRegal.Enabled = false;
         }
         private void txtOznaczenie_TextChanged(object sender, EventArgs e)
@@ -30,8 +30,8 @@ namespace Szwalnia
             Regaly regalNew = new Regaly();
             string nowy = txtOznaczenie.Text;
             txtOznaczenie.Text = regalNew.Oznaczenie;
-            szwalnia.Regaly.Add(regalNew);
-            szwalnia.SaveChanges();
+            db.Regaly.Add(regalNew);
+            db.SaveChanges();
             MessageBox.Show("Pomyślnie dodano do bazy regał " + nowy);
         }
 
