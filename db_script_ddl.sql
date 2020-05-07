@@ -60,7 +60,7 @@ Uwagi varchar(100)
 
 CREATE TABLE Etat ( 
 ID_Etat int IDENTITY (1,1) PRIMARY KEY,  
-Wymiar_Etatu varchar(5) not null,  
+Wymiar_Etatu real not null,  
 Uwagi varchar(100) 
 ); 
 
@@ -128,14 +128,15 @@ ID_Grupa int IDENTITY (1,1) PRIMARY KEY,
 Nazwa varchar(100) unique 
 ); 
 
+
 CREATE TABLE Faktury_Zewnetrzne ( 
 ID_Faktura_zewnetrzna int IDENTITY (1,1) PRIMARY KEY, 
 Nr_Faktury varchar(100) not null, 
 ID_Grupa int FOREIGN KEY REFERENCES Grupa(ID_Grupa), 
 Nazwa_Firmy varchar(100) not null, 
-Netto varchar(100) not null, 
-Brutto varchar(100) not null, 
-Podatek varchar(100) not null, 
+Netto int not null, 
+Brutto int not null, 
+Podatek int not null, 
 ); 
 
 --------------------------------------------------------- MAGAZYN--------------------------------------------------------- 

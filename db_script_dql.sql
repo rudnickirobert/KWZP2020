@@ -123,5 +123,85 @@ GO
 ---------------------------------------------------------------------------------------------------------------------------
 -----------------------------------------KONIEC PRZYGOTOWANIE PRODUKCJI----------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------
-USE master
+-------------------------------------------ZARZADZANIE Widoki--------------------------------------------------------------------------------
+CREATE VIEW vKlienciZamowienie AS
+SELECT dbo.Klienci.ID_Klienta, dbo.Klienci.Nazwa_Firmy, dbo.Zamowienia.ID_Zamowienia, dbo.Elementy.Element_Nazwa, dbo.Zamowienie_Element.Ilosc, dbo.Zamowienia.Data_Zlozenia, dbo.Zamowienia.Data_Zakonczenia
+FROM     dbo.Zamowienia INNER JOIN
+                  dbo.Klienci ON dbo.Zamowienia.ID_Klienta = dbo.Klienci.ID_Klienta INNER JOIN
+                  dbo.Zamowienie_Element ON dbo.Zamowienia.ID_Zamowienia = dbo.Zamowienie_Element.ID_Zamowienia INNER JOIN
+                  dbo.Elementy ON dbo.Zamowienie_Element.ID_Element = dbo.Elementy.ID_Element
+GO
+
+-- Wynagrodzenie czastkowe
+
+
+
+CREATE VIEW vWynagrodzenia
+AS
+SELECT dbo.Pracownicy.Imie, dbo.Pracownicy.Nazwisko, dbo.Pracownicy.Pesel, dbo.Stanowisko.Stanowisko, dbo.Pensja.Pensja, dbo.Etat.Wymiar_Etatu, AVG(DISTINCT dbo.Pensja.Pensja * dbo.Etat.Wymiar_Etatu) AS Wynagrodzenie
+FROM     dbo.Pracownicy_Zatrudnienie INNER JOIN
+                  dbo.Pracownicy ON dbo.Pracownicy_Zatrudnienie.ID_Pracownika = dbo.Pracownicy.ID_Pracownika INNER JOIN
+                  dbo.Stanowisko ON dbo.Pracownicy_Zatrudnienie.ID_Stanowiska = dbo.Stanowisko.ID_Stanowiska INNER JOIN
+                  dbo.Pensja ON dbo.Stanowisko.ID_Pensji = dbo.Pensja.ID_Pensja INNER JOIN
+                  dbo.Etat ON dbo.Pracownicy_Zatrudnienie.ID_Etatu = dbo.Etat.ID_Etat
+GROUP BY dbo.Pracownicy.Imie, dbo.Pracownicy.Nazwisko, dbo.Pracownicy.Pesel, dbo.Stanowisko.Stanowisko, dbo.Pensja.Pensja, dbo.Etat.Wymiar_Etatu
+GO
+
+
+CREATE VIEW vKosztProcesu
+AS
+SELECT TOP (100) PERCENT dbo.Zamowienia.ID_Zamowienia, dbo.Klienci.Imie, dbo.Klienci.Nazwisko, dbo.Klienci.Nazwa_Firmy, dbo.Klienci.NIP, dbo.Rodzaj_Maszyny.Koszt_Rbh, dbo.vSuma_czasu_procesu.suma_czasu, 
+                  AVG(DISTINCT dbo.Rodzaj_Maszyny.Koszt_Rbh * dbo.vSuma_czasu_procesu.suma_czasu) AS Calkowity_koszt_procesu
+FROM     dbo.Klienci INNER JOIN
+                  dbo.Zamowienia ON dbo.Klienci.ID_Klienta = dbo.Zamowienia.ID_Klienta CROSS JOIN
+                  dbo.Rodzaj_Maszyny CROSS JOIN
+                  dbo.vSuma_czasu_procesu
+GROUP BY dbo.Zamowienia.ID_Zamowienia, dbo.Klienci.Imie, dbo.Klienci.Nazwisko, dbo.Klienci.Nazwa_Firmy, dbo.Klienci.NIP, dbo.vSuma_czasu_procesu.suma_czasu, dbo.Rodzaj_Maszyny.Koszt_Rbh
+GO
+
+--Calkowity koszt zamowienia
+
+CREATE VIEW vCalkowityKosztZamowienia
+AS
+SELECT ID_Zamowienia, SUM(Calkowity_koszt_procesu) AS Calkowity_koszt_produkcji
+FROM     dbo.vKosztProcesu
+GROUP BY ID_Zamowienia
+GO
+
+-- Faktury
+CREATE VIEW vFaktury
+AS
+SELECT dbo.vCalkowityKosztZamowienia.ID_Zamowienia, dbo.Klienci.Imie, dbo.Klienci.Nazwisko, dbo.vCalkowityKosztZamowienia.Calkowity_koszt_produkcji, dbo.vCalkowityKosztZamowienia.Calkowity_koszt_produkcji * 1.20 AS Cena_netto, 
+                  dbo.vCalkowityKosztZamowienia.Calkowity_koszt_produkcji * 1.20 * 1.23 AS Cena_brutto
+FROM     dbo.Zamowienia INNER JOIN
+                  dbo.vCalkowityKosztZamowienia ON dbo.Zamowienia.ID_Zamowienia = dbo.vCalkowityKosztZamowienia.ID_Zamowienia INNER JOIN
+                  dbo.Klienci ON dbo.Zamowienia.ID_Klienta = dbo.Klienci.ID_Klienta
+GO
+
+-- Przychody
+
+CREATE VIEW vPrzychody
+AS
+SELECT  SUM(Cena_brutto) AS Przychody
+FROM     dbo.vFaktury
+GO
+
+-- Rozchody
+
+CREATE VIEW vRozchody
+AS
+SELECT SUM(dbo.Faktury_Zewnetrzne.Brutto) AS Wydatki, SUM(dbo.vWynagrodzenia.Wynagrodzenie) AS Wyplaty
+FROM     dbo.Faktury_Zewnetrzne CROSS JOIN
+                  dbo.vWynagrodzenia
+GO
+
+-- Bilans
+
+CREATE VIEW vBilans
+AS
+SELECT dbo.vPrzychody.Przychody, dbo.vRozchody.Wydatki, dbo.vRozchody.Wyplaty, SUM(dbo.vPrzychody.Przychody - dbo.vRozchody.Wydatki - dbo.vRozchody.Wyplaty) AS Bilans
+FROM     dbo.vPrzychody CROSS JOIN
+                  dbo.vRozchody
+GROUP BY dbo.vPrzychody.Przychody, dbo.vRozchody.Wydatki, dbo.vRozchody.Wyplaty
+GO
+

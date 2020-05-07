@@ -91,11 +91,11 @@ VALUES
 
 INSERT into Etat(Wymiar_Etatu, Uwagi)
 VALUES
-('1/1','Brak'),
-('1/2','Brak'),
-('1/4','Brak'),
-('3/4','Brak'),
-('1/8','Brak');
+('1','Brak'),
+('0.5','Brak'),
+('0.25','Brak'),
+('0.75','Brak'),
+('0.125','Brak');
 
 INSERT INTO Rodzaj_Urlopu (Nazwa)
 VALUES 
