@@ -42,6 +42,12 @@ namespace Szwalnia
         {
             this.Close();
         }
+
+        private void btnFakturyWewnetrzne_Click(object sender, EventArgs e)
+        {
+            FaktoryWystawiane fakturyWystawiane = new FaktoryWystawiane(db);
+            fakturyWystawiane.Show();
+        }
     }
 }
 
