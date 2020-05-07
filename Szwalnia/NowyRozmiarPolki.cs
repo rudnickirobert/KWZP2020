@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class SumaCzasuPokaz : Form
+    public partial class NowyRozmiarPolki : Form
     {
-        public SumaCzasuPokaz(SzwalniaEntities db)
+        public NowyRozmiarPolki(SzwalniaEntities db)
         {
             InitializeComponent();
-            dgvSumaCzasu.DataSource = db.vSuma_czasu_procesu.ToList();
         }
     }
 }

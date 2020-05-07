@@ -12,14 +12,12 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Przydzial_Zasobow
+    public partial class vPolki_Rozmiary
     {
-        public int ID_Procesu_Produkcyjnego { get; set; }
-        public int ID_Realizacji_Procesu { get; set; }
-        public int ID_Pracownika { get; set; }
-        public string Imie { get; set; }
-        public string Nazwisko { get; set; }
-        public int ID_Maszyny { get; set; }
-        public string Model { get; set; }
+        public int ID_Rozmiar_Polki { get; set; }
+        public string Wysokosc { get; set; }
+        public string Szerokosc { get; set; }
+        public string Glebokosc { get; set; }
+        public string Wymiar { get; set; }
     }
 }

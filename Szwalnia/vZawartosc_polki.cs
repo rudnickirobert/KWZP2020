@@ -12,13 +12,15 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vMaszyny_serwis
+    public partial class vZawartosc_polki
     {
-        public int ID_Maszyny { get; set; }
-        public int Resurs_Rbh { get; set; }
-        public int Serwis_Co_Ile { get; set; }
-        public string Producent { get; set; }
-        public string Nazwa { get; set; }
-        public string Numer_seryjny { get; set; }
+        public int ID_Regal { get; set; }
+        public string Oznaczenie { get; set; }
+        public Nullable<int> ID_Polka { get; set; }
+        public string Element_Nazwa { get; set; }
+        public Nullable<float> Ilosc_Paczek { get; set; }
+        public Nullable<float> Ilosc_W_Opakowaniu_Pojedynczym { get; set; }
+        public string Jednostka { get; set; }
+        public Nullable<float> Ile_sztuk { get; set; }
     }
 }

@@ -10,12 +10,14 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class SumaCzasuPokaz : Form
+    public partial class NowaPolka : Form
     {
-        public SumaCzasuPokaz(SzwalniaEntities db)
+        int nowaPolka;
+        public NowaPolka(SzwalniaEntities db, int ostatniaPolka)
         {
             InitializeComponent();
-            dgvSumaCzasu.DataSource = db.vSuma_czasu_procesu.ToList();
+            nowaPolka = ostatniaPolka+1;
+            lblNumerNowejPolki.Text = nowaPolka.ToString();
         }
     }
 }

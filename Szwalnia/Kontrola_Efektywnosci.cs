@@ -21,7 +21,6 @@ namespace Szwalnia
         public string Uwagi { get; set; }
         public bool Zgodnosc_Zamowienia { get; set; }
         public int Liczba_Poprawnych { get; set; }
-        public int Liczba_Blednych { get; set; }
     
         public virtual Proces_Produkcyjny Proces_Produkcyjny { get; set; }
     }

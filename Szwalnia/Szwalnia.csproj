@@ -56,7 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Czesci_Obsluga.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="DodawanieCechy.cs">
       <SubType>Form</SubType>
@@ -83,22 +83,25 @@
       <DependentUpon>DodoawanieCechElementu.cs</DependentUpon>
     </Compile>
     <Compile Include="Dokumentacja_Proces.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="Dokumentacje.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="Dostarczenia_Wewn.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="Dostarczenia_Zewn.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="Dostawcy_Zaopatrzenie.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="Dostawy_Zawartosc.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dzialy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="ElementSzczegoly.cs">
       <SubType>Form</SubType>
@@ -107,34 +110,31 @@
       <DependentUpon>ElementSzczegoly.cs</DependentUpon>
     </Compile>
     <Compile Include="Elementy.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="Elementy_Cechy.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="Elementy_Cechy_Slownik.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="Elementy_Jednostki.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="Elementy_Proces.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="Elementy_Typy.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="Etapy_W_Procesie.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="Etat.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Faktury.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="Faktury_Zewnetrzne.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="DodawanieElementu.cs">
       <SubType>Form</SubType>
@@ -143,31 +143,151 @@
       <DependentUpon>DodawanieElementu.cs</DependentUpon>
     </Compile>
     <Compile Include="Grupa.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="Jezyk.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="Klienci.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="Kontrola_Efektywnosci.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Koszt_Jednostkowy.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="Kurierzy.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Maszyny.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Maszyny_Proces.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Material_Na_Produkcji.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Miejsca.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NowaPolka.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NowaPolka.Designer.cs">
+      <DependentUpon>NowaPolka.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NowyRegal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NowyRegal.Designer.cs">
+      <DependentUpon>NowyRegal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NowyRozmiarPolki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NowyRozmiarPolki.Designer.cs">
+      <DependentUpon>NowyRozmiarPolki.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Obsluga_Techniczna.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Odbior_Dostarczenia.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Oferta.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pensja.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Polki.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Polki_regaly.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Polki_Rozmiary.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pracownicy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pracownicy_Zatrudnienie.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Proces_Produkcyjny.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Proces_Technologiczny.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Proces_Zamowienie.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Przydzial_Zasobow.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Realizacja_Procesu.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Regaly.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rodzaj_Dokumentacji.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rodzaj_Etapu.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rodzaj_Maszyny.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rodzaj_Obslugi.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rodzaj_Umowy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rodzaj_Urlopu.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Srodki_Trwale.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stanowisko.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Statusy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Szwalnia.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Szwalnia.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Szwalnia.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Szwalnia.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Szwalnia.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Typy_cechy_rejestr.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UkladMagazynu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UkladMagazynu.Designer.cs">
+      <DependentUpon>UkladMagazynu.cs</DependentUpon>
     </Compile>
     <Compile Include="MagazynForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MagazynForm.Designer.cs">
       <DependentUpon>MagazynForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Maszyny.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="MaszynyProcesSzukaj.cs">
       <SubType>Form</SubType>
@@ -187,30 +307,6 @@
     <Compile Include="MaszynySerwis.Designer.cs">
       <DependentUpon>MaszynySerwis.cs</DependentUpon>
     </Compile>
-    <Compile Include="Maszyny_Proces.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Material_Na_Produkcji.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Miejsca.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
     <Compile Include="ObslugaSzukaj.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -223,47 +319,11 @@
     <Compile Include="ObslugaZrobione.Designer.cs">
       <DependentUpon>ObslugaZrobione.cs</DependentUpon>
     </Compile>
-    <Compile Include="Obsluga_Techniczna.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Oferta.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Pensja.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Polki.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Polki_Rozmiary.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Pracownicy.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Pracownicy_Zatrudnienie.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Proces_Produkcyjny.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Proces_Technologiczny.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Proces_Zamowienie.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Produkcja.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Produkcja.Designer.cs">
       <DependentUpon>Produkcja.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Produkt.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Przydzial_Zasobow.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="RealizacjaProcesuSzczegoly.cs">
       <SubType>Form</SubType>
@@ -277,32 +337,11 @@
     <Compile Include="PrzygotowanieProdukcji.Designer.cs">
       <DependentUpon>PrzygotowanieProdukcji.cs</DependentUpon>
     </Compile>
-    <Compile Include="Realizacja_Procesu.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Rodzaj_Dokumentacji.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Rodzaj_Etapu.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Rodzaj_Maszyny.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Rodzaj_Obslugi.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Rodzaj_Umowy.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="SredniaIloscMaszyPokaz.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SredniaIloscMaszyPokaz.Designer.cs">
       <DependentUpon>SredniaIloscMaszyPokaz.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Stanowisko.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="SumaCzasuPokaz.cs">
       <SubType>Form</SubType>
@@ -310,53 +349,47 @@
     <Compile Include="SumaCzasuPokaz.Designer.cs">
       <DependentUpon>SumaCzasuPokaz.cs</DependentUpon>
     </Compile>
-    <Compile Include="SzwalniaDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SzwalniaDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="SzwalniaDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SzwalniaDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="SzwalniaDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SzwalniaDataSet2.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Umowy_Kurierzy.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="Urlop.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vCechyElementu.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vIdZamowienieElementProcesProdukcyjny.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vMaszyny_rodzaj_liczba.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vMaszyny_serwis.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vObsluga.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vPolki_na_regalach.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vPolki_Rozmiary.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vRealizacjaProcesuProdukcyjnegoDetails.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vSrednia_ilosc_maszyn.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vSuma_czasu_proces.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="vSuma_czasu_procesu.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vZamowienieProcesyProdukcyjne.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="v_Przydzial_Zasobow.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="vZawartosc_polki.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="WyborElementu.cs">
       <SubType>Form</SubType>
@@ -372,14 +405,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Wymiar_Urlopu.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="Zamowienia.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="Zamowienia_Dostawy.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="Zamowienia_Przydzial.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="ZamowienieProcesyProdukcyjne.cs">
       <SubType>Form</SubType>
@@ -387,17 +423,14 @@
     <Compile Include="ZamowienieProcesyProdukcyjne.Designer.cs">
       <DependentUpon>ZamowienieProcesyProdukcyjne.cs</DependentUpon>
     </Compile>
-    <Compile Include="Zamowienie_Produkt.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Zapotrzebowanie_Opakowan.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="Zamowienie_Element.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="Zawartosc.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="Znajomosc_Jezykow.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="DodawanieCechy.resx">
       <DependentUpon>DodawanieCechy.cs</DependentUpon>
@@ -462,16 +495,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UkladMagazynu.resx">
+      <DependentUpon>UkladMagazynu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ZamowienieProcesyProdukcyjne.resx">
       <DependentUpon>ZamowienieProcesyProdukcyjne.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -515,6 +544,13 @@
     <None Include="SzwalniaDataSet2.xss">
       <DependentUpon>SzwalniaDataSet2.xsd</DependentUpon>
     </None>
+    <EntityDeploy Include="Szwalnia.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Szwalnia.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Szwalnia.edmx.diagram">
+      <DependentUpon>Szwalnia.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -523,15 +559,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model1.Context.tt">
+    <Content Include="Szwalnia.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Szwalnia.edmx</DependentUpon>
+      <LastGenOutput>Szwalnia.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model1.tt">
+    <Content Include="Szwalnia.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>Szwalnia.edmx</DependentUpon>
+      <LastGenOutput>Szwalnia.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

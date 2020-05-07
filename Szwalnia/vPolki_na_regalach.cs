@@ -12,9 +12,12 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vSuma_czasu_proces
+    public partial class vPolki_na_regalach
     {
-        public int ID_Proces_Technologiczny { get; set; }
-        public Nullable<int> suma_czasu { get; set; }
+        public string Oznaczenie { get; set; }
+        public int ID_Polka { get; set; }
+        public string Wysokosc { get; set; }
+        public string Szerokosc { get; set; }
+        public string Glebokosc { get; set; }
     }
 }
