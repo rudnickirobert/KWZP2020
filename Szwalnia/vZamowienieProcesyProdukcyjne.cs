@@ -16,12 +16,11 @@ namespace Szwalnia
     {
         public int ID_Procesu_Produkcyjnego { get; set; }
         public Nullable<int> ID_Zamowienia { get; set; }
-        public int ID_Zamowienie_Produkt { get; set; }
-        public string Nazwa_Produktu { get; set; }
-        public int ID_Proces_Technologiczny { get; set; }
+        public int ID_Zamowienie_Element { get; set; }
+        public string Typ { get; set; }
+        public Nullable<System.DateTime> Proponowana_data_dostawy_materialu { get; set; }
         public Nullable<System.DateTime> Data_Rozpoczecia { get; set; }
         public Nullable<System.DateTime> Data_Zakonczenia { get; set; }
-        public Nullable<int> ID_Dokumentacja_Proces { get; set; }
         public string Uwagi { get; set; }
     }
 }

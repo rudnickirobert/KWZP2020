@@ -19,9 +19,11 @@ namespace Szwalnia
         public Nullable<int> ID_Stanowiska { get; set; }
         public Nullable<int> ID_Etatu { get; set; }
         public Nullable<int> ID_Rodzaju_Umowy { get; set; }
+        public Nullable<int> ID_Dzialu { get; set; }
         public System.DateTime Data_Zatrudnienia { get; set; }
         public System.DateTime Koniec_umowy { get; set; }
     
+        public virtual Dzialy Dzialy { get; set; }
         public virtual Etat Etat { get; set; }
         public virtual Pracownicy Pracownicy { get; set; }
         public virtual Rodzaj_Umowy Rodzaj_Umowy { get; set; }

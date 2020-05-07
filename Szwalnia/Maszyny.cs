@@ -22,15 +22,13 @@ namespace Szwalnia
         }
     
         public int ID_Maszyny { get; set; }
-        public string Model { get; set; }
+        public int ID_Srodki_Trwale { get; set; }
         public int ID_Rodzaj_Maszyny { get; set; }
-        public string Producent { get; set; }
-        public System.DateTime Gwarancja_do { get; set; }
-        public System.DateTime Data_zakupu { get; set; }
-        public int Resurs_rbh { get; set; }
-        public System.DateTime Resurs_data_serwisu { get; set; }
+        public int Resurs_Rbh { get; set; }
+        public int Serwis_Co_Ile { get; set; }
     
         public virtual Rodzaj_Maszyny Rodzaj_Maszyny { get; set; }
+        public virtual Srodki_Trwale Srodki_Trwale { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Obsluga_Techniczna> Obsluga_Techniczna { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

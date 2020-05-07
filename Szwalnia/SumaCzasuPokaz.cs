@@ -15,7 +15,7 @@ namespace Szwalnia
         public SumaCzasuPokaz(SzwalniaEntities db)
         {
             InitializeComponent();
-            dgvSumaCzasu.DataSource = db.vSuma_czasu_proces.ToList();
+            dgvSumaCzasu.DataSource = db.vSuma_czasu_procesu.ToList();
         }
     }
 }

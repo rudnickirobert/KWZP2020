@@ -24,6 +24,7 @@ namespace Szwalnia
         public int ID_Rodzaj_Dokumentacji { get; set; }
         public int ID_Pracownika { get; set; }
         public System.DateTime Data_Wykonania { get; set; }
+        public string Plik { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dokumentacja_Proces> Dokumentacja_Proces { get; set; }

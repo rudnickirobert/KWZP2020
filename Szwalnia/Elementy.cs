@@ -18,13 +18,13 @@ namespace Szwalnia
         public Elementy()
         {
             this.Czesci_Obsluga = new HashSet<Czesci_Obsluga>();
+            this.Dostarczenia_Wewn = new HashSet<Dostarczenia_Wewn>();
+            this.Dostarczenia_Zewn = new HashSet<Dostarczenia_Zewn>();
             this.Dostawy_Zawartosc = new HashSet<Dostawy_Zawartosc>();
-            this.Elementy_Proces = new HashSet<Elementy_Proces>();
             this.Elementy_Cechy = new HashSet<Elementy_Cechy>();
-            this.Koszt_Jednostkowy = new HashSet<Koszt_Jednostkowy>();
-            this.Material_Na_Produkcji = new HashSet<Material_Na_Produkcji>();
+            this.Elementy_Proces = new HashSet<Elementy_Proces>();
             this.Oferta = new HashSet<Oferta>();
-            this.Zapotrzebowanie_Opakowan = new HashSet<Zapotrzebowanie_Opakowan>();
+            this.Zamowienie_Element = new HashSet<Zamowienie_Element>();
             this.Zawartosc = new HashSet<Zawartosc>();
         }
     
@@ -36,20 +36,20 @@ namespace Szwalnia
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Czesci_Obsluga> Czesci_Obsluga { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Dostarczenia_Wewn> Dostarczenia_Wewn { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Dostarczenia_Zewn> Dostarczenia_Zewn { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dostawy_Zawartosc> Dostawy_Zawartosc { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Elementy_Proces> Elementy_Proces { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Elementy_Cechy> Elementy_Cechy { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Elementy_Proces> Elementy_Proces { get; set; }
         public virtual Elementy_Typy Elementy_Typy { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Koszt_Jednostkowy> Koszt_Jednostkowy { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Material_Na_Produkcji> Material_Na_Produkcji { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Oferta> Oferta { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Zapotrzebowanie_Opakowan> Zapotrzebowanie_Opakowan { get; set; }
+        public virtual ICollection<Zamowienie_Element> Zamowienie_Element { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zawartosc> Zawartosc { get; set; }
     }
