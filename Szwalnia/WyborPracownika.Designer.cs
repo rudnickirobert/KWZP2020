@@ -36,11 +36,12 @@
             // lblWyborPracownika
             // 
             this.lblWyborPracownika.AutoSize = true;
-            this.lblWyborPracownika.Location = new System.Drawing.Point(384, 12);
+            this.lblWyborPracownika.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblWyborPracownika.Location = new System.Drawing.Point(188, 20);
             this.lblWyborPracownika.Name = "lblWyborPracownika";
-            this.lblWyborPracownika.Size = new System.Drawing.Size(46, 17);
+            this.lblWyborPracownika.Size = new System.Drawing.Size(416, 39);
             this.lblWyborPracownika.TabIndex = 0;
-            this.lblWyborPracownika.Text = "label1";
+            this.lblWyborPracownika.Text = "Wybierz pracownika z listy";
             // 
             // dgvListaPracownikow
             // 
@@ -49,7 +50,7 @@
             this.dgvListaPracownikow.Name = "dgvListaPracownikow";
             this.dgvListaPracownikow.RowHeadersWidth = 51;
             this.dgvListaPracownikow.RowTemplate.Height = 24;
-            this.dgvListaPracownikow.Size = new System.Drawing.Size(772, 323);
+            this.dgvListaPracownikow.Size = new System.Drawing.Size(772, 376);
             this.dgvListaPracownikow.TabIndex = 1;
             this.dgvListaPracownikow.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvListaPracownikow_CellMouseDoubleClick);
             // 

@@ -73,6 +73,7 @@
             this.btnZamknij.TabIndex = 3;
             this.btnZamknij.Text = "Zamknij";
             this.btnZamknij.UseVisualStyleBackColor = true;
+            this.btnZamknij.Click += new System.EventHandler(this.btnZamknij_Click);
             // 
             // ZarzadzanieForm
             // 

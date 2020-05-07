@@ -36,6 +36,7 @@
             this.txtTelefonPracownika = new System.Windows.Forms.TextBox();
             this.txtImie = new System.Windows.Forms.TextBox();
             this.txtNazwisko = new System.Windows.Forms.TextBox();
+            this.btnZamknij = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZatrudnienie)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,11 +107,22 @@
             this.txtNazwisko.Size = new System.Drawing.Size(190, 22);
             this.txtNazwisko.TabIndex = 8;
             // 
+            // btnZamknij
+            // 
+            this.btnZamknij.Location = new System.Drawing.Point(662, 80);
+            this.btnZamknij.Name = "btnZamknij";
+            this.btnZamknij.Size = new System.Drawing.Size(122, 35);
+            this.btnZamknij.TabIndex = 9;
+            this.btnZamknij.Text = "Zamknij";
+            this.btnZamknij.UseVisualStyleBackColor = true;
+            this.btnZamknij.Click += new System.EventHandler(this.btnZamknij_Click);
+            // 
             // PracownicySzczegoly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnZamknij);
             this.Controls.Add(this.txtNazwisko);
             this.Controls.Add(this.txtImie);
             this.Controls.Add(this.txtTelefonPracownika);
@@ -137,5 +149,6 @@
         private System.Windows.Forms.TextBox txtTelefonPracownika;
         private System.Windows.Forms.TextBox txtImie;
         private System.Windows.Forms.TextBox txtNazwisko;
+        private System.Windows.Forms.Button btnZamknij;
     }
 }

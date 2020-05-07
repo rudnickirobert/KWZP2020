@@ -21,5 +21,10 @@ namespace Szwalnia
             txtNazwisko.Text = pracownicy.Nazwisko;
             txtTelefonPracownika.Text = pracownicy.Telefon;
         }
+
+        private void btnZamknij_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

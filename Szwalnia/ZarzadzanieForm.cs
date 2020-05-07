@@ -18,11 +18,6 @@ namespace Szwalnia
             db = szwalnia;
             InitializeComponent();
         }
-            private void btnZamknij_MouseClick(object sender, MouseEventArgs e)
-            {
-                this.Close();
-            }
-
         private void btnKlienciForm_Click(object sender, EventArgs e)
         {
             WyborKlienta wyborKlienta = new WyborKlienta(db);
@@ -41,6 +36,11 @@ namespace Szwalnia
         {
             FakturyZewnetrzne fakturyZewnetrzne = new FakturyZewnetrzne(db);
             fakturyZewnetrzne.Show();
+        }
+
+        private void btnZamknij_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
