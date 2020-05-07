@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "NowyRozmiarPolki";
             this.Text = "Dodaj rozmiar półki";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NowyRozmiarPolki_FormClosed);
             this.ResumeLayout(false);
 
         }

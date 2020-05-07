@@ -148,6 +148,7 @@
             this.Controls.Add(this.lblTitle);
             this.Name = "NowaPolka";
             this.Text = "Dodaj półkę";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NowaPolka_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

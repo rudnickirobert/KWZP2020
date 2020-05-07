@@ -64,7 +64,7 @@
             this.dgvListaElementow.TabIndex = 5;
             this.dgvListaElementow.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaElementow_CellDoubleClick);
             // 
-            // Wybor_elementu
+            // WyborElementu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -72,8 +72,9 @@
             this.Controls.Add(this.dgvListaElementow);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.lblInfo);
-            this.Name = "Wybor_elementu";
+            this.Name = "WyborElementu";
             this.Text = "Okno wyboru elementow";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.WyborElementu_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaElementow)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

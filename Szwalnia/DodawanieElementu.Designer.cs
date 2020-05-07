@@ -42,60 +42,67 @@
             // lblMain
             // 
             this.lblMain.AutoSize = true;
-            this.lblMain.Location = new System.Drawing.Point(163, 51);
+            this.lblMain.Location = new System.Drawing.Point(122, 41);
+            this.lblMain.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMain.Name = "lblMain";
-            this.lblMain.Size = new System.Drawing.Size(140, 17);
+            this.lblMain.Size = new System.Drawing.Size(107, 13);
             this.lblMain.TabIndex = 0;
             this.lblMain.Text = "Dodawanie elementu";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(76, 109);
+            this.label1.Location = new System.Drawing.Point(57, 89);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 17);
+            this.label1.Size = new System.Drawing.Size(86, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Nazwa elementu";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(58, 136);
+            this.label2.Location = new System.Drawing.Point(44, 110);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(130, 17);
+            this.label2.Size = new System.Drawing.Size(97, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Okres przydatności";
             // 
             // numOkres
             // 
-            this.numOkres.Location = new System.Drawing.Point(194, 134);
+            this.numOkres.Location = new System.Drawing.Point(146, 109);
+            this.numOkres.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.numOkres.Name = "numOkres";
-            this.numOkres.Size = new System.Drawing.Size(120, 22);
+            this.numOkres.Size = new System.Drawing.Size(90, 20);
             this.numOkres.TabIndex = 3;
             // 
             // txtNazwa
             // 
-            this.txtNazwa.Location = new System.Drawing.Point(194, 106);
+            this.txtNazwa.Location = new System.Drawing.Point(146, 86);
+            this.txtNazwa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNazwa.Name = "txtNazwa";
-            this.txtNazwa.Size = new System.Drawing.Size(151, 22);
+            this.txtNazwa.Size = new System.Drawing.Size(114, 20);
             this.txtNazwa.TabIndex = 4;
             // 
             // dgvListaTypy
             // 
             this.dgvListaTypy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaTypy.Location = new System.Drawing.Point(105, 205);
+            this.dgvListaTypy.Location = new System.Drawing.Point(79, 167);
+            this.dgvListaTypy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvListaTypy.Name = "dgvListaTypy";
             this.dgvListaTypy.RowHeadersWidth = 51;
             this.dgvListaTypy.RowTemplate.Height = 24;
-            this.dgvListaTypy.Size = new System.Drawing.Size(240, 150);
+            this.dgvListaTypy.Size = new System.Drawing.Size(180, 122);
             this.dgvListaTypy.TabIndex = 5;
             this.dgvListaTypy.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaTypy_CellContentDoubleClick);
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(301, 372);
+            this.btnDodaj.Location = new System.Drawing.Point(226, 302);
+            this.btnDodaj.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(75, 30);
+            this.btnDodaj.Size = new System.Drawing.Size(56, 24);
             this.btnDodaj.TabIndex = 6;
             this.btnDodaj.Text = "Dodaj";
             this.btnDodaj.UseVisualStyleBackColor = true;
@@ -103,9 +110,9 @@
             // 
             // DodawanieElementu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(494, 450);
+            this.ClientSize = new System.Drawing.Size(370, 366);
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.dgvListaTypy);
             this.Controls.Add(this.txtNazwa);
@@ -113,8 +120,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblMain);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "DodawanieElementu";
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DodawanieElementu_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.numOkres)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaTypy)).EndInit();
             this.ResumeLayout(false);

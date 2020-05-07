@@ -83,6 +83,7 @@
             this.Controls.Add(this.lblTitle);
             this.Name = "NowyRegal";
             this.Text = "Dodaj regał";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NowyRegal_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -465,6 +465,24 @@
     <EmbeddedResource Include="ElementSzczegoly.resx">
       <DependentUpon>ElementSzczegoly.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Kontrahenci.resx">
+      <DependentUpon>Kontrahenci.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NowaPolka.resx">
+      <DependentUpon>NowaPolka.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NowyRegal.resx">
+      <DependentUpon>NowyRegal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NowyRozmiarPolki.resx">
+      <DependentUpon>NowyRozmiarPolki.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ObslugaDostaw.resx">
+      <DependentUpon>ObslugaDostaw.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ObslugaZamowien.resx">
+      <DependentUpon>ObslugaZamowien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Produkcja.resx">
       <DependentUpon>Produkcja.cs</DependentUpon>
     </EmbeddedResource>
@@ -495,6 +513,9 @@
     <EmbeddedResource Include="SredniaIloscMaszyPokaz.resx">
       <DependentUpon>SredniaIloscMaszyPokaz.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StanMagazynowy.resx">
+      <DependentUpon>StanMagazynowy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SumaCzasuPokaz.resx">
       <DependentUpon>SumaCzasuPokaz.cs</DependentUpon>
     </EmbeddedResource>
@@ -513,6 +534,9 @@
     </Compile>
     <EmbeddedResource Include="UkladMagazynu.resx">
       <DependentUpon>UkladMagazynu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WyborElementu.resx">
+      <DependentUpon>WyborElementu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ZamowienieProcesyProdukcyjne.resx">
       <DependentUpon>ZamowienieProcesyProdukcyjne.cs</DependentUpon>
