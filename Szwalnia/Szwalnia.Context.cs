@@ -96,10 +96,18 @@ namespace Szwalnia
         public virtual DbSet<vObsluga> vObsluga { get; set; }
         public virtual DbSet<vPolki_na_regalach> vPolki_na_regalach { get; set; }
         public virtual DbSet<vRealizacjaProcesuProdukcyjnegoDetails> vRealizacjaProcesuProdukcyjnegoDetails { get; set; }
+        public virtual DbSet<vRoznicaDatDni> vRoznicaDatDni { get; set; }
+        public virtual DbSet<vRoznicaDniBezWeekend> vRoznicaDniBezWeekend { get; set; }
+        public virtual DbSet<vRoznicaGodzin> vRoznicaGodzin { get; set; }
+        public virtual DbSet<vRozpoczeteProcesy> vRozpoczeteProcesy { get; set; }
         public virtual DbSet<vSrednia_ilosc_maszyn> vSrednia_ilosc_maszyn { get; set; }
         public virtual DbSet<vSuma_czasu_procesu> vSuma_czasu_procesu { get; set; }
         public virtual DbSet<vWynagrodzenia> vWynagrodzenia { get; set; }
         public virtual DbSet<vZamowienieProcesyProdukcyjne> vZamowienieProcesyProdukcyjne { get; set; }
         public virtual DbSet<vZawartosc_polki> vZawartosc_polki { get; set; }
+        public virtual DbSet<vNiezuzyteWMiesiacu> vNiezuzyteWMiesiacu { get; set; }
+        public virtual DbSet<vProcesMaxOdpadMiesiac> vProcesMaxOdpadMiesiac { get; set; }
+        public virtual DbSet<vSredniCzasWgElementu> vSredniCzasWgElementu { get; set; }
+        public virtual DbSet<vSzacowanyCzasWykonania> vSzacowanyCzasWykonania { get; set; }
     }
 }

@@ -38,6 +38,16 @@ FROM            dbo.Polki INNER JOIN
                          dbo.Regaly ON dbo.Polki_regaly.ID_Regal = dbo.Regaly.ID_Regal
 GO
 
+
+
+---------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------WIDOKI PRODUKCJA----------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------
+
+--realizacja procesu produkcyjnego
+
 CREATE VIEW vRealizacjaProcesuProdukcyjnegoDetails 
 AS
 SELECT dbo.Proces_Produkcyjny.ID_Procesu_Produkcyjnego, dbo.Realizacja_Procesu.ID_Realizacji_Procesu, dbo.Rodzaj_Etapu.Nazwa as 'Nazwa etapu', dbo.Realizacja_Procesu.Data_Rozpoczecia_Procesu, 
@@ -68,6 +78,96 @@ SELECT        dbo.Zamowienie_Element.ID_Zamowienie_Element, dbo.Proces_Produkcyj
                          dbo.Proces_Produkcyjny.Proponowana_data_dostawy_materialu, dbo.Proces_Produkcyjny.Data_Rozpoczecia, dbo.Proces_Produkcyjny.Data_Zakonczenia, dbo.Proces_Produkcyjny.Uwagi
 FROM            dbo.Proces_Produkcyjny INNER JOIN
                          dbo.Zamowienie_Element ON dbo.Proces_Produkcyjny.ID_Zamowienie_Element = dbo.Zamowienie_Element.ID_Zamowienie_Element
+GO
+
+
+---SREDNI CZAS TRWANIA PROCESU
+
+CREATE VIEW vRoznicaDatDni
+AS
+SELECT ID_Procesu_Produkcyjnego, DATEDIFF(dd, Data_Rozpoczecia, Data_Zakonczenia) as 'Roznica_dat_dni'
+FROM     dbo.Proces_Produkcyjny
+
+GO
+
+CREATE VIEW vRoznicaDniBezWeekend
+AS
+SELECT dbo.Proces_Produkcyjny.ID_Procesu_Produkcyjnego,  
+CASE WHEN (datepart(dw,dbo.Proces_Produkcyjny.Data_Rozpoczecia) + dbo.vRoznicaDatDni.Roznica_dat_dni) > 6 THEN (dbo.vRoznicaDatDni.Roznica_dat_dni - 2) 
+ELSE dbo.vRoznicaDatDni.Roznica_dat_dni
+end as 'Roznica_dni_bez_weekendu'
+FROM     dbo.Proces_Produkcyjny INNER JOIN
+                  dbo.vRoznicaDatDni ON dbo.Proces_Produkcyjny.ID_Procesu_Produkcyjnego = dbo.vRoznicaDatDni.ID_Procesu_Produkcyjnego
+
+GO
+
+CREATE VIEW vRoznicaGodzin
+AS
+SELECT  dbo.Proces_Produkcyjny.ID_Procesu_Produkcyjnego, dbo.Proces_Produkcyjny.Data_Rozpoczecia ,dbo.Proces_Produkcyjny.Data_Zakonczenia,
+CASE 
+WHEN dbo.vRoznicaDniBezWeekend.Roznica_dni_bez_weekendu = 0 THEN DATEDIFF(hh, dbo.Proces_Produkcyjny.Data_Rozpoczecia, dbo.Proces_Produkcyjny.Data_Zakonczenia)
+ELSE (22-DATEPART(hh, dbo.Proces_Produkcyjny.Data_Rozpoczecia))+(DATEPART(hh,  dbo.Proces_Produkcyjny.Data_Zakonczenia)-6)+((dbo.vRoznicaDniBezWeekend.Roznica_dni_bez_weekendu-1)*16)
+END AS 'Roznica_godzin'
+FROM     dbo.Proces_Produkcyjny INNER JOIN
+                  dbo.vRoznicaDniBezWeekend ON dbo.Proces_Produkcyjny.ID_Procesu_Produkcyjnego = dbo.vRoznicaDniBezWeekend.ID_Procesu_Produkcyjnego
+
+GO
+
+CREATE VIEW vSredniCzasWgElementu
+AS
+SELECT  ISNULL(ROW_NUMBER() OVER(ORDER BY (SELECT NULL)), -1) as 'id', dbo.Elementy_Typy.Typ as 'Nazwa_produktu', avg(dbo.vRoznicaGodzin.Roznica_godzin) as'Sredni_czas'
+FROM     dbo.Elementy_Typy INNER JOIN
+                  dbo.Elementy ON dbo.Elementy_Typy.ID_Element_Typ = dbo.Elementy.ID_Element_Typ INNER JOIN
+                  dbo.Zamowienie_Element ON dbo.Elementy.ID_Element = dbo.Zamowienie_Element.ID_Element INNER JOIN
+                  dbo.Proces_Produkcyjny INNER JOIN
+                  dbo.vRoznicaGodzin ON dbo.Proces_Produkcyjny.ID_Procesu_Produkcyjnego = dbo.vRoznicaGodzin.ID_Procesu_Produkcyjnego ON 
+                  dbo.Zamowienie_Element.ID_Zamowienie_Element = dbo.Proces_Produkcyjny.ID_Zamowienie_Element
+GROUP BY dbo.Elementy_Typy.Typ
+
+GO
+------
+------Szacowany czas wykonania zamowienia
+------
+CREATE VIEW vSzacowanyCzasWykonania
+AS
+SELECT ISNULL(ROW_NUMBER() OVER(ORDER BY (SELECT NULL)), -1) as 'id', dbo.Elementy_Typy.Typ ,   CURRENT_TIMESTAMP + ((((dbo.vSredniCzasWgElementu.Sredni_czas - (22- datepart(hh,CURRENT_TIMESTAMP)))/16)+1)*8 + vSredniCzasWgElementu.Sredni_czas)/24.00 + (((((dbo.vSredniCzasWgElementu.Sredni_czas - (22- datepart(hh,CURRENT_TIMESTAMP)))/16)+1) + DATEPART(dw,CURRENT_TIMESTAMP))/7)*2 as 'Szacowany_czas_wykonania'
+FROM     dbo.Elementy_Typy INNER JOIN
+                  dbo.Elementy ON dbo.Elementy_Typy.ID_Element_Typ = dbo.Elementy.ID_Element_Typ INNER JOIN
+                  dbo.Zamowienie_Element ON dbo.Elementy.ID_Element = dbo.Zamowienie_Element.ID_Element INNER JOIN
+                  dbo.Proces_Produkcyjny ON dbo.Zamowienie_Element.ID_Zamowienie_Element = dbo.Proces_Produkcyjny.ID_Zamowienie_Element INNER JOIN
+                  dbo.vSredniCzasWgElementu ON dbo.Elementy_Typy.Typ = dbo.vSredniCzasWgElementu.Nazwa_produktu
+
+GO
+
+-----Proces generuj¹cy najwiêcej odpadow w miesiacu
+ 
+CREATE VIEW vProcesMaxOdpadMiesiac
+AS
+SELECT ISNULL(ROW_NUMBER() OVER(ORDER BY (SELECT NULL)), -1) as 'id', datepart(mm, dbo.Proces_Produkcyjny.Data_Zakonczenia) as 'Miesiac', max(dbo.Material_Na_Produkcji.Odpad) as 'Max_odpad_w_msc'
+FROM     dbo.Proces_Produkcyjny INNER JOIN
+                  dbo.Material_Na_Produkcji ON dbo.Proces_Produkcyjny.ID_Procesu_Produkcyjnego = dbo.Material_Na_Produkcji.ID_Procesu_Produkcyjnego
+GROUP BY datepart(mm, dbo.Proces_Produkcyjny.Data_Zakonczenia)
+
+GO
+
+---Niezuzyte w miesiacu
+
+CREATE VIEW vNiezuzyteWMiesiacu
+AS
+SELECT ISNULL(ROW_NUMBER() OVER(ORDER BY (SELECT NULL)), -1) as 'id', dbo.Elementy.Element_Nazwa, dbo.Material_Na_Produkcji.Niezuzyty_material,  dbo.Elementy_Jednostki.Jednostka, datepart(mm, dbo.Proces_Produkcyjny.Data_Zakonczenia) as 'Miesiac'
+FROM     dbo.Proces_Produkcyjny INNER JOIN
+                  dbo.Material_Na_Produkcji ON dbo.Proces_Produkcyjny.ID_Procesu_Produkcyjnego = dbo.Material_Na_Produkcji.ID_Procesu_Produkcyjnego INNER JOIN
+                  dbo.Elementy_Proces ON dbo.Material_Na_Produkcji.ID_Elementy_Proces = dbo.Elementy_Proces.ID_Elementy_Proces INNER JOIN
+                  dbo.Elementy ON dbo.Elementy_Proces.ID_Element = dbo.Elementy.ID_Element INNER JOIN
+                  dbo.Elementy_Cechy ON dbo.Elementy.ID_Element = dbo.Elementy_Cechy.ID_Element INNER JOIN
+                  dbo.Elementy_Jednostki ON dbo.Elementy_Cechy.ID_Jednostka = dbo.Elementy_Jednostki.ID_jednostka
+GO
+
+--Rozpoczete Procesy
+
+CREATE VIEW vRozpoczeteProcesy
+AS
+SELECT * FROM Proces_Produkcyny WHERE Data_Zakonczenia=NULL;
 GO
 
 ---------------------------------------------------------------------------------------------------------------------------
