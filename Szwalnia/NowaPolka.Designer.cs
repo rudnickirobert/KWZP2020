@@ -28,27 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.btnDodajRegal = new System.Windows.Forms.Button();
             this.lblOznaczenie = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblNumerPolki = new System.Windows.Forms.Label();
             this.cmbOznaczenie = new System.Windows.Forms.ComboBox();
-            this.regalyBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.szwalniaDataSet = new Szwalnia.SzwalniaDataSet();
             this.btnNowyRegal = new System.Windows.Forms.Button();
             this.lblNumerNowejPolki = new System.Windows.Forms.Label();
             this.btnNowyRozmiarPolki = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.regalyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.regalyTableAdapter = new Szwalnia.SzwalniaDataSetTableAdapters.RegalyTableAdapter();
-            this.vPolkinaregalachBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vPolki_na_regalachTableAdapter = new Szwalnia.SzwalniaDataSetTableAdapters.vPolki_na_regalachTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.regalyBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.regalyBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vPolkinaregalachBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDodajRegal
@@ -91,24 +80,11 @@
             // 
             // cmbOznaczenie
             // 
-            this.cmbOznaczenie.DataSource = this.regalyBindingSource1;
-            this.cmbOznaczenie.DisplayMember = "Oznaczenie";
             this.cmbOznaczenie.FormattingEnabled = true;
             this.cmbOznaczenie.Location = new System.Drawing.Point(141, 126);
             this.cmbOznaczenie.Name = "cmbOznaczenie";
             this.cmbOznaczenie.Size = new System.Drawing.Size(99, 21);
             this.cmbOznaczenie.TabIndex = 15;
-            this.cmbOznaczenie.SelectedIndexChanged += new System.EventHandler(this.cmbOznaczenie_SelectedIndexChanged);
-            // 
-            // regalyBindingSource1
-            // 
-            this.regalyBindingSource1.DataMember = "Regaly";
-            this.regalyBindingSource1.DataSource = this.szwalniaDataSet;
-            // 
-            // szwalniaDataSet
-            // 
-            this.szwalniaDataSet.DataSetName = "SzwalniaDataSet";
-            this.szwalniaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnNowyRegal
             // 
@@ -155,24 +131,6 @@
             this.label2.TabIndex = 18;
             this.label2.Text = "Rozmiar:";
             // 
-            // regalyBindingSource
-            // 
-            this.regalyBindingSource.DataMember = "Regaly";
-            this.regalyBindingSource.DataSource = this.szwalniaDataSet;
-            // 
-            // regalyTableAdapter
-            // 
-            this.regalyTableAdapter.ClearBeforeFill = true;
-            // 
-            // vPolkinaregalachBindingSource
-            // 
-            this.vPolkinaregalachBindingSource.DataMember = "vPolki_na_regalach";
-            this.vPolkinaregalachBindingSource.DataSource = this.szwalniaDataSet;
-            // 
-            // vPolki_na_regalachTableAdapter
-            // 
-            this.vPolki_na_regalachTableAdapter.ClearBeforeFill = true;
-            // 
             // NowaPolka
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -188,15 +146,8 @@
             this.Controls.Add(this.btnDodajRegal);
             this.Controls.Add(this.lblOznaczenie);
             this.Controls.Add(this.lblTitle);
-            this.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.regalyBindingSource, "Oznaczenie", true));
-            this.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.regalyBindingSource, "Oznaczenie", true));
             this.Name = "NowaPolka";
             this.Text = "Dodaj półkę";
-            this.Load += new System.EventHandler(this.NowaPolka_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.regalyBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.regalyBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vPolkinaregalachBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,11 +165,5 @@
         private System.Windows.Forms.Button btnNowyRozmiarPolki;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
-        private SzwalniaDataSet szwalniaDataSet;
-        private System.Windows.Forms.BindingSource regalyBindingSource;
-        private SzwalniaDataSetTableAdapters.RegalyTableAdapter regalyTableAdapter;
-        private System.Windows.Forms.BindingSource regalyBindingSource1;
-        private System.Windows.Forms.BindingSource vPolkinaregalachBindingSource;
-        private SzwalniaDataSetTableAdapters.vPolki_na_regalachTableAdapter vPolki_na_regalachTableAdapter;
     }
 }
