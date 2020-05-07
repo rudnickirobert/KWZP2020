@@ -39,27 +39,6 @@
             this.btnNowyRozmiarPolki = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.szwalniaDataSet = new Szwalnia.SzwalniaDataSet();
-            this.vPolkinaregalachBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vPolki_na_regalachTableAdapter = new Szwalnia.SzwalniaDataSetTableAdapters.vPolki_na_regalachTableAdapter();
-            this.polkiRozmiaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.polki_RozmiaryTableAdapter = new Szwalnia.SzwalniaDataSetTableAdapters.Polki_RozmiaryTableAdapter();
-            this.szwalniaDataSet1 = new Szwalnia.SzwalniaDataSet1();
-            this.vPolkiRozmiaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vPolki_RozmiaryTableAdapter = new Szwalnia.SzwalniaDataSet1TableAdapters.vPolki_RozmiaryTableAdapter();
-            this.polkiregalyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.polki_regalyTableAdapter = new Szwalnia.SzwalniaDataSet1TableAdapters.Polki_regalyTableAdapter();
-            this.regalyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.regalyTableAdapter = new Szwalnia.SzwalniaDataSet1TableAdapters.RegalyTableAdapter();
-            this.vPolkiRozmiaryBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vPolkinaregalachBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.polkiRozmiaryBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vPolkiRozmiaryBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.polkiregalyBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.regalyBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vPolkiRozmiaryBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDodajRegal
@@ -102,8 +81,6 @@
             // 
             // cmbOznaczenie
             // 
-            this.cmbOznaczenie.DataSource = this.regalyBindingSource;
-            this.cmbOznaczenie.DisplayMember = "Oznaczenie";
             this.cmbOznaczenie.FormattingEnabled = true;
             this.cmbOznaczenie.Location = new System.Drawing.Point(141, 126);
             this.cmbOznaczenie.Name = "cmbOznaczenie";
@@ -140,7 +117,6 @@
             // 
             // comboBox1
             // 
-            this.comboBox1.DataSource = this.vPolkiRozmiaryBindingSource1;
             this.comboBox1.DisplayMember = "Wymiar";
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(141, 165);
@@ -157,66 +133,6 @@
             this.label2.Size = new System.Drawing.Size(48, 13);
             this.label2.TabIndex = 18;
             this.label2.Text = "Rozmiar:";
-            // 
-            // szwalniaDataSet
-            // 
-            this.szwalniaDataSet.DataSetName = "SzwalniaDataSet";
-            this.szwalniaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // vPolkinaregalachBindingSource
-            // 
-            this.vPolkinaregalachBindingSource.DataMember = "vPolki_na_regalach";
-            this.vPolkinaregalachBindingSource.DataSource = this.szwalniaDataSet;
-            // 
-            // vPolki_na_regalachTableAdapter
-            // 
-            this.vPolki_na_regalachTableAdapter.ClearBeforeFill = true;
-            // 
-            // polkiRozmiaryBindingSource
-            // 
-            this.polkiRozmiaryBindingSource.DataMember = "Polki_Rozmiary";
-            this.polkiRozmiaryBindingSource.DataSource = this.szwalniaDataSet;
-            // 
-            // polki_RozmiaryTableAdapter
-            // 
-            this.polki_RozmiaryTableAdapter.ClearBeforeFill = true;
-            // 
-            // szwalniaDataSet1
-            // 
-            this.szwalniaDataSet1.DataSetName = "SzwalniaDataSet1";
-            this.szwalniaDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // vPolkiRozmiaryBindingSource
-            // 
-            this.vPolkiRozmiaryBindingSource.DataMember = "vPolki_Rozmiary";
-            this.vPolkiRozmiaryBindingSource.DataSource = this.szwalniaDataSet1;
-            // 
-            // vPolki_RozmiaryTableAdapter
-            // 
-            this.vPolki_RozmiaryTableAdapter.ClearBeforeFill = true;
-            // 
-            // polkiregalyBindingSource
-            // 
-            this.polkiregalyBindingSource.DataMember = "Polki_regaly";
-            this.polkiregalyBindingSource.DataSource = this.szwalniaDataSet1;
-            // 
-            // polki_regalyTableAdapter
-            // 
-            this.polki_regalyTableAdapter.ClearBeforeFill = true;
-            // 
-            // regalyBindingSource
-            // 
-            this.regalyBindingSource.DataMember = "Regaly";
-            this.regalyBindingSource.DataSource = this.szwalniaDataSet1;
-            // 
-            // regalyTableAdapter
-            // 
-            this.regalyTableAdapter.ClearBeforeFill = true;
-            // 
-            // vPolkiRozmiaryBindingSource1
-            // 
-            this.vPolkiRozmiaryBindingSource1.DataMember = "vPolki_Rozmiary";
-            this.vPolkiRozmiaryBindingSource1.DataSource = this.szwalniaDataSet1;
             // 
             // NowaPolka
             // 
@@ -236,14 +152,6 @@
             this.Name = "NowaPolka";
             this.Text = "Dodaj półkę";
             this.Load += new System.EventHandler(this.NowaPolka_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vPolkinaregalachBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.polkiRozmiaryBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vPolkiRozmiaryBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.polkiregalyBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.regalyBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vPolkiRozmiaryBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,18 +169,5 @@
         private System.Windows.Forms.Button btnNowyRozmiarPolki;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
-        private SzwalniaDataSet szwalniaDataSet;
-        private System.Windows.Forms.BindingSource vPolkinaregalachBindingSource;
-        private SzwalniaDataSetTableAdapters.vPolki_na_regalachTableAdapter vPolki_na_regalachTableAdapter;
-        private System.Windows.Forms.BindingSource polkiRozmiaryBindingSource;
-        private SzwalniaDataSetTableAdapters.Polki_RozmiaryTableAdapter polki_RozmiaryTableAdapter;
-        private SzwalniaDataSet1 szwalniaDataSet1;
-        private System.Windows.Forms.BindingSource vPolkiRozmiaryBindingSource;
-        private SzwalniaDataSet1TableAdapters.vPolki_RozmiaryTableAdapter vPolki_RozmiaryTableAdapter;
-        private System.Windows.Forms.BindingSource polkiregalyBindingSource;
-        private SzwalniaDataSet1TableAdapters.Polki_regalyTableAdapter polki_regalyTableAdapter;
-        private System.Windows.Forms.BindingSource regalyBindingSource;
-        private SzwalniaDataSet1TableAdapters.RegalyTableAdapter regalyTableAdapter;
-        private System.Windows.Forms.BindingSource vPolkiRozmiaryBindingSource1;
     }
 }
