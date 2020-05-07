@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.txtNazwa = new System.Windows.Forms.TextBox();
-            this.numOkres = new System.Windows.Forms.NumericUpDown();
+            this.txtSlowna = new System.Windows.Forms.TextBox();
+            this.numWartosc = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblMain = new System.Windows.Forms.Label();
@@ -55,7 +55,13 @@
             this.elementy_Cechy_SlownikTableAdapter = new Szwalnia.SzwalniaDataSet2TableAdapters.Elementy_Cechy_SlownikTableAdapter();
             this.iDCechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.numOkres)).BeginInit();
+            this.txtIDElment = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtIDCechy = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtIDJednostka = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.numWartosc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaElementy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaCecha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaJednostek)).BeginInit();
@@ -67,19 +73,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.elementyCechySlownikBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtNazwa
+            // txtSlowna
             // 
-            this.txtNazwa.Location = new System.Drawing.Point(160, 115);
-            this.txtNazwa.Name = "txtNazwa";
-            this.txtNazwa.Size = new System.Drawing.Size(151, 22);
-            this.txtNazwa.TabIndex = 9;
+            this.txtSlowna.Location = new System.Drawing.Point(160, 115);
+            this.txtSlowna.Name = "txtSlowna";
+            this.txtSlowna.Size = new System.Drawing.Size(151, 22);
+            this.txtSlowna.TabIndex = 9;
             // 
-            // numOkres
+            // numWartosc
             // 
-            this.numOkres.Location = new System.Drawing.Point(160, 87);
-            this.numOkres.Name = "numOkres";
-            this.numOkres.Size = new System.Drawing.Size(120, 22);
-            this.numOkres.TabIndex = 8;
+            this.numWartosc.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.numWartosc.Location = new System.Drawing.Point(160, 87);
+            this.numWartosc.Name = "numWartosc";
+            this.numWartosc.Size = new System.Drawing.Size(120, 22);
+            this.numWartosc.TabIndex = 8;
             // 
             // label2
             // 
@@ -118,12 +129,13 @@
             this.elementNazwaDataGridViewTextBoxColumn,
             this.okresPrzydatnosciMiesiaceDataGridViewTextBoxColumn});
             this.dgvListaElementy.DataSource = this.elementyBindingSource;
-            this.dgvListaElementy.Location = new System.Drawing.Point(358, 30);
+            this.dgvListaElementy.Location = new System.Drawing.Point(358, 10);
             this.dgvListaElementy.Name = "dgvListaElementy";
             this.dgvListaElementy.RowHeadersWidth = 51;
             this.dgvListaElementy.RowTemplate.Height = 24;
             this.dgvListaElementy.Size = new System.Drawing.Size(240, 150);
             this.dgvListaElementy.TabIndex = 10;
+            this.dgvListaElementy.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaElementy_CellContentDoubleClick);
             // 
             // dgvListaCecha
             // 
@@ -133,12 +145,13 @@
             this.iDCechaDataGridViewTextBoxColumn,
             this.cechaDataGridViewTextBoxColumn});
             this.dgvListaCecha.DataSource = this.elementyCechySlownikBindingSource;
-            this.dgvListaCecha.Location = new System.Drawing.Point(358, 203);
+            this.dgvListaCecha.Location = new System.Drawing.Point(358, 171);
             this.dgvListaCecha.Name = "dgvListaCecha";
             this.dgvListaCecha.RowHeadersWidth = 51;
             this.dgvListaCecha.RowTemplate.Height = 24;
             this.dgvListaCecha.Size = new System.Drawing.Size(240, 150);
             this.dgvListaCecha.TabIndex = 11;
+            this.dgvListaCecha.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaCecha_CellContentDoubleClick);
             // 
             // dgvListaJednostek
             // 
@@ -148,21 +161,23 @@
             this.iDjednostkaDataGridViewTextBoxColumn,
             this.jednostkaDataGridViewTextBoxColumn});
             this.dgvListaJednostek.DataSource = this.elementyJednostkiBindingSource;
-            this.dgvListaJednostek.Location = new System.Drawing.Point(71, 203);
+            this.dgvListaJednostek.Location = new System.Drawing.Point(358, 327);
             this.dgvListaJednostek.Name = "dgvListaJednostek";
             this.dgvListaJednostek.RowHeadersWidth = 51;
             this.dgvListaJednostek.RowTemplate.Height = 24;
             this.dgvListaJednostek.Size = new System.Drawing.Size(240, 150);
             this.dgvListaJednostek.TabIndex = 12;
+            this.dgvListaJednostek.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaJednostek_CellContentDoubleClick);
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(256, 150);
+            this.btnDodaj.Location = new System.Drawing.Point(259, 262);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(75, 30);
             this.btnDodaj.TabIndex = 13;
             this.btnDodaj.Text = "Dodaj";
             this.btnDodaj.UseVisualStyleBackColor = true;
+            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
             // 
             // szwalniaDataSet
             // 
@@ -273,24 +288,78 @@
             this.cechaDataGridViewTextBoxColumn.Name = "cechaDataGridViewTextBoxColumn";
             this.cechaDataGridViewTextBoxColumn.Width = 125;
             // 
+            // txtIDElment
+            // 
+            this.txtIDElment.Location = new System.Drawing.Point(160, 143);
+            this.txtIDElment.Name = "txtIDElment";
+            this.txtIDElment.Size = new System.Drawing.Size(151, 22);
+            this.txtIDElment.TabIndex = 15;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(78, 143);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(76, 17);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "ID Elmentu";
+            // 
+            // txtIDCechy
+            // 
+            this.txtIDCechy.Location = new System.Drawing.Point(160, 171);
+            this.txtIDCechy.Name = "txtIDCechy";
+            this.txtIDCechy.Size = new System.Drawing.Size(151, 22);
+            this.txtIDCechy.TabIndex = 17;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(90, 171);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 17);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "ID Cechy";
+            // 
+            // txtIDJednostka
+            // 
+            this.txtIDJednostka.Location = new System.Drawing.Point(160, 199);
+            this.txtIDJednostka.Name = "txtIDJednostka";
+            this.txtIDJednostka.Size = new System.Drawing.Size(151, 22);
+            this.txtIDJednostka.TabIndex = 19;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(69, 199);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(85, 17);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "ID Jednostki";
+            // 
             // DodoawanieCechElementu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(643, 384);
+            this.ClientSize = new System.Drawing.Size(643, 500);
+            this.Controls.Add(this.txtIDJednostka);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtIDCechy);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtIDElment);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.dgvListaJednostek);
             this.Controls.Add(this.dgvListaCecha);
             this.Controls.Add(this.dgvListaElementy);
-            this.Controls.Add(this.txtNazwa);
-            this.Controls.Add(this.numOkres);
+            this.Controls.Add(this.txtSlowna);
+            this.Controls.Add(this.numWartosc);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblMain);
             this.Name = "DodoawanieCechElementu";
             this.Text = "DodoawanieCechElementu";
             this.Load += new System.EventHandler(this.DodoawanieCechElementu_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numOkres)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numWartosc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaElementy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaCecha)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaJednostek)).EndInit();
@@ -307,8 +376,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtNazwa;
-        private System.Windows.Forms.NumericUpDown numOkres;
+        private System.Windows.Forms.TextBox txtSlowna;
+        private System.Windows.Forms.NumericUpDown numWartosc;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblMain;
@@ -333,5 +402,11 @@
         private SzwalniaDataSet2TableAdapters.Elementy_Cechy_SlownikTableAdapter elementy_Cechy_SlownikTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDCechaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cechaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox txtIDElment;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtIDCechy;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtIDJednostka;
+        private System.Windows.Forms.Label label5;
     }
 }
