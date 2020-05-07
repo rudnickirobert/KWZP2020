@@ -21,7 +21,6 @@ namespace Szwalnia
             szwalnia = db;
             ostatniaPolka = db.Polki.Count();
         }
-
         private void btnZnajdzPolke_Click(object sender, EventArgs e)
         {
                 if ((nudNumerPolki.Value <= ostatniaPolka) & (nudNumerPolki.Value > 0))
@@ -32,28 +31,23 @@ namespace Szwalnia
                 else
                 MessageBox.Show("Wprowadź poprawny numer półki (wiekszy od 0 i mniejszy od " + ostatniaPolka + ")!");                  
         }
-
         private void btnDodajRegal_Click(object sender, EventArgs e)
         {
             NowyRegal regal = new NowyRegal(szwalnia);
             regal.Show();
             this.Close();
         }
-
         private void btnDodajPolke_Click(object sender, EventArgs e)
         {
             NowaPolka polka = new NowaPolka(szwalnia, ostatniaPolka);
             polka.Show();
             this.Close();
         }
-
         private void btnDodajRozmiar_Click(object sender, EventArgs e)
         {
             NowyRozmiarPolki rozmiar = new NowyRozmiarPolki(szwalnia);
             rozmiar.Show();
             this.Close();
         }
-
-        
     }
 }
