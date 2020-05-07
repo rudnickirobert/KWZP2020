@@ -27,6 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Start));
             this.btnMagazyn = new System.Windows.Forms.Button();
             this.btnPrzygotowanieProdukcji = new System.Windows.Forms.Button();
             this.btnProdukcja = new System.Windows.Forms.Button();
@@ -86,6 +87,7 @@
             this.Controls.Add(this.btnProdukcja);
             this.Controls.Add(this.btnPrzygotowanieProdukcji);
             this.Controls.Add(this.btnMagazyn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Start";
             this.Text = "Szwalnia";

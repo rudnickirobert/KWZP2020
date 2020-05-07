@@ -4767,6 +4767,16 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Polki_Rozmiary">
+            <EntityTypeMapping TypeName="SzwalniaModel.Polki_Rozmiary">
+              <MappingFragment StoreEntitySet="Polki_Rozmiary">
+                <ScalarProperty Name="ID_Rozmiar_Polki" ColumnName="ID_Rozmiar_Polki" />
+                <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
+                <ScalarProperty Name="Szerokosc" ColumnName="Szerokosc" />
+                <ScalarProperty Name="Glebokosc" ColumnName="Glebokosc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Pracownicy">
             <EntityTypeMapping TypeName="SzwalniaModel.Pracownicy">
               <MappingFragment StoreEntitySet="Pracownicy">
@@ -5041,6 +5051,17 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
                 <ScalarProperty Name="ID_Znajomosc_Jezykow" ColumnName="ID_Znajomosc_Jezykow" />
                 <ScalarProperty Name="ID_Jezyka" ColumnName="ID_Jezyka" />
                 <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vPolki_Rozmiary">
+            <EntityTypeMapping TypeName="SzwalniaModel.vPolki_Rozmiary">
+              <MappingFragment StoreEntitySet="vPolki_Rozmiary">
+                <ScalarProperty Name="ID_Rozmiar_Polki" ColumnName="ID_Rozmiar_Polki" />
+                <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
+                <ScalarProperty Name="Szerokosc" ColumnName="Szerokosc" />
+                <ScalarProperty Name="Glebokosc" ColumnName="Glebokosc" />
+                <ScalarProperty Name="Wymiar" ColumnName="Wymiar" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
