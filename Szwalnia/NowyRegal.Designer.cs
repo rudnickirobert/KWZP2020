@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.lblOznaczenie = new System.Windows.Forms.Label();
             this.txtOznaczenie = new System.Windows.Forms.TextBox();
             this.btnDodajRegal = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lblTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label1.Location = new System.Drawing.Point(49, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(223, 31);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Dodaj nowy regał";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.lblTitle.Location = new System.Drawing.Point(49, 30);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(223, 31);
+            this.lblTitle.TabIndex = 5;
+            this.lblTitle.Text = "Dodaj nowy regał";
             // 
             // lblOznaczenie
             // 
@@ -80,7 +80,7 @@
             this.Controls.Add(this.btnDodajRegal);
             this.Controls.Add(this.txtOznaczenie);
             this.Controls.Add(this.lblOznaczenie);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTitle);
             this.Name = "NowyRegal";
             this.Text = "Dodaj regał";
             this.ResumeLayout(false);
@@ -90,7 +90,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblOznaczenie;
         private System.Windows.Forms.TextBox txtOznaczenie;
         private System.Windows.Forms.Button btnDodajRegal;

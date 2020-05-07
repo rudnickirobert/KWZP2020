@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -41,7 +42,7 @@ namespace Szwalnia
 
         private void btnDodajPolke_Click(object sender, EventArgs e)
         {
-            NowaPolka polka = new NowaPolka(szwalnia);
+            NowaPolka polka = new NowaPolka(szwalnia, ostatniaPolka);
             polka.Show();
             this.Close();
         }

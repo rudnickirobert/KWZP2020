@@ -12,9 +12,12 @@ namespace Szwalnia
 {
     public partial class NowaPolka : Form
     {
-        public NowaPolka(SzwalniaEntities db)
+        int nowaPolka;
+        public NowaPolka(SzwalniaEntities db, int ostatniaPolka)
         {
             InitializeComponent();
+            nowaPolka = ostatniaPolka+1;
+            lblNumerNowejPolki.Text = nowaPolka.ToString();
         }
     }
 }

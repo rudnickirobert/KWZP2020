@@ -19,14 +19,12 @@ namespace Szwalnia
             szwalnia = db;
             btnDodajRegal.Enabled = false;
         }
-
         private void txtOznaczenie_TextChanged(object sender, EventArgs e)
         {
             if (txtOznaczenie.TextLength == 2)
                 btnDodajRegal.Enabled = true;
             else btnDodajRegal.Enabled = false;
         }
-
         private void btnDodajRegal_Click(object sender, EventArgs e)
         {
             Regaly regalNew = new Regaly();
