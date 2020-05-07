@@ -130,6 +130,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MagazynForm";
             this.Text = "Moduł magazynowy";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MagazynForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

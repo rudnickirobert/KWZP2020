@@ -60,5 +60,11 @@ namespace Szwalnia
             kontrahenci.Show();
             this.Close();
         }
+
+        private void MagazynForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Start start = new Start();
+            start.Show();
+        }
     }
 }
