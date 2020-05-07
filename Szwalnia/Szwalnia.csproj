@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bilans.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bilans.Designer.cs">
+      <DependentUpon>Bilans.cs</DependentUpon>
+    </Compile>
     <Compile Include="Czesci_Obsluga.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -108,6 +114,12 @@
     </Compile>
     <Compile Include="Etat.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FaktoryWystawiane.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FaktoryWystawiane.Designer.cs">
+      <DependentUpon>FaktoryWystawiane.cs</DependentUpon>
     </Compile>
     <Compile Include="FakturyZewnetrzne.cs">
       <SubType>Form</SubType>
@@ -325,13 +337,22 @@
     <Compile Include="Urlop.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vCalkowityKosztZamowienia.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vCechyElementu.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vFaktury.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vIdZamowienieElementProcesProdukcyjny.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vKlienciZamowienie.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vKosztProcesu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vMaszyny_rodzaj_liczba.cs">
@@ -353,6 +374,9 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vSuma_czasu_procesu.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vWynagrodzenia.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vZamowienieProcesyProdukcyjne.cs">
@@ -420,8 +444,14 @@
     <Compile Include="Znajomosc_Jezykow.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Bilans.resx">
+      <DependentUpon>Bilans.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ElementSzczegoly.resx">
       <DependentUpon>ElementSzczegoly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FaktoryWystawiane.resx">
+      <DependentUpon>FaktoryWystawiane.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FakturyZewnetrzne.resx">
       <DependentUpon>FakturyZewnetrzne.cs</DependentUpon>
