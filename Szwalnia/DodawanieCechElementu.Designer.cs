@@ -1,6 +1,6 @@
 ﻿namespace Szwalnia
 {
-    partial class DodoawanieCechElementu
+    partial class DodawanieCechElementu
     {
         /// <summary>
         /// Required designer variable.

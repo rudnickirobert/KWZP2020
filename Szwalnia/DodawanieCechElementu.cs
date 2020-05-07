@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class DodoawanieCechElementu : Form
+    public partial class DodawanieCechElementu : Form
     {
         public SzwalniaEntities szwalniaPassed;
         public Elementy_Cechy elemnetCechaNew = new Elementy_Cechy();
-        public DodoawanieCechElementu()
+        public DodawanieCechElementu()
         {
             InitializeComponent();                        
         }
