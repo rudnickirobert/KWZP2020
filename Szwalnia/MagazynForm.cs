@@ -46,5 +46,10 @@ namespace Szwalnia
             zamowienia.Show();
             this.Close();
         }
+
+        private void btnObslugaDostaw_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

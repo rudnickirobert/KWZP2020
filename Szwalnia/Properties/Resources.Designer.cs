@@ -59,15 +59,5 @@ namespace Szwalnia.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ikona_magazyn {
-            get {
-                object obj = ResourceManager.GetObject("ikona magazyn", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

@@ -19,6 +19,7 @@ namespace Szwalnia
         {
             InitializeComponent();
             szwalnia = db;
+            //ostatniaPolka = 33;
             ostatniaPolka = db.Polki.Count();
         }
         private void btnZnajdzPolke_Click(object sender, EventArgs e)
