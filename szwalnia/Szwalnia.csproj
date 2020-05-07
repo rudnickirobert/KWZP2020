@@ -127,12 +127,6 @@
     <Compile Include="Grupa.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="InneProdukcja.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="InneProdukcja.Designer.cs">
-      <DependentUpon>InneProdukcja.cs</DependentUpon>
-    </Compile>
     <Compile Include="Jezyk.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -187,30 +181,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="NowyProces.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NowyProces.Designer.cs">
-      <DependentUpon>NowyProces.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NowyRodzajEtapu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NowyRodzajEtapu.Designer.cs">
-      <DependentUpon>NowyRodzajEtapu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ObslugaSzukaj.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ObslugaSzukaj.Designer.cs">
-      <DependentUpon>ObslugaSzukaj.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ObslugaZrobione.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ObslugaZrobione.Designer.cs">
-      <DependentUpon>ObslugaZrobione.cs</DependentUpon>
-    </Compile>
     <Compile Include="Obsluga_Techniczna.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -238,12 +208,6 @@
     <Compile Include="Pracownicy_Zatrudnienie.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ProcesProdukcyjny.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProcesProdukcyjny.Designer.cs">
-      <DependentUpon>ProcesProdukcyjny.cs</DependentUpon>
-    </Compile>
     <Compile Include="Proces_Produkcyjny.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -256,26 +220,8 @@
     <Compile Include="Produkt.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="PrzegladProcesowProdukcyjnych.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PrzegladProcesowProdukcyjnych.Designer.cs">
-      <DependentUpon>PrzegladProcesowProdukcyjnych.cs</DependentUpon>
-    </Compile>
     <Compile Include="Przydzial_Zasobow.cs">
       <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="RaportyProdukcja.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RaportyProdukcja.Designer.cs">
-      <DependentUpon>RaportyProdukcja.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RealizacjaProcesu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RealizacjaProcesu.Designer.cs">
-      <DependentUpon>RealizacjaProcesu.cs</DependentUpon>
     </Compile>
     <Compile Include="RealizacjaProcesuSzczegoly.cs">
       <SubType>Form</SubType>
@@ -303,18 +249,6 @@
     </Compile>
     <Compile Include="Stanowisko.cs">
       <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SumaCzasuPokaz.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SumaCzasuPokaz.Designer.cs">
-      <DependentUpon>SumaCzasuPokaz.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SzczegolyProcesu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SzczegolyProcesu.Designer.cs">
-      <DependentUpon>SzczegolyProcesu.cs</DependentUpon>
     </Compile>
     <Compile Include="Umowy_Kurierzy.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -348,12 +282,6 @@
     </Compile>
     <Compile Include="v_Przydzial_Zasobow.cs">
       <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="WszystkieProcesyProdukcyjne.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WszystkieProcesyProdukcyjne.Designer.cs">
-      <DependentUpon>WszystkieProcesyProdukcyjne.cs</DependentUpon>
     </Compile>
     <Compile Include="WyborElementu.cs">
       <SubType>Form</SubType>
@@ -417,20 +345,6 @@
     <EmbeddedResource Include="ElementSzczegoly.resx">
       <DependentUpon>ElementSzczegoly.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InneProdukcja.resx">
-      <DependentUpon>InneProdukcja.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NowyProces.resx">
-      <DependentUpon>NowyProces.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NowyRodzajEtapu.resx">
-      <DependentUpon>NowyRodzajEtapu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProcesProdukcyjny.resx">
-      <DependentUpon>ProcesProdukcyjny.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Produkcja.resx">
-      <DependentUpon>Produkcja.cs</DependentUpon>
     <EmbeddedResource Include="FakturyZewnetrzne.resx">
       <DependentUpon>FakturyZewnetrzne.cs</DependentUpon>
     </EmbeddedResource>
@@ -439,15 +353,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PracownicySzczegoly.resx">
       <DependentUpon>PracownicySzczegoly.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PrzegladProcesowProdukcyjnych.resx">
-      <DependentUpon>PrzegladProcesowProdukcyjnych.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RaportyProdukcja.resx">
-      <DependentUpon>RaportyProdukcja.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RealizacjaProcesu.resx">
-      <DependentUpon>RealizacjaProcesu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RealizacjaProcesuSzczegoly.resx">
       <DependentUpon>RealizacjaProcesuSzczegoly.cs</DependentUpon>
@@ -473,12 +378,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="SzczegolyProcesu.resx">
-      <DependentUpon>SzczegolyProcesu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WszystkieProcesyProdukcyjne.resx">
-      <DependentUpon>WszystkieProcesyProdukcyjne.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="WyborKlienta.resx">
       <DependentUpon>WyborKlienta.cs</DependentUpon>
     </EmbeddedResource>
