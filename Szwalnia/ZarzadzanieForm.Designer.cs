@@ -63,6 +63,7 @@
             this.btnFakturyZewnetrzne.TabIndex = 2;
             this.btnFakturyZewnetrzne.Text = "Faktury Zewnętrzne";
             this.btnFakturyZewnetrzne.UseVisualStyleBackColor = true;
+            this.btnFakturyZewnetrzne.Click += new System.EventHandler(this.btnFakturyZewnetrzne_Click);
             // 
             // btnZamknij
             // 

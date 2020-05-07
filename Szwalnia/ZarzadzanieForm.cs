@@ -36,12 +36,12 @@ namespace Szwalnia
             wyborPracownika.Show();
             this.Close();
         }
-        //        private void btnFakturyZewnetrzne_Click(object sender, EventArgs e)
-        //        {
-        //            FakturyZewnetrzne fakturyZewnetrzne = new FakturyZewnetrzne(db);
-        //            fakturyZewnetrzne.Show();
-        //        }
 
+        private void btnFakturyZewnetrzne_Click(object sender, EventArgs e)
+        {
+            FakturyZewnetrzne fakturyZewnetrzne = new FakturyZewnetrzne(db);
+            fakturyZewnetrzne.Show();
+        }
     }
 }
 
