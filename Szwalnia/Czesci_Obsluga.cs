@@ -14,10 +14,12 @@ namespace Szwalnia
     
     public partial class Czesci_Obsluga
     {
-        public int ID_Obslugi { get; set; }
+        public int ID_Czesci_Obsluga { get; set; }
+        public int ID_Obsluga_Techniczna { get; set; }
         public int ID_Element { get; set; }
-        public int Ilosc { get; set; }
+        public int Liczba { get; set; }
     
         public virtual Elementy Elementy { get; set; }
+        public virtual Obsluga_Techniczna Obsluga_Techniczna { get; set; }
     }
 }

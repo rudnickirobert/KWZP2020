@@ -12,22 +12,21 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class Elementy_Proces
+    public partial class Dzialy
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Elementy_Proces()
+        public Dzialy()
         {
-            this.Material_Na_Produkcji = new HashSet<Material_Na_Produkcji>();
+            this.Pracownicy_Zatrudnienie = new HashSet<Pracownicy_Zatrudnienie>();
+            this.Srodki_Trwale = new HashSet<Srodki_Trwale>();
         }
     
-        public int ID_Elementy_Proces { get; set; }
-        public int ID_Proces_Technologiczny { get; set; }
-        public int ID_Element { get; set; }
-        public int Liczba { get; set; }
+        public int ID_Dzialu { get; set; }
+        public string Nazwa_dzialu { get; set; }
     
-        public virtual Elementy Elementy { get; set; }
-        public virtual Proces_Technologiczny Proces_Technologiczny { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Material_Na_Produkcji> Material_Na_Produkcji { get; set; }
+        public virtual ICollection<Pracownicy_Zatrudnienie> Pracownicy_Zatrudnienie { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Srodki_Trwale> Srodki_Trwale { get; set; }
     }
 }

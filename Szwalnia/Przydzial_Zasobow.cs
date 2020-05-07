@@ -18,6 +18,8 @@ namespace Szwalnia
         public int ID_Realizacji_Procesu { get; set; }
         public int ID_Pracownika { get; set; }
         public int ID_Maszyny { get; set; }
+        public Nullable<System.DateTime> Data_Rozpoczecia { get; set; }
+        public Nullable<System.DateTime> Data_Zakonczenia { get; set; }
     
         public virtual Maszyny Maszyny { get; set; }
         public virtual Pracownicy Pracownicy { get; set; }

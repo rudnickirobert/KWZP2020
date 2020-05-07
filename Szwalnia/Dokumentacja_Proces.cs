@@ -14,20 +14,11 @@ namespace Szwalnia
     
     public partial class Dokumentacja_Proces
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Dokumentacja_Proces()
-        {
-            this.Proces_Produkcyjny = new HashSet<Proces_Produkcyjny>();
-            this.Proces_Technologiczny = new HashSet<Proces_Technologiczny>();
-        }
-    
         public int ID_Dokumentacja_Proces { get; set; }
         public int ID_Dokumentacji { get; set; }
+        public int ID_Proces_Technologiczny { get; set; }
     
         public virtual Dokumentacje Dokumentacje { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Proces_Produkcyjny> Proces_Produkcyjny { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Proces_Technologiczny> Proces_Technologiczny { get; set; }
+        public virtual Proces_Technologiczny Proces_Technologiczny { get; set; }
     }
 }

@@ -17,18 +17,18 @@ namespace Szwalnia
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Proces_Technologiczny()
         {
+            this.Dokumentacja_Proces = new HashSet<Dokumentacja_Proces>();
             this.Elementy_Proces = new HashSet<Elementy_Proces>();
             this.Etapy_W_Procesie = new HashSet<Etapy_W_Procesie>();
             this.Maszyny_Proces = new HashSet<Maszyny_Proces>();
-            this.Proces_Produkcyjny = new HashSet<Proces_Produkcyjny>();
             this.Proces_Zamowienie = new HashSet<Proces_Zamowienie>();
         }
     
         public int ID_Proces_Technologiczny { get; set; }
-        public int ID_Dokumentacja_Proces { get; set; }
         public int ID_Pracownika { get; set; }
     
-        public virtual Dokumentacja_Proces Dokumentacja_Proces { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Dokumentacja_Proces> Dokumentacja_Proces { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Elementy_Proces> Elementy_Proces { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -36,8 +36,6 @@ namespace Szwalnia
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Maszyny_Proces> Maszyny_Proces { get; set; }
         public virtual Pracownicy Pracownicy { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Proces_Produkcyjny> Proces_Produkcyjny { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Proces_Zamowienie> Proces_Zamowienie { get; set; }
     }

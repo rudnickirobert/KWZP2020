@@ -14,12 +14,20 @@ namespace Szwalnia
     
     public partial class Obsluga_Techniczna
     {
-        public int ID_Obslugi { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Obsluga_Techniczna()
+        {
+            this.Czesci_Obsluga = new HashSet<Czesci_Obsluga>();
+        }
+    
+        public int ID_Obsluga_Techniczna { get; set; }
         public int ID_Maszyny { get; set; }
         public int ID_Rodzaj_Obslugi { get; set; }
         public System.DateTime Data_Wykonania { get; set; }
         public int ID_Pracownika { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Czesci_Obsluga> Czesci_Obsluga { get; set; }
         public virtual Maszyny Maszyny { get; set; }
         public virtual Pracownicy Pracownicy { get; set; }
         public virtual Rodzaj_Obslugi Rodzaj_Obslugi { get; set; }

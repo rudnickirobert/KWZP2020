@@ -17,7 +17,7 @@ namespace Szwalnia
         public int ID_Procesu_Produkcyjnego { get; set; }
         public int ID_Realizacji_Procesu { get; set; }
         public string Nazwa_etapu { get; set; }
-        public System.DateTime Data_Rozpoczecia_Procesu { get; set; }
+        public Nullable<System.DateTime> Data_Rozpoczecia_Procesu { get; set; }
         public Nullable<System.DateTime> Data_Zakonczenia_Procesu { get; set; }
     }
 }
