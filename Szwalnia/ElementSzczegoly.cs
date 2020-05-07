@@ -12,9 +12,11 @@ namespace Szwalnia
 {
     public partial class ElementSzczegoly : Form
     {
-        public ElementSzczegoly(SzwalniaEntities szwalnia, int ID)
+        public Start start;
+        public ElementSzczegoly(SzwalniaEntities szwalnia, Start startowy, int ID)
         {
             InitializeComponent();
+            start = startowy;
             Elementy element = szwalnia.Elementy.Where(wybrany => wybrany.ID_Element == ID).First();
             lblElement.Text = "Szczegoly elementu o ID: " + element.ID_Element;
             txtNazwa.Text = element.Element_Nazwa;
@@ -23,16 +25,14 @@ namespace Szwalnia
                 txtOkres.Text = "Nie dotyczy";
             }
             else
-            {
                 txtOkres.Text = element.Okres_Przydatnosci_Miesiace.ToString();
-            }
+
             dgvSzczegol.DataSource = szwalnia.vCechyElementu.Where(details => details.ID_Element == element.ID_Element).ToList();
             dgvSzczegol.Columns[0].Visible = false; 
         }
 
         private void ElementSzczegoly_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Start start = new Start();
             start.Show();
         }
     }

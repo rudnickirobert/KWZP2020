@@ -13,16 +13,17 @@ namespace Szwalnia
     public partial class NowaPolka : Form
     {
         int nowaPolka;
-        public NowaPolka(SzwalniaEntities db, int ostatniaPolka)
+        public Start start;
+        public NowaPolka(SzwalniaEntities db, Start startowy, int ostatniaPolka)
         {
             InitializeComponent();
+            start = startowy;
             nowaPolka = ostatniaPolka+1;
             lblNumerNowejPolki.Text = nowaPolka.ToString();
         }
 
         private void NowaPolka_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Start start = new Start();
             start.Show();
         }
     }

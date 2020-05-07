@@ -12,14 +12,15 @@ namespace Szwalnia
 {
     public partial class NowyRozmiarPolki : Form
     {
-        public NowyRozmiarPolki(SzwalniaEntities db)
+        public Start start;
+        public NowyRozmiarPolki(SzwalniaEntities db, Start startowy)
         {
             InitializeComponent();
+            start = startowy;
         }
 
         private void NowyRozmiarPolki_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Start start = new Start();
             start.Show();
         }
     }

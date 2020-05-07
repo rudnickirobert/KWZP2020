@@ -13,10 +13,12 @@ namespace Szwalnia
     public partial class NowyRegal : Form
     {
         SzwalniaEntities db;
-        public NowyRegal(SzwalniaEntities szwalnia)
+        public Start start;
+        public NowyRegal(SzwalniaEntities szwalnia, Start startowy)
         {
             InitializeComponent();
             db = szwalnia;
+            start = startowy;
             btnDodajRegal.Enabled = false;
         }
         private void txtOznaczenie_TextChanged(object sender, EventArgs e)
@@ -37,7 +39,6 @@ namespace Szwalnia
 
         private void NowyRegal_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Start start = new Start();
             start.Show();
         }
     }

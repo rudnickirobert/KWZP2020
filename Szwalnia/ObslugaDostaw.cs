@@ -12,14 +12,15 @@ namespace Szwalnia
 {
     public partial class ObslugaDostaw : Form
     {
-        public ObslugaDostaw(SzwalniaEntities szwalnia)
+        public Start start;
+        public ObslugaDostaw(SzwalniaEntities szwalnia, Start startowy)
         {
             InitializeComponent();
+            start = startowy;
         }
 
         private void ObslugaDostaw_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Start start = new Start();
             start.Show();
         }
     }

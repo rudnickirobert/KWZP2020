@@ -13,10 +13,13 @@ namespace Szwalnia
     public partial class DodawanieJednostki : Form
     {
         public SzwalniaEntities db;
+        public Start start;
         public Elementy_Jednostki jednostkaNew = new Elementy_Jednostki();
-        public DodawanieJednostki()
+        public DodawanieJednostki(SzwalniaEntities szwalnia, Start startowy)
         {
             InitializeComponent();
+            db = szwalnia;
+            start = startowy;
             jednostkaNew.Jednostka = txtNazwa.Text;           
         }
 
@@ -27,7 +30,6 @@ namespace Szwalnia
 
         private void DodawanieJednostki_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Start start = new Start();
             start.Show();
         }
     }

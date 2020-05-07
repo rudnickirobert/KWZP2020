@@ -13,10 +13,12 @@ namespace Szwalnia
     public partial class DodawanieElementu : Form
     {
         public SzwalniaEntities db;
+        public Start start;
         public Elementy elementNew = new Elementy();
-        public DodawanieElementu()
+        public DodawanieElementu(SzwalniaEntities szwalnia, Start startowy)
         {
-            InitializeComponent();            
+            InitializeComponent();
+            start = startowy;
             dgvListaTypy.DataSource = db.Elementy_Typy.ToList();
             elementNew.Element_Nazwa = txtNazwa.Text;
             elementNew.Okres_Przydatnosci_Miesiace = Decimal.ToInt32(numOkres.Value);
@@ -35,7 +37,6 @@ namespace Szwalnia
 
         private void DodawanieElementu_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Start start = new Start();
             start.Show();
         }
     }

@@ -12,14 +12,15 @@ namespace Szwalnia
 {
     public partial class Kontrahenci : Form
     {
-        public Kontrahenci(SzwalniaEntities szwalnia)
+        public Start start;
+        public Kontrahenci(SzwalniaEntities szwalnia, Start startowy)
         {
             InitializeComponent();
+            start = startowy;
         }
 
         private void Kontrahenci_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Start start = new Start();
             start.Show();
         }
     }

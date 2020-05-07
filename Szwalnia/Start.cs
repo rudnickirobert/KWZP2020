@@ -22,9 +22,9 @@ namespace Szwalnia
 
         private void btnMagazyn_Click(object sender, EventArgs e)
         {
-            MagazynForm magForm = new MagazynForm(szwalnia);
+            MagazynForm magForm = new MagazynForm(szwalnia, this);
             magForm.Show();
-            this.Hide();
+            this.Visible = false;
         }
 
 

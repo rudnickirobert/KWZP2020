@@ -13,9 +13,11 @@ namespace Szwalnia
      public partial class DodawanieCechy : Form
     {
         public SzwalniaEntities db;
-        public DodawanieCechy()
+        public Start start;
+        public DodawanieCechy(SzwalniaEntities szwalnia, Start startowy)
         {
-            InitializeComponent();            
+            InitializeComponent();
+            start = startowy;
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
@@ -27,7 +29,6 @@ namespace Szwalnia
 
         private void DodawanieCechy_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Start start = new Start();
             start.Show();
         }
     }

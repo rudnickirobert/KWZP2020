@@ -13,10 +13,13 @@ namespace Szwalnia
     public partial class DodawanieTypu : Form
     {
         public SzwalniaEntities db;
+        public Start start;
         public Elementy_Typy typNew = new Elementy_Typy();
-        public DodawanieTypu()
+        public DodawanieTypu(SzwalniaEntities szwalnia, Start startowy)
         {
             InitializeComponent();
+            db = szwalnia;
+            start = startowy;
             typNew.Typ = txtNazwa.Text;
             //w obecnym modelu nie ma Czy_wlasne
         }
@@ -28,7 +31,6 @@ namespace Szwalnia
 
         private void DodawanieTypu_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Start start = new Start();
             start.Show();
         }
     }
