@@ -244,6 +244,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Szwalnia.edmx</DependentUpon>
     </Compile>
+    <Compile Include="SzwalniaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SzwalniaDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Typy_cechy_rejestr.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -481,6 +486,17 @@
     </EntityDeploy>
     <None Include="Szwalnia.edmx.diagram">
       <DependentUpon>Szwalnia.edmx</DependentUpon>
+    </None>
+    <None Include="SzwalniaDataSet.xsc">
+      <DependentUpon>SzwalniaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SzwalniaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SzwalniaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SzwalniaDataSet.xss">
+      <DependentUpon>SzwalniaDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
