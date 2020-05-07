@@ -10,23 +10,19 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class DodawanieTypu : Form
+     public partial class DodawanieCechy : Form
     {
         public SzwalniaEntities szwalniaPassed;
-        public Elementy_Typy typNew = new Elementy_Typy();
-        public DodawanieTypu()
-
+        public Elementy_Cechy_Slownik cechaNew = new Elementy_Cechy_Slownik();
+        public DodawanieCechy()
         {
             InitializeComponent();
-            typNew.Typ = txtNazwa.Text;
-            //if(chBoxWlasny.Checked=true)
-            // { typNew.Czy_wlasne = true; }
-            //else { typNew.Czy_wlasne = false; }
+            cechaNew.Cecha = txtNazwa.Text;
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            szwalniaPassed.Elementy_Typy.Add(typNew);
+            szwalniaPassed.Elementy.Add(cechaNew);
         }
     }
 }

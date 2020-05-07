@@ -58,6 +58,12 @@
     <Compile Include="Czesci_Obsluga.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="DodawanieCechy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodawanieCechy.Designer.cs">
+      <DependentUpon>DodawanieCechy.cs</DependentUpon>
+    </Compile>
     <Compile Include="DodawanieJednostki.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,12 @@
     </Compile>
     <Compile Include="DodawanieTypu.Designer.cs">
       <DependentUpon>DodawanieTypu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DodoawanieCechElementu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodoawanieCechElementu.Designer.cs">
+      <DependentUpon>DodoawanieCechElementu.cs</DependentUpon>
     </Compile>
     <Compile Include="Dokumentacja_Proces.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -298,6 +310,21 @@
     <Compile Include="SumaCzasuPokaz.Designer.cs">
       <DependentUpon>SumaCzasuPokaz.cs</DependentUpon>
     </Compile>
+    <Compile Include="SzwalniaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SzwalniaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SzwalniaDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SzwalniaDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SzwalniaDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SzwalniaDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Umowy_Kurierzy.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -372,6 +399,9 @@
     <Compile Include="Znajomosc_Jezykow.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DodawanieCechy.resx">
+      <DependentUpon>DodawanieCechy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DodawanieElementu.resx">
       <DependentUpon>DodawanieElementu.cs</DependentUpon>
     </EmbeddedResource>
@@ -380,6 +410,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DodawanieTypu.resx">
       <DependentUpon>DodawanieTypu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodoawanieCechElementu.resx">
+      <DependentUpon>DodoawanieCechElementu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ElementSzczegoly.resx">
       <DependentUpon>ElementSzczegoly.cs</DependentUpon>
@@ -449,6 +482,39 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SzwalniaDataSet.xsc">
+      <DependentUpon>SzwalniaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SzwalniaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SzwalniaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SzwalniaDataSet.xss">
+      <DependentUpon>SzwalniaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SzwalniaDataSet1.xsc">
+      <DependentUpon>SzwalniaDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SzwalniaDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SzwalniaDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SzwalniaDataSet1.xss">
+      <DependentUpon>SzwalniaDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SzwalniaDataSet2.xsc">
+      <DependentUpon>SzwalniaDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="SzwalniaDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SzwalniaDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SzwalniaDataSet2.xss">
+      <DependentUpon>SzwalniaDataSet2.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
