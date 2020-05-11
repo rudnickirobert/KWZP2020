@@ -50,7 +50,7 @@ namespace Szwalnia
         private void btnBilans_Click(object sender, EventArgs e)
         {
             Bilans bilans = new Bilans(db);
-            bilans.Show()
+            bilans.Show();
         }
     }
 }
