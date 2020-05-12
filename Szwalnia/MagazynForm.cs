@@ -49,8 +49,8 @@ namespace Szwalnia
 
         private void btnObslugaDostaw_Click(object sender, EventArgs e)
         {
-            ObslugaDostaw dostawa = new ObslugaDostaw(db);
-            dostawa.Show();
+            ObslugaDostaw dostawy = new ObslugaDostaw(db);
+            dostawy.Show();
             this.Hide();
         }
 

@@ -19,13 +19,13 @@ namespace Szwalnia
             Faktury_Zewnetrzne faktura = db.Faktury_Zewnetrzne.Where(wybrane => wybrane.ID_Faktura_zewnetrzna == ID).First();
             txtNrFaktury.Text = faktura.Nr_Faktury;
             txtNazwaFirmy.Text = faktura.Nazwa_Firmy;
-            int x = faktura.Netto;
+            int x = Convert.ToInt32( faktura.Netto);
             string y = faktura.Netto.ToString();
             txtKosztNetto.Text = y;
-            int z = faktura.Brutto;
+            int z = Convert.ToInt32(faktura.Brutto);
             string w = faktura.Brutto.ToString();
             txtKosztBrutto.Text = w;
-            int a = faktura.Podatek;
+            int a = Convert.ToInt32(faktura.Podatek);
             string b = faktura.Podatek.ToString(); ;
             txtWartoscPodatku.Text = b;
         }
