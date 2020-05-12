@@ -57,6 +57,7 @@ namespace Szwalnia
         public virtual DbSet<Pensja> Pensja { get; set; }
         public virtual DbSet<Polki> Polki { get; set; }
         public virtual DbSet<Polki_regaly> Polki_regaly { get; set; }
+        public virtual DbSet<Polki_Rozmiary> Polki_Rozmiary { get; set; }
         public virtual DbSet<Pracownicy> Pracownicy { get; set; }
         public virtual DbSet<Pracownicy_Zatrudnienie> Pracownicy_Zatrudnienie { get; set; }
         public virtual DbSet<Proces_Produkcyjny> Proces_Produkcyjny { get; set; }
@@ -90,12 +91,11 @@ namespace Szwalnia
         public virtual DbSet<vMaszyny_serwis> vMaszyny_serwis { get; set; }
         public virtual DbSet<vObsluga> vObsluga { get; set; }
         public virtual DbSet<vPolki_na_regalach> vPolki_na_regalach { get; set; }
+        public virtual DbSet<vPolki_Rozmiary> vPolki_Rozmiary { get; set; }
         public virtual DbSet<vRealizacjaProcesuProdukcyjnegoDetails> vRealizacjaProcesuProdukcyjnegoDetails { get; set; }
         public virtual DbSet<vSrednia_ilosc_maszyn> vSrednia_ilosc_maszyn { get; set; }
         public virtual DbSet<vSuma_czasu_procesu> vSuma_czasu_procesu { get; set; }
         public virtual DbSet<vZamowienieProcesyProdukcyjne> vZamowienieProcesyProdukcyjne { get; set; }
         public virtual DbSet<vZawartosc_polki> vZawartosc_polki { get; set; }
-        public virtual DbSet<Polki_Rozmiary> Polki_Rozmiary { get; set; }
-        public virtual DbSet<vPolki_Rozmiary> vPolki_Rozmiary { get; set; }
     }
 }
