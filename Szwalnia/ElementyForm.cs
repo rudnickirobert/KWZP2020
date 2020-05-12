@@ -56,7 +56,7 @@ namespace Szwalnia
 
         private void btnCechyElementow_Click(object sender, EventArgs e)
         {
-            DodoawanieCechElementowi cechyElementu = new DodoawanieCechElementowi();
+            DodoawanieCechElementowi cechyElementu = new DodoawanieCechElementowi(db);
             cechyElementu.Show();
             this.Hide();
         }

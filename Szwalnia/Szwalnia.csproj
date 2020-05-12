@@ -675,6 +675,9 @@
     <EmbeddedResource Include="Bilans.resx">
       <DependentUpon>Bilans.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DodoawanieCechElementowi.resx">
+      <DependentUpon>DodoawanieCechElementowi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ElementSzczegoly.resx">
       <DependentUpon>ElementSzczegoly.cs</DependentUpon>
     </EmbeddedResource>

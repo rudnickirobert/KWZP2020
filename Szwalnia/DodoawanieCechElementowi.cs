@@ -12,9 +12,16 @@ namespace Szwalnia
 {
     public partial class DodoawanieCechElementowi : Form
     {
-        public DodoawanieCechElementowi()
+        public SzwalniaEntities db;
+        public DodoawanieCechElementowi(SzwalniaEntities szwalnia)
         {
             InitializeComponent();
+            db = szwalnia;
+            dgvListaElementow.DataSource = szwalnia.Elementy.ToList();
+            dgvListaCech.DataSource = szwalnia.Elementy_Cechy_Slownik.ToList();
+            dgvListaJednostek.DataSource = szwalnia.Elementy_Jednostki.ToList();
         }
+
+
     }
 }
