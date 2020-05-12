@@ -28,36 +28,36 @@ namespace Szwalnia
 
         private void btnElement_Click(object sender, EventArgs e)
         {
-            DodawanieTypu typ = new DodawanieTypu();
-            typ.Show();
+            DodawanieElementu element = new DodawanieElementu();
+            element.Show();
             this.Hide();
         }
 
         private void btnTyp_Click(object sender, EventArgs e)
         {
-            WyborElementu wybor = new WyborElementu(db);
-            wybor.Show();
+            DodawanieTypu typ = new DodawanieTypu();
+            typ.Show();
             this.Hide();
         }
 
         private void btnCecha_Click(object sender, EventArgs e)
         {
-            WyborElementu wybor = new WyborElementu(db);
-            wybor.Show();
+            DodawanieCechy cecha = new DodawanieCechy();
+            cecha.Show();
             this.Hide();
         }
 
         private void btnJednostka_Click(object sender, EventArgs e)
         {
-            WyborElementu wybor = new WyborElementu(db);
-            wybor.Show();
+            DodawanieJednostki jednostka = new DodawanieJednostki();
+            jednostka.Show();
             this.Hide();
         }
 
         private void btnCechyElementow_Click(object sender, EventArgs e)
         {
-            WyborElementu wybor = new WyborElementu(db);
-            wybor.Show();
+            DodoawanieCechElementowi cechyElementu = new DodoawanieCechElementowi();
+            cechyElementu.Show();
             this.Hide();
         }
     }
