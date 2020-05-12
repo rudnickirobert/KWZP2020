@@ -14,13 +14,11 @@ namespace Szwalnia
     
     public partial class vObsluga
     {
-        public int ID_Obsluga_Techniczna { get; set; }
-        public string Nazwa { get; set; }
-        public string Producent { get; set; }
+        public string Nazwa_maszyny { get; set; }
         public string Numer_seryjny { get; set; }
-        public string Expr1 { get; set; }
-        public System.DateTime Data_Wykonania { get; set; }
-        public string Nazwisko { get; set; }
-        public string Element_Nazwa { get; set; }
+        public string Rodzaj_obsługi { get; set; }
+        public string Imię_i_nazwisko { get; set; }
+        public System.DateTime Data_rozpoczęcia { get; set; }
+        public Nullable<System.DateTime> Data_zakończenia { get; set; }
     }
 }

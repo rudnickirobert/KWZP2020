@@ -88,7 +88,6 @@
             this.btnRozpoczeteProcesy.TabIndex = 0;
             this.btnRozpoczeteProcesy.Text = "Rozpoczęte";
             this.btnRozpoczeteProcesy.UseVisualStyleBackColor = true;
-            this.btnRozpoczeteProcesy.Click += new System.EventHandler(this.btnRozpoczeteProcesy_Click);
             // 
             // PrzegladProcesowProdukcyjnych
             // 
