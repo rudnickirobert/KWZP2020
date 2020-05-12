@@ -37,11 +37,11 @@
             // lblOpis
             // 
             this.lblOpis.AutoSize = true;
-            this.lblOpis.Location = new System.Drawing.Point(51, 45);
+            this.lblOpis.Location = new System.Drawing.Point(47, 45);
             this.lblOpis.Name = "lblOpis";
-            this.lblOpis.Size = new System.Drawing.Size(177, 17);
+            this.lblOpis.Size = new System.Drawing.Size(243, 17);
             this.lblOpis.TabIndex = 13;
-            this.lblOpis.Text = "Wpisz ID_Maszyny_proces";
+            this.lblOpis.Text = "Wpisz  ID Procesu Technologicznego";
             // 
             // lblLaboratoria
             // 
@@ -49,16 +49,16 @@
             this.lblLaboratoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblLaboratoria.Location = new System.Drawing.Point(12, 6);
             this.lblLaboratoria.Name = "lblLaboratoria";
-            this.lblLaboratoria.Size = new System.Drawing.Size(267, 29);
+            this.lblLaboratoria.Size = new System.Drawing.Size(307, 29);
             this.lblLaboratoria.TabIndex = 12;
-            this.lblLaboratoria.Text = "Laboratoria KWZP 2020";
+            this.lblLaboratoria.Text = "Maszyny użyte w procesach";
             // 
             // txtbSzukaj
             // 
-            this.txtbSzukaj.Location = new System.Drawing.Point(12, 64);
+            this.txtbSzukaj.Location = new System.Drawing.Point(17, 64);
             this.txtbSzukaj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtbSzukaj.Name = "txtbSzukaj";
-            this.txtbSzukaj.Size = new System.Drawing.Size(267, 22);
+            this.txtbSzukaj.Size = new System.Drawing.Size(302, 22);
             this.txtbSzukaj.TabIndex = 11;
             // 
             // btnSzukaj
@@ -66,7 +66,7 @@
             this.btnSzukaj.Location = new System.Drawing.Point(12, 109);
             this.btnSzukaj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSzukaj.Name = "btnSzukaj";
-            this.btnSzukaj.Size = new System.Drawing.Size(267, 36);
+            this.btnSzukaj.Size = new System.Drawing.Size(307, 36);
             this.btnSzukaj.TabIndex = 10;
             this.btnSzukaj.Text = "Szukaj";
             this.btnSzukaj.UseVisualStyleBackColor = true;
@@ -76,7 +76,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(297, 166);
+            this.ClientSize = new System.Drawing.Size(347, 166);
             this.Controls.Add(this.lblOpis);
             this.Controls.Add(this.lblLaboratoria);
             this.Controls.Add(this.txtbSzukaj);

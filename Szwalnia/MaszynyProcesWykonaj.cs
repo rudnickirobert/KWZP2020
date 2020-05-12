@@ -17,9 +17,7 @@ namespace Szwalnia
             InitializeComponent();
             Maszyny_Proces proces = db.Maszyny_Proces.Where(rodzaj => rodzaj.ID_Maszyny_Proces.ToString() == maszynyProces).First();
             lblIdMaszynyProces.Text = proces.ID_Maszyny_Proces.ToString();
-            txtRodzajMaszyny.Text = proces.Rodzaj_Maszyny.ToString();
-            txtLiczba.Text = proces.Liczba_Maszyn.ToString();
-            txtLiczbaRbh.Text = proces.Liczba_Rbh_Maszyna.ToString();
+            dgvRodzajMaszyny.DataSource = db.vMaszyny_rodzaj_liczba.Where(rodzaj => rodzaj.ID_Proces_Technologiczny.ToString() == maszynyProces).ToList();
         }
     }
 }

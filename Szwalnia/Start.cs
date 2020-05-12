@@ -40,6 +40,12 @@ namespace Szwalnia
             formularzProdukcji.Show();
         }
 
+        private void btnZarzadzanie_Click(object sender, EventArgs e)
+        {
+            ZarzadzanieForm zarzadzanieForm = new ZarzadzanieForm(szwalnia);
+            zarzadzanieForm.Show();
+        }
+
         private void Start_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();

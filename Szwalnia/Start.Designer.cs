@@ -37,10 +37,10 @@
             // btnMagazyn
             // 
             this.btnMagazyn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnMagazyn.Location = new System.Drawing.Point(95, 199);
-            this.btnMagazyn.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMagazyn.Location = new System.Drawing.Point(127, 245);
+            this.btnMagazyn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMagazyn.Name = "btnMagazyn";
-            this.btnMagazyn.Size = new System.Drawing.Size(170, 90);
+            this.btnMagazyn.Size = new System.Drawing.Size(227, 111);
             this.btnMagazyn.TabIndex = 0;
             this.btnMagazyn.Text = "Magazyn";
             this.btnMagazyn.UseVisualStyleBackColor = true;
@@ -77,12 +77,13 @@
             this.btnZarzadzanie.TabIndex = 5;
             this.btnZarzadzanie.Text = "Zarządzanie";
             this.btnZarzadzanie.UseVisualStyleBackColor = true;
+            this.btnZarzadzanie.Click += new System.EventHandler(this.btnZarzadzanie_Click);
             // 
             // Start
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnZarzadzanie);
             this.Controls.Add(this.btnProdukcja);
             this.Controls.Add(this.btnPrzygotowanieProdukcji);
