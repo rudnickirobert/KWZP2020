@@ -12,9 +12,12 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vCalkowityKosztZamowienia
+    public partial class vPracownicyFirmy
     {
-        public int ID_Zamowienia { get; set; }
-        public Nullable<int> Calkowity_koszt_produkcji { get; set; }
+        public string Imie { get; set; }
+        public string Nazwisko { get; set; }
+        public string Pesel { get; set; }
+        public string Adres { get; set; }
+        public string Telefon { get; set; }
     }
 }

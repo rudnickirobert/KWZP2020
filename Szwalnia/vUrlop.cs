@@ -12,15 +12,12 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vKosztProcesu
+    public partial class vUrlop
     {
-        public int ID_Zamowienia { get; set; }
         public string Imie { get; set; }
         public string Nazwisko { get; set; }
-        public string Nazwa_Firmy { get; set; }
-        public string NIP { get; set; }
-        public int Koszt_Rbh { get; set; }
-        public Nullable<int> suma_czasu { get; set; }
-        public Nullable<int> Calkowity_koszt_procesu { get; set; }
+        public System.DateTime Data_rozpoczecia { get; set; }
+        public System.DateTime Data_zakonczenia { get; set; }
+        public Nullable<int> Ilość__urlopu { get; set; }
     }
 }
