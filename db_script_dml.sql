@@ -736,15 +736,15 @@ VALUES
 ('Serwis'),
 ('Naprawa');
 
-INSERT INTO Obsluga_Techniczna (ID_Maszyny,ID_Rodzaj_Obslugi,Data_Wykonania,ID_Pracownika)
+INSERT INTO Obsluga_Techniczna (ID_Maszyny,ID_Rodzaj_Obslugi,Data_Rozpoczecia, Data_Zakonczenia, ID_Pracownika)
 VALUES
 
-(1,2,'2020-04-22',15),
-(10,1,'2020-04-27',16),
-(11,1,'2020-04-02',16),
-(3,2,'2020-04-23',15),
-(4,1,'2020-04-23',15),
-(9,1,'2020-05-01',16);
+(1,2,'2020-04-22 15:42','2020-04-28 18:42',15),
+(10,1,'2020-04-27 12:52','2020-04-29 05:48',16),
+(11,1,'2020-04-02 11:03','2020-04-03 11:40',16),
+(3,2,'2020-04-23 17:22','2020-04-25 09:36',15),
+(4,1,'2020-04-23 05:12','2020-04-25 08:21',15),
+(9,1,'2020-05-01 15:22','2020-05-01 21:16',16);
 
 INSERT into Czesci_Obsluga(ID_Obsluga_Techniczna,ID_Element,Liczba)
 VALUES
