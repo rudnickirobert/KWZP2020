@@ -14,6 +14,9 @@ namespace Szwalnia
     {
         public SzwalniaEntities db;
         Elementy_Cechy cechaElementuNew = new Elementy_Cechy();
+        Typy_cechy_rejestr rejestrNew = new Typy_cechy_rejestr();
+        public int IDElement;
+        public int IDCechy;
         public DodoawanieCechElementowi(SzwalniaEntities szwalnia)
         {
             InitializeComponent();
@@ -21,11 +24,7 @@ namespace Szwalnia
             dgvListaElementow.DataSource = szwalnia.Elementy.ToList();
             dgvListaCech.DataSource = szwalnia.Elementy_Cechy_Slownik.ToList();
             dgvListaJednostek.DataSource = szwalnia.Elementy_Jednostki.ToList();
-            cechaElementuNew.Wartosc_Cechy_Slowna = txtSlowna.Text;
-            if (numCecha.Value == 0)
-            { cechaElementuNew.Wartosc_Cechy_Liczbowa = Decimal.ToInt32(numCecha.Value); }
-            else
-            { cechaElementuNew.Wartosc_Cechy_Liczbowa = null; }            
+                      
         }
 
         private void dgvListaElementow_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -33,6 +32,7 @@ namespace Szwalnia
             int numIDElementu = Convert.ToInt32(dgvListaElementow.CurrentRow.Cells[0].Value);
             Elementy element = db.Elementy.Where(wybranyElement => wybranyElement.ID_Element == numIDElementu).First();
             cechaElementuNew.ID_Element = numIDElementu;
+            IDElement = numIDElementu;
             txtNazwa.Text = element.Element_Nazwa;
         }
 
@@ -41,6 +41,7 @@ namespace Szwalnia
             int numIDCechy = Convert.ToInt32(dgvListaElementow.CurrentRow.Cells[0].Value);
             Elementy_Cechy_Slownik cecha = db.Elementy_Cechy_Slownik.Where(wybranyCecha => wybranyCecha.ID_Cecha == numIDCechy).First();
             cechaElementuNew.ID_Cecha = numIDCechy;
+            IDCechy = numIDCechy;
             txtCechy.Text = cecha.Cecha;
         }
 
@@ -54,7 +55,18 @@ namespace Szwalnia
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
+            Elementy element = db.Elementy.Where(wybrany => wybrany.ID_Element == IDElement).First();
+            rejestrNew.ID_typ = element.ID_Element_Typ;
+            rejestrNew.ID_cecha = IDCechy;
+            db.Typy_cechy_rejestr.Add(rejestrNew);
+
+            cechaElementuNew.Wartosc_Cechy_Slowna = txtSlowna.Text;
+            if (numCecha.Value == 0)
+            { cechaElementuNew.Wartosc_Cechy_Liczbowa = Decimal.ToInt32(numCecha.Value); }
+            else
+            { cechaElementuNew.Wartosc_Cechy_Liczbowa = null; }
             db.Elementy_Cechy.Add(cechaElementuNew);
+           
         }
     }
 }
