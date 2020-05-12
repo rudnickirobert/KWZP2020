@@ -45,6 +45,7 @@
             this.btnWybor.TabIndex = 0;
             this.btnWybor.Text = "Wybierz element";
             this.btnWybor.UseVisualStyleBackColor = true;
+            this.btnWybor.Click += new System.EventHandler(this.btnWybor_Click);
             // 
             // btnElement
             // 
@@ -55,6 +56,7 @@
             this.btnElement.TabIndex = 1;
             this.btnElement.Text = "Dodaj element";
             this.btnElement.UseVisualStyleBackColor = true;
+            this.btnElement.Click += new System.EventHandler(this.btnElement_Click);
             // 
             // btnTyp
             // 
@@ -65,6 +67,7 @@
             this.btnTyp.TabIndex = 2;
             this.btnTyp.Text = "Dodaj typ elementu";
             this.btnTyp.UseVisualStyleBackColor = true;
+            this.btnTyp.Click += new System.EventHandler(this.btnTyp_Click);
             // 
             // btnCecha
             // 
@@ -75,6 +78,7 @@
             this.btnCecha.TabIndex = 3;
             this.btnCecha.Text = "Dodaj cechę elementu";
             this.btnCecha.UseVisualStyleBackColor = true;
+            this.btnCecha.Click += new System.EventHandler(this.btnCecha_Click);
             // 
             // btnJednostka
             // 
@@ -85,6 +89,7 @@
             this.btnJednostka.TabIndex = 4;
             this.btnJednostka.Text = "Dodaj jednostkę miary";
             this.btnJednostka.UseVisualStyleBackColor = true;
+            this.btnJednostka.Click += new System.EventHandler(this.btnJednostka_Click);
             // 
             // btnCechyElementow
             // 
@@ -95,6 +100,7 @@
             this.btnCechyElementow.TabIndex = 5;
             this.btnCechyElementow.Text = "Przypisz cechy elementom";
             this.btnCechyElementow.UseVisualStyleBackColor = true;
+            this.btnCechyElementow.Click += new System.EventHandler(this.btnCechyElementow_Click);
             // 
             // ElementyForm
             // 
