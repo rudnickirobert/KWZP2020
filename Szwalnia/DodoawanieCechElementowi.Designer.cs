@@ -37,6 +37,12 @@
             this.lblMain = new System.Windows.Forms.Label();
             this.numCecha = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtNazwa = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtCechy = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtJednostka = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaElementow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaCech)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaJednostek)).BeginInit();
@@ -52,6 +58,7 @@
             this.dgvListaElementow.RowTemplate.Height = 24;
             this.dgvListaElementow.Size = new System.Drawing.Size(503, 190);
             this.dgvListaElementow.TabIndex = 0;
+            this.dgvListaElementow.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaElementow_CellContentDoubleClick);
             // 
             // dgvListaCech
             // 
@@ -62,6 +69,7 @@
             this.dgvListaCech.RowTemplate.Height = 24;
             this.dgvListaCech.Size = new System.Drawing.Size(503, 190);
             this.dgvListaCech.TabIndex = 1;
+            this.dgvListaCech.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaCech_CellContentDoubleClick);
             // 
             // dgvListaJednostek
             // 
@@ -72,20 +80,22 @@
             this.dgvListaJednostek.RowTemplate.Height = 24;
             this.dgvListaJednostek.Size = new System.Drawing.Size(503, 190);
             this.dgvListaJednostek.TabIndex = 2;
+            this.dgvListaJednostek.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaJednostek_CellContentDoubleClick);
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(284, 564);
+            this.btnDodaj.Location = new System.Drawing.Point(292, 253);
             this.btnDodaj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(85, 30);
             this.btnDodaj.TabIndex = 14;
             this.btnDodaj.Text = "Dodaj";
             this.btnDodaj.UseVisualStyleBackColor = true;
+            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
             // 
             // txtSlowna
             // 
-            this.txtSlowna.Location = new System.Drawing.Point(180, 149);
+            this.txtSlowna.Location = new System.Drawing.Point(170, 143);
             this.txtSlowna.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSlowna.Name = "txtSlowna";
             this.txtSlowna.Size = new System.Drawing.Size(151, 22);
@@ -94,7 +104,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 152);
+            this.label1.Location = new System.Drawing.Point(16, 146);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(148, 17);
             this.label1.TabIndex = 12;
@@ -111,7 +121,7 @@
             // 
             // numCecha
             // 
-            this.numCecha.Location = new System.Drawing.Point(180, 177);
+            this.numCecha.Location = new System.Drawing.Point(170, 171);
             this.numCecha.Name = "numCecha";
             this.numCecha.Size = new System.Drawing.Size(120, 22);
             this.numCecha.TabIndex = 15;
@@ -119,17 +129,77 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 179);
+            this.label2.Location = new System.Drawing.Point(63, 173);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(101, 17);
             this.label2.TabIndex = 16;
             this.label2.Text = "Wartość cechy";
+            // 
+            // txtNazwa
+            // 
+            this.txtNazwa.Enabled = false;
+            this.txtNazwa.Location = new System.Drawing.Point(170, 91);
+            this.txtNazwa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNazwa.Name = "txtNazwa";
+            this.txtNazwa.Size = new System.Drawing.Size(151, 22);
+            this.txtNazwa.TabIndex = 18;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(51, 94);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(113, 17);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Nazwa Elementu";
+            // 
+            // txtCechy
+            // 
+            this.txtCechy.Enabled = false;
+            this.txtCechy.Location = new System.Drawing.Point(170, 117);
+            this.txtCechy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCechy.Name = "txtCechy";
+            this.txtCechy.Size = new System.Drawing.Size(151, 22);
+            this.txtCechy.TabIndex = 20;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(73, 120);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(91, 17);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Nazwa cechy";
+            // 
+            // txtJednostka
+            // 
+            this.txtJednostka.Enabled = false;
+            this.txtJednostka.Location = new System.Drawing.Point(170, 198);
+            this.txtJednostka.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtJednostka.Name = "txtJednostka";
+            this.txtJednostka.Size = new System.Drawing.Size(151, 22);
+            this.txtJednostka.TabIndex = 22;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(91, 201);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(73, 17);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Jednostka";
             // 
             // DodoawanieCechElementowi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(914, 609);
+            this.Controls.Add(this.txtJednostka);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtCechy);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtNazwa);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.numCecha);
             this.Controls.Add(this.btnDodaj);
@@ -161,5 +231,11 @@
         private System.Windows.Forms.Label lblMain;
         private System.Windows.Forms.NumericUpDown numCecha;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtNazwa;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtCechy;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtJednostka;
+        private System.Windows.Forms.Label label5;
     }
 }
