@@ -21,7 +21,7 @@ namespace Szwalnia
 
         private void btnElementyForm_Click(object sender, EventArgs e)
         {
-            ElementyForm wybor = new ElementyForm(db);
+            ElementyForm wybor = new ElementyForm();
             wybor.Show();
             this.Hide();
         }
