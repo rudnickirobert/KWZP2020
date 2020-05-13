@@ -19,7 +19,7 @@ namespace Szwalnia
             lblElement.Text = "Szczegoly elementu o ID: " + element.ID_Element;
             txtNazwa.Text = element.Element_Nazwa;
             if (element.Okres_Przydatnosci_Miesiace == 0)
-                {
+            {
                 txtOkres.Text = "Nie dotyczy";
             }
             else
@@ -27,8 +27,13 @@ namespace Szwalnia
                 txtOkres.Text = element.Okres_Przydatnosci_Miesiace.ToString();
             }
             dgvSzczegol.DataSource = szwalnia.vCechyElementu.Where(details => details.ID_Element == element.ID_Element).ToList();
-            dgvSzczegol.Columns[0].Visible = false; 
+            dgvSzczegol.Columns[0].Visible = false;
         }
 
+        private void ElementSzczegoly_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Start start = new Start();
+            start.Show();
+        }
     }
 }
