@@ -25,8 +25,8 @@ namespace Szwalnia
         }
         private void btnPracownicy_Click(object sender, EventArgs e)
         {
-            WyborPracownika wyborPracownika = new WyborPracownika(db);
-            wyborPracownika.Show();
+            Panel_Pracownika panelPracownika = new Panel_Pracownika(db);
+            panelPracownika.Show();
         }
 
         private void btnFakturyZewnetrzne_Click(object sender, EventArgs e)
