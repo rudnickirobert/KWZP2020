@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ElementSzczegoly));
             this.txtNazwa = new System.Windows.Forms.TextBox();
             this.lblElement = new System.Windows.Forms.Label();
             this.dgvSzczegol = new System.Windows.Forms.DataGridView();
@@ -98,6 +99,7 @@
             this.Controls.Add(this.lblElement);
             this.Controls.Add(this.txtOkres);
             this.Controls.Add(this.txtNazwa);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ElementSzczegoly";
             this.Text = "Okno szczegolow elementow";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ElementSzczegoly_FormClosed);

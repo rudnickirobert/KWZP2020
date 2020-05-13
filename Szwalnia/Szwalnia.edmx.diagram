@@ -35,7 +35,6 @@
         <EntityTypeShape EntityType="SzwalniaModel.Odbior_Dostarczenia" Width="1.5" PointX="11.25" PointY="33.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Oferta" Width="1.5" PointX="11.25" PointY="18.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Pensja" Width="1.5" PointX="1.5" PointY="44.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.Polki" Width="1.5" PointX="14.25" PointY="15.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Polki_regaly" Width="1.5" PointX="16.5" PointY="15.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Polki_Rozmiary" Width="1.5" PointX="12" PointY="15.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Pracownicy" Width="1.5" PointX="0.75" PointY="30.125" IsExpanded="true" />
@@ -136,9 +135,6 @@
         <AssociationConnector Association="SzwalniaModel.FK__Obsluga_T__ID_Ro__489AC854" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Odbior_Do__ID_Pr__5E8A0973" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Stanowisk__ID_Pe__33D4B598" ManuallyRouted="false" />
-        <AssociationConnector Association="SzwalniaModel.FK__Polki__ID_Rozmia__6B24EA82" ManuallyRouted="false" />
-        <AssociationConnector Association="SzwalniaModel.FK__Polki_reg__ID_Po__7B5B524B" ManuallyRouted="false" />
-        <AssociationConnector Association="SzwalniaModel.FK__Zawartosc__ID_Po__17036CC0" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Polki_reg__ID_re__7A672E12" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Pracownic__ID_Pr__48CFD27E" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Proces_Te__ID_Pr__395884C4" ManuallyRouted="false" />
@@ -165,6 +161,10 @@
         <AssociationConnector Association="SzwalniaModel.FK__Zawartosc__ID_Do__18EBB532" ManuallyRouted="false" />
         <EntityTypeShape EntityType="SzwalniaModel.vObsluga" Width="1.5" PointX="13.375" PointY="0.75" />
         <EntityTypeShape EntityType="SzwalniaModel.vRozpoczeteProcesy" Width="1.5" PointX="13.375" PointY="4.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.Polki" Width="1.5" PointX="14.25" PointY="15.125" />
+        <AssociationConnector Association="SzwalniaModel.FK__Polki__ID_Rozmia__6B24EA82" />
+        <AssociationConnector Association="SzwalniaModel.FK__Polki_reg__ID_Po__7B5B524B" />
+        <AssociationConnector Association="SzwalniaModel.FK__Zawartosc__ID_Po__17036CC0" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

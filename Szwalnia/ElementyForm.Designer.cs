@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ElementyForm));
             this.btnWybor = new System.Windows.Forms.Button();
             this.btnElement = new System.Windows.Forms.Button();
             this.btnTyp = new System.Windows.Forms.Button();
@@ -40,7 +41,7 @@
             // 
             this.btnWybor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnWybor.Location = new System.Drawing.Point(10, 11);
-            this.btnWybor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnWybor.Margin = new System.Windows.Forms.Padding(2);
             this.btnWybor.Name = "btnWybor";
             this.btnWybor.Size = new System.Drawing.Size(187, 50);
             this.btnWybor.TabIndex = 0;
@@ -51,7 +52,7 @@
             // 
             this.btnElement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnElement.Location = new System.Drawing.Point(10, 65);
-            this.btnElement.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnElement.Margin = new System.Windows.Forms.Padding(2);
             this.btnElement.Name = "btnElement";
             this.btnElement.Size = new System.Drawing.Size(187, 50);
             this.btnElement.TabIndex = 1;
@@ -62,7 +63,7 @@
             // 
             this.btnTyp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnTyp.Location = new System.Drawing.Point(10, 119);
-            this.btnTyp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTyp.Margin = new System.Windows.Forms.Padding(2);
             this.btnTyp.Name = "btnTyp";
             this.btnTyp.Size = new System.Drawing.Size(187, 50);
             this.btnTyp.TabIndex = 2;
@@ -73,7 +74,7 @@
             // 
             this.btnCecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnCecha.Location = new System.Drawing.Point(10, 174);
-            this.btnCecha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCecha.Margin = new System.Windows.Forms.Padding(2);
             this.btnCecha.Name = "btnCecha";
             this.btnCecha.Size = new System.Drawing.Size(187, 50);
             this.btnCecha.TabIndex = 3;
@@ -84,7 +85,7 @@
             // 
             this.btnJednostka.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnJednostka.Location = new System.Drawing.Point(9, 228);
-            this.btnJednostka.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnJednostka.Margin = new System.Windows.Forms.Padding(2);
             this.btnJednostka.Name = "btnJednostka";
             this.btnJednostka.Size = new System.Drawing.Size(187, 50);
             this.btnJednostka.TabIndex = 4;
@@ -95,7 +96,7 @@
             // 
             this.btnCechyElementow.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnCechyElementow.Location = new System.Drawing.Point(10, 283);
-            this.btnCechyElementow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCechyElementow.Margin = new System.Windows.Forms.Padding(2);
             this.btnCechyElementow.Name = "btnCechyElementow";
             this.btnCechyElementow.Size = new System.Drawing.Size(187, 50);
             this.btnCechyElementow.TabIndex = 5;
@@ -113,7 +114,8 @@
             this.Controls.Add(this.btnTyp);
             this.Controls.Add(this.btnElement);
             this.Controls.Add(this.btnWybor);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ElementyForm";
             this.Text = "ElementyForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ElementyForm_FormClosed);

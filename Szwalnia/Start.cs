@@ -17,7 +17,7 @@ namespace Szwalnia
         public Start()
         {
             InitializeComponent();
-            //szwalnia = new SzwalniaEntities();
+            szwalnia = new SzwalniaEntities();
         }
 
         public static Start inst;

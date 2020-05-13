@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NowaPolka));
             this.btnDodajRegal = new System.Windows.Forms.Button();
             this.lblOznaczenie = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -149,6 +149,7 @@
             this.Controls.Add(this.btnDodajRegal);
             this.Controls.Add(this.lblOznaczenie);
             this.Controls.Add(this.lblTitle);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NowaPolka";
             this.Text = "Dodaj półkę";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NowaPolka_FormClosed);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NowyRegal));
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblOznaczenie = new System.Windows.Forms.Label();
             this.txtOznaczenie = new System.Windows.Forms.TextBox();
@@ -81,6 +82,7 @@
             this.Controls.Add(this.txtOznaczenie);
             this.Controls.Add(this.lblOznaczenie);
             this.Controls.Add(this.lblTitle);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NowyRegal";
             this.Text = "Dodaj regał";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NowyRegal_FormClosed);

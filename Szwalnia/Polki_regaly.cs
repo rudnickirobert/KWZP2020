@@ -18,7 +18,7 @@ namespace Szwalnia
         public Nullable<int> ID_regal { get; set; }
         public Nullable<int> ID_Polka { get; set; }
     
-        public virtual Polki Polki { get; set; }
         public virtual Regaly Regaly { get; set; }
+        public virtual Polki Polki { get; set; }
     }
 }

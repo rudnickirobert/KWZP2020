@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DodawanieCechy));
             this.txtNazwa = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblMain = new System.Windows.Forms.Label();
@@ -37,7 +38,7 @@
             // txtNazwa
             // 
             this.txtNazwa.Location = new System.Drawing.Point(146, 75);
-            this.txtNazwa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNazwa.Margin = new System.Windows.Forms.Padding(2);
             this.txtNazwa.Name = "txtNazwa";
             this.txtNazwa.Size = new System.Drawing.Size(114, 20);
             this.txtNazwa.TabIndex = 9;
@@ -65,7 +66,7 @@
             // btnDodaj
             // 
             this.btnDodaj.Location = new System.Drawing.Point(260, 119);
-            this.btnDodaj.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDodaj.Margin = new System.Windows.Forms.Padding(2);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(56, 19);
             this.btnDodaj.TabIndex = 10;
@@ -82,7 +83,8 @@
             this.Controls.Add(this.txtNazwa);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblMain);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DodawanieCechy";
             this.Text = "DodawanieCechy";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DodawanieCechy_FormClosed);
