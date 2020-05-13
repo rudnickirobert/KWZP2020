@@ -27,6 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Start));
             this.btnMagazyn = new System.Windows.Forms.Button();
             this.btnPrzygotowanieProdukcji = new System.Windows.Forms.Button();
             this.btnProdukcja = new System.Windows.Forms.Button();
@@ -36,10 +37,10 @@
             // btnMagazyn
             // 
             this.btnMagazyn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnMagazyn.Location = new System.Drawing.Point(127, 245);
-            this.btnMagazyn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMagazyn.Location = new System.Drawing.Point(95, 199);
+            this.btnMagazyn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnMagazyn.Name = "btnMagazyn";
-            this.btnMagazyn.Size = new System.Drawing.Size(227, 111);
+            this.btnMagazyn.Size = new System.Drawing.Size(170, 90);
             this.btnMagazyn.TabIndex = 0;
             this.btnMagazyn.Text = "Magazyn";
             this.btnMagazyn.UseVisualStyleBackColor = true;
@@ -48,10 +49,9 @@
             // btnPrzygotowanieProdukcji
             // 
             this.btnPrzygotowanieProdukcji.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnPrzygotowanieProdukcji.Location = new System.Drawing.Point(449, 81);
-            this.btnPrzygotowanieProdukcji.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPrzygotowanieProdukcji.Location = new System.Drawing.Point(337, 66);
             this.btnPrzygotowanieProdukcji.Name = "btnPrzygotowanieProdukcji";
-            this.btnPrzygotowanieProdukcji.Size = new System.Drawing.Size(227, 111);
+            this.btnPrzygotowanieProdukcji.Size = new System.Drawing.Size(170, 90);
             this.btnPrzygotowanieProdukcji.TabIndex = 3;
             this.btnPrzygotowanieProdukcji.Text = "Przygotowanie Produkcji";
             this.btnPrzygotowanieProdukcji.UseVisualStyleBackColor = true;
@@ -60,10 +60,9 @@
             // btnProdukcja
             // 
             this.btnProdukcja.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnProdukcja.Location = new System.Drawing.Point(449, 245);
-            this.btnProdukcja.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnProdukcja.Location = new System.Drawing.Point(337, 199);
             this.btnProdukcja.Name = "btnProdukcja";
-            this.btnProdukcja.Size = new System.Drawing.Size(227, 111);
+            this.btnProdukcja.Size = new System.Drawing.Size(170, 90);
             this.btnProdukcja.TabIndex = 4;
             this.btnProdukcja.Text = "Produkcja";
             this.btnProdukcja.UseVisualStyleBackColor = true;
@@ -72,10 +71,9 @@
             // btnZarzadzanie
             // 
             this.btnZarzadzanie.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnZarzadzanie.Location = new System.Drawing.Point(127, 80);
-            this.btnZarzadzanie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnZarzadzanie.Location = new System.Drawing.Point(95, 65);
             this.btnZarzadzanie.Name = "btnZarzadzanie";
-            this.btnZarzadzanie.Size = new System.Drawing.Size(227, 111);
+            this.btnZarzadzanie.Size = new System.Drawing.Size(170, 90);
             this.btnZarzadzanie.TabIndex = 5;
             this.btnZarzadzanie.Text = "Zarządzanie";
             this.btnZarzadzanie.UseVisualStyleBackColor = true;
@@ -83,14 +81,15 @@
             // 
             // Start
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.btnZarzadzanie);
             this.Controls.Add(this.btnProdukcja);
             this.Controls.Add(this.btnPrzygotowanieProdukcji);
             this.Controls.Add(this.btnMagazyn);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Start";
             this.Text = "Szwalnia";
             this.ResumeLayout(false);

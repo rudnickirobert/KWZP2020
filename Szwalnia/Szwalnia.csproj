@@ -88,6 +88,24 @@
     <Compile Include="NowyRegal.Designer.cs">
       <DependentUpon>NowyRegal.cs</DependentUpon>
     </Compile>
+    <Compile Include="ObslugaZamowien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ObslugaZamowien.Designer.cs">
+      <DependentUpon>ObslugaZamowien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ObslugaDostaw.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ObslugaDostaw.Designer.cs">
+      <DependentUpon>ObslugaDostaw.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StanMagazynowy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StanMagazynowy.Designer.cs">
+      <DependentUpon>StanMagazynowy.cs</DependentUpon>
+    </Compile>
     <Compile Include="UkladMagazynu.cs">
       <SubType>Form</SubType>
     </Compile>
