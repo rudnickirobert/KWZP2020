@@ -442,12 +442,6 @@
     <Compile Include="Rodzaj_Urlopu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="RozpoczeteProcesy.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RozpoczeteProcesy.Designer.cs">
-      <DependentUpon>RozpoczeteProcesy.cs</DependentUpon>
-    </Compile>
     <Compile Include="SredniaIloscMaszyPokaz.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -574,9 +568,6 @@
     <Compile Include="vRoznicaGodzin.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vRozpoczeteProcesy.cs">
-      <DependentUpon>Szwalnia.tt</DependentUpon>
-    </Compile>
     <Compile Include="vSrednia_ilosc_maszyn.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -699,17 +690,29 @@
     <EmbeddedResource Include="NiewykorzystanyMaterialWMiesiacu.resx">
       <DependentUpon>NiewykorzystanyMaterialWMiesiacu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NowaPolka.resx">
+      <DependentUpon>NowaPolka.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NowaRealizacjaProcesu.resx">
       <DependentUpon>NowaRealizacjaProcesu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NowyProces.resx">
       <DependentUpon>NowyProces.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NowyRegal.resx">
+      <DependentUpon>NowyRegal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NowyRodzajEtapu.resx">
       <DependentUpon>NowyRodzajEtapu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NowyRozmiarPolki.resx">
+      <DependentUpon>NowyRozmiarPolki.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ObslugaDostaw.resx">
       <DependentUpon>ObslugaDostaw.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ObslugaZamowien.resx">
+      <DependentUpon>ObslugaZamowien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProcesProdukcyjny.resx">
       <DependentUpon>ProcesProdukcyjny.cs</DependentUpon>
@@ -776,9 +779,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RodzajEtapu.resx">
       <DependentUpon>RodzajEtapu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RozpoczeteProcesy.resx">
-      <DependentUpon>RozpoczeteProcesy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SredniaIloscMaszyPokaz.resx">
       <DependentUpon>SredniaIloscMaszyPokaz.cs</DependentUpon>

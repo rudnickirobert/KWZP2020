@@ -31,11 +31,7 @@ namespace Szwalnia
             wszystkieProcesyProdukcyjne.Show();
         }
 
-        private void btnRozpoczeteProcesy_Click(object sender, EventArgs e)
-        {
-            RozpoczeteProcesy rozpoczeteProcesy = new RozpoczeteProcesy(db);
-            rozpoczeteProcesy.Show();
-        }
+       
 
         private void btnNumerProcesu_Click(object sender, EventArgs e)
         {

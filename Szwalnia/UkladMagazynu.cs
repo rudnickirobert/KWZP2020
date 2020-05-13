@@ -37,27 +37,26 @@ namespace Szwalnia
         {
             NowyRegal regal = new NowyRegal(db);
             regal.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void btnDodajPolke_Click(object sender, EventArgs e)
         {
             NowaPolka polka = new NowaPolka(db, ostatniaPolka);
             polka.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void btnDodajRozmiar_Click(object sender, EventArgs e)
         {
             NowyRozmiarPolki rozmiar = new NowyRozmiarPolki(db);
             rozmiar.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void UkladMagazynu_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Start start = new Start();
-            start.Show();
+            Start.GetForm.Show();
         }
     }
 }

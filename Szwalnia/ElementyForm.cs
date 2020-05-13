@@ -60,5 +60,10 @@ namespace Szwalnia
             cechyElementu.Show();
             this.Hide();
         }
+
+        private void ElementyForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Start.GetForm.Show();
+        }
     }
 }

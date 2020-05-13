@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WyborElementu));
             this.lblInfo = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
             this.dgvListaElementow = new System.Windows.Forms.DataGridView();
@@ -72,6 +73,7 @@
             this.Controls.Add(this.dgvListaElementow);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.lblInfo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "WyborElementu";
             this.Text = "Okno wyboru elementow";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.WyborElementu_FormClosed);

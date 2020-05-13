@@ -27,8 +27,7 @@ namespace Szwalnia
 
         private void DodawanieCechy_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Start start = new Start();
-            start.Show();
+            Start.GetForm.Show();
         }
     }
 }
