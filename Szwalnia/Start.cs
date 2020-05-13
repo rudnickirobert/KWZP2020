@@ -17,7 +17,18 @@ namespace Szwalnia
         public Start()
         {
             InitializeComponent();
-            szwalnia = new SzwalniaEntities();
+            //szwalnia = new SzwalniaEntities();
+        }
+
+        public static Start inst;
+        public static Start GetForm
+        {
+            get
+            {
+                if (inst == null || inst.IsDisposed)
+                    inst = new Start();
+                return inst;
+            }
         }
 
         private void btnMagazyn_Click(object sender, EventArgs e)
@@ -26,7 +37,6 @@ namespace Szwalnia
             magForm.Show();
             this.Hide();
         }
-
 
         private void btnPrzygotowanieProdukcji_Click(object sender, EventArgs e)
         {

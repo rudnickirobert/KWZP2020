@@ -56,8 +56,7 @@ namespace Szwalnia
 
         private void UkladMagazynu_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Start start = new Start();
-            start.Show();
+            Start.GetForm.Show();
         }
     }
 }
