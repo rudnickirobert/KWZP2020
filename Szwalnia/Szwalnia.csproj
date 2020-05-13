@@ -235,6 +235,12 @@
     <Compile Include="Nowe zamówienie.Designer.cs">
       <DependentUpon>Nowe zamówienie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Nowy Klient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nowy Klient.Designer.cs">
+      <DependentUpon>Nowy Klient.cs</DependentUpon>
+    </Compile>
     <Compile Include="NowyProces.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,6 +273,12 @@
     </Compile>
     <Compile Include="Oferta.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Panel Klienta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Panel Klienta.Designer.cs">
+      <DependentUpon>Panel Klienta.cs</DependentUpon>
     </Compile>
     <Compile Include="Pensja.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
@@ -630,11 +642,17 @@
     <EmbeddedResource Include="Nowe zamówienie.resx">
       <DependentUpon>Nowe zamówienie.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Nowy Klient.resx">
+      <DependentUpon>Nowy Klient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NowyProces.resx">
       <DependentUpon>NowyProces.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NowyRodzajEtapu.resx">
       <DependentUpon>NowyRodzajEtapu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel Klienta.resx">
+      <DependentUpon>Panel Klienta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProcesProdukcyjny.resx">
       <DependentUpon>ProcesProdukcyjny.cs</DependentUpon>

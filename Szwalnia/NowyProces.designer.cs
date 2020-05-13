@@ -51,9 +51,10 @@
             // 
             this.lblOpisNumer.AutoSize = true;
             this.lblOpisNumer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblOpisNumer.Location = new System.Drawing.Point(77, 44);
+            this.lblOpisNumer.Location = new System.Drawing.Point(103, 54);
+            this.lblOpisNumer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOpisNumer.Name = "lblOpisNumer";
-            this.lblOpisNumer.Size = new System.Drawing.Size(200, 24);
+            this.lblOpisNumer.Size = new System.Drawing.Size(254, 29);
             this.lblOpisNumer.TabIndex = 0;
             this.lblOpisNumer.Text = "ID nowego procesu to:";
             // 
@@ -61,93 +62,104 @@
             // 
             this.lblIdZamowienieElement.AutoSize = true;
             this.lblIdZamowienieElement.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblIdZamowienieElement.Location = new System.Drawing.Point(62, 107);
+            this.lblIdZamowienieElement.Location = new System.Drawing.Point(83, 132);
+            this.lblIdZamowienieElement.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIdZamowienieElement.Name = "lblIdZamowienieElement";
-            this.lblIdZamowienieElement.Size = new System.Drawing.Size(161, 18);
+            this.lblIdZamowienieElement.Size = new System.Drawing.Size(206, 24);
             this.lblIdZamowienieElement.TabIndex = 1;
             this.lblIdZamowienieElement.Text = "ID zamówienie element";
             // 
             // tbIdZamowienieElement
             // 
-            this.tbIdZamowienieElement.Location = new System.Drawing.Point(332, 105);
+            this.tbIdZamowienieElement.Location = new System.Drawing.Point(443, 129);
+            this.tbIdZamowienieElement.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbIdZamowienieElement.Name = "tbIdZamowienieElement";
-            this.tbIdZamowienieElement.Size = new System.Drawing.Size(189, 20);
+            this.tbIdZamowienieElement.Size = new System.Drawing.Size(251, 22);
             this.tbIdZamowienieElement.TabIndex = 2;
             // 
             // lblProponowanaDataDostawy
             // 
             this.lblProponowanaDataDostawy.AutoSize = true;
             this.lblProponowanaDataDostawy.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblProponowanaDataDostawy.Location = new System.Drawing.Point(62, 133);
+            this.lblProponowanaDataDostawy.Location = new System.Drawing.Point(83, 164);
+            this.lblProponowanaDataDostawy.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblProponowanaDataDostawy.Name = "lblProponowanaDataDostawy";
-            this.lblProponowanaDataDostawy.Size = new System.Drawing.Size(256, 18);
+            this.lblProponowanaDataDostawy.Size = new System.Drawing.Size(326, 24);
             this.lblProponowanaDataDostawy.TabIndex = 1;
             this.lblProponowanaDataDostawy.Text = "Proponowana data dostawy materiału";
             // 
             // tbProponowanaData
             // 
-            this.tbProponowanaData.Location = new System.Drawing.Point(332, 131);
+            this.tbProponowanaData.Location = new System.Drawing.Point(443, 161);
+            this.tbProponowanaData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbProponowanaData.Name = "tbProponowanaData";
-            this.tbProponowanaData.Size = new System.Drawing.Size(189, 20);
+            this.tbProponowanaData.Size = new System.Drawing.Size(251, 22);
             this.tbProponowanaData.TabIndex = 2;
             // 
             // lblDataRozpoczecia
             // 
             this.lblDataRozpoczecia.AutoSize = true;
             this.lblDataRozpoczecia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblDataRozpoczecia.Location = new System.Drawing.Point(62, 159);
+            this.lblDataRozpoczecia.Location = new System.Drawing.Point(83, 196);
+            this.lblDataRozpoczecia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDataRozpoczecia.Name = "lblDataRozpoczecia";
-            this.lblDataRozpoczecia.Size = new System.Drawing.Size(125, 18);
+            this.lblDataRozpoczecia.Size = new System.Drawing.Size(154, 24);
             this.lblDataRozpoczecia.TabIndex = 1;
             this.lblDataRozpoczecia.Text = "Data rozpoczęcia";
             // 
             // tbDataRozpoczecia
             // 
-            this.tbDataRozpoczecia.Location = new System.Drawing.Point(332, 157);
+            this.tbDataRozpoczecia.Location = new System.Drawing.Point(443, 193);
+            this.tbDataRozpoczecia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbDataRozpoczecia.Name = "tbDataRozpoczecia";
-            this.tbDataRozpoczecia.Size = new System.Drawing.Size(189, 20);
+            this.tbDataRozpoczecia.Size = new System.Drawing.Size(251, 22);
             this.tbDataRozpoczecia.TabIndex = 2;
             // 
             // lblDataZakonczenia
             // 
             this.lblDataZakonczenia.AutoSize = true;
             this.lblDataZakonczenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblDataZakonczenia.Location = new System.Drawing.Point(62, 185);
+            this.lblDataZakonczenia.Location = new System.Drawing.Point(83, 228);
+            this.lblDataZakonczenia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDataZakonczenia.Name = "lblDataZakonczenia";
-            this.lblDataZakonczenia.Size = new System.Drawing.Size(127, 18);
+            this.lblDataZakonczenia.Size = new System.Drawing.Size(157, 24);
             this.lblDataZakonczenia.TabIndex = 1;
             this.lblDataZakonczenia.Text = "Data zakończenia";
             // 
             // tbDataZakonczenia
             // 
-            this.tbDataZakonczenia.Location = new System.Drawing.Point(332, 183);
+            this.tbDataZakonczenia.Location = new System.Drawing.Point(443, 225);
+            this.tbDataZakonczenia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbDataZakonczenia.Name = "tbDataZakonczenia";
-            this.tbDataZakonczenia.Size = new System.Drawing.Size(189, 20);
+            this.tbDataZakonczenia.Size = new System.Drawing.Size(251, 22);
             this.tbDataZakonczenia.TabIndex = 2;
             // 
             // lblUwagi
             // 
             this.lblUwagi.AutoSize = true;
             this.lblUwagi.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblUwagi.Location = new System.Drawing.Point(62, 211);
+            this.lblUwagi.Location = new System.Drawing.Point(83, 260);
+            this.lblUwagi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUwagi.Name = "lblUwagi";
-            this.lblUwagi.Size = new System.Drawing.Size(49, 18);
+            this.lblUwagi.Size = new System.Drawing.Size(62, 24);
             this.lblUwagi.TabIndex = 1;
             this.lblUwagi.Text = "Uwagi";
             // 
             // tbUwagi
             // 
-            this.tbUwagi.Location = new System.Drawing.Point(332, 209);
+            this.tbUwagi.Location = new System.Drawing.Point(443, 257);
+            this.tbUwagi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbUwagi.Name = "tbUwagi";
-            this.tbUwagi.Size = new System.Drawing.Size(189, 20);
+            this.tbUwagi.Size = new System.Drawing.Size(251, 22);
             this.tbUwagi.TabIndex = 2;
             // 
             // btnZapisz
             // 
             this.btnZapisz.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnZapisz.Location = new System.Drawing.Point(119, 281);
+            this.btnZapisz.Location = new System.Drawing.Point(159, 346);
+            this.btnZapisz.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnZapisz.Name = "btnZapisz";
-            this.btnZapisz.Size = new System.Drawing.Size(80, 50);
+            this.btnZapisz.Size = new System.Drawing.Size(107, 62);
             this.btnZapisz.TabIndex = 3;
             this.btnZapisz.Text = "Zapisz";
             this.btnZapisz.UseVisualStyleBackColor = true;
@@ -156,9 +168,10 @@
             // btnAnuluj
             // 
             this.btnAnuluj.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAnuluj.Location = new System.Drawing.Point(238, 281);
+            this.btnAnuluj.Location = new System.Drawing.Point(317, 346);
+            this.btnAnuluj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAnuluj.Name = "btnAnuluj";
-            this.btnAnuluj.Size = new System.Drawing.Size(80, 50);
+            this.btnAnuluj.Size = new System.Drawing.Size(107, 62);
             this.btnAnuluj.TabIndex = 3;
             this.btnAnuluj.Text = "Anuluj";
             this.btnAnuluj.UseVisualStyleBackColor = true;
@@ -167,9 +180,10 @@
             // btnWyzeruj
             // 
             this.btnWyzeruj.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnWyzeruj.Location = new System.Drawing.Point(346, 281);
+            this.btnWyzeruj.Location = new System.Drawing.Point(461, 346);
+            this.btnWyzeruj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnWyzeruj.Name = "btnWyzeruj";
-            this.btnWyzeruj.Size = new System.Drawing.Size(80, 50);
+            this.btnWyzeruj.Size = new System.Drawing.Size(107, 62);
             this.btnWyzeruj.TabIndex = 3;
             this.btnWyzeruj.Text = "Wyzeruj";
             this.btnWyzeruj.UseVisualStyleBackColor = true;
@@ -179,26 +193,29 @@
             // 
             this.lblNumerProcesu.AutoSize = true;
             this.lblNumerProcesu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblNumerProcesu.Location = new System.Drawing.Point(342, 48);
+            this.lblNumerProcesu.Location = new System.Drawing.Point(456, 59);
+            this.lblNumerProcesu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNumerProcesu.Name = "lblNumerProcesu";
-            this.lblNumerProcesu.Size = new System.Drawing.Size(51, 20);
+            this.lblNumerProcesu.Size = new System.Drawing.Size(64, 25);
             this.lblNumerProcesu.TabIndex = 4;
             this.lblNumerProcesu.Text = "label1";
             // 
             // dgvUkryty
             // 
             this.dgvUkryty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUkryty.Location = new System.Drawing.Point(24, 13);
+            this.dgvUkryty.Location = new System.Drawing.Point(32, 16);
+            this.dgvUkryty.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvUkryty.Name = "dgvUkryty";
-            this.dgvUkryty.Size = new System.Drawing.Size(47, 43);
+            this.dgvUkryty.RowHeadersWidth = 51;
+            this.dgvUkryty.Size = new System.Drawing.Size(63, 53);
             this.dgvUkryty.TabIndex = 5;
             this.dgvUkryty.Visible = false;
             // 
             // NowyProces
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(578, 362);
+            this.ClientSize = new System.Drawing.Size(771, 446);
             this.Controls.Add(this.dgvUkryty);
             this.Controls.Add(this.lblNumerProcesu);
             this.Controls.Add(this.btnWyzeruj);
@@ -215,6 +232,7 @@
             this.Controls.Add(this.tbIdZamowienieElement);
             this.Controls.Add(this.lblIdZamowienieElement);
             this.Controls.Add(this.lblOpisNumer);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "NowyProces";
             this.Text = "Nowy Proces";
             ((System.ComponentModel.ISupportInitialize)(this.dgvUkryty)).EndInit();
