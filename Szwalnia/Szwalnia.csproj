@@ -82,6 +82,12 @@
     <Compile Include="DodawanieTypu.Designer.cs">
       <DependentUpon>DodawanieTypu.cs</DependentUpon>
     </Compile>
+    <Compile Include="DodoawanieCechElementowi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodoawanieCechElementowi.Designer.cs">
+      <DependentUpon>DodoawanieCechElementowi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dokumentacja_Proces.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -659,6 +665,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bilans.resx">
       <DependentUpon>Bilans.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodoawanieCechElementowi.resx">
+      <DependentUpon>DodoawanieCechElementowi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ElementSzczegoly.resx">
       <DependentUpon>ElementSzczegoly.cs</DependentUpon>

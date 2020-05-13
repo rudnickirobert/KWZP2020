@@ -18,7 +18,9 @@ namespace Szwalnia
         {
             InitializeComponent();
             typNew.Typ = txtNazwa.Text;
-            //w obecnym modelu nie ma Czy_wlasne
+            if (chBoxWlasny.Checked == true)
+            { typNew.Czy_wlasne = true; }
+            else { typNew.Czy_wlasne = false; }
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
