@@ -37,8 +37,8 @@
             this.btnNowyRegal = new System.Windows.Forms.Button();
             this.lblNumerNowejPolki = new System.Windows.Forms.Label();
             this.btnNowyRozmiarPolki = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.cmbRozmiar = new System.Windows.Forms.ComboBox();
+            this.lblRozmiar = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnDodajRegal
@@ -95,6 +95,7 @@
             this.btnNowyRegal.TabIndex = 16;
             this.btnNowyRegal.Text = "Nowy regał?";
             this.btnNowyRegal.UseVisualStyleBackColor = true;
+            this.btnNowyRegal.Click += new System.EventHandler(this.btnNowyRegal_Click);
             // 
             // lblNumerNowejPolki
             // 
@@ -114,25 +115,26 @@
             this.btnNowyRozmiarPolki.TabIndex = 20;
             this.btnNowyRozmiarPolki.Text = "Nowy rozmiar półki?";
             this.btnNowyRozmiarPolki.UseVisualStyleBackColor = true;
+            this.btnNowyRozmiarPolki.Click += new System.EventHandler(this.btnNowyRozmiarPolki_Click);
             // 
-            // comboBox1
+            // cmbRozmiar
             // 
-            this.comboBox1.DisplayMember = "Wymiar";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(141, 165);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(114, 21);
-            this.comboBox1.TabIndex = 19;
-            this.comboBox1.ValueMember = "Szerokosc";
+            this.cmbRozmiar.DisplayMember = "Wymiar";
+            this.cmbRozmiar.FormattingEnabled = true;
+            this.cmbRozmiar.Location = new System.Drawing.Point(141, 165);
+            this.cmbRozmiar.Name = "cmbRozmiar";
+            this.cmbRozmiar.Size = new System.Drawing.Size(114, 21);
+            this.cmbRozmiar.TabIndex = 19;
+            this.cmbRozmiar.ValueMember = "Szerokosc";
             // 
-            // label2
+            // lblRozmiar
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(65, 168);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 13);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Rozmiar:";
+            this.lblRozmiar.AutoSize = true;
+            this.lblRozmiar.Location = new System.Drawing.Point(65, 168);
+            this.lblRozmiar.Name = "lblRozmiar";
+            this.lblRozmiar.Size = new System.Drawing.Size(48, 13);
+            this.lblRozmiar.TabIndex = 18;
+            this.lblRozmiar.Text = "Rozmiar:";
             // 
             // NowaPolka
             // 
@@ -140,8 +142,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(437, 298);
             this.Controls.Add(this.btnNowyRozmiarPolki);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.cmbRozmiar);
+            this.Controls.Add(this.lblRozmiar);
             this.Controls.Add(this.lblNumerNowejPolki);
             this.Controls.Add(this.btnNowyRegal);
             this.Controls.Add(this.cmbOznaczenie);
@@ -168,7 +170,7 @@
         private System.Windows.Forms.Button btnNowyRegal;
         private System.Windows.Forms.Label lblNumerNowejPolki;
         private System.Windows.Forms.Button btnNowyRozmiarPolki;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmbRozmiar;
+        private System.Windows.Forms.Label lblRozmiar;
     }
 }
