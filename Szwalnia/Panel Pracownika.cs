@@ -28,7 +28,7 @@ namespace Szwalnia
 
         private void btnZatrudnienie_Click(object sender, EventArgs e)
         {
-            Informacje_o_zatrudnieniu informacjeOZatrudnieniu = new Informacje_o_zatrudnieniu(db);
+           Informacje_o_zatrudnieniu informacjeOZatrudnieniu = new Informacje_o_zatrudnieniu(db);
             informacjeOZatrudnieniu.Show();
 
         }
@@ -36,6 +36,12 @@ namespace Szwalnia
         private void btnZamknij_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnNowyPracownik_Click(object sender, EventArgs e)
+        {
+            Nowy_Pracownik nowyPracownik = new Nowy_Pracownik(db);
+            nowyPracownik.Show();
         }
     }
 }

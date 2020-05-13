@@ -184,6 +184,7 @@
             this.btnAnuluj.TabIndex = 15;
             this.btnAnuluj.Text = "Anuluj";
             this.btnAnuluj.UseVisualStyleBackColor = true;
+            this.btnAnuluj.Click += new System.EventHandler(this.btnAnuluj_Click);
             // 
             // btnUrlop
             // 
@@ -193,7 +194,6 @@
             this.btnUrlop.TabIndex = 16;
             this.btnUrlop.Text = "Dodaj wymiar urlopu";
             this.btnUrlop.UseVisualStyleBackColor = true;
-            this.btnUrlop.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnJezyk
             // 

@@ -37,7 +37,7 @@
             // 
             this.LblWyborKlienta.AutoSize = true;
             this.LblWyborKlienta.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.LblWyborKlienta.Location = new System.Drawing.Point(238, 25);
+            this.LblWyborKlienta.Location = new System.Drawing.Point(466, 25);
             this.LblWyborKlienta.Name = "LblWyborKlienta";
             this.LblWyborKlienta.Size = new System.Drawing.Size(331, 38);
             this.LblWyborKlienta.TabIndex = 0;
@@ -50,7 +50,7 @@
             this.dgvListaKlientow.Name = "dgvListaKlientow";
             this.dgvListaKlientow.RowHeadersWidth = 51;
             this.dgvListaKlientow.RowTemplate.Height = 24;
-            this.dgvListaKlientow.Size = new System.Drawing.Size(776, 357);
+            this.dgvListaKlientow.Size = new System.Drawing.Size(1395, 357);
             this.dgvListaKlientow.TabIndex = 1;
             this.dgvListaKlientow.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvListaKlientow_CellMouseDoubleClick);
             // 
@@ -58,7 +58,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1419, 450);
             this.Controls.Add(this.dgvListaKlientow);
             this.Controls.Add(this.LblWyborKlienta);
             this.Name = "WyborKlienta";

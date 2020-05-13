@@ -62,6 +62,7 @@
             this.btnNowyPracownik.TabIndex = 2;
             this.btnNowyPracownik.Text = "Nowy Pracownik";
             this.btnNowyPracownik.UseVisualStyleBackColor = true;
+            this.btnNowyPracownik.Click += new System.EventHandler(this.btnNowyPracownik_Click);
             // 
             // btnZatrudnienie
             // 

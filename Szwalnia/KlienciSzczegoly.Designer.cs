@@ -141,6 +141,7 @@
             this.btnZamknij.TabIndex = 11;
             this.btnZamknij.Text = "Zamknij";
             this.btnZamknij.UseVisualStyleBackColor = true;
+            this.btnZamknij.Click += new System.EventHandler(this.btnZamknij_Click);
             // 
             // dgvKlienciSzczegoly
             // 
@@ -149,14 +150,14 @@
             this.dgvKlienciSzczegoly.Name = "dgvKlienciSzczegoly";
             this.dgvKlienciSzczegoly.RowHeadersWidth = 51;
             this.dgvKlienciSzczegoly.RowTemplate.Height = 24;
-            this.dgvKlienciSzczegoly.Size = new System.Drawing.Size(776, 216);
+            this.dgvKlienciSzczegoly.Size = new System.Drawing.Size(860, 216);
             this.dgvKlienciSzczegoly.TabIndex = 12;
             // 
             // KlienciSzczegoly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1297, 450);
             this.Controls.Add(this.dgvKlienciSzczegoly);
             this.Controls.Add(this.btnZamknij);
             this.Controls.Add(this.lblTitle);
