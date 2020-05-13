@@ -23,7 +23,8 @@ namespace Szwalnia
         public int ID_Obsluga_Techniczna { get; set; }
         public int ID_Maszyny { get; set; }
         public int ID_Rodzaj_Obslugi { get; set; }
-        public System.DateTime Data_Wykonania { get; set; }
+        public System.DateTime Data_Rozpoczecia { get; set; }
+        public Nullable<System.DateTime> Data_Zakonczenia { get; set; }
         public int ID_Pracownika { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
