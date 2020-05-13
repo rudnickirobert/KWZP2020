@@ -400,7 +400,7 @@ create table Dokumentacje (
     ID_Dokumentacji int IDENTITY(1,1) not null PRIMARY KEY,  
     ID_Rodzaj_Dokumentacji int not null FOREIGN KEY REFERENCES Rodzaj_Dokumentacji (ID_Rodzaj_Dokumentacji), 
     ID_Pracownika int not null FOREIGN KEY REFERENCES Pracownicy (ID_Pracownika), 
-    Data_Wykonania smalldatetime not null, 
+    Data_Wykonania date not null, 
 	Plik varchar(30) not null,
 ); 
 
