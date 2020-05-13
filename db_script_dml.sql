@@ -833,21 +833,21 @@ VALUES
 (8,8,1);
 
 
-INSERT INTO Elementy_Proces(ID_Proces_Technologiczny,ID_Element,Liczba)
+INSERT INTO Elementy_Proces(ID_Proces_Technologiczny,ID_Element,Liczba,ID_jednostka)
 VALUES
 
-(1,2,50),
-(1,4,1000),
-(2,3,120),
-(2,4,200),
-(3,3,70),
-(4,2,400),
-(5,2,50),
-(5,4,1000),
-(6,3,20000),
-(6,4,5000),
-(7,3,140),
-(8,3,35);
+(1,2,50,3),
+(1,4,1000,8),
+(2,3,120,2),
+(2,4,200,8),
+(3,3,70,2),
+(4,2,400,2),
+(5,2,50,2),
+(5,4,1000,8),
+(6,3,20000,2),
+(6,4,5000,8),
+(7,3,140,2),
+(8,3,35,2);
 
 INSERT INTO Etapy_W_Procesie (ID_Proces_Technologiczny,ID_Etapu,Czas)--(Czas w h)
 VALUES

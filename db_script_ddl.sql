@@ -60,7 +60,7 @@ Uwagi varchar(100)
 
 CREATE TABLE Etat ( 
 ID_Etat int IDENTITY (1,1) PRIMARY KEY,  
-Wymiar_Etatu real not null,  
+Wymiar_Etatu REAL not null,  
 Uwagi varchar(100) 
 ); 
 
@@ -127,7 +127,6 @@ CREATE TABLE Grupa (
 ID_Grupa int IDENTITY (1,1) PRIMARY KEY, 
 Nazwa varchar(100) unique 
 ); 
-
 
 CREATE TABLE Faktury_Zewnetrzne ( 
 ID_Faktura_zewnetrzna int IDENTITY (1,1) PRIMARY KEY, 
@@ -460,6 +459,7 @@ create table Elementy_Proces (
     ID_Proces_Technologiczny int not null FOREIGN KEY REFERENCES Proces_Technologiczny(ID_Proces_Technologiczny),
     ID_Element int not null FOREIGN KEY REFERENCES Elementy (ID_Element), 
     Liczba int not null, 
+	ID_jednostka int not null FOREIGN KEY REFERENCES Elementy_Jednostki(ID_jednostka),
 ); 
   
 create table Etapy_W_Procesie ( 
