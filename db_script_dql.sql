@@ -163,12 +163,7 @@ FROM     dbo.Proces_Produkcyjny INNER JOIN
                   dbo.Elementy_Jednostki ON dbo.Elementy_Cechy.ID_Jednostka = dbo.Elementy_Jednostki.ID_jednostka
 GO
 
---Rozpoczete Procesy
 
-CREATE VIEW vRozpoczeteProcesy
-AS
-SELECT * FROM Proces_Produkcyny WHERE Data_Zakonczenia=NULL;
-GO
 
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
@@ -195,16 +190,18 @@ FROM     dbo.Maszyny INNER JOIN
                   dbo.Srodki_Trwale ON dbo.Maszyny.ID_Srodki_Trwale = dbo.Srodki_Trwale.ID_Srodki_trwale
 				  GO
 
-CREATE VIEW vObsluga AS
-SELECT dbo.Obsluga_Techniczna.ID_Obsluga_Techniczna, dbo.Srodki_Trwale.Nazwa, dbo.Srodki_Trwale.Producent, dbo.Srodki_Trwale.Numer_seryjny, dbo.Rodzaj_Obslugi.Nazwa AS Expr1, dbo.Obsluga_Techniczna.Data_Wykonania, 
-                  dbo.Pracownicy.Nazwisko, dbo.Elementy.Element_Nazwa
-FROM     dbo.Rodzaj_Obslugi INNER JOIN
-                  dbo.Obsluga_Techniczna ON dbo.Rodzaj_Obslugi.ID_Rodzaj_Obslugi = dbo.Obsluga_Techniczna.ID_Rodzaj_Obslugi INNER JOIN
-                  dbo.Maszyny ON dbo.Obsluga_Techniczna.ID_Maszyny = dbo.Maszyny.ID_Maszyny INNER JOIN
-                  dbo.Srodki_Trwale ON dbo.Maszyny.ID_Srodki_Trwale = dbo.Srodki_Trwale.ID_Srodki_trwale INNER JOIN
-                  dbo.Pracownicy ON dbo.Obsluga_Techniczna.ID_Pracownika = dbo.Pracownicy.ID_Pracownika CROSS JOIN
-                  dbo.Elementy
-				  GO
+CREATE VIEW vObsluga  AS
+SELECT        dbo.Srodki_Trwale.Nazwa AS [Nazwa maszyny], dbo.Srodki_Trwale.Numer_seryjny AS [Numer seryjny], dbo.Rodzaj_Obslugi.Nazwa AS [Rodzaj obs³ugi],(dbo.Pracownicy.Imie)+(' ')+(dbo.Pracownicy.Nazwisko) AS [Imiê i nazwisko], 
+                         dbo.Obsluga_Techniczna.Data_Rozpoczecia AS [Data rozpoczêcia], dbo.Obsluga_Techniczna.Data_Zakonczenia AS [Data zakoñczenia]
+FROM            dbo.Obsluga_Techniczna INNER JOIN
+                         dbo.Pracownicy ON dbo.Obsluga_Techniczna.ID_Pracownika = dbo.Pracownicy.ID_Pracownika INNER JOIN
+                         dbo.Czesci_Obsluga ON dbo.Obsluga_Techniczna.ID_Obsluga_Techniczna = dbo.Czesci_Obsluga.ID_Obsluga_Techniczna INNER JOIN
+                         dbo.Elementy ON dbo.Czesci_Obsluga.ID_Element = dbo.Elementy.ID_Element INNER JOIN
+                         dbo.Maszyny ON dbo.Obsluga_Techniczna.ID_Maszyny = dbo.Maszyny.ID_Maszyny INNER JOIN
+                         dbo.Srodki_Trwale ON dbo.Maszyny.ID_Srodki_Trwale = dbo.Srodki_Trwale.ID_Srodki_trwale INNER JOIN
+                         dbo.Rodzaj_Obslugi ON dbo.Obsluga_Techniczna.ID_Rodzaj_Obslugi = dbo.Rodzaj_Obslugi.ID_Rodzaj_Obslugi INNER JOIN
+                         dbo.Rodzaj_Maszyny ON dbo.Maszyny.ID_Rodzaj_Maszyny = dbo.Rodzaj_Maszyny.ID_Rodzaj_Maszyny
+GO
 
 CREATE VIEW vSrednia_ilosc_maszyn AS
 SELECT dbo.Rodzaj_Maszyny.Rodzaj_Maszyny, SUM(dbo.Maszyny_Proces.Liczba_Maszyn) / COUNT(dbo.Proces_Zamowienie.ID_Proces_Zamowienie) AS srednia_ilosc_maszyn

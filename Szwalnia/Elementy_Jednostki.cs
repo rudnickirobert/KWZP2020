@@ -18,6 +18,7 @@ namespace Szwalnia
         public Elementy_Jednostki()
         {
             this.Elementy_Cechy = new HashSet<Elementy_Cechy>();
+            this.Elementy_Proces = new HashSet<Elementy_Proces>();
             this.Oferta = new HashSet<Oferta>();
         }
     
@@ -26,6 +27,8 @@ namespace Szwalnia
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Elementy_Cechy> Elementy_Cechy { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Elementy_Proces> Elementy_Proces { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Oferta> Oferta { get; set; }
     }
