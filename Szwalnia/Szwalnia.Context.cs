@@ -55,6 +55,7 @@ namespace Szwalnia
         public virtual DbSet<Odbior_Dostarczenia> Odbior_Dostarczenia { get; set; }
         public virtual DbSet<Oferta> Oferta { get; set; }
         public virtual DbSet<Pensja> Pensja { get; set; }
+        public virtual DbSet<Polki> Polki { get; set; }
         public virtual DbSet<Polki_regaly> Polki_regaly { get; set; }
         public virtual DbSet<Polki_Rozmiary> Polki_Rozmiary { get; set; }
         public virtual DbSet<Pracownicy> Pracownicy { get; set; }
@@ -89,6 +90,7 @@ namespace Szwalnia
         public virtual DbSet<vMaszyny_rodzaj_liczba> vMaszyny_rodzaj_liczba { get; set; }
         public virtual DbSet<vMaszyny_serwis> vMaszyny_serwis { get; set; }
         public virtual DbSet<vNiezuzyteWMiesiacu> vNiezuzyteWMiesiacu { get; set; }
+        public virtual DbSet<vObsluga> vObsluga { get; set; }
         public virtual DbSet<vPolki_na_regalach> vPolki_na_regalach { get; set; }
         public virtual DbSet<vPolki_Rozmiary> vPolki_Rozmiary { get; set; }
         public virtual DbSet<vProcesMaxOdpadMiesiac> vProcesMaxOdpadMiesiac { get; set; }
@@ -102,8 +104,5 @@ namespace Szwalnia
         public virtual DbSet<vSzacowanyCzasWykonania> vSzacowanyCzasWykonania { get; set; }
         public virtual DbSet<vZamowienieProcesyProdukcyjne> vZamowienieProcesyProdukcyjne { get; set; }
         public virtual DbSet<vZawartosc_polki> vZawartosc_polki { get; set; }
-        public virtual DbSet<vObsluga> vObsluga { get; set; }
-        public virtual DbSet<vRozpoczeteProcesy> vRozpoczeteProcesy { get; set; }
-        public virtual DbSet<Polki> Polki { get; set; }
     }
 }

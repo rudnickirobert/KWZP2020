@@ -15,6 +15,7 @@ namespace Szwalnia
         public FaktoryWystawiane(SzwalniaEntities db)
         {
             InitializeComponent();
+         
         }
     }
 }

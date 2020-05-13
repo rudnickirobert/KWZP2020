@@ -22,11 +22,16 @@ namespace Szwalnia
             txtAdres.Text = customer.Adres;
             txtTelefon.Text = customer.Telefon;
             txtEmail.Text = customer.E_Mail;
+
+          
+           dgvKlienciSzczegoly.Columns[0].Visible = false;
         }
+
         private void btnZamknij_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+        
     }
 }
 

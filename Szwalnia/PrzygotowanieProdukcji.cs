@@ -17,31 +17,17 @@ namespace Szwalnia
         {
             InitializeComponent();
             szwalnia = db;
+            
+            cmbRodzajObslugi.DataSource = db.Rodzaj_Obslugi.ToList();
+            cmbRodzajObslugi.DisplayMember = "Nazwa";
+            cmbRodzajObslugi.ValueMember = "Nazwa";
         }
-        private void btnMaszynyProcesLiczba_Click(object sender, EventArgs e)
+
+        private void btnSzukaj_Click(object sender, EventArgs e)
         {
-            MaszynyProcesSzukaj maszynyProcesSzukaj = new MaszynyProcesSzukaj(szwalnia);
-            maszynyProcesSzukaj.Show();
-        }
-        private void btnSumaCzasuProcesu_Click(object sender, EventArgs e)
-        {
-            SumaCzasuPokaz sumaCzasuPokaz = new SumaCzasuPokaz(szwalnia);
-            sumaCzasuPokaz.Show();
-        }
-        private void btnSredniaIloscMaszyn_Click(object sender, EventArgs e)
-        {
-            SredniaIloscMaszyPokaz sredniaIloscMaszynPokaz = new SredniaIloscMaszyPokaz(szwalnia);
-            sredniaIloscMaszynPokaz.Show();
-        }
-        private void btnMaszynySerwis_Click(object sender, EventArgs e)
-        {
-            MaszynySerwis maszynySerwis = new MaszynySerwis(szwalnia);
-            maszynySerwis.Show();
-        }
-        private void btnObslugaMaszyn_Click(object sender, EventArgs e)
-        {
-            ObslugaSzukaj obslugaSzukaj = new ObslugaSzukaj(szwalnia);
-            obslugaSzukaj.Show();
+           
+            dgvObsluga.DataSource = szwalnia.vObsluga.Where(nazwa => nazwa.Rodzaj_obsługi == cmbRodzajObslugi.Text).ToList();
+            
         }
     }
 }
