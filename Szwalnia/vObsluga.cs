@@ -19,7 +19,7 @@ namespace Szwalnia
         public string Producent { get; set; }
         public string Numer_seryjny { get; set; }
         public string Expr1 { get; set; }
-        public System.DateTime Data_Wykonania { get; set; }
+        public Nullable<System.DateTime> Data_Zakonczenia { get; set; }
         public string Nazwisko { get; set; }
         public string Element_Nazwa { get; set; }
     }

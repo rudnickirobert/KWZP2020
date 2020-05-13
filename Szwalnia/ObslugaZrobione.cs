@@ -20,7 +20,8 @@ namespace Szwalnia
             txtRodzaj.Text = obsluga.Rodzaj_Obslugi.Nazwa;
             txtMaszyna.Text = obsluga.Maszyny.Srodki_Trwale.Producent;
             txtPracownik.Text = obsluga.Pracownicy.Nazwisko;
-            txtData.Text = obsluga.Data_Wykonania.ToString();
+            // CHANGES MADE !!!!!!!!!!! Data_wykonania REPLACED WITH Data_zakonczenia !!!!!!!!!!!!!!!!!
+            txtData.Text = obsluga.Data_Zakonczenia.ToString();
             dgvObsluga.DataSource = db.vObsluga.Where(rodzaj => rodzaj.Expr1 == rodzajObslugi).ToList();
         }
     }
