@@ -469,6 +469,12 @@
     <Compile Include="vProcesMaxOdpadMiesiac.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vProcesy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vProces_technologiczny.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vRealizacjaProcesuProdukcyjnegoDetails.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
