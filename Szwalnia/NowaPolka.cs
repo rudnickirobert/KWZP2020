@@ -14,10 +14,10 @@ namespace Szwalnia
     {
         public SzwalniaEntities db;
         int nowaPolka;
-        public NowaPolka(SzwalniaEntities szwalnia, int ostatniaPolka)
+        public NowaPolka(int ostatniaPolka)
         {
             InitializeComponent();
-            db = szwalnia;
+            db = Start.szwalnia;
             nowaPolka = ostatniaPolka+1;
             lblNumerNowejPolki.Text = nowaPolka.ToString();
             cmbOznaczenie.DataSource = db.Regaly.ToList();
@@ -30,14 +30,14 @@ namespace Szwalnia
 
         private void btnNowyRegal_Click(object sender, EventArgs e)
         {
-            NowyRegal nowy = new NowyRegal(db);
+            NowyRegal nowy = new NowyRegal();
             nowy.Show();
             this.Hide();
         }
 
         private void btnNowyRozmiarPolki_Click(object sender, EventArgs e)
         {
-            NowyRozmiarPolki nowy = new NowyRozmiarPolki(db);
+            NowyRozmiarPolki nowy = new NowyRozmiarPolki();
             nowy.Show();
             this.Hide();
         }

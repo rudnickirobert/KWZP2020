@@ -10,18 +10,15 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class NowyRozmiarPolki : Form
+    public partial class Regaly_wykaz : Form
     {
         public SzwalniaEntities db;
-        public NowyRozmiarPolki()
+        public Regaly_wykaz()
         {
             InitializeComponent();
             db = Start.szwalnia;
-        }
+            dataGridView1.DataSource = db.Regaly.ToList();
 
-        private void NowyRozmiarPolki_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Start.GetForm.Show();
         }
     }
 }

@@ -16,7 +16,8 @@ namespace Szwalnia
         public Elementy elementNew = new Elementy();
         public DodawanieElementu()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            db = Start.szwalnia;
             dgvListaTypy.DataSource = db.Elementy_Typy.ToList();
             elementNew.Element_Nazwa = txtNazwa.Text;
             elementNew.Okres_Przydatnosci_Miesiace = Decimal.ToInt32(numOkres.Value);

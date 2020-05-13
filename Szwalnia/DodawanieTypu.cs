@@ -17,6 +17,7 @@ namespace Szwalnia
         public DodawanieTypu()
         {
             InitializeComponent();
+            db = Start.szwalnia;
             typNew.Typ = txtNazwa.Text;
             //w obecnym modelu nie ma Czy_wlasne
         }

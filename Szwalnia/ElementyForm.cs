@@ -12,9 +12,11 @@ namespace Szwalnia
 {
     public partial class ElementyForm : Form
     {
+        public SzwalniaEntities db;
         public ElementyForm()
         {
             InitializeComponent();
+            db = Start.szwalnia;
         }
 
         private void ElementyForm_FormClosed(object sender, FormClosedEventArgs e)
