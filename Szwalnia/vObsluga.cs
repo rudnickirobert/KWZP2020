@@ -12,11 +12,13 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vKoniecUmowy
+    public partial class vObsluga
     {
-        public int ID_Pracownika { get; set; }
-        public string Imie { get; set; }
-        public string Nazwisko { get; set; }
-        public System.DateTime Koniec_umowy { get; set; }
+        public string Nazwa_maszyny { get; set; }
+        public string Numer_seryjny { get; set; }
+        public string Rodzaj_obsługi { get; set; }
+        public string Imię_i_nazwisko { get; set; }
+        public System.DateTime Data_rozpoczęcia { get; set; }
+        public Nullable<System.DateTime> Data_zakończenia { get; set; }
     }
 }

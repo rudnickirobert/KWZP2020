@@ -490,9 +490,6 @@
     <Compile Include="vKlienciZamowienie.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vKoniecUmowy.cs">
-      <DependentUpon>Szwalnia.tt</DependentUpon>
-    </Compile>
     <Compile Include="vMaszyny_rodzaj_liczba.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -505,7 +502,7 @@
     <Compile Include="vObsluga.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vPracownicyFirmy.cs">
+    <Compile Include="vPolki_na_regalach.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vProcesMaxOdpadMiesiac.cs">
@@ -533,9 +530,6 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vSzacowanyCzasWykonania.cs">
-      <DependentUpon>Szwalnia.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vUrlop.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vWynagrodzenia.cs">
