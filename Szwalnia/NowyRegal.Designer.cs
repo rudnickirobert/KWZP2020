@@ -88,7 +88,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(317, 187);
+            this.ClientSize = new System.Drawing.Size(429, 187);
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.btnDodajRegal);
             this.Controls.Add(this.txtOznaczenie);

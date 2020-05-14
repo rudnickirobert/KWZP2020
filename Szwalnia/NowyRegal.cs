@@ -30,19 +30,17 @@ namespace Szwalnia
 
         private void btnDodajRegal_Click(object sender, EventArgs e)
         {
-            
             Regaly regalNew = new Regaly();
-            
-            int ileRegalow = db.Regaly.Count();
-            ileRegalow--;
             bool unikalna = true;
+            txtOznaczenie.Text = txtOznaczenie.Text.ToUpper();
 
-            for (int i=0;i<ileRegalow;i++) //trzeba bedzie <=
+            for (int i=0; i<db.Regaly.Count(); i++)
             {
                 if (Equals(txtOznaczenie.Text, (dgv.Rows[i].Cells[1].Value)))
                 {
                     MessageBox.Show("Podane oznaczenie regału jest już wykorzystywane");
                     unikalna = false;
+                    break;
                 }
             }
 
@@ -55,9 +53,12 @@ namespace Szwalnia
                 string nowy = txtOznaczenie.Text;
                 MessageBox.Show("Pomyślnie dodano do bazy regał " + nowy);
 
-                Regaly_wykaz wykaz = new Regaly_wykaz();
+                Regaly_wykaz wykaz = new Regaly_wykaz(); //to na razie jest tylko w celu sprawdzenia czy się dodał i pokazuje alfabetycznie
                 wykaz.Show();
+                this.Close();
             }
+            else
+                regalNew = null;                 
         }
 
         private void NowyRegal_FormClosed(object sender, FormClosedEventArgs e)
