@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,6 +19,7 @@ namespace Szwalnia
             InitializeComponent();
             db = Start.szwalnia;
             btnDodajRegal.Enabled = false;
+            dgv.DataSource = db.Regaly.ToList();
         }
         private void txtOznaczenie_TextChanged(object sender, EventArgs e)
         {
@@ -25,18 +27,37 @@ namespace Szwalnia
                 btnDodajRegal.Enabled = true;
             else btnDodajRegal.Enabled = false;
         }
+
         private void btnDodajRegal_Click(object sender, EventArgs e)
         {
+            
             Regaly regalNew = new Regaly();
-            regalNew.Oznaczenie = txtOznaczenie.Text;
-            db.Regaly.Add(regalNew);
-            db.SaveChanges();
+            
+            int ileRegalow = db.Regaly.Count();
+            ileRegalow--;
+            bool unikalna = true;
 
-            string nowy = txtOznaczenie.Text;
-            MessageBox.Show("Pomyślnie dodano do bazy regał " + nowy);
+            for (int i=0;i<ileRegalow;i++) //trzeba bedzie <=
+            {
+                if (Equals(txtOznaczenie.Text, (dgv.Rows[i].Cells[1].Value)))
+                {
+                    MessageBox.Show("Podane oznaczenie regału jest już wykorzystywane");
+                    unikalna = false;
+                }
+            }
 
-            Regaly_wykaz wykaz = new Regaly_wykaz();
-            wykaz.Show();
+            if (unikalna == true)
+            {
+                regalNew.Oznaczenie = txtOznaczenie.Text;
+                db.Regaly.Add(regalNew);
+                db.SaveChanges();
+
+                string nowy = txtOznaczenie.Text;
+                MessageBox.Show("Pomyślnie dodano do bazy regał " + nowy);
+
+                Regaly_wykaz wykaz = new Regaly_wykaz();
+                wykaz.Show();
+            }
         }
 
         private void NowyRegal_FormClosed(object sender, FormClosedEventArgs e)

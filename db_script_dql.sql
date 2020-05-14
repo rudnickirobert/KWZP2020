@@ -47,6 +47,14 @@ FROM            dbo.Polki INNER JOIN
                          dbo.Regaly ON dbo.Polki_regaly.ID_Regal = dbo.Regaly.ID_Regal
 GO
 
+-- Widok oznaczeñ rega³ów alfabetycznie
+CREATE VIEW [dbo].[vRegaly_alfabetycznie]
+AS
+SELECT        TOP (100) PERCENT ID_regal, Oznaczenie
+FROM            dbo.Regaly
+GROUP BY ID_regal, Oznaczenie
+ORDER BY Oznaczenie
+GO
 
 
 ---------------------------------------------------------------------------------------------------------------------------

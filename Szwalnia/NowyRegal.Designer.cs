@@ -33,6 +33,8 @@
             this.lblOznaczenie = new System.Windows.Forms.Label();
             this.txtOznaczenie = new System.Windows.Forms.TextBox();
             this.btnDodajRegal = new System.Windows.Forms.Button();
+            this.dgv = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -65,7 +67,7 @@
             // btnDodajRegal
             // 
             this.btnDodajRegal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnDodajRegal.Location = new System.Drawing.Point(108, 134);
+            this.btnDodajRegal.Location = new System.Drawing.Point(117, 134);
             this.btnDodajRegal.Name = "btnDodajRegal";
             this.btnDodajRegal.Size = new System.Drawing.Size(86, 32);
             this.btnDodajRegal.TabIndex = 8;
@@ -73,11 +75,21 @@
             this.btnDodajRegal.UseVisualStyleBackColor = true;
             this.btnDodajRegal.Click += new System.EventHandler(this.btnDodajRegal_Click);
             // 
+            // dgv
+            // 
+            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv.Location = new System.Drawing.Point(254, 134);
+            this.dgv.Name = "dgv";
+            this.dgv.Size = new System.Drawing.Size(52, 32);
+            this.dgv.TabIndex = 9;
+            this.dgv.Visible = false;
+            // 
             // NowyRegal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(313, 192);
+            this.ClientSize = new System.Drawing.Size(317, 187);
+            this.Controls.Add(this.dgv);
             this.Controls.Add(this.btnDodajRegal);
             this.Controls.Add(this.txtOznaczenie);
             this.Controls.Add(this.lblOznaczenie);
@@ -86,6 +98,7 @@
             this.Name = "NowyRegal";
             this.Text = "Dodaj regał";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NowyRegal_FormClosed);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -97,5 +110,6 @@
         private System.Windows.Forms.Label lblOznaczenie;
         private System.Windows.Forms.TextBox txtOznaczenie;
         private System.Windows.Forms.Button btnDodajRegal;
+        private System.Windows.Forms.DataGridView dgv;
     }
 }
