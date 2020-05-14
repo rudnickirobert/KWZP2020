@@ -269,6 +269,7 @@
             this.Controls.Add(this.label1);
             this.Name = "OfertySzczegoly";
             this.Text = "Podgląd oferty";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OfertySzczegoly_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

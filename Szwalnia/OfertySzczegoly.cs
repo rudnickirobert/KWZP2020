@@ -17,10 +17,23 @@ namespace Szwalnia
         {
             db = szwalnia;
             InitializeComponent();
-            // oferta = szwalnia.Elementy.Where(wybrany => wybrany.ID_Element == ID).First();
-            //txtElement.Text = "Szczegoly elementu o ID: " + element.ID_Element;
-            //txtNazwa.Text = oferta.Element_Nazwa;
+            vOferty_Zebrane oferta = szwalnia.vOferty_Zebrane.Where(wybrany => wybrany.ID_Oferta == ID).First();
+            txtElement.Text = oferta.Element_Nazwa;
+            txtOznacz.Text = oferta.Element_Oznaczenie;
+            txtDostawca.Text = oferta.Nazwa;
+            txtCenaJedn.Text = oferta.Cena_Jedn.ToString();
+            txtData.Text = oferta.Data_Oferty.ToString();
+            txtIloscMin.Text = oferta.Ilosc_Minimalna.ToString();
+            txtIloscMax.Text = oferta.Ilosc_Maksymalna.ToString();
+            txtIloscPoj.Text = oferta.Ilosc_W_Opakowaniu_Pojedynczym.ToString();
+            txtJednostka.Text = oferta.Jednostka;
+            txtIloscZbiorcza.Text = oferta.Ilosc_W_Opakowaniu_Zbiorczym.ToString();
+            txtData.Text = oferta.Data_Oferty.ToString();
+        }
 
+        private void OfertySzczegoly_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Start.GetForm.Show();
         }
     }
 }

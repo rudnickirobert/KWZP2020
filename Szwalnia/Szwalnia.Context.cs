@@ -104,5 +104,6 @@ namespace Szwalnia
         public virtual DbSet<vSzacowanyCzasWykonania> vSzacowanyCzasWykonania { get; set; }
         public virtual DbSet<vZamowienieProcesyProdukcyjne> vZamowienieProcesyProdukcyjne { get; set; }
         public virtual DbSet<vZawartosc_polki> vZawartosc_polki { get; set; }
+        public virtual DbSet<vOferty_Zebrane> vOferty_Zebrane { get; set; }
     }
 }

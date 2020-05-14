@@ -588,6 +588,9 @@
     <Compile Include="vObsluga.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vOferty_Zebrane.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vPolki_na_regalach.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
