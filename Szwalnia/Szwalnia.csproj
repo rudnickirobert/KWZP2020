@@ -64,6 +64,12 @@
     <Compile Include="Czesci_Obsluga.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="DodajOferte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajOferte.Designer.cs">
+      <DependentUpon>DodajOferte.cs</DependentUpon>
+    </Compile>
     <Compile Include="DodawanieCechy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -340,6 +346,12 @@
     <Compile Include="Oferty.Designer.cs">
       <DependentUpon>Oferty.cs</DependentUpon>
     </Compile>
+    <Compile Include="OfertySzczegoly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OfertySzczegoly.Designer.cs">
+      <DependentUpon>OfertySzczegoly.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pensja.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -519,6 +531,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Szwalnia.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="SzwalniaOferta.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SzwalniaOferta.xsd</DependentUpon>
     </Compile>
     <Compile Include="Typy_cechy_rejestr.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
@@ -738,6 +755,9 @@
     <EmbeddedResource Include="ObslugaZamowien.resx">
       <DependentUpon>ObslugaZamowien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Oferty.resx">
+      <DependentUpon>Oferty.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProcesProdukcyjny.resx">
       <DependentUpon>ProcesProdukcyjny.cs</DependentUpon>
     </EmbeddedResource>
@@ -872,6 +892,17 @@
     </EntityDeploy>
     <None Include="Szwalnia.edmx.diagram">
       <DependentUpon>Szwalnia.edmx</DependentUpon>
+    </None>
+    <None Include="SzwalniaOferta.xsc">
+      <DependentUpon>SzwalniaOferta.xsd</DependentUpon>
+    </None>
+    <None Include="SzwalniaOferta.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SzwalniaOferta.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SzwalniaOferta.xss">
+      <DependentUpon>SzwalniaOferta.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
