@@ -21,7 +21,7 @@ namespace Szwalnia
         }
     
         public int ID_Etat { get; set; }
-        public float Wymiar_Etatu { get; set; }
+        public string Wymiar_Etatu { get; set; }
         public string Uwagi { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

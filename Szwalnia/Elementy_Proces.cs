@@ -24,10 +24,8 @@ namespace Szwalnia
         public int ID_Proces_Technologiczny { get; set; }
         public int ID_Element { get; set; }
         public int Liczba { get; set; }
-        public int ID_jednostka { get; set; }
     
         public virtual Elementy Elementy { get; set; }
-        public virtual Elementy_Jednostki Elementy_Jednostki { get; set; }
         public virtual Proces_Technologiczny Proces_Technologiczny { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Material_Na_Produkcji> Material_Na_Produkcji { get; set; }
