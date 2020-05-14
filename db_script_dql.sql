@@ -47,7 +47,17 @@ FROM            dbo.Polki INNER JOIN
                          dbo.Regaly ON dbo.Polki_regaly.ID_Regal = dbo.Regaly.ID_Regal
 GO
 
-
+---Widok ofert
+CREATE VIEW vOferty_Zebrane
+AS
+SELECT        TOP (100) PERCENT dbo.Elementy.Element_Nazwa, dbo.Oferta.Element_Oznaczenie, dbo.Dostawcy_Zaopatrzenie.Nazwa, dbo.Oferta.Cena_Jedn, dbo.Oferta.Data_Oferty, dbo.Oferta.Ilosc_Minimalna, 
+                         dbo.Oferta.Ilosc_Maksymalna, dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym, dbo.Elementy_Jednostki.Jednostka, dbo.Oferta.Ilosc_W_Opakowaniu_Zbiorczym, dbo.Oferta.Deklarowany_czas_dostawy
+FROM            dbo.Elementy INNER JOIN
+                         dbo.Oferta ON dbo.Elementy.ID_Element = dbo.Oferta.ID_Element INNER JOIN
+                         dbo.Elementy_Jednostki ON dbo.Oferta.ID_Jednostka = dbo.Elementy_Jednostki.ID_jednostka INNER JOIN
+                         dbo.Dostawcy_Zaopatrzenie ON dbo.Oferta.ID_Dostawcy = dbo.Dostawcy_Zaopatrzenie.ID_Dostawcy
+ORDER BY dbo.Elementy.Element_Nazwa
+GO
 
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------

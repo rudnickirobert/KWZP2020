@@ -17,6 +17,10 @@ namespace Szwalnia
         {
             db = szwalnia;
             InitializeComponent();
+            //vOferty_Zebrane oferta = szwalnia.Elementy.Where(wybrany => wybrany.ID_Element == ID).First();
+            //txtElement.Text = "Szczegoly elementu o ID: " + element.ID_Element;
+            //txtNazwa.Text = oferta.Element_Nazwa;
+
         }
     }
 }

@@ -758,6 +758,9 @@
     <EmbeddedResource Include="Oferty.resx">
       <DependentUpon>Oferty.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OfertySzczegoly.resx">
+      <DependentUpon>OfertySzczegoly.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProcesProdukcyjny.resx">
       <DependentUpon>ProcesProdukcyjny.cs</DependentUpon>
     </EmbeddedResource>
