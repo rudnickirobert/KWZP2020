@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DodawanieElementu));
             this.lblMain = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -72,7 +73,7 @@
             // numOkres
             // 
             this.numOkres.Location = new System.Drawing.Point(146, 109);
-            this.numOkres.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numOkres.Margin = new System.Windows.Forms.Padding(2);
             this.numOkres.Name = "numOkres";
             this.numOkres.Size = new System.Drawing.Size(90, 20);
             this.numOkres.TabIndex = 3;
@@ -80,7 +81,7 @@
             // txtNazwa
             // 
             this.txtNazwa.Location = new System.Drawing.Point(146, 86);
-            this.txtNazwa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNazwa.Margin = new System.Windows.Forms.Padding(2);
             this.txtNazwa.Name = "txtNazwa";
             this.txtNazwa.Size = new System.Drawing.Size(114, 20);
             this.txtNazwa.TabIndex = 4;
@@ -89,7 +90,7 @@
             // 
             this.dgvListaTypy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaTypy.Location = new System.Drawing.Point(79, 167);
-            this.dgvListaTypy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvListaTypy.Margin = new System.Windows.Forms.Padding(2);
             this.dgvListaTypy.Name = "dgvListaTypy";
             this.dgvListaTypy.RowHeadersWidth = 51;
             this.dgvListaTypy.RowTemplate.Height = 24;
@@ -100,7 +101,7 @@
             // btnDodaj
             // 
             this.btnDodaj.Location = new System.Drawing.Point(226, 302);
-            this.btnDodaj.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDodaj.Margin = new System.Windows.Forms.Padding(2);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(56, 24);
             this.btnDodaj.TabIndex = 6;
@@ -120,7 +121,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblMain);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DodawanieElementu";
             this.Text = "Form1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DodawanieElementu_FormClosed);

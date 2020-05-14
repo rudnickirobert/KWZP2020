@@ -22,8 +22,7 @@ namespace Szwalnia
 
         private void Kontrahenci_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Start start = new Start();
-            start.Show();
+            Start.GetForm.Show();
         }
 
         private void btnOferty_Click(object sender, EventArgs e)

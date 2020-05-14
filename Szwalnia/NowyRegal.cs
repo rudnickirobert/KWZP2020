@@ -37,8 +37,7 @@ namespace Szwalnia
 
         private void NowyRegal_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Start start = new Start();
-            start.Show();
+            Start.GetForm.Show();
         }
     }
 }

@@ -21,7 +21,7 @@ namespace Szwalnia
 
         private void btnElementyForm_Click(object sender, EventArgs e)
         {
-            WyborElementu wybor = new WyborElementu(db);
+            ElementyForm wybor = new ElementyForm(db);
             wybor.Show();
             this.Hide();
         }
@@ -63,8 +63,7 @@ namespace Szwalnia
 
         private void MagazynForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Start start = new Start();
-            start.Show();
+            Start.GetForm.Show();
         }
     }
 }
