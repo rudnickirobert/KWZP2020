@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tab_Proces_technologiczny = new System.Windows.Forms.TabControl();
             this.tabpProcesTechnologiczny = new System.Windows.Forms.TabPage();
             this.tabcWyszukajObsluge = new System.Windows.Forms.TabControl();
             this.tabSerwis_maszyn = new System.Windows.Forms.TabPage();
             this.tabZnajdz_dodaj_obsluge = new System.Windows.Forms.TabPage();
-            this.btnConfirm = new System.Windows.Forms.Button();
+            this.btnDodaj_Obsluge = new System.Windows.Forms.Button();
             this.dtpData_Zakonczenia = new System.Windows.Forms.DateTimePicker();
             this.dtpData_Rozpoczecia = new System.Windows.Forms.DateTimePicker();
             this.cmbRodzaj_Obslugi = new System.Windows.Forms.ComboBox();
@@ -49,8 +49,32 @@
             this.lblRodzaj = new System.Windows.Forms.Label();
             this.cmbRodzajObslugi = new System.Windows.Forms.ComboBox();
             this.lblOpis = new System.Windows.Forms.Label();
-            this.btnSzukaj = new System.Windows.Forms.Button();
+            this.btnWyszukaj_Obsluge = new System.Windows.Forms.Button();
             this.tabDodaj_nowa_maszyne = new System.Windows.Forms.TabPage();
+            this.dtpGwarancja = new System.Windows.Forms.DateTimePicker();
+            this.cmbDzial = new System.Windows.Forms.ComboBox();
+            this.cmbRodzaj_Maszyny = new System.Windows.Forms.ComboBox();
+            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.btnDodaj_Maszyne = new System.Windows.Forms.Button();
+            this.txtZamortyzowane = new System.Windows.Forms.TextBox();
+            this.txtAmortyzacja = new System.Windows.Forms.TextBox();
+            this.txtKoszt_Zakupu = new System.Windows.Forms.TextBox();
+            this.txtSerwis = new System.Windows.Forms.TextBox();
+            this.txtResurs_Rbh = new System.Windows.Forms.TextBox();
+            this.txtNumer_Seryjny = new System.Windows.Forms.TextBox();
+            this.txtProducent = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.lblGwarancja = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
             this.tabpZarzadzanieParkiemMaszynowym = new System.Windows.Forms.TabPage();
             this.dgvProcesy = new System.Windows.Forms.DataGridView();
             this.btnSzukajZamowienie = new System.Windows.Forms.Button();
@@ -65,7 +89,7 @@
             this.dgvProcesy3 = new System.Windows.Forms.DataGridView();
             this.cmbTechnolodzy = new System.Windows.Forms.ComboBox();
             this.lblNumer_Procesu = new System.Windows.Forms.Label();
-            this.btnZapisz = new System.Windows.Forms.Button();
+            this.btnZapisz_Nowy_Proces = new System.Windows.Forms.Button();
             this.lblCzasTrwania = new System.Windows.Forms.Label();
             this.lblNazwaProcesu = new System.Windows.Forms.Label();
             this.lblOpisNumer = new System.Windows.Forms.Label();
@@ -75,12 +99,16 @@
             this.dgvProcesy2 = new System.Windows.Forms.DataGridView();
             this.dgvUkryty = new System.Windows.Forms.DataGridView();
             this.tabZnajdz_dodaj_dokumentacje = new System.Windows.Forms.TabPage();
-            this.button3 = new System.Windows.Forms.Button();
+            this.txtLokalizacja = new System.Windows.Forms.TextBox();
+            this.dtpData_Wykonania_Dokumentacja = new System.Windows.Forms.DateTimePicker();
+            this.cmbRodzaj_Dokumentacji = new System.Windows.Forms.ComboBox();
+            this.cmbTechnolodzy2 = new System.Windows.Forms.ComboBox();
+            this.btn_Szukaj_Dokumentacja = new System.Windows.Forms.Button();
             this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.btnPrzypisz = new System.Windows.Forms.Button();
-            this.btnDodaj = new System.Windows.Forms.Button();
+            this.btnPrzypisz_Dokumentacja = new System.Windows.Forms.Button();
+            this.btnDodaj_Dokumentacja = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -89,55 +117,72 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tabDodaj_etap = new System.Windows.Forms.TabPage();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.cmbRodzaj_Maszyny2 = new System.Windows.Forms.ComboBox();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.nudDodaj_Maszyne = new System.Windows.Forms.NumericUpDown();
+            this.txtLiczba_Rbh_Maszyn = new System.Windows.Forms.TextBox();
+            this.btnDodaj_Maszyne_Proces = new System.Windows.Forms.Button();
+            this.txtLiczba_Maszyn = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.cmbNazwa_Etapu = new System.Windows.Forms.ComboBox();
+            this.nudDodaj_Etap = new System.Windows.Forms.NumericUpDown();
+            this.btnDodaj_Etap = new System.Windows.Forms.Button();
+            this.txtCzas_Etapu = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblNumerProcesu = new System.Windows.Forms.Label();
+            this.tabDodaj_utworz_element = new System.Windows.Forms.TabPage();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
+            this.btnUtworz_Element = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.dataGridView6 = new System.Windows.Forms.DataGridView();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
+            this.btnDodaj_Element = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
             this.tabPrzypisz_proces_do_zamowienia = new System.Windows.Forms.TabPage();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
+            this.label32 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.btnPrzypisz_Proces_Zamowienie = new System.Windows.Forms.Button();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
             this.szwalniaDataSet = new Szwalnia.SzwalniaDataSet();
             this.vObslugaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vObslugaTableAdapter = new Szwalnia.SzwalniaDataSetTableAdapters.vObslugaTableAdapter();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
-            this.button5 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
-            this.label32 = new System.Windows.Forms.Label();
             this.tab_Proces_technologiczny.SuspendLayout();
             this.tabpProcesTechnologiczny.SuspendLayout();
             this.tabcWyszukajObsluge.SuspendLayout();
             this.tabZnajdz_dodaj_obsluge.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObsluga)).BeginInit();
+            this.tabDodaj_nowa_maszyne.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             this.tabpZarzadzanieParkiemMaszynowym.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumerZamowienia)).BeginInit();
@@ -157,14 +202,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabDodaj_etap.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDodaj_Maszyne)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDodaj_Etap)).BeginInit();
+            this.tabDodaj_utworz_element.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
             this.tabPrzypisz_proces_do_zamowienia.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vObslugaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
             this.SuspendLayout();
             // 
             // tab_Proces_technologiczny
@@ -220,7 +271,7 @@
             // 
             // tabZnajdz_dodaj_obsluge
             // 
-            this.tabZnajdz_dodaj_obsluge.Controls.Add(this.btnConfirm);
+            this.tabZnajdz_dodaj_obsluge.Controls.Add(this.btnDodaj_Obsluge);
             this.tabZnajdz_dodaj_obsluge.Controls.Add(this.dtpData_Zakonczenia);
             this.tabZnajdz_dodaj_obsluge.Controls.Add(this.dtpData_Rozpoczecia);
             this.tabZnajdz_dodaj_obsluge.Controls.Add(this.cmbRodzaj_Obslugi);
@@ -234,7 +285,7 @@
             this.tabZnajdz_dodaj_obsluge.Controls.Add(this.lblRodzaj);
             this.tabZnajdz_dodaj_obsluge.Controls.Add(this.cmbRodzajObslugi);
             this.tabZnajdz_dodaj_obsluge.Controls.Add(this.lblOpis);
-            this.tabZnajdz_dodaj_obsluge.Controls.Add(this.btnSzukaj);
+            this.tabZnajdz_dodaj_obsluge.Controls.Add(this.btnWyszukaj_Obsluge);
             this.tabZnajdz_dodaj_obsluge.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tabZnajdz_dodaj_obsluge.Location = new System.Drawing.Point(4, 47);
             this.tabZnajdz_dodaj_obsluge.Name = "tabZnajdz_dodaj_obsluge";
@@ -244,16 +295,16 @@
             this.tabZnajdz_dodaj_obsluge.Text = "Znajdź / dodaj obsługę";
             this.tabZnajdz_dodaj_obsluge.UseVisualStyleBackColor = true;
             // 
-            // btnConfirm
+            // btnDodaj_Obsluge
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(810, 453);
-            this.btnConfirm.Margin = new System.Windows.Forms.Padding(2);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(183, 33);
-            this.btnConfirm.TabIndex = 55;
-            this.btnConfirm.Text = "Dodaj obsługę";
-            this.btnConfirm.UseVisualStyleBackColor = true;
-            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            this.btnDodaj_Obsluge.Location = new System.Drawing.Point(810, 453);
+            this.btnDodaj_Obsluge.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDodaj_Obsluge.Name = "btnDodaj_Obsluge";
+            this.btnDodaj_Obsluge.Size = new System.Drawing.Size(183, 33);
+            this.btnDodaj_Obsluge.TabIndex = 55;
+            this.btnDodaj_Obsluge.Text = "Dodaj obsługę";
+            this.btnDodaj_Obsluge.UseVisualStyleBackColor = true;
+            this.btnDodaj_Obsluge.Click += new System.EventHandler(this.btnDodaj_Obsluge_Click);
             // 
             // dtpData_Zakonczenia
             // 
@@ -372,25 +423,260 @@
             this.lblOpis.TabIndex = 21;
             this.lblOpis.Text = "Wybierz rodzaj osbługi jaki szukasz ";
             // 
-            // btnSzukaj
+            // btnWyszukaj_Obsluge
             // 
-            this.btnSzukaj.Location = new System.Drawing.Point(465, 36);
-            this.btnSzukaj.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSzukaj.Name = "btnSzukaj";
-            this.btnSzukaj.Size = new System.Drawing.Size(183, 33);
-            this.btnSzukaj.TabIndex = 18;
-            this.btnSzukaj.Text = "Szukaj";
-            this.btnSzukaj.UseVisualStyleBackColor = true;
-            this.btnSzukaj.Click += new System.EventHandler(this.btnSzukaj_Click);
+            this.btnWyszukaj_Obsluge.Location = new System.Drawing.Point(465, 36);
+            this.btnWyszukaj_Obsluge.Margin = new System.Windows.Forms.Padding(2);
+            this.btnWyszukaj_Obsluge.Name = "btnWyszukaj_Obsluge";
+            this.btnWyszukaj_Obsluge.Size = new System.Drawing.Size(183, 33);
+            this.btnWyszukaj_Obsluge.TabIndex = 18;
+            this.btnWyszukaj_Obsluge.Text = "Szukaj";
+            this.btnWyszukaj_Obsluge.UseVisualStyleBackColor = true;
+            this.btnWyszukaj_Obsluge.Click += new System.EventHandler(this.btnWyszukaj_Obsluge_Click);
             // 
             // tabDodaj_nowa_maszyne
             // 
+            this.tabDodaj_nowa_maszyne.Controls.Add(this.dtpGwarancja);
+            this.tabDodaj_nowa_maszyne.Controls.Add(this.cmbDzial);
+            this.tabDodaj_nowa_maszyne.Controls.Add(this.cmbRodzaj_Maszyny);
+            this.tabDodaj_nowa_maszyne.Controls.Add(this.dataGridView5);
+            this.tabDodaj_nowa_maszyne.Controls.Add(this.btnDodaj_Maszyne);
+            this.tabDodaj_nowa_maszyne.Controls.Add(this.txtZamortyzowane);
+            this.tabDodaj_nowa_maszyne.Controls.Add(this.txtAmortyzacja);
+            this.tabDodaj_nowa_maszyne.Controls.Add(this.txtKoszt_Zakupu);
+            this.tabDodaj_nowa_maszyne.Controls.Add(this.txtSerwis);
+            this.tabDodaj_nowa_maszyne.Controls.Add(this.txtResurs_Rbh);
+            this.tabDodaj_nowa_maszyne.Controls.Add(this.txtNumer_Seryjny);
+            this.tabDodaj_nowa_maszyne.Controls.Add(this.txtProducent);
+            this.tabDodaj_nowa_maszyne.Controls.Add(this.label37);
+            this.tabDodaj_nowa_maszyne.Controls.Add(this.label18);
+            this.tabDodaj_nowa_maszyne.Controls.Add(this.label38);
+            this.tabDodaj_nowa_maszyne.Controls.Add(this.lblGwarancja);
+            this.tabDodaj_nowa_maszyne.Controls.Add(this.label41);
+            this.tabDodaj_nowa_maszyne.Controls.Add(this.label40);
+            this.tabDodaj_nowa_maszyne.Controls.Add(this.label39);
+            this.tabDodaj_nowa_maszyne.Controls.Add(this.label36);
+            this.tabDodaj_nowa_maszyne.Controls.Add(this.label35);
+            this.tabDodaj_nowa_maszyne.Controls.Add(this.label6);
+            this.tabDodaj_nowa_maszyne.Controls.Add(this.label34);
+            this.tabDodaj_nowa_maszyne.Controls.Add(this.label33);
             this.tabDodaj_nowa_maszyne.Location = new System.Drawing.Point(4, 47);
             this.tabDodaj_nowa_maszyne.Name = "tabDodaj_nowa_maszyne";
             this.tabDodaj_nowa_maszyne.Size = new System.Drawing.Size(1209, 611);
             this.tabDodaj_nowa_maszyne.TabIndex = 2;
             this.tabDodaj_nowa_maszyne.Text = "Dodaj nową maszynę";
             this.tabDodaj_nowa_maszyne.UseVisualStyleBackColor = true;
+            // 
+            // dtpGwarancja
+            // 
+            this.dtpGwarancja.Location = new System.Drawing.Point(248, 277);
+            this.dtpGwarancja.Name = "dtpGwarancja";
+            this.dtpGwarancja.Size = new System.Drawing.Size(115, 29);
+            this.dtpGwarancja.TabIndex = 66;
+            // 
+            // cmbDzial
+            // 
+            this.cmbDzial.FormattingEnabled = true;
+            this.cmbDzial.Location = new System.Drawing.Point(561, 171);
+            this.cmbDzial.Name = "cmbDzial";
+            this.cmbDzial.Size = new System.Drawing.Size(90, 32);
+            this.cmbDzial.TabIndex = 65;
+            // 
+            // cmbRodzaj_Maszyny
+            // 
+            this.cmbRodzaj_Maszyny.FormattingEnabled = true;
+            this.cmbRodzaj_Maszyny.Location = new System.Drawing.Point(202, 85);
+            this.cmbRodzaj_Maszyny.Name = "cmbRodzaj_Maszyny";
+            this.cmbRodzaj_Maszyny.Size = new System.Drawing.Size(90, 32);
+            this.cmbRodzaj_Maszyny.TabIndex = 65;
+            // 
+            // dataGridView5
+            // 
+            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView5.Location = new System.Drawing.Point(681, 107);
+            this.dataGridView5.Name = "dataGridView5";
+            this.dataGridView5.Size = new System.Drawing.Size(399, 363);
+            this.dataGridView5.TabIndex = 64;
+            // 
+            // btnDodaj_Maszyne
+            // 
+            this.btnDodaj_Maszyne.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnDodaj_Maszyne.Location = new System.Drawing.Point(248, 386);
+            this.btnDodaj_Maszyne.Name = "btnDodaj_Maszyne";
+            this.btnDodaj_Maszyne.Size = new System.Drawing.Size(201, 34);
+            this.btnDodaj_Maszyne.TabIndex = 60;
+            this.btnDodaj_Maszyne.Text = "Dodaj";
+            this.btnDodaj_Maszyne.UseVisualStyleBackColor = true;
+            this.btnDodaj_Maszyne.Click += new System.EventHandler(this.btnDodaj_Maszyne_Click);
+            // 
+            // txtZamortyzowane
+            // 
+            this.txtZamortyzowane.Location = new System.Drawing.Point(202, 220);
+            this.txtZamortyzowane.Name = "txtZamortyzowane";
+            this.txtZamortyzowane.Size = new System.Drawing.Size(90, 29);
+            this.txtZamortyzowane.TabIndex = 59;
+            // 
+            // txtAmortyzacja
+            // 
+            this.txtAmortyzacja.Location = new System.Drawing.Point(561, 239);
+            this.txtAmortyzacja.Name = "txtAmortyzacja";
+            this.txtAmortyzacja.Size = new System.Drawing.Size(90, 29);
+            this.txtAmortyzacja.TabIndex = 59;
+            // 
+            // txtKoszt_Zakupu
+            // 
+            this.txtKoszt_Zakupu.Location = new System.Drawing.Point(561, 206);
+            this.txtKoszt_Zakupu.Name = "txtKoszt_Zakupu";
+            this.txtKoszt_Zakupu.Size = new System.Drawing.Size(90, 29);
+            this.txtKoszt_Zakupu.TabIndex = 59;
+            // 
+            // txtSerwis
+            // 
+            this.txtSerwis.Location = new System.Drawing.Point(561, 119);
+            this.txtSerwis.Name = "txtSerwis";
+            this.txtSerwis.Size = new System.Drawing.Size(90, 29);
+            this.txtSerwis.TabIndex = 59;
+            // 
+            // txtResurs_Rbh
+            // 
+            this.txtResurs_Rbh.Location = new System.Drawing.Point(561, 80);
+            this.txtResurs_Rbh.Name = "txtResurs_Rbh";
+            this.txtResurs_Rbh.Size = new System.Drawing.Size(90, 29);
+            this.txtResurs_Rbh.TabIndex = 59;
+            // 
+            // txtNumer_Seryjny
+            // 
+            this.txtNumer_Seryjny.Location = new System.Drawing.Point(202, 167);
+            this.txtNumer_Seryjny.Name = "txtNumer_Seryjny";
+            this.txtNumer_Seryjny.Size = new System.Drawing.Size(90, 29);
+            this.txtNumer_Seryjny.TabIndex = 59;
+            // 
+            // txtProducent
+            // 
+            this.txtProducent.Location = new System.Drawing.Point(202, 127);
+            this.txtProducent.Name = "txtProducent";
+            this.txtProducent.Size = new System.Drawing.Size(90, 29);
+            this.txtProducent.TabIndex = 59;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label37.Location = new System.Drawing.Point(686, 65);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(116, 24);
+            this.label37.TabIndex = 56;
+            this.label37.Text = "Lista maszyn";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label18.Location = new System.Drawing.Point(266, 23);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(144, 24);
+            this.label18.TabIndex = 56;
+            this.label18.Text = "Dodaj maszynę ";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label38.Location = new System.Drawing.Point(313, 171);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(125, 24);
+            this.label38.TabIndex = 57;
+            this.label38.Text = "Nazwa działu";
+            // 
+            // lblGwarancja
+            // 
+            this.lblGwarancja.AutoSize = true;
+            this.lblGwarancja.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblGwarancja.Location = new System.Drawing.Point(41, 277);
+            this.lblGwarancja.Name = "lblGwarancja";
+            this.lblGwarancja.Size = new System.Drawing.Size(201, 24);
+            this.lblGwarancja.TabIndex = 57;
+            this.lblGwarancja.Text = "Data upływu gwarancji";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label41.Location = new System.Drawing.Point(39, 220);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(144, 24);
+            this.label41.TabIndex = 57;
+            this.label41.Text = "Zamortyzowane";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label40.Location = new System.Drawing.Point(317, 239);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(237, 24);
+            this.label40.TabIndex = 57;
+            this.label40.Text = "Roczny stopień amortyzacji";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label39.Location = new System.Drawing.Point(313, 206);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(121, 24);
+            this.label39.TabIndex = 57;
+            this.label39.Text = "Koszt zakupu";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label36.Location = new System.Drawing.Point(313, 119);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(226, 24);
+            this.label36.TabIndex = 57;
+            this.label36.Text = "Czas pomiędzy serwisami";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label35.Location = new System.Drawing.Point(313, 80);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(221, 24);
+            this.label35.TabIndex = 57;
+            this.label35.Text = "Resurs (roboczogodziny)";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(39, 83);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(146, 24);
+            this.label6.TabIndex = 57;
+            this.label6.Text = "Rodzaj maszyny";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label34.Location = new System.Drawing.Point(39, 167);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(132, 24);
+            this.label34.TabIndex = 57;
+            this.label34.Text = "Numer seryjny";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label33.Location = new System.Drawing.Point(39, 127);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(97, 24);
+            this.label33.TabIndex = 57;
+            this.label33.Text = "Producent";
             // 
             // tabpZarzadzanieParkiemMaszynowym
             // 
@@ -412,15 +698,15 @@
             // 
             this.dgvProcesy.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProcesy.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(1);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProcesy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(1);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProcesy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProcesy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProcesy.Location = new System.Drawing.Point(9, 47);
             this.dgvProcesy.Name = "dgvProcesy";
@@ -463,6 +749,7 @@
             this.tabcZamowienia.Controls.Add(this.tabZnajdz_dodaj_proces_technologiczny);
             this.tabcZamowienia.Controls.Add(this.tabZnajdz_dodaj_dokumentacje);
             this.tabcZamowienia.Controls.Add(this.tabDodaj_etap);
+            this.tabcZamowienia.Controls.Add(this.tabDodaj_utworz_element);
             this.tabcZamowienia.Controls.Add(this.tabPrzypisz_proces_do_zamowienia);
             this.tabcZamowienia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tabcZamowienia.Location = new System.Drawing.Point(0, 145);
@@ -504,7 +791,7 @@
             this.tabZnajdz_dodaj_proces_technologiczny.Controls.Add(this.dgvProcesy3);
             this.tabZnajdz_dodaj_proces_technologiczny.Controls.Add(this.cmbTechnolodzy);
             this.tabZnajdz_dodaj_proces_technologiczny.Controls.Add(this.lblNumer_Procesu);
-            this.tabZnajdz_dodaj_proces_technologiczny.Controls.Add(this.btnZapisz);
+            this.tabZnajdz_dodaj_proces_technologiczny.Controls.Add(this.btnZapisz_Nowy_Proces);
             this.tabZnajdz_dodaj_proces_technologiczny.Controls.Add(this.lblCzasTrwania);
             this.tabZnajdz_dodaj_proces_technologiczny.Controls.Add(this.lblNazwaProcesu);
             this.tabZnajdz_dodaj_proces_technologiczny.Controls.Add(this.lblOpisNumer);
@@ -563,16 +850,16 @@
             this.lblNumer_Procesu.TabIndex = 24;
             this.lblNumer_Procesu.Text = "label1";
             // 
-            // btnZapisz
+            // btnZapisz_Nowy_Proces
             // 
-            this.btnZapisz.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnZapisz.Location = new System.Drawing.Point(892, 202);
-            this.btnZapisz.Name = "btnZapisz";
-            this.btnZapisz.Size = new System.Drawing.Size(403, 36);
-            this.btnZapisz.TabIndex = 23;
-            this.btnZapisz.Text = "Zapisz";
-            this.btnZapisz.UseVisualStyleBackColor = true;
-            this.btnZapisz.Click += new System.EventHandler(this.btnZapisz_Click);
+            this.btnZapisz_Nowy_Proces.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnZapisz_Nowy_Proces.Location = new System.Drawing.Point(892, 202);
+            this.btnZapisz_Nowy_Proces.Name = "btnZapisz_Nowy_Proces";
+            this.btnZapisz_Nowy_Proces.Size = new System.Drawing.Size(403, 36);
+            this.btnZapisz_Nowy_Proces.TabIndex = 23;
+            this.btnZapisz_Nowy_Proces.Text = "Zapisz";
+            this.btnZapisz_Nowy_Proces.UseVisualStyleBackColor = true;
+            this.btnZapisz_Nowy_Proces.Click += new System.EventHandler(this.btnZapisz_Nowy_Proces_Click);
             // 
             // lblCzasTrwania
             // 
@@ -653,12 +940,16 @@
             // 
             // tabZnajdz_dodaj_dokumentacje
             // 
-            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.button3);
+            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.txtLokalizacja);
+            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.dtpData_Wykonania_Dokumentacja);
+            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.cmbRodzaj_Dokumentacji);
+            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.cmbTechnolodzy2);
+            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.btn_Szukaj_Dokumentacja);
             this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.numericUpDown4);
             this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.numericUpDown3);
             this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.numericUpDown2);
-            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.btnPrzypisz);
-            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.btnDodaj);
+            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.btnPrzypisz_Dokumentacja);
+            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.btnDodaj_Dokumentacja);
             this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.dataGridView1);
             this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.label17);
             this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.label16);
@@ -667,7 +958,6 @@
             this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.label13);
             this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.label12);
             this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.label11);
-            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.label10);
             this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.label8);
             this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.label9);
             this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.label7);
@@ -679,15 +969,46 @@
             this.tabZnajdz_dodaj_dokumentacje.Text = "Znajdź/dodaj dokumentację ";
             this.tabZnajdz_dodaj_dokumentacje.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // txtLokalizacja
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button3.Location = new System.Drawing.Point(422, 43);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(92, 30);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "SZUKAJ";
-            this.button3.UseVisualStyleBackColor = true;
+            this.txtLokalizacja.Location = new System.Drawing.Point(1086, 199);
+            this.txtLokalizacja.Name = "txtLokalizacja";
+            this.txtLokalizacja.Size = new System.Drawing.Size(100, 27);
+            this.txtLokalizacja.TabIndex = 15;
+            // 
+            // dtpData_Wykonania_Dokumentacja
+            // 
+            this.dtpData_Wykonania_Dokumentacja.Location = new System.Drawing.Point(1046, 136);
+            this.dtpData_Wykonania_Dokumentacja.Name = "dtpData_Wykonania_Dokumentacja";
+            this.dtpData_Wykonania_Dokumentacja.Size = new System.Drawing.Size(200, 27);
+            this.dtpData_Wykonania_Dokumentacja.TabIndex = 14;
+            // 
+            // cmbRodzaj_Dokumentacji
+            // 
+            this.cmbRodzaj_Dokumentacji.FormattingEnabled = true;
+            this.cmbRodzaj_Dokumentacji.Location = new System.Drawing.Point(1087, 54);
+            this.cmbRodzaj_Dokumentacji.Name = "cmbRodzaj_Dokumentacji";
+            this.cmbRodzaj_Dokumentacji.Size = new System.Drawing.Size(121, 28);
+            this.cmbRodzaj_Dokumentacji.TabIndex = 13;
+            // 
+            // cmbTechnolodzy2
+            // 
+            this.cmbTechnolodzy2.FormattingEnabled = true;
+            this.cmbTechnolodzy2.Location = new System.Drawing.Point(1087, 102);
+            this.cmbTechnolodzy2.Name = "cmbTechnolodzy2";
+            this.cmbTechnolodzy2.Size = new System.Drawing.Size(121, 28);
+            this.cmbTechnolodzy2.TabIndex = 13;
+            // 
+            // btn_Szukaj_Dokumentacja
+            // 
+            this.btn_Szukaj_Dokumentacja.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_Szukaj_Dokumentacja.Location = new System.Drawing.Point(422, 43);
+            this.btn_Szukaj_Dokumentacja.Name = "btn_Szukaj_Dokumentacja";
+            this.btn_Szukaj_Dokumentacja.Size = new System.Drawing.Size(92, 30);
+            this.btn_Szukaj_Dokumentacja.TabIndex = 12;
+            this.btn_Szukaj_Dokumentacja.Text = "SZUKAJ";
+            this.btn_Szukaj_Dokumentacja.UseVisualStyleBackColor = true;
+            this.btn_Szukaj_Dokumentacja.Click += new System.EventHandler(this.btn_Szukaj_Dokumentacja_Click);
             // 
             // numericUpDown4
             // 
@@ -713,23 +1034,25 @@
             this.numericUpDown2.Size = new System.Drawing.Size(99, 22);
             this.numericUpDown2.TabIndex = 9;
             // 
-            // btnPrzypisz
+            // btnPrzypisz_Dokumentacja
             // 
-            this.btnPrzypisz.Location = new System.Drawing.Point(1226, 362);
-            this.btnPrzypisz.Name = "btnPrzypisz";
-            this.btnPrzypisz.Size = new System.Drawing.Size(97, 48);
-            this.btnPrzypisz.TabIndex = 2;
-            this.btnPrzypisz.Text = "Przypisz";
-            this.btnPrzypisz.UseVisualStyleBackColor = true;
+            this.btnPrzypisz_Dokumentacja.Location = new System.Drawing.Point(1226, 362);
+            this.btnPrzypisz_Dokumentacja.Name = "btnPrzypisz_Dokumentacja";
+            this.btnPrzypisz_Dokumentacja.Size = new System.Drawing.Size(97, 48);
+            this.btnPrzypisz_Dokumentacja.TabIndex = 2;
+            this.btnPrzypisz_Dokumentacja.Text = "Przypisz";
+            this.btnPrzypisz_Dokumentacja.UseVisualStyleBackColor = true;
+            this.btnPrzypisz_Dokumentacja.Click += new System.EventHandler(this.btnPrzypisz_Dokumentacja_Click);
             // 
-            // btnDodaj
+            // btnDodaj_Dokumentacja
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(1046, 228);
-            this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(105, 46);
-            this.btnDodaj.TabIndex = 2;
-            this.btnDodaj.Text = "Dodaj";
-            this.btnDodaj.UseVisualStyleBackColor = true;
+            this.btnDodaj_Dokumentacja.Location = new System.Drawing.Point(988, 251);
+            this.btnDodaj_Dokumentacja.Name = "btnDodaj_Dokumentacja";
+            this.btnDodaj_Dokumentacja.Size = new System.Drawing.Size(105, 46);
+            this.btnDodaj_Dokumentacja.TabIndex = 2;
+            this.btnDodaj_Dokumentacja.Text = "Dodaj";
+            this.btnDodaj_Dokumentacja.UseVisualStyleBackColor = true;
+            this.btnDodaj_Dokumentacja.Click += new System.EventHandler(this.btnDodaj_Dokumentacja_Click);
             // 
             // dataGridView1
             // 
@@ -769,7 +1092,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(819, 237);
+            this.label14.Location = new System.Drawing.Point(850, 202);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(93, 20);
             this.label14.TabIndex = 0;
@@ -778,7 +1101,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(819, 195);
+            this.label13.Location = new System.Drawing.Point(819, 134);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(127, 20);
             this.label13.TabIndex = 0;
@@ -787,7 +1110,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(817, 117);
+            this.label12.Location = new System.Drawing.Point(817, 54);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(164, 20);
             this.label12.TabIndex = 0;
@@ -796,20 +1119,11 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(819, 155);
+            this.label11.Location = new System.Drawing.Point(819, 88);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(49, 20);
             this.label11.TabIndex = 0;
             this.label11.Text = "Autor";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(819, 79);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(162, 20);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Numer dokumentacji";
             // 
             // label8
             // 
@@ -823,7 +1137,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(961, 38);
+            this.label9.Location = new System.Drawing.Point(960, 21);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(161, 20);
             this.label9.TabIndex = 0;
@@ -840,31 +1154,23 @@
             // 
             // tabDodaj_etap
             // 
-            this.tabDodaj_etap.Controls.Add(this.comboBox6);
+            this.tabDodaj_etap.Controls.Add(this.dataGridView4);
+            this.tabDodaj_etap.Controls.Add(this.dataGridView2);
+            this.tabDodaj_etap.Controls.Add(this.cmbRodzaj_Maszyny2);
+            this.tabDodaj_etap.Controls.Add(this.label44);
             this.tabDodaj_etap.Controls.Add(this.label27);
-            this.tabDodaj_etap.Controls.Add(this.comboBox7);
-            this.tabDodaj_etap.Controls.Add(this.numericUpDown7);
-            this.tabDodaj_etap.Controls.Add(this.button5);
-            this.tabDodaj_etap.Controls.Add(this.textBox4);
-            this.tabDodaj_etap.Controls.Add(this.label28);
+            this.tabDodaj_etap.Controls.Add(this.nudDodaj_Maszyne);
+            this.tabDodaj_etap.Controls.Add(this.txtLiczba_Rbh_Maszyn);
+            this.tabDodaj_etap.Controls.Add(this.btnDodaj_Maszyne_Proces);
+            this.tabDodaj_etap.Controls.Add(this.txtLiczba_Maszyn);
             this.tabDodaj_etap.Controls.Add(this.label29);
             this.tabDodaj_etap.Controls.Add(this.label30);
             this.tabDodaj_etap.Controls.Add(this.label31);
-            this.tabDodaj_etap.Controls.Add(this.comboBox4);
-            this.tabDodaj_etap.Controls.Add(this.label22);
-            this.tabDodaj_etap.Controls.Add(this.comboBox3);
-            this.tabDodaj_etap.Controls.Add(this.numericUpDown6);
-            this.tabDodaj_etap.Controls.Add(this.button4);
-            this.tabDodaj_etap.Controls.Add(this.textBox3);
-            this.tabDodaj_etap.Controls.Add(this.label19);
-            this.tabDodaj_etap.Controls.Add(this.label20);
             this.tabDodaj_etap.Controls.Add(this.label24);
-            this.tabDodaj_etap.Controls.Add(this.label23);
-            this.tabDodaj_etap.Controls.Add(this.label21);
-            this.tabDodaj_etap.Controls.Add(this.comboBox1);
-            this.tabDodaj_etap.Controls.Add(this.numericUpDown5);
-            this.tabDodaj_etap.Controls.Add(this.button2);
-            this.tabDodaj_etap.Controls.Add(this.textBox1);
+            this.tabDodaj_etap.Controls.Add(this.cmbNazwa_Etapu);
+            this.tabDodaj_etap.Controls.Add(this.nudDodaj_Etap);
+            this.tabDodaj_etap.Controls.Add(this.btnDodaj_Etap);
+            this.tabDodaj_etap.Controls.Add(this.txtCzas_Etapu);
             this.tabDodaj_etap.Controls.Add(this.label4);
             this.tabDodaj_etap.Controls.Add(this.label5);
             this.tabDodaj_etap.Controls.Add(this.lblNumerProcesu);
@@ -875,126 +1181,162 @@
             this.tabDodaj_etap.Text = "Dodaj etap";
             this.tabDodaj_etap.UseVisualStyleBackColor = true;
             // 
-            // comboBox4
+            // dataGridView4
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(715, 131);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(90, 28);
-            this.comboBox4.TabIndex = 44;
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Location = new System.Drawing.Point(850, 263);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView4.TabIndex = 55;
             // 
-            // label22
+            // dataGridView2
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label22.Location = new System.Drawing.Point(493, 131);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(118, 18);
-            this.label22.TabIndex = 43;
-            this.label22.Text = "Nazwa elementu";
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(64, 263);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView2.TabIndex = 55;
             // 
-            // comboBox3
+            // cmbRodzaj_Maszyny2
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(715, 224);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(90, 28);
-            this.comboBox3.TabIndex = 42;
+            this.cmbRodzaj_Maszyny2.FormattingEnabled = true;
+            this.cmbRodzaj_Maszyny2.Location = new System.Drawing.Point(959, 80);
+            this.cmbRodzaj_Maszyny2.Name = "cmbRodzaj_Maszyny2";
+            this.cmbRodzaj_Maszyny2.Size = new System.Drawing.Size(90, 28);
+            this.cmbRodzaj_Maszyny2.TabIndex = 54;
             // 
-            // numericUpDown6
+            // label44
             // 
-            this.numericUpDown6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown6.Location = new System.Drawing.Point(715, 103);
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(68, 22);
-            this.numericUpDown6.TabIndex = 41;
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label44.Location = new System.Drawing.Point(737, 171);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(155, 18);
+            this.label44.TabIndex = 53;
+            this.label44.Text = "Liczba roboczogodzin";
             // 
-            // button4
+            // label27
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button4.Location = new System.Drawing.Point(554, 301);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(201, 50);
-            this.button4.TabIndex = 40;
-            this.button4.Text = "Dodaj";
-            this.button4.UseVisualStyleBackColor = true;
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label27.Location = new System.Drawing.Point(737, 123);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(107, 18);
+            this.label27.TabIndex = 53;
+            this.label27.Text = "Liczba maszyn";
             // 
-            // textBox3
+            // nudDodaj_Maszyne
             // 
-            this.textBox3.Location = new System.Drawing.Point(715, 179);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(90, 27);
-            this.textBox3.TabIndex = 39;
+            this.nudDodaj_Maszyne.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nudDodaj_Maszyne.Location = new System.Drawing.Point(959, 52);
+            this.nudDodaj_Maszyne.Name = "nudDodaj_Maszyne";
+            this.nudDodaj_Maszyne.Size = new System.Drawing.Size(68, 22);
+            this.nudDodaj_Maszyne.TabIndex = 51;
             // 
-            // label19
+            // txtLiczba_Rbh_Maszyn
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label19.Location = new System.Drawing.Point(493, 228);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(77, 18);
-            this.label19.TabIndex = 37;
-            this.label19.Text = "Jednostka";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtLiczba_Rbh_Maszyn.Location = new System.Drawing.Point(959, 167);
+            this.txtLiczba_Rbh_Maszyn.Name = "txtLiczba_Rbh_Maszyn";
+            this.txtLiczba_Rbh_Maszyn.Size = new System.Drawing.Size(90, 27);
+            this.txtLiczba_Rbh_Maszyn.TabIndex = 49;
             // 
-            // label20
+            // btnDodaj_Maszyne_Proces
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label20.Location = new System.Drawing.Point(493, 183);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(51, 18);
-            this.label20.TabIndex = 38;
-            this.label20.Text = "Liczba";
+            this.btnDodaj_Maszyne_Proces.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnDodaj_Maszyne_Proces.Location = new System.Drawing.Point(813, 213);
+            this.btnDodaj_Maszyne_Proces.Name = "btnDodaj_Maszyne_Proces";
+            this.btnDodaj_Maszyne_Proces.Size = new System.Drawing.Size(201, 34);
+            this.btnDodaj_Maszyne_Proces.TabIndex = 50;
+            this.btnDodaj_Maszyne_Proces.Text = "Dodaj";
+            this.btnDodaj_Maszyne_Proces.UseVisualStyleBackColor = true;
+            this.btnDodaj_Maszyne_Proces.Click += new System.EventHandler(this.btnDodaj_Maszyne_Proces_Click);
             // 
-            // label21
+            // txtLiczba_Maszyn
             // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label21.Location = new System.Drawing.Point(492, 105);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(147, 24);
-            this.label21.TabIndex = 36;
-            this.label21.Text = "Numer procesu ";
+            this.txtLiczba_Maszyn.Location = new System.Drawing.Point(959, 114);
+            this.txtLiczba_Maszyn.Name = "txtLiczba_Maszyn";
+            this.txtLiczba_Maszyn.Size = new System.Drawing.Size(90, 27);
+            this.txtLiczba_Maszyn.TabIndex = 49;
             // 
-            // comboBox1
+            // label29
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(321, 159);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(119, 28);
-            this.comboBox1.TabIndex = 35;
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label29.Location = new System.Drawing.Point(737, 90);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(118, 18);
+            this.label29.TabIndex = 48;
+            this.label29.Text = "Rodzaj maszyny";
             // 
-            // numericUpDown5
+            // label30
             // 
-            this.numericUpDown5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown5.Location = new System.Drawing.Point(321, 106);
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(97, 22);
-            this.numericUpDown5.TabIndex = 34;
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label30.Location = new System.Drawing.Point(832, 12);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(144, 24);
+            this.label30.TabIndex = 45;
+            this.label30.Text = "Dodaj maszynę ";
             // 
-            // button2
+            // label31
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button2.Location = new System.Drawing.Point(165, 286);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(230, 50);
-            this.button2.TabIndex = 31;
-            this.button2.Text = "Dodaj";
-            this.button2.UseVisualStyleBackColor = true;
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label31.Location = new System.Drawing.Point(736, 54);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(147, 24);
+            this.label31.TabIndex = 46;
+            this.label31.Text = "Numer procesu ";
             // 
-            // textBox1
+            // label24
             // 
-            this.textBox1.Location = new System.Drawing.Point(321, 212);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(119, 27);
-            this.textBox1.TabIndex = 29;
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label24.Location = new System.Drawing.Point(192, 12);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(100, 24);
+            this.label24.TabIndex = 36;
+            this.label24.Text = "Dodaj etap";
+            // 
+            // cmbNazwa_Etapu
+            // 
+            this.cmbNazwa_Etapu.FormattingEnabled = true;
+            this.cmbNazwa_Etapu.Location = new System.Drawing.Point(276, 67);
+            this.cmbNazwa_Etapu.Name = "cmbNazwa_Etapu";
+            this.cmbNazwa_Etapu.Size = new System.Drawing.Size(119, 28);
+            this.cmbNazwa_Etapu.TabIndex = 35;
+            // 
+            // nudDodaj_Etap
+            // 
+            this.nudDodaj_Etap.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nudDodaj_Etap.Location = new System.Drawing.Point(283, 39);
+            this.nudDodaj_Etap.Name = "nudDodaj_Etap";
+            this.nudDodaj_Etap.Size = new System.Drawing.Size(97, 22);
+            this.nudDodaj_Etap.TabIndex = 34;
+            // 
+            // btnDodaj_Etap
+            // 
+            this.btnDodaj_Etap.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnDodaj_Etap.Location = new System.Drawing.Point(136, 151);
+            this.btnDodaj_Etap.Name = "btnDodaj_Etap";
+            this.btnDodaj_Etap.Size = new System.Drawing.Size(230, 32);
+            this.btnDodaj_Etap.TabIndex = 31;
+            this.btnDodaj_Etap.Text = "Dodaj";
+            this.btnDodaj_Etap.UseVisualStyleBackColor = true;
+            this.btnDodaj_Etap.Click += new System.EventHandler(this.btnDodaj_Etap_Click);
+            // 
+            // txtCzas_Etapu
+            // 
+            this.txtCzas_Etapu.Location = new System.Drawing.Point(276, 105);
+            this.txtCzas_Etapu.Name = "txtCzas_Etapu";
+            this.txtCzas_Etapu.Size = new System.Drawing.Size(119, 27);
+            this.txtCzas_Etapu.TabIndex = 29;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(99, 216);
+            this.label4.Location = new System.Drawing.Point(54, 109);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(159, 18);
             this.label4.TabIndex = 27;
@@ -1005,7 +1347,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(99, 173);
+            this.label5.Location = new System.Drawing.Point(54, 81);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 18);
             this.label5.TabIndex = 28;
@@ -1015,18 +1357,252 @@
             // 
             this.lblNumerProcesu.AutoSize = true;
             this.lblNumerProcesu.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblNumerProcesu.Location = new System.Drawing.Point(98, 108);
+            this.lblNumerProcesu.Location = new System.Drawing.Point(60, 41);
             this.lblNumerProcesu.Name = "lblNumerProcesu";
             this.lblNumerProcesu.Size = new System.Drawing.Size(147, 24);
             this.lblNumerProcesu.TabIndex = 26;
             this.lblNumerProcesu.Text = "Numer procesu ";
             // 
+            // tabDodaj_utworz_element
+            // 
+            this.tabDodaj_utworz_element.Controls.Add(this.dataGridView3);
+            this.tabDodaj_utworz_element.Controls.Add(this.comboBox3);
+            this.tabDodaj_utworz_element.Controls.Add(this.label19);
+            this.tabDodaj_utworz_element.Controls.Add(this.comboBox4);
+            this.tabDodaj_utworz_element.Controls.Add(this.numericUpDown6);
+            this.tabDodaj_utworz_element.Controls.Add(this.btnUtworz_Element);
+            this.tabDodaj_utworz_element.Controls.Add(this.textBox3);
+            this.tabDodaj_utworz_element.Controls.Add(this.label20);
+            this.tabDodaj_utworz_element.Controls.Add(this.label21);
+            this.tabDodaj_utworz_element.Controls.Add(this.label22);
+            this.tabDodaj_utworz_element.Controls.Add(this.label23);
+            this.tabDodaj_utworz_element.Controls.Add(this.dataGridView6);
+            this.tabDodaj_utworz_element.Controls.Add(this.comboBox2);
+            this.tabDodaj_utworz_element.Controls.Add(this.label3);
+            this.tabDodaj_utworz_element.Controls.Add(this.comboBox5);
+            this.tabDodaj_utworz_element.Controls.Add(this.numericUpDown9);
+            this.tabDodaj_utworz_element.Controls.Add(this.btnDodaj_Element);
+            this.tabDodaj_utworz_element.Controls.Add(this.textBox2);
+            this.tabDodaj_utworz_element.Controls.Add(this.label10);
+            this.tabDodaj_utworz_element.Controls.Add(this.label28);
+            this.tabDodaj_utworz_element.Controls.Add(this.label42);
+            this.tabDodaj_utworz_element.Controls.Add(this.label43);
+            this.tabDodaj_utworz_element.Location = new System.Drawing.Point(4, 39);
+            this.tabDodaj_utworz_element.Name = "tabDodaj_utworz_element";
+            this.tabDodaj_utworz_element.Size = new System.Drawing.Size(1431, 436);
+            this.tabDodaj_utworz_element.TabIndex = 9;
+            this.tabDodaj_utworz_element.Text = "Dodaj/utwórz element";
+            this.tabDodaj_utworz_element.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(798, 257);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView3.TabIndex = 77;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(928, 79);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(90, 28);
+            this.comboBox3.TabIndex = 76;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label19.Location = new System.Drawing.Point(706, 79);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(118, 18);
+            this.label19.TabIndex = 75;
+            this.label19.Text = "Nazwa elementu";
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(928, 149);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(90, 28);
+            this.comboBox4.TabIndex = 74;
+            // 
+            // numericUpDown6
+            // 
+            this.numericUpDown6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericUpDown6.Location = new System.Drawing.Point(928, 51);
+            this.numericUpDown6.Name = "numericUpDown6";
+            this.numericUpDown6.Size = new System.Drawing.Size(68, 22);
+            this.numericUpDown6.TabIndex = 73;
+            // 
+            // btnUtworz_Element
+            // 
+            this.btnUtworz_Element.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnUtworz_Element.Location = new System.Drawing.Point(777, 183);
+            this.btnUtworz_Element.Name = "btnUtworz_Element";
+            this.btnUtworz_Element.Size = new System.Drawing.Size(201, 34);
+            this.btnUtworz_Element.TabIndex = 72;
+            this.btnUtworz_Element.Text = "Dodaj";
+            this.btnUtworz_Element.UseVisualStyleBackColor = true;
+            this.btnUtworz_Element.Click += new System.EventHandler(this.btnUtworz_Element_Click);
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(928, 113);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(90, 27);
+            this.textBox3.TabIndex = 71;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label20.Location = new System.Drawing.Point(706, 152);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(77, 18);
+            this.label20.TabIndex = 69;
+            this.label20.Text = "Jednostka";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label21.Location = new System.Drawing.Point(706, 108);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(51, 18);
+            this.label21.TabIndex = 70;
+            this.label21.Text = "Liczba";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label22.Location = new System.Drawing.Point(813, 18);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(140, 24);
+            this.label22.TabIndex = 67;
+            this.label22.Text = "Utwórz element";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label23.Location = new System.Drawing.Point(705, 53);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(152, 24);
+            this.label23.TabIndex = 68;
+            this.label23.Text = "Numer elementu";
+            // 
+            // dataGridView6
+            // 
+            this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView6.Location = new System.Drawing.Point(200, 267);
+            this.dataGridView6.Name = "dataGridView6";
+            this.dataGridView6.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView6.TabIndex = 66;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(330, 89);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(90, 28);
+            this.comboBox2.TabIndex = 65;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(108, 89);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(118, 18);
+            this.label3.TabIndex = 64;
+            this.label3.Text = "Nazwa elementu";
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(330, 159);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(90, 28);
+            this.comboBox5.TabIndex = 63;
+            // 
+            // numericUpDown9
+            // 
+            this.numericUpDown9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericUpDown9.Location = new System.Drawing.Point(330, 61);
+            this.numericUpDown9.Name = "numericUpDown9";
+            this.numericUpDown9.Size = new System.Drawing.Size(68, 22);
+            this.numericUpDown9.TabIndex = 62;
+            // 
+            // btnDodaj_Element
+            // 
+            this.btnDodaj_Element.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnDodaj_Element.Location = new System.Drawing.Point(179, 193);
+            this.btnDodaj_Element.Name = "btnDodaj_Element";
+            this.btnDodaj_Element.Size = new System.Drawing.Size(201, 34);
+            this.btnDodaj_Element.TabIndex = 61;
+            this.btnDodaj_Element.Text = "Dodaj";
+            this.btnDodaj_Element.UseVisualStyleBackColor = true;
+            this.btnDodaj_Element.Click += new System.EventHandler(this.btnDodaj_Element_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(330, 123);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(90, 27);
+            this.textBox2.TabIndex = 60;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label10.Location = new System.Drawing.Point(108, 162);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(77, 18);
+            this.label10.TabIndex = 58;
+            this.label10.Text = "Jednostka";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label28.Location = new System.Drawing.Point(108, 118);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(51, 18);
+            this.label28.TabIndex = 59;
+            this.label28.Text = "Liczba";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label42.Location = new System.Drawing.Point(215, 28);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(132, 24);
+            this.label42.TabIndex = 56;
+            this.label42.Text = "Dodaj element";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label43.Location = new System.Drawing.Point(107, 63);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(147, 24);
+            this.label43.TabIndex = 57;
+            this.label43.Text = "Numer procesu ";
+            // 
             // tabPrzypisz_proces_do_zamowienia
             // 
+            this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.checkedListBox1);
             this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.numericUpDown8);
             this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.label32);
             this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.numericUpDown1);
-            this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.button1);
+            this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.btnPrzypisz_Proces_Zamowienie);
             this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.label25);
             this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.label26);
             this.tabPrzypisz_proces_do_zamowienia.Location = new System.Drawing.Point(4, 39);
@@ -1035,6 +1611,71 @@
             this.tabPrzypisz_proces_do_zamowienia.TabIndex = 6;
             this.tabPrzypisz_proces_do_zamowienia.Text = "Przypisz proces do zamówienia";
             this.tabPrzypisz_proces_do_zamowienia.UseVisualStyleBackColor = true;
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Location = new System.Drawing.Point(1006, 56);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(217, 290);
+            this.checkedListBox1.TabIndex = 67;
+            // 
+            // numericUpDown8
+            // 
+            this.numericUpDown8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericUpDown8.Location = new System.Drawing.Point(782, 93);
+            this.numericUpDown8.Name = "numericUpDown8";
+            this.numericUpDown8.Size = new System.Drawing.Size(68, 22);
+            this.numericUpDown8.TabIndex = 66;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label32.Location = new System.Drawing.Point(559, 89);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(173, 24);
+            this.label32.TabIndex = 65;
+            this.label32.Text = "Numer zamówienia";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericUpDown1.Location = new System.Drawing.Point(782, 129);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(68, 22);
+            this.numericUpDown1.TabIndex = 61;
+            // 
+            // btnPrzypisz_Proces_Zamowienie
+            // 
+            this.btnPrzypisz_Proces_Zamowienie.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnPrzypisz_Proces_Zamowienie.Location = new System.Drawing.Point(638, 190);
+            this.btnPrzypisz_Proces_Zamowienie.Name = "btnPrzypisz_Proces_Zamowienie";
+            this.btnPrzypisz_Proces_Zamowienie.Size = new System.Drawing.Size(201, 50);
+            this.btnPrzypisz_Proces_Zamowienie.TabIndex = 60;
+            this.btnPrzypisz_Proces_Zamowienie.Text = "Przypisz";
+            this.btnPrzypisz_Proces_Zamowienie.UseVisualStyleBackColor = true;
+            this.btnPrzypisz_Proces_Zamowienie.Click += new System.EventHandler(this.btnPrzypisz_Proces_Zamowienie_Click);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label25.Location = new System.Drawing.Point(681, 34);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(79, 24);
+            this.label25.TabIndex = 55;
+            this.label25.Text = "Przypisz";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label26.Location = new System.Drawing.Point(559, 131);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(147, 24);
+            this.label26.TabIndex = 56;
+            this.label26.Text = "Numer procesu ";
             // 
             // entityCommand1
             // 
@@ -1058,174 +1699,6 @@
             // 
             this.vObslugaTableAdapter.ClearBeforeFill = true;
             // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label23.Location = new System.Drawing.Point(589, 34);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(132, 24);
-            this.label23.TabIndex = 36;
-            this.label23.Text = "Dodaj element";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label24.Location = new System.Drawing.Point(210, 37);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(100, 24);
-            this.label24.TabIndex = 36;
-            this.label24.Text = "Dodaj etap";
-            // 
-            // comboBox6
-            // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(1157, 131);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(90, 28);
-            this.comboBox6.TabIndex = 54;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label27.Location = new System.Drawing.Point(935, 131);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(118, 18);
-            this.label27.TabIndex = 53;
-            this.label27.Text = "Nazwa elementu";
-            // 
-            // comboBox7
-            // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(1157, 224);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(90, 28);
-            this.comboBox7.TabIndex = 52;
-            // 
-            // numericUpDown7
-            // 
-            this.numericUpDown7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown7.Location = new System.Drawing.Point(1157, 103);
-            this.numericUpDown7.Name = "numericUpDown7";
-            this.numericUpDown7.Size = new System.Drawing.Size(68, 22);
-            this.numericUpDown7.TabIndex = 51;
-            // 
-            // button5
-            // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button5.Location = new System.Drawing.Point(996, 301);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(201, 50);
-            this.button5.TabIndex = 50;
-            this.button5.Text = "Dodaj";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(1157, 179);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(90, 27);
-            this.textBox4.TabIndex = 49;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label28.Location = new System.Drawing.Point(935, 228);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(77, 18);
-            this.label28.TabIndex = 47;
-            this.label28.Text = "Jednostka";
-            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label29.Location = new System.Drawing.Point(935, 183);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(51, 18);
-            this.label29.TabIndex = 48;
-            this.label29.Text = "Liczba";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label30.Location = new System.Drawing.Point(1031, 34);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(144, 24);
-            this.label30.TabIndex = 45;
-            this.label30.Text = "Dodaj maszynę ";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label31.Location = new System.Drawing.Point(934, 105);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(147, 24);
-            this.label31.TabIndex = 46;
-            this.label31.Text = "Numer procesu ";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown1.Location = new System.Drawing.Point(782, 129);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(68, 22);
-            this.numericUpDown1.TabIndex = 61;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.Location = new System.Drawing.Point(638, 190);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(201, 50);
-            this.button1.TabIndex = 60;
-            this.button1.Text = "Przypisz";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label25.Location = new System.Drawing.Point(681, 34);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(79, 24);
-            this.label25.TabIndex = 55;
-            this.label25.Text = "Przypisz";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label26.Location = new System.Drawing.Point(559, 131);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(147, 24);
-            this.label26.TabIndex = 56;
-            this.label26.Text = "Numer procesu ";
-            // 
-            // numericUpDown8
-            // 
-            this.numericUpDown8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown8.Location = new System.Drawing.Point(782, 93);
-            this.numericUpDown8.Name = "numericUpDown8";
-            this.numericUpDown8.Size = new System.Drawing.Size(68, 22);
-            this.numericUpDown8.TabIndex = 66;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label32.Location = new System.Drawing.Point(559, 89);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(173, 24);
-            this.label32.TabIndex = 65;
-            this.label32.Text = "Numer zamówienia";
-            // 
             // PrzygotowanieProdukcji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1242,6 +1715,9 @@
             this.tabZnajdz_dodaj_obsluge.ResumeLayout(false);
             this.tabZnajdz_dodaj_obsluge.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObsluga)).EndInit();
+            this.tabDodaj_nowa_maszyne.ResumeLayout(false);
+            this.tabDodaj_nowa_maszyne.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             this.tabpZarzadzanieParkiemMaszynowym.ResumeLayout(false);
             this.tabpZarzadzanieParkiemMaszynowym.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesy)).EndInit();
@@ -1265,15 +1741,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabDodaj_etap.ResumeLayout(false);
             this.tabDodaj_etap.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDodaj_Maszyne)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDodaj_Etap)).EndInit();
+            this.tabDodaj_utworz_element.ResumeLayout(false);
+            this.tabDodaj_utworz_element.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
             this.tabPrzypisz_proces_do_zamowienia.ResumeLayout(false);
             this.tabPrzypisz_proces_do_zamowienia.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vObslugaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1292,7 +1775,7 @@
         private System.Windows.Forms.Label lblRodzaj;
         private System.Windows.Forms.ComboBox cmbRodzajObslugi;
         private System.Windows.Forms.Label lblOpis;
-        private System.Windows.Forms.Button btnSzukaj;
+        private System.Windows.Forms.Button btnWyszukaj_Obsluge;
         private System.Windows.Forms.TabPage tabpZarzadzanieParkiemMaszynowym;
         private System.Windows.Forms.TabPage tabDodaj_nowa_maszyne;
         private System.Windows.Forms.TabControl tabcZamowienia;
@@ -1316,19 +1799,19 @@
         private System.Windows.Forms.ComboBox cmbID_Maszyny;
         private System.Windows.Forms.ComboBox cmbPracownik;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.Button btnDodaj_Obsluge;
         private System.Windows.Forms.DataGridView dgvProcesy3;
         private System.Windows.Forms.DataGridView dgvProcesy5;
         private System.Windows.Forms.DataGridView dgvProcesy4;
         private System.Data.Entity.Core.EntityClient.EntityCommand entityCommand1;
         private System.Windows.Forms.ComboBox cmbTechnolodzy;
         private System.Windows.Forms.Label lblNumer_Procesu;
-        private System.Windows.Forms.Button btnZapisz;
+        private System.Windows.Forms.Button btnZapisz_Nowy_Proces;
         private System.Windows.Forms.Label lblCzasTrwania;
         private System.Windows.Forms.Label lblNazwaProcesu;
         private System.Windows.Forms.Label lblOpisNumer;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnDodaj_Etap;
+        private System.Windows.Forms.TextBox txtCzas_Etapu;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblNumerProcesu;
@@ -1338,7 +1821,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
@@ -1346,42 +1828,86 @@
         private SzwalniaDataSet szwalniaDataSet;
         private System.Windows.Forms.BindingSource vObslugaBindingSource;
         private SzwalniaDataSetTableAdapters.vObslugaTableAdapter vObslugaTableAdapter;
-        private System.Windows.Forms.Button btnPrzypisz;
-        private System.Windows.Forms.Button btnDodaj;
+        private System.Windows.Forms.Button btnPrzypisz_Dokumentacja;
+        private System.Windows.Forms.Button btnDodaj_Dokumentacja;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_Szukaj_Dokumentacja;
         private System.Windows.Forms.NumericUpDown numericUpDown4;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown5;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.NumericUpDown numericUpDown6;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox cmbNazwa_Etapu;
+        private System.Windows.Forms.NumericUpDown nudDodaj_Etap;
+        private System.Windows.Forms.ComboBox cmbRodzaj_Maszyny2;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.ComboBox comboBox7;
-        private System.Windows.Forms.NumericUpDown numericUpDown7;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.NumericUpDown nudDodaj_Maszyne;
+        private System.Windows.Forms.Button btnDodaj_Maszyne_Proces;
+        private System.Windows.Forms.TextBox txtLiczba_Maszyn;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.NumericUpDown numericUpDown8;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPrzypisz_Proces_Zamowienie;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.ComboBox cmbRodzaj_Maszyny;
+        private System.Windows.Forms.DataGridView dataGridView5;
+        private System.Windows.Forms.Button btnDodaj_Maszyne;
+        private System.Windows.Forms.TextBox txtSerwis;
+        private System.Windows.Forms.TextBox txtResurs_Rbh;
+        private System.Windows.Forms.TextBox txtNumer_Seryjny;
+        private System.Windows.Forms.TextBox txtProducent;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.ComboBox cmbDzial;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.TextBox txtAmortyzacja;
+        private System.Windows.Forms.TextBox txtKoszt_Zakupu;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.TextBox txtZamortyzowane;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.DateTimePicker dtpGwarancja;
+        private System.Windows.Forms.Label lblGwarancja;
+        private System.Windows.Forms.TextBox txtLokalizacja;
+        private System.Windows.Forms.DateTimePicker dtpData_Wykonania_Dokumentacja;
+        private System.Windows.Forms.ComboBox cmbRodzaj_Dokumentacji;
+        private System.Windows.Forms.ComboBox cmbTechnolodzy2;
+        private System.Windows.Forms.TabPage tabDodaj_utworz_element;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.NumericUpDown numericUpDown6;
+        private System.Windows.Forms.Button btnUtworz_Element;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.DataGridView dataGridView6;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.NumericUpDown numericUpDown9;
+        private System.Windows.Forms.Button btnDodaj_Element;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.TextBox txtLiczba_Rbh_Maszyn;
     }
 }
