@@ -516,7 +516,7 @@ ID_Procesu_Produkcyjnego int FOREIGN KEY REFERENCES Proces_Produkcyjny (ID_Proce
 Data_Kontroli smalldatetime NOT NULL, 
 Dokument image NULL, 
 Uwagi varchar(300) NULL, 
-Zgodnosc_Zamowienia bit NULL, 
+Zgodnosc_Zamowienia bit DEFAULT NULL, 
 Liczba_Poprawnych int NULL);
 
 ---------------------Koniec Produkcji--------------------------------------------------------------

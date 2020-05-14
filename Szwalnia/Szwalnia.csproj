@@ -94,6 +94,12 @@
     <Compile Include="Dostarczenia_Zewn.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="Dostawcy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dostawcy.Designer.cs">
+      <DependentUpon>Dostawcy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dostawcy_Zaopatrzenie.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -198,6 +204,12 @@
     </Compile>
     <Compile Include="Kurierzy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KurierzyLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KurierzyLista.Designer.cs">
+      <DependentUpon>KurierzyLista.cs</DependentUpon>
     </Compile>
     <Compile Include="Maszyny.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
@@ -309,6 +321,12 @@
     </Compile>
     <Compile Include="Oferta.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Oferty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Oferty.Designer.cs">
+      <DependentUpon>Oferty.cs</DependentUpon>
     </Compile>
     <Compile Include="Pensja.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
@@ -517,6 +535,12 @@
     <Compile Include="ObslugaSzukaj.Designer.cs">
       <DependentUpon>ObslugaSzukaj.cs</DependentUpon>
     </Compile>
+    <Compile Include="UmowyKurierzy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UmowyKurierzy.Designer.cs">
+      <DependentUpon>UmowyKurierzy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Umowy_Kurierzy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -692,6 +716,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ObslugaDostaw.resx">
       <DependentUpon>ObslugaDostaw.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Oferty.resx">
+      <DependentUpon>Oferty.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProcesProdukcyjny.resx">
       <DependentUpon>ProcesProdukcyjny.cs</DependentUpon>

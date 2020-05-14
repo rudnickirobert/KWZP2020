@@ -176,7 +176,7 @@ GO
 
 CREATE VIEW vRozpoczeteProcesy
 AS
-SELECT * FROM Proces_Produkcyny WHERE Data_Zakonczenia=NULL;
+SELECT * FROM Proces_Produkcyjny WHERE Data_Zakonczenia=NULL;
 GO
 
 ---------------------------------------------------------------------------------------------------------------------------
@@ -205,7 +205,7 @@ FROM     dbo.Maszyny INNER JOIN
 				  GO
 
 CREATE VIEW vObsluga AS
-SELECT dbo.Obsluga_Techniczna.ID_Obsluga_Techniczna, dbo.Srodki_Trwale.Nazwa, dbo.Srodki_Trwale.Producent, dbo.Srodki_Trwale.Numer_seryjny, dbo.Rodzaj_Obslugi.Nazwa AS Expr1, dbo.Obsluga_Techniczna.Data_Wykonania, 
+SELECT dbo.Obsluga_Techniczna.ID_Obsluga_Techniczna, dbo.Srodki_Trwale.Nazwa, dbo.Srodki_Trwale.Producent, dbo.Srodki_Trwale.Numer_seryjny, dbo.Rodzaj_Obslugi.Nazwa AS Expr1, dbo.Obsluga_Techniczna.Data_Zakonczenia, 
                   dbo.Pracownicy.Nazwisko, dbo.Elementy.Element_Nazwa
 FROM     dbo.Rodzaj_Obslugi INNER JOIN
                   dbo.Obsluga_Techniczna ON dbo.Rodzaj_Obslugi.ID_Rodzaj_Obslugi = dbo.Obsluga_Techniczna.ID_Rodzaj_Obslugi INNER JOIN
