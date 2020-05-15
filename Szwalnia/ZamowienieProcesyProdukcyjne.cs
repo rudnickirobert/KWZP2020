@@ -34,10 +34,10 @@ namespace Szwalnia
                     dgvProcesyProdukcyjne.Columns[1].Visible = false;
                 }
                 else
-                    MessageBox.Show("Nie istnieje takie ID Zamowienia!");
+                    MessageBox.Show("Nie istnieje taki numer zamówienia!");
             }
             else
-                MessageBox.Show("Wprowadź poprawne ID Zamowienia (wieksze od zera)!");
+                MessageBox.Show("Wprowadź poprawny numer zamówienia (wieksze od zera)!");
         }
 
         private void dgvProcesyProdukcyjne_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

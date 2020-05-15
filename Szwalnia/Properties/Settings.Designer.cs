@@ -26,8 +26,8 @@ namespace Szwalnia.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-BU7OSHV\\KWZP2020;Initial Catalog=Szwalnia;Integrated Security" +
-            "=True;MultipleActiveResultSets=True;Application Name=EntityFramework")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-D01KMAM\\KWZP2020;Initial Catalog=Szwalnia;Integrated Security" +
+            "=True")]
         public string SzwalniaConnectionString {
             get {
                 return ((string)(this["SzwalniaConnectionString"]));
