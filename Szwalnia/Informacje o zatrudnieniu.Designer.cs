@@ -212,7 +212,6 @@
             this.btnZapisz.TabIndex = 18;
             this.btnZapisz.Text = "Zapisz i zamknij";
             this.btnZapisz.UseVisualStyleBackColor = true;
-            this.btnZapisz.Click += new System.EventHandler(this.btnZapisz_Click);
             // 
             // Informacje_o_zatrudnieniu
             // 
