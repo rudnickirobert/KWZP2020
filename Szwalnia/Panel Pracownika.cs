@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class Panel_Pracownika : Form
+    public partial class PanelPracownika : Form
     {
         public SzwalniaEntities db;
-        public Panel_Pracownika(SzwalniaEntities szwalnia)
+        public PanelPracownika(SzwalniaEntities szwalnia)
 
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace Szwalnia
 
         private void btnZatrudnienie_Click(object sender, EventArgs e)
         {
-           Informacje_o_zatrudnieniu informacjeOZatrudnieniu = new Informacje_o_zatrudnieniu(db);
+           InformacjeOZatrudnieniu informacjeOZatrudnieniu = new InformacjeOZatrudnieniu(db);
             informacjeOZatrudnieniu.Show();
 
         }
@@ -40,7 +40,7 @@ namespace Szwalnia
 
         private void btnNowyPracownik_Click(object sender, EventArgs e)
         {
-            Nowy_Pracownik nowyPracownik = new Nowy_Pracownik(db);
+            NowyPracownik nowyPracownik = new NowyPracownik(db);
             nowyPracownik.Show();
         }
     }

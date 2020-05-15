@@ -1,6 +1,6 @@
 ﻿namespace Szwalnia
 {
-    partial class Panel_Klienta
+    partial class PanelKlienta
     {
         /// <summary>
         /// Required designer variable.

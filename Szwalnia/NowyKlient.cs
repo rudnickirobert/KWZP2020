@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class Nowy_Klient : Form
+    public partial class NowyKlient : Form
     {
         public SzwalniaEntities db;
         public int ostatniNumerKlienta;
-        public Nowy_Klient(SzwalniaEntities db)
+        public NowyKlient(SzwalniaEntities db)
         {
             InitializeComponent();
             this.db = db;

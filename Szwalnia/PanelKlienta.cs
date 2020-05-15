@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class Panel_Klienta : Form
+    public partial class PanelKlienta : Form
     {
         public SzwalniaEntities db;
-        public Panel_Klienta (SzwalniaEntities szwalnia)
+        public PanelKlienta (SzwalniaEntities szwalnia)
         {
             InitializeComponent();
             db = szwalnia;
@@ -31,7 +31,7 @@ namespace Szwalnia
 
         private void btnNowyKlient_Click(object sender, EventArgs e)
         {
-            Nowy_Klient nowyKlient = new Nowy_Klient(db);
+            NowyKlient nowyKlient = new NowyKlient(db);
             nowyKlient.Show();
         }
     }

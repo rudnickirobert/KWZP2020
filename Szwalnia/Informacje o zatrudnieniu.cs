@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class Informacje_o_zatrudnieniu : Form
+    public partial class InformacjeOZatrudnieniu : Form
     {
         public SzwalniaEntities db;
-        public Informacje_o_zatrudnieniu(SzwalniaEntities db)
+        public InformacjeOZatrudnieniu(SzwalniaEntities db)
         {
             InitializeComponent();
             this.db = db;

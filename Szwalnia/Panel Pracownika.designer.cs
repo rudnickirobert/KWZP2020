@@ -1,6 +1,6 @@
 ﻿namespace Szwalnia
 {
-    partial class Panel_Pracownika
+    partial class PanelPracownika
     {
         /// <summary>
         /// Required designer variable.

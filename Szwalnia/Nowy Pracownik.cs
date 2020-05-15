@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class Nowy_Pracownik : Form
+    public partial class NowyPracownik : Form
     {
         public SzwalniaEntities db;
         public int ostatniNumerPracownika;
-        public Nowy_Pracownik (SzwalniaEntities db)
+        public NowyPracownik (SzwalniaEntities db)
         {
             InitializeComponent();
             this.db = db;
@@ -49,7 +49,7 @@ namespace Szwalnia
             db.SaveChanges();
             MessageBox.Show("Dodano nowego pracownika - usupełnij dane o zatrudnieniu");
 
-            Informacje_o_zatrudnieniu informacjeOZatrudnieniu = new Informacje_o_zatrudnieniu(db);
+            InformacjeOZatrudnieniu informacjeOZatrudnieniu = new InformacjeOZatrudnieniu(db);
             informacjeOZatrudnieniu.Show();
             this.Close();
 

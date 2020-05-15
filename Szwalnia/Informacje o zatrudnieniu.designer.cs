@@ -1,6 +1,6 @@
 ﻿namespace Szwalnia
 {
-    partial class Informacje_o_zatrudnieniu
+    partial class InformacjeOZatrudnieniu
     {
         /// <summary>
         /// Required designer variable.

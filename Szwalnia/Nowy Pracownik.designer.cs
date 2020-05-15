@@ -1,6 +1,6 @@
 ﻿namespace Szwalnia
 {
-    partial class Nowy_Pracownik
+    partial class NowyPracownik
     {
         /// <summary>
         /// Required designer variable.

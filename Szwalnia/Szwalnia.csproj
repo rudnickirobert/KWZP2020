@@ -235,11 +235,11 @@
     <Compile Include="NowaRealizacjaProcesu.Designer.cs">
       <DependentUpon>NowaRealizacjaProcesu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Nowy Klient.cs">
+    <Compile Include="NowyKlient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Nowy Klient.designer.cs">
-      <DependentUpon>Nowy Klient.cs</DependentUpon>
+    <Compile Include="NowyKlient.designer.cs">
+      <DependentUpon>NowyKlient.cs</DependentUpon>
     </Compile>
     <Compile Include="Nowy Pracownik.cs">
       <SubType>Form</SubType>
@@ -280,11 +280,11 @@
     <Compile Include="Oferta.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="Panel Klienta.cs">
+    <Compile Include="PanelKlienta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Panel Klienta.designer.cs">
-      <DependentUpon>Panel Klienta.cs</DependentUpon>
+    <Compile Include="PanelKlienta.designer.cs">
+      <DependentUpon>PanelKlienta.cs</DependentUpon>
     </Compile>
     <Compile Include="Panel Pracownika.cs">
       <SubType>Form</SubType>
@@ -695,8 +695,8 @@
     <EmbeddedResource Include="NowaRealizacjaProcesu.resx">
       <DependentUpon>NowaRealizacjaProcesu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Nowy Klient.resx">
-      <DependentUpon>Nowy Klient.cs</DependentUpon>
+    <EmbeddedResource Include="NowyKlient.resx">
+      <DependentUpon>NowyKlient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nowy Pracownik.resx">
       <DependentUpon>Nowy Pracownik.cs</DependentUpon>
@@ -707,8 +707,8 @@
     <EmbeddedResource Include="NowyRodzajEtapu.resx">
       <DependentUpon>NowyRodzajEtapu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panel Klienta.resx">
-      <DependentUpon>Panel Klienta.cs</DependentUpon>
+    <EmbeddedResource Include="PanelKlienta.resx">
+      <DependentUpon>PanelKlienta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panel Pracownika.resx">
       <DependentUpon>Panel Pracownika.cs</DependentUpon>

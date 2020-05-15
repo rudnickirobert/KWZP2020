@@ -1,6 +1,6 @@
 ﻿namespace Szwalnia
 {
-    partial class Nowy_Klient
+    partial class NowyKlient
     {
         /// <summary>
         /// Required designer variable.
@@ -274,7 +274,7 @@
             this.btnWyzeruj.UseVisualStyleBackColor = true;
             this.btnWyzeruj.Click += new System.EventHandler(this.btnWyzeruj_Click);
             // 
-            // Nowy_Klient
+            // NowyKlient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -301,8 +301,9 @@
             this.Controls.Add(this.lblImie);
             this.Controls.Add(this.lblNumerKlienta);
             this.Controls.Add(this.lblOpisID);
-            this.Name = "Nowy_Klient";
-            this.Text = "Nowy_Klient";
+            this.Name = "NowyKlient";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
+            this.Text = "Nowy Klient";
             ((System.ComponentModel.ISupportInitialize)(this.dgvUkryty)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
