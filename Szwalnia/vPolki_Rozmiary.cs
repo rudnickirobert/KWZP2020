@@ -15,9 +15,9 @@ namespace Szwalnia
     public partial class vPolki_Rozmiary
     {
         public int ID_Rozmiar_Polki { get; set; }
-        public string Wysokosc { get; set; }
-        public string Szerokosc { get; set; }
-        public string Glebokosc { get; set; }
-        public string Wymiar { get; set; }
+        public Nullable<int> Wysokosc { get; set; }
+        public Nullable<int> Szerokosc { get; set; }
+        public Nullable<int> Glebokosc { get; set; }
+        public Nullable<int> Wymiar { get; set; }
     }
 }

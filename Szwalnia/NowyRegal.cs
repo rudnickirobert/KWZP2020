@@ -20,7 +20,7 @@ namespace Szwalnia
             db = Start.szwalnia;
             btnDodajRegal.Enabled = false;
         }
-        private bool unique()
+        private bool isUnique()
         {
             return db.Regaly.Where(regal => regal.Oznaczenie.Equals(txtOznaczenie.Text)).Count() == 0;
         }
@@ -35,14 +35,11 @@ namespace Szwalnia
         private void btnDodajRegal_Click(object sender, EventArgs e)
         {
             txtOznaczenie.Text = txtOznaczenie.Text.ToUpper();
-
             string nowy = txtOznaczenie.Text;
-            bool b;
-            b = unique();
-
+           
             Regaly regalNew = new Regaly();
 
-            if (b == true)
+            if (isUnique())
             {
                 regalNew.Oznaczenie = txtOznaczenie.Text;
                 db.Regaly.Add(regalNew);
