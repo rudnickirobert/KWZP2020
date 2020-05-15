@@ -34,6 +34,7 @@
             this.btnZamknij = new System.Windows.Forms.Button();
             this.btnFakturyWewnetrzne = new System.Windows.Forms.Button();
             this.btnBilans = new System.Windows.Forms.Button();
+            this.btnZamowienie = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnKlienciForm
@@ -97,11 +98,21 @@
             this.btnBilans.UseVisualStyleBackColor = true;
             this.btnBilans.Click += new System.EventHandler(this.btnBilans_Click);
             // 
+            // btnZamowienie
+            // 
+            this.btnZamowienie.Location = new System.Drawing.Point(9, 384);
+            this.btnZamowienie.Name = "btnZamowienie";
+            this.btnZamowienie.Size = new System.Drawing.Size(163, 52);
+            this.btnZamowienie.TabIndex = 6;
+            this.btnZamowienie.Text = "Zamówienie";
+            this.btnZamowienie.UseVisualStyleBackColor = true;
+            // 
             // ZarzadzanieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(184, 506);
+            this.Controls.Add(this.btnZamowienie);
             this.Controls.Add(this.btnBilans);
             this.Controls.Add(this.btnFakturyWewnetrzne);
             this.Controls.Add(this.btnZamknij);
@@ -122,5 +133,6 @@
         private System.Windows.Forms.Button btnZamknij;
         private System.Windows.Forms.Button btnFakturyWewnetrzne;
         private System.Windows.Forms.Button btnBilans;
+        private System.Windows.Forms.Button btnZamowienie;
     }
 }

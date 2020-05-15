@@ -121,5 +121,10 @@ namespace Szwalnia
         public virtual DbSet<vWszystkie_Maszyny> vWszystkie_Maszyny { get; set; }
         public virtual DbSet<vZamowienieProcesyProdukcyjne> vZamowienieProcesyProdukcyjne { get; set; }
         public virtual DbSet<vZawartosc_polki> vZawartosc_polki { get; set; }
+        public virtual DbSet<vCalkowityKosztZamowienia> vCalkowityKosztZamowienia { get; set; }
+        public virtual DbSet<vFaktury> vFaktury { get; set; }
+        public virtual DbSet<vKlienciZamowienie> vKlienciZamowienie { get; set; }
+        public virtual DbSet<vKosztProcesu> vKosztProcesu { get; set; }
+        public virtual DbSet<vWynagrodzenia> vWynagrodzenia { get; set; }
     }
 }

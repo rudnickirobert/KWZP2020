@@ -573,6 +573,23 @@
           <Property Name="ID_Pracownika" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6013: The table/view 'Szwalnia.dbo.vBilans' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="vBilans">
+          <Property Name="Przychody" Type="numeric" Precision="38" Scale="4" />
+          <Property Name="Wydatki" Type="int" />
+          <Property Name="Wyplaty" Type="float" />
+          <Property Name="Bilans" Type="float" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vCalkowityKosztZamowienia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vCalkowityKosztZamowienia">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia" />
+          </Key>
+          <Property Name="ID_Zamowienia" Type="int" Nullable="false" />
+          <Property Name="Calkowity_koszt_produkcji" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vCechyElementu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vCechyElementu">
           <Key>
@@ -660,6 +677,21 @@ warning 6002: The table/view 'Szwalnia.dbo.vEtapy_proces' does not have a primar
           <Property Name="Czas (h)" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vFaktury' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vFaktury">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia" />
+            <PropertyRef Name="Imie" />
+            <PropertyRef Name="Nazwisko" />
+          </Key>
+          <Property Name="ID_Zamowienia" Type="int" Nullable="false" />
+          <Property Name="Imie" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Calkowity_koszt_produkcji" Type="int" />
+          <Property Name="Cena_netto" Type="numeric" Precision="14" Scale="2" />
+          <Property Name="Cena_brutto" Type="numeric" Precision="18" Scale="4" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vIdZamowienieElementProcesProdukcyjny' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vIdZamowienieElementProcesProdukcyjny">
           <Key>
@@ -674,6 +706,40 @@ warning 6002: The table/view 'Szwalnia.dbo.vIdZamowienieElementProcesProdukcyjny
           <Property Name="Data_Rozpoczecia" Type="smalldatetime" />
           <Property Name="Data_Zakonczenia" Type="smalldatetime" />
           <Property Name="Uwagi" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vKlienciZamowienie' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vKlienciZamowienie">
+          <Key>
+            <PropertyRef Name="ID_Klienta" />
+            <PropertyRef Name="ID_Zamowienia" />
+            <PropertyRef Name="Ilosc" />
+          </Key>
+          <Property Name="ID_Klienta" Type="int" Nullable="false" />
+          <Property Name="Nazwa_Firmy" Type="varchar" MaxLength="100" />
+          <Property Name="ID_Zamowienia" Type="int" Nullable="false" />
+          <Property Name="Element_Nazwa" Type="varchar" MaxLength="35" />
+          <Property Name="Ilosc" Type="int" Nullable="false" />
+          <Property Name="Data_Zlozenia" Type="datetime" />
+          <Property Name="Data_Zakonczenia" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vKosztProcesu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vKosztProcesu">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia" />
+            <PropertyRef Name="Imie" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="Koszt_Rbh" />
+          </Key>
+          <Property Name="ID_Zamowienia" Type="int" Nullable="false" />
+          <Property Name="Imie" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nazwa_Firmy" Type="varchar" MaxLength="100" />
+          <Property Name="NIP" Type="varchar" MaxLength="10" />
+          <Property Name="Koszt_Rbh" Type="int" Nullable="false" />
+          <Property Name="suma_czasu" Type="int" />
+          <Property Name="Calkowity_koszt_procesu" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vMaszyny_numer_seryjny' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -850,6 +916,11 @@ warning 6002: The table/view 'Szwalnia.dbo.vProcesy' does not have a primary key
           <Property Name="Czas (h)" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6013: The table/view 'Szwalnia.dbo.vPrzychody' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="vPrzychody">
+          <Property Name="Przychody" Type="numeric" Precision="38" Scale="4" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vRealizacjaProcesuProdukcyjnegoDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vRealizacjaProcesuProdukcyjnegoDetails">
           <Key>
@@ -888,6 +959,12 @@ warning 6002: The table/view 'Szwalnia.dbo.vRodzaj_Maszyny' does not have a prim
           <Property Name="ID_Rodzaj_Maszyny" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Rodzaj_Maszyny" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Szwalnia.dbo.vRozchody' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="vRozchody">
+          <Property Name="Wydatki" Type="int" />
+          <Property Name="Wyplaty" Type="float" />
+        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vRoznicaDatDni' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vRoznicaDatDni">
@@ -989,6 +1066,25 @@ warning 6002: The table/view 'Szwalnia.dbo.vWszystkie_Maszyny' does not have a p
           <Property Name="Nazwa" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Numer_seryjny" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Rodzaj_Maszyny" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vWynagrodzenia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vWynagrodzenia">
+          <Key>
+            <PropertyRef Name="Imie" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="Pesel" />
+            <PropertyRef Name="Stanowisko" />
+            <PropertyRef Name="Pensja" />
+            <PropertyRef Name="Wymiar_Etatu" />
+          </Key>
+          <Property Name="Imie" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pesel" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="Stanowisko" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pensja" Type="real" Nullable="false" />
+          <Property Name="Wymiar_Etatu" Type="real" Nullable="false" />
+          <Property Name="Wynagrodzenie" Type="float" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -2054,6 +2150,12 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <EntitySet Name="Zamowienie_Element" EntityType="Self.Zamowienie_Element" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zawartosc" EntityType="Self.Zawartosc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Znajomosc_Jezykow" EntityType="Self.Znajomosc_Jezykow" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vCalkowityKosztZamowienia" EntityType="Self.vCalkowityKosztZamowienia" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vCalkowityKosztZamowienia].[ID_Zamowienia] AS [ID_Zamowienia], 
+    [vCalkowityKosztZamowienia].[Calkowity_koszt_produkcji] AS [Calkowity_koszt_produkcji]
+    FROM [dbo].[vCalkowityKosztZamowienia] AS [vCalkowityKosztZamowienia]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vCechyElementu" EntityType="Self.vCechyElementu" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vCechyElementu].[ID_Element] AS [ID_Element], 
@@ -2108,6 +2210,16 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
     [vEtapy_proces].[Czas (h)] AS [Czas (h)]
     FROM [dbo].[vEtapy_proces] AS [vEtapy_proces]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vFaktury" EntityType="Self.vFaktury" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vFaktury].[ID_Zamowienia] AS [ID_Zamowienia], 
+    [vFaktury].[Imie] AS [Imie], 
+    [vFaktury].[Nazwisko] AS [Nazwisko], 
+    [vFaktury].[Calkowity_koszt_produkcji] AS [Calkowity_koszt_produkcji], 
+    [vFaktury].[Cena_netto] AS [Cena_netto], 
+    [vFaktury].[Cena_brutto] AS [Cena_brutto]
+    FROM [dbo].[vFaktury] AS [vFaktury]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vIdZamowienieElementProcesProdukcyjny" EntityType="Self.vIdZamowienieElementProcesProdukcyjny" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vIdZamowienieElementProcesProdukcyjny].[ID_Zamowienie_Element] AS [ID_Zamowienie_Element], 
@@ -2118,6 +2230,29 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
     [vIdZamowienieElementProcesProdukcyjny].[Data_Zakonczenia] AS [Data_Zakonczenia], 
     [vIdZamowienieElementProcesProdukcyjny].[Uwagi] AS [Uwagi]
     FROM [dbo].[vIdZamowienieElementProcesProdukcyjny] AS [vIdZamowienieElementProcesProdukcyjny]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vKlienciZamowienie" EntityType="Self.vKlienciZamowienie" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vKlienciZamowienie].[ID_Klienta] AS [ID_Klienta], 
+    [vKlienciZamowienie].[Nazwa_Firmy] AS [Nazwa_Firmy], 
+    [vKlienciZamowienie].[ID_Zamowienia] AS [ID_Zamowienia], 
+    [vKlienciZamowienie].[Element_Nazwa] AS [Element_Nazwa], 
+    [vKlienciZamowienie].[Ilosc] AS [Ilosc], 
+    [vKlienciZamowienie].[Data_Zlozenia] AS [Data_Zlozenia], 
+    [vKlienciZamowienie].[Data_Zakonczenia] AS [Data_Zakonczenia]
+    FROM [dbo].[vKlienciZamowienie] AS [vKlienciZamowienie]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vKosztProcesu" EntityType="Self.vKosztProcesu" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vKosztProcesu].[ID_Zamowienia] AS [ID_Zamowienia], 
+    [vKosztProcesu].[Imie] AS [Imie], 
+    [vKosztProcesu].[Nazwisko] AS [Nazwisko], 
+    [vKosztProcesu].[Nazwa_Firmy] AS [Nazwa_Firmy], 
+    [vKosztProcesu].[NIP] AS [NIP], 
+    [vKosztProcesu].[Koszt_Rbh] AS [Koszt_Rbh], 
+    [vKosztProcesu].[suma_czasu] AS [suma_czasu], 
+    [vKosztProcesu].[Calkowity_koszt_procesu] AS [Calkowity_koszt_procesu]
+    FROM [dbo].[vKosztProcesu] AS [vKosztProcesu]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vMaszyny_numer_seryjny" EntityType="Self.vMaszyny_numer_seryjny" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -2315,6 +2450,17 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
     [vWszystkie_Maszyny].[Numer_seryjny] AS [Numer_seryjny], 
     [vWszystkie_Maszyny].[Rodzaj_Maszyny] AS [Rodzaj_Maszyny]
     FROM [dbo].[vWszystkie_Maszyny] AS [vWszystkie_Maszyny]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vWynagrodzenia" EntityType="Self.vWynagrodzenia" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vWynagrodzenia].[Imie] AS [Imie], 
+    [vWynagrodzenia].[Nazwisko] AS [Nazwisko], 
+    [vWynagrodzenia].[Pesel] AS [Pesel], 
+    [vWynagrodzenia].[Stanowisko] AS [Stanowisko], 
+    [vWynagrodzenia].[Pensja] AS [Pensja], 
+    [vWynagrodzenia].[Wymiar_Etatu] AS [Wymiar_Etatu], 
+    [vWynagrodzenia].[Wynagrodzenie] AS [Wynagrodzenie]
+    FROM [dbo].[vWynagrodzenia] AS [vWynagrodzenia]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vZamowienieProcesyProdukcyjne" EntityType="Self.vZamowienieProcesyProdukcyjne" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -3090,6 +3236,11 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
+          <EntitySet Name="vCalkowityKosztZamowienia" EntityType="SzwalniaModel.vCalkowityKosztZamowienia" />
+          <EntitySet Name="vFaktury" EntityType="SzwalniaModel.vFaktury" />
+          <EntitySet Name="vKlienciZamowienie" EntityType="SzwalniaModel.vKlienciZamowienie" />
+          <EntitySet Name="vKosztProcesu" EntityType="SzwalniaModel.vKosztProcesu" />
+          <EntitySet Name="vWynagrodzenia" EntityType="SzwalniaModel.vWynagrodzenia" />
         </EntityContainer>
         <EntityType Name="Czesci_Obsluga">
           <Key>
@@ -5169,6 +5320,73 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="vCalkowityKosztZamowienia">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia" />
+          </Key>
+          <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
+          <Property Name="Calkowity_koszt_produkcji" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vFaktury">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia" />
+            <PropertyRef Name="Imie" />
+            <PropertyRef Name="Nazwisko" />
+          </Key>
+          <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
+          <Property Name="Imie" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nazwisko" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Calkowity_koszt_produkcji" Type="Int32" />
+          <Property Name="Cena_netto" Type="Decimal" Precision="14" Scale="2" />
+          <Property Name="Cena_brutto" Type="Decimal" Precision="18" Scale="4" />
+        </EntityType>
+        <EntityType Name="vKlienciZamowienie">
+          <Key>
+            <PropertyRef Name="ID_Klienta" />
+            <PropertyRef Name="ID_Zamowienia" />
+            <PropertyRef Name="Ilosc" />
+          </Key>
+          <Property Name="ID_Klienta" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_Firmy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
+          <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="Ilosc" Type="Int32" Nullable="false" />
+          <Property Name="Data_Zlozenia" Type="DateTime" Precision="3" />
+          <Property Name="Data_Zakonczenia" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="vKosztProcesu">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia" />
+            <PropertyRef Name="Imie" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="Koszt_Rbh" />
+          </Key>
+          <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
+          <Property Name="Imie" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nazwisko" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nazwa_Firmy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NIP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Koszt_Rbh" Type="Int32" Nullable="false" />
+          <Property Name="suma_czasu" Type="Int32" />
+          <Property Name="Calkowity_koszt_procesu" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vWynagrodzenia">
+          <Key>
+            <PropertyRef Name="Imie" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="Pesel" />
+            <PropertyRef Name="Stanowisko" />
+            <PropertyRef Name="Pensja" />
+            <PropertyRef Name="Wymiar_Etatu" />
+          </Key>
+          <Property Name="Imie" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nazwisko" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pesel" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Stanowisko" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pensja" Type="Single" Nullable="false" />
+          <Property Name="Wymiar_Etatu" Type="Single" Nullable="false" />
+          <Property Name="Wynagrodzenie" Type="Double" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -6157,6 +6375,66 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
                 <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
                 <ScalarProperty Name="Oznaczenie" ColumnName="Oznaczenie" />
                 <ScalarProperty Name="ID_Regal" ColumnName="ID_Regal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vCalkowityKosztZamowienia">
+            <EntityTypeMapping TypeName="SzwalniaModel.vCalkowityKosztZamowienia">
+              <MappingFragment StoreEntitySet="vCalkowityKosztZamowienia">
+                <ScalarProperty Name="Calkowity_koszt_produkcji" ColumnName="Calkowity_koszt_produkcji" />
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vFaktury">
+            <EntityTypeMapping TypeName="SzwalniaModel.vFaktury">
+              <MappingFragment StoreEntitySet="vFaktury">
+                <ScalarProperty Name="Cena_brutto" ColumnName="Cena_brutto" />
+                <ScalarProperty Name="Cena_netto" ColumnName="Cena_netto" />
+                <ScalarProperty Name="Calkowity_koszt_produkcji" ColumnName="Calkowity_koszt_produkcji" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vKlienciZamowienie">
+            <EntityTypeMapping TypeName="SzwalniaModel.vKlienciZamowienie">
+              <MappingFragment StoreEntitySet="vKlienciZamowienie">
+                <ScalarProperty Name="Data_Zakonczenia" ColumnName="Data_Zakonczenia" />
+                <ScalarProperty Name="Data_Zlozenia" ColumnName="Data_Zlozenia" />
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+                <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
+                <ScalarProperty Name="Nazwa_Firmy" ColumnName="Nazwa_Firmy" />
+                <ScalarProperty Name="ID_Klienta" ColumnName="ID_Klienta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vKosztProcesu">
+            <EntityTypeMapping TypeName="SzwalniaModel.vKosztProcesu">
+              <MappingFragment StoreEntitySet="vKosztProcesu">
+                <ScalarProperty Name="Calkowity_koszt_procesu" ColumnName="Calkowity_koszt_procesu" />
+                <ScalarProperty Name="suma_czasu" ColumnName="suma_czasu" />
+                <ScalarProperty Name="Koszt_Rbh" ColumnName="Koszt_Rbh" />
+                <ScalarProperty Name="NIP" ColumnName="NIP" />
+                <ScalarProperty Name="Nazwa_Firmy" ColumnName="Nazwa_Firmy" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vWynagrodzenia">
+            <EntityTypeMapping TypeName="SzwalniaModel.vWynagrodzenia">
+              <MappingFragment StoreEntitySet="vWynagrodzenia">
+                <ScalarProperty Name="Wynagrodzenie" ColumnName="Wynagrodzenie" />
+                <ScalarProperty Name="Wymiar_Etatu" ColumnName="Wymiar_Etatu" />
+                <ScalarProperty Name="Pensja" ColumnName="Pensja" />
+                <ScalarProperty Name="Stanowisko" ColumnName="Stanowisko" />
+                <ScalarProperty Name="Pesel" ColumnName="Pesel" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
