@@ -19,7 +19,6 @@ namespace Szwalnia
             InitializeComponent();
             db = Start.szwalnia;
             btnDodajRegal.Enabled = false;
-            dgv.DataSource = db.Regaly.ToList();
         }
         private bool unique()
         {
