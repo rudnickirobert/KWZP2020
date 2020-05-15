@@ -106,6 +106,7 @@
             this.btnZamowienie.TabIndex = 6;
             this.btnZamowienie.Text = "Zamówienie";
             this.btnZamowienie.UseVisualStyleBackColor = true;
+            this.btnZamowienie.Click += new System.EventHandler(this.btnZamowienie_Click);
             // 
             // ZarzadzanieForm
             // 

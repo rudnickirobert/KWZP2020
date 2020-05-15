@@ -51,6 +51,12 @@ namespace Szwalnia
             Bilans bilans = new Bilans(db);
             bilans.Show();
         }
+
+        private void btnZamowienie_Click(object sender, EventArgs e)
+        {
+           Zamowienie zamowienia = new Zamowienie(db);
+            zamowienia.Show();
+        }
     }
 }
 
