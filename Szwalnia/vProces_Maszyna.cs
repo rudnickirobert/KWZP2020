@@ -12,13 +12,11 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vObsluga
+    public partial class vProces_Maszyna
     {
-        public string Nazwa_maszyny { get; set; }
-        public System.DateTime Data_rozpoczęcia { get; set; }
-        public Nullable<System.DateTime> Data_zakończenia { get; set; }
-        public string Numer_seryjny { get; set; }
-        public string Rodzaj_obsługi { get; set; }
-        public string Imię_i_nazwisko { get; set; }
+        public int ID_Proces_Technologiczny { get; set; }
+        public string Rodzaj_Maszyny { get; set; }
+        public int Liczba_Maszyn { get; set; }
+        public int Liczba_Rbh_Maszyna { get; set; }
     }
 }

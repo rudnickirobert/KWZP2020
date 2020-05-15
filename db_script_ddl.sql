@@ -387,7 +387,7 @@ create table Rodzaj_Obslugi (
  
 create table Rodzaj_Maszyny ( 
     ID_Rodzaj_Maszyny int IDENTITY(1,1) not null PRIMARY KEY,  
-    Rodzaj_Maszyny varchar(30) not null,
+    Rodzaj_Maszyny varchar(50) not null,
 	Koszt_Rbh int not null,
 );  
   

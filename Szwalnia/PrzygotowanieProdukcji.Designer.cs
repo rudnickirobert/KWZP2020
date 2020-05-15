@@ -29,11 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tab_Proces_technologiczny = new System.Windows.Forms.TabControl();
             this.tabpProcesTechnologiczny = new System.Windows.Forms.TabPage();
             this.tabcWyszukajObsluge = new System.Windows.Forms.TabControl();
             this.tabSerwis_maszyn = new System.Windows.Forms.TabPage();
+            this.dgvSerwis = new System.Windows.Forms.DataGridView();
+            this.tabResurs_Maszyn = new System.Windows.Forms.TabPage();
+            this.dgvResursMaszyny = new System.Windows.Forms.DataGridView();
             this.tabZnajdz_dodaj_obsluge = new System.Windows.Forms.TabPage();
             this.btnDodaj_Obsluge = new System.Windows.Forms.Button();
             this.dtpData_Zakonczenia = new System.Windows.Forms.DateTimePicker();
@@ -54,7 +57,7 @@
             this.dtpGwarancja = new System.Windows.Forms.DateTimePicker();
             this.cmbDzial = new System.Windows.Forms.ComboBox();
             this.cmbRodzaj_Maszyny = new System.Windows.Forms.ComboBox();
-            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.dgvWszystkie_Maszyny = new System.Windows.Forms.DataGridView();
             this.btnDodaj_Maszyne = new System.Windows.Forms.Button();
             this.txtZamortyzowane = new System.Windows.Forms.TextBox();
             this.txtAmortyzacja = new System.Windows.Forms.TextBox();
@@ -105,11 +108,10 @@
             this.cmbTechnolodzy2 = new System.Windows.Forms.ComboBox();
             this.btn_Szukaj_Dokumentacja = new System.Windows.Forms.Button();
             this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.nud_Numer_Dokumentacji = new System.Windows.Forms.NumericUpDown();
             this.btnPrzypisz_Dokumentacja = new System.Windows.Forms.Button();
             this.btnDodaj_Dokumentacja = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvDokumentacja = new System.Windows.Forms.DataGridView();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -121,8 +123,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tabDodaj_etap = new System.Windows.Forms.TabPage();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvMaszyny_Proces = new System.Windows.Forms.DataGridView();
+            this.dgvEtapy_proces = new System.Windows.Forms.DataGridView();
             this.cmbRodzaj_Maszyny2 = new System.Windows.Forms.ComboBox();
             this.label44 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -142,33 +144,26 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lblNumerProcesu = new System.Windows.Forms.Label();
             this.tabDodaj_utworz_element = new System.Windows.Forms.TabPage();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
             this.btnUtworz_Element = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
+            this.txtMiesiace_Przydatnosci = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.dataGridView6 = new System.Windows.Forms.DataGridView();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.dgvElement_Proces = new System.Windows.Forms.DataGridView();
+            this.dgvWszystkie_Elementy = new System.Windows.Forms.DataGridView();
+            this.cmbTyp_Elementu = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
+            this.cmbJednostka = new System.Windows.Forms.ComboBox();
             this.btnDodaj_Element = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtLiczba_Elementow = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.tabPrzypisz_proces_do_zamowienia = new System.Windows.Forms.TabPage();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
             this.label32 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.btnPrzypisz_Proces_Zamowienie = new System.Windows.Forms.Button();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
@@ -176,13 +171,24 @@
             this.szwalniaDataSet = new Szwalnia.SzwalniaDataSet();
             this.vObslugaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vObslugaTableAdapter = new Szwalnia.SzwalniaDataSetTableAdapters.vObslugaTableAdapter();
+            this.btnPokazEtapyWProcesie = new System.Windows.Forms.Button();
+            this.cmbID_Proces_Technologiczny = new System.Windows.Forms.ComboBox();
+            this.cmbProces_Technologiczny_Element = new System.Windows.Forms.ComboBox();
+            this.cmbTyp_Elementu2 = new System.Windows.Forms.ComboBox();
+            this.txtNazwa_Elementu = new System.Windows.Forms.TextBox();
+            this.cmbID_Zamowienie_Element = new System.Windows.Forms.ComboBox();
+            this.cmbID_Proces_Technologiczny3 = new System.Windows.Forms.ComboBox();
             this.tab_Proces_technologiczny.SuspendLayout();
             this.tabpProcesTechnologiczny.SuspendLayout();
             this.tabcWyszukajObsluge.SuspendLayout();
+            this.tabSerwis_maszyn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSerwis)).BeginInit();
+            this.tabResurs_Maszyn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResursMaszyny)).BeginInit();
             this.tabZnajdz_dodaj_obsluge.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObsluga)).BeginInit();
             this.tabDodaj_nowa_maszyne.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWszystkie_Maszyny)).BeginInit();
             this.tabpZarzadzanieParkiemMaszynowym.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumerZamowienia)).BeginInit();
@@ -198,22 +204,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvUkryty)).BeginInit();
             this.tabZnajdz_dodaj_dokumentacje.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Numer_Dokumentacji)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDokumentacja)).BeginInit();
             this.tabDodaj_etap.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMaszyny_Proces)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEtapy_proces)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDodaj_Maszyne)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDodaj_Etap)).BeginInit();
             this.tabDodaj_utworz_element.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvElement_Proces)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWszystkie_Elementy)).BeginInit();
             this.tabPrzypisz_proces_do_zamowienia.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vObslugaBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -229,6 +230,7 @@
             this.tab_Proces_technologiczny.SelectedIndex = 0;
             this.tab_Proces_technologiczny.Size = new System.Drawing.Size(1452, 698);
             this.tab_Proces_technologiczny.TabIndex = 11;
+            this.tab_Proces_technologiczny.Click += new System.EventHandler(this.tab_Proces_technologiczny_Click);
             this.tab_Proces_technologiczny.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tab_Proces_technologiczny_MouseClick);
             // 
             // tabpProcesTechnologiczny
@@ -248,6 +250,7 @@
             // tabcWyszukajObsluge
             // 
             this.tabcWyszukajObsluge.Controls.Add(this.tabSerwis_maszyn);
+            this.tabcWyszukajObsluge.Controls.Add(this.tabResurs_Maszyn);
             this.tabcWyszukajObsluge.Controls.Add(this.tabZnajdz_dodaj_obsluge);
             this.tabcWyszukajObsluge.Controls.Add(this.tabDodaj_nowa_maszyne);
             this.tabcWyszukajObsluge.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -261,6 +264,7 @@
             // 
             // tabSerwis_maszyn
             // 
+            this.tabSerwis_maszyn.Controls.Add(this.dgvSerwis);
             this.tabSerwis_maszyn.Location = new System.Drawing.Point(4, 47);
             this.tabSerwis_maszyn.Name = "tabSerwis_maszyn";
             this.tabSerwis_maszyn.Padding = new System.Windows.Forms.Padding(3);
@@ -268,6 +272,32 @@
             this.tabSerwis_maszyn.TabIndex = 1;
             this.tabSerwis_maszyn.Text = "Serwis maszyn";
             this.tabSerwis_maszyn.UseVisualStyleBackColor = true;
+            // 
+            // dgvSerwis
+            // 
+            this.dgvSerwis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSerwis.Location = new System.Drawing.Point(6, 6);
+            this.dgvSerwis.Name = "dgvSerwis";
+            this.dgvSerwis.Size = new System.Drawing.Size(1197, 564);
+            this.dgvSerwis.TabIndex = 0;
+            // 
+            // tabResurs_Maszyn
+            // 
+            this.tabResurs_Maszyn.Controls.Add(this.dgvResursMaszyny);
+            this.tabResurs_Maszyn.Location = new System.Drawing.Point(4, 47);
+            this.tabResurs_Maszyn.Name = "tabResurs_Maszyn";
+            this.tabResurs_Maszyn.Size = new System.Drawing.Size(1209, 611);
+            this.tabResurs_Maszyn.TabIndex = 3;
+            this.tabResurs_Maszyn.Text = "Resurs maszyn";
+            this.tabResurs_Maszyn.UseVisualStyleBackColor = true;
+            // 
+            // dgvResursMaszyny
+            // 
+            this.dgvResursMaszyny.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvResursMaszyny.Location = new System.Drawing.Point(6, 3);
+            this.dgvResursMaszyny.Name = "dgvResursMaszyny";
+            this.dgvResursMaszyny.Size = new System.Drawing.Size(1200, 510);
+            this.dgvResursMaszyny.TabIndex = 0;
             // 
             // tabZnajdz_dodaj_obsluge
             // 
@@ -333,7 +363,7 @@
             this.cmbID_Maszyny.FormattingEnabled = true;
             this.cmbID_Maszyny.Location = new System.Drawing.Point(884, 225);
             this.cmbID_Maszyny.Name = "cmbID_Maszyny";
-            this.cmbID_Maszyny.Size = new System.Drawing.Size(147, 26);
+            this.cmbID_Maszyny.Size = new System.Drawing.Size(265, 26);
             this.cmbID_Maszyny.TabIndex = 51;
             // 
             // cmbPracownik
@@ -439,7 +469,7 @@
             this.tabDodaj_nowa_maszyne.Controls.Add(this.dtpGwarancja);
             this.tabDodaj_nowa_maszyne.Controls.Add(this.cmbDzial);
             this.tabDodaj_nowa_maszyne.Controls.Add(this.cmbRodzaj_Maszyny);
-            this.tabDodaj_nowa_maszyne.Controls.Add(this.dataGridView5);
+            this.tabDodaj_nowa_maszyne.Controls.Add(this.dgvWszystkie_Maszyny);
             this.tabDodaj_nowa_maszyne.Controls.Add(this.btnDodaj_Maszyne);
             this.tabDodaj_nowa_maszyne.Controls.Add(this.txtZamortyzowane);
             this.tabDodaj_nowa_maszyne.Controls.Add(this.txtAmortyzacja);
@@ -490,13 +520,13 @@
             this.cmbRodzaj_Maszyny.Size = new System.Drawing.Size(90, 32);
             this.cmbRodzaj_Maszyny.TabIndex = 65;
             // 
-            // dataGridView5
+            // dgvWszystkie_Maszyny
             // 
-            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Location = new System.Drawing.Point(681, 107);
-            this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.Size = new System.Drawing.Size(399, 363);
-            this.dataGridView5.TabIndex = 64;
+            this.dgvWszystkie_Maszyny.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvWszystkie_Maszyny.Location = new System.Drawing.Point(681, 107);
+            this.dgvWszystkie_Maszyny.Name = "dgvWszystkie_Maszyny";
+            this.dgvWszystkie_Maszyny.Size = new System.Drawing.Size(399, 363);
+            this.dgvWszystkie_Maszyny.TabIndex = 64;
             // 
             // btnDodaj_Maszyne
             // 
@@ -698,19 +728,19 @@
             // 
             this.dgvProcesy.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProcesy.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(1);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProcesy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(1);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProcesy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProcesy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProcesy.Location = new System.Drawing.Point(9, 47);
             this.dgvProcesy.Name = "dgvProcesy";
-            this.dgvProcesy.RowTemplate.Height = 30;
+            this.dgvProcesy.RowTemplate.Height = 60;
             this.dgvProcesy.Size = new System.Drawing.Size(1379, 95);
             this.dgvProcesy.TabIndex = 7;
             // 
@@ -746,11 +776,11 @@
             // tabcZamowienia
             // 
             this.tabcZamowienia.Controls.Add(this.tabZamowienia);
-            this.tabcZamowienia.Controls.Add(this.tabZnajdz_dodaj_proces_technologiczny);
+            this.tabcZamowienia.Controls.Add(this.tabPrzypisz_proces_do_zamowienia);
             this.tabcZamowienia.Controls.Add(this.tabZnajdz_dodaj_dokumentacje);
             this.tabcZamowienia.Controls.Add(this.tabDodaj_etap);
             this.tabcZamowienia.Controls.Add(this.tabDodaj_utworz_element);
-            this.tabcZamowienia.Controls.Add(this.tabPrzypisz_proces_do_zamowienia);
+            this.tabcZamowienia.Controls.Add(this.tabZnajdz_dodaj_proces_technologiczny);
             this.tabcZamowienia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tabcZamowienia.Location = new System.Drawing.Point(0, 145);
             this.tabcZamowienia.Margin = new System.Windows.Forms.Padding(6);
@@ -940,17 +970,17 @@
             // 
             // tabZnajdz_dodaj_dokumentacje
             // 
+            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.cmbID_Proces_Technologiczny);
             this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.txtLokalizacja);
             this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.dtpData_Wykonania_Dokumentacja);
             this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.cmbRodzaj_Dokumentacji);
             this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.cmbTechnolodzy2);
             this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.btn_Szukaj_Dokumentacja);
             this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.numericUpDown4);
-            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.numericUpDown3);
-            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.numericUpDown2);
+            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.nud_Numer_Dokumentacji);
             this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.btnPrzypisz_Dokumentacja);
             this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.btnDodaj_Dokumentacja);
-            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.dataGridView1);
+            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.dgvDokumentacja);
             this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.label17);
             this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.label16);
             this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.label15);
@@ -966,7 +996,7 @@
             this.tabZnajdz_dodaj_dokumentacje.Padding = new System.Windows.Forms.Padding(3);
             this.tabZnajdz_dodaj_dokumentacje.Size = new System.Drawing.Size(1431, 436);
             this.tabZnajdz_dodaj_dokumentacje.TabIndex = 1;
-            this.tabZnajdz_dodaj_dokumentacje.Text = "Znajdź/dodaj dokumentację ";
+            this.tabZnajdz_dodaj_dokumentacje.Text = "Dokumentacja";
             this.tabZnajdz_dodaj_dokumentacje.UseVisualStyleBackColor = true;
             // 
             // txtLokalizacja
@@ -1018,21 +1048,13 @@
             this.numericUpDown4.Size = new System.Drawing.Size(99, 22);
             this.numericUpDown4.TabIndex = 11;
             // 
-            // numericUpDown3
+            // nud_Numer_Dokumentacji
             // 
-            this.numericUpDown3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown3.Location = new System.Drawing.Point(1087, 391);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(99, 22);
-            this.numericUpDown3.TabIndex = 10;
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown2.Location = new System.Drawing.Point(1087, 348);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(99, 22);
-            this.numericUpDown2.TabIndex = 9;
+            this.nud_Numer_Dokumentacji.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nud_Numer_Dokumentacji.Location = new System.Drawing.Point(1075, 391);
+            this.nud_Numer_Dokumentacji.Name = "nud_Numer_Dokumentacji";
+            this.nud_Numer_Dokumentacji.Size = new System.Drawing.Size(99, 22);
+            this.nud_Numer_Dokumentacji.TabIndex = 9;
             // 
             // btnPrzypisz_Dokumentacja
             // 
@@ -1054,13 +1076,13 @@
             this.btnDodaj_Dokumentacja.UseVisualStyleBackColor = true;
             this.btnDodaj_Dokumentacja.Click += new System.EventHandler(this.btnDodaj_Dokumentacja_Click);
             // 
-            // dataGridView1
+            // dgvDokumentacja
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(29, 174);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(622, 236);
-            this.dataGridView1.TabIndex = 1;
+            this.dgvDokumentacja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDokumentacja.Location = new System.Drawing.Point(29, 174);
+            this.dgvDokumentacja.Name = "dgvDokumentacja";
+            this.dgvDokumentacja.Size = new System.Drawing.Size(622, 236);
+            this.dgvDokumentacja.TabIndex = 1;
             // 
             // label17
             // 
@@ -1154,8 +1176,9 @@
             // 
             // tabDodaj_etap
             // 
-            this.tabDodaj_etap.Controls.Add(this.dataGridView4);
-            this.tabDodaj_etap.Controls.Add(this.dataGridView2);
+            this.tabDodaj_etap.Controls.Add(this.btnPokazEtapyWProcesie);
+            this.tabDodaj_etap.Controls.Add(this.dgvMaszyny_Proces);
+            this.tabDodaj_etap.Controls.Add(this.dgvEtapy_proces);
             this.tabDodaj_etap.Controls.Add(this.cmbRodzaj_Maszyny2);
             this.tabDodaj_etap.Controls.Add(this.label44);
             this.tabDodaj_etap.Controls.Add(this.label27);
@@ -1178,24 +1201,24 @@
             this.tabDodaj_etap.Name = "tabDodaj_etap";
             this.tabDodaj_etap.Size = new System.Drawing.Size(1431, 436);
             this.tabDodaj_etap.TabIndex = 3;
-            this.tabDodaj_etap.Text = "Dodaj etap";
+            this.tabDodaj_etap.Text = "Dodaj etap/maszyne";
             this.tabDodaj_etap.UseVisualStyleBackColor = true;
             // 
-            // dataGridView4
+            // dgvMaszyny_Proces
             // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(850, 263);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView4.TabIndex = 55;
+            this.dgvMaszyny_Proces.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMaszyny_Proces.Location = new System.Drawing.Point(694, 264);
+            this.dgvMaszyny_Proces.Name = "dgvMaszyny_Proces";
+            this.dgvMaszyny_Proces.Size = new System.Drawing.Size(508, 150);
+            this.dgvMaszyny_Proces.TabIndex = 55;
             // 
-            // dataGridView2
+            // dgvEtapy_proces
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(64, 263);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView2.TabIndex = 55;
+            this.dgvEtapy_proces.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEtapy_proces.Location = new System.Drawing.Point(48, 207);
+            this.dgvEtapy_proces.Name = "dgvEtapy_proces";
+            this.dgvEtapy_proces.Size = new System.Drawing.Size(540, 229);
+            this.dgvEtapy_proces.TabIndex = 55;
             // 
             // cmbRodzaj_Maszyny2
             // 
@@ -1365,24 +1388,22 @@
             // 
             // tabDodaj_utworz_element
             // 
-            this.tabDodaj_utworz_element.Controls.Add(this.dataGridView3);
-            this.tabDodaj_utworz_element.Controls.Add(this.comboBox3);
+            this.tabDodaj_utworz_element.Controls.Add(this.cmbTyp_Elementu2);
             this.tabDodaj_utworz_element.Controls.Add(this.label19);
-            this.tabDodaj_utworz_element.Controls.Add(this.comboBox4);
-            this.tabDodaj_utworz_element.Controls.Add(this.numericUpDown6);
             this.tabDodaj_utworz_element.Controls.Add(this.btnUtworz_Element);
-            this.tabDodaj_utworz_element.Controls.Add(this.textBox3);
-            this.tabDodaj_utworz_element.Controls.Add(this.label20);
+            this.tabDodaj_utworz_element.Controls.Add(this.txtNazwa_Elementu);
+            this.tabDodaj_utworz_element.Controls.Add(this.txtMiesiace_Przydatnosci);
             this.tabDodaj_utworz_element.Controls.Add(this.label21);
             this.tabDodaj_utworz_element.Controls.Add(this.label22);
             this.tabDodaj_utworz_element.Controls.Add(this.label23);
-            this.tabDodaj_utworz_element.Controls.Add(this.dataGridView6);
-            this.tabDodaj_utworz_element.Controls.Add(this.comboBox2);
+            this.tabDodaj_utworz_element.Controls.Add(this.dgvElement_Proces);
+            this.tabDodaj_utworz_element.Controls.Add(this.dgvWszystkie_Elementy);
+            this.tabDodaj_utworz_element.Controls.Add(this.cmbProces_Technologiczny_Element);
+            this.tabDodaj_utworz_element.Controls.Add(this.cmbTyp_Elementu);
             this.tabDodaj_utworz_element.Controls.Add(this.label3);
-            this.tabDodaj_utworz_element.Controls.Add(this.comboBox5);
-            this.tabDodaj_utworz_element.Controls.Add(this.numericUpDown9);
+            this.tabDodaj_utworz_element.Controls.Add(this.cmbJednostka);
             this.tabDodaj_utworz_element.Controls.Add(this.btnDodaj_Element);
-            this.tabDodaj_utworz_element.Controls.Add(this.textBox2);
+            this.tabDodaj_utworz_element.Controls.Add(this.txtLiczba_Elementow);
             this.tabDodaj_utworz_element.Controls.Add(this.label10);
             this.tabDodaj_utworz_element.Controls.Add(this.label28);
             this.tabDodaj_utworz_element.Controls.Add(this.label42);
@@ -1394,22 +1415,6 @@
             this.tabDodaj_utworz_element.Text = "Dodaj/utwórz element";
             this.tabDodaj_utworz_element.UseVisualStyleBackColor = true;
             // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(798, 257);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView3.TabIndex = 77;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(928, 79);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(90, 28);
-            this.comboBox3.TabIndex = 76;
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -1419,22 +1424,6 @@
             this.label19.Size = new System.Drawing.Size(118, 18);
             this.label19.TabIndex = 75;
             this.label19.Text = "Nazwa elementu";
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(928, 149);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(90, 28);
-            this.comboBox4.TabIndex = 74;
-            // 
-            // numericUpDown6
-            // 
-            this.numericUpDown6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown6.Location = new System.Drawing.Point(928, 51);
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(68, 22);
-            this.numericUpDown6.TabIndex = 73;
             // 
             // btnUtworz_Element
             // 
@@ -1447,23 +1436,12 @@
             this.btnUtworz_Element.UseVisualStyleBackColor = true;
             this.btnUtworz_Element.Click += new System.EventHandler(this.btnUtworz_Element_Click);
             // 
-            // textBox3
+            // txtMiesiace_Przydatnosci
             // 
-            this.textBox3.Location = new System.Drawing.Point(928, 113);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(90, 27);
-            this.textBox3.TabIndex = 71;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label20.Location = new System.Drawing.Point(706, 152);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(77, 18);
-            this.label20.TabIndex = 69;
-            this.label20.Text = "Jednostka";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtMiesiace_Przydatnosci.Location = new System.Drawing.Point(928, 113);
+            this.txtMiesiace_Przydatnosci.Name = "txtMiesiace_Przydatnosci";
+            this.txtMiesiace_Przydatnosci.Size = new System.Drawing.Size(90, 27);
+            this.txtMiesiace_Przydatnosci.TabIndex = 71;
             // 
             // label21
             // 
@@ -1471,9 +1449,9 @@
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label21.Location = new System.Drawing.Point(706, 108);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(51, 18);
+            this.label21.Size = new System.Drawing.Size(210, 18);
             this.label21.TabIndex = 70;
-            this.label21.Text = "Liczba";
+            this.label21.Text = "Okres przydatności (miesiące)";
             // 
             // label22
             // 
@@ -1491,25 +1469,33 @@
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label23.Location = new System.Drawing.Point(705, 53);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(152, 24);
+            this.label23.Size = new System.Drawing.Size(126, 24);
             this.label23.TabIndex = 68;
-            this.label23.Text = "Numer elementu";
+            this.label23.Text = "Typ elementu";
             // 
-            // dataGridView6
+            // dgvElement_Proces
             // 
-            this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView6.Location = new System.Drawing.Point(200, 267);
-            this.dataGridView6.Name = "dataGridView6";
-            this.dataGridView6.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView6.TabIndex = 66;
+            this.dgvElement_Proces.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvElement_Proces.Location = new System.Drawing.Point(40, 248);
+            this.dgvElement_Proces.Name = "dgvElement_Proces";
+            this.dgvElement_Proces.Size = new System.Drawing.Size(502, 185);
+            this.dgvElement_Proces.TabIndex = 66;
             // 
-            // comboBox2
+            // dgvWszystkie_Elementy
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(330, 89);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(90, 28);
-            this.comboBox2.TabIndex = 65;
+            this.dgvWszystkie_Elementy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvWszystkie_Elementy.Location = new System.Drawing.Point(676, 235);
+            this.dgvWszystkie_Elementy.Name = "dgvWszystkie_Elementy";
+            this.dgvWszystkie_Elementy.Size = new System.Drawing.Size(557, 188);
+            this.dgvWszystkie_Elementy.TabIndex = 66;
+            // 
+            // cmbTyp_Elementu
+            // 
+            this.cmbTyp_Elementu.FormattingEnabled = true;
+            this.cmbTyp_Elementu.Location = new System.Drawing.Point(330, 89);
+            this.cmbTyp_Elementu.Name = "cmbTyp_Elementu";
+            this.cmbTyp_Elementu.Size = new System.Drawing.Size(90, 28);
+            this.cmbTyp_Elementu.TabIndex = 65;
             // 
             // label3
             // 
@@ -1521,21 +1507,13 @@
             this.label3.TabIndex = 64;
             this.label3.Text = "Nazwa elementu";
             // 
-            // comboBox5
+            // cmbJednostka
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(330, 159);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(90, 28);
-            this.comboBox5.TabIndex = 63;
-            // 
-            // numericUpDown9
-            // 
-            this.numericUpDown9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown9.Location = new System.Drawing.Point(330, 61);
-            this.numericUpDown9.Name = "numericUpDown9";
-            this.numericUpDown9.Size = new System.Drawing.Size(68, 22);
-            this.numericUpDown9.TabIndex = 62;
+            this.cmbJednostka.FormattingEnabled = true;
+            this.cmbJednostka.Location = new System.Drawing.Point(330, 159);
+            this.cmbJednostka.Name = "cmbJednostka";
+            this.cmbJednostka.Size = new System.Drawing.Size(90, 28);
+            this.cmbJednostka.TabIndex = 63;
             // 
             // btnDodaj_Element
             // 
@@ -1548,12 +1526,12 @@
             this.btnDodaj_Element.UseVisualStyleBackColor = true;
             this.btnDodaj_Element.Click += new System.EventHandler(this.btnDodaj_Element_Click);
             // 
-            // textBox2
+            // txtLiczba_Elementow
             // 
-            this.textBox2.Location = new System.Drawing.Point(330, 123);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(90, 27);
-            this.textBox2.TabIndex = 60;
+            this.txtLiczba_Elementow.Location = new System.Drawing.Point(330, 123);
+            this.txtLiczba_Elementow.Name = "txtLiczba_Elementow";
+            this.txtLiczba_Elementow.Size = new System.Drawing.Size(90, 27);
+            this.txtLiczba_Elementow.TabIndex = 60;
             // 
             // label10
             // 
@@ -1598,10 +1576,10 @@
             // 
             // tabPrzypisz_proces_do_zamowienia
             // 
+            this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.cmbID_Proces_Technologiczny3);
+            this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.cmbID_Zamowienie_Element);
             this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.checkedListBox1);
-            this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.numericUpDown8);
             this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.label32);
-            this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.numericUpDown1);
             this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.btnPrzypisz_Proces_Zamowienie);
             this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.label25);
             this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.label26);
@@ -1620,14 +1598,6 @@
             this.checkedListBox1.Size = new System.Drawing.Size(217, 290);
             this.checkedListBox1.TabIndex = 67;
             // 
-            // numericUpDown8
-            // 
-            this.numericUpDown8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown8.Location = new System.Drawing.Point(782, 93);
-            this.numericUpDown8.Name = "numericUpDown8";
-            this.numericUpDown8.Size = new System.Drawing.Size(68, 22);
-            this.numericUpDown8.TabIndex = 66;
-            // 
             // label32
             // 
             this.label32.AutoSize = true;
@@ -1637,14 +1607,6 @@
             this.label32.Size = new System.Drawing.Size(173, 24);
             this.label32.TabIndex = 65;
             this.label32.Text = "Numer zamówienia";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown1.Location = new System.Drawing.Point(782, 129);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(68, 22);
-            this.numericUpDown1.TabIndex = 61;
             // 
             // btnPrzypisz_Proces_Zamowienie
             // 
@@ -1699,25 +1661,87 @@
             // 
             this.vObslugaTableAdapter.ClearBeforeFill = true;
             // 
+            // btnPokazEtapyWProcesie
+            // 
+            this.btnPokazEtapyWProcesie.Location = new System.Drawing.Point(456, 52);
+            this.btnPokazEtapyWProcesie.Name = "btnPokazEtapyWProcesie";
+            this.btnPokazEtapyWProcesie.Size = new System.Drawing.Size(75, 47);
+            this.btnPokazEtapyWProcesie.TabIndex = 56;
+            this.btnPokazEtapyWProcesie.Text = "button1";
+            this.btnPokazEtapyWProcesie.UseVisualStyleBackColor = true;
+            this.btnPokazEtapyWProcesie.Click += new System.EventHandler(this.btnPokazEtapyWProcesie_Click);
+            // 
+            // cmbID_Proces_Technologiczny
+            // 
+            this.cmbID_Proces_Technologiczny.FormattingEnabled = true;
+            this.cmbID_Proces_Technologiczny.Location = new System.Drawing.Point(1075, 350);
+            this.cmbID_Proces_Technologiczny.Name = "cmbID_Proces_Technologiczny";
+            this.cmbID_Proces_Technologiczny.Size = new System.Drawing.Size(121, 28);
+            this.cmbID_Proces_Technologiczny.TabIndex = 16;
+            // 
+            // cmbProces_Technologiczny_Element
+            // 
+            this.cmbProces_Technologiczny_Element.FormattingEnabled = true;
+            this.cmbProces_Technologiczny_Element.Location = new System.Drawing.Point(330, 55);
+            this.cmbProces_Technologiczny_Element.Name = "cmbProces_Technologiczny_Element";
+            this.cmbProces_Technologiczny_Element.Size = new System.Drawing.Size(90, 28);
+            this.cmbProces_Technologiczny_Element.TabIndex = 65;
+            // 
+            // cmbTyp_Elementu2
+            // 
+            this.cmbTyp_Elementu2.FormattingEnabled = true;
+            this.cmbTyp_Elementu2.Location = new System.Drawing.Point(928, 45);
+            this.cmbTyp_Elementu2.Name = "cmbTyp_Elementu2";
+            this.cmbTyp_Elementu2.Size = new System.Drawing.Size(90, 28);
+            this.cmbTyp_Elementu2.TabIndex = 76;
+            // 
+            // txtNazwa_Elementu
+            // 
+            this.txtNazwa_Elementu.Location = new System.Drawing.Point(928, 80);
+            this.txtNazwa_Elementu.Name = "txtNazwa_Elementu";
+            this.txtNazwa_Elementu.Size = new System.Drawing.Size(90, 27);
+            this.txtNazwa_Elementu.TabIndex = 71;
+            // 
+            // cmbID_Zamowienie_Element
+            // 
+            this.cmbID_Zamowienie_Element.FormattingEnabled = true;
+            this.cmbID_Zamowienie_Element.Location = new System.Drawing.Point(773, 89);
+            this.cmbID_Zamowienie_Element.Name = "cmbID_Zamowienie_Element";
+            this.cmbID_Zamowienie_Element.Size = new System.Drawing.Size(121, 28);
+            this.cmbID_Zamowienie_Element.TabIndex = 68;
+            // 
+            // cmbID_Proces_Technologiczny3
+            // 
+            this.cmbID_Proces_Technologiczny3.FormattingEnabled = true;
+            this.cmbID_Proces_Technologiczny3.Location = new System.Drawing.Point(773, 131);
+            this.cmbID_Proces_Technologiczny3.Name = "cmbID_Proces_Technologiczny3";
+            this.cmbID_Proces_Technologiczny3.Size = new System.Drawing.Size(121, 28);
+            this.cmbID_Proces_Technologiczny3.TabIndex = 68;
+            // 
             // PrzygotowanieProdukcji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1460, 743);
+            this.ClientSize = new System.Drawing.Size(1460, 760);
             this.Controls.Add(this.tab_Proces_technologiczny);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PrzygotowanieProdukcji";
             this.Text = "Przygotowanie_Produkcji";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.PrzygotowanieProdukcji_Load);
             this.tab_Proces_technologiczny.ResumeLayout(false);
             this.tabpProcesTechnologiczny.ResumeLayout(false);
             this.tabcWyszukajObsluge.ResumeLayout(false);
+            this.tabSerwis_maszyn.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSerwis)).EndInit();
+            this.tabResurs_Maszyn.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResursMaszyny)).EndInit();
             this.tabZnajdz_dodaj_obsluge.ResumeLayout(false);
             this.tabZnajdz_dodaj_obsluge.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObsluga)).EndInit();
             this.tabDodaj_nowa_maszyne.ResumeLayout(false);
             this.tabDodaj_nowa_maszyne.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWszystkie_Maszyny)).EndInit();
             this.tabpZarzadzanieParkiemMaszynowym.ResumeLayout(false);
             this.tabpZarzadzanieParkiemMaszynowym.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesy)).EndInit();
@@ -1736,25 +1760,20 @@
             this.tabZnajdz_dodaj_dokumentacje.ResumeLayout(false);
             this.tabZnajdz_dodaj_dokumentacje.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Numer_Dokumentacji)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDokumentacja)).EndInit();
             this.tabDodaj_etap.ResumeLayout(false);
             this.tabDodaj_etap.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMaszyny_Proces)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEtapy_proces)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDodaj_Maszyne)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDodaj_Etap)).EndInit();
             this.tabDodaj_utworz_element.ResumeLayout(false);
             this.tabDodaj_utworz_element.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvElement_Proces)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWszystkie_Elementy)).EndInit();
             this.tabPrzypisz_proces_do_zamowienia.ResumeLayout(false);
             this.tabPrzypisz_proces_do_zamowienia.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vObslugaBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -1816,7 +1835,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblNumerProcesu;
         private System.Windows.Forms.DataGridView dgvUkryty;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDokumentacja;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
@@ -1834,8 +1853,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button btn_Szukaj_Dokumentacja;
         private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.ComboBox cmbNazwa_Etapu;
         private System.Windows.Forms.NumericUpDown nudDodaj_Etap;
         private System.Windows.Forms.ComboBox cmbRodzaj_Maszyny2;
@@ -1847,14 +1864,12 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.NumericUpDown numericUpDown8;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Button btnPrzypisz_Proces_Zamowienie;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.ComboBox cmbRodzaj_Maszyny;
-        private System.Windows.Forms.DataGridView dataGridView5;
+        private System.Windows.Forms.DataGridView dgvWszystkie_Maszyny;
         private System.Windows.Forms.Button btnDodaj_Maszyne;
         private System.Windows.Forms.TextBox txtSerwis;
         private System.Windows.Forms.TextBox txtResurs_Rbh;
@@ -1867,8 +1882,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.DataGridView dataGridView4;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvMaszyny_Proces;
+        private System.Windows.Forms.DataGridView dgvEtapy_proces;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.ComboBox cmbDzial;
         private System.Windows.Forms.Label label38;
@@ -1885,29 +1900,35 @@
         private System.Windows.Forms.ComboBox cmbRodzaj_Dokumentacji;
         private System.Windows.Forms.ComboBox cmbTechnolodzy2;
         private System.Windows.Forms.TabPage tabDodaj_utworz_element;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.NumericUpDown numericUpDown6;
         private System.Windows.Forms.Button btnUtworz_Element;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox txtMiesiace_Przydatnosci;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.DataGridView dataGridView6;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.DataGridView dgvWszystkie_Elementy;
+        private System.Windows.Forms.ComboBox cmbTyp_Elementu;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.NumericUpDown numericUpDown9;
+        private System.Windows.Forms.ComboBox cmbJednostka;
         private System.Windows.Forms.Button btnDodaj_Element;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtLiczba_Elementow;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.TextBox txtLiczba_Rbh_Maszyn;
+        private System.Windows.Forms.DataGridView dgvElement_Proces;
+        private System.Windows.Forms.DataGridView dgvSerwis;
+        private System.Windows.Forms.TabPage tabResurs_Maszyn;
+        private System.Windows.Forms.DataGridView dgvResursMaszyny;
+        private System.Windows.Forms.NumericUpDown nud_Numer_Dokumentacji;
+        private System.Windows.Forms.Button btnPokazEtapyWProcesie;
+        private System.Windows.Forms.ComboBox cmbID_Proces_Technologiczny;
+        private System.Windows.Forms.ComboBox cmbProces_Technologiczny_Element;
+        private System.Windows.Forms.ComboBox cmbTyp_Elementu2;
+        private System.Windows.Forms.TextBox txtNazwa_Elementu;
+        private System.Windows.Forms.ComboBox cmbID_Proces_Technologiczny3;
+        private System.Windows.Forms.ComboBox cmbID_Zamowienie_Element;
     }
 }
