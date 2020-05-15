@@ -15,10 +15,10 @@ namespace Szwalnia
     public partial class vObsluga
     {
         public string Nazwa_maszyny { get; set; }
+        public System.DateTime Data_rozpoczęcia { get; set; }
+        public Nullable<System.DateTime> Data_zakończenia { get; set; }
         public string Numer_seryjny { get; set; }
         public string Rodzaj_obsługi { get; set; }
         public string Imię_i_nazwisko { get; set; }
-        public System.DateTime Data_rozpoczęcia { get; set; }
-        public Nullable<System.DateTime> Data_zakończenia { get; set; }
     }
 }
