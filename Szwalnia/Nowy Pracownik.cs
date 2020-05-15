@@ -22,12 +22,10 @@ namespace Szwalnia
             int numerOstatniegoPracownika = dgvUkryty.Rows.Count;
             lblNumerPracownika.Text = (numerOstatniegoPracownika + 1).ToString();
         }
-
         private void btnAnuluj_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void btnWyzeruj_Click(object sender, EventArgs e)
         {
             txtImie.Text = "";
@@ -36,7 +34,6 @@ namespace Szwalnia
             txtAdres.Text = "";
             txtTelefon.Text = "";
         }
-
         private void btnDalej_Click(object sender, EventArgs e)
         {
             Pracownicy pracownicy = new Pracownicy();
@@ -52,9 +49,6 @@ namespace Szwalnia
             InformacjeOZatrudnieniu informacjeOZatrudnieniu = new InformacjeOZatrudnieniu(db);
             informacjeOZatrudnieniu.Show();
             this.Close();
-
-
-
         }
     }
 }
