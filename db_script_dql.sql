@@ -87,7 +87,7 @@ GO
 --Widok podsumowujacy materialy brakujace ktore trzeba domowic
 CREATE VIEW [dbo].[vMaterialyDoZamowieniaBrak]
 AS
-SELECT        ID_Zamowienia, ID_Element, SUM(Ilosc) AS Ilosc
+SELECT        Wszystko.ID_Zamowienia, dbo.Elementy.ID_Element, dbo.Elementy.Element_Nazwa, SUM(Wszystko.Ilosc) AS Ilosc
 FROM            (SELECT        ID_Zamowienia, ID_Element, Ilosc
                           FROM            dbo.vMaterialyDoZamowienia
                           UNION ALL
@@ -95,10 +95,12 @@ FROM            (SELECT        ID_Zamowienia, ID_Element, Ilosc
                           FROM            dbo.vMaterialyZamowione
                           UNION ALL
                           SELECT        ID_Zamowienia, ID_Element, Ilosc
-                          FROM            dbo.vMaterialyZMagazynu) AS Wszystko
-GROUP BY ID_Zamowienia, ID_Element
-HAVING        (SUM(Ilosc) > 0)
+                          FROM            dbo.vMaterialyZMagazynu) AS Wszystko INNER JOIN
+                         dbo.Elementy ON Wszystko.ID_Element = dbo.Elementy.ID_Element
+GROUP BY Wszystko.ID_Zamowienia, dbo.Elementy.Element_Nazwa, dbo.Elementy.ID_Element
+HAVING        (SUM(Wszystko.Ilosc) < 0)
 GO
+
 
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
