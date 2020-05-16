@@ -41,6 +41,7 @@
             this.dgvListaMaterialow.Name = "dgvListaMaterialow";
             this.dgvListaMaterialow.Size = new System.Drawing.Size(776, 426);
             this.dgvListaMaterialow.TabIndex = 0;
+            this.dgvListaMaterialow.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaMaterialow_CellDoubleClick);
             // 
             // lblInfoText
             // 

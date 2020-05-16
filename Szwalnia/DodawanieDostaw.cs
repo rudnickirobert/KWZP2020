@@ -39,5 +39,9 @@ namespace Szwalnia
             Start.GetForm.Show();
         }
 
+        private void dgvListaMaterialow_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
     }
 }
