@@ -435,7 +435,8 @@ create table Obsluga_Techniczna (
     ID_Obsluga_Techniczna int IDENTITY(1,1) not null PRIMARY KEY, 
     ID_Maszyny int not null FOREIGN KEY REFERENCES Maszyny (ID_Maszyny), 
     ID_Rodzaj_Obslugi int not null FOREIGN KEY REFERENCES Rodzaj_Obslugi (ID_Rodzaj_Obslugi), 
-    Data_Wykonania smalldatetime not null, 
+    Data_Rozpoczecia SMALLDATETIME not null,
+	Data_Zakonczenia SMALLDATETIME null,
     ID_Pracownika int not null FOREIGN KEY REFERENCES Pracownicy (ID_Pracownika), 
 ); 
  
@@ -455,10 +456,11 @@ create table Proces_Zamowienie (
   
 create table Elementy_Proces ( 
 	ID_Elementy_Proces int IDENTITY(1,1) not null PRIMARY KEY,
-    ID_Proces_Technologiczny int not null FOREIGN KEY REFERENCES Proces_Technologiczny(ID_Proces_Technologiczny),
+	ID_Proces_Technologiczny int not null FOREIGN KEY REFERENCES Proces_Technologiczny(ID_Proces_Technologiczny),
     ID_Element int not null FOREIGN KEY REFERENCES Elementy (ID_Element), 
     Liczba int not null, 
-); 
+	ID_jednostka int not null FOREIGN KEY REFERENCES Elementy_Jednostki(ID_jednostka),
+);   
   
 create table Etapy_W_Procesie ( 
 	ID_Etapy_W_Procesie int IDENTITY (1,1) not null PRIMARY KEY,

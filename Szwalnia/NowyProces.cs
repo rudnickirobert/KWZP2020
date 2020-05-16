@@ -25,10 +25,10 @@ namespace Szwalnia
 
         private void btnWyzeruj_Click(object sender, EventArgs e)
         {
-            tbDataRozpoczecia.Text = "";
-            tbDataZakonczenia.Text = "";
+            mtbDataRozpoczecia.Text = "";
+            mtbDataZakonczenia.Text = "";
             tbIdZamowienieElement.Text = "";
-            tbProponowanaData.Text = "";
+            mtbProponowanaData.Text = "";
             tbUwagi.Text = "";
         }
 
@@ -42,19 +42,34 @@ namespace Szwalnia
             Proces_Produkcyjny proces = new Proces_Produkcyjny();
             if(string.IsNullOrEmpty(tbIdZamowienieElement.Text))
             {
-                MessageBox.Show("Uzupełnienie pola ID zamowienie element jest wymagane!");
+                MessageBox.Show("Uzupełnienie pola 'ID zamówienie element' jest wymagane!");
             }
             else
             { 
                proces.ID_Zamowienie_Element = Convert.ToInt32(tbIdZamowienieElement.Text);
-               proces.Proponowana_data_dostawy_materialu = Convert.ToDateTime(tbProponowanaData);
-               proces.Data_Rozpoczecia = Convert.ToDateTime(tbDataRozpoczecia);
-               proces.Data_Zakonczenia = Convert.ToDateTime(tbDataZakonczenia);
-               proces.Uwagi = tbUwagi.Text;
+               //proces.Proponowana_data_dostawy_materialu = Convert.ToDateTime(mtbProponowanaData.Text);
+               //proces.Data_Rozpoczecia = Convert.ToDateTime(mtbDataRozpoczecia.Text);
+               //proces.Data_Zakonczenia = Convert.ToDateTime(mtbDataZakonczenia.Text);
+               //proces.Uwagi = tbUwagi.Text;
                db.Proces_Produkcyjny.Add(proces);
                db.SaveChanges();
-               MessageBox.Show("Dodano nowy proces technologiczny");
+               MessageBox.Show("Dodano nowy proces produkcyjny");
             }
+        }
+
+        private void btnDzisProponowana_Click(object sender, EventArgs e)
+        {
+            mtbProponowanaData.Text = DateTime.Now.ToString();
+        }
+
+        private void btnDzisRozpoczecie_Click(object sender, EventArgs e)
+        {
+            mtbDataRozpoczecia.Text = DateTime.Now.ToString();
+        }
+
+        private void btnDzisZakonczenie_Click(object sender, EventArgs e)
+        {
+            mtbDataZakonczenia.Text = DateTime.Now.ToString();
         }
     }
 }

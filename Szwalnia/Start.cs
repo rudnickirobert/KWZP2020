@@ -37,6 +37,7 @@ namespace Szwalnia
         {
             Produkcja formularzProdukcji = new Produkcja(szwalnia);
             formularzProdukcji.Show();
+           
         }
 
         private void btnZarzadzanie_Click(object sender, EventArgs e)

@@ -19,16 +19,35 @@ namespace Szwalnia
             this.db = db;
         }
 
-        private void btnNiewykorzystanyMaterial_Click(object sender, EventArgs e)
+        private void btnWstecz_Click(object sender, EventArgs e)
         {
-            NiewykorzystanyMaterialWMiesiacu niewykorzystanyMaterialWMiesiacu = new NiewykorzystanyMaterialWMiesiacu(db);
-            niewykorzystanyMaterialWMiesiacu.Show();
+            Produkcja produkcja = new Produkcja(db);
+            produkcja.Show();
+            this.Close();
         }
 
-        private void btnOdpadyProces_Click(object sender, EventArgs e)
+        private void btnProcesy_Click(object sender, EventArgs e)
         {
-            NajwiekszyOdpad najwiekszyOdpad = new NajwiekszyOdpad(db);
-            najwiekszyOdpad.Show();
+            RaportProcesyProdukcyjne raportProcesyProdukcyjne = new RaportProcesyProdukcyjne(db);
+            raportProcesyProdukcyjne.Show();
+        }
+
+        private void btnPraownicy_Click(object sender, EventArgs e)
+        {
+            RaportPracownicyProdukcji raportPracownicyProdukcji = new RaportPracownicyProdukcji(db);
+            raportPracownicyProdukcji.Show();
+        }
+
+        private void btnMaterialOdpad_Click(object sender, EventArgs e)
+        {
+            RaportNieuzytyMaterial raportNieuzytyMaterial = new RaportNieuzytyMaterial(db);
+            raportNieuzytyMaterial.Show();
+        }
+
+        private void btnKontrolaEfektywnosci_Click(object sender, EventArgs e)
+        {
+            RaportKontrolaEfektywnosci raportKontrolaEfektywnosci = new RaportKontrolaEfektywnosci(db);
+            raportKontrolaEfektywnosci.Show();
         }
     }
 }

@@ -36,18 +36,18 @@
             // btnProcesProdukcyjny
             // 
             this.btnProcesProdukcyjny.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnProcesProdukcyjny.Location = new System.Drawing.Point(56, 21);
+            this.btnProcesProdukcyjny.Location = new System.Drawing.Point(74, 45);
             this.btnProcesProdukcyjny.Name = "btnProcesProdukcyjny";
             this.btnProcesProdukcyjny.Size = new System.Drawing.Size(300, 120);
             this.btnProcesProdukcyjny.TabIndex = 3;
-            this.btnProcesProdukcyjny.Text = "Proces Produkcyjny";
+            this.btnProcesProdukcyjny.Text = "Proces produkcyjny";
             this.btnProcesProdukcyjny.UseVisualStyleBackColor = true;
             this.btnProcesProdukcyjny.Click += new System.EventHandler(this.btnProcesProdukcyjny_Click);
             // 
             // btnRaporty
             // 
             this.btnRaporty.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnRaporty.Location = new System.Drawing.Point(56, 164);
+            this.btnRaporty.Location = new System.Drawing.Point(74, 171);
             this.btnRaporty.Name = "btnRaporty";
             this.btnRaporty.Size = new System.Drawing.Size(300, 120);
             this.btnRaporty.TabIndex = 4;
@@ -58,7 +58,7 @@
             // btnInne
             // 
             this.btnInne.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnInne.Location = new System.Drawing.Point(56, 309);
+            this.btnInne.Location = new System.Drawing.Point(74, 297);
             this.btnInne.Name = "btnInne";
             this.btnInne.Size = new System.Drawing.Size(300, 120);
             this.btnInne.TabIndex = 5;
@@ -70,11 +70,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(433, 450);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(434, 461);
             this.Controls.Add(this.btnInne);
             this.Controls.Add(this.btnRaporty);
             this.Controls.Add(this.btnProcesProdukcyjny);
             this.Name = "Produkcja";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Produkcja";
             this.ResumeLayout(false);
 

@@ -19,6 +19,8 @@ namespace Szwalnia
             InitializeComponent();
             this.db = db;
             this.IdProcesu = IdProcesu;
+            Proces_Produkcyjny proces = db.Proces_Produkcyjny.Where(wybrany => wybrany.ID_Procesu_Produkcyjnego == IdProcesu).First();
+            lblProces.Text = "Szczegóły procesu produkcyjnego o ID " + proces.ID_Procesu_Produkcyjnego;
         }
 
         private void btnRealizacjaProcesu_Click(object sender, EventArgs e)
@@ -37,6 +39,26 @@ namespace Szwalnia
         {
             NiewykorzystanyMaterialProces niewykorzystanyMaterialProces = new NiewykorzystanyMaterialProces(db, IdProcesu);
             niewykorzystanyMaterialProces.Show();
+        }
+
+        private void btnWstecz_Click(object sender, EventArgs e)
+        {
+            PrzegladProcesowProdukcyjnych przegladProcesowProdukcyjnych = new PrzegladProcesowProdukcyjnych(db);
+            przegladProcesowProdukcyjnych.Show();
+            this.Close();
+        }
+
+        private void btnTechnologia_Click(object sender, EventArgs e)
+        {
+            ProdukcjaOdTechnologii produkcjaOdTechnologii = new ProdukcjaOdTechnologii(db,IdProcesu);
+            produkcjaOdTechnologii.Show();
+
+        }
+
+        private void btnOdbiorMaterialu_Click(object sender, EventArgs e)
+        {
+            OdebranyMaterialProdukcja odebranyMaterialProdukcja = new OdebranyMaterialProdukcja(db, IdProcesu);
+            odebranyMaterialProdukcja.Show();
         }
     }
 }

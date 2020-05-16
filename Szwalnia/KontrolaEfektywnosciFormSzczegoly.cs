@@ -18,13 +18,42 @@ namespace Szwalnia
         {
             InitializeComponent();
             this.db = db;
-            this.IdProcesu = IdProcesu;
-            Kontrola_Efektywnosci NumerProcesu = db.Kontrola_Efektywnosci.Where(IDProcesu => IDProcesu.ID_Procesu_Produkcyjnego == IdProcesu).First();
-            txtNumerProcesu.Text = NumerProcesu.ID_Procesu_Produkcyjnego.ToString();
-            txtDataKontroli.Text = NumerProcesu.Data_Kontroli.ToLongDateString();
-            txtLiczbaPoprawnych.Text = NumerProcesu.Liczba_Poprawnych.ToString();
-            txtUwagiDoKontroli.Text = NumerProcesu.Uwagi.ToString();
-            chkZgodnosc.Checked = NumerProcesu.Zgodnosc_Zamowienia.GetValueOrDefault();
+            this.IdProcesu = IdProcesu; 
+           Kontrola_Efektywnosci numerProcesu = db.Kontrola_Efektywnosci.Where(proces => proces.ID_Procesu_Produkcyjnego == IdProcesu).First();
+            lblProces.Text = "Kontrola efektywności dla procesu produkcyjnego o ID " + numerProcesu.ID_Procesu_Produkcyjnego;
+            mtbDataKontroli.Text = numerProcesu.Data_Kontroli.ToString();
+            txtLiczbaPoprawnych.Text = numerProcesu.Liczba_Poprawnych.ToString();
+            txtUwagiDoKontroli.Text = numerProcesu.Uwagi.ToString();
+        }
+
+        private void btnZapisz_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(mtbDataKontroli.Text))
+            {
+                MessageBox.Show("Uzupełnienie pola Data kontroli jest wymagane!");
+            }
+            else
+            {
+                db.SaveChanges();
+                MessageBox.Show("Zaaktualizowano kontrolę efektywności");
+            }
+        }
+
+        private void btnAnuluj_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnDzisiaj_Click(object sender, EventArgs e)
+        {
+            mtbDataKontroli.Text = DateTime.Now.ToString();
+        }
+
+        private void btnWyzeruj_Click(object sender, EventArgs e)
+        {
+            mtbDataKontroli.Text = "";
+            txtUwagiDoKontroli.Text = "";
+            txtLiczbaPoprawnych.Text = "";
         }
     }
 }
