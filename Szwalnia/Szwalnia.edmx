@@ -775,20 +775,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vMaterialyDoZamowieniaBrak' does not 
           <Property Name="Ilosc" Type="float" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'Szwalnia.dbo.vMaterialyZamowione' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="vMaterialyZamowione">
-          <Property Name="ID_Zamowienia" Type="int" />
-          <Property Name="ID_Element" Type="int" />
-          <Property Name="Ilosc" Type="real" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'Szwalnia.dbo.vMaterialyZMagazynu' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="vMaterialyZMagazynu">
-          <Property Name="ID_Zamowienia" Type="int" />
-          <Property Name="ID_Element" Type="int" />
-          <Property Name="Ilosc" Type="int" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vNiezuzyteWMiesiacu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vNiezuzyteWMiesiacu">
           <Key>

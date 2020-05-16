@@ -23,5 +23,17 @@ namespace Szwalnia
         {
             Start.GetForm.Show();
         }
+
+        private void ObslugaDostaw_Load(object sender, EventArgs e)
+        {
+             if (db.vMaterialyDoZamowieniaBrak.Where(elementDoZamowienia => elementDoZamowienia.ID_Element > 0).Any() == false)
+            {
+                lblInfo.Text = "";
+            }
+             else
+            {
+                lblInfo.Text = "Istnieją niezamówione materiały";
+            }
+        }
     }
 }

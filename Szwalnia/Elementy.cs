@@ -26,6 +26,7 @@ namespace Szwalnia
             this.Oferta = new HashSet<Oferta>();
             this.Zamowienie_Element = new HashSet<Zamowienie_Element>();
             this.Zawartosc = new HashSet<Zawartosc>();
+            this.Dostawy_Wlasne_Zawartosc = new HashSet<Dostawy_Wlasne_Zawartosc>();
         }
     
         public int ID_Element { get; set; }
@@ -52,5 +53,7 @@ namespace Szwalnia
         public virtual ICollection<Zamowienie_Element> Zamowienie_Element { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zawartosc> Zawartosc { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Dostawy_Wlasne_Zawartosc> Dostawy_Wlasne_Zawartosc { get; set; }
     }
 }

@@ -103,6 +103,9 @@
     <Compile Include="Dostawcy_Zaopatrzenie.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="Dostawy_Wlasne_Zawartosc.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="Dostawy_Zawartosc.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -576,6 +579,12 @@
     <Compile Include="vMaszyny_serwis.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vMaterialyDoZamowienia.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vMaterialyDoZamowieniaBrak.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vNiezuzyteWMiesiacu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -693,6 +702,9 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="Zamowienia_Dostawy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Zamowienia_Dostawy_Wlasne.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="Zamowienia_Przydzial.cs">

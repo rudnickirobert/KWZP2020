@@ -98,7 +98,7 @@ FROM            (SELECT        ID_Zamowienia, ID_Element, Ilosc
                           FROM            dbo.vMaterialyZMagazynu) AS Wszystko INNER JOIN
                          dbo.Elementy ON Wszystko.ID_Element = dbo.Elementy.ID_Element
 GROUP BY Wszystko.ID_Zamowienia, dbo.Elementy.Element_Nazwa, dbo.Elementy.ID_Element
-HAVING        (SUM(Wszystko.Ilosc) < 0)
+HAVING        (SUM(Wszystko.Ilosc) > 0)
 GO
 
 
