@@ -24,7 +24,7 @@ namespace Szwalnia
             cmbOznaczenie.DataSource = db.vRegaly_alfabetycznie.ToList();
             cmbOznaczenie.DisplayMember = "Oznaczenie";
             cmbOznaczenie.ValueMember = "ID_regal";
-            cmbOznaczenie.Sorted = true;
+            cmbRozmiar.Sorted = true;
             cmbRozmiar.DataSource = db.vPolki_Rozmiary.ToList();
             cmbRozmiar.DisplayMember = "Wymiar";
             cmbRozmiar.ValueMember = "ID_Rozmiar_Polki";

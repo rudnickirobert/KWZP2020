@@ -39,11 +39,6 @@ namespace Szwalnia
                 && db.Polki_Rozmiary.Where(rozmiar => rozmiar.Glebokosc == glebokosc).Count() > 0);
         }
 
-        private void NowyRozmiarPolki_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Start.GetForm.Show();
-        }
-
         private void btnDodajRozmiar_Click(object sender, EventArgs e)
         {
             if (allFilled() && correctData() && isUnique())
@@ -65,5 +60,11 @@ namespace Szwalnia
             else
                 MessageBox.Show("Rozmiar półki o zaproponowanych wymiarach już istnieje!");
         }
+
+        private void NowyRozmiarPolki_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Start.GetForm.Show();
+        }
+
     }
 }
