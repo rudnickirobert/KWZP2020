@@ -55,7 +55,50 @@ FROM            dbo.Regaly
 GROUP BY ID_regal, Oznaczenie
 ORDER BY Oznaczenie
 GO
-
+-- Widok podsumowujacy materialy z magazynu ktore zostaly przypisane do zamowien
+CREATE VIEW [dbo].[vMaterialyZMagazynu]
+AS
+SELECT        dbo.Zamowienia_Dostawy_Wlasne.ID_Zamowienia, dbo.Dostawy_Wlasne_Zawartosc.ID_Element, SUM(dbo.Dostawy_Wlasne_Zawartosc.Ilosc) * - 1 AS Ilosc
+FROM            dbo.Dostawy_Wlasne_Zawartosc INNER JOIN
+                         dbo.Zamowienia_Dostawy_Wlasne ON dbo.Dostawy_Wlasne_Zawartosc.ID_Zamowienia_dostawy_wlasne = dbo.Zamowienia_Dostawy_Wlasne.ID_Zamowienia_dostawy_wlasne
+GROUP BY dbo.Zamowienia_Dostawy_Wlasne.ID_Zamowienia, dbo.Dostawy_Wlasne_Zawartosc.ID_Element
+GO
+--Widok podsumowujacy materialy potrzebne do wykonania zamowienia
+CREATE VIEW [dbo].[vMaterialyDoZamowienia]
+AS
+SELECT        dbo.Zamowienia.ID_Zamowienia, dbo.Elementy_Proces.ID_Element, SUM(dbo.Elementy_Proces.Liczba) AS Ilosc
+FROM            dbo.Proces_Technologiczny INNER JOIN
+                         dbo.Elementy_Proces ON dbo.Proces_Technologiczny.ID_Proces_Technologiczny = dbo.Elementy_Proces.ID_Proces_Technologiczny INNER JOIN
+                         dbo.Proces_Zamowienie ON dbo.Proces_Technologiczny.ID_Proces_Technologiczny = dbo.Proces_Zamowienie.ID_Proces_Technologiczny INNER JOIN
+                         dbo.Zamowienia INNER JOIN
+                         dbo.Zamowienie_Element ON dbo.Zamowienia.ID_Zamowienia = dbo.Zamowienie_Element.ID_Zamowienia ON dbo.Proces_Zamowienie.ID_Zamowienie_Element = dbo.Zamowienie_Element.ID_Zamowienie_Element
+WHERE        (dbo.Proces_Zamowienie.Kompletny_Proces = 1)
+GROUP BY dbo.Zamowienia.ID_Zamowienia, dbo.Elementy_Proces.ID_Element
+GO
+--Widok podsumowujacy juz zamowione materialy
+CREATE VIEW [dbo].[vMaterialyZamowione]
+AS
+SELECT        dbo.Zamowienia_Dostawy.ID_Zamowienia, dbo.Dostawy_Zawartosc.ID_Element, dbo.Dostawy_Zawartosc.Ilosc_Dostarczona * dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym * - 1 AS Ilosc
+FROM            dbo.Zamowienia_Dostawy INNER JOIN
+                         dbo.Dostawy_Zawartosc ON dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Dostawy_Zawartosc.ID_Dostawy INNER JOIN
+                         dbo.Oferta ON dbo.Dostawy_Zawartosc.ID_oferta = dbo.Oferta.ID_Oferta
+WHERE        (dbo.Zamowienia_Dostawy.Data_Dostawy_Planowana IS NOT NULL)
+GO
+--Widok podsumowujacy materialy brakujace ktore trzeba domowic
+CREATE VIEW [dbo].[vMaterialyDoZamowieniaBrak]
+AS
+SELECT        ID_Zamowienia, ID_Element, SUM(Ilosc) AS Ilosc
+FROM            (SELECT        ID_Zamowienia, ID_Element, Ilosc
+                          FROM            dbo.vMaterialyDoZamowienia
+                          UNION ALL
+                          SELECT        ID_Zamowienia, ID_Element, Ilosc
+                          FROM            dbo.vMaterialyZamowione
+                          UNION ALL
+                          SELECT        ID_Zamowienia, ID_Element, Ilosc
+                          FROM            dbo.vMaterialyZMagazynu) AS Wszystko
+GROUP BY ID_Zamowienia, ID_Element
+HAVING        (SUM(Ilosc) > 0)
+GO
 
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------

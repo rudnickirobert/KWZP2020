@@ -342,6 +342,7 @@ ID_Pracownicy int
 ID_Dostawy int
 	FOREIGN KEY REFERENCES
 	Zamowienia_Dostawy (ID_Dostawy),
+ID_Zamowienie_element int,
 ID_element int
 	FOREIGN KEY REFERENCES
 	Elementy(ID_Element),
@@ -377,6 +378,30 @@ CREATE TABLE Zamowienie_Element (
 	Ilosc int not null,
 	Licz_do_zamowienia bit NOT NULL
 );
+
+CREATE TABLE Zamowienia_Dostawy_Wlasne (
+	ID_Zamowienia_dostawy_wlasne int IDENTITY (1,1) PRIMARY KEY,
+	ID_Zamowienia int 
+	FOREIGN KEY REFERENCES
+	Zamowienia(ID_Zamowienia),
+	ID_miejsca int 
+	FOREIGN KEY REFERENCES
+	Miejsca (ID_Miejsca)
+)
+
+CREATE TABLE Dostawy_Wlasne_Zawartosc (
+	ID_Dostawy_Wlasne_Zawartosc int IDENTITY (1,1) PRIMARY KEY,
+	ID_Zamowienia_dostawy_wlasne int 
+	FOREIGN KEY REFERENCES
+	Zamowienia_Dostawy_Wlasne (ID_Zamowienia_dostawy_wlasne),
+	ID_Dostawy int
+	FOREIGN KEY REFERENCES
+	Zamowienia_Dostawy(ID_Dostawy),
+	ID_Element int
+	FOREIGN KEY REFERENCES
+	Elementy(ID_Element),
+	Ilosc int
+)
 ---------------------------------------------------------KONIEC MAGAZYN---------------------------------------------------------
  
 ---------------------- Pocz¹tek Przygotowanie produkcji------------------------- 
