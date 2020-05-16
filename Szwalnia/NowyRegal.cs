@@ -35,7 +35,6 @@ namespace Szwalnia
         private void btnDodajRegal_Click(object sender, EventArgs e)
         {
             txtOznaczenie.Text = txtOznaczenie.Text.ToUpper();
-            string nowy = txtOznaczenie.Text;
            
             Regaly regalNew = new Regaly();
 
@@ -44,14 +43,14 @@ namespace Szwalnia
                 regalNew.Oznaczenie = txtOznaczenie.Text;
                 db.Regaly.Add(regalNew);
                 db.SaveChanges();
-                MessageBox.Show("Pomyślnie dodano do bazy regał " + nowy);
+                MessageBox.Show("Pomyślnie dodano do bazy regał " + txtOznaczenie.Text);
 
                 Regaly_wykaz wykaz = new Regaly_wykaz(); //to na razie jest tylko w celu sprawdzenia czy się dodał i pokazuje alfabetycznie
                 wykaz.Show();
                 this.Close();
             }
             else
-                MessageBox.Show("Regał " + nowy + " już istnieje!");
+                MessageBox.Show("Regał " + txtOznaczenie.Text + " już istnieje!");
                 regalNew = null;    
         }
 
