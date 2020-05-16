@@ -53,7 +53,6 @@ CREATE VIEW [dbo].[vRegaly_alfabetycznie]
 AS
 SELECT        TOP (100) PERCENT ID_regal, Oznaczenie
 FROM            dbo.Regaly
-GROUP BY ID_regal, Oznaczenie
 ORDER BY Oznaczenie
 GO
 

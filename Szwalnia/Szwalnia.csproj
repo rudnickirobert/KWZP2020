@@ -418,12 +418,6 @@
     <Compile Include="Regaly.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="Regaly_wykaz.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Regaly_wykaz.Designer.cs">
-      <DependentUpon>Regaly_wykaz.cs</DependentUpon>
-    </Compile>
     <Compile Include="RodzajEtapu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -607,6 +601,9 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vRealizacjaProcesuProdukcyjnegoDetails.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vRegaly_alfabetycznie.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vResurs.cs">
@@ -841,9 +838,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PrzygotowanieProdukcji.resx">
       <DependentUpon>PrzygotowanieProdukcji.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Regaly_wykaz.resx">
-      <DependentUpon>Regaly_wykaz.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RodzajEtapu.resx">
       <DependentUpon>RodzajEtapu.cs</DependentUpon>

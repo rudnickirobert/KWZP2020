@@ -14,20 +14,37 @@ namespace Szwalnia
     {
         public SzwalniaEntities db;
         int nowaPolka;
-        public NowaPolka(int ostatniaPolka)
+        public NowaPolka()
         {
             InitializeComponent();
             db = Start.szwalnia;
-            nowaPolka = ostatniaPolka+1;
+            nowaPolka = db.Polki.Count()+1;
             lblNumerNowejPolki.Text = nowaPolka.ToString();
-            cmbOznaczenie.DataSource = db.Regaly.ToList();
+            cmbOznaczenie.Sorted = true;
+            cmbOznaczenie.DataSource = db.vRegaly_alfabetycznie.ToList();
             cmbOznaczenie.DisplayMember = "Oznaczenie";
-            cmbOznaczenie.ValueMember = "ID_regal"; //chyba
+            cmbOznaczenie.ValueMember = "ID_regal";
+            cmbOznaczenie.Sorted = true;
             cmbRozmiar.DataSource = db.vPolki_Rozmiary.ToList();
             cmbRozmiar.DisplayMember = "Wymiar";
             cmbRozmiar.ValueMember = "ID_Rozmiar_Polki";
         }
+        private void btnDodajRegal_Click(object sender, EventArgs e)
+        {
+            Polki polkaNew = new Polki();
+            polkaNew.ID_Rozmiar_Polki = Convert.ToInt32(cmbRozmiar.SelectedValue);
+            db.Polki.Add(polkaNew);
 
+            Polki_regaly polkaRegalNew = new Polki_regaly();
+            polkaRegalNew.ID_regal = Convert.ToInt32(cmbOznaczenie.SelectedValue);
+            polkaRegalNew.ID_Polka = nowaPolka;
+            db.Polki_regaly.Add(polkaRegalNew);
+            db.SaveChanges();
+            
+            MessageBox.Show("Pomyślnie dodano do bazy półkę " + nowaPolka.ToString());
+            nowaPolka++;
+            lblNumerNowejPolki.Text = nowaPolka.ToString();
+        }
         private void btnNowyRegal_Click(object sender, EventArgs e)
         {
             NowyRegal nowy = new NowyRegal();

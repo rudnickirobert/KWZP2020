@@ -44,9 +44,6 @@ namespace Szwalnia
                 db.Regaly.Add(regalNew);
                 db.SaveChanges();
                 MessageBox.Show("Pomyślnie dodano do bazy regał " + txtOznaczenie.Text);
-
-                Regaly_wykaz wykaz = new Regaly_wykaz(); //to na razie jest tylko w celu sprawdzenia czy się dodał i pokazuje alfabetycznie
-                wykaz.Show();
                 this.Close();
             }
             else

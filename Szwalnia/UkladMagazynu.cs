@@ -42,7 +42,7 @@ namespace Szwalnia
 
         private void btnDodajPolke_Click(object sender, EventArgs e)
         {
-            NowaPolka polka = new NowaPolka(ostatniaPolka);
+            NowaPolka polka = new NowaPolka();
             polka.Show();
             this.Hide();
         }
