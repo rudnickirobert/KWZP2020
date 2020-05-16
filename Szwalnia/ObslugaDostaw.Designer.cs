@@ -35,20 +35,25 @@
             // 
             // btnAddDelivery
             // 
-            this.btnAddDelivery.Location = new System.Drawing.Point(22, 25);
+            this.btnAddDelivery.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAddDelivery.Location = new System.Drawing.Point(12, 12);
             this.btnAddDelivery.Name = "btnAddDelivery";
             this.btnAddDelivery.Size = new System.Drawing.Size(256, 111);
             this.btnAddDelivery.TabIndex = 0;
             this.btnAddDelivery.Text = "Dodaj dostawę";
-            this.btnAddDelivery.UseVisualStyleBackColor = true;
+            this.btnAddDelivery.UseVisualStyleBackColor = false;
+            this.btnAddDelivery.Click += new System.EventHandler(this.btnAddDelivery_Click);
             // 
             // lblInfo
             // 
             this.lblInfo.AutoSize = true;
-            this.lblInfo.Location = new System.Drawing.Point(133, 47);
+            this.lblInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.lblInfo.Location = new System.Drawing.Point(65, 34);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(0, 13);
+            this.lblInfo.Size = new System.Drawing.Size(156, 13);
             this.lblInfo.TabIndex = 1;
+            this.lblInfo.Text = "Istnieją niezamówione materiały";
+            this.lblInfo.Click += new System.EventHandler(this.lblInfo_Click);
             // 
             // ObslugaDostaw
             // 

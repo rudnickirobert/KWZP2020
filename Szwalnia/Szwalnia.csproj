@@ -70,6 +70,12 @@
     <Compile Include="DodawanieCechy.Designer.cs">
       <DependentUpon>DodawanieCechy.cs</DependentUpon>
     </Compile>
+    <Compile Include="DodawanieDostaw.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodawanieDostaw.Designer.cs">
+      <DependentUpon>DodawanieDostaw.cs</DependentUpon>
+    </Compile>
     <Compile Include="DodawanieJednostki.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -733,6 +739,9 @@
     </Compile>
     <EmbeddedResource Include="DodawanieCechy.resx">
       <DependentUpon>DodawanieCechy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodawanieDostaw.resx">
+      <DependentUpon>DodawanieDostaw.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DodawanieElementu.resx">
       <DependentUpon>DodawanieElementu.cs</DependentUpon>
