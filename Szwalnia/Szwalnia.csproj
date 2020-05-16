@@ -193,11 +193,6 @@
     <Compile Include="InneProdukcja.designer.cs">
       <DependentUpon>InneProdukcja.cs</DependentUpon>
     </Compile>
-    <Compile Include="Jednostki.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Jednostki.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Jezyk.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -537,36 +532,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Szwalnia.edmx</DependentUpon>
     </Compile>
-    <Compile Include="SzwalniaDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SzwalniaDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="SzwalniaDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SzwalniaDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="SzwalniaDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SzwalniaDataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="SzwalniaDataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SzwalniaDataSet3.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="SzwalniaDataSet4.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SzwalniaDataSet4.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="SzwalniaDataSet5.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SzwalniaDataSet5.xsd</DependentUpon>
-    </Compile>
     <Compile Include="SzwalniaOferta.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -730,9 +695,6 @@
     <Compile Include="Znajomosc_Jezykow.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="DodajOferte.resx">
-      <DependentUpon>DodajOferte.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DodawanieCechy.resx">
       <DependentUpon>DodawanieCechy.cs</DependentUpon>
     </EmbeddedResource>
@@ -920,17 +882,6 @@
     <EmbeddedResource Include="ZarzadzanieForm.resx">
       <DependentUpon>ZarzadzanieForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Jednostki.xsc">
-      <DependentUpon>Jednostki.xsd</DependentUpon>
-    </None>
-    <None Include="Jednostki.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Jednostki.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Jednostki.xss">
-      <DependentUpon>Jednostki.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -947,72 +898,6 @@
     </EntityDeploy>
     <None Include="Szwalnia.edmx.diagram">
       <DependentUpon>Szwalnia.edmx</DependentUpon>
-    </None>
-    <None Include="SzwalniaDataSet.xsc">
-      <DependentUpon>SzwalniaDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="SzwalniaDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SzwalniaDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SzwalniaDataSet.xss">
-      <DependentUpon>SzwalniaDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="SzwalniaDataSet1.xsc">
-      <DependentUpon>SzwalniaDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="SzwalniaDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SzwalniaDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SzwalniaDataSet1.xss">
-      <DependentUpon>SzwalniaDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="SzwalniaDataSet2.xsc">
-      <DependentUpon>SzwalniaDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="SzwalniaDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SzwalniaDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SzwalniaDataSet2.xss">
-      <DependentUpon>SzwalniaDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="SzwalniaDataSet3.xsc">
-      <DependentUpon>SzwalniaDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="SzwalniaDataSet3.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SzwalniaDataSet3.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SzwalniaDataSet3.xss">
-      <DependentUpon>SzwalniaDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="SzwalniaDataSet4.xsc">
-      <DependentUpon>SzwalniaDataSet4.xsd</DependentUpon>
-    </None>
-    <None Include="SzwalniaDataSet4.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SzwalniaDataSet4.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SzwalniaDataSet4.xss">
-      <DependentUpon>SzwalniaDataSet4.xsd</DependentUpon>
-    </None>
-    <None Include="SzwalniaDataSet5.xsc">
-      <DependentUpon>SzwalniaDataSet5.xsd</DependentUpon>
-    </None>
-    <None Include="SzwalniaDataSet5.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SzwalniaDataSet5.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SzwalniaDataSet5.xss">
-      <DependentUpon>SzwalniaDataSet5.xsd</DependentUpon>
     </None>
     <None Include="SzwalniaOferta.xsc">
       <DependentUpon>SzwalniaOferta.xsd</DependentUpon>

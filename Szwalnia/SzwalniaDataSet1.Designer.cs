@@ -279,7 +279,13 @@ namespace Szwalnia {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class ElementyDataTable : global::System.Data.TypedTableBase<ElementyRow> {
             
+            private global::System.Data.DataColumn columnID_Element;
+            
+            private global::System.Data.DataColumn columnID_Element_Typ;
+            
             private global::System.Data.DataColumn columnElement_Nazwa;
+            
+            private global::System.Data.DataColumn columnOkres_Przydatnosci_Miesiace;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -316,9 +322,33 @@ namespace Szwalnia {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ID_ElementColumn {
+                get {
+                    return this.columnID_Element;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ID_Element_TypColumn {
+                get {
+                    return this.columnID_Element_Typ;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn Element_NazwaColumn {
                 get {
                     return this.columnElement_Nazwa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Okres_Przydatnosci_MiesiaceColumn {
+                get {
+                    return this.columnOkres_Przydatnosci_Miesiace;
                 }
             }
             
@@ -359,13 +389,23 @@ namespace Szwalnia {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ElementyRow AddElementyRow(string Element_Nazwa) {
+            public ElementyRow AddElementyRow(int ID_Element_Typ, string Element_Nazwa, int Okres_Przydatnosci_Miesiace) {
                 ElementyRow rowElementyRow = ((ElementyRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Element_Nazwa};
+                        null,
+                        ID_Element_Typ,
+                        Element_Nazwa,
+                        Okres_Przydatnosci_Miesiace};
                 rowElementyRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowElementyRow);
                 return rowElementyRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ElementyRow FindByID_Element(int ID_Element) {
+                return ((ElementyRow)(this.Rows.Find(new object[] {
+                            ID_Element})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -385,14 +425,31 @@ namespace Szwalnia {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
+                this.columnID_Element = base.Columns["ID_Element"];
+                this.columnID_Element_Typ = base.Columns["ID_Element_Typ"];
                 this.columnElement_Nazwa = base.Columns["Element_Nazwa"];
+                this.columnOkres_Przydatnosci_Miesiace = base.Columns["Okres_Przydatnosci_Miesiace"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
+                this.columnID_Element = new global::System.Data.DataColumn("ID_Element", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_Element);
+                this.columnID_Element_Typ = new global::System.Data.DataColumn("ID_Element_Typ", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_Element_Typ);
                 this.columnElement_Nazwa = new global::System.Data.DataColumn("Element_Nazwa", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnElement_Nazwa);
+                this.columnOkres_Przydatnosci_Miesiace = new global::System.Data.DataColumn("Okres_Przydatnosci_Miesiace", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOkres_Przydatnosci_Miesiace);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnID_Element}, true));
+                this.columnID_Element.AutoIncrement = true;
+                this.columnID_Element.AutoIncrementSeed = -1;
+                this.columnID_Element.AutoIncrementStep = -1;
+                this.columnID_Element.AllowDBNull = false;
+                this.columnID_Element.ReadOnly = true;
+                this.columnID_Element.Unique = true;
                 this.columnElement_Nazwa.MaxLength = 35;
             }
             
@@ -536,6 +593,33 @@ namespace Szwalnia {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int ID_Element {
+                get {
+                    return ((int)(this[this.tableElementy.ID_ElementColumn]));
+                }
+                set {
+                    this[this.tableElementy.ID_ElementColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int ID_Element_Typ {
+                get {
+                    try {
+                        return ((int)(this[this.tableElementy.ID_Element_TypColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Wartość z kolumny \'ID_Element_Typ\' w tabeli \'Elementy\' to DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableElementy.ID_Element_TypColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Element_Nazwa {
                 get {
                     try {
@@ -552,6 +636,34 @@ namespace Szwalnia {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Okres_Przydatnosci_Miesiace {
+                get {
+                    try {
+                        return ((int)(this[this.tableElementy.Okres_Przydatnosci_MiesiaceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Wartość z kolumny \'Okres_Przydatnosci_Miesiace\' w tabeli \'Elementy\' to DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableElementy.Okres_Przydatnosci_MiesiaceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsID_Element_TypNull() {
+                return this.IsNull(this.tableElementy.ID_Element_TypColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetID_Element_TypNull() {
+                this[this.tableElementy.ID_Element_TypColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsElement_NazwaNull() {
                 return this.IsNull(this.tableElementy.Element_NazwaColumn);
             }
@@ -560,6 +672,18 @@ namespace Szwalnia {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetElement_NazwaNull() {
                 this[this.tableElementy.Element_NazwaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsOkres_Przydatnosci_MiesiaceNull() {
+                return this.IsNull(this.tableElementy.Okres_Przydatnosci_MiesiaceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetOkres_Przydatnosci_MiesiaceNull() {
+                this[this.tableElementy.Okres_Przydatnosci_MiesiaceColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -722,21 +846,53 @@ namespace Szwalnia.SzwalniaDataSet1TableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Elementy";
+            tableMapping.ColumnMappings.Add("ID_Element", "ID_Element");
+            tableMapping.ColumnMappings.Add("ID_Element_Typ", "ID_Element_Typ");
             tableMapping.ColumnMappings.Add("Element_Nazwa", "Element_Nazwa");
+            tableMapping.ColumnMappings.Add("Okres_Przydatnosci_Miesiace", "Okres_Przydatnosci_Miesiace");
             this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Elementy] WHERE (([ID_Element] = @Original_ID_Element) AND ((@IsNull_ID_Element_Typ = 1 AND [ID_Element_Typ] IS NULL) OR ([ID_Element_Typ] = @Original_ID_Element_Typ)) AND ((@IsNull_Element_Nazwa = 1 AND [Element_Nazwa] IS NULL) OR ([Element_Nazwa] = @Original_Element_Nazwa)) AND ((@IsNull_Okres_Przydatnosci_Miesiace = 1 AND [Okres_Przydatnosci_Miesiace] IS NULL) OR ([Okres_Przydatnosci_Miesiace] = @Original_Okres_Przydatnosci_Miesiace)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Element", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Element", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ID_Element_Typ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Element_Typ", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Element_Typ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Element_Typ", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Element_Nazwa", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Element_Nazwa", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Element_Nazwa", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Element_Nazwa", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Okres_Przydatnosci_Miesiace", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Okres_Przydatnosci_Miesiace", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Okres_Przydatnosci_Miesiace", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Okres_Przydatnosci_Miesiace", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Elementy] ([Element_Nazwa]) VALUES (@Element_Nazwa)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Elementy] ([ID_Element_Typ], [Element_Nazwa], [Okres_Przydatnosci_Miesiace]) VALUES (@ID_Element_Typ, @Element_Nazwa, @Okres_Przydatnosci_Miesiace);
+SELECT ID_Element, ID_Element_Typ, Element_Nazwa, Okres_Przydatnosci_Miesiace FROM Elementy WHERE (ID_Element = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Element_Typ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Element_Typ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Element_Nazwa", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Element_Nazwa", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Okres_Przydatnosci_Miesiace", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Okres_Przydatnosci_Miesiace", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Elementy] SET [ID_Element_Typ] = @ID_Element_Typ, [Element_Nazwa] = @Element_Nazwa, [Okres_Przydatnosci_Miesiace] = @Okres_Przydatnosci_Miesiace WHERE (([ID_Element] = @Original_ID_Element) AND ((@IsNull_ID_Element_Typ = 1 AND [ID_Element_Typ] IS NULL) OR ([ID_Element_Typ] = @Original_ID_Element_Typ)) AND ((@IsNull_Element_Nazwa = 1 AND [Element_Nazwa] IS NULL) OR ([Element_Nazwa] = @Original_Element_Nazwa)) AND ((@IsNull_Okres_Przydatnosci_Miesiace = 1 AND [Okres_Przydatnosci_Miesiace] IS NULL) OR ([Okres_Przydatnosci_Miesiace] = @Original_Okres_Przydatnosci_Miesiace)));
+SELECT ID_Element, ID_Element_Typ, Element_Nazwa, Okres_Przydatnosci_Miesiace FROM Elementy WHERE (ID_Element = @ID_Element)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Element_Typ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Element_Typ", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Element_Nazwa", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Element_Nazwa", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Okres_Przydatnosci_Miesiace", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Okres_Przydatnosci_Miesiace", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Element", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Element", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ID_Element_Typ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Element_Typ", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Element_Typ", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Element_Typ", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Element_Nazwa", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Element_Nazwa", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Element_Nazwa", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Element_Nazwa", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Okres_Przydatnosci_Miesiace", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Okres_Przydatnosci_Miesiace", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Okres_Przydatnosci_Miesiace", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Okres_Przydatnosci_Miesiace", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Element", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Element", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-PKI0NOT\\KWZP2020;Initial Catalog=Szwalnia;Integrated Security" +
-                "=True;MultipleActiveResultSets=True;Application Name=EntityFramework";
+            this._connection.ConnectionString = global::Szwalnia.Properties.Settings.Default.SzwalniaConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -745,7 +901,8 @@ namespace Szwalnia.SzwalniaDataSet1TableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Element_Nazwa FROM dbo.Elementy";
+            this._commandCollection[0].CommandText = "SELECT ID_Element, ID_Element_Typ, Element_Nazwa, Okres_Przydatnosci_Miesiace FRO" +
+                "M dbo.Elementy";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -805,13 +962,71 @@ namespace Szwalnia.SzwalniaDataSet1TableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Element_Nazwa) {
-            if ((Element_Nazwa == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_ID_Element, global::System.Nullable<int> Original_ID_Element_Typ, string Original_Element_Nazwa, global::System.Nullable<int> Original_Okres_Przydatnosci_Miesiace) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID_Element));
+            if ((Original_ID_Element_Typ.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_ID_Element_Typ.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Element_Nazwa));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Element_Nazwa == null)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Element_Nazwa));
+            }
+            if ((Original_Okres_Przydatnosci_Miesiace.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_Okres_Przydatnosci_Miesiace.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(global::System.Nullable<int> ID_Element_Typ, string Element_Nazwa, global::System.Nullable<int> Okres_Przydatnosci_Miesiace) {
+            if ((ID_Element_Typ.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ID_Element_Typ.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((Element_Nazwa == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Element_Nazwa));
+            }
+            if ((Okres_Przydatnosci_Miesiace.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Okres_Przydatnosci_Miesiace.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -827,6 +1042,79 @@ namespace Szwalnia.SzwalniaDataSet1TableAdapters {
                     this.Adapter.InsertCommand.Connection.Close();
                 }
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(global::System.Nullable<int> ID_Element_Typ, string Element_Nazwa, global::System.Nullable<int> Okres_Przydatnosci_Miesiace, int Original_ID_Element, global::System.Nullable<int> Original_ID_Element_Typ, string Original_Element_Nazwa, global::System.Nullable<int> Original_Okres_Przydatnosci_Miesiace, int ID_Element) {
+            if ((ID_Element_Typ.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ID_Element_Typ.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((Element_Nazwa == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Element_Nazwa));
+            }
+            if ((Okres_Przydatnosci_Miesiace.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Okres_Przydatnosci_Miesiace.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_ID_Element));
+            if ((Original_ID_Element_Typ.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_ID_Element_Typ.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Element_Nazwa == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Element_Nazwa));
+            }
+            if ((Original_Okres_Przydatnosci_Miesiace.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_Okres_Przydatnosci_Miesiace.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(ID_Element));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(global::System.Nullable<int> ID_Element_Typ, string Element_Nazwa, global::System.Nullable<int> Okres_Przydatnosci_Miesiace, int Original_ID_Element, global::System.Nullable<int> Original_ID_Element_Typ, string Original_Element_Nazwa, global::System.Nullable<int> Original_Okres_Przydatnosci_Miesiace) {
+            return this.Update(ID_Element_Typ, Element_Nazwa, Okres_Przydatnosci_Miesiace, Original_ID_Element, Original_ID_Element_Typ, Original_Element_Nazwa, Original_Okres_Przydatnosci_Miesiace, Original_ID_Element);
         }
     }
     
