@@ -32,6 +32,7 @@ namespace Szwalnia
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             db.Elementy.Add(elementNew);
+            db.SaveChanges();
         }
 
         private void DodawanieElementu_FormClosed(object sender, FormClosedEventArgs e)

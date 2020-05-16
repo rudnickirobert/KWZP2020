@@ -17,13 +17,13 @@ namespace Szwalnia
         Typy_cechy_rejestr rejestrNew = new Typy_cechy_rejestr();
         public int IDElement;
         public int IDCechy;
-        public DodoawanieCechElementowi(SzwalniaEntities szwalnia)
+        public DodoawanieCechElementowi()
         {
             InitializeComponent();
-            db = szwalnia;
-            dgvListaElementow.DataSource = szwalnia.Elementy.ToList();
-            dgvListaCech.DataSource = szwalnia.Elementy_Cechy_Slownik.ToList();
-            dgvListaJednostek.DataSource = szwalnia.Elementy_Jednostki.ToList();
+            db = Start.szwalnia;
+            dgvListaElementow.DataSource = db.Elementy.ToList();
+            dgvListaCech.DataSource = db.Elementy_Cechy_Slownik.ToList();
+            dgvListaJednostek.DataSource = db.Elementy_Jednostki.ToList();
                       
         }
 
@@ -65,8 +65,14 @@ namespace Szwalnia
             { cechaElementuNew.Wartosc_Cechy_Liczbowa = Decimal.ToInt32(numCecha.Value); }
             else
             { cechaElementuNew.Wartosc_Cechy_Liczbowa = null; }
+
             db.Elementy_Cechy.Add(cechaElementuNew);
-           
+            db.SaveChanges();
+
+        }
+        private void DodawanieCechElementowi_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Start.GetForm.Show();
         }
     }
 }

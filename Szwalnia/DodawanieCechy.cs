@@ -24,6 +24,7 @@ namespace Szwalnia
             Elementy_Cechy_Slownik cechaNew = new Elementy_Cechy_Slownik();
             cechaNew.Cecha = txtNazwa.Text;
             db.Elementy_Cechy_Slownik.Add(cechaNew);
+            db.SaveChanges();
         }
 
         private void DodawanieCechy_FormClosed(object sender, FormClosedEventArgs e)
