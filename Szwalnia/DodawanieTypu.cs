@@ -34,5 +34,11 @@ namespace Szwalnia
         {
             Start.GetForm.Show();
         }
+
+        private void btnWstecz_Click(object sender, EventArgs e)
+        {
+            new ElementyForm().Show();
+            this.Hide();
+        }
     }
 }

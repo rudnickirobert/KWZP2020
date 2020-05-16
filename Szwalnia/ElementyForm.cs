@@ -56,84 +56,7 @@ namespace Szwalnia
 
         private void btnCechyElementow_Click(object sender, EventArgs e)
         {
-            DodoawanieCechElementowi cechyElementu = new DodoawanieCechElementowi(
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                );
+            DodoawanieCechElementowi cechyElementu = new DodoawanieCechElementowi();
             cechyElementu.Show();
             this.Hide();
         }
@@ -141,6 +64,12 @@ namespace Szwalnia
         private void ElementyForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Start.GetForm.Show();
+        }
+
+        private void btnWstecz_Click(object sender, EventArgs e)
+        {
+            new MagazynForm().Show();
+            this.Hide();
         }
     }
 }

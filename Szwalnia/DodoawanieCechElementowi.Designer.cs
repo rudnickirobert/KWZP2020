@@ -43,6 +43,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtJednostka = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnWstecz = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaElementow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaCech)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaJednostek)).BeginInit();
@@ -51,17 +52,19 @@
             // 
             // dgvListaElementow
             // 
+            this.dgvListaElementow.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaElementow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaElementow.Location = new System.Drawing.Point(399, 12);
             this.dgvListaElementow.Name = "dgvListaElementow";
             this.dgvListaElementow.RowHeadersWidth = 51;
             this.dgvListaElementow.RowTemplate.Height = 24;
-            this.dgvListaElementow.Size = new System.Drawing.Size(503, 190);
+            this.dgvListaElementow.Size = new System.Drawing.Size(1018, 190);
             this.dgvListaElementow.TabIndex = 0;
             this.dgvListaElementow.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaElementow_CellContentDoubleClick);
             // 
             // dgvListaCech
             // 
+            this.dgvListaCech.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaCech.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaCech.Location = new System.Drawing.Point(399, 208);
             this.dgvListaCech.Name = "dgvListaCech";
@@ -73,8 +76,9 @@
             // 
             // dgvListaJednostek
             // 
+            this.dgvListaJednostek.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaJednostek.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaJednostek.Location = new System.Drawing.Point(399, 404);
+            this.dgvListaJednostek.Location = new System.Drawing.Point(917, 208);
             this.dgvListaJednostek.Name = "dgvListaJednostek";
             this.dgvListaJednostek.RowHeadersWidth = 51;
             this.dgvListaJednostek.RowTemplate.Height = 24;
@@ -84,7 +88,7 @@
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(292, 253);
+            this.btnDodaj.Location = new System.Drawing.Point(19, 250);
             this.btnDodaj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(85, 30);
@@ -141,6 +145,7 @@
             this.txtNazwa.Location = new System.Drawing.Point(170, 91);
             this.txtNazwa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNazwa.Name = "txtNazwa";
+            this.txtNazwa.ReadOnly = true;
             this.txtNazwa.Size = new System.Drawing.Size(151, 22);
             this.txtNazwa.TabIndex = 18;
             // 
@@ -159,6 +164,7 @@
             this.txtCechy.Location = new System.Drawing.Point(170, 117);
             this.txtCechy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCechy.Name = "txtCechy";
+            this.txtCechy.ReadOnly = true;
             this.txtCechy.Size = new System.Drawing.Size(151, 22);
             this.txtCechy.TabIndex = 20;
             // 
@@ -177,6 +183,7 @@
             this.txtJednostka.Location = new System.Drawing.Point(170, 198);
             this.txtJednostka.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtJednostka.Name = "txtJednostka";
+            this.txtJednostka.ReadOnly = true;
             this.txtJednostka.Size = new System.Drawing.Size(151, 22);
             this.txtJednostka.TabIndex = 22;
             // 
@@ -189,11 +196,22 @@
             this.label5.TabIndex = 21;
             this.label5.Text = "Jednostka";
             // 
+            // btnWstecz
+            // 
+            this.btnWstecz.Location = new System.Drawing.Point(280, 250);
+            this.btnWstecz.Name = "btnWstecz";
+            this.btnWstecz.Size = new System.Drawing.Size(77, 30);
+            this.btnWstecz.TabIndex = 23;
+            this.btnWstecz.Text = "Wstecz";
+            this.btnWstecz.UseVisualStyleBackColor = true;
+            this.btnWstecz.Click += new System.EventHandler(this.btnWstecz_Click);
+            // 
             // DodoawanieCechElementowi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 609);
+            this.ClientSize = new System.Drawing.Size(1429, 417);
+            this.Controls.Add(this.btnWstecz);
             this.Controls.Add(this.txtJednostka);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtCechy);
@@ -237,5 +255,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtJednostka;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnWstecz;
     }
 }

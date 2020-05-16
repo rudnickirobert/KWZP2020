@@ -74,5 +74,11 @@ namespace Szwalnia
         {
             Start.GetForm.Show();
         }
+
+        private void btnWstecz_Click(object sender, EventArgs e)
+        {
+            new MagazynForm().Show();
+            this.Hide();
+        }
     }
 }
