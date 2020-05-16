@@ -21,9 +21,9 @@ namespace Szwalnia
         }
     
         public int ID_Rozmiar_Polki { get; set; }
-        public string Wysokosc { get; set; }
-        public string Szerokosc { get; set; }
-        public string Glebokosc { get; set; }
+        public Nullable<int> Wysokosc { get; set; }
+        public Nullable<int> Szerokosc { get; set; }
+        public Nullable<int> Glebokosc { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Polki> Polki { get; set; }

@@ -17,7 +17,7 @@ namespace Szwalnia
         public DodawanieJednostki()
         {
             InitializeComponent();
-            //db = Start.szwalnia;
+            db = Start.szwalnia;
             jednostkaNew.Jednostka = txtNazwa.Text;           
         }
 

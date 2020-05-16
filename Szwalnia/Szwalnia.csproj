@@ -418,6 +418,12 @@
     <Compile Include="Regaly.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="Regaly_wykaz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Regaly_wykaz.Designer.cs">
+      <DependentUpon>Regaly_wykaz.cs</DependentUpon>
+    </Compile>
     <Compile Include="RodzajEtapu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -502,6 +508,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Szwalnia.edmx</DependentUpon>
     </Compile>
+    <Compile Include="SzwalniaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SzwalniaDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Typy_cechy_rejestr.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -532,7 +543,31 @@
     <Compile Include="vCechyElementu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vCzas_do_serwisu.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vDokumentacja_info.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vDokumentacja_proces.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vDokumentacja_technologiczna.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vElementy_proces.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vEtapy_proces.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vIdZamowienieElementProcesProdukcyjny.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vMaszyny_numer_seryjny.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vMaszyny_proces.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vMaszyny_rodzaj_liczba.cs">
@@ -556,7 +591,31 @@
     <Compile Include="vProcesMaxOdpadMiesiac.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vProcesy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vProces_elementy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vProces_Etapy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vProces_Maszyna.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vProces_technologiczny.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vRealizacjaProcesuProdukcyjnegoDetails.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vRegaly_alfabetycznie.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vResurs.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vRodzaj_Maszyny.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vRoznicaDatDni.cs">
@@ -578,6 +637,15 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vSzacowanyCzasWykonania.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vTechnolodzy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vWszystkie_Elementy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vWszystkie_Maszyny.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vZamowienieProcesyProdukcyjne.cs">
@@ -777,6 +845,9 @@
     <EmbeddedResource Include="PrzygotowanieProdukcji.resx">
       <DependentUpon>PrzygotowanieProdukcji.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Regaly_wykaz.resx">
+      <DependentUpon>Regaly_wykaz.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RodzajEtapu.resx">
       <DependentUpon>RodzajEtapu.cs</DependentUpon>
     </EmbeddedResource>
@@ -832,6 +903,7 @@
     <EmbeddedResource Include="ZarzadzanieForm.resx">
       <DependentUpon>ZarzadzanieForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="App.Config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -849,9 +921,17 @@
     <None Include="Szwalnia.edmx.diagram">
       <DependentUpon>Szwalnia.edmx</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
+    <None Include="SzwalniaDataSet.xsc">
+      <DependentUpon>SzwalniaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SzwalniaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SzwalniaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SzwalniaDataSet.xss">
+      <DependentUpon>SzwalniaDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -15,7 +15,8 @@ namespace Szwalnia
         public SzwalniaEntities db;
         public DodawanieCechy()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            db = Start.szwalnia;
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)

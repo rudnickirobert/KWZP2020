@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UkladMagazynu));
             this.btnZnajdzPolke = new System.Windows.Forms.Button();
             this.btnDodajRegal = new System.Windows.Forms.Button();
             this.btnDodajPolke = new System.Windows.Forms.Button();
@@ -135,6 +136,7 @@
             this.Controls.Add(this.btnDodajPolke);
             this.Controls.Add(this.btnDodajRegal);
             this.Controls.Add(this.btnZnajdzPolke);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UkladMagazynu";
             this.Text = "Układ magazynu";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UkladMagazynu_FormClosed);

@@ -13,15 +13,15 @@ namespace Szwalnia
     public partial class ElementyForm : Form
     {
         public SzwalniaEntities db;
-        public ElementyForm(SzwalniaEntities szwalnia)
+        public ElementyForm()
         {
             InitializeComponent();
-            db = szwalnia;
+            db = Start.szwalnia;
         }
 
         private void btnWybor_Click(object sender, EventArgs e)
         {
-            WyborElementu wybor = new WyborElementu(db);
+            WyborElementu wybor = new WyborElementu();
             wybor.Show();
             this.Hide();
         }

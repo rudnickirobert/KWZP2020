@@ -12,9 +12,11 @@ namespace Szwalnia
 {
     public partial class Kontrahenci : Form
     {
-        public Kontrahenci(SzwalniaEntities szwalnia)
+        public SzwalniaEntities db;
+        public Kontrahenci()
         {
             InitializeComponent();
+            db = Start.szwalnia;
         }
 
         private void Kontrahenci_FormClosed(object sender, FormClosedEventArgs e)
