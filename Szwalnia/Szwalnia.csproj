@@ -597,6 +597,9 @@
     <Compile Include="vObsluga.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vOferta.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vPolki_na_regalach.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -694,6 +697,12 @@
     </Compile>
     <Compile Include="WyborKlienta.Designer.cs">
       <DependentUpon>WyborKlienta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WyborOferty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WyborOferty.Designer.cs">
+      <DependentUpon>WyborOferty.cs</DependentUpon>
     </Compile>
     <Compile Include="WyborPracownika.cs">
       <SubType>Form</SubType>
@@ -908,6 +917,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WyborKlienta.resx">
       <DependentUpon>WyborKlienta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WyborOferty.resx">
+      <DependentUpon>WyborOferty.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WyborPracownika.resx">
       <DependentUpon>WyborPracownika.cs</DependentUpon>

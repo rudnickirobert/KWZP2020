@@ -41,7 +41,12 @@ namespace Szwalnia
 
         private void dgvListaMaterialow_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            int intIDZamowienia  = Convert.ToInt32(dgvListaMaterialow.CurrentRow.Cells[0].Value);
+            int intIDElementu = Convert.ToInt32(dgvListaMaterialow.CurrentRow.Cells[1].Value);
+            int intIlosc = Convert.ToInt32(dgvListaMaterialow.CurrentRow.Cells[3].Value);
+            WyborOferty wybierzOferte = new WyborOferty(intIDZamowienia, intIDElementu, intIlosc);
+            wybierzOferte.Show();
+            this.Hide();
         }
     }
 }

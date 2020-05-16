@@ -775,6 +775,20 @@ warning 6002: The table/view 'Szwalnia.dbo.vMaterialyDoZamowieniaBrak' does not 
           <Property Name="Ilosc" Type="float" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6013: The table/view 'Szwalnia.dbo.vMaterialyZamowione' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="vMaterialyZamowione">
+          <Property Name="ID_Zamowienia" Type="int" />
+          <Property Name="ID_Element" Type="int" />
+          <Property Name="Ilosc" Type="real" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Szwalnia.dbo.vMaterialyZMagazynu' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="vMaterialyZMagazynu">
+          <Property Name="ID_Zamowienia" Type="int" />
+          <Property Name="ID_Element" Type="int" />
+          <Property Name="Ilosc" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vNiezuzyteWMiesiacu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vNiezuzyteWMiesiacu">
           <Key>
@@ -802,6 +816,25 @@ warning 6002: The table/view 'Szwalnia.dbo.vObsluga' does not have a primary key
           <Property Name="Numer seryjny" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Rodzaj obsługi" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="Imię i nazwisko" Type="varchar" MaxLength="101" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vOferta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vOferta">
+          <Key>
+            <PropertyRef Name="ID_Oferta" />
+            <PropertyRef Name="ID_Dostawcy" />
+          </Key>
+          <Property Name="ID_Element" Type="int" />
+          <Property Name="ID_Oferta" Type="int" Nullable="false" />
+          <Property Name="ID_Dostawcy" Type="int" Nullable="false" />
+          <Property Name="Element_Oznaczenie" Type="varchar" MaxLength="20" />
+          <Property Name="Cena_Jedn" Type="money" />
+          <Property Name="Ilosc_W_Opakowaniu_Pojedynczym" Type="real" />
+          <Property Name="Deklarowany_czas_dostawy" Type="int" />
+          <Property Name="Nazwa" Type="varchar" MaxLength="40" />
+          <Property Name="Ilosc_Minimalna" Type="int" />
+          <Property Name="Ilosc_Maksymalna" Type="int" />
+          <Property Name="Telefon_1" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vPolki_na_regalach' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -2310,6 +2343,21 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
     [vObsluga].[Rodzaj obsługi] AS [Rodzaj obsługi], 
     [vObsluga].[Imię i nazwisko] AS [Imię i nazwisko]
     FROM [dbo].[vObsluga] AS [vObsluga]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vOferta" EntityType="Self.vOferta" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vOferta].[ID_Element] AS [ID_Element], 
+    [vOferta].[ID_Oferta] AS [ID_Oferta], 
+    [vOferta].[ID_Dostawcy] AS [ID_Dostawcy], 
+    [vOferta].[Element_Oznaczenie] AS [Element_Oznaczenie], 
+    [vOferta].[Cena_Jedn] AS [Cena_Jedn], 
+    [vOferta].[Ilosc_W_Opakowaniu_Pojedynczym] AS [Ilosc_W_Opakowaniu_Pojedynczym], 
+    [vOferta].[Deklarowany_czas_dostawy] AS [Deklarowany_czas_dostawy], 
+    [vOferta].[Nazwa] AS [Nazwa], 
+    [vOferta].[Ilosc_Minimalna] AS [Ilosc_Minimalna], 
+    [vOferta].[Ilosc_Maksymalna] AS [Ilosc_Maksymalna], 
+    [vOferta].[Telefon_1] AS [Telefon_1]
+    FROM [dbo].[vOferta] AS [vOferta]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vPolki_na_regalach" EntityType="Self.vPolki_na_regalach" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -5382,6 +5430,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             <End Role="Zamowienia_Dostawy_Wlasne" EntitySet="Zamowienia_Dostawy_Wlasne" />
           </AssociationSet>
           <EntitySet Name="vMaterialyDoZamowieniaBrak" EntityType="SzwalniaModel.vMaterialyDoZamowieniaBrak" />
+          <EntitySet Name="vOferta" EntityType="SzwalniaModel.vOferta" />
         </EntityContainer>
         <EntityType Name="vPolki_na_regalach">
           <Key>
@@ -5495,6 +5544,23 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="ID_Element" Type="Int32" Nullable="false" />
           <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
           <Property Name="Ilosc" Type="Double" />
+        </EntityType>
+        <EntityType Name="vOferta">
+          <Key>
+            <PropertyRef Name="ID_Oferta" />
+            <PropertyRef Name="ID_Dostawcy" />
+          </Key>
+          <Property Name="ID_Element" Type="Int32" />
+          <Property Name="ID_Oferta" Type="Int32" Nullable="false" />
+          <Property Name="ID_Dostawcy" Type="Int32" Nullable="false" />
+          <Property Name="Element_Oznaczenie" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Cena_Jedn" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Ilosc_W_Opakowaniu_Pojedynczym" Type="Single" />
+          <Property Name="Deklarowany_czas_dostawy" Type="Int32" />
+          <Property Name="Nazwa" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Ilosc_Minimalna" Type="Int32" />
+          <Property Name="Ilosc_Maksymalna" Type="Int32" />
+          <Property Name="Telefon_1" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -6544,6 +6610,23 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
                 <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
                 <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
                 <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vOferta">
+            <EntityTypeMapping TypeName="SzwalniaModel.vOferta">
+              <MappingFragment StoreEntitySet="vOferta">
+                <ScalarProperty Name="Telefon_1" ColumnName="Telefon_1" />
+                <ScalarProperty Name="Ilosc_Maksymalna" ColumnName="Ilosc_Maksymalna" />
+                <ScalarProperty Name="Ilosc_Minimalna" ColumnName="Ilosc_Minimalna" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Deklarowany_czas_dostawy" ColumnName="Deklarowany_czas_dostawy" />
+                <ScalarProperty Name="Ilosc_W_Opakowaniu_Pojedynczym" ColumnName="Ilosc_W_Opakowaniu_Pojedynczym" />
+                <ScalarProperty Name="Cena_Jedn" ColumnName="Cena_Jedn" />
+                <ScalarProperty Name="Element_Oznaczenie" ColumnName="Element_Oznaczenie" />
+                <ScalarProperty Name="ID_Dostawcy" ColumnName="ID_Dostawcy" />
+                <ScalarProperty Name="ID_Oferta" ColumnName="ID_Oferta" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

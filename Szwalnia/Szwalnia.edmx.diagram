@@ -193,6 +193,7 @@
         <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_mi__31B762FC" />
         <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_Za__30C33EC3" />
         <EntityTypeShape EntityType="SzwalniaModel.vMaterialyDoZamowieniaBrak" Width="1.5" PointX="20.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vOferta" Width="1.5" PointX="21.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

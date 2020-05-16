@@ -101,6 +101,16 @@ GROUP BY Wszystko.ID_Zamowienia, dbo.Elementy.Element_Nazwa, dbo.Elementy.ID_Ele
 HAVING        (SUM(Wszystko.Ilosc) > 0)
 GO
 
+--widok ofert
+CREATE VIEW [dbo].[vOferta]
+AS
+SELECT        dbo.Oferta.ID_Element, dbo.Oferta.ID_Oferta, dbo.Dostawcy_Zaopatrzenie.ID_Dostawcy, dbo.Oferta.Element_Oznaczenie, dbo.Oferta.Cena_Jedn, dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym, 
+                         dbo.Oferta.Deklarowany_czas_dostawy, dbo.Dostawcy_Zaopatrzenie.Nazwa, dbo.Oferta.Ilosc_Minimalna, dbo.Oferta.Ilosc_Maksymalna, dbo.Dostawcy_Zaopatrzenie.Telefon_1
+FROM            dbo.Oferta INNER JOIN
+                         dbo.Dostawcy_Zaopatrzenie ON dbo.Oferta.ID_Dostawcy = dbo.Dostawcy_Zaopatrzenie.ID_Dostawcy
+GROUP BY dbo.Oferta.ID_Element, dbo.Oferta.ID_Oferta, dbo.Oferta.Element_Oznaczenie, dbo.Oferta.Cena_Jedn, dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym, dbo.Dostawcy_Zaopatrzenie.ID_Dostawcy, 
+                         dbo.Dostawcy_Zaopatrzenie.Nazwa, dbo.Dostawcy_Zaopatrzenie.Telefon_1, dbo.Oferta.Ilosc_Minimalna, dbo.Oferta.Ilosc_Maksymalna, dbo.Oferta.Deklarowany_czas_dostawy
+GO
 
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
