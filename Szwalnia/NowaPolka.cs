@@ -41,7 +41,7 @@ namespace Szwalnia
             db.Polki_regaly.Add(polkaRegalNew);
             db.SaveChanges();
             
-            MessageBox.Show("Pomyślnie dodano do bazy półkę " + nowaPolka.ToString());
+            MessageBox.Show("Pomyślnie dodano do bazy półkę " + nowaPolka.ToString() + "\nRegał: " + cmbOznaczenie.Text + "\nWymiary: " + cmbRozmiar.Text);
             nowaPolka++;
             lblNumerNowejPolki.Text = nowaPolka.ToString();
         }

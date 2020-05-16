@@ -78,7 +78,6 @@
         <EntityTypeShape EntityType="SzwalniaModel.vMaszyny_serwis" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vNiezuzyteWMiesiacu" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vObsluga" Width="1.5" PointX="6.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.vPolki_na_regalach" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vProces_elementy" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vProces_Etapy" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vProces_Maszyna" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
@@ -184,6 +183,7 @@
         <EntityTypeShape EntityType="SzwalniaModel.Regaly" Width="1.5" PointX="19.75" PointY="14.875" />
         <EntityTypeShape EntityType="SzwalniaModel.vRegaly_alfabetycznie" Width="1.5" PointX="0.75" PointY="17.75" />
         <AssociationConnector Association="SzwalniaModel.FK__Polki_reg__ID_re__7B5B524B" />
+        <EntityTypeShape EntityType="SzwalniaModel.vPolki_na_regalach" Width="1.5" PointX="16.375" PointY="19.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

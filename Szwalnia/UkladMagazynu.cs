@@ -54,6 +54,13 @@ namespace Szwalnia
             this.Hide();
         }
 
+        private void btnPolkiNaRegalach_Click(object sender, EventArgs e)
+        {
+            PolkiNaRegalach polkiRegaly = new PolkiNaRegalach();
+            polkiRegaly.Show();
+            this.Hide();
+        }
+
         private void UkladMagazynu_FormClosed(object sender, FormClosedEventArgs e)
         {
             Start.GetForm.Show();

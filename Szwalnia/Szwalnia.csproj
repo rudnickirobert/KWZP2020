@@ -44,6 +44,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -327,6 +328,12 @@
     </Compile>
     <Compile Include="Polki.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PolkiNaRegalach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PolkiNaRegalach.Designer.cs">
+      <DependentUpon>PolkiNaRegalach.cs</DependentUpon>
     </Compile>
     <Compile Include="Polki_regaly.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
@@ -776,6 +783,9 @@
     <EmbeddedResource Include="ObslugaZamowien.resx">
       <DependentUpon>ObslugaZamowien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PolkiNaRegalach.resx">
+      <DependentUpon>PolkiNaRegalach.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProcesProdukcyjny.resx">
       <DependentUpon>ProcesProdukcyjny.cs</DependentUpon>
     </EmbeddedResource>
@@ -931,6 +941,9 @@
     <None Include="Resources\regały.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\lupa.png" />
+    <None Include="Resources\lupa1.png" />
+    <None Include="Resources\lupa2.png" />
     <Content Include="Szwalnia.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Szwalnia.edmx</DependentUpon>
