@@ -82,7 +82,7 @@ SELECT        dbo.Zamowienia_Dostawy.ID_Zamowienia, dbo.Dostawy_Zawartosc.ID_Ele
 FROM            dbo.Zamowienia_Dostawy INNER JOIN
                          dbo.Dostawy_Zawartosc ON dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Dostawy_Zawartosc.ID_Dostawy INNER JOIN
                          dbo.Oferta ON dbo.Dostawy_Zawartosc.ID_oferta = dbo.Oferta.ID_Oferta
-WHERE        (dbo.Zamowienia_Dostawy.Data_Dostawy_Planowana IS NOT NULL)
+WHERE        (dbo.Zamowienia_Dostawy.ID_statusu IS NOT NULL)
 GO
 --Widok podsumowujacy materialy brakujace ktore trzeba domowic
 CREATE VIEW [dbo].[vMaterialyDoZamowieniaBrak]
