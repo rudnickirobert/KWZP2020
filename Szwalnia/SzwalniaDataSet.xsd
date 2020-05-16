@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SzwalniaDataSet" targetNamespace="http://tempuri.org/SzwalniaDataSet.xsd" xmlns:mstns="http://tempuri.org/SzwalniaDataSet.xsd" xmlns="http://tempuri.org/SzwalniaDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection ConnectionStringObject="Data Source=DESKTOP-PKI0NOT\KWZP2020;Initial Catalog=Szwalnia;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework" IsAppSettingsProperty="false" Modifier="Assembly" Name="desktop-pki0not\kwzp2020.Szwalnia.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vOferty_ZebraneTableAdapter" GeneratorDataComponentClassName="vOferty_ZebraneTableAdapter" Name="vOferty_Zebrane" UserDataComponentName="vOferty_ZebraneTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="desktop-pki0not\kwzp2020.Szwalnia.dbo" DbObjectName="Szwalnia.dbo.vOferty_Zebrane" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Element_Nazwa FROM dbo.vOferty_Zebrane</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Element_Nazwa" DataSetColumn="Element_Nazwa" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SzwalniaDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="SzwalniaDataSet" msprop:Generator_UserDSName="SzwalniaDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="vOferty_Zebrane" msprop:Generator_TableClassName="vOferty_ZebraneDataTable" msprop:Generator_TableVarName="tablevOferty_Zebrane" msprop:Generator_TablePropName="vOferty_Zebrane" msprop:Generator_RowDeletingName="vOferty_ZebraneRowDeleting" msprop:Generator_RowChangingName="vOferty_ZebraneRowChanging" msprop:Generator_RowEvHandlerName="vOferty_ZebraneRowChangeEventHandler" msprop:Generator_RowDeletedName="vOferty_ZebraneRowDeleted" msprop:Generator_UserTableName="vOferty_Zebrane" msprop:Generator_RowChangedName="vOferty_ZebraneRowChanged" msprop:Generator_RowEvArgName="vOferty_ZebraneRowChangeEvent" msprop:Generator_RowClassName="vOferty_ZebraneRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Element_Nazwa" msprop:Generator_ColumnVarNameInTable="columnElement_Nazwa" msprop:Generator_ColumnPropNameInRow="Element_Nazwa" msprop:Generator_ColumnPropNameInTable="Element_NazwaColumn" msprop:Generator_UserColumnName="Element_Nazwa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -24,7 +24,7 @@ namespace Szwalnia {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class SzwalniaDataSet : global::System.Data.DataSet {
         
-        private Elementy_JednostkiDataTable tableElementy_Jednostki;
+        private vOferty_ZebraneDataTable tablevOferty_Zebrane;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -54,8 +54,8 @@ namespace Szwalnia {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Elementy_Jednostki"] != null)) {
-                    base.Tables.Add(new Elementy_JednostkiDataTable(ds.Tables["Elementy_Jednostki"]));
+                if ((ds.Tables["vOferty_Zebrane"] != null)) {
+                    base.Tables.Add(new vOferty_ZebraneDataTable(ds.Tables["vOferty_Zebrane"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace Szwalnia {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public Elementy_JednostkiDataTable Elementy_Jednostki {
+        public vOferty_ZebraneDataTable vOferty_Zebrane {
             get {
-                return this.tableElementy_Jednostki;
+                return this.tablevOferty_Zebrane;
             }
         }
         
@@ -152,8 +152,8 @@ namespace Szwalnia {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Elementy_Jednostki"] != null)) {
-                    base.Tables.Add(new Elementy_JednostkiDataTable(ds.Tables["Elementy_Jednostki"]));
+                if ((ds.Tables["vOferty_Zebrane"] != null)) {
+                    base.Tables.Add(new vOferty_ZebraneDataTable(ds.Tables["vOferty_Zebrane"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace Szwalnia {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableElementy_Jednostki = ((Elementy_JednostkiDataTable)(base.Tables["Elementy_Jednostki"]));
+            this.tablevOferty_Zebrane = ((vOferty_ZebraneDataTable)(base.Tables["vOferty_Zebrane"]));
             if ((initTable == true)) {
-                if ((this.tableElementy_Jednostki != null)) {
-                    this.tableElementy_Jednostki.InitVars();
+                if ((this.tablevOferty_Zebrane != null)) {
+                    this.tablevOferty_Zebrane.InitVars();
                 }
             }
         }
@@ -204,13 +204,13 @@ namespace Szwalnia {
             this.Namespace = "http://tempuri.org/SzwalniaDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableElementy_Jednostki = new Elementy_JednostkiDataTable();
-            base.Tables.Add(this.tableElementy_Jednostki);
+            this.tablevOferty_Zebrane = new vOferty_ZebraneDataTable();
+            base.Tables.Add(this.tablevOferty_Zebrane);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeElementy_Jednostki() {
+        private bool ShouldSerializevOferty_Zebrane() {
             return false;
         }
         
@@ -270,23 +270,21 @@ namespace Szwalnia {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void Elementy_JednostkiRowChangeEventHandler(object sender, Elementy_JednostkiRowChangeEvent e);
+        public delegate void vOferty_ZebraneRowChangeEventHandler(object sender, vOferty_ZebraneRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class Elementy_JednostkiDataTable : global::System.Data.TypedTableBase<Elementy_JednostkiRow> {
+        public partial class vOferty_ZebraneDataTable : global::System.Data.TypedTableBase<vOferty_ZebraneRow> {
             
-            private global::System.Data.DataColumn columnID_jednostka;
-            
-            private global::System.Data.DataColumn columnJednostka;
+            private global::System.Data.DataColumn columnElement_Nazwa;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Elementy_JednostkiDataTable() {
-                this.TableName = "Elementy_Jednostki";
+            public vOferty_ZebraneDataTable() {
+                this.TableName = "vOferty_Zebrane";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -294,7 +292,7 @@ namespace Szwalnia {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal Elementy_JednostkiDataTable(global::System.Data.DataTable table) {
+            internal vOferty_ZebraneDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -311,24 +309,16 @@ namespace Szwalnia {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected Elementy_JednostkiDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected vOferty_ZebraneDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ID_jednostkaColumn {
+            public global::System.Data.DataColumn Element_NazwaColumn {
                 get {
-                    return this.columnID_jednostka;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn JednostkaColumn {
-                get {
-                    return this.columnJednostka;
+                    return this.columnElement_Nazwa;
                 }
             }
             
@@ -343,53 +333,45 @@ namespace Szwalnia {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Elementy_JednostkiRow this[int index] {
+            public vOferty_ZebraneRow this[int index] {
                 get {
-                    return ((Elementy_JednostkiRow)(this.Rows[index]));
+                    return ((vOferty_ZebraneRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Elementy_JednostkiRowChangeEventHandler Elementy_JednostkiRowChanging;
+            public event vOferty_ZebraneRowChangeEventHandler vOferty_ZebraneRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Elementy_JednostkiRowChangeEventHandler Elementy_JednostkiRowChanged;
+            public event vOferty_ZebraneRowChangeEventHandler vOferty_ZebraneRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Elementy_JednostkiRowChangeEventHandler Elementy_JednostkiRowDeleting;
+            public event vOferty_ZebraneRowChangeEventHandler vOferty_ZebraneRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Elementy_JednostkiRowChangeEventHandler Elementy_JednostkiRowDeleted;
+            public event vOferty_ZebraneRowChangeEventHandler vOferty_ZebraneRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddElementy_JednostkiRow(Elementy_JednostkiRow row) {
+            public void AddvOferty_ZebraneRow(vOferty_ZebraneRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Elementy_JednostkiRow AddElementy_JednostkiRow(string Jednostka) {
-                Elementy_JednostkiRow rowElementy_JednostkiRow = ((Elementy_JednostkiRow)(this.NewRow()));
+            public vOferty_ZebraneRow AddvOferty_ZebraneRow(string Element_Nazwa) {
+                vOferty_ZebraneRow rowvOferty_ZebraneRow = ((vOferty_ZebraneRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
-                        Jednostka};
-                rowElementy_JednostkiRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowElementy_JednostkiRow);
-                return rowElementy_JednostkiRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Elementy_JednostkiRow FindByID_jednostka(int ID_jednostka) {
-                return ((Elementy_JednostkiRow)(this.Rows.Find(new object[] {
-                            ID_jednostka})));
+                        Element_Nazwa};
+                rowvOferty_ZebraneRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowvOferty_ZebraneRow);
+                return rowvOferty_ZebraneRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                Elementy_JednostkiDataTable cln = ((Elementy_JednostkiDataTable)(base.Clone()));
+                vOferty_ZebraneDataTable cln = ((vOferty_ZebraneDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -397,58 +379,47 @@ namespace Szwalnia {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new Elementy_JednostkiDataTable();
+                return new vOferty_ZebraneDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnID_jednostka = base.Columns["ID_jednostka"];
-                this.columnJednostka = base.Columns["Jednostka"];
+                this.columnElement_Nazwa = base.Columns["Element_Nazwa"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnID_jednostka = new global::System.Data.DataColumn("ID_jednostka", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID_jednostka);
-                this.columnJednostka = new global::System.Data.DataColumn("Jednostka", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnJednostka);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnID_jednostka}, true));
-                this.columnID_jednostka.AutoIncrement = true;
-                this.columnID_jednostka.AutoIncrementSeed = -1;
-                this.columnID_jednostka.AutoIncrementStep = -1;
-                this.columnID_jednostka.AllowDBNull = false;
-                this.columnID_jednostka.ReadOnly = true;
-                this.columnID_jednostka.Unique = true;
-                this.columnJednostka.MaxLength = 10;
+                this.columnElement_Nazwa = new global::System.Data.DataColumn("Element_Nazwa", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnElement_Nazwa);
+                this.columnElement_Nazwa.MaxLength = 35;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Elementy_JednostkiRow NewElementy_JednostkiRow() {
-                return ((Elementy_JednostkiRow)(this.NewRow()));
+            public vOferty_ZebraneRow NewvOferty_ZebraneRow() {
+                return ((vOferty_ZebraneRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new Elementy_JednostkiRow(builder);
+                return new vOferty_ZebraneRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(Elementy_JednostkiRow);
+                return typeof(vOferty_ZebraneRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.Elementy_JednostkiRowChanged != null)) {
-                    this.Elementy_JednostkiRowChanged(this, new Elementy_JednostkiRowChangeEvent(((Elementy_JednostkiRow)(e.Row)), e.Action));
+                if ((this.vOferty_ZebraneRowChanged != null)) {
+                    this.vOferty_ZebraneRowChanged(this, new vOferty_ZebraneRowChangeEvent(((vOferty_ZebraneRow)(e.Row)), e.Action));
                 }
             }
             
@@ -456,8 +427,8 @@ namespace Szwalnia {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.Elementy_JednostkiRowChanging != null)) {
-                    this.Elementy_JednostkiRowChanging(this, new Elementy_JednostkiRowChangeEvent(((Elementy_JednostkiRow)(e.Row)), e.Action));
+                if ((this.vOferty_ZebraneRowChanging != null)) {
+                    this.vOferty_ZebraneRowChanging(this, new vOferty_ZebraneRowChangeEvent(((vOferty_ZebraneRow)(e.Row)), e.Action));
                 }
             }
             
@@ -465,8 +436,8 @@ namespace Szwalnia {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.Elementy_JednostkiRowDeleted != null)) {
-                    this.Elementy_JednostkiRowDeleted(this, new Elementy_JednostkiRowChangeEvent(((Elementy_JednostkiRow)(e.Row)), e.Action));
+                if ((this.vOferty_ZebraneRowDeleted != null)) {
+                    this.vOferty_ZebraneRowDeleted(this, new vOferty_ZebraneRowChangeEvent(((vOferty_ZebraneRow)(e.Row)), e.Action));
                 }
             }
             
@@ -474,14 +445,14 @@ namespace Szwalnia {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.Elementy_JednostkiRowDeleting != null)) {
-                    this.Elementy_JednostkiRowDeleting(this, new Elementy_JednostkiRowChangeEvent(((Elementy_JednostkiRow)(e.Row)), e.Action));
+                if ((this.vOferty_ZebraneRowDeleting != null)) {
+                    this.vOferty_ZebraneRowDeleting(this, new vOferty_ZebraneRowChangeEvent(((vOferty_ZebraneRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveElementy_JednostkiRow(Elementy_JednostkiRow row) {
+            public void RemovevOferty_ZebraneRow(vOferty_ZebraneRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -508,7 +479,7 @@ namespace Szwalnia {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "Elementy_JednostkiDataTable";
+                attribute2.FixedValue = "vOferty_ZebraneDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -552,54 +523,43 @@ namespace Szwalnia {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class Elementy_JednostkiRow : global::System.Data.DataRow {
+        public partial class vOferty_ZebraneRow : global::System.Data.DataRow {
             
-            private Elementy_JednostkiDataTable tableElementy_Jednostki;
+            private vOferty_ZebraneDataTable tablevOferty_Zebrane;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal Elementy_JednostkiRow(global::System.Data.DataRowBuilder rb) : 
+            internal vOferty_ZebraneRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableElementy_Jednostki = ((Elementy_JednostkiDataTable)(this.Table));
+                this.tablevOferty_Zebrane = ((vOferty_ZebraneDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int ID_jednostka {
-                get {
-                    return ((int)(this[this.tableElementy_Jednostki.ID_jednostkaColumn]));
-                }
-                set {
-                    this[this.tableElementy_Jednostki.ID_jednostkaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Jednostka {
+            public string Element_Nazwa {
                 get {
                     try {
-                        return ((string)(this[this.tableElementy_Jednostki.JednostkaColumn]));
+                        return ((string)(this[this.tablevOferty_Zebrane.Element_NazwaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Wartość z kolumny \'Jednostka\' w tabeli \'Elementy_Jednostki\' to DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Wartość z kolumny \'Element_Nazwa\' w tabeli \'vOferty_Zebrane\' to DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableElementy_Jednostki.JednostkaColumn] = value;
+                    this[this.tablevOferty_Zebrane.Element_NazwaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsJednostkaNull() {
-                return this.IsNull(this.tableElementy_Jednostki.JednostkaColumn);
+            public bool IsElement_NazwaNull() {
+                return this.IsNull(this.tablevOferty_Zebrane.Element_NazwaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetJednostkaNull() {
-                this[this.tableElementy_Jednostki.JednostkaColumn] = global::System.Convert.DBNull;
+            public void SetElement_NazwaNull() {
+                this[this.tablevOferty_Zebrane.Element_NazwaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -607,22 +567,22 @@ namespace Szwalnia {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class Elementy_JednostkiRowChangeEvent : global::System.EventArgs {
+        public class vOferty_ZebraneRowChangeEvent : global::System.EventArgs {
             
-            private Elementy_JednostkiRow eventRow;
+            private vOferty_ZebraneRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Elementy_JednostkiRowChangeEvent(Elementy_JednostkiRow row, global::System.Data.DataRowAction action) {
+            public vOferty_ZebraneRowChangeEvent(vOferty_ZebraneRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Elementy_JednostkiRow Row {
+            public vOferty_ZebraneRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -650,7 +610,7 @@ namespace Szwalnia.SzwalniaDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class Elementy_JednostkiTableAdapter : global::System.ComponentModel.Component {
+    public partial class vOferty_ZebraneTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -664,7 +624,7 @@ namespace Szwalnia.SzwalniaDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public Elementy_JednostkiTableAdapter() {
+        public vOferty_ZebraneTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -761,43 +721,17 @@ namespace Szwalnia.SzwalniaDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Elementy_Jednostki";
-            tableMapping.ColumnMappings.Add("ID_jednostka", "ID_jednostka");
-            tableMapping.ColumnMappings.Add("Jednostka", "Jednostka");
+            tableMapping.DataSetTable = "vOferty_Zebrane";
+            tableMapping.ColumnMappings.Add("Element_Nazwa", "Element_Nazwa");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Elementy_Jednostki] WHERE (([ID_jednostka] = @Original_ID_jedn" +
-                "ostka) AND ((@IsNull_Jednostka = 1 AND [Jednostka] IS NULL) OR ([Jednostka] = @O" +
-                "riginal_Jednostka)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_jednostka", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_jednostka", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Jednostka", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Jednostka", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Jednostka", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Jednostka", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Elementy_Jednostki] ([Jednostka]) VALUES (@Jednostka);\r\nSELECT" +
-                " ID_jednostka, Jednostka FROM Elementy_Jednostki WHERE (ID_jednostka = SCOPE_IDE" +
-                "NTITY())";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Jednostka", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Jednostka", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Elementy_Jednostki] SET [Jednostka] = @Jednostka WHERE (([ID_jednostka] = @Original_ID_jednostka) AND ((@IsNull_Jednostka = 1 AND [Jednostka] IS NULL) OR ([Jednostka] = @Original_Jednostka)));
-SELECT ID_jednostka, Jednostka FROM Elementy_Jednostki WHERE (ID_jednostka = @ID_jednostka)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Jednostka", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Jednostka", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_jednostka", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_jednostka", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Jednostka", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Jednostka", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Jednostka", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Jednostka", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_jednostka", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_jednostka", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Szwalnia.Properties.Settings.Default.SzwalniaConnectionString;
+            this._connection.ConnectionString = "Data Source=DESKTOP-PKI0NOT\\KWZP2020;Initial Catalog=Szwalnia;Integrated Security" +
+                "=True;MultipleActiveResultSets=True;Application Name=EntityFramework";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -806,7 +740,7 @@ SELECT ID_jednostka, Jednostka FROM Elementy_Jednostki WHERE (ID_jednostka = @ID
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID_jednostka, Jednostka FROM dbo.Elementy_Jednostki";
+            this._commandCollection[0].CommandText = "SELECT Element_Nazwa FROM dbo.vOferty_Zebrane";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -814,7 +748,7 @@ SELECT ID_jednostka, Jednostka FROM Elementy_Jednostki WHERE (ID_jednostka = @ID
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SzwalniaDataSet.Elementy_JednostkiDataTable dataTable) {
+        public virtual int Fill(SzwalniaDataSet.vOferty_ZebraneDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -827,142 +761,11 @@ SELECT ID_jednostka, Jednostka FROM Elementy_Jednostki WHERE (ID_jednostka = @ID
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SzwalniaDataSet.Elementy_JednostkiDataTable GetData() {
+        public virtual SzwalniaDataSet.vOferty_ZebraneDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SzwalniaDataSet.Elementy_JednostkiDataTable dataTable = new SzwalniaDataSet.Elementy_JednostkiDataTable();
+            SzwalniaDataSet.vOferty_ZebraneDataTable dataTable = new SzwalniaDataSet.vOferty_ZebraneDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SzwalniaDataSet.Elementy_JednostkiDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SzwalniaDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Elementy_Jednostki");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID_jednostka, string Original_Jednostka) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID_jednostka));
-            if ((Original_Jednostka == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Jednostka));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Jednostka) {
-            if ((Jednostka == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Jednostka));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Jednostka, int Original_ID_jednostka, string Original_Jednostka, int ID_jednostka) {
-            if ((Jednostka == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Jednostka));
-            }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Original_ID_jednostka));
-            if ((Original_Jednostka == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_Jednostka));
-            }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(ID_jednostka));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Jednostka, int Original_ID_jednostka, string Original_Jednostka) {
-            return this.Update(Jednostka, Original_ID_jednostka, Original_Jednostka, Original_ID_jednostka);
         }
     }
     
@@ -978,8 +781,6 @@ SELECT ID_jednostka, Jednostka FROM Elementy_Jednostki WHERE (ID_jednostka = @ID
         
         private UpdateOrderOption _updateOrder;
         
-        private Elementy_JednostkiTableAdapter _elementy_JednostkiTableAdapter;
-        
         private bool _backupDataSetBeforeUpdate;
         
         private global::System.Data.IDbConnection _connection;
@@ -992,20 +793,6 @@ SELECT ID_jednostka, Jednostka FROM Elementy_Jednostki WHERE (ID_jednostka = @ID
             }
             set {
                 this._updateOrder = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public Elementy_JednostkiTableAdapter Elementy_JednostkiTableAdapter {
-            get {
-                return this._elementy_JednostkiTableAdapter;
-            }
-            set {
-                this._elementy_JednostkiTableAdapter = value;
             }
         }
         
@@ -1028,10 +815,6 @@ SELECT ID_jednostka, Jednostka FROM Elementy_Jednostki WHERE (ID_jednostka = @ID
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._elementy_JednostkiTableAdapter != null) 
-                            && (this._elementy_JednostkiTableAdapter.Connection != null))) {
-                    return this._elementy_JednostkiTableAdapter.Connection;
-                }
                 return null;
             }
             set {
@@ -1045,9 +828,6 @@ SELECT ID_jednostka, Jednostka FROM Elementy_Jednostki WHERE (ID_jednostka = @ID
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._elementy_JednostkiTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 return count;
             }
         }
@@ -1059,15 +839,6 @@ SELECT ID_jednostka, Jednostka FROM Elementy_Jednostki WHERE (ID_jednostka = @ID
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateUpdatedRows(SzwalniaDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._elementy_JednostkiTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Elementy_Jednostki.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._elementy_JednostkiTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             return result;
         }
         
@@ -1078,14 +849,6 @@ SELECT ID_jednostka, Jednostka FROM Elementy_Jednostki WHERE (ID_jednostka = @ID
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateInsertedRows(SzwalniaDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._elementy_JednostkiTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Elementy_Jednostki.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._elementy_JednostkiTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -1096,14 +859,6 @@ SELECT ID_jednostka, Jednostka FROM Elementy_Jednostki WHERE (ID_jednostka = @ID
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(SzwalniaDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._elementy_JednostkiTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Elementy_Jednostki.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._elementy_JednostkiTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             return result;
         }
         
@@ -1143,11 +898,6 @@ SELECT ID_jednostka, Jednostka FROM Elementy_Jednostki WHERE (ID_jednostka = @ID
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._elementy_JednostkiTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._elementy_JednostkiTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("Dla wszystkich obiektów TableAdapter, którymi zarządza obiekt TableAdapterManager" +
-                        ", muszą być używane te same parametry połączenia.");
-            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("Obiekt TableAdapterManager nie zawiera informacji o połączeniu. Ustaw dla każdej " +
@@ -1181,15 +931,6 @@ SELECT ID_jednostka, Jednostka FROM Elementy_Jednostki WHERE (ID_jednostka = @ID
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._elementy_JednostkiTableAdapter != null)) {
-                    revertConnections.Add(this._elementy_JednostkiTableAdapter, this._elementy_JednostkiTableAdapter.Connection);
-                    this._elementy_JednostkiTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._elementy_JednostkiTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._elementy_JednostkiTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._elementy_JednostkiTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._elementy_JednostkiTableAdapter.Adapter);
-                    }
-                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -1247,10 +988,6 @@ SELECT ID_jednostka, Jednostka FROM Elementy_Jednostki WHERE (ID_jednostka = @ID
             finally {
                 if (workConnOpened) {
                     workConnection.Close();
-                }
-                if ((this._elementy_JednostkiTableAdapter != null)) {
-                    this._elementy_JednostkiTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._elementy_JednostkiTableAdapter]));
-                    this._elementy_JednostkiTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
