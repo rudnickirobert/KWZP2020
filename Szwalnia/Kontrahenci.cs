@@ -34,14 +34,14 @@ namespace Szwalnia
 
         private void btnDostawcy_Click(object sender, EventArgs e)
         {
-            Dostawcy dostawca = new Dostawcy();
+            Dostawcy dostawca = new Dostawcy(db);
             dostawca.Show();
             this.Hide();
         }
 
         private void btnUmowyKur_Click(object sender, EventArgs e)
         {
-            UmowyKurierzy umowa = new UmowyKurierzy();
+            UmowyKurierzy umowa = new UmowyKurierzy(db);
             umowa.Show();
             this.Hide();
         }

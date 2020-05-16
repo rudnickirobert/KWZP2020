@@ -64,11 +64,29 @@
     <Compile Include="Czesci_Obsluga.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="DodajDostawce.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajDostawce.Designer.cs">
+      <DependentUpon>DodajDostawce.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DodajKuriera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajKuriera.Designer.cs">
+      <DependentUpon>DodajKuriera.cs</DependentUpon>
+    </Compile>
     <Compile Include="DodajOferte.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DodajOferte.Designer.cs">
       <DependentUpon>DodajOferte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DodajUmoweKurier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajUmoweKurier.Designer.cs">
+      <DependentUpon>DodajUmoweKurier.cs</DependentUpon>
     </Compile>
     <Compile Include="DodawanieCechy.cs">
       <SubType>Form</SubType>
@@ -567,6 +585,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SzwalniaDataSet5.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SzwalniaDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SzwalniaDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SzwalniaDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SzwalniaDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SzwalniaDataSetUmowyKurierzy.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SzwalniaDataSetUmowyKurierzy.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SzwalniaOferta.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -730,8 +763,14 @@
     <Compile Include="Znajomosc_Jezykow.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DodajDostawce.resx">
+      <DependentUpon>DodajDostawce.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DodajOferte.resx">
       <DependentUpon>DodajOferte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodajUmoweKurier.resx">
+      <DependentUpon>DodajUmoweKurier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DodawanieCechy.resx">
       <DependentUpon>DodawanieCechy.cs</DependentUpon>
@@ -751,6 +790,9 @@
     <EmbeddedResource Include="DodoawanieCechElementowi.resx">
       <DependentUpon>DodoawanieCechElementowi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dostawcy.resx">
+      <DependentUpon>Dostawcy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ElementSzczegoly.resx">
       <DependentUpon>ElementSzczegoly.cs</DependentUpon>
     </EmbeddedResource>
@@ -762,6 +804,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KontrolaEfektywnosciFormSzczegoly.resx">
       <DependentUpon>KontrolaEfektywnosciFormSzczegoly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KurierzyLista.resx">
+      <DependentUpon>KurierzyLista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NajwiekszyOdpad.resx">
       <DependentUpon>NajwiekszyOdpad.cs</DependentUpon>
@@ -899,6 +944,9 @@
     <EmbeddedResource Include="SzczegolyProcesu.resx">
       <DependentUpon>SzczegolyProcesu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UmowyKurierzy.resx">
+      <DependentUpon>UmowyKurierzy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WszystkieProcesyProdukcyjne.resx">
       <DependentUpon>WszystkieProcesyProdukcyjne.cs</DependentUpon>
     </EmbeddedResource>
@@ -1013,6 +1061,39 @@
     </None>
     <None Include="SzwalniaDataSet5.xss">
       <DependentUpon>SzwalniaDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="SzwalniaDataSet6.xsc">
+      <DependentUpon>SzwalniaDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="SzwalniaDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SzwalniaDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SzwalniaDataSet6.xss">
+      <DependentUpon>SzwalniaDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="SzwalniaDataSet7.xsc">
+      <DependentUpon>SzwalniaDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="SzwalniaDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SzwalniaDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SzwalniaDataSet7.xss">
+      <DependentUpon>SzwalniaDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="SzwalniaDataSetUmowyKurierzy.xsc">
+      <DependentUpon>SzwalniaDataSetUmowyKurierzy.xsd</DependentUpon>
+    </None>
+    <None Include="SzwalniaDataSetUmowyKurierzy.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SzwalniaDataSetUmowyKurierzy.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SzwalniaDataSetUmowyKurierzy.xss">
+      <DependentUpon>SzwalniaDataSetUmowyKurierzy.xsd</DependentUpon>
     </None>
     <None Include="SzwalniaOferta.xsc">
       <DependentUpon>SzwalniaOferta.xsd</DependentUpon>
