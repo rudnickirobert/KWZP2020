@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NowaPolka));
-            this.btnDodajRegal = new System.Windows.Forms.Button();
+            this.btnDodajPolke = new System.Windows.Forms.Button();
             this.lblOznaczenie = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblNumerPolki = new System.Windows.Forms.Label();
@@ -41,16 +41,16 @@
             this.lblRozmiar = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // btnDodajRegal
+            // btnDodajPolke
             // 
-            this.btnDodajRegal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnDodajRegal.Location = new System.Drawing.Point(166, 215);
-            this.btnDodajRegal.Name = "btnDodajRegal";
-            this.btnDodajRegal.Size = new System.Drawing.Size(86, 32);
-            this.btnDodajRegal.TabIndex = 12;
-            this.btnDodajRegal.Text = "Dodaj";
-            this.btnDodajRegal.UseVisualStyleBackColor = true;
-            this.btnDodajRegal.Click += new System.EventHandler(this.btnDodajRegal_Click);
+            this.btnDodajPolke.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnDodajPolke.Location = new System.Drawing.Point(166, 215);
+            this.btnDodajPolke.Name = "btnDodajPolke";
+            this.btnDodajPolke.Size = new System.Drawing.Size(86, 32);
+            this.btnDodajPolke.TabIndex = 12;
+            this.btnDodajPolke.Text = "Dodaj";
+            this.btnDodajPolke.UseVisualStyleBackColor = true;
+            this.btnDodajPolke.Click += new System.EventHandler(this.btnDodajPolke_Click);
             // 
             // lblOznaczenie
             // 
@@ -149,7 +149,7 @@
             this.Controls.Add(this.btnNowyRegal);
             this.Controls.Add(this.cmbOznaczenie);
             this.Controls.Add(this.lblNumerPolki);
-            this.Controls.Add(this.btnDodajRegal);
+            this.Controls.Add(this.btnDodajPolke);
             this.Controls.Add(this.lblOznaczenie);
             this.Controls.Add(this.lblTitle);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -163,7 +163,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnDodajRegal;
+        private System.Windows.Forms.Button btnDodajPolke;
         private System.Windows.Forms.Label lblOznaczenie;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblNumerPolki;

@@ -29,7 +29,7 @@ namespace Szwalnia
             cmbRozmiar.DisplayMember = "Wymiar";
             cmbRozmiar.ValueMember = "ID_Rozmiar_Polki";
         }
-        private void btnDodajRegal_Click(object sender, EventArgs e)
+        private void btnDodajPolke_Click(object sender, EventArgs e)
         {
             Polki polkaNew = new Polki();
             polkaNew.ID_Rozmiar_Polki = Convert.ToInt32(cmbRozmiar.SelectedValue);
