@@ -27,8 +27,7 @@ GO
 ---- Widok rozmiarow polek (posegregowane po wymiarach)
 CREATE VIEW [dbo].[vPolki_Rozmiary]
 AS
-SELECT        TOP (100) PERCENT ID_Rozmiar_Polki, Wysokosc, Szerokosc, Glebokosc, CAST(dbo.Polki_Rozmiary.Wysokosc AS NVARCHAR) 
-                         + ' x ' + CAST(dbo.Polki_Rozmiary.Szerokosc AS NVARCHAR) + ' x ' + CAST(dbo.Polki_Rozmiary.Glebokosc AS NVARCHAR) AS Wymiar
+SELECT        TOP (100) PERCENT ID_Rozmiar_Polki, Wysokosc, Szerokosc, Glebokosc, Wysokosc + ' x ' + Szerokosc + ' x ' + Glebokosc + ' cm' AS Wymiar
 FROM            dbo.Polki_Rozmiary
 ORDER BY Wysokosc, Szerokosc, Glebokosc
 GO
