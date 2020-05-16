@@ -35,6 +35,7 @@
             // 
             // dgvListaMaterialow
             // 
+            this.dgvListaMaterialow.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaMaterialow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaMaterialow.Location = new System.Drawing.Point(12, 12);
             this.dgvListaMaterialow.Name = "dgvListaMaterialow";

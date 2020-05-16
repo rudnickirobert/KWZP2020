@@ -28,6 +28,7 @@ namespace Szwalnia
                 dgvListaMaterialow.Columns[0].HeaderText = "Numer zamówienia";
                 dgvListaMaterialow.Columns[1].HeaderText = "Numer produktu";
                 dgvListaMaterialow.Columns[2].HeaderText = "Nazwa produktu";
+                dgvListaMaterialow.Columns[1].Visible = false;
                 dgvListaMaterialow.Columns[3].HeaderText = "Brakująca ilość";
                 dgvListaMaterialow.AutoResizeRows();
             }
