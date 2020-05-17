@@ -53,10 +53,13 @@ namespace Szwalnia
 
         private void NowyRegal_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (!NowaPolka.isClosedByAnotherForm)
+            if (Application.OpenForms["NowaPolka"] == null)
+                Start.GetForm.Show();
+            else if (!NowaPolka.isClosedByAnotherForm)
                 Start.GetForm.Show();
             else
             {
+                if (Application.OpenForms["NowaPolka"] == null)
                 Application.OpenForms["NowaPolka"].Close();
                 NowaPolka nowaPolka = new NowaPolka();
                 nowaPolka.Show();

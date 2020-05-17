@@ -32,6 +32,7 @@ namespace Szwalnia
             InitializeComponent();
             db = Start.szwalnia;
             nowaPolka = db.Polki.Count()+1;
+            closingByAnotherForm = false;
             lblNumerNowejPolki.Text = nowaPolka.ToString();
             cmbOznaczenie.Sorted = true;
             cmbOznaczenie.DataSource = db.vRegaly_alfabetycznie.ToList();
@@ -68,9 +69,10 @@ namespace Szwalnia
 
         private void btnNowyRozmiarPolki_Click(object sender, EventArgs e)
         {
+            isClosedByAnotherForm = true;
             NowyRozmiarPolki nowy = new NowyRozmiarPolki();
             nowy.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void NowaPolka_FormClosed(object sender, FormClosedEventArgs e)
