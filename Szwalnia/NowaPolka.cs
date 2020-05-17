@@ -14,6 +14,19 @@ namespace Szwalnia
     {
         public SzwalniaEntities db;
         int nowaPolka;
+        private static bool closingByAnotherForm;
+        public static bool isClosedByAnotherForm
+        {
+            get
+            {
+                return closingByAnotherForm;
+            }
+            set
+            {
+                if (closingByAnotherForm != value)
+                    closingByAnotherForm = value;
+            }
+        }
         public NowaPolka()
         {
             InitializeComponent();
@@ -47,6 +60,7 @@ namespace Szwalnia
         }
         private void btnNowyRegal_Click(object sender, EventArgs e)
         {
+            isClosedByAnotherForm = true;
             NowyRegal nowy = new NowyRegal();
             nowy.Show();
             this.Hide();
@@ -61,7 +75,8 @@ namespace Szwalnia
 
         private void NowaPolka_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Start.GetForm.Show();
+            if (!isClosedByAnotherForm)
+                Start.GetForm.Show();
         }
     }
 }
