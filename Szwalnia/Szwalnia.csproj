@@ -910,6 +910,9 @@
     <EmbeddedResource Include="ZarzadzanieForm.resx">
       <DependentUpon>ZarzadzanieForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ZawartoscPolki.resx">
+      <DependentUpon>ZawartoscPolki.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.Config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

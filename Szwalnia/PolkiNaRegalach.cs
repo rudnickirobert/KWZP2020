@@ -13,6 +13,7 @@ namespace Szwalnia
     public partial class PolkiNaRegalach : Form
     {
         public SzwalniaEntities db;
+        private int furtherForms;
         public bool isFull(int i)
         {
             int idPolka = Convert.ToInt16(dgvPolkiNaRegale.Rows[i].Cells[1].Value);
@@ -25,6 +26,7 @@ namespace Szwalnia
         {
             InitializeComponent();
             db = Start.szwalnia;
+            furtherForms = 0;
             cmbOznaczenie.Sorted = true;
             cmbOznaczenie.DataSource = db.Regaly.ToList();
             cmbOznaczenie.DisplayMember = "Oznaczenie";
@@ -56,16 +58,22 @@ namespace Szwalnia
             if (isFull(dgvPolkiNaRegale.CurrentRow.Index))
             {
                 ZawartoscPolki zawartosc = new ZawartoscPolki(Convert.ToInt32(dgvPolkiNaRegale.CurrentRow.Cells[1].Value));
+                furtherForms++;
                 zawartosc.Show();
             }
-            //tego okienka przy przejściu do zawartości półki nie chować
         }
 
         private void PolkiNaRegalach_FormClosed(object sender, FormClosedEventArgs e)
         {
             foreach (DataGridViewRow row in dgvPolkiNaRegale.Rows)
-                row.Cells[6].Value = "      ";
-            //to jest po to, żeby nie były wprowadzone w bazie żadne zmiany
+                row.Cells[6].Value = "      ";           //to jest po to, żeby nie były wprowadzone w bazie żadne zmiany
+
+            if (furtherForms>0)
+            {
+                for (int i=0; i<furtherForms; i++)
+                    Application.OpenForms["ZawartoscPolki"].Close();
+            }
+            
             Start.GetForm.Show();
         }
 
