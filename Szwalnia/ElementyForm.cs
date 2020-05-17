@@ -68,7 +68,7 @@ namespace Szwalnia
 
         private void btnWstecz_Click(object sender, EventArgs e)
         {
-            new MagazynForm().Show();
+            Application.OpenForms["MagazynForm"].Show();
             this.Hide();
         }
     }
