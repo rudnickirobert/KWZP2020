@@ -56,7 +56,11 @@ namespace Szwalnia
             if (!NowaPolka.isClosedByAnotherForm)
                 Start.GetForm.Show();
             else
-                Application.OpenForms["NowaPolka"].Show();
+            {
+                Application.OpenForms["NowaPolka"].Close();
+                NowaPolka nowaPolka = new NowaPolka();
+                nowaPolka.Show();
+            }
         }
     }
 }
