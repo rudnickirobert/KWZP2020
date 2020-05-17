@@ -35,31 +35,38 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.cmbKurier = new System.Windows.Forms.ComboBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dostawcyZaopatrzenieBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.szwalniaDataSet4BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.szwalniaDataSet4 = new Szwalnia.SzwalniaDataSet4();
+            this.numCzas = new System.Windows.Forms.NumericUpDown();
+            this.numKosztKm = new System.Windows.Forms.NumericUpDown();
+            this.numKosztStaly = new System.Windows.Forms.NumericUpDown();
+            this.dtpDataZawarcia = new System.Windows.Forms.DateTimePicker();
             this.szwalniaDataSet6 = new Szwalnia.SzwalniaDataSet6();
             this.szwalniaDataSet6BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.szwalniaDataSet4 = new Szwalnia.SzwalniaDataSet4();
-            this.szwalniaDataSet4BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dostawcyZaopatrzenieBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dostawcy_ZaopatrzenieTableAdapter = new Szwalnia.SzwalniaDataSet4TableAdapters.Dostawcy_ZaopatrzenieTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            this.btnWstecz = new System.Windows.Forms.Button();
+            this.btnZapisz = new System.Windows.Forms.Button();
+            this.cmbKurier = new System.Windows.Forms.ComboBox();
+            this.kurierzyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.szwalniaDataSet7 = new Szwalnia.SzwalniaDataSet7();
+            this.kurierzyTableAdapter = new Szwalnia.SzwalniaDataSet7TableAdapters.KurierzyTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.dostawcyZaopatrzenieBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet4BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numCzas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numKosztKm)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numKosztStaly)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet6BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet4BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dostawcyZaopatrzenieBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kurierzyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet7)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(186, 19);
+            this.label1.Location = new System.Drawing.Point(105, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(124, 13);
             this.label1.TabIndex = 0;
@@ -110,45 +117,49 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Koszt stały";
             // 
-            // cmbKurier
+            // dostawcyZaopatrzenieBindingSource
             // 
-            this.cmbKurier.DataSource = this.dostawcyZaopatrzenieBindingSource;
-            this.cmbKurier.DisplayMember = "Nazwa";
-            this.cmbKurier.FormattingEnabled = true;
-            this.cmbKurier.Location = new System.Drawing.Point(157, 50);
-            this.cmbKurier.Name = "cmbKurier";
-            this.cmbKurier.Size = new System.Drawing.Size(121, 21);
-            this.cmbKurier.TabIndex = 6;
-            this.cmbKurier.ValueMember = "Nazwa";
+            this.dostawcyZaopatrzenieBindingSource.DataMember = "Dostawcy_Zaopatrzenie";
+            this.dostawcyZaopatrzenieBindingSource.DataSource = this.szwalniaDataSet4BindingSource;
             // 
-            // numericUpDown1
+            // szwalniaDataSet4BindingSource
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(157, 103);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 7;
+            this.szwalniaDataSet4BindingSource.DataSource = this.szwalniaDataSet4;
+            this.szwalniaDataSet4BindingSource.Position = 0;
             // 
-            // numericUpDown2
+            // szwalniaDataSet4
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(158, 129);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown2.TabIndex = 8;
+            this.szwalniaDataSet4.DataSetName = "SzwalniaDataSet4";
+            this.szwalniaDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // numericUpDown3
+            // numCzas
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(157, 155);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown3.TabIndex = 9;
+            this.numCzas.Location = new System.Drawing.Point(157, 103);
+            this.numCzas.Name = "numCzas";
+            this.numCzas.Size = new System.Drawing.Size(120, 20);
+            this.numCzas.TabIndex = 7;
             // 
-            // dateTimePicker1
+            // numKosztKm
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(157, 76);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(120, 20);
-            this.dateTimePicker1.TabIndex = 10;
+            this.numKosztKm.Location = new System.Drawing.Point(158, 129);
+            this.numKosztKm.Name = "numKosztKm";
+            this.numKosztKm.Size = new System.Drawing.Size(120, 20);
+            this.numKosztKm.TabIndex = 8;
+            // 
+            // numKosztStaly
+            // 
+            this.numKosztStaly.Location = new System.Drawing.Point(157, 155);
+            this.numKosztStaly.Name = "numKosztStaly";
+            this.numKosztStaly.Size = new System.Drawing.Size(120, 20);
+            this.numKosztStaly.TabIndex = 9;
+            // 
+            // dtpDataZawarcia
+            // 
+            this.dtpDataZawarcia.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataZawarcia.Location = new System.Drawing.Point(157, 76);
+            this.dtpDataZawarcia.Name = "dtpDataZawarcia";
+            this.dtpDataZawarcia.Size = new System.Drawing.Size(120, 20);
+            this.dtpDataZawarcia.TabIndex = 10;
             // 
             // szwalniaDataSet6
             // 
@@ -160,34 +171,66 @@
             this.szwalniaDataSet6BindingSource.DataSource = this.szwalniaDataSet6;
             this.szwalniaDataSet6BindingSource.Position = 0;
             // 
-            // szwalniaDataSet4
-            // 
-            this.szwalniaDataSet4.DataSetName = "SzwalniaDataSet4";
-            this.szwalniaDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // szwalniaDataSet4BindingSource
-            // 
-            this.szwalniaDataSet4BindingSource.DataSource = this.szwalniaDataSet4;
-            this.szwalniaDataSet4BindingSource.Position = 0;
-            // 
-            // dostawcyZaopatrzenieBindingSource
-            // 
-            this.dostawcyZaopatrzenieBindingSource.DataMember = "Dostawcy_Zaopatrzenie";
-            this.dostawcyZaopatrzenieBindingSource.DataSource = this.szwalniaDataSet4BindingSource;
-            // 
             // dostawcy_ZaopatrzenieTableAdapter
             // 
             this.dostawcy_ZaopatrzenieTableAdapter.ClearBeforeFill = true;
+            // 
+            // btnWstecz
+            // 
+            this.btnWstecz.Location = new System.Drawing.Point(74, 200);
+            this.btnWstecz.Name = "btnWstecz";
+            this.btnWstecz.Size = new System.Drawing.Size(75, 23);
+            this.btnWstecz.TabIndex = 11;
+            this.btnWstecz.Text = "button1";
+            this.btnWstecz.UseVisualStyleBackColor = true;
+            this.btnWstecz.Click += new System.EventHandler(this.btnWstecz_Click);
+            // 
+            // btnZapisz
+            // 
+            this.btnZapisz.Location = new System.Drawing.Point(203, 200);
+            this.btnZapisz.Name = "btnZapisz";
+            this.btnZapisz.Size = new System.Drawing.Size(75, 23);
+            this.btnZapisz.TabIndex = 12;
+            this.btnZapisz.Text = "Zapisz";
+            this.btnZapisz.UseVisualStyleBackColor = true;
+            this.btnZapisz.Click += new System.EventHandler(this.btnZapisz_Click);
+            // 
+            // cmbKurier
+            // 
+            this.cmbKurier.DataSource = this.kurierzyBindingSource;
+            this.cmbKurier.DisplayMember = "Nazwa";
+            this.cmbKurier.FormattingEnabled = true;
+            this.cmbKurier.Location = new System.Drawing.Point(157, 50);
+            this.cmbKurier.Name = "cmbKurier";
+            this.cmbKurier.Size = new System.Drawing.Size(121, 21);
+            this.cmbKurier.TabIndex = 6;
+            this.cmbKurier.ValueMember = "Nazwa";
+            // 
+            // kurierzyBindingSource
+            // 
+            this.kurierzyBindingSource.DataMember = "Kurierzy";
+            this.kurierzyBindingSource.DataSource = this.szwalniaDataSet7;
+            // 
+            // szwalniaDataSet7
+            // 
+            this.szwalniaDataSet7.DataSetName = "SzwalniaDataSet7";
+            this.szwalniaDataSet7.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // kurierzyTableAdapter
+            // 
+            this.kurierzyTableAdapter.ClearBeforeFill = true;
             // 
             // DodajUmoweKurier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(596, 200);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.numericUpDown3);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.numericUpDown1);
+            this.ClientSize = new System.Drawing.Size(387, 246);
+            this.Controls.Add(this.btnZapisz);
+            this.Controls.Add(this.btnWstecz);
+            this.Controls.Add(this.dtpDataZawarcia);
+            this.Controls.Add(this.numKosztStaly);
+            this.Controls.Add(this.numKosztKm);
+            this.Controls.Add(this.numCzas);
             this.Controls.Add(this.cmbKurier);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -197,15 +240,18 @@
             this.Controls.Add(this.label1);
             this.Name = "DodajUmoweKurier";
             this.Text = "Dodaj nową umowę z kurierem";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DodajUmoweKurier_FormClosed);
             this.Load += new System.EventHandler(this.DodajUmoweKurier_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dostawcyZaopatrzenieBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet4BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numCzas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numKosztKm)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numKosztStaly)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet6BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet4BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dostawcyZaopatrzenieBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kurierzyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet7)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,16 +265,21 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cmbKurier;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.NumericUpDown numCzas;
+        private System.Windows.Forms.NumericUpDown numKosztKm;
+        private System.Windows.Forms.NumericUpDown numKosztStaly;
+        private System.Windows.Forms.DateTimePicker dtpDataZawarcia;
         private System.Windows.Forms.BindingSource szwalniaDataSet6BindingSource;
         private SzwalniaDataSet6 szwalniaDataSet6;
         private System.Windows.Forms.BindingSource szwalniaDataSet4BindingSource;
         private SzwalniaDataSet4 szwalniaDataSet4;
         private System.Windows.Forms.BindingSource dostawcyZaopatrzenieBindingSource;
         private SzwalniaDataSet4TableAdapters.Dostawcy_ZaopatrzenieTableAdapter dostawcy_ZaopatrzenieTableAdapter;
+        private System.Windows.Forms.Button btnWstecz;
+        private System.Windows.Forms.Button btnZapisz;
+        private System.Windows.Forms.ComboBox cmbKurier;
+        private SzwalniaDataSet7 szwalniaDataSet7;
+        private System.Windows.Forms.BindingSource kurierzyBindingSource;
+        private SzwalniaDataSet7TableAdapters.KurierzyTableAdapter kurierzyTableAdapter;
     }
 }

@@ -68,6 +68,7 @@
             this.elementyTableAdapter1 = new Szwalnia.SzwalniaDataSet5TableAdapters.ElementyTableAdapter();
             this.numCzasDostawy = new System.Windows.Forms.NumericUpDown();
             this.dtpDataOferty = new System.Windows.Forms.DateTimePicker();
+            this.btnWstecz = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numIloscPoj)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.elementyJednostkiBindingSource)).BeginInit();
@@ -204,7 +205,7 @@
             // 
             // btnZapisz
             // 
-            this.btnZapisz.Location = new System.Drawing.Point(405, 233);
+            this.btnZapisz.Location = new System.Drawing.Point(460, 233);
             this.btnZapisz.Name = "btnZapisz";
             this.btnZapisz.Size = new System.Drawing.Size(92, 34);
             this.btnZapisz.TabIndex = 47;
@@ -364,11 +365,22 @@
             this.dtpDataOferty.Size = new System.Drawing.Size(100, 20);
             this.dtpDataOferty.TabIndex = 56;
             // 
+            // btnWstecz
+            // 
+            this.btnWstecz.Location = new System.Drawing.Point(316, 233);
+            this.btnWstecz.Name = "btnWstecz";
+            this.btnWstecz.Size = new System.Drawing.Size(53, 34);
+            this.btnWstecz.TabIndex = 57;
+            this.btnWstecz.Text = "button1";
+            this.btnWstecz.UseVisualStyleBackColor = true;
+            this.btnWstecz.Click += new System.EventHandler(this.btnWstecz_Click);
+            // 
             // DodajOferte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(626, 329);
+            this.Controls.Add(this.btnWstecz);
             this.Controls.Add(this.dtpDataOferty);
             this.Controls.Add(this.numCzasDostawy);
             this.Controls.Add(this.numIloscZbiorcza);
@@ -459,5 +471,6 @@
         private SzwalniaDataSet5TableAdapters.ElementyTableAdapter elementyTableAdapter1;
         private System.Windows.Forms.NumericUpDown numCzasDostawy;
         private System.Windows.Forms.DateTimePicker dtpDataOferty;
+        private System.Windows.Forms.Button btnWstecz;
     }
 }

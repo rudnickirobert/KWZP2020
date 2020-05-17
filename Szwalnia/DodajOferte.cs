@@ -29,8 +29,6 @@ namespace Szwalnia
             ofertaNowa.ID_Jednostka = cmbJednostka.SelectedIndex;
             ofertaNowa.Ilosc_W_Opakowaniu_Zbiorczym = Decimal.ToInt32(numIloscZbiorcza.Value);
             ofertaNowa.Deklarowany_czas_dostawy = Decimal.ToInt32(numCzasDostawy.Value);
-            //fixed
-
         }
            
         private void btnZapisz_Click(object sender, EventArgs e)
@@ -67,6 +65,11 @@ namespace Szwalnia
         {
             Start.GetForm.Show();
         }
-        
+
+        private void btnWstecz_Click(object sender, EventArgs e)
+        {
+            Application.OpenForms["Oferty"].Show();
+            this.Hide();
+        }
     }
 }

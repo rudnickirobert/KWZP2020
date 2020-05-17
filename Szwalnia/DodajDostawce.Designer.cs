@@ -39,6 +39,7 @@
             this.mtxtTel2 = new System.Windows.Forms.MaskedTextBox();
             this.btnDodaj = new System.Windows.Forms.Button();
             this.btnWstecz = new System.Windows.Forms.Button();
+            this.chkTel2 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -102,11 +103,14 @@
             // 
             // mtxtTel1
             // 
+            this.mtxtTel1.AllowDrop = true;
             this.mtxtTel1.Location = new System.Drawing.Point(163, 104);
             this.mtxtTel1.Mask = "000-000-000";
             this.mtxtTel1.Name = "mtxtTel1";
             this.mtxtTel1.Size = new System.Drawing.Size(100, 20);
             this.mtxtTel1.TabIndex = 7;
+            this.mtxtTel1.Text = "000000000";
+            this.mtxtTel1.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // mtxtTel2
             // 
@@ -115,6 +119,7 @@
             this.mtxtTel2.Name = "mtxtTel2";
             this.mtxtTel2.Size = new System.Drawing.Size(100, 20);
             this.mtxtTel2.TabIndex = 8;
+            this.mtxtTel2.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.mtxtTel2.ValidatingType = typeof(int);
             // 
             // btnDodaj
@@ -125,6 +130,7 @@
             this.btnDodaj.TabIndex = 9;
             this.btnDodaj.Text = "Dodaj";
             this.btnDodaj.UseVisualStyleBackColor = true;
+            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
             // 
             // btnWstecz
             // 
@@ -134,12 +140,24 @@
             this.btnWstecz.TabIndex = 10;
             this.btnWstecz.Text = "button1";
             this.btnWstecz.UseVisualStyleBackColor = true;
+            this.btnWstecz.Click += new System.EventHandler(this.btnWstecz_Click);
+            // 
+            // chkTel2
+            // 
+            this.chkTel2.AutoSize = true;
+            this.chkTel2.Location = new System.Drawing.Point(45, 145);
+            this.chkTel2.Name = "chkTel2";
+            this.chkTel2.Size = new System.Drawing.Size(15, 14);
+            this.chkTel2.TabIndex = 11;
+            this.chkTel2.UseVisualStyleBackColor = true;
+            this.chkTel2.CheckedChanged += new System.EventHandler(this.chkTel2_CheckedChanged);
             // 
             // DodajDostawce
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(346, 279);
+            this.Controls.Add(this.chkTel2);
             this.Controls.Add(this.btnWstecz);
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.mtxtTel2);
@@ -172,5 +190,6 @@
         private System.Windows.Forms.MaskedTextBox mtxtTel2;
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.Button btnWstecz;
+        private System.Windows.Forms.CheckBox chkTel2;
     }
 }

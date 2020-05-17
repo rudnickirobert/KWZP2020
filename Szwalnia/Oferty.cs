@@ -17,6 +17,7 @@ namespace Szwalnia
         {
             db = szwalnia;
             InitializeComponent();
+            dgvOferty.DataSource = db.vOferty_Zebrane.ToList();
         }
 
         private void btnDodajOferte_Click(object sender, EventArgs e)
@@ -28,6 +29,8 @@ namespace Szwalnia
 
         private void Oferty_Load(object sender, EventArgs e)
         {
+            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'szwalniaDataSet.vOferty_Zebrane' . Możesz go przenieść lub usunąć.
+            this.vOferty_ZebraneTableAdapter.Fill(this.szwalniaDataSet.vOferty_Zebrane);
             // TODO: Ten wiersz kodu wczytuje dane do tabeli 'szwalniaOferta.Oferta' . Możesz go przenieść lub usunąć.
             this.ofertaTableAdapter.Fill(this.szwalniaOferta.Oferta);
 
@@ -44,6 +47,12 @@ namespace Szwalnia
         private void Oferty_FormClosed(object sender, FormClosedEventArgs e)
         {
             Start.GetForm.Show();
+        }
+
+        private void btnWstecz_Click(object sender, EventArgs e)
+        {
+            Application.OpenForms["Kontrahenci"].Show();
+            this.Hide();
         }
     }
 }

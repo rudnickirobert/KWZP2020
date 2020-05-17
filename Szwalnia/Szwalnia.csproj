@@ -130,6 +130,12 @@
     <Compile Include="Dostawcy.Designer.cs">
       <DependentUpon>Dostawcy.cs</DependentUpon>
     </Compile>
+    <Compile Include="DostawcySzczegoly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DostawcySzczegoly.Designer.cs">
+      <DependentUpon>DostawcySzczegoly.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dostawcy_Zaopatrzenie.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -251,6 +257,12 @@
     </Compile>
     <Compile Include="KurierzyLista.Designer.cs">
       <DependentUpon>KurierzyLista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KurierzySzczegoly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KurierzySzczegoly.Designer.cs">
+      <DependentUpon>KurierzySzczegoly.cs</DependentUpon>
     </Compile>
     <Compile Include="Maszyny.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
@@ -632,6 +644,12 @@
     <Compile Include="UmowyKurierzy.Designer.cs">
       <DependentUpon>UmowyKurierzy.cs</DependentUpon>
     </Compile>
+    <Compile Include="UmowySzczegoly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UmowySzczegoly.Designer.cs">
+      <DependentUpon>UmowySzczegoly.cs</DependentUpon>
+    </Compile>
     <Compile Include="Umowy_Kurierzy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -766,6 +784,9 @@
     <EmbeddedResource Include="DodajDostawce.resx">
       <DependentUpon>DodajDostawce.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DodajKuriera.resx">
+      <DependentUpon>DodajKuriera.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DodajOferte.resx">
       <DependentUpon>DodajOferte.cs</DependentUpon>
     </EmbeddedResource>
@@ -793,6 +814,9 @@
     <EmbeddedResource Include="Dostawcy.resx">
       <DependentUpon>Dostawcy.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DostawcySzczegoly.resx">
+      <DependentUpon>DostawcySzczegoly.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ElementSzczegoly.resx">
       <DependentUpon>ElementSzczegoly.cs</DependentUpon>
     </EmbeddedResource>
@@ -807,6 +831,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KurierzyLista.resx">
       <DependentUpon>KurierzyLista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KurierzySzczegoly.resx">
+      <DependentUpon>KurierzySzczegoly.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NajwiekszyOdpad.resx">
       <DependentUpon>NajwiekszyOdpad.cs</DependentUpon>
@@ -946,6 +973,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UmowyKurierzy.resx">
       <DependentUpon>UmowyKurierzy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UmowySzczegoly.resx">
+      <DependentUpon>UmowySzczegoly.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WszystkieProcesyProdukcyjne.resx">
       <DependentUpon>WszystkieProcesyProdukcyjne.cs</DependentUpon>

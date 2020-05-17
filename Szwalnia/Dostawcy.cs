@@ -37,5 +37,19 @@ namespace Szwalnia
         {
             Start.GetForm.Show();
         }
+
+        private void btnWstecz_Click(object sender, EventArgs e)
+        {
+            Application.OpenForms["Kontrahenci"].Show();
+            this.Hide();
+        }
+
+        private void dgvDostawcy_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int numID = Convert.ToInt32(dgvDostawcy.CurrentRow.Cells[0].Value);
+            DostawcySzczegoly szczegolyDostawca = new DostawcySzczegoly(db, Decimal.ToInt32(numID));
+            szczegolyDostawca.Show();
+            this.Hide();
+        }
     }
 }

@@ -51,6 +51,7 @@
             this.txtJednostka = new System.Windows.Forms.TextBox();
             this.txtIloscZbiorcza = new System.Windows.Forms.TextBox();
             this.txtCzasDostawy = new System.Windows.Forms.TextBox();
+            this.btnWstecz = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -239,11 +240,21 @@
             this.txtCzasDostawy.Size = new System.Drawing.Size(100, 20);
             this.txtCzasDostawy.TabIndex = 22;
             // 
+            // btnWstecz
+            // 
+            this.btnWstecz.Location = new System.Drawing.Point(409, 249);
+            this.btnWstecz.Name = "btnWstecz";
+            this.btnWstecz.Size = new System.Drawing.Size(75, 23);
+            this.btnWstecz.TabIndex = 23;
+            this.btnWstecz.UseVisualStyleBackColor = true;
+            this.btnWstecz.Click += new System.EventHandler(this.btnWstecz_Click);
+            // 
             // OfertySzczegoly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(627, 334);
+            this.Controls.Add(this.btnWstecz);
             this.Controls.Add(this.txtCzasDostawy);
             this.Controls.Add(this.txtIloscZbiorcza);
             this.Controls.Add(this.txtJednostka);
@@ -300,5 +311,6 @@
         private System.Windows.Forms.TextBox txtJednostka;
         private System.Windows.Forms.TextBox txtIloscZbiorcza;
         private System.Windows.Forms.TextBox txtCzasDostawy;
+        private System.Windows.Forms.Button btnWstecz;
     }
 }

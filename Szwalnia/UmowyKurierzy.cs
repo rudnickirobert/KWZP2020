@@ -29,8 +29,28 @@ namespace Szwalnia
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            DodajUmoweKurier umowa = new DodajUmoweKurier();
+            DodajUmoweKurier umowa = new DodajUmoweKurier(db);
             umowa.Show();
+            this.Hide();
+        }
+
+        private void btnWstecz_Click(object sender, EventArgs e)
+        {
+            Application.OpenForms["Kontrahenci"].Show();
+            this.Hide();
+        }
+
+        private void dgvUmowy_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int numID = Convert.ToInt32(dgvUmowy.CurrentRow.Cells[0].Value);
+            UmowySzczegoly szczegolyUmowa = new UmowySzczegoly(db, Decimal.ToInt32(numID));
+            szczegolyUmowa.Show();
+            this.Hide();
+        }
+
+        private void UmowyKurierzy_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Start.GetForm.Show();
         }
     }
 }

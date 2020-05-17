@@ -48,7 +48,7 @@ namespace Szwalnia
 
         private void btnKurierzy_Click(object sender, EventArgs e)
         {
-            KurierzyLista kurier = new KurierzyLista();
+            KurierzyLista kurier = new KurierzyLista(db);
             kurier.Show();
             this.Hide();
         }
