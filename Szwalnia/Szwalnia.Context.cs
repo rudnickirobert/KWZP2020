@@ -123,5 +123,10 @@ namespace Szwalnia
         public virtual DbSet<Regaly> Regaly { get; set; }
         public virtual DbSet<vRegaly_alfabetycznie> vRegaly_alfabetycznie { get; set; }
         public virtual DbSet<vPolki_na_regalach> vPolki_na_regalach { get; set; }
+        public virtual DbSet<Dostawy_Wlasne_Zawartosc> Dostawy_Wlasne_Zawartosc { get; set; }
+        public virtual DbSet<Zamowienia_Dostawy_Wlasne> Zamowienia_Dostawy_Wlasne { get; set; }
+        public virtual DbSet<vMaterialyDoZamowienia> vMaterialyDoZamowienia { get; set; }
+        public virtual DbSet<vMaterialyDoZamowieniaBrak> vMaterialyDoZamowieniaBrak { get; set; }
+        public virtual DbSet<vOferta> vOferta { get; set; }
     }
 }

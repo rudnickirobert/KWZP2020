@@ -23,5 +23,49 @@ namespace Szwalnia
         {
             Start.GetForm.Show();
         }
+
+        private void ObslugaDostaw_Load(object sender, EventArgs e)
+        {
+             if (db.vMaterialyDoZamowieniaBrak.Where(elementDoZamowienia => elementDoZamowienia.ID_Element > 0).Any() == false)
+            {
+                lblInfo.Text = "";
+            }
+             else
+            {
+                lblInfo.Text = "Istnieją niezamówione materiały";
+            }
+        }
+
+        private void btnAddDelivery_Click(object sender, EventArgs e)
+        {
+            if (db.vMaterialyDoZamowieniaBrak.Where(elementDoZamowienia => elementDoZamowienia.ID_Element > 0).Any() == false)
+            {
+                DodawanieDostaw formularzDodawanieDostaw = new DodawanieDostaw(true);
+                formularzDodawanieDostaw.Show();
+                this.Hide();
+            }
+            else
+            {
+                DodawanieDostaw formularzDodawanieDostaw = new DodawanieDostaw(false);
+                formularzDodawanieDostaw.Show();
+                this.Hide();
+            }
+        }
+
+        private void lblInfo_Click(object sender, EventArgs e)
+        {
+            if (db.vMaterialyDoZamowieniaBrak.Where(elementDoZamowienia => elementDoZamowienia.ID_Element > 0).Any() == false)
+            {
+                DodawanieDostaw formularzDodawanieDostaw = new DodawanieDostaw(true);
+                formularzDodawanieDostaw.Show();
+                this.Hide();
+            }
+            else
+            {
+                DodawanieDostaw formularzDodawanieDostaw = new DodawanieDostaw(false);
+                formularzDodawanieDostaw.Show();
+                this.Hide();
+            }
+        }
     }
 }

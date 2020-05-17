@@ -68,7 +68,62 @@ SELECT        TOP (100) PERCENT ID_regal, Oznaczenie
 FROM            dbo.Regaly
 ORDER BY Oznaczenie
 GO
+-- Widok podsumowujacy materialy z magazynu ktore zostaly przypisane do zamowien
+CREATE VIEW [dbo].[vMaterialyZMagazynu]
+AS
+SELECT        dbo.Zamowienia_Dostawy_Wlasne.ID_Zamowienia, dbo.Dostawy_Wlasne_Zawartosc.ID_Element, SUM(dbo.Dostawy_Wlasne_Zawartosc.Ilosc) * - 1 AS Ilosc
+FROM            dbo.Dostawy_Wlasne_Zawartosc INNER JOIN
+                         dbo.Zamowienia_Dostawy_Wlasne ON dbo.Dostawy_Wlasne_Zawartosc.ID_Zamowienia_dostawy_wlasne = dbo.Zamowienia_Dostawy_Wlasne.ID_Zamowienia_dostawy_wlasne
+GROUP BY dbo.Zamowienia_Dostawy_Wlasne.ID_Zamowienia, dbo.Dostawy_Wlasne_Zawartosc.ID_Element
+GO
+--Widok podsumowujacy materialy potrzebne do wykonania zamowienia
+CREATE VIEW [dbo].[vMaterialyDoZamowienia]
+AS
+SELECT        dbo.Zamowienia.ID_Zamowienia, dbo.Elementy_Proces.ID_Element, SUM(dbo.Elementy_Proces.Liczba) AS Ilosc
+FROM            dbo.Proces_Technologiczny INNER JOIN
+                         dbo.Elementy_Proces ON dbo.Proces_Technologiczny.ID_Proces_Technologiczny = dbo.Elementy_Proces.ID_Proces_Technologiczny INNER JOIN
+                         dbo.Proces_Zamowienie ON dbo.Proces_Technologiczny.ID_Proces_Technologiczny = dbo.Proces_Zamowienie.ID_Proces_Technologiczny INNER JOIN
+                         dbo.Zamowienia INNER JOIN
+                         dbo.Zamowienie_Element ON dbo.Zamowienia.ID_Zamowienia = dbo.Zamowienie_Element.ID_Zamowienia ON dbo.Proces_Zamowienie.ID_Zamowienie_Element = dbo.Zamowienie_Element.ID_Zamowienie_Element
+WHERE        (dbo.Proces_Zamowienie.Kompletny_Proces = 1)
+GROUP BY dbo.Zamowienia.ID_Zamowienia, dbo.Elementy_Proces.ID_Element
+GO
+--Widok podsumowujacy juz zamowione materialy
+CREATE VIEW [dbo].[vMaterialyZamowione]
+AS
+SELECT        dbo.Zamowienia_Dostawy.ID_Zamowienia, dbo.Dostawy_Zawartosc.ID_Element, dbo.Dostawy_Zawartosc.Ilosc_Dostarczona * dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym * - 1 AS Ilosc
+FROM            dbo.Zamowienia_Dostawy INNER JOIN
+                         dbo.Dostawy_Zawartosc ON dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Dostawy_Zawartosc.ID_Dostawy INNER JOIN
+                         dbo.Oferta ON dbo.Dostawy_Zawartosc.ID_oferta = dbo.Oferta.ID_Oferta
+WHERE        (dbo.Zamowienia_Dostawy.ID_statusu IS NOT NULL)
+GO
+--Widok podsumowujacy materialy brakujace ktore trzeba domowic
+CREATE VIEW [dbo].[vMaterialyDoZamowieniaBrak]
+AS
+SELECT        Wszystko.ID_Zamowienia, dbo.Elementy.ID_Element, dbo.Elementy.Element_Nazwa, SUM(Wszystko.Ilosc) AS Ilosc
+FROM            (SELECT        ID_Zamowienia, ID_Element, Ilosc
+                          FROM            dbo.vMaterialyDoZamowienia
+                          UNION ALL
+                          SELECT        ID_Zamowienia, ID_Element, Ilosc
+                          FROM            dbo.vMaterialyZamowione
+                          UNION ALL
+                          SELECT        ID_Zamowienia, ID_Element, Ilosc
+                          FROM            dbo.vMaterialyZMagazynu) AS Wszystko INNER JOIN
+                         dbo.Elementy ON Wszystko.ID_Element = dbo.Elementy.ID_Element
+GROUP BY Wszystko.ID_Zamowienia, dbo.Elementy.Element_Nazwa, dbo.Elementy.ID_Element
+HAVING        (SUM(Wszystko.Ilosc) > 0)
+GO
 
+--widok ofert
+CREATE VIEW [dbo].[vOferta]
+AS
+SELECT        dbo.Oferta.ID_Element, dbo.Oferta.ID_Oferta, dbo.Dostawcy_Zaopatrzenie.ID_Dostawcy, dbo.Oferta.Element_Oznaczenie, dbo.Oferta.Cena_Jedn, dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym, 
+                         dbo.Oferta.Deklarowany_czas_dostawy, dbo.Dostawcy_Zaopatrzenie.Nazwa, dbo.Oferta.Ilosc_Minimalna, dbo.Oferta.Ilosc_Maksymalna, dbo.Dostawcy_Zaopatrzenie.Telefon_1
+FROM            dbo.Oferta INNER JOIN
+                         dbo.Dostawcy_Zaopatrzenie ON dbo.Oferta.ID_Dostawcy = dbo.Dostawcy_Zaopatrzenie.ID_Dostawcy
+GROUP BY dbo.Oferta.ID_Element, dbo.Oferta.ID_Oferta, dbo.Oferta.Element_Oznaczenie, dbo.Oferta.Cena_Jedn, dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym, dbo.Dostawcy_Zaopatrzenie.ID_Dostawcy, 
+                         dbo.Dostawcy_Zaopatrzenie.Nazwa, dbo.Dostawcy_Zaopatrzenie.Telefon_1, dbo.Oferta.Ilosc_Minimalna, dbo.Oferta.Ilosc_Maksymalna, dbo.Oferta.Deklarowany_czas_dostawy
+GO
 
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
