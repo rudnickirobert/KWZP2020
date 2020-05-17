@@ -26,6 +26,7 @@ namespace Szwalnia
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Pomyślnie dodano nowy rekord do bazy danych.");
             db.Elementy_Typy.Add(typNew);
             db.SaveChanges();
         }

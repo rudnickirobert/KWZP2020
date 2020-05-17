@@ -23,6 +23,7 @@ namespace Szwalnia
         {
             Elementy_Cechy_Slownik cechaNew = new Elementy_Cechy_Slownik();
             cechaNew.Cecha = txtNazwa.Text;
+            MessageBox.Show("Pomyślnie dodano nowy rekord do bazy danych.");
             db.Elementy_Cechy_Slownik.Add(cechaNew);
             db.SaveChanges();
         }

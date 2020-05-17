@@ -66,6 +66,7 @@ namespace Szwalnia
             else
             { cechaElementuNew.Wartosc_Cechy_Liczbowa = null; }
 
+            MessageBox.Show("Pomyślnie dodano nowy rekord do bazy danych.");
             db.Elementy_Cechy.Add(cechaElementuNew);
             db.SaveChanges();
 
