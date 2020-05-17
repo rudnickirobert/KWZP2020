@@ -63,6 +63,9 @@ namespace Szwalnia
 
         private void PolkiNaRegalach_FormClosed(object sender, FormClosedEventArgs e)
         {
+            foreach (DataGridViewRow row in dgvPolkiNaRegale.Rows)
+                row.Cells[6].Value = "      ";
+            //to jest po to, żeby nie były wprowadzone w bazie żadne zmiany
             Start.GetForm.Show();
         }
 
