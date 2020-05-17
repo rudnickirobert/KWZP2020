@@ -120,7 +120,7 @@
             // mtxtWysokosc
             // 
             this.mtxtWysokosc.Location = new System.Drawing.Point(171, 79);
-            this.mtxtWysokosc.Mask = "###";
+            this.mtxtWysokosc.Mask = "000";
             this.mtxtWysokosc.Name = "mtxtWysokosc";
             this.mtxtWysokosc.Size = new System.Drawing.Size(75, 20);
             this.mtxtWysokosc.TabIndex = 1;
@@ -128,7 +128,7 @@
             // mtxtGlebokosc
             // 
             this.mtxtGlebokosc.Location = new System.Drawing.Point(171, 137);
-            this.mtxtGlebokosc.Mask = "###";
+            this.mtxtGlebokosc.Mask = "000";
             this.mtxtGlebokosc.Name = "mtxtGlebokosc";
             this.mtxtGlebokosc.Size = new System.Drawing.Size(75, 20);
             this.mtxtGlebokosc.TabIndex = 3;
@@ -136,7 +136,7 @@
             // mtxtSzerokosc
             // 
             this.mtxtSzerokosc.Location = new System.Drawing.Point(171, 108);
-            this.mtxtSzerokosc.Mask = "###";
+            this.mtxtSzerokosc.Mask = "000";
             this.mtxtSzerokosc.Name = "mtxtSzerokosc";
             this.mtxtSzerokosc.Size = new System.Drawing.Size(75, 20);
             this.mtxtSzerokosc.TabIndex = 2;

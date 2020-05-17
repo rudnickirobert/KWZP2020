@@ -52,7 +52,7 @@
             // 
             this.cmbOznaczenie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbOznaczenie.FormattingEnabled = true;
-            this.cmbOznaczenie.Location = new System.Drawing.Point(153, 70);
+            this.cmbOznaczenie.Location = new System.Drawing.Point(162, 88);
             this.cmbOznaczenie.Name = "cmbOznaczenie";
             this.cmbOznaczenie.Size = new System.Drawing.Size(114, 28);
             this.cmbOznaczenie.TabIndex = 1;
@@ -61,7 +61,7 @@
             // lblOznaczenie
             // 
             this.lblOznaczenie.AutoSize = true;
-            this.lblOznaczenie.Location = new System.Drawing.Point(87, 78);
+            this.lblOznaczenie.Location = new System.Drawing.Point(96, 96);
             this.lblOznaczenie.Name = "lblOznaczenie";
             this.lblOznaczenie.Size = new System.Drawing.Size(40, 13);
             this.lblOznaczenie.TabIndex = 16;
