@@ -59,7 +59,6 @@ namespace Szwalnia
                 Start.GetForm.Show();
             else
             {
-                if (Application.OpenForms["NowaPolka"] == null)
                 Application.OpenForms["NowaPolka"].Close();
                 NowaPolka nowaPolka = new NowaPolka();
                 nowaPolka.Show();

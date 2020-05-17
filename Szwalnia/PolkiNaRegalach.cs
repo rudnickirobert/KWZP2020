@@ -21,11 +21,10 @@ namespace Szwalnia
             cmbOznaczenie.DataSource = db.Regaly.ToList();
             cmbOznaczenie.DisplayMember = "Oznaczenie";
         }
-
-        private void cmbOznaczenie_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnLupa_Click(object sender, EventArgs e)
         {
             dgvPolkiNaRegale.DataSource = db.vPolki_na_regalach.Where(regal => regal.Oznaczenie.Equals(cmbOznaczenie.Text)).ToList();
-            dgvPolkiNaRegale.Columns[0].Visible = dgvPolkiNaRegale.Columns[2].Visible = 
+            dgvPolkiNaRegale.Columns[0].Visible = dgvPolkiNaRegale.Columns[2].Visible =
                 dgvPolkiNaRegale.Columns[3].Visible = dgvPolkiNaRegale.Columns[4].Visible = false;
 
             for (int i = 0; i < dgvPolkiNaRegale.RowCount; i++)
@@ -44,5 +43,7 @@ namespace Szwalnia
         {
             Start.GetForm.Show();
         }
+
+
     }
 }

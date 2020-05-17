@@ -64,7 +64,7 @@ namespace Szwalnia
             isClosedByAnotherForm = true;
             NowyRegal nowy = new NowyRegal();
             nowy.Show();
-            this.Hide();
+            //this.Hide();
         }
 
         private void btnNowyRozmiarPolki_Click(object sender, EventArgs e)
@@ -72,7 +72,7 @@ namespace Szwalnia
             isClosedByAnotherForm = true;
             NowyRozmiarPolki nowy = new NowyRozmiarPolki();
             nowy.Show();
-            this.Close();
+            //this.Hide();
         }
 
         private void NowaPolka_FormClosed(object sender, FormClosedEventArgs e)

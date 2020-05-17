@@ -52,6 +52,7 @@ namespace Szwalnia
                     db.SaveChanges();
                     MessageBox.Show("Pomyślnie dodano rozmiar półkę o wymiarach " + Convert.ToInt16(mtxtWysokosc.Text).ToString() + " x " + 
                         Convert.ToInt16(mtxtSzerokosc.Text).ToString() + " x " + Convert.ToInt16(mtxtGlebokosc.Text).ToString() + " cm.");
+                this.Close();
             }
             else if (allFilled() == false)
                 MessageBox.Show("Uzupełnij wszystkie pola tekstowe!");
@@ -63,7 +64,16 @@ namespace Szwalnia
 
         private void NowyRozmiarPolki_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Start.GetForm.Show();
+            if (Application.OpenForms["NowaPolka"] == null)
+                Start.GetForm.Show();
+            else if (!NowaPolka.isClosedByAnotherForm)
+                Start.GetForm.Show();
+            else
+            {
+                Application.OpenForms["NowaPolka"].Close();
+                NowaPolka nowaPolka = new NowaPolka();
+                nowaPolka.Show();
+            }
         }
 
     }

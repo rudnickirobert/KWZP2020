@@ -56,7 +56,6 @@
             this.cmbOznaczenie.Name = "cmbOznaczenie";
             this.cmbOznaczenie.Size = new System.Drawing.Size(114, 28);
             this.cmbOznaczenie.TabIndex = 1;
-            this.cmbOznaczenie.SelectedIndexChanged += new System.EventHandler(this.cmbOznaczenie_SelectedIndexChanged);
             // 
             // lblOznaczenie
             // 
@@ -81,12 +80,14 @@
             // 
             // btnLupa
             // 
+            this.btnLupa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLupa.Image = global::Szwalnia.Properties.Resources.lupa2;
             this.btnLupa.Location = new System.Drawing.Point(307, 22);
             this.btnLupa.Name = "btnLupa";
             this.btnLupa.Size = new System.Drawing.Size(116, 124);
             this.btnLupa.TabIndex = 18;
             this.btnLupa.UseVisualStyleBackColor = true;
+            this.btnLupa.Click += new System.EventHandler(this.btnLupa_Click);
             // 
             // PolkiNaRegalach
             // 
