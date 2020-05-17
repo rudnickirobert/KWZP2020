@@ -17,32 +17,28 @@ namespace Szwalnia
         {
             InitializeComponent();
             this.db = db;
-
+            
+            cbUmowa.DataSource = db.Rodzaj_Umowy.ToList();
             cbUmowa.ValueMember = "ID_Rodzaj_Umowy";
             cbUmowa.DisplayMember = "Rodzaj_Umowy";
-            cbUmowa.DataSource = db.Rodzaj_Umowy.Distinct().ToList();
-            cbUmowa.Invalidate();
 
+
+            cbImieNazwisko.DataSource = db.Pracownicy.ToList();
             cbImieNazwisko.ValueMember = "ID_Pracownika";
-            cbImieNazwisko.DisplayMember = "Imie, Nazwisko";
-            cbImieNazwisko.DataSource = db.Pracownicy.Distinct().ToList();
-            cbImieNazwisko.Invalidate();
+            cbImieNazwisko.DisplayMember = "Imie"; //'Pracownik'
+            //dbo.Pracownicy.Imie + (' ') + dbo.Pracownicy.Nazwisko AS 'Pracownik'
 
+            cbDzial.DataSource = db.Dzialy.ToList();
             cbDzial.ValueMember = "ID_Dzialu";
             cbDzial.DisplayMember = "Nazwa_dzialu";
-            cbDzial.DataSource = db.Dzialy.Distinct().ToList();
-            cbDzial.Invalidate();
-
-            cbEtat.ValueMember = "ID_Etatu";
+            
+            cbEtat.DataSource = db.Etat.ToList();
+            cbEtat.ValueMember = "ID_Etat";
             cbEtat.DisplayMember = "Wymiar_Etatu";
-            cbEtat.DataSource = db.Etat.Distinct().ToList();
-            cbEtat.Invalidate();
-
+            
+            cbStanowisko.DataSource = db.Stanowisko.ToList();
             cbStanowisko.ValueMember = "ID_Stanowiska";
             cbStanowisko.DisplayMember = "Stanowisko";
-            cbStanowisko.DataSource = db.Stanowisko.Distinct().ToList();
-            cbStanowisko.Invalidate();
-
         }
 
         private void btnAnuluj_Click(object sender, EventArgs e)

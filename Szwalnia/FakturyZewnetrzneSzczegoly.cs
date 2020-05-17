@@ -12,27 +12,14 @@ namespace Szwalnia
 {
     public partial class FakturyZewnetrzneSzczegoly : Form
     {
-        public FakturyZewnetrzneSzczegoly(SzwalniaEntities db, int ID)
+        private SzwalniaEntities db;
+        public int ostatniNumerFaktury;
+        public FakturyZewnetrzneSzczegoly(SzwalniaEntities db)
         {
             InitializeComponent();
-
-            Faktury_Zewnetrzne faktura = db.Faktury_Zewnetrzne.Where(wybrane => wybrane.ID_Faktura_zewnetrzna == ID).First();
-            txtNrFaktury.Text = faktura.Nr_Faktury;
-            txtNazwaFirmy.Text = faktura.Nazwa_Firmy;
-            int x = faktura.Netto;
-            string y = faktura.Netto.ToString();
-            txtKosztNetto.Text = y;
-            int z = faktura.Brutto;
-            string w = faktura.Brutto.ToString();
-            txtKosztBrutto.Text = w;
-            int a = faktura.Podatek;
-            string b = faktura.Podatek.ToString(); ;
-            txtWartoscPodatku.Text = b;
-        }
-
-            private void btnZamknij_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            this.db = db;
+            dgvFakturyZewnetrzne.DataSource = db.Faktury_Zewnetrzne.ToList();
+            dgvFakturyZewnetrzne.Columns[0].Visible = false;
         }
     }
 }

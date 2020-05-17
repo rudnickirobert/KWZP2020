@@ -213,10 +213,11 @@
             this.btnZapisz.Text = "Zapisz i zamknij";
             this.btnZapisz.UseVisualStyleBackColor = true;
             // 
-            // Informacje_o_zatrudnieniu
+            // InformacjeOZatrudnieniu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(602, 528);
             this.Controls.Add(this.btnZapisz);
             this.Controls.Add(this.btnJezyk);
@@ -237,7 +238,8 @@
             this.Controls.Add(this.cbEtat);
             this.Controls.Add(this.cbStanowisko);
             this.Controls.Add(this.cbImieNazwisko);
-            this.Name = "Informacje_o_zatrudnieniu";
+            this.Name = "InformacjeOZatrudnieniu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Informacje o zatrudnieniu";
             this.ResumeLayout(false);
             this.PerformLayout();

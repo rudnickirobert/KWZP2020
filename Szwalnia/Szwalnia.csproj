@@ -91,6 +91,12 @@
     <Compile Include="ElementSzczegoly.Designer.cs">
       <DependentUpon>ElementSzczegoly.cs</DependentUpon>
     </Compile>
+    <Compile Include="Elementy zamówienia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Elementy zamówienia.Designer.cs">
+      <DependentUpon>Elementy zamówienia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Elementy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -228,6 +234,12 @@
     </Compile>
     <Compile Include="NiewykorzystanyMaterialWMiesiacu.Designer.cs">
       <DependentUpon>NiewykorzystanyMaterialWMiesiacu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nowa faktura zewnętrzna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nowa faktura zewnętrzna.Designer.cs">
+      <DependentUpon>Nowa faktura zewnętrzna.cs</DependentUpon>
     </Compile>
     <Compile Include="NowaRealizacjaProcesu.cs">
       <SubType>Form</SubType>
@@ -692,6 +704,9 @@
     <EmbeddedResource Include="ElementSzczegoly.resx">
       <DependentUpon>ElementSzczegoly.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Elementy zamówienia.resx">
+      <DependentUpon>Elementy zamówienia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Informacje o zatrudnieniu.resx">
       <DependentUpon>Informacje o zatrudnieniu.cs</DependentUpon>
     </EmbeddedResource>
@@ -709,6 +724,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NiewykorzystanyMaterialWMiesiacu.resx">
       <DependentUpon>NiewykorzystanyMaterialWMiesiacu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nowa faktura zewnętrzna.resx">
+      <DependentUpon>Nowa faktura zewnętrzna.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NowaRealizacjaProcesu.resx">
       <DependentUpon>NowaRealizacjaProcesu.cs</DependentUpon>

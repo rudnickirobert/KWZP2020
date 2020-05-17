@@ -32,19 +32,21 @@ namespace Szwalnia
             cbPracownik.DataSource = db.Pracownicy.Distinct().ToList();
             cbPracownik.Invalidate();
         }
-
         private void btnDalej_Click(object sender, EventArgs e)
         {
             Zamowienia zamowienia = new Zamowienia();
             zamowienia.Data_Zlozenia = Convert.ToDateTime(txtZlozenie.Text);
             zamowienia.Data_Zakonczenia = Convert.ToDateTime(txtZakonczenie.Text);
             zamowienia.Umowa = Convert.ToBoolean(chbUmowa.Checked);
-            zamowienia.ID_Klienta = Convert.ToInt32(cbNazwa);
-            zamowienia.ID_Pracownika = Convert.ToInt32(cbPracownik.Text);
+            zamowienia.ID_Klienta = Convert.ToInt32(cbNazwa.SelectedValue);
+            zamowienia.ID_Pracownika = Convert.ToInt32(cbPracownik.SelectedValue);
             db.Zamowienia.Add(zamowienia);
             db.SaveChanges();
+            MessageBox.Show("Dodano nowe zamówienie, wybierz elementy zamówienia");
+            this.Close();
+
+            ElementyZamowienia elementyZamowienia = new ElementyZamowienia(db);
+            elementyZamowienia.Show();
         }
-
-
     }
 }
