@@ -23,11 +23,11 @@ namespace Szwalnia
         public int ID_Dostarczenia { get; set; }
         public Nullable<int> ID_Pracownicy { get; set; }
         public Nullable<int> ID_Dostawy { get; set; }
+        public Nullable<int> ID_Zamowienie_element { get; set; }
         public Nullable<int> ID_element { get; set; }
         public Nullable<double> Ilosc_Dostarczona { get; set; }
         public Nullable<int> ID_Miejsca { get; set; }
         public string Data_Dostarczenia { get; set; }
-        public Nullable<int> ID_Zamowienie_element { get; set; }
     
         public virtual Zamowienia_Dostawy Zamowienia_Dostawy { get; set; }
         public virtual Elementy Elementy { get; set; }

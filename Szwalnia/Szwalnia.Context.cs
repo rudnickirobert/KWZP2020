@@ -31,6 +31,7 @@ namespace Szwalnia
         public virtual DbSet<Dostarczenia_Wewn> Dostarczenia_Wewn { get; set; }
         public virtual DbSet<Dostarczenia_Zewn> Dostarczenia_Zewn { get; set; }
         public virtual DbSet<Dostawcy_Zaopatrzenie> Dostawcy_Zaopatrzenie { get; set; }
+        public virtual DbSet<Dostawy_Wlasne_Zawartosc> Dostawy_Wlasne_Zawartosc { get; set; }
         public virtual DbSet<Dostawy_Zawartosc> Dostawy_Zawartosc { get; set; }
         public virtual DbSet<Dzialy> Dzialy { get; set; }
         public virtual DbSet<Elementy> Elementy { get; set; }
@@ -65,6 +66,7 @@ namespace Szwalnia
         public virtual DbSet<Proces_Zamowienie> Proces_Zamowienie { get; set; }
         public virtual DbSet<Przydzial_Zasobow> Przydzial_Zasobow { get; set; }
         public virtual DbSet<Realizacja_Procesu> Realizacja_Procesu { get; set; }
+        public virtual DbSet<Regaly> Regaly { get; set; }
         public virtual DbSet<Rodzaj_Dokumentacji> Rodzaj_Dokumentacji { get; set; }
         public virtual DbSet<Rodzaj_Etapu> Rodzaj_Etapu { get; set; }
         public virtual DbSet<Rodzaj_Maszyny> Rodzaj_Maszyny { get; set; }
@@ -80,6 +82,7 @@ namespace Szwalnia
         public virtual DbSet<Wymiar_Urlopu> Wymiar_Urlopu { get; set; }
         public virtual DbSet<Zamowienia> Zamowienia { get; set; }
         public virtual DbSet<Zamowienia_Dostawy> Zamowienia_Dostawy { get; set; }
+        public virtual DbSet<Zamowienia_Dostawy_Wlasne> Zamowienia_Dostawy_Wlasne { get; set; }
         public virtual DbSet<Zamowienia_Przydzial> Zamowienia_Przydzial { get; set; }
         public virtual DbSet<Zamowienie_Element> Zamowienie_Element { get; set; }
         public virtual DbSet<Zawartosc> Zawartosc { get; set; }
@@ -96,8 +99,13 @@ namespace Szwalnia
         public virtual DbSet<vMaszyny_proces> vMaszyny_proces { get; set; }
         public virtual DbSet<vMaszyny_rodzaj_liczba> vMaszyny_rodzaj_liczba { get; set; }
         public virtual DbSet<vMaszyny_serwis> vMaszyny_serwis { get; set; }
+        public virtual DbSet<vMaterialyDoZamowienia> vMaterialyDoZamowienia { get; set; }
+        public virtual DbSet<vMaterialyDoZamowieniaBrak> vMaterialyDoZamowieniaBrak { get; set; }
         public virtual DbSet<vNiezuzyteWMiesiacu> vNiezuzyteWMiesiacu { get; set; }
         public virtual DbSet<vObsluga> vObsluga { get; set; }
+        public virtual DbSet<vOferta> vOferta { get; set; }
+        public virtual DbSet<vPolki_na_regalach> vPolki_na_regalach { get; set; }
+        public virtual DbSet<vPolki_Rozmiary> vPolki_Rozmiary { get; set; }
         public virtual DbSet<vProces_elementy> vProces_elementy { get; set; }
         public virtual DbSet<vProces_Etapy> vProces_Etapy { get; set; }
         public virtual DbSet<vProces_Maszyna> vProces_Maszyna { get; set; }
@@ -105,6 +113,7 @@ namespace Szwalnia
         public virtual DbSet<vProcesMaxOdpadMiesiac> vProcesMaxOdpadMiesiac { get; set; }
         public virtual DbSet<vProcesy> vProcesy { get; set; }
         public virtual DbSet<vRealizacjaProcesuProdukcyjnegoDetails> vRealizacjaProcesuProdukcyjnegoDetails { get; set; }
+        public virtual DbSet<vRegaly_alfabetycznie> vRegaly_alfabetycznie { get; set; }
         public virtual DbSet<vResurs> vResurs { get; set; }
         public virtual DbSet<vRodzaj_Maszyny> vRodzaj_Maszyny { get; set; }
         public virtual DbSet<vRoznicaDatDni> vRoznicaDatDni { get; set; }
@@ -119,14 +128,5 @@ namespace Szwalnia
         public virtual DbSet<vWszystkie_Maszyny> vWszystkie_Maszyny { get; set; }
         public virtual DbSet<vZamowienieProcesyProdukcyjne> vZamowienieProcesyProdukcyjne { get; set; }
         public virtual DbSet<vZawartosc_polki> vZawartosc_polki { get; set; }
-        public virtual DbSet<vPolki_Rozmiary> vPolki_Rozmiary { get; set; }
-        public virtual DbSet<Regaly> Regaly { get; set; }
-        public virtual DbSet<vRegaly_alfabetycznie> vRegaly_alfabetycznie { get; set; }
-        public virtual DbSet<vPolki_na_regalach> vPolki_na_regalach { get; set; }
-        public virtual DbSet<Dostawy_Wlasne_Zawartosc> Dostawy_Wlasne_Zawartosc { get; set; }
-        public virtual DbSet<Zamowienia_Dostawy_Wlasne> Zamowienia_Dostawy_Wlasne { get; set; }
-        public virtual DbSet<vMaterialyDoZamowienia> vMaterialyDoZamowienia { get; set; }
-        public virtual DbSet<vMaterialyDoZamowieniaBrak> vMaterialyDoZamowieniaBrak { get; set; }
-        public virtual DbSet<vOferta> vOferta { get; set; }
     }
 }

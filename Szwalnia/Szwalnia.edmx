@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SzwalniaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SzwalniaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Czesci_Obsluga">
           <Key>
             <PropertyRef Name="ID_Czesci_Obsluga" />
@@ -841,13 +841,15 @@ warning 6002: The table/view 'Szwalnia.dbo.vPolki_na_regalach' does not have a p
         <EntityType Name="vPolki_na_regalach">
           <Key>
             <PropertyRef Name="ID_Polka" />
+            <PropertyRef Name="Pusta/Zajęta" />
           </Key>
           <Property Name="Oznaczenie" Type="varchar" MaxLength="2" />
           <Property Name="ID_Polka" Type="int" Nullable="false" />
           <Property Name="Wysokosc" Type="int" />
           <Property Name="Szerokosc" Type="int" />
           <Property Name="Glebokosc" Type="int" />
-          <Property Name="Wymiar" Type="nvarchar" MaxLength="96" />
+          <Property Name="Wymiar" Type="nvarchar" MaxLength="99" />
+          <Property Name="Pusta/Zajęta" Type="varchar" MaxLength="6" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vPolki_Rozmiary' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -859,7 +861,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPolki_Rozmiary' does not have a prim
           <Property Name="Wysokosc" Type="int" />
           <Property Name="Szerokosc" Type="int" />
           <Property Name="Glebokosc" Type="int" />
-          <Property Name="Wymiar" Type="int" />
+          <Property Name="Wymiar" Type="nvarchar" MaxLength="96" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vProces_elementy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1106,16 +1108,16 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
 warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vZawartosc_polki">
           <Key>
-            <PropertyRef Name="ID_Regal" />
+            <PropertyRef Name="ID_Zawartosc" />
           </Key>
-          <Property Name="ID_Regal" Type="int" Nullable="false" />
-          <Property Name="Oznaczenie" Type="varchar" MaxLength="2" />
+          <Property Name="ID_Zawartosc" Type="int" Nullable="false" />
           <Property Name="ID_Polka" Type="int" />
           <Property Name="Element_Nazwa" Type="varchar" MaxLength="35" />
-          <Property Name="Ilosc_Paczek" Type="real" />
-          <Property Name="Ilosc_W_Opakowaniu_Pojedynczym" Type="real" />
+          <Property Name="ID_Element" Type="int" />
+          <Property Name="Ile" Type="real" />
           <Property Name="Jednostka" Type="varchar" MaxLength="10" />
-          <Property Name="Ile_sztuk" Type="real" />
+          <Property Name="Data_Dostawy_Rzeczywista" Type="date" />
+          <Property Name="Okres_Przydatnosci_Miesiace" Type="int" />
         </EntityType>
         <Association Name="FK__Czesci_Ob__ID_El__56E8E7AB">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
@@ -2366,7 +2368,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
     [vPolki_na_regalach].[Wysokosc] AS [Wysokosc], 
     [vPolki_na_regalach].[Szerokosc] AS [Szerokosc], 
     [vPolki_na_regalach].[Glebokosc] AS [Glebokosc], 
-    [vPolki_na_regalach].[Wymiar] AS [Wymiar]
+    [vPolki_na_regalach].[Wymiar] AS [Wymiar], 
+    [vPolki_na_regalach].[Pusta/Zajęta] AS [Pusta/Zajęta]
     FROM [dbo].[vPolki_na_regalach] AS [vPolki_na_regalach]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vPolki_Rozmiary" EntityType="Self.vPolki_Rozmiary" store:Type="Views" store:Schema="dbo">
@@ -2534,14 +2537,14 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           </EntitySet>
           <EntitySet Name="vZawartosc_polki" EntityType="Self.vZawartosc_polki" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [vZawartosc_polki].[ID_Regal] AS [ID_Regal], 
-    [vZawartosc_polki].[Oznaczenie] AS [Oznaczenie], 
+    [vZawartosc_polki].[ID_Zawartosc] AS [ID_Zawartosc], 
     [vZawartosc_polki].[ID_Polka] AS [ID_Polka], 
     [vZawartosc_polki].[Element_Nazwa] AS [Element_Nazwa], 
-    [vZawartosc_polki].[Ilosc_Paczek] AS [Ilosc_Paczek], 
-    [vZawartosc_polki].[Ilosc_W_Opakowaniu_Pojedynczym] AS [Ilosc_W_Opakowaniu_Pojedynczym], 
+    [vZawartosc_polki].[ID_Element] AS [ID_Element], 
+    [vZawartosc_polki].[Ile] AS [Ile], 
     [vZawartosc_polki].[Jednostka] AS [Jednostka], 
-    [vZawartosc_polki].[Ile_sztuk] AS [Ile_sztuk]
+    [vZawartosc_polki].[Data_Dostawy_Rzeczywista] AS [Data_Dostawy_Rzeczywista], 
+    [vZawartosc_polki].[Okres_Przydatnosci_Miesiace] AS [Okres_Przydatnosci_Miesiace]
     FROM [dbo].[vZawartosc_polki] AS [vZawartosc_polki]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__Czesci_Ob__ID_El__56E8E7AB" Association="Self.FK__Czesci_Ob__ID_El__56E8E7AB">
@@ -2889,7 +2892,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             <End Role="Znajomosc_Jezykow" EntitySet="Znajomosc_Jezykow" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SzwalniaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -2901,8 +2905,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="ID_Obsluga_Techniczna" Type="Int32" Nullable="false" />
           <Property Name="ID_Element" Type="Int32" Nullable="false" />
           <Property Name="Liczba" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Elementy" Relationship="Self.FK__Czesci_Ob__ID_El__4E53A1AA" FromRole="Czesci_Obsluga" ToRole="Elementy" />
-          <NavigationProperty Name="Obsluga_Techniczna" Relationship="Self.FK__Czesci_Ob__ID_Ob__4D5F7D71" FromRole="Czesci_Obsluga" ToRole="Obsluga_Techniczna" />
+          <NavigationProperty Name="Elementy" Relationship="Self.FK__Czesci_Ob__ID_El__56E8E7AB" FromRole="Czesci_Obsluga" ToRole="Elementy" />
+          <NavigationProperty Name="Obsluga_Techniczna" Relationship="Self.FK__Czesci_Ob__ID_Ob__55F4C372" FromRole="Czesci_Obsluga" ToRole="Obsluga_Techniczna" />
         </EntityType>
         <EntityType Name="Dokumentacja_Proces">
           <Key>
@@ -2911,8 +2915,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="ID_Dokumentacja_Proces" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Dokumentacji" Type="Int32" Nullable="false" />
           <Property Name="ID_Proces_Technologiczny" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Dokumentacje" Relationship="Self.FK__Dokumenta__ID_Do__3D2915A8" FromRole="Dokumentacja_Proces" ToRole="Dokumentacje" />
-          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Dokumenta__ID_Pr__3E1D39E1" FromRole="Dokumentacja_Proces" ToRole="Proces_Technologiczny" />
+          <NavigationProperty Name="Dokumentacje" Relationship="Self.FK__Dokumenta__ID_Do__45BE5BA9" FromRole="Dokumentacja_Proces" ToRole="Dokumentacje" />
+          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Dokumenta__ID_Pr__46B27FE2" FromRole="Dokumentacja_Proces" ToRole="Proces_Technologiczny" />
         </EntityType>
         <EntityType Name="Dokumentacje">
           <Key>
@@ -2923,9 +2927,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="ID_Pracownika" Type="Int32" Nullable="false" />
           <Property Name="Data_Wykonania" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Plik" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Dokumentacja_Proces" Relationship="Self.FK__Dokumenta__ID_Do__3D2915A8" FromRole="Dokumentacje" ToRole="Dokumentacja_Proces" />
-          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Dokumenta__ID_Pr__37703C52" FromRole="Dokumentacje" ToRole="Pracownicy" />
-          <NavigationProperty Name="Rodzaj_Dokumentacji" Relationship="Self.FK__Dokumenta__ID_Ro__367C1819" FromRole="Dokumentacje" ToRole="Rodzaj_Dokumentacji" />
+          <NavigationProperty Name="Dokumentacja_Proces" Relationship="Self.FK__Dokumenta__ID_Do__45BE5BA9" FromRole="Dokumentacje" ToRole="Dokumentacja_Proces" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Dokumenta__ID_Pr__40058253" FromRole="Dokumentacje" ToRole="Pracownicy" />
+          <NavigationProperty Name="Rodzaj_Dokumentacji" Relationship="Self.FK__Dokumenta__ID_Ro__3F115E1A" FromRole="Dokumentacje" ToRole="Rodzaj_Dokumentacji" />
         </EntityType>
         <EntityType Name="Dostarczenia_Wewn">
           <Key>
@@ -2934,6 +2938,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="ID_Dostarczenia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Pracownicy" Type="Int32" />
           <Property Name="ID_Dostawy" Type="Int32" />
+          <Property Name="ID_Zamowienie_element" Type="Int32" />
           <Property Name="ID_element" Type="Int32" />
           <Property Name="Ilosc_Dostarczona" Type="Double" />
           <Property Name="ID_Miejsca" Type="Int32" />
@@ -2942,8 +2947,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <NavigationProperty Name="Elementy" Relationship="Self.FK__Dostarcze__ID_el__236943A5" FromRole="Dostarczenia_Wewn" ToRole="Elementy" />
           <NavigationProperty Name="Miejsca" Relationship="Self.FK__Dostarcze__ID_Mi__245D67DE" FromRole="Dostarczenia_Wewn" ToRole="Miejsca" />
           <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Dostarcze__ID_Pr__2180FB33" FromRole="Dostarczenia_Wewn" ToRole="Pracownicy" />
-          <NavigationProperty Name="Odbior_Dostarczenia" Relationship="Self.FK__Odbior_Do__ID_Do__6166761E" FromRole="Dostarczenia_Wewn" ToRole="Odbior_Dostarczenia" />
-          <Property Name="ID_Zamowienie_element" Type="Int32" />
+          <NavigationProperty Name="Odbior_Dostarczenia" Relationship="Self.FK__Odbior_Do__ID_Do__69FBBC1F" FromRole="Dostarczenia_Wewn" ToRole="Odbior_Dostarczenia" />
         </EntityType>
         <EntityType Name="Dostarczenia_Zewn">
           <Key>
@@ -2971,6 +2975,19 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="Telefon_2" Type="Int32" />
           <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Oferta" Relationship="Self.FK__Oferta__ID_Dosta__0A9D95DB" FromRole="Dostawcy_Zaopatrzenie" ToRole="Oferta" />
+        </EntityType>
+        <EntityType Name="Dostawy_Wlasne_Zawartosc">
+          <Key>
+            <PropertyRef Name="ID_Dostawy_Wlasne_Zawartosc" />
+          </Key>
+          <Property Name="ID_Dostawy_Wlasne_Zawartosc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Zamowienia_dostawy_wlasne" Type="Int32" />
+          <Property Name="ID_Dostawy" Type="Int32" />
+          <Property Name="ID_Element" Type="Int32" />
+          <Property Name="Ilosc" Type="Int32" />
+          <NavigationProperty Name="Zamowienia_Dostawy" Relationship="Self.FK__Dostawy_W__ID_Do__3587F3E0" FromRole="Dostawy_Wlasne_Zawartosc" ToRole="Zamowienia_Dostawy" />
+          <NavigationProperty Name="Elementy" Relationship="Self.FK__Dostawy_W__ID_El__367C1819" FromRole="Dostawy_Wlasne_Zawartosc" ToRole="Elementy" />
+          <NavigationProperty Name="Zamowienia_Dostawy_Wlasne" Relationship="Self.FK__Dostawy_W__ID_Za__3493CFA7" FromRole="Dostawy_Wlasne_Zawartosc" ToRole="Zamowienia_Dostawy_Wlasne" />
         </EntityType>
         <EntityType Name="Dostawy_Zawartosc">
           <Key>
@@ -3002,17 +3019,17 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="ID_Element_Typ" Type="Int32" />
           <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
           <Property Name="Okres_Przydatnosci_Miesiace" Type="Int32" />
-          <NavigationProperty Name="Czesci_Obsluga" Relationship="Self.FK__Czesci_Ob__ID_El__4E53A1AA" FromRole="Elementy" ToRole="Czesci_Obsluga" />
+          <NavigationProperty Name="Czesci_Obsluga" Relationship="Self.FK__Czesci_Ob__ID_El__56E8E7AB" FromRole="Elementy" ToRole="Czesci_Obsluga" />
           <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Dostarcze__ID_el__236943A5" FromRole="Elementy" ToRole="Dostarczenia_Wewn" />
           <NavigationProperty Name="Dostarczenia_Zewn" Relationship="Self.FK__Dostarcze__ID_el__29221CFB" FromRole="Elementy" ToRole="Dostarczenia_Zewn" />
+          <NavigationProperty Name="Dostawy_Wlasne_Zawartosc" Relationship="Self.FK__Dostawy_W__ID_El__367C1819" FromRole="Elementy" ToRole="Dostawy_Wlasne_Zawartosc" />
           <NavigationProperty Name="Dostawy_Zawartosc" Relationship="Self.FK__Dostawy_Z__ID_El__1DB06A4F" FromRole="Elementy" ToRole="Dostawy_Zawartosc" />
           <NavigationProperty Name="Elementy_Cechy" Relationship="Self.FK__Elementy___ID_El__02084FDA" FromRole="Elementy" ToRole="Elementy_Cechy" />
-          <NavigationProperty Name="Elementy_Proces" Relationship="Self.FK__Elementy___ID_El__55F4C372" FromRole="Elementy" ToRole="Elementy_Proces" />
+          <NavigationProperty Name="Elementy_Proces" Relationship="Self.FK__Elementy___ID_El__5E8A0973" FromRole="Elementy" ToRole="Elementy_Proces" />
           <NavigationProperty Name="Elementy_Typy" Relationship="Self.FK__Elementy__ID_Ele__7F2BE32F" FromRole="Elementy" ToRole="Elementy_Typy" />
           <NavigationProperty Name="Oferta" Relationship="Self.FK__Oferta__ID_Eleme__09A971A2" FromRole="Elementy" ToRole="Oferta" />
           <NavigationProperty Name="Zamowienie_Element" Relationship="Self.FK__Zamowieni__ID_El__2DE6D218" FromRole="Elementy" ToRole="Zamowienie_Element" />
           <NavigationProperty Name="Zawartosc" Relationship="Self.FK__Zawartosc__ID_El__18EBB532" FromRole="Elementy" ToRole="Zawartosc" />
-          <NavigationProperty Name="Dostawy_Wlasne_Zawartosc" Relationship="SzwalniaModel.FK__Dostawy_W__ID_El__367C1819" FromRole="Elementy" ToRole="Dostawy_Wlasne_Zawartosc" />
         </EntityType>
         <EntityType Name="Elementy_Cechy">
           <Key>
@@ -3044,7 +3061,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="ID_jednostka" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Elementy_Cechy" Relationship="Self.FK__Elementy___ID_Je__03F0984C" FromRole="Elementy_Jednostki" ToRole="Elementy_Cechy" />
-          <NavigationProperty Name="Elementy_Proces" Relationship="Self.FK__Elementy___ID_je__56E8E7AB" FromRole="Elementy_Jednostki" ToRole="Elementy_Proces" />
+          <NavigationProperty Name="Elementy_Proces" Relationship="Self.FK__Elementy___ID_je__5F7E2DAC" FromRole="Elementy_Jednostki" ToRole="Elementy_Proces" />
           <NavigationProperty Name="Oferta" Relationship="Self.FK__Oferta__ID_Jedno__0B91BA14" FromRole="Elementy_Jednostki" ToRole="Oferta" />
         </EntityType>
         <EntityType Name="Elementy_Proces">
@@ -3056,10 +3073,10 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="ID_Element" Type="Int32" Nullable="false" />
           <Property Name="Liczba" Type="Int32" Nullable="false" />
           <Property Name="ID_jednostka" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Elementy" Relationship="Self.FK__Elementy___ID_El__55F4C372" FromRole="Elementy_Proces" ToRole="Elementy" />
-          <NavigationProperty Name="Elementy_Jednostki" Relationship="Self.FK__Elementy___ID_je__56E8E7AB" FromRole="Elementy_Proces" ToRole="Elementy_Jednostki" />
-          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Elementy___ID_Pr__55009F39" FromRole="Elementy_Proces" ToRole="Proces_Technologiczny" />
-          <NavigationProperty Name="Material_Na_Produkcji" Relationship="Self.FK__Material___ID_El__65370702" FromRole="Elementy_Proces" ToRole="Material_Na_Produkcji" />
+          <NavigationProperty Name="Elementy" Relationship="Self.FK__Elementy___ID_El__5E8A0973" FromRole="Elementy_Proces" ToRole="Elementy" />
+          <NavigationProperty Name="Elementy_Jednostki" Relationship="Self.FK__Elementy___ID_je__5F7E2DAC" FromRole="Elementy_Proces" ToRole="Elementy_Jednostki" />
+          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Elementy___ID_Pr__5D95E53A" FromRole="Elementy_Proces" ToRole="Proces_Technologiczny" />
+          <NavigationProperty Name="Material_Na_Produkcji" Relationship="Self.FK__Material___ID_El__6DCC4D03" FromRole="Elementy_Proces" ToRole="Material_Na_Produkcji" />
         </EntityType>
         <EntityType Name="Elementy_Typy">
           <Key>
@@ -3079,8 +3096,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="ID_Proces_Technologiczny" Type="Int32" Nullable="false" />
           <Property Name="ID_Etapu" Type="Int32" Nullable="false" />
           <Property Name="Czas" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Rodzaj_Etapu" Relationship="Self.FK__Etapy_W_P__ID_Et__5AB9788F" FromRole="Etapy_W_Procesie" ToRole="Rodzaj_Etapu" />
-          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Etapy_W_P__ID_Pr__59C55456" FromRole="Etapy_W_Procesie" ToRole="Proces_Technologiczny" />
+          <NavigationProperty Name="Rodzaj_Etapu" Relationship="Self.FK__Etapy_W_P__ID_Et__634EBE90" FromRole="Etapy_W_Procesie" ToRole="Rodzaj_Etapu" />
+          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Etapy_W_P__ID_Pr__625A9A57" FromRole="Etapy_W_Procesie" ToRole="Proces_Technologiczny" />
         </EntityType>
         <EntityType Name="Etat">
           <Key>
@@ -3147,7 +3164,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="Zgodnosc_Zamowienia" Type="Boolean" />
           <Property Name="Liczba_Poprawnych" Type="Int32" />
-          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Kontrola___ID_Pr__70A8B9AE" FromRole="Kontrola_Efektywnosci" ToRole="Proces_Produkcyjny" />
+          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Kontrola___ID_Pr__793DFFAF" FromRole="Kontrola_Efektywnosci" ToRole="Proces_Produkcyjny" />
         </EntityType>
         <EntityType Name="Kurierzy">
           <Key>
@@ -3169,10 +3186,10 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="ID_Rodzaj_Maszyny" Type="Int32" Nullable="false" />
           <Property Name="Resurs_Rbh" Type="Int32" Nullable="false" />
           <Property Name="Serwis_Co_Ile" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Rodzaj_Maszyny" Relationship="Self.FK__Maszyny__ID_Rodz__45BE5BA9" FromRole="Maszyny" ToRole="Rodzaj_Maszyny" />
-          <NavigationProperty Name="Srodki_Trwale" Relationship="Self.FK__Maszyny__ID_Srod__44CA3770" FromRole="Maszyny" ToRole="Srodki_Trwale" />
-          <NavigationProperty Name="Obsluga_Techniczna" Relationship="Self.FK__Obsluga_T__ID_Ma__489AC854" FromRole="Maszyny" ToRole="Obsluga_Techniczna" />
-          <NavigationProperty Name="Przydzial_Zasobow" Relationship="Self.FK__Przydzial__ID_Ma__6DCC4D03" FromRole="Maszyny" ToRole="Przydzial_Zasobow" />
+          <NavigationProperty Name="Rodzaj_Maszyny" Relationship="Self.FK__Maszyny__ID_Rodz__4E53A1AA" FromRole="Maszyny" ToRole="Rodzaj_Maszyny" />
+          <NavigationProperty Name="Srodki_Trwale" Relationship="Self.FK__Maszyny__ID_Srod__4D5F7D71" FromRole="Maszyny" ToRole="Srodki_Trwale" />
+          <NavigationProperty Name="Obsluga_Techniczna" Relationship="Self.FK__Obsluga_T__ID_Ma__51300E55" FromRole="Maszyny" ToRole="Obsluga_Techniczna" />
+          <NavigationProperty Name="Przydzial_Zasobow" Relationship="Self.FK__Przydzial__ID_Ma__76619304" FromRole="Maszyny" ToRole="Przydzial_Zasobow" />
         </EntityType>
         <EntityType Name="Maszyny_Proces">
           <Key>
@@ -3183,8 +3200,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="ID_Rodzaj_Maszyny" Type="Int32" Nullable="false" />
           <Property Name="Liczba_Maszyn" Type="Int32" Nullable="false" />
           <Property Name="Liczba_Rbh_Maszyna" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Maszyny_P__ID_Pr__40F9A68C" FromRole="Maszyny_Proces" ToRole="Proces_Technologiczny" />
-          <NavigationProperty Name="Rodzaj_Maszyny" Relationship="Self.FK__Maszyny_P__ID_Ro__41EDCAC5" FromRole="Maszyny_Proces" ToRole="Rodzaj_Maszyny" />
+          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Maszyny_P__ID_Pr__498EEC8D" FromRole="Maszyny_Proces" ToRole="Proces_Technologiczny" />
+          <NavigationProperty Name="Rodzaj_Maszyny" Relationship="Self.FK__Maszyny_P__ID_Ro__4A8310C6" FromRole="Maszyny_Proces" ToRole="Rodzaj_Maszyny" />
         </EntityType>
         <EntityType Name="Material_Na_Produkcji">
           <Key>
@@ -3196,8 +3213,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="Odpad" Type="Double" />
           <Property Name="Niezuzyty_material" Type="Double" />
           <Property Name="Magazyn_odebral_material" Type="Boolean" />
-          <NavigationProperty Name="Elementy_Proces" Relationship="Self.FK__Material___ID_El__65370702" FromRole="Material_Na_Produkcji" ToRole="Elementy_Proces" />
-          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Material___ID_Pr__6442E2C9" FromRole="Material_Na_Produkcji" ToRole="Proces_Produkcyjny" />
+          <NavigationProperty Name="Elementy_Proces" Relationship="Self.FK__Material___ID_El__6DCC4D03" FromRole="Material_Na_Produkcji" ToRole="Elementy_Proces" />
+          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Material___ID_Pr__6CD828CA" FromRole="Material_Na_Produkcji" ToRole="Proces_Produkcyjny" />
         </EntityType>
         <EntityType Name="Miejsca">
           <Key>
@@ -3207,7 +3224,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Dostarcze__ID_Mi__245D67DE" FromRole="Miejsca" ToRole="Dostarczenia_Wewn" />
           <NavigationProperty Name="Dostarczenia_Zewn" Relationship="Self.FK__Dostarcze__ID_Mi__2A164134" FromRole="Miejsca" ToRole="Dostarczenia_Zewn" />
-          <NavigationProperty Name="Zamowienia_Dostawy_Wlasne" Relationship="SzwalniaModel.FK__Zamowieni__ID_mi__31B762FC" FromRole="Miejsca" ToRole="Zamowienia_Dostawy_Wlasne" />
+          <NavigationProperty Name="Zamowienia_Dostawy_Wlasne" Relationship="Self.FK__Zamowieni__ID_mi__31B762FC" FromRole="Miejsca" ToRole="Zamowienia_Dostawy_Wlasne" />
         </EntityType>
         <EntityType Name="Obsluga_Techniczna">
           <Key>
@@ -3219,10 +3236,10 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="Data_Rozpoczecia" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Data_Zakonczenia" Type="DateTime" Precision="0" />
           <Property Name="ID_Pracownika" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Czesci_Obsluga" Relationship="Self.FK__Czesci_Ob__ID_Ob__4D5F7D71" FromRole="Obsluga_Techniczna" ToRole="Czesci_Obsluga" />
-          <NavigationProperty Name="Maszyny" Relationship="Self.FK__Obsluga_T__ID_Ma__489AC854" FromRole="Obsluga_Techniczna" ToRole="Maszyny" />
-          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Obsluga_T__ID_Pr__4A8310C6" FromRole="Obsluga_Techniczna" ToRole="Pracownicy" />
-          <NavigationProperty Name="Rodzaj_Obslugi" Relationship="Self.FK__Obsluga_T__ID_Ro__498EEC8D" FromRole="Obsluga_Techniczna" ToRole="Rodzaj_Obslugi" />
+          <NavigationProperty Name="Czesci_Obsluga" Relationship="Self.FK__Czesci_Ob__ID_Ob__55F4C372" FromRole="Obsluga_Techniczna" ToRole="Czesci_Obsluga" />
+          <NavigationProperty Name="Maszyny" Relationship="Self.FK__Obsluga_T__ID_Ma__51300E55" FromRole="Obsluga_Techniczna" ToRole="Maszyny" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Obsluga_T__ID_Pr__531856C7" FromRole="Obsluga_Techniczna" ToRole="Pracownicy" />
+          <NavigationProperty Name="Rodzaj_Obslugi" Relationship="Self.FK__Obsluga_T__ID_Ro__5224328E" FromRole="Obsluga_Techniczna" ToRole="Rodzaj_Obslugi" />
         </EntityType>
         <EntityType Name="Odbior_Dostarczenia">
           <Key>
@@ -3232,8 +3249,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="ID_Procesu_Produkcyjnego" Type="Int32" Nullable="false" />
           <Property Name="ID_Dostarczenia" Type="Int32" Nullable="false" />
           <Property Name="Odebrano" Type="Boolean" />
-          <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Odbior_Do__ID_Do__6166761E" FromRole="Odbior_Dostarczenia" ToRole="Dostarczenia_Wewn" />
-          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Odbior_Do__ID_Pr__607251E5" FromRole="Odbior_Dostarczenia" ToRole="Proces_Produkcyjny" />
+          <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Odbior_Do__ID_Do__69FBBC1F" FromRole="Odbior_Dostarczenia" ToRole="Dostarczenia_Wewn" />
+          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Odbior_Do__ID_Pr__690797E6" FromRole="Odbior_Dostarczenia" ToRole="Proces_Produkcyjny" />
         </EntityType>
         <EntityType Name="Oferta">
           <Key>
@@ -3305,13 +3322,13 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="Pesel" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Adres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Telefon" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Dokumentacje" Relationship="Self.FK__Dokumenta__ID_Pr__37703C52" FromRole="Pracownicy" ToRole="Dokumentacje" />
+          <NavigationProperty Name="Dokumentacje" Relationship="Self.FK__Dokumenta__ID_Pr__40058253" FromRole="Pracownicy" ToRole="Dokumentacje" />
           <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Dostarcze__ID_Pr__2180FB33" FromRole="Pracownicy" ToRole="Dostarczenia_Wewn" />
           <NavigationProperty Name="Dostarczenia_Zewn" Relationship="Self.FK__Dostarcze__ID_Pr__2739D489" FromRole="Pracownicy" ToRole="Dostarczenia_Zewn" />
-          <NavigationProperty Name="Obsluga_Techniczna" Relationship="Self.FK__Obsluga_T__ID_Pr__4A8310C6" FromRole="Pracownicy" ToRole="Obsluga_Techniczna" />
+          <NavigationProperty Name="Obsluga_Techniczna" Relationship="Self.FK__Obsluga_T__ID_Pr__531856C7" FromRole="Pracownicy" ToRole="Obsluga_Techniczna" />
           <NavigationProperty Name="Pracownicy_Zatrudnienie" Relationship="Self.FK__Pracownic__ID_Pr__48CFD27E" FromRole="Pracownicy" ToRole="Pracownicy_Zatrudnienie" />
-          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Proces_Te__ID_Pr__3A4CA8FD" FromRole="Pracownicy" ToRole="Proces_Technologiczny" />
-          <NavigationProperty Name="Przydzial_Zasobow" Relationship="Self.FK__Przydzial__ID_Pr__6CD828CA" FromRole="Pracownicy" ToRole="Przydzial_Zasobow" />
+          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Proces_Te__ID_Pr__42E1EEFE" FromRole="Pracownicy" ToRole="Proces_Technologiczny" />
+          <NavigationProperty Name="Przydzial_Zasobow" Relationship="Self.FK__Przydzial__ID_Pr__756D6ECB" FromRole="Pracownicy" ToRole="Przydzial_Zasobow" />
           <NavigationProperty Name="Urlop" Relationship="Self.FK__Urlop__ID_Pracow__4222D4EF" FromRole="Pracownicy" ToRole="Urlop" />
           <NavigationProperty Name="Zamowienia_Przydzial" Relationship="Self.FK__Zamowieni__ID_Pr__0F624AF8" FromRole="Pracownicy" ToRole="Zamowienia_Przydzial" />
           <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Zamowieni__ID_Pr__5812160E" FromRole="Pracownicy" ToRole="Zamowienia" />
@@ -3345,11 +3362,11 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="Data_Rozpoczecia" Type="DateTime" Precision="0" />
           <Property Name="Data_Zakonczenia" Type="DateTime" Precision="0" />
           <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Kontrola_Efektywnosci" Relationship="Self.FK__Kontrola___ID_Pr__70A8B9AE" FromRole="Proces_Produkcyjny" ToRole="Kontrola_Efektywnosci" />
-          <NavigationProperty Name="Material_Na_Produkcji" Relationship="Self.FK__Material___ID_Pr__6442E2C9" FromRole="Proces_Produkcyjny" ToRole="Material_Na_Produkcji" />
-          <NavigationProperty Name="Odbior_Dostarczenia" Relationship="Self.FK__Odbior_Do__ID_Pr__607251E5" FromRole="Proces_Produkcyjny" ToRole="Odbior_Dostarczenia" />
-          <NavigationProperty Name="Zamowienie_Element" Relationship="Self.FK__Proces_Pr__ID_Za__5D95E53A" FromRole="Proces_Produkcyjny" ToRole="Zamowienie_Element" />
-          <NavigationProperty Name="Realizacja_Procesu" Relationship="Self.FK__Realizacj__ID_Pr__681373AD" FromRole="Proces_Produkcyjny" ToRole="Realizacja_Procesu" />
+          <NavigationProperty Name="Kontrola_Efektywnosci" Relationship="Self.FK__Kontrola___ID_Pr__793DFFAF" FromRole="Proces_Produkcyjny" ToRole="Kontrola_Efektywnosci" />
+          <NavigationProperty Name="Material_Na_Produkcji" Relationship="Self.FK__Material___ID_Pr__6CD828CA" FromRole="Proces_Produkcyjny" ToRole="Material_Na_Produkcji" />
+          <NavigationProperty Name="Odbior_Dostarczenia" Relationship="Self.FK__Odbior_Do__ID_Pr__690797E6" FromRole="Proces_Produkcyjny" ToRole="Odbior_Dostarczenia" />
+          <NavigationProperty Name="Zamowienie_Element" Relationship="Self.FK__Proces_Pr__ID_Za__662B2B3B" FromRole="Proces_Produkcyjny" ToRole="Zamowienie_Element" />
+          <NavigationProperty Name="Realizacja_Procesu" Relationship="Self.FK__Realizacj__ID_Pr__70A8B9AE" FromRole="Proces_Produkcyjny" ToRole="Realizacja_Procesu" />
         </EntityType>
         <EntityType Name="Proces_Technologiczny">
           <Key>
@@ -3357,12 +3374,12 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           </Key>
           <Property Name="ID_Proces_Technologiczny" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Pracownika" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Dokumentacja_Proces" Relationship="Self.FK__Dokumenta__ID_Pr__3E1D39E1" FromRole="Proces_Technologiczny" ToRole="Dokumentacja_Proces" />
-          <NavigationProperty Name="Elementy_Proces" Relationship="Self.FK__Elementy___ID_Pr__55009F39" FromRole="Proces_Technologiczny" ToRole="Elementy_Proces" />
-          <NavigationProperty Name="Etapy_W_Procesie" Relationship="Self.FK__Etapy_W_P__ID_Pr__59C55456" FromRole="Proces_Technologiczny" ToRole="Etapy_W_Procesie" />
-          <NavigationProperty Name="Maszyny_Proces" Relationship="Self.FK__Maszyny_P__ID_Pr__40F9A68C" FromRole="Proces_Technologiczny" ToRole="Maszyny_Proces" />
-          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Proces_Te__ID_Pr__3A4CA8FD" FromRole="Proces_Technologiczny" ToRole="Pracownicy" />
-          <NavigationProperty Name="Proces_Zamowienie" Relationship="Self.FK__Proces_Za__ID_Pr__51300E55" FromRole="Proces_Technologiczny" ToRole="Proces_Zamowienie" />
+          <NavigationProperty Name="Dokumentacja_Proces" Relationship="Self.FK__Dokumenta__ID_Pr__46B27FE2" FromRole="Proces_Technologiczny" ToRole="Dokumentacja_Proces" />
+          <NavigationProperty Name="Elementy_Proces" Relationship="Self.FK__Elementy___ID_Pr__5D95E53A" FromRole="Proces_Technologiczny" ToRole="Elementy_Proces" />
+          <NavigationProperty Name="Etapy_W_Procesie" Relationship="Self.FK__Etapy_W_P__ID_Pr__625A9A57" FromRole="Proces_Technologiczny" ToRole="Etapy_W_Procesie" />
+          <NavigationProperty Name="Maszyny_Proces" Relationship="Self.FK__Maszyny_P__ID_Pr__498EEC8D" FromRole="Proces_Technologiczny" ToRole="Maszyny_Proces" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Proces_Te__ID_Pr__42E1EEFE" FromRole="Proces_Technologiczny" ToRole="Pracownicy" />
+          <NavigationProperty Name="Proces_Zamowienie" Relationship="Self.FK__Proces_Za__ID_Pr__59C55456" FromRole="Proces_Technologiczny" ToRole="Proces_Zamowienie" />
         </EntityType>
         <EntityType Name="Proces_Zamowienie">
           <Key>
@@ -3372,8 +3389,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="ID_Proces_Technologiczny" Type="Int32" Nullable="false" />
           <Property Name="ID_Zamowienie_Element" Type="Int32" Nullable="false" />
           <Property Name="Kompletny_Proces" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Proces_Za__ID_Pr__51300E55" FromRole="Proces_Zamowienie" ToRole="Proces_Technologiczny" />
-          <NavigationProperty Name="Zamowienie_Element" Relationship="Self.FK__Proces_Za__ID_Za__5224328E" FromRole="Proces_Zamowienie" ToRole="Zamowienie_Element" />
+          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Proces_Za__ID_Pr__59C55456" FromRole="Proces_Zamowienie" ToRole="Proces_Technologiczny" />
+          <NavigationProperty Name="Zamowienie_Element" Relationship="Self.FK__Proces_Za__ID_Za__5AB9788F" FromRole="Proces_Zamowienie" ToRole="Zamowienie_Element" />
         </EntityType>
         <EntityType Name="Przydzial_Zasobow">
           <Key>
@@ -3385,9 +3402,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="ID_Maszyny" Type="Int32" Nullable="false" />
           <Property Name="Data_Rozpoczecia" Type="DateTime" Precision="0" />
           <Property Name="Data_Zakonczenia" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Maszyny" Relationship="Self.FK__Przydzial__ID_Ma__6DCC4D03" FromRole="Przydzial_Zasobow" ToRole="Maszyny" />
-          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Przydzial__ID_Pr__6CD828CA" FromRole="Przydzial_Zasobow" ToRole="Pracownicy" />
-          <NavigationProperty Name="Realizacja_Procesu" Relationship="Self.FK__Przydzial__ID_Re__6BE40491" FromRole="Przydzial_Zasobow" ToRole="Realizacja_Procesu" />
+          <NavigationProperty Name="Maszyny" Relationship="Self.FK__Przydzial__ID_Ma__76619304" FromRole="Przydzial_Zasobow" ToRole="Maszyny" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Przydzial__ID_Pr__756D6ECB" FromRole="Przydzial_Zasobow" ToRole="Pracownicy" />
+          <NavigationProperty Name="Realizacja_Procesu" Relationship="Self.FK__Przydzial__ID_Re__74794A92" FromRole="Przydzial_Zasobow" ToRole="Realizacja_Procesu" />
         </EntityType>
         <EntityType Name="Realizacja_Procesu">
           <Key>
@@ -3400,9 +3417,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="Data_Zakonczenia_Procesu" Type="DateTime" Precision="0" />
           <Property Name="Data_Kontroli" Type="DateTime" Precision="0" />
           <Property Name="Uwagi_Kontroli" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Realizacj__ID_Pr__681373AD" FromRole="Realizacja_Procesu" ToRole="Proces_Produkcyjny" />
-          <NavigationProperty Name="Przydzial_Zasobow" Relationship="Self.FK__Przydzial__ID_Re__6BE40491" FromRole="Realizacja_Procesu" ToRole="Przydzial_Zasobow" />
-          <NavigationProperty Name="Rodzaj_Etapu" Relationship="Self.FK__Realizacj__ID_Et__690797E6" FromRole="Realizacja_Procesu" ToRole="Rodzaj_Etapu" />
+          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Realizacj__ID_Pr__70A8B9AE" FromRole="Realizacja_Procesu" ToRole="Proces_Produkcyjny" />
+          <NavigationProperty Name="Przydzial_Zasobow" Relationship="Self.FK__Przydzial__ID_Re__74794A92" FromRole="Realizacja_Procesu" ToRole="Przydzial_Zasobow" />
+          <NavigationProperty Name="Rodzaj_Etapu" Relationship="Self.FK__Realizacj__ID_Et__719CDDE7" FromRole="Realizacja_Procesu" ToRole="Rodzaj_Etapu" />
         </EntityType>
         <EntityType Name="Regaly">
           <Key>
@@ -3418,7 +3435,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           </Key>
           <Property Name="ID_Rodzaj_Dokumentacji" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Dokumentacje" Relationship="Self.FK__Dokumenta__ID_Ro__367C1819" FromRole="Rodzaj_Dokumentacji" ToRole="Dokumentacje" />
+          <NavigationProperty Name="Dokumentacje" Relationship="Self.FK__Dokumenta__ID_Ro__3F115E1A" FromRole="Rodzaj_Dokumentacji" ToRole="Dokumentacje" />
         </EntityType>
         <EntityType Name="Rodzaj_Etapu">
           <Key>
@@ -3426,8 +3443,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           </Key>
           <Property Name="ID_Etapu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Etapy_W_Procesie" Relationship="Self.FK__Etapy_W_P__ID_Et__5AB9788F" FromRole="Rodzaj_Etapu" ToRole="Etapy_W_Procesie" />
-          <NavigationProperty Name="Realizacja_Procesu" Relationship="Self.FK__Realizacj__ID_Et__690797E6" FromRole="Rodzaj_Etapu" ToRole="Realizacja_Procesu" />
+          <NavigationProperty Name="Etapy_W_Procesie" Relationship="Self.FK__Etapy_W_P__ID_Et__634EBE90" FromRole="Rodzaj_Etapu" ToRole="Etapy_W_Procesie" />
+          <NavigationProperty Name="Realizacja_Procesu" Relationship="Self.FK__Realizacj__ID_Et__719CDDE7" FromRole="Rodzaj_Etapu" ToRole="Realizacja_Procesu" />
         </EntityType>
         <EntityType Name="Rodzaj_Maszyny">
           <Key>
@@ -3436,8 +3453,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="ID_Rodzaj_Maszyny" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Rodzaj_Maszyny1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Koszt_Rbh" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Maszyny" Relationship="Self.FK__Maszyny__ID_Rodz__45BE5BA9" FromRole="Rodzaj_Maszyny" ToRole="Maszyny" />
-          <NavigationProperty Name="Maszyny_Proces" Relationship="Self.FK__Maszyny_P__ID_Ro__41EDCAC5" FromRole="Rodzaj_Maszyny" ToRole="Maszyny_Proces" />
+          <NavigationProperty Name="Maszyny" Relationship="Self.FK__Maszyny__ID_Rodz__4E53A1AA" FromRole="Rodzaj_Maszyny" ToRole="Maszyny" />
+          <NavigationProperty Name="Maszyny_Proces" Relationship="Self.FK__Maszyny_P__ID_Ro__4A8310C6" FromRole="Rodzaj_Maszyny" ToRole="Maszyny_Proces" />
         </EntityType>
         <EntityType Name="Rodzaj_Obslugi">
           <Key>
@@ -3445,7 +3462,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           </Key>
           <Property Name="ID_Rodzaj_Obslugi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Obsluga_Techniczna" Relationship="Self.FK__Obsluga_T__ID_Ro__498EEC8D" FromRole="Rodzaj_Obslugi" ToRole="Obsluga_Techniczna" />
+          <NavigationProperty Name="Obsluga_Techniczna" Relationship="Self.FK__Obsluga_T__ID_Ro__5224328E" FromRole="Rodzaj_Obslugi" ToRole="Obsluga_Techniczna" />
         </EntityType>
         <EntityType Name="Rodzaj_Umowy">
           <Key>
@@ -3478,7 +3495,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="Gwarancja" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Zamortyzowane" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Dzialy" Relationship="Self.FK__Srodki_Tr__ID_Dz__2E1BDC42" FromRole="Srodki_Trwale" ToRole="Dzialy" />
-          <NavigationProperty Name="Maszyny" Relationship="Self.FK__Maszyny__ID_Srod__44CA3770" FromRole="Srodki_Trwale" ToRole="Maszyny" />
+          <NavigationProperty Name="Maszyny" Relationship="Self.FK__Maszyny__ID_Srod__4D5F7D71" FromRole="Srodki_Trwale" ToRole="Maszyny" />
         </EntityType>
         <EntityType Name="Stanowisko">
           <Key>
@@ -3560,7 +3577,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <NavigationProperty Name="Zamowienia_Przydzial" Relationship="Self.FK__Zamowieni__ID_Za__0E6E26BF" FromRole="Zamowienia" ToRole="Zamowienia_Przydzial" />
           <NavigationProperty Name="Zamowienia_Dostawy" Relationship="Self.FK__Zamowieni__ID_Za__1332DBDC" FromRole="Zamowienia" ToRole="Zamowienia_Dostawy" />
           <NavigationProperty Name="Zamowienie_Element" Relationship="Self.FK__Zamowieni__ID_Za__2CF2ADDF" FromRole="Zamowienia" ToRole="Zamowienie_Element" />
-          <NavigationProperty Name="Zamowienia_Dostawy_Wlasne" Relationship="SzwalniaModel.FK__Zamowieni__ID_Za__30C33EC3" FromRole="Zamowienia" ToRole="Zamowienia_Dostawy_Wlasne" />
+          <NavigationProperty Name="Zamowienia_Dostawy_Wlasne" Relationship="Self.FK__Zamowieni__ID_Za__30C33EC3" FromRole="Zamowienia" ToRole="Zamowienia_Dostawy_Wlasne" />
         </EntityType>
         <EntityType Name="Zamowienia_Dostawy">
           <Key>
@@ -3572,11 +3589,22 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="Data_Dostawy_Rzeczywista" Type="DateTime" Precision="0" />
           <Property Name="ID_statusu" Type="Int32" />
           <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Dostarcze__ID_Do__22751F6C" FromRole="Zamowienia_Dostawy" ToRole="Dostarczenia_Wewn" />
+          <NavigationProperty Name="Dostawy_Wlasne_Zawartosc" Relationship="Self.FK__Dostawy_W__ID_Do__3587F3E0" FromRole="Zamowienia_Dostawy" ToRole="Dostawy_Wlasne_Zawartosc" />
           <NavigationProperty Name="Dostawy_Zawartosc" Relationship="Self.FK__Dostawy_Z__ID_Do__1CBC4616" FromRole="Zamowienia_Dostawy" ToRole="Dostawy_Zawartosc" />
           <NavigationProperty Name="Statusy" Relationship="Self.FK__Zamowieni__ID_st__14270015" FromRole="Zamowienia_Dostawy" ToRole="Statusy" />
           <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Zamowieni__ID_Za__1332DBDC" FromRole="Zamowienia_Dostawy" ToRole="Zamowienia" />
           <NavigationProperty Name="Zawartosc" Relationship="Self.FK__Zawartosc__ID_Do__19DFD96B" FromRole="Zamowienia_Dostawy" ToRole="Zawartosc" />
-          <NavigationProperty Name="Dostawy_Wlasne_Zawartosc" Relationship="SzwalniaModel.FK__Dostawy_W__ID_Do__3587F3E0" FromRole="Zamowienia_Dostawy" ToRole="Dostawy_Wlasne_Zawartosc" />
+        </EntityType>
+        <EntityType Name="Zamowienia_Dostawy_Wlasne">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia_dostawy_wlasne" />
+          </Key>
+          <Property Name="ID_Zamowienia_dostawy_wlasne" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Zamowienia" Type="Int32" />
+          <Property Name="ID_miejsca" Type="Int32" />
+          <NavigationProperty Name="Dostawy_Wlasne_Zawartosc" Relationship="Self.FK__Dostawy_W__ID_Za__3493CFA7" FromRole="Zamowienia_Dostawy_Wlasne" ToRole="Dostawy_Wlasne_Zawartosc" />
+          <NavigationProperty Name="Miejsca" Relationship="Self.FK__Zamowieni__ID_mi__31B762FC" FromRole="Zamowienia_Dostawy_Wlasne" ToRole="Miejsca" />
+          <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Zamowieni__ID_Za__30C33EC3" FromRole="Zamowienia_Dostawy_Wlasne" ToRole="Zamowienia" />
         </EntityType>
         <EntityType Name="Zamowienia_Przydzial">
           <Key>
@@ -3600,8 +3628,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="Ilosc" Type="Int32" Nullable="false" />
           <Property Name="Licz_do_zamowienia" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Elementy" Relationship="Self.FK__Zamowieni__ID_El__2DE6D218" FromRole="Zamowienie_Element" ToRole="Elementy" />
-          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Proces_Pr__ID_Za__5D95E53A" FromRole="Zamowienie_Element" ToRole="Proces_Produkcyjny" />
-          <NavigationProperty Name="Proces_Zamowienie" Relationship="Self.FK__Proces_Za__ID_Za__5224328E" FromRole="Zamowienie_Element" ToRole="Proces_Zamowienie" />
+          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Proces_Pr__ID_Za__662B2B3B" FromRole="Zamowienie_Element" ToRole="Proces_Produkcyjny" />
+          <NavigationProperty Name="Proces_Zamowienie" Relationship="Self.FK__Proces_Za__ID_Za__5AB9788F" FromRole="Zamowienie_Element" ToRole="Proces_Zamowienie" />
           <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Zamowieni__ID_Za__2CF2ADDF" FromRole="Zamowienie_Element" ToRole="Zamowienia" />
         </EntityType>
         <EntityType Name="Zawartosc">
@@ -3764,6 +3792,24 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Numer_seryjny" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
+        <EntityType Name="vMaterialyDoZamowienia">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia" />
+            <PropertyRef Name="ID_Element" />
+          </Key>
+          <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
+          <Property Name="ID_Element" Type="Int32" Nullable="false" />
+          <Property Name="Ilosc" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vMaterialyDoZamowieniaBrak">
+          <Key>
+            <PropertyRef Name="ID_Element" />
+          </Key>
+          <Property Name="ID_Zamowienia" Type="Int32" />
+          <Property Name="ID_Element" Type="Int32" Nullable="false" />
+          <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="Ilosc" Type="Double" />
+        </EntityType>
         <EntityType Name="vNiezuzyteWMiesiacu">
           <Key>
             <PropertyRef Name="id" />
@@ -3789,6 +3835,36 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="Rodzaj_obsługi" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Imię_i_nazwisko" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
+        <EntityType Name="vOferta">
+          <Key>
+            <PropertyRef Name="ID_Oferta" />
+            <PropertyRef Name="ID_Dostawcy" />
+          </Key>
+          <Property Name="ID_Element" Type="Int32" />
+          <Property Name="ID_Oferta" Type="Int32" Nullable="false" />
+          <Property Name="ID_Dostawcy" Type="Int32" Nullable="false" />
+          <Property Name="Element_Oznaczenie" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Cena_Jedn" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Ilosc_W_Opakowaniu_Pojedynczym" Type="Single" />
+          <Property Name="Deklarowany_czas_dostawy" Type="Int32" />
+          <Property Name="Nazwa" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Ilosc_Minimalna" Type="Int32" />
+          <Property Name="Ilosc_Maksymalna" Type="Int32" />
+          <Property Name="Telefon_1" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vPolki_na_regalach">
+          <Key>
+            <PropertyRef Name="ID_Polka" />
+            <PropertyRef Name="Pusta_Zajęta" />
+          </Key>
+          <Property Name="Oznaczenie" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Polka" Type="Int32" Nullable="false" />
+          <Property Name="Wysokosc" Type="Int32" />
+          <Property Name="Szerokosc" Type="Int32" />
+          <Property Name="Glebokosc" Type="Int32" />
+          <Property Name="Wymiar" Type="String" MaxLength="99" FixedLength="false" Unicode="true" />
+          <Property Name="Pusta_Zajęta" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
         <EntityType Name="vPolki_Rozmiary">
           <Key>
             <PropertyRef Name="ID_Rozmiar_Polki" />
@@ -3797,7 +3873,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="Wysokosc" Type="Int32" />
           <Property Name="Szerokosc" Type="Int32" />
           <Property Name="Glebokosc" Type="Int32" />
-          <Property Name="Wymiar" Type="Int32" />
+          <Property Name="Wymiar" Type="String" MaxLength="96" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="vProces_elementy">
           <Key>
@@ -4000,18 +4076,18 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
         </EntityType>
         <EntityType Name="vZawartosc_polki">
           <Key>
-            <PropertyRef Name="ID_Regal" />
+            <PropertyRef Name="ID_Zawartosc" />
           </Key>
-          <Property Name="ID_Regal" Type="Int32" Nullable="false" />
-          <Property Name="Oznaczenie" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Zawartosc" Type="Int32" Nullable="false" />
           <Property Name="ID_Polka" Type="Int32" />
           <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
-          <Property Name="Ilosc_Paczek" Type="Single" />
-          <Property Name="Ilosc_W_Opakowaniu_Pojedynczym" Type="Single" />
+          <Property Name="ID_Element" Type="Int32" />
+          <Property Name="Ile" Type="Single" />
           <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Ile_sztuk" Type="Single" />
+          <Property Name="Data_Dostawy_Rzeczywista" Type="DateTime" Precision="0" />
+          <Property Name="Okres_Przydatnosci_Miesiace" Type="Int32" />
         </EntityType>
-        <Association Name="FK__Czesci_Ob__ID_El__4E53A1AA">
+        <Association Name="FK__Czesci_Ob__ID_El__56E8E7AB">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
           <End Role="Czesci_Obsluga" Type="Self.Czesci_Obsluga" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4023,7 +4099,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Czesci_Ob__ID_Ob__4D5F7D71">
+        <Association Name="FK__Czesci_Ob__ID_Ob__55F4C372">
           <End Role="Obsluga_Techniczna" Type="Self.Obsluga_Techniczna" Multiplicity="1" />
           <End Role="Czesci_Obsluga" Type="Self.Czesci_Obsluga" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4035,7 +4111,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dokumenta__ID_Do__3D2915A8">
+        <Association Name="FK__Dokumenta__ID_Do__45BE5BA9">
           <End Role="Dokumentacje" Type="Self.Dokumentacje" Multiplicity="1" />
           <End Role="Dokumentacja_Proces" Type="Self.Dokumentacja_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4047,7 +4123,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dokumenta__ID_Pr__3E1D39E1">
+        <Association Name="FK__Dokumenta__ID_Pr__46B27FE2">
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
           <End Role="Dokumentacja_Proces" Type="Self.Dokumentacja_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4059,7 +4135,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dokumenta__ID_Pr__37703C52">
+        <Association Name="FK__Dokumenta__ID_Pr__40058253">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
           <End Role="Dokumentacje" Type="Self.Dokumentacje" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4071,7 +4147,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dokumenta__ID_Ro__367C1819">
+        <Association Name="FK__Dokumenta__ID_Ro__3F115E1A">
           <End Role="Rodzaj_Dokumentacji" Type="Self.Rodzaj_Dokumentacji" Multiplicity="1" />
           <End Role="Dokumentacje" Type="Self.Dokumentacje" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4131,7 +4207,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Odbior_Do__ID_Do__6166761E">
+        <Association Name="FK__Odbior_Do__ID_Do__69FBBC1F">
           <End Role="Dostarczenia_Wewn" Type="Self.Dostarczenia_Wewn" Multiplicity="1" />
           <End Role="Odbior_Dostarczenia" Type="Self.Odbior_Dostarczenia" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4200,6 +4276,42 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Principal>
             <Dependent Role="Oferta">
               <PropertyRef Name="ID_Dostawcy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Dostawy_W__ID_Do__3587F3E0">
+          <End Role="Zamowienia_Dostawy" Type="Self.Zamowienia_Dostawy" Multiplicity="0..1" />
+          <End Role="Dostawy_Wlasne_Zawartosc" Type="Self.Dostawy_Wlasne_Zawartosc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zamowienia_Dostawy">
+              <PropertyRef Name="ID_Dostawy" />
+            </Principal>
+            <Dependent Role="Dostawy_Wlasne_Zawartosc">
+              <PropertyRef Name="ID_Dostawy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Dostawy_W__ID_El__367C1819">
+          <End Role="Elementy" Type="Self.Elementy" Multiplicity="0..1" />
+          <End Role="Dostawy_Wlasne_Zawartosc" Type="Self.Dostawy_Wlasne_Zawartosc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Elementy">
+              <PropertyRef Name="ID_Element" />
+            </Principal>
+            <Dependent Role="Dostawy_Wlasne_Zawartosc">
+              <PropertyRef Name="ID_Element" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Dostawy_W__ID_Za__3493CFA7">
+          <End Role="Zamowienia_Dostawy_Wlasne" Type="Self.Zamowienia_Dostawy_Wlasne" Multiplicity="0..1" />
+          <End Role="Dostawy_Wlasne_Zawartosc" Type="Self.Dostawy_Wlasne_Zawartosc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zamowienia_Dostawy_Wlasne">
+              <PropertyRef Name="ID_Zamowienia_dostawy_wlasne" />
+            </Principal>
+            <Dependent Role="Dostawy_Wlasne_Zawartosc">
+              <PropertyRef Name="ID_Zamowienia_dostawy_wlasne" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -4275,7 +4387,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Elementy___ID_El__55F4C372">
+        <Association Name="FK__Elementy___ID_El__5E8A0973">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
           <End Role="Elementy_Proces" Type="Self.Elementy_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4371,7 +4483,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Elementy___ID_je__56E8E7AB">
+        <Association Name="FK__Elementy___ID_je__5F7E2DAC">
           <End Role="Elementy_Jednostki" Type="Self.Elementy_Jednostki" Multiplicity="1" />
           <End Role="Elementy_Proces" Type="Self.Elementy_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4395,7 +4507,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Elementy___ID_Pr__55009F39">
+        <Association Name="FK__Elementy___ID_Pr__5D95E53A">
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
           <End Role="Elementy_Proces" Type="Self.Elementy_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4407,7 +4519,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Material___ID_El__65370702">
+        <Association Name="FK__Material___ID_El__6DCC4D03">
           <End Role="Elementy_Proces" Type="Self.Elementy_Proces" Multiplicity="1" />
           <End Role="Material_Na_Produkcji" Type="Self.Material_Na_Produkcji" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4431,7 +4543,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Etapy_W_P__ID_Et__5AB9788F">
+        <Association Name="FK__Etapy_W_P__ID_Et__634EBE90">
           <End Role="Rodzaj_Etapu" Type="Self.Rodzaj_Etapu" Multiplicity="1" />
           <End Role="Etapy_W_Procesie" Type="Self.Etapy_W_Procesie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4443,7 +4555,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Etapy_W_P__ID_Pr__59C55456">
+        <Association Name="FK__Etapy_W_P__ID_Pr__625A9A57">
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
           <End Role="Etapy_W_Procesie" Type="Self.Etapy_W_Procesie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4503,7 +4615,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Kontrola___ID_Pr__70A8B9AE">
+        <Association Name="FK__Kontrola___ID_Pr__793DFFAF">
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="1" />
           <End Role="Kontrola_Efektywnosci" Type="Self.Kontrola_Efektywnosci" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4527,7 +4639,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Maszyny__ID_Rodz__45BE5BA9">
+        <Association Name="FK__Maszyny__ID_Rodz__4E53A1AA">
           <End Role="Rodzaj_Maszyny" Type="Self.Rodzaj_Maszyny" Multiplicity="1" />
           <End Role="Maszyny" Type="Self.Maszyny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4539,7 +4651,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Maszyny__ID_Srod__44CA3770">
+        <Association Name="FK__Maszyny__ID_Srod__4D5F7D71">
           <End Role="Srodki_Trwale" Type="Self.Srodki_Trwale" Multiplicity="1" />
           <End Role="Maszyny" Type="Self.Maszyny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4551,7 +4663,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Obsluga_T__ID_Ma__489AC854">
+        <Association Name="FK__Obsluga_T__ID_Ma__51300E55">
           <End Role="Maszyny" Type="Self.Maszyny" Multiplicity="1" />
           <End Role="Obsluga_Techniczna" Type="Self.Obsluga_Techniczna" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4563,7 +4675,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Przydzial__ID_Ma__6DCC4D03">
+        <Association Name="FK__Przydzial__ID_Ma__76619304">
           <End Role="Maszyny" Type="Self.Maszyny" Multiplicity="1" />
           <End Role="Przydzial_Zasobow" Type="Self.Przydzial_Zasobow" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4575,7 +4687,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Maszyny_P__ID_Pr__40F9A68C">
+        <Association Name="FK__Maszyny_P__ID_Pr__498EEC8D">
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
           <End Role="Maszyny_Proces" Type="Self.Maszyny_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4587,7 +4699,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Maszyny_P__ID_Ro__41EDCAC5">
+        <Association Name="FK__Maszyny_P__ID_Ro__4A8310C6">
           <End Role="Rodzaj_Maszyny" Type="Self.Rodzaj_Maszyny" Multiplicity="1" />
           <End Role="Maszyny_Proces" Type="Self.Maszyny_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4599,7 +4711,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Material___ID_Pr__6442E2C9">
+        <Association Name="FK__Material___ID_Pr__6CD828CA">
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="1" />
           <End Role="Material_Na_Produkcji" Type="Self.Material_Na_Produkcji" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4611,7 +4723,19 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Obsluga_T__ID_Pr__4A8310C6">
+        <Association Name="FK__Zamowieni__ID_mi__31B762FC">
+          <End Role="Miejsca" Type="Self.Miejsca" Multiplicity="0..1" />
+          <End Role="Zamowienia_Dostawy_Wlasne" Type="Self.Zamowienia_Dostawy_Wlasne" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Miejsca">
+              <PropertyRef Name="ID_Miejsca" />
+            </Principal>
+            <Dependent Role="Zamowienia_Dostawy_Wlasne">
+              <PropertyRef Name="ID_miejsca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Obsluga_T__ID_Pr__531856C7">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
           <End Role="Obsluga_Techniczna" Type="Self.Obsluga_Techniczna" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4623,7 +4747,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Obsluga_T__ID_Ro__498EEC8D">
+        <Association Name="FK__Obsluga_T__ID_Ro__5224328E">
           <End Role="Rodzaj_Obslugi" Type="Self.Rodzaj_Obslugi" Multiplicity="1" />
           <End Role="Obsluga_Techniczna" Type="Self.Obsluga_Techniczna" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4635,7 +4759,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Odbior_Do__ID_Pr__607251E5">
+        <Association Name="FK__Odbior_Do__ID_Pr__690797E6">
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="1" />
           <End Role="Odbior_Dostarczenia" Type="Self.Odbior_Dostarczenia" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4719,7 +4843,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Proces_Te__ID_Pr__3A4CA8FD">
+        <Association Name="FK__Proces_Te__ID_Pr__42E1EEFE">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4731,7 +4855,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Przydzial__ID_Pr__6CD828CA">
+        <Association Name="FK__Przydzial__ID_Pr__756D6ECB">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
           <End Role="Przydzial_Zasobow" Type="Self.Przydzial_Zasobow" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4815,7 +4939,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Proces_Pr__ID_Za__5D95E53A">
+        <Association Name="FK__Proces_Pr__ID_Za__662B2B3B">
           <End Role="Zamowienie_Element" Type="Self.Zamowienie_Element" Multiplicity="1" />
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4827,7 +4951,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Realizacj__ID_Pr__681373AD">
+        <Association Name="FK__Realizacj__ID_Pr__70A8B9AE">
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="1" />
           <End Role="Realizacja_Procesu" Type="Self.Realizacja_Procesu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4839,7 +4963,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Proces_Za__ID_Pr__51300E55">
+        <Association Name="FK__Proces_Za__ID_Pr__59C55456">
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
           <End Role="Proces_Zamowienie" Type="Self.Proces_Zamowienie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4851,7 +4975,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Proces_Za__ID_Za__5224328E">
+        <Association Name="FK__Proces_Za__ID_Za__5AB9788F">
           <End Role="Zamowienie_Element" Type="Self.Zamowienie_Element" Multiplicity="1" />
           <End Role="Proces_Zamowienie" Type="Self.Proces_Zamowienie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4863,7 +4987,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Przydzial__ID_Re__6BE40491">
+        <Association Name="FK__Przydzial__ID_Re__74794A92">
           <End Role="Realizacja_Procesu" Type="Self.Realizacja_Procesu" Multiplicity="1" />
           <End Role="Przydzial_Zasobow" Type="Self.Przydzial_Zasobow" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4875,7 +4999,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Realizacj__ID_Et__690797E6">
+        <Association Name="FK__Realizacj__ID_Et__719CDDE7">
           <End Role="Rodzaj_Etapu" Type="Self.Rodzaj_Etapu" Multiplicity="1" />
           <End Role="Realizacja_Procesu" Type="Self.Realizacja_Procesu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -4971,6 +5095,18 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Zamowieni__ID_Za__30C33EC3">
+          <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
+          <End Role="Zamowienia_Dostawy_Wlasne" Type="Self.Zamowienia_Dostawy_Wlasne" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zamowienia">
+              <PropertyRef Name="ID_Zamowienia" />
+            </Principal>
+            <Dependent Role="Zamowienia_Dostawy_Wlasne">
+              <PropertyRef Name="ID_Zamowienia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Zawartosc__ID_Do__19DFD96B">
           <End Role="Zamowienia_Dostawy" Type="Self.Zamowienia_Dostawy" Multiplicity="0..1" />
           <End Role="Zawartosc" Type="Self.Zawartosc" Multiplicity="*" />
@@ -4990,6 +5126,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <EntitySet Name="Dostarczenia_Wewn" EntityType="Self.Dostarczenia_Wewn" />
           <EntitySet Name="Dostarczenia_Zewn" EntityType="Self.Dostarczenia_Zewn" />
           <EntitySet Name="Dostawcy_Zaopatrzenie" EntityType="Self.Dostawcy_Zaopatrzenie" />
+          <EntitySet Name="Dostawy_Wlasne_Zawartosc" EntityType="Self.Dostawy_Wlasne_Zawartosc" />
           <EntitySet Name="Dostawy_Zawartosc" EntityType="Self.Dostawy_Zawartosc" />
           <EntitySet Name="Dzialy" EntityType="Self.Dzialy" />
           <EntitySet Name="Elementy" EntityType="Self.Elementy" />
@@ -5040,6 +5177,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <EntitySet Name="Wymiar_Urlopu" EntityType="Self.Wymiar_Urlopu" />
           <EntitySet Name="Zamowienia" EntityType="Self.Zamowienia" />
           <EntitySet Name="Zamowienia_Dostawy" EntityType="Self.Zamowienia_Dostawy" />
+          <EntitySet Name="Zamowienia_Dostawy_Wlasne" EntityType="Self.Zamowienia_Dostawy_Wlasne" />
           <EntitySet Name="Zamowienia_Przydzial" EntityType="Self.Zamowienia_Przydzial" />
           <EntitySet Name="Zamowienie_Element" EntityType="Self.Zamowienie_Element" />
           <EntitySet Name="Zawartosc" EntityType="Self.Zawartosc" />
@@ -5056,8 +5194,12 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <EntitySet Name="vMaszyny_proces" EntityType="Self.vMaszyny_proces" />
           <EntitySet Name="vMaszyny_rodzaj_liczba" EntityType="Self.vMaszyny_rodzaj_liczba" />
           <EntitySet Name="vMaszyny_serwis" EntityType="Self.vMaszyny_serwis" />
+          <EntitySet Name="vMaterialyDoZamowienia" EntityType="Self.vMaterialyDoZamowienia" />
+          <EntitySet Name="vMaterialyDoZamowieniaBrak" EntityType="Self.vMaterialyDoZamowieniaBrak" />
           <EntitySet Name="vNiezuzyteWMiesiacu" EntityType="Self.vNiezuzyteWMiesiacu" />
           <EntitySet Name="vObsluga" EntityType="Self.vObsluga" />
+          <EntitySet Name="vOferta" EntityType="Self.vOferta" />
+          <EntitySet Name="vPolki_na_regalach" EntityType="Self.vPolki_na_regalach" />
           <EntitySet Name="vPolki_Rozmiary" EntityType="Self.vPolki_Rozmiary" />
           <EntitySet Name="vProces_elementy" EntityType="Self.vProces_elementy" />
           <EntitySet Name="vProces_Etapy" EntityType="Self.vProces_Etapy" />
@@ -5081,27 +5223,27 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <EntitySet Name="vWszystkie_Maszyny" EntityType="Self.vWszystkie_Maszyny" />
           <EntitySet Name="vZamowienieProcesyProdukcyjne" EntityType="Self.vZamowienieProcesyProdukcyjne" />
           <EntitySet Name="vZawartosc_polki" EntityType="Self.vZawartosc_polki" />
-          <AssociationSet Name="FK__Czesci_Ob__ID_El__4E53A1AA" Association="Self.FK__Czesci_Ob__ID_El__4E53A1AA">
+          <AssociationSet Name="FK__Czesci_Ob__ID_El__56E8E7AB" Association="Self.FK__Czesci_Ob__ID_El__56E8E7AB">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Czesci_Obsluga" EntitySet="Czesci_Obsluga" />
           </AssociationSet>
-          <AssociationSet Name="FK__Czesci_Ob__ID_Ob__4D5F7D71" Association="Self.FK__Czesci_Ob__ID_Ob__4D5F7D71">
+          <AssociationSet Name="FK__Czesci_Ob__ID_Ob__55F4C372" Association="Self.FK__Czesci_Ob__ID_Ob__55F4C372">
             <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
             <End Role="Czesci_Obsluga" EntitySet="Czesci_Obsluga" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dokumenta__ID_Do__3D2915A8" Association="Self.FK__Dokumenta__ID_Do__3D2915A8">
+          <AssociationSet Name="FK__Dokumenta__ID_Do__45BE5BA9" Association="Self.FK__Dokumenta__ID_Do__45BE5BA9">
             <End Role="Dokumentacje" EntitySet="Dokumentacje" />
             <End Role="Dokumentacja_Proces" EntitySet="Dokumentacja_Proces" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dokumenta__ID_Pr__3E1D39E1" Association="Self.FK__Dokumenta__ID_Pr__3E1D39E1">
+          <AssociationSet Name="FK__Dokumenta__ID_Pr__46B27FE2" Association="Self.FK__Dokumenta__ID_Pr__46B27FE2">
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
             <End Role="Dokumentacja_Proces" EntitySet="Dokumentacja_Proces" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dokumenta__ID_Pr__37703C52" Association="Self.FK__Dokumenta__ID_Pr__37703C52">
+          <AssociationSet Name="FK__Dokumenta__ID_Pr__40058253" Association="Self.FK__Dokumenta__ID_Pr__40058253">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Dokumentacje" EntitySet="Dokumentacje" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dokumenta__ID_Ro__367C1819" Association="Self.FK__Dokumenta__ID_Ro__367C1819">
+          <AssociationSet Name="FK__Dokumenta__ID_Ro__3F115E1A" Association="Self.FK__Dokumenta__ID_Ro__3F115E1A">
             <End Role="Rodzaj_Dokumentacji" EntitySet="Rodzaj_Dokumentacji" />
             <End Role="Dokumentacje" EntitySet="Dokumentacje" />
           </AssociationSet>
@@ -5121,7 +5263,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
           </AssociationSet>
-          <AssociationSet Name="FK__Odbior_Do__ID_Do__6166761E" Association="Self.FK__Odbior_Do__ID_Do__6166761E">
+          <AssociationSet Name="FK__Odbior_Do__ID_Do__69FBBC1F" Association="Self.FK__Odbior_Do__ID_Do__69FBBC1F">
             <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
             <End Role="Odbior_Dostarczenia" EntitySet="Odbior_Dostarczenia" />
           </AssociationSet>
@@ -5144,6 +5286,18 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <AssociationSet Name="FK__Oferta__ID_Dosta__0A9D95DB" Association="Self.FK__Oferta__ID_Dosta__0A9D95DB">
             <End Role="Dostawcy_Zaopatrzenie" EntitySet="Dostawcy_Zaopatrzenie" />
             <End Role="Oferta" EntitySet="Oferta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dostawy_W__ID_Do__3587F3E0" Association="Self.FK__Dostawy_W__ID_Do__3587F3E0">
+            <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
+            <End Role="Dostawy_Wlasne_Zawartosc" EntitySet="Dostawy_Wlasne_Zawartosc" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dostawy_W__ID_El__367C1819" Association="Self.FK__Dostawy_W__ID_El__367C1819">
+            <End Role="Elementy" EntitySet="Elementy" />
+            <End Role="Dostawy_Wlasne_Zawartosc" EntitySet="Dostawy_Wlasne_Zawartosc" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dostawy_W__ID_Za__3493CFA7" Association="Self.FK__Dostawy_W__ID_Za__3493CFA7">
+            <End Role="Zamowienia_Dostawy_Wlasne" EntitySet="Zamowienia_Dostawy_Wlasne" />
+            <End Role="Dostawy_Wlasne_Zawartosc" EntitySet="Dostawy_Wlasne_Zawartosc" />
           </AssociationSet>
           <AssociationSet Name="FK__Dostawy_Z__ID_Do__1CBC4616" Association="Self.FK__Dostawy_Z__ID_Do__1CBC4616">
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
@@ -5169,7 +5323,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Elementy_Cechy" EntitySet="Elementy_Cechy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Elementy___ID_El__55F4C372" Association="Self.FK__Elementy___ID_El__55F4C372">
+          <AssociationSet Name="FK__Elementy___ID_El__5E8A0973" Association="Self.FK__Elementy___ID_El__5E8A0973">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Elementy_Proces" EntitySet="Elementy_Proces" />
           </AssociationSet>
@@ -5201,7 +5355,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             <End Role="Elementy_Cechy_Slownik" EntitySet="Elementy_Cechy_Slownik" />
             <End Role="Typy_cechy_rejestr" EntitySet="Typy_cechy_rejestr" />
           </AssociationSet>
-          <AssociationSet Name="FK__Elementy___ID_je__56E8E7AB" Association="Self.FK__Elementy___ID_je__56E8E7AB">
+          <AssociationSet Name="FK__Elementy___ID_je__5F7E2DAC" Association="Self.FK__Elementy___ID_je__5F7E2DAC">
             <End Role="Elementy_Jednostki" EntitySet="Elementy_Jednostki" />
             <End Role="Elementy_Proces" EntitySet="Elementy_Proces" />
           </AssociationSet>
@@ -5209,11 +5363,11 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             <End Role="Elementy_Jednostki" EntitySet="Elementy_Jednostki" />
             <End Role="Oferta" EntitySet="Oferta" />
           </AssociationSet>
-          <AssociationSet Name="FK__Elementy___ID_Pr__55009F39" Association="Self.FK__Elementy___ID_Pr__55009F39">
+          <AssociationSet Name="FK__Elementy___ID_Pr__5D95E53A" Association="Self.FK__Elementy___ID_Pr__5D95E53A">
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
             <End Role="Elementy_Proces" EntitySet="Elementy_Proces" />
           </AssociationSet>
-          <AssociationSet Name="FK__Material___ID_El__65370702" Association="Self.FK__Material___ID_El__65370702">
+          <AssociationSet Name="FK__Material___ID_El__6DCC4D03" Association="Self.FK__Material___ID_El__6DCC4D03">
             <End Role="Elementy_Proces" EntitySet="Elementy_Proces" />
             <End Role="Material_Na_Produkcji" EntitySet="Material_Na_Produkcji" />
           </AssociationSet>
@@ -5221,11 +5375,11 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             <End Role="Elementy_Typy" EntitySet="Elementy_Typy" />
             <End Role="Typy_cechy_rejestr" EntitySet="Typy_cechy_rejestr" />
           </AssociationSet>
-          <AssociationSet Name="FK__Etapy_W_P__ID_Et__5AB9788F" Association="Self.FK__Etapy_W_P__ID_Et__5AB9788F">
+          <AssociationSet Name="FK__Etapy_W_P__ID_Et__634EBE90" Association="Self.FK__Etapy_W_P__ID_Et__634EBE90">
             <End Role="Rodzaj_Etapu" EntitySet="Rodzaj_Etapu" />
             <End Role="Etapy_W_Procesie" EntitySet="Etapy_W_Procesie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Etapy_W_P__ID_Pr__59C55456" Association="Self.FK__Etapy_W_P__ID_Pr__59C55456">
+          <AssociationSet Name="FK__Etapy_W_P__ID_Pr__625A9A57" Association="Self.FK__Etapy_W_P__ID_Pr__625A9A57">
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
             <End Role="Etapy_W_Procesie" EntitySet="Etapy_W_Procesie" />
           </AssociationSet>
@@ -5245,7 +5399,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             <End Role="Klienci" EntitySet="Klienci" />
             <End Role="Zamowienia" EntitySet="Zamowienia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Kontrola___ID_Pr__70A8B9AE" Association="Self.FK__Kontrola___ID_Pr__70A8B9AE">
+          <AssociationSet Name="FK__Kontrola___ID_Pr__793DFFAF" Association="Self.FK__Kontrola___ID_Pr__793DFFAF">
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
             <End Role="Kontrola_Efektywnosci" EntitySet="Kontrola_Efektywnosci" />
           </AssociationSet>
@@ -5253,43 +5407,47 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             <End Role="Kurierzy" EntitySet="Kurierzy" />
             <End Role="Umowy_Kurierzy" EntitySet="Umowy_Kurierzy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Maszyny__ID_Rodz__45BE5BA9" Association="Self.FK__Maszyny__ID_Rodz__45BE5BA9">
+          <AssociationSet Name="FK__Maszyny__ID_Rodz__4E53A1AA" Association="Self.FK__Maszyny__ID_Rodz__4E53A1AA">
             <End Role="Rodzaj_Maszyny" EntitySet="Rodzaj_Maszyny" />
             <End Role="Maszyny" EntitySet="Maszyny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Maszyny__ID_Srod__44CA3770" Association="Self.FK__Maszyny__ID_Srod__44CA3770">
+          <AssociationSet Name="FK__Maszyny__ID_Srod__4D5F7D71" Association="Self.FK__Maszyny__ID_Srod__4D5F7D71">
             <End Role="Srodki_Trwale" EntitySet="Srodki_Trwale" />
             <End Role="Maszyny" EntitySet="Maszyny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Obsluga_T__ID_Ma__489AC854" Association="Self.FK__Obsluga_T__ID_Ma__489AC854">
+          <AssociationSet Name="FK__Obsluga_T__ID_Ma__51300E55" Association="Self.FK__Obsluga_T__ID_Ma__51300E55">
             <End Role="Maszyny" EntitySet="Maszyny" />
             <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
           </AssociationSet>
-          <AssociationSet Name="FK__Przydzial__ID_Ma__6DCC4D03" Association="Self.FK__Przydzial__ID_Ma__6DCC4D03">
+          <AssociationSet Name="FK__Przydzial__ID_Ma__76619304" Association="Self.FK__Przydzial__ID_Ma__76619304">
             <End Role="Maszyny" EntitySet="Maszyny" />
             <End Role="Przydzial_Zasobow" EntitySet="Przydzial_Zasobow" />
           </AssociationSet>
-          <AssociationSet Name="FK__Maszyny_P__ID_Pr__40F9A68C" Association="Self.FK__Maszyny_P__ID_Pr__40F9A68C">
+          <AssociationSet Name="FK__Maszyny_P__ID_Pr__498EEC8D" Association="Self.FK__Maszyny_P__ID_Pr__498EEC8D">
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
             <End Role="Maszyny_Proces" EntitySet="Maszyny_Proces" />
           </AssociationSet>
-          <AssociationSet Name="FK__Maszyny_P__ID_Ro__41EDCAC5" Association="Self.FK__Maszyny_P__ID_Ro__41EDCAC5">
+          <AssociationSet Name="FK__Maszyny_P__ID_Ro__4A8310C6" Association="Self.FK__Maszyny_P__ID_Ro__4A8310C6">
             <End Role="Rodzaj_Maszyny" EntitySet="Rodzaj_Maszyny" />
             <End Role="Maszyny_Proces" EntitySet="Maszyny_Proces" />
           </AssociationSet>
-          <AssociationSet Name="FK__Material___ID_Pr__6442E2C9" Association="Self.FK__Material___ID_Pr__6442E2C9">
+          <AssociationSet Name="FK__Material___ID_Pr__6CD828CA" Association="Self.FK__Material___ID_Pr__6CD828CA">
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
             <End Role="Material_Na_Produkcji" EntitySet="Material_Na_Produkcji" />
           </AssociationSet>
-          <AssociationSet Name="FK__Obsluga_T__ID_Pr__4A8310C6" Association="Self.FK__Obsluga_T__ID_Pr__4A8310C6">
+          <AssociationSet Name="FK__Zamowieni__ID_mi__31B762FC" Association="Self.FK__Zamowieni__ID_mi__31B762FC">
+            <End Role="Miejsca" EntitySet="Miejsca" />
+            <End Role="Zamowienia_Dostawy_Wlasne" EntitySet="Zamowienia_Dostawy_Wlasne" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Obsluga_T__ID_Pr__531856C7" Association="Self.FK__Obsluga_T__ID_Pr__531856C7">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
           </AssociationSet>
-          <AssociationSet Name="FK__Obsluga_T__ID_Ro__498EEC8D" Association="Self.FK__Obsluga_T__ID_Ro__498EEC8D">
+          <AssociationSet Name="FK__Obsluga_T__ID_Ro__5224328E" Association="Self.FK__Obsluga_T__ID_Ro__5224328E">
             <End Role="Rodzaj_Obslugi" EntitySet="Rodzaj_Obslugi" />
             <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
           </AssociationSet>
-          <AssociationSet Name="FK__Odbior_Do__ID_Pr__607251E5" Association="Self.FK__Odbior_Do__ID_Pr__607251E5">
+          <AssociationSet Name="FK__Odbior_Do__ID_Pr__690797E6" Association="Self.FK__Odbior_Do__ID_Pr__690797E6">
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
             <End Role="Odbior_Dostarczenia" EntitySet="Odbior_Dostarczenia" />
           </AssociationSet>
@@ -5317,11 +5475,11 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Pracownicy_Zatrudnienie" EntitySet="Pracownicy_Zatrudnienie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Proces_Te__ID_Pr__3A4CA8FD" Association="Self.FK__Proces_Te__ID_Pr__3A4CA8FD">
+          <AssociationSet Name="FK__Proces_Te__ID_Pr__42E1EEFE" Association="Self.FK__Proces_Te__ID_Pr__42E1EEFE">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Przydzial__ID_Pr__6CD828CA" Association="Self.FK__Przydzial__ID_Pr__6CD828CA">
+          <AssociationSet Name="FK__Przydzial__ID_Pr__756D6ECB" Association="Self.FK__Przydzial__ID_Pr__756D6ECB">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Przydzial_Zasobow" EntitySet="Przydzial_Zasobow" />
           </AssociationSet>
@@ -5349,27 +5507,27 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             <End Role="Stanowisko" EntitySet="Stanowisko" />
             <End Role="Pracownicy_Zatrudnienie" EntitySet="Pracownicy_Zatrudnienie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Proces_Pr__ID_Za__5D95E53A" Association="Self.FK__Proces_Pr__ID_Za__5D95E53A">
+          <AssociationSet Name="FK__Proces_Pr__ID_Za__662B2B3B" Association="Self.FK__Proces_Pr__ID_Za__662B2B3B">
             <End Role="Zamowienie_Element" EntitySet="Zamowienie_Element" />
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Realizacj__ID_Pr__681373AD" Association="Self.FK__Realizacj__ID_Pr__681373AD">
+          <AssociationSet Name="FK__Realizacj__ID_Pr__70A8B9AE" Association="Self.FK__Realizacj__ID_Pr__70A8B9AE">
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
             <End Role="Realizacja_Procesu" EntitySet="Realizacja_Procesu" />
           </AssociationSet>
-          <AssociationSet Name="FK__Proces_Za__ID_Pr__51300E55" Association="Self.FK__Proces_Za__ID_Pr__51300E55">
+          <AssociationSet Name="FK__Proces_Za__ID_Pr__59C55456" Association="Self.FK__Proces_Za__ID_Pr__59C55456">
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
             <End Role="Proces_Zamowienie" EntitySet="Proces_Zamowienie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Proces_Za__ID_Za__5224328E" Association="Self.FK__Proces_Za__ID_Za__5224328E">
+          <AssociationSet Name="FK__Proces_Za__ID_Za__5AB9788F" Association="Self.FK__Proces_Za__ID_Za__5AB9788F">
             <End Role="Zamowienie_Element" EntitySet="Zamowienie_Element" />
             <End Role="Proces_Zamowienie" EntitySet="Proces_Zamowienie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Przydzial__ID_Re__6BE40491" Association="Self.FK__Przydzial__ID_Re__6BE40491">
+          <AssociationSet Name="FK__Przydzial__ID_Re__74794A92" Association="Self.FK__Przydzial__ID_Re__74794A92">
             <End Role="Realizacja_Procesu" EntitySet="Realizacja_Procesu" />
             <End Role="Przydzial_Zasobow" EntitySet="Przydzial_Zasobow" />
           </AssociationSet>
-          <AssociationSet Name="FK__Realizacj__ID_Et__690797E6" Association="Self.FK__Realizacj__ID_Et__690797E6">
+          <AssociationSet Name="FK__Realizacj__ID_Et__719CDDE7" Association="Self.FK__Realizacj__ID_Et__719CDDE7">
             <End Role="Rodzaj_Etapu" EntitySet="Rodzaj_Etapu" />
             <End Role="Realizacja_Procesu" EntitySet="Realizacja_Procesu" />
           </AssociationSet>
@@ -5401,167 +5559,15 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             <End Role="Zamowienia" EntitySet="Zamowienia" />
             <End Role="Zamowienie_Element" EntitySet="Zamowienie_Element" />
           </AssociationSet>
+          <AssociationSet Name="FK__Zamowieni__ID_Za__30C33EC3" Association="Self.FK__Zamowieni__ID_Za__30C33EC3">
+            <End Role="Zamowienia" EntitySet="Zamowienia" />
+            <End Role="Zamowienia_Dostawy_Wlasne" EntitySet="Zamowienia_Dostawy_Wlasne" />
+          </AssociationSet>
           <AssociationSet Name="FK__Zawartosc__ID_Do__19DFD96B" Association="Self.FK__Zawartosc__ID_Do__19DFD96B">
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
-          <EntitySet Name="vPolki_na_regalach" EntityType="SzwalniaModel.vPolki_na_regalach" />
-          <EntitySet Name="Dostawy_Wlasne_Zawartosc" EntityType="SzwalniaModel.Dostawy_Wlasne_Zawartosc" />
-          <EntitySet Name="Zamowienia_Dostawy_Wlasne" EntityType="SzwalniaModel.Zamowienia_Dostawy_Wlasne" />
-          <EntitySet Name="vMaterialyDoZamowienia" EntityType="SzwalniaModel.vMaterialyDoZamowienia" />
-          <AssociationSet Name="FK__Dostawy_W__ID_Do__3587F3E0" Association="SzwalniaModel.FK__Dostawy_W__ID_Do__3587F3E0">
-            <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
-            <End Role="Dostawy_Wlasne_Zawartosc" EntitySet="Dostawy_Wlasne_Zawartosc" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Dostawy_W__ID_El__367C1819" Association="SzwalniaModel.FK__Dostawy_W__ID_El__367C1819">
-            <End Role="Elementy" EntitySet="Elementy" />
-            <End Role="Dostawy_Wlasne_Zawartosc" EntitySet="Dostawy_Wlasne_Zawartosc" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Dostawy_W__ID_Za__3493CFA7" Association="SzwalniaModel.FK__Dostawy_W__ID_Za__3493CFA7">
-            <End Role="Zamowienia_Dostawy_Wlasne" EntitySet="Zamowienia_Dostawy_Wlasne" />
-            <End Role="Dostawy_Wlasne_Zawartosc" EntitySet="Dostawy_Wlasne_Zawartosc" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_mi__31B762FC" Association="SzwalniaModel.FK__Zamowieni__ID_mi__31B762FC">
-            <End Role="Miejsca" EntitySet="Miejsca" />
-            <End Role="Zamowienia_Dostawy_Wlasne" EntitySet="Zamowienia_Dostawy_Wlasne" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Za__30C33EC3" Association="SzwalniaModel.FK__Zamowieni__ID_Za__30C33EC3">
-            <End Role="Zamowienia" EntitySet="Zamowienia" />
-            <End Role="Zamowienia_Dostawy_Wlasne" EntitySet="Zamowienia_Dostawy_Wlasne" />
-          </AssociationSet>
-          <EntitySet Name="vMaterialyDoZamowieniaBrak" EntityType="SzwalniaModel.vMaterialyDoZamowieniaBrak" />
-          <EntitySet Name="vOferta" EntityType="SzwalniaModel.vOferta" />
         </EntityContainer>
-        <EntityType Name="vPolki_na_regalach">
-          <Key>
-            <PropertyRef Name="ID_Polka" />
-          </Key>
-          <Property Name="Oznaczenie" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
-          <Property Name="ID_Polka" Type="Int32" Nullable="false" />
-          <Property Name="Wysokosc" Type="Int32" />
-          <Property Name="Szerokosc" Type="Int32" />
-          <Property Name="Glebokosc" Type="Int32" />
-          <Property Name="Wymiar" Type="String" MaxLength="96" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Dostawy_Wlasne_Zawartosc">
-          <Key>
-            <PropertyRef Name="ID_Dostawy_Wlasne_Zawartosc" />
-          </Key>
-          <Property Name="ID_Dostawy_Wlasne_Zawartosc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ID_Zamowienia_dostawy_wlasne" Type="Int32" />
-          <Property Name="ID_Dostawy" Type="Int32" />
-          <Property Name="ID_Element" Type="Int32" />
-          <Property Name="Ilosc" Type="Int32" />
-          <NavigationProperty Name="Zamowienia_Dostawy" Relationship="SzwalniaModel.FK__Dostawy_W__ID_Do__3587F3E0" FromRole="Dostawy_Wlasne_Zawartosc" ToRole="Zamowienia_Dostawy" />
-          <NavigationProperty Name="Elementy" Relationship="SzwalniaModel.FK__Dostawy_W__ID_El__367C1819" FromRole="Dostawy_Wlasne_Zawartosc" ToRole="Elementy" />
-          <NavigationProperty Name="Zamowienia_Dostawy_Wlasne" Relationship="SzwalniaModel.FK__Dostawy_W__ID_Za__3493CFA7" FromRole="Dostawy_Wlasne_Zawartosc" ToRole="Zamowienia_Dostawy_Wlasne" />
-        </EntityType>
-        <EntityType Name="Zamowienia_Dostawy_Wlasne">
-          <Key>
-            <PropertyRef Name="ID_Zamowienia_dostawy_wlasne" />
-          </Key>
-          <Property Name="ID_Zamowienia_dostawy_wlasne" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ID_Zamowienia" Type="Int32" />
-          <Property Name="ID_miejsca" Type="Int32" />
-          <NavigationProperty Name="Dostawy_Wlasne_Zawartosc" Relationship="SzwalniaModel.FK__Dostawy_W__ID_Za__3493CFA7" FromRole="Zamowienia_Dostawy_Wlasne" ToRole="Dostawy_Wlasne_Zawartosc" />
-          <NavigationProperty Name="Miejsca" Relationship="SzwalniaModel.FK__Zamowieni__ID_mi__31B762FC" FromRole="Zamowienia_Dostawy_Wlasne" ToRole="Miejsca" />
-          <NavigationProperty Name="Zamowienia" Relationship="SzwalniaModel.FK__Zamowieni__ID_Za__30C33EC3" FromRole="Zamowienia_Dostawy_Wlasne" ToRole="Zamowienia" />
-        </EntityType>
-        <EntityType Name="vMaterialyDoZamowienia">
-          <Key>
-            <PropertyRef Name="ID_Zamowienia" />
-            <PropertyRef Name="ID_Element" />
-          </Key>
-          <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
-          <Property Name="ID_Element" Type="Int32" Nullable="false" />
-          <Property Name="Ilosc" Type="Int32" />
-        </EntityType>
-        <Association Name="FK__Dostawy_W__ID_Do__3587F3E0">
-          <End Type="SzwalniaModel.Zamowienia_Dostawy" Role="Zamowienia_Dostawy" Multiplicity="0..1" />
-          <End Type="SzwalniaModel.Dostawy_Wlasne_Zawartosc" Role="Dostawy_Wlasne_Zawartosc" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Zamowienia_Dostawy">
-              <PropertyRef Name="ID_Dostawy" />
-            </Principal>
-            <Dependent Role="Dostawy_Wlasne_Zawartosc">
-              <PropertyRef Name="ID_Dostawy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Dostawy_W__ID_El__367C1819">
-          <End Type="SzwalniaModel.Elementy" Role="Elementy" Multiplicity="0..1" />
-          <End Type="SzwalniaModel.Dostawy_Wlasne_Zawartosc" Role="Dostawy_Wlasne_Zawartosc" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Elementy">
-              <PropertyRef Name="ID_Element" />
-            </Principal>
-            <Dependent Role="Dostawy_Wlasne_Zawartosc">
-              <PropertyRef Name="ID_Element" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Dostawy_W__ID_Za__3493CFA7">
-          <End Type="SzwalniaModel.Zamowienia_Dostawy_Wlasne" Role="Zamowienia_Dostawy_Wlasne" Multiplicity="0..1" />
-          <End Type="SzwalniaModel.Dostawy_Wlasne_Zawartosc" Role="Dostawy_Wlasne_Zawartosc" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Zamowienia_Dostawy_Wlasne">
-              <PropertyRef Name="ID_Zamowienia_dostawy_wlasne" />
-            </Principal>
-            <Dependent Role="Dostawy_Wlasne_Zawartosc">
-              <PropertyRef Name="ID_Zamowienia_dostawy_wlasne" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Zamowieni__ID_mi__31B762FC">
-          <End Type="SzwalniaModel.Miejsca" Role="Miejsca" Multiplicity="0..1" />
-          <End Type="SzwalniaModel.Zamowienia_Dostawy_Wlasne" Role="Zamowienia_Dostawy_Wlasne" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Miejsca">
-              <PropertyRef Name="ID_Miejsca" />
-            </Principal>
-            <Dependent Role="Zamowienia_Dostawy_Wlasne">
-              <PropertyRef Name="ID_miejsca" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Zamowieni__ID_Za__30C33EC3">
-          <End Type="SzwalniaModel.Zamowienia" Role="Zamowienia" Multiplicity="0..1" />
-          <End Type="SzwalniaModel.Zamowienia_Dostawy_Wlasne" Role="Zamowienia_Dostawy_Wlasne" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Zamowienia">
-              <PropertyRef Name="ID_Zamowienia" />
-            </Principal>
-            <Dependent Role="Zamowienia_Dostawy_Wlasne">
-              <PropertyRef Name="ID_Zamowienia" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="vMaterialyDoZamowieniaBrak">
-          <Key>
-            <PropertyRef Name="ID_Element" />
-          </Key>
-          <Property Name="ID_Zamowienia" Type="Int32" />
-          <Property Name="ID_Element" Type="Int32" Nullable="false" />
-          <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
-          <Property Name="Ilosc" Type="Double" />
-        </EntityType>
-        <EntityType Name="vOferta">
-          <Key>
-            <PropertyRef Name="ID_Oferta" />
-            <PropertyRef Name="ID_Dostawcy" />
-          </Key>
-          <Property Name="ID_Element" Type="Int32" />
-          <Property Name="ID_Oferta" Type="Int32" Nullable="false" />
-          <Property Name="ID_Dostawcy" Type="Int32" Nullable="false" />
-          <Property Name="Element_Oznaczenie" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Cena_Jedn" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Ilosc_W_Opakowaniu_Pojedynczym" Type="Single" />
-          <Property Name="Deklarowany_czas_dostawy" Type="Int32" />
-          <Property Name="Nazwa" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="Ilosc_Minimalna" Type="Int32" />
-          <Property Name="Ilosc_Maksymalna" Type="Int32" />
-          <Property Name="Telefon_1" Type="Int32" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -5601,10 +5607,10 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <EntitySetMapping Name="Dostarczenia_Wewn">
             <EntityTypeMapping TypeName="SzwalniaModel.Dostarczenia_Wewn">
               <MappingFragment StoreEntitySet="Dostarczenia_Wewn">
-                <ScalarProperty Name="ID_Zamowienie_element" ColumnName="ID_Zamowienie_element" />
                 <ScalarProperty Name="ID_Dostarczenia" ColumnName="ID_Dostarczenia" />
                 <ScalarProperty Name="ID_Pracownicy" ColumnName="ID_Pracownicy" />
                 <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
+                <ScalarProperty Name="ID_Zamowienie_element" ColumnName="ID_Zamowienie_element" />
                 <ScalarProperty Name="ID_element" ColumnName="ID_element" />
                 <ScalarProperty Name="Ilosc_Dostarczona" ColumnName="Ilosc_Dostarczona" />
                 <ScalarProperty Name="ID_Miejsca" ColumnName="ID_Miejsca" />
@@ -5633,6 +5639,17 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
                 <ScalarProperty Name="Telefon_1" ColumnName="Telefon_1" />
                 <ScalarProperty Name="Telefon_2" ColumnName="Telefon_2" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dostawy_Wlasne_Zawartosc">
+            <EntityTypeMapping TypeName="SzwalniaModel.Dostawy_Wlasne_Zawartosc">
+              <MappingFragment StoreEntitySet="Dostawy_Wlasne_Zawartosc">
+                <ScalarProperty Name="ID_Dostawy_Wlasne_Zawartosc" ColumnName="ID_Dostawy_Wlasne_Zawartosc" />
+                <ScalarProperty Name="ID_Zamowienia_dostawy_wlasne" ColumnName="ID_Zamowienia_dostawy_wlasne" />
+                <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -6155,6 +6172,15 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Zamowienia_Dostawy_Wlasne">
+            <EntityTypeMapping TypeName="SzwalniaModel.Zamowienia_Dostawy_Wlasne">
+              <MappingFragment StoreEntitySet="Zamowienia_Dostawy_Wlasne">
+                <ScalarProperty Name="ID_Zamowienia_dostawy_wlasne" ColumnName="ID_Zamowienia_dostawy_wlasne" />
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
+                <ScalarProperty Name="ID_miejsca" ColumnName="ID_miejsca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Zamowienia_Przydzial">
             <EntityTypeMapping TypeName="SzwalniaModel.Zamowienia_Przydzial">
               <MappingFragment StoreEntitySet="Zamowienia_Przydzial">
@@ -6318,6 +6344,25 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="vMaterialyDoZamowienia">
+            <EntityTypeMapping TypeName="SzwalniaModel.vMaterialyDoZamowienia">
+              <MappingFragment StoreEntitySet="vMaterialyDoZamowienia">
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vMaterialyDoZamowieniaBrak">
+            <EntityTypeMapping TypeName="SzwalniaModel.vMaterialyDoZamowieniaBrak">
+              <MappingFragment StoreEntitySet="vMaterialyDoZamowieniaBrak">
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="vNiezuzyteWMiesiacu">
             <EntityTypeMapping TypeName="SzwalniaModel.vNiezuzyteWMiesiacu">
               <MappingFragment StoreEntitySet="vNiezuzyteWMiesiacu">
@@ -6338,6 +6383,36 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
                 <ScalarProperty Name="Numer_seryjny" ColumnName="Numer seryjny" />
                 <ScalarProperty Name="Rodzaj_obsługi" ColumnName="Rodzaj obsługi" />
                 <ScalarProperty Name="Imię_i_nazwisko" ColumnName="Imię i nazwisko" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vOferta">
+            <EntityTypeMapping TypeName="SzwalniaModel.vOferta">
+              <MappingFragment StoreEntitySet="vOferta">
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="ID_Oferta" ColumnName="ID_Oferta" />
+                <ScalarProperty Name="ID_Dostawcy" ColumnName="ID_Dostawcy" />
+                <ScalarProperty Name="Element_Oznaczenie" ColumnName="Element_Oznaczenie" />
+                <ScalarProperty Name="Cena_Jedn" ColumnName="Cena_Jedn" />
+                <ScalarProperty Name="Ilosc_W_Opakowaniu_Pojedynczym" ColumnName="Ilosc_W_Opakowaniu_Pojedynczym" />
+                <ScalarProperty Name="Deklarowany_czas_dostawy" ColumnName="Deklarowany_czas_dostawy" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Ilosc_Minimalna" ColumnName="Ilosc_Minimalna" />
+                <ScalarProperty Name="Ilosc_Maksymalna" ColumnName="Ilosc_Maksymalna" />
+                <ScalarProperty Name="Telefon_1" ColumnName="Telefon_1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vPolki_na_regalach">
+            <EntityTypeMapping TypeName="SzwalniaModel.vPolki_na_regalach">
+              <MappingFragment StoreEntitySet="vPolki_na_regalach">
+                <ScalarProperty Name="Oznaczenie" ColumnName="Oznaczenie" />
+                <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
+                <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
+                <ScalarProperty Name="Szerokosc" ColumnName="Szerokosc" />
+                <ScalarProperty Name="Glebokosc" ColumnName="Glebokosc" />
+                <ScalarProperty Name="Wymiar" ColumnName="Wymiar" />
+                <ScalarProperty Name="Pusta_Zajęta" ColumnName="Pusta/Zajęta" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -6551,82 +6626,14 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <EntitySetMapping Name="vZawartosc_polki">
             <EntityTypeMapping TypeName="SzwalniaModel.vZawartosc_polki">
               <MappingFragment StoreEntitySet="vZawartosc_polki">
-                <ScalarProperty Name="ID_Regal" ColumnName="ID_Regal" />
-                <ScalarProperty Name="Oznaczenie" ColumnName="Oznaczenie" />
+                <ScalarProperty Name="ID_Zawartosc" ColumnName="ID_Zawartosc" />
                 <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
                 <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
-                <ScalarProperty Name="Ilosc_Paczek" ColumnName="Ilosc_Paczek" />
-                <ScalarProperty Name="Ilosc_W_Opakowaniu_Pojedynczym" ColumnName="Ilosc_W_Opakowaniu_Pojedynczym" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="Ile" ColumnName="Ile" />
                 <ScalarProperty Name="Jednostka" ColumnName="Jednostka" />
-                <ScalarProperty Name="Ile_sztuk" ColumnName="Ile_sztuk" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vPolki_na_regalach">
-            <EntityTypeMapping TypeName="SzwalniaModel.vPolki_na_regalach">
-              <MappingFragment StoreEntitySet="vPolki_na_regalach">
-                <ScalarProperty Name="Wymiar" ColumnName="Wymiar" />
-                <ScalarProperty Name="Glebokosc" ColumnName="Glebokosc" />
-                <ScalarProperty Name="Szerokosc" ColumnName="Szerokosc" />
-                <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
-                <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
-                <ScalarProperty Name="Oznaczenie" ColumnName="Oznaczenie" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Dostawy_Wlasne_Zawartosc">
-            <EntityTypeMapping TypeName="SzwalniaModel.Dostawy_Wlasne_Zawartosc">
-              <MappingFragment StoreEntitySet="Dostawy_Wlasne_Zawartosc">
-                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
-                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
-                <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
-                <ScalarProperty Name="ID_Zamowienia_dostawy_wlasne" ColumnName="ID_Zamowienia_dostawy_wlasne" />
-                <ScalarProperty Name="ID_Dostawy_Wlasne_Zawartosc" ColumnName="ID_Dostawy_Wlasne_Zawartosc" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Zamowienia_Dostawy_Wlasne">
-            <EntityTypeMapping TypeName="SzwalniaModel.Zamowienia_Dostawy_Wlasne">
-              <MappingFragment StoreEntitySet="Zamowienia_Dostawy_Wlasne">
-                <ScalarProperty Name="ID_miejsca" ColumnName="ID_miejsca" />
-                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
-                <ScalarProperty Name="ID_Zamowienia_dostawy_wlasne" ColumnName="ID_Zamowienia_dostawy_wlasne" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vMaterialyDoZamowienia">
-            <EntityTypeMapping TypeName="SzwalniaModel.vMaterialyDoZamowienia">
-              <MappingFragment StoreEntitySet="vMaterialyDoZamowienia">
-                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
-                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
-                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vMaterialyDoZamowieniaBrak">
-            <EntityTypeMapping TypeName="SzwalniaModel.vMaterialyDoZamowieniaBrak">
-              <MappingFragment StoreEntitySet="vMaterialyDoZamowieniaBrak">
-                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
-                <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
-                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
-                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vOferta">
-            <EntityTypeMapping TypeName="SzwalniaModel.vOferta">
-              <MappingFragment StoreEntitySet="vOferta">
-                <ScalarProperty Name="Telefon_1" ColumnName="Telefon_1" />
-                <ScalarProperty Name="Ilosc_Maksymalna" ColumnName="Ilosc_Maksymalna" />
-                <ScalarProperty Name="Ilosc_Minimalna" ColumnName="Ilosc_Minimalna" />
-                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
-                <ScalarProperty Name="Deklarowany_czas_dostawy" ColumnName="Deklarowany_czas_dostawy" />
-                <ScalarProperty Name="Ilosc_W_Opakowaniu_Pojedynczym" ColumnName="Ilosc_W_Opakowaniu_Pojedynczym" />
-                <ScalarProperty Name="Cena_Jedn" ColumnName="Cena_Jedn" />
-                <ScalarProperty Name="Element_Oznaczenie" ColumnName="Element_Oznaczenie" />
-                <ScalarProperty Name="ID_Dostawcy" ColumnName="ID_Dostawcy" />
-                <ScalarProperty Name="ID_Oferta" ColumnName="ID_Oferta" />
-                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="Data_Dostawy_Rzeczywista" ColumnName="Data_Dostawy_Rzeczywista" />
+                <ScalarProperty Name="Okres_Przydatnosci_Miesiace" ColumnName="Okres_Przydatnosci_Miesiace" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
