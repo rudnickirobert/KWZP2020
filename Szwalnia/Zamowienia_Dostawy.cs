@@ -18,9 +18,9 @@ namespace Szwalnia
         public Zamowienia_Dostawy()
         {
             this.Dostarczenia_Wewn = new HashSet<Dostarczenia_Wewn>();
+            this.Dostawy_Wlasne_Zawartosc = new HashSet<Dostawy_Wlasne_Zawartosc>();
             this.Dostawy_Zawartosc = new HashSet<Dostawy_Zawartosc>();
             this.Zawartosc = new HashSet<Zawartosc>();
-            this.Dostawy_Wlasne_Zawartosc = new HashSet<Dostawy_Wlasne_Zawartosc>();
         }
     
         public int ID_Dostawy { get; set; }
@@ -32,12 +32,12 @@ namespace Szwalnia
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dostarczenia_Wewn> Dostarczenia_Wewn { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Dostawy_Wlasne_Zawartosc> Dostawy_Wlasne_Zawartosc { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dostawy_Zawartosc> Dostawy_Zawartosc { get; set; }
         public virtual Statusy Statusy { get; set; }
         public virtual Zamowienia Zamowienia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zawartosc> Zawartosc { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Dostawy_Wlasne_Zawartosc> Dostawy_Wlasne_Zawartosc { get; set; }
     }
 }

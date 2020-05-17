@@ -40,15 +40,17 @@
             this.dgvListaOfert.Name = "dgvListaOfert";
             this.dgvListaOfert.Size = new System.Drawing.Size(776, 426);
             this.dgvListaOfert.TabIndex = 0;
+            this.dgvListaOfert.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaOfert_CellDoubleClick);
             // 
             // WyborOferty
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 489);
             this.Controls.Add(this.dgvListaOfert);
             this.Name = "WyborOferty";
             this.Text = "WyborOferty";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.WyborOferty_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaOfert)).EndInit();
             this.ResumeLayout(false);
 

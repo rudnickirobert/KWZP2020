@@ -343,6 +343,12 @@
     <Compile Include="Polki_Rozmiary.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="PopupAcceptDeny.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopupAcceptDeny.Designer.cs">
+      <DependentUpon>PopupAcceptDeny.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pracownicy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -811,6 +817,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ObslugaZamowien.resx">
       <DependentUpon>ObslugaZamowien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopupAcceptDeny.resx">
+      <DependentUpon>PopupAcceptDeny.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProcesProdukcyjny.resx">
       <DependentUpon>ProcesProdukcyjny.cs</DependentUpon>

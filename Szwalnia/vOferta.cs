@@ -18,7 +18,7 @@ namespace Szwalnia
         public int ID_Oferta { get; set; }
         public int ID_Dostawcy { get; set; }
         public string Element_Oznaczenie { get; set; }
-        public Nullable<decimal> Cena_Jedn { get; set; }
+        public Nullable<decimal> Cena { get; set; }
         public Nullable<float> Ilosc_W_Opakowaniu_Pojedynczym { get; set; }
         public Nullable<int> Deklarowany_czas_dostawy { get; set; }
         public string Nazwa { get; set; }
