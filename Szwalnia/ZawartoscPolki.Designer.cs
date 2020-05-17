@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ZawartoscPolki));
             this.lblIloscTekst = new System.Windows.Forms.Label();
             this.lbIDTekst = new System.Windows.Forms.Label();
             this.btnSzczegoly = new System.Windows.Forms.Button();
@@ -153,8 +154,9 @@
             this.Controls.Add(this.btnSzczegoly);
             this.Controls.Add(this.lblNazwaTekst);
             this.Controls.Add(this.lblTitle);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ZawartoscPolki";
-            this.Text = "ZawartoscPolki";
+            this.Text = "Zawartość półki";
             this.ResumeLayout(false);
             this.PerformLayout();
 

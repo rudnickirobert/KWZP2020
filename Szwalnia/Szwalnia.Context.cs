@@ -65,6 +65,7 @@ namespace Szwalnia
         public virtual DbSet<Proces_Zamowienie> Proces_Zamowienie { get; set; }
         public virtual DbSet<Przydzial_Zasobow> Przydzial_Zasobow { get; set; }
         public virtual DbSet<Realizacja_Procesu> Realizacja_Procesu { get; set; }
+        public virtual DbSet<Regaly> Regaly { get; set; }
         public virtual DbSet<Rodzaj_Dokumentacji> Rodzaj_Dokumentacji { get; set; }
         public virtual DbSet<Rodzaj_Etapu> Rodzaj_Etapu { get; set; }
         public virtual DbSet<Rodzaj_Maszyny> Rodzaj_Maszyny { get; set; }
@@ -98,6 +99,8 @@ namespace Szwalnia
         public virtual DbSet<vMaszyny_serwis> vMaszyny_serwis { get; set; }
         public virtual DbSet<vNiezuzyteWMiesiacu> vNiezuzyteWMiesiacu { get; set; }
         public virtual DbSet<vObsluga> vObsluga { get; set; }
+        public virtual DbSet<vPolki_na_regalach> vPolki_na_regalach { get; set; }
+        public virtual DbSet<vPolki_Rozmiary> vPolki_Rozmiary { get; set; }
         public virtual DbSet<vProces_elementy> vProces_elementy { get; set; }
         public virtual DbSet<vProces_Etapy> vProces_Etapy { get; set; }
         public virtual DbSet<vProces_Maszyna> vProces_Maszyna { get; set; }
@@ -105,6 +108,7 @@ namespace Szwalnia
         public virtual DbSet<vProcesMaxOdpadMiesiac> vProcesMaxOdpadMiesiac { get; set; }
         public virtual DbSet<vProcesy> vProcesy { get; set; }
         public virtual DbSet<vRealizacjaProcesuProdukcyjnegoDetails> vRealizacjaProcesuProdukcyjnegoDetails { get; set; }
+        public virtual DbSet<vRegaly_alfabetycznie> vRegaly_alfabetycznie { get; set; }
         public virtual DbSet<vResurs> vResurs { get; set; }
         public virtual DbSet<vRodzaj_Maszyny> vRodzaj_Maszyny { get; set; }
         public virtual DbSet<vRoznicaDatDni> vRoznicaDatDni { get; set; }
@@ -118,10 +122,6 @@ namespace Szwalnia
         public virtual DbSet<vWszystkie_Elementy> vWszystkie_Elementy { get; set; }
         public virtual DbSet<vWszystkie_Maszyny> vWszystkie_Maszyny { get; set; }
         public virtual DbSet<vZamowienieProcesyProdukcyjne> vZamowienieProcesyProdukcyjne { get; set; }
-        public virtual DbSet<vPolki_Rozmiary> vPolki_Rozmiary { get; set; }
-        public virtual DbSet<Regaly> Regaly { get; set; }
-        public virtual DbSet<vRegaly_alfabetycznie> vRegaly_alfabetycznie { get; set; }
-        public virtual DbSet<vPolki_na_regalach> vPolki_na_regalach { get; set; }
         public virtual DbSet<vZawartosc_polki> vZawartosc_polki { get; set; }
     }
 }

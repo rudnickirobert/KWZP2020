@@ -14,13 +14,13 @@ namespace Szwalnia
     
     public partial class vZawartosc_polki
     {
-        public int ID_Regal { get; set; }
-        public string Oznaczenie { get; set; }
+        public int ID_Zawartosc { get; set; }
         public Nullable<int> ID_Polka { get; set; }
         public string Element_Nazwa { get; set; }
-        public Nullable<float> Ilosc_Paczek { get; set; }
-        public Nullable<float> Ilosc_W_Opakowaniu_Pojedynczym { get; set; }
+        public Nullable<int> ID_Element { get; set; }
+        public Nullable<float> Ile { get; set; }
         public string Jednostka { get; set; }
-        public Nullable<float> Ile_sztuk { get; set; }
+        public Nullable<System.DateTime> Data_Dostawy_Rzeczywista { get; set; }
+        public Nullable<int> Okres_Przydatnosci_Miesiace { get; set; }
     }
 }

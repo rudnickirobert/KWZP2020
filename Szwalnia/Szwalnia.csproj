@@ -953,6 +953,8 @@
     <None Include="Resources\lupa.png" />
     <None Include="Resources\lupa1.png" />
     <None Include="Resources\lupa2.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Szwalnia.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Szwalnia.edmx</DependentUpon>

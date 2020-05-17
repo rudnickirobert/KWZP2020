@@ -69,10 +69,9 @@ namespace Szwalnia
                 row.Cells[6].Value = "      ";           //to jest po to, żeby nie były wprowadzone w bazie żadne zmiany
 
             if (furtherForms>0)
-            {
-                for (int i=0; i<furtherForms; i++)
-                    Application.OpenForms["ZawartoscPolki"].Close();
-            }
+                for (int i = 0; i < furtherForms; i++) 
+                    if (Application.OpenForms["ZawartoscPolki"]!= null)
+                        Application.OpenForms["ZawartoscPolki"].Close();
             
             Start.GetForm.Show();
         }
