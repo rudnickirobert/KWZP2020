@@ -717,6 +717,12 @@
     <Compile Include="Zawartosc.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="ZawartoscPolki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZawartoscPolki.Designer.cs">
+      <DependentUpon>ZawartoscPolki.cs</DependentUpon>
+    </Compile>
     <Compile Include="Znajomosc_Jezykow.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>

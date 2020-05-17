@@ -13,6 +13,14 @@ namespace Szwalnia
     public partial class PolkiNaRegalach : Form
     {
         public SzwalniaEntities db;
+        public bool isFull(int i)
+        {
+            int idPolka = Convert.ToInt16(dgvPolkiNaRegale.Rows[i].Cells[1].Value);
+            if (db.Zawartosc.Where(content => content.ID_Polka == idPolka).Any())
+                return true;
+            else
+                return false;
+        }
         public PolkiNaRegalach()
         {
             InitializeComponent();
@@ -21,6 +29,7 @@ namespace Szwalnia
             cmbOznaczenie.DataSource = db.Regaly.ToList();
             cmbOznaczenie.DisplayMember = "Oznaczenie";
         }
+
         private void btnLupa_Click(object sender, EventArgs e)
         {
             dgvPolkiNaRegale.DataSource = db.vPolki_na_regalach.Where(regal => regal.Oznaczenie.Equals(cmbOznaczenie.Text)).ToList();
@@ -29,21 +38,33 @@ namespace Szwalnia
 
             for (int i = 0; i < dgvPolkiNaRegale.RowCount; i++)
             {
-                int idPolka = Convert.ToInt16(dgvPolkiNaRegale.Rows[i].Cells[1].Value);
-                if (db.Zawartosc.Where(content => content.ID_Polka == idPolka).Count() > 0)
+                if (isFull(i))
                 {
                     dgvPolkiNaRegale.Rows[i].Cells[6].Value = "zajęta";
+                    dgvPolkiNaRegale.Rows[i].DefaultCellStyle.BackColor = Color.IndianRed;
                 }
                 else
+                {
                     dgvPolkiNaRegale.Rows[i].Cells[6].Value = "pusta";
+                    dgvPolkiNaRegale.Rows[i].DefaultCellStyle.BackColor = Color.LightGreen;
+                }
             }
+        }
+
+    private void dgvPolkiNaRegale_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (isFull(dgvPolkiNaRegale.CurrentRow.Index))
+            {
+                ZawartoscPolki zawartosc = new ZawartoscPolki(Convert.ToInt32(dgvPolkiNaRegale.CurrentRow.Cells[1].Value));
+                zawartosc.Show();
+            }
+            //tego okienka przy przejściu do zawartości półki nie chować
         }
 
         private void PolkiNaRegalach_FormClosed(object sender, FormClosedEventArgs e)
         {
             Start.GetForm.Show();
         }
-
 
     }
 }

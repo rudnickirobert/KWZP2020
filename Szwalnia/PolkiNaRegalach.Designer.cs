@@ -77,6 +77,7 @@
             this.dgvPolkiNaRegale.Name = "dgvPolkiNaRegale";
             this.dgvPolkiNaRegale.Size = new System.Drawing.Size(323, 217);
             this.dgvPolkiNaRegale.TabIndex = 3;
+            this.dgvPolkiNaRegale.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPolkiNaRegale_CellDoubleClick);
             // 
             // btnLupa
             // 

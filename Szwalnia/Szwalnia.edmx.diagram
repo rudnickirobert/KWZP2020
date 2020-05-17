@@ -98,7 +98,6 @@
         <EntityTypeShape EntityType="SzwalniaModel.vWszystkie_Elementy" Width="1.5" PointX="16.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vWszystkie_Maszyny" Width="1.5" PointX="17.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vZamowienieProcesyProdukcyjne" Width="1.5" PointX="18.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.vZawartosc_polki" Width="1.5" PointX="18.75" PointY="7.75" IsExpanded="true" />
         <AssociationConnector Association="SzwalniaModel.FK__Czesci_Ob__ID_El__4D5F7D71" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Czesci_Ob__ID_Ob__4C6B5938" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Dokumenta__ID_Do__3C34F16F" ManuallyRouted="false" />
@@ -184,6 +183,7 @@
         <EntityTypeShape EntityType="SzwalniaModel.vRegaly_alfabetycznie" Width="1.5" PointX="0.75" PointY="17.75" />
         <AssociationConnector Association="SzwalniaModel.FK__Polki_reg__ID_re__7B5B524B" />
         <EntityTypeShape EntityType="SzwalniaModel.vPolki_na_regalach" Width="1.5" PointX="16.375" PointY="19.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vZawartosc_polki" Width="1.5" PointX="19.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
