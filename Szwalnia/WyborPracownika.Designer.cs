@@ -37,20 +37,20 @@
             // 
             this.lblWyborPracownika.AutoSize = true;
             this.lblWyborPracownika.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblWyborPracownika.Location = new System.Drawing.Point(188, 20);
+            this.lblWyborPracownika.Location = new System.Drawing.Point(376, 21);
             this.lblWyborPracownika.Name = "lblWyborPracownika";
-            this.lblWyborPracownika.Size = new System.Drawing.Size(416, 39);
+            this.lblWyborPracownika.Size = new System.Drawing.Size(403, 38);
             this.lblWyborPracownika.TabIndex = 0;
             this.lblWyborPracownika.Text = "Wybierz pracownika z listy";
             // 
             // dgvListaPracownikow
             // 
             this.dgvListaPracownikow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaPracownikow.Location = new System.Drawing.Point(16, 62);
+            this.dgvListaPracownikow.Location = new System.Drawing.Point(57, 62);
             this.dgvListaPracownikow.Name = "dgvListaPracownikow";
             this.dgvListaPracownikow.RowHeadersWidth = 51;
             this.dgvListaPracownikow.RowTemplate.Height = 24;
-            this.dgvListaPracownikow.Size = new System.Drawing.Size(772, 376);
+            this.dgvListaPracownikow.Size = new System.Drawing.Size(1007, 376);
             this.dgvListaPracownikow.TabIndex = 1;
             this.dgvListaPracownikow.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvListaPracownikow_CellMouseDoubleClick);
             // 
@@ -58,7 +58,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1115, 450);
             this.Controls.Add(this.dgvListaPracownikow);
             this.Controls.Add(this.lblWyborPracownika);
             this.Name = "WyborPracownika";

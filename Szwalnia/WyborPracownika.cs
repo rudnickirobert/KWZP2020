@@ -17,7 +17,7 @@ namespace Szwalnia
         {
             InitializeComponent();
             db = szwalnia;
-            dgvListaPracownikow.DataSource = db.Pracownicy.ToList();
+            dgvListaPracownikow.DataSource = db.vDanePracownika.ToList();
         }
 
         private void dgvListaPracownikow_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)

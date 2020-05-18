@@ -187,6 +187,10 @@
         <EntityTypeShape EntityType="SzwalniaModel.vSumaKosztowZamowienia" Width="1.5" PointX="19.375" PointY="11.75" />
         <EntityTypeShape EntityType="SzwalniaModel.vKlienciZamowienie" Width="1.5" PointX="17.375" PointY="14.75" />
         <EntityTypeShape EntityType="SzwalniaModel.vFakturyZewnetrzne" Width="1.5" PointX="19.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vDanePracownika" Width="1.5" PointX="19.375" PointY="14.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vZatrudnieniePracownika" Width="1.5" PointX="19.375" PointY="17.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vJezykiPracownika" Width="1.5" PointX="21.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vUrlopPracownika" Width="1.5" PointX="21.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
