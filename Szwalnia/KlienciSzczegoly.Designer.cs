@@ -141,6 +141,7 @@
             this.btnZamknij.TabIndex = 11;
             this.btnZamknij.Text = "Zamknij";
             this.btnZamknij.UseVisualStyleBackColor = true;
+            this.btnZamknij.Click += new System.EventHandler(this.btnZamknij_Click);
             // 
             // dgvKlienciSzczegoly
             // 

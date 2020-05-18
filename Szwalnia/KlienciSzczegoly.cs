@@ -31,7 +31,6 @@ namespace Szwalnia
         {
             this.Close();
         }
-        
     }
 }
 
