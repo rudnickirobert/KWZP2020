@@ -28,6 +28,7 @@ namespace Szwalnia
                 {
                     vPolki_na_regalach storage = db.vPolki_na_regalach.Where(regal => regal.ID_Polka == nudNumerPolki.Value).First();
                     lblRegal.Text = "REGAŁ: " + storage.Oznaczenie;
+                lblWymiary.Text = "Wymiary: " + storage.Wymiar;
                 }
                 else
                 MessageBox.Show("Wprowadź poprawny numer półki (wiekszy od 0 i mniejszy od " + ostatniaPolka + ")!");                  

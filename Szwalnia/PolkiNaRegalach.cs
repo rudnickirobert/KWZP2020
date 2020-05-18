@@ -14,13 +14,10 @@ namespace Szwalnia
     {
         public SzwalniaEntities db;
         private int furtherForms;
-        public bool isFull(int i)
+        bool isFull(int i)
         {
             int idPolka = Convert.ToInt16(dgvPolkiNaRegale.Rows[i].Cells[1].Value);
-            if (db.Zawartosc.Where(content => content.ID_Polka == idPolka).Any())
-                return true;
-            else
-                return false;
+            return db.Zawartosc.Where(content => content.ID_Polka == idPolka).Any();
         }
         public PolkiNaRegalach()
         {
@@ -32,24 +29,17 @@ namespace Szwalnia
             cmbOznaczenie.DisplayMember = "Oznaczenie";
         }
 
-        private void btnLupa_Click(object sender, EventArgs e)
+        private void btnSzukaj_Click(object sender, EventArgs e)
         {
             dgvPolkiNaRegale.DataSource = db.vPolki_na_regalach.Where(regal => regal.Oznaczenie.Equals(cmbOznaczenie.Text)).ToList();
-            dgvPolkiNaRegale.Columns[0].Visible = dgvPolkiNaRegale.Columns[2].Visible =
-                dgvPolkiNaRegale.Columns[3].Visible = dgvPolkiNaRegale.Columns[4].Visible = false;
+            dgvPolkiNaRegale.Columns[0].Visible = false;
 
             for (int i = 0; i < dgvPolkiNaRegale.RowCount; i++)
             {
                 if (isFull(i))
-                {
-                    dgvPolkiNaRegale.Rows[i].Cells[6].Value = "zajęta";
                     dgvPolkiNaRegale.Rows[i].DefaultCellStyle.BackColor = Color.IndianRed;
-                }
                 else
-                {
-                    dgvPolkiNaRegale.Rows[i].Cells[6].Value = "pusta";
                     dgvPolkiNaRegale.Rows[i].DefaultCellStyle.BackColor = Color.LightGreen;
-                }
             }
         }
 
@@ -65,16 +55,15 @@ namespace Szwalnia
 
         private void PolkiNaRegalach_FormClosed(object sender, FormClosedEventArgs e)
         {
-            foreach (DataGridViewRow row in dgvPolkiNaRegale.Rows)
-                row.Cells[6].Value = "      ";           //to jest po to, żeby nie były wprowadzone w bazie żadne zmiany
+            //foreach (DataGridViewRow row in dgvPolkiNaRegale.Rows)
+           //     row.Cells[6].Value = "      ";           //to jest po to, żeby nie były wprowadzone w bazie żadne zmiany
 
             if (furtherForms>0)
                 for (int i = 0; i < furtherForms; i++) 
-                    if (Application.OpenForms["ZawartoscPolki"]!= null)
-                        Application.OpenForms["ZawartoscPolki"].Close();
+                    if (Application.OpenForms[typeof(ZawartoscPolki).Name]!= null)
+                        Application.OpenForms[typeof(ZawartoscPolki).Name].Close();
             
             Start.GetForm.Show();
         }
-
     }
 }
