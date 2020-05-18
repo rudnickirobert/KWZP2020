@@ -17,15 +17,10 @@ namespace Szwalnia
         {
             db = szwalnia;
             InitializeComponent();
+            dgvDostawcy.DataSource = db.Dostawcy_Zaopatrzenie.ToList();
         }
 
-        private void Dostawcy_Load(object sender, EventArgs e)
-        {
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'szwalniaDataSet6.Dostawcy_Zaopatrzenie' . Możesz go przenieść lub usunąć.
-            this.dostawcy_ZaopatrzenieTableAdapter.Fill(this.szwalniaDataSet6.Dostawcy_Zaopatrzenie);
-
-        }
-
+       
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             DodajDostawce dostawca = new DodajDostawce(db);

@@ -17,8 +17,8 @@ namespace Szwalnia
         {
             db = szwalnia;
             InitializeComponent();
-            Umowy_Kurierzy umowa = szwalnia.Umowy_Kurierzy.Where(wybrany => wybrany.ID_Umowy == ID).First();
-            txtNazwa.Text = umowa.ID_Kurier.ToString(); //arghhh
+            vUmowyKurierzy umowa = szwalnia.vUmowyKurierzy.Where(wybrany => wybrany.ID_Umowy == ID).First();
+            txtNazwa.Text = umowa.Nazwa.ToString();
             txtData.Text = umowa.Data_Zawarcia.ToString();
             txtCzas.Text = umowa.Czas_Dostawy.ToString();
             txtKosztKm.Text = umowa.Koszt_Km.ToString();

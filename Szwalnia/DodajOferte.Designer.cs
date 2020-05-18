@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -45,46 +44,20 @@
             this.btnZapisz = new System.Windows.Forms.Button();
             this.numIloscPoj = new System.Windows.Forms.NumericUpDown();
             this.cmbDostawca = new System.Windows.Forms.ComboBox();
-            this.szwalniaDataSet4 = new Szwalnia.SzwalniaDataSet4();
             this.cmbJednostka = new System.Windows.Forms.ComboBox();
-            this.elementyJednostkiBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.jednostki = new Szwalnia.Jednostki();
             this.numCenaJedn = new System.Windows.Forms.NumericUpDown();
             this.numIloscMin = new System.Windows.Forms.NumericUpDown();
             this.numIloscMax = new System.Windows.Forms.NumericUpDown();
             this.numIloscZbiorcza = new System.Windows.Forms.NumericUpDown();
-            this.szwalniaDataSet = new Szwalnia.SzwalniaDataSet();
-            this.szwalniaDataSet1 = new Szwalnia.SzwalniaDataSet1();
-            this.szwalniaOferta = new Szwalnia.SzwalniaOferta();
             this.cmbElement = new System.Windows.Forms.ComboBox();
-            this.elementyBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.szwalniaDataSet5 = new Szwalnia.SzwalniaDataSet5();
-            this.szwalniaDataSet3 = new Szwalnia.SzwalniaDataSet3();
-            this.elementyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.elementyTableAdapter = new Szwalnia.SzwalniaDataSet3TableAdapters.ElementyTableAdapter();
-            this.dostawcyZaopatrzenieBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dostawcy_ZaopatrzenieTableAdapter = new Szwalnia.SzwalniaDataSet4TableAdapters.Dostawcy_ZaopatrzenieTableAdapter();
-            this.elementy_JednostkiTableAdapter = new Szwalnia.JednostkiTableAdapters.Elementy_JednostkiTableAdapter();
-            this.elementyTableAdapter1 = new Szwalnia.SzwalniaDataSet5TableAdapters.ElementyTableAdapter();
             this.numCzasDostawy = new System.Windows.Forms.NumericUpDown();
             this.dtpDataOferty = new System.Windows.Forms.DateTimePicker();
             this.btnWstecz = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numIloscPoj)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.elementyJednostkiBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jednostki)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCenaJedn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIloscMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIloscMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIloscZbiorcza)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.szwalniaOferta)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.elementyBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.elementyBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dostawcyZaopatrzenieBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCzasDostawy)).BeginInit();
             this.SuspendLayout();
             // 
@@ -222,38 +195,19 @@
             // 
             // cmbDostawca
             // 
-            this.cmbDostawca.DataSource = this.szwalniaDataSet4;
-            this.cmbDostawca.DisplayMember = "Dostawcy_Zaopatrzenie.Nazwa";
             this.cmbDostawca.FormattingEnabled = true;
             this.cmbDostawca.Location = new System.Drawing.Point(117, 143);
             this.cmbDostawca.Name = "cmbDostawca";
             this.cmbDostawca.Size = new System.Drawing.Size(100, 21);
             this.cmbDostawca.TabIndex = 49;
             // 
-            // szwalniaDataSet4
-            // 
-            this.szwalniaDataSet4.DataSetName = "SzwalniaDataSet4";
-            this.szwalniaDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // cmbJednostka
             // 
-            this.cmbJednostka.DataSource = this.elementyJednostkiBindingSource;
-            this.cmbJednostka.DisplayMember = "Jednostka";
             this.cmbJednostka.FormattingEnabled = true;
             this.cmbJednostka.Location = new System.Drawing.Point(460, 109);
             this.cmbJednostka.Name = "cmbJednostka";
             this.cmbJednostka.Size = new System.Drawing.Size(100, 21);
             this.cmbJednostka.TabIndex = 50;
-            // 
-            // elementyJednostkiBindingSource
-            // 
-            this.elementyJednostkiBindingSource.DataMember = "Elementy_Jednostki";
-            this.elementyJednostkiBindingSource.DataSource = this.jednostki;
-            // 
-            // jednostki
-            // 
-            this.jednostki.DataSetName = "Jednostki";
-            this.jednostki.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // numCenaJedn
             // 
@@ -283,72 +237,13 @@
             this.numIloscZbiorcza.Size = new System.Drawing.Size(100, 20);
             this.numIloscZbiorcza.TabIndex = 54;
             // 
-            // szwalniaDataSet
-            // 
-            this.szwalniaDataSet.DataSetName = "SzwalniaDataSet";
-            this.szwalniaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // szwalniaDataSet1
-            // 
-            this.szwalniaDataSet1.DataSetName = "SzwalniaDataSet1";
-            this.szwalniaDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // szwalniaOferta
-            // 
-            this.szwalniaOferta.DataSetName = "SzwalniaOferta";
-            this.szwalniaOferta.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // cmbElement
             // 
-            this.cmbElement.DataSource = this.elementyBindingSource1;
-            this.cmbElement.DisplayMember = "Element_Nazwa";
             this.cmbElement.FormattingEnabled = true;
             this.cmbElement.Location = new System.Drawing.Point(117, 76);
             this.cmbElement.Name = "cmbElement";
             this.cmbElement.Size = new System.Drawing.Size(100, 21);
             this.cmbElement.TabIndex = 46;
-            this.cmbElement.ValueMember = "ID_Element_Typ";
-            // 
-            // elementyBindingSource1
-            // 
-            this.elementyBindingSource1.DataMember = "Elementy";
-            this.elementyBindingSource1.DataSource = this.szwalniaDataSet5;
-            // 
-            // szwalniaDataSet5
-            // 
-            this.szwalniaDataSet5.DataSetName = "SzwalniaDataSet5";
-            this.szwalniaDataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // szwalniaDataSet3
-            // 
-            this.szwalniaDataSet3.DataSetName = "SzwalniaDataSet3";
-            this.szwalniaDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // elementyBindingSource
-            // 
-            this.elementyBindingSource.DataMember = "Elementy";
-            this.elementyBindingSource.DataSource = this.szwalniaDataSet3;
-            // 
-            // elementyTableAdapter
-            // 
-            this.elementyTableAdapter.ClearBeforeFill = true;
-            // 
-            // dostawcyZaopatrzenieBindingSource
-            // 
-            this.dostawcyZaopatrzenieBindingSource.DataMember = "Dostawcy_Zaopatrzenie";
-            this.dostawcyZaopatrzenieBindingSource.DataSource = this.szwalniaDataSet4;
-            // 
-            // dostawcy_ZaopatrzenieTableAdapter
-            // 
-            this.dostawcy_ZaopatrzenieTableAdapter.ClearBeforeFill = true;
-            // 
-            // elementy_JednostkiTableAdapter
-            // 
-            this.elementy_JednostkiTableAdapter.ClearBeforeFill = true;
-            // 
-            // elementyTableAdapter1
-            // 
-            this.elementyTableAdapter1.ClearBeforeFill = true;
             // 
             // numCzasDostawy
             // 
@@ -408,23 +303,11 @@
             this.Name = "DodajOferte";
             this.Text = "Dodaj nową ofertę";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DodajOferte_FormClosed);
-            this.Load += new System.EventHandler(this.DodajOferte_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numIloscPoj)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.elementyJednostkiBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jednostki)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCenaJedn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIloscMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIloscMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIloscZbiorcza)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.szwalniaOferta)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.elementyBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.elementyBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dostawcyZaopatrzenieBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCzasDostawy)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -453,22 +336,7 @@
         private System.Windows.Forms.NumericUpDown numIloscMin;
         private System.Windows.Forms.NumericUpDown numIloscMax;
         private System.Windows.Forms.NumericUpDown numIloscZbiorcza;
-        private SzwalniaDataSet szwalniaDataSet;
-        private SzwalniaDataSet1 szwalniaDataSet1;
-        private SzwalniaOferta szwalniaOferta;
         private System.Windows.Forms.ComboBox cmbElement;
-        private SzwalniaDataSet3 szwalniaDataSet3;
-        private System.Windows.Forms.BindingSource elementyBindingSource;
-        private SzwalniaDataSet3TableAdapters.ElementyTableAdapter elementyTableAdapter;
-        private SzwalniaDataSet4 szwalniaDataSet4;
-        private System.Windows.Forms.BindingSource dostawcyZaopatrzenieBindingSource;
-        private SzwalniaDataSet4TableAdapters.Dostawcy_ZaopatrzenieTableAdapter dostawcy_ZaopatrzenieTableAdapter;
-        private Jednostki jednostki;
-        private System.Windows.Forms.BindingSource elementyJednostkiBindingSource;
-        private JednostkiTableAdapters.Elementy_JednostkiTableAdapter elementy_JednostkiTableAdapter;
-        private SzwalniaDataSet5 szwalniaDataSet5;
-        private System.Windows.Forms.BindingSource elementyBindingSource1;
-        private SzwalniaDataSet5TableAdapters.ElementyTableAdapter elementyTableAdapter1;
         private System.Windows.Forms.NumericUpDown numCzasDostawy;
         private System.Windows.Forms.DateTimePicker dtpDataOferty;
         private System.Windows.Forms.Button btnWstecz;

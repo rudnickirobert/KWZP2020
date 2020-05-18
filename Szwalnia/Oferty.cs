@@ -27,14 +27,6 @@ namespace Szwalnia
             this.Hide();
         }
 
-        private void Oferty_Load(object sender, EventArgs e)
-        {
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'szwalniaDataSet.vOferty_Zebrane' . Możesz go przenieść lub usunąć.
-            this.vOferty_ZebraneTableAdapter.Fill(this.szwalniaDataSet.vOferty_Zebrane);
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'szwalniaOferta.Oferta' . Możesz go przenieść lub usunąć.
-            this.ofertaTableAdapter.Fill(this.szwalniaOferta.Oferta);
-
-        }
 
         private void dgvOferty_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {

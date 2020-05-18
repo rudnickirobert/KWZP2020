@@ -17,16 +17,9 @@ namespace Szwalnia
         {
             db = szwalnia;
             InitializeComponent();
+            dgvKurierzy.DataSource = db.Kurierzy.ToList();
         }
 
-        private void KurierzyLista_Load(object sender, EventArgs e)
-        {
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'szwalniaDataSet7.Kurierzy' . Możesz go przenieść lub usunąć.
-            this.kurierzyTableAdapter.Fill(this.szwalniaDataSet7.Kurierzy);
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'szwalniaDataSet4.Dostawcy_Zaopatrzenie' . Możesz go przenieść lub usunąć.
-            this.dostawcy_ZaopatrzenieTableAdapter.Fill(this.szwalniaDataSet4.Dostawcy_Zaopatrzenie);
-
-        }
 
         private void btnDodajKuriera_Click(object sender, EventArgs e)
         {

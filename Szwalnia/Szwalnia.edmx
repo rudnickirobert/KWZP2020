@@ -797,6 +797,19 @@ warning 6002: The table/view 'Szwalnia.dbo.vSzacowanyCzasWykonania' does not hav
           <Property Name="Szacowany_czas_wykonania" Type="datetime" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vUmowyKurierzy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vUmowyKurierzy">
+          <Key>
+            <PropertyRef Name="ID_Umowy" />
+          </Key>
+          <Property Name="ID_Umowy" Type="int" Nullable="false" />
+          <Property Name="Nazwa" Type="varchar" MaxLength="20" />
+          <Property Name="Data_Zawarcia" Type="date" />
+          <Property Name="Czas_Dostawy" Type="int" />
+          <Property Name="Koszt_Km" Type="int" />
+          <Property Name="Koszt_Staly" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vZamowienieProcesyProdukcyjne">
           <Key>
@@ -2014,6 +2027,16 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
     [vSzacowanyCzasWykonania].[Szacowany_czas_wykonania] AS [Szacowany_czas_wykonania]
     FROM [dbo].[vSzacowanyCzasWykonania] AS [vSzacowanyCzasWykonania]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vUmowyKurierzy" EntityType="Self.vUmowyKurierzy" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vUmowyKurierzy].[ID_Umowy] AS [ID_Umowy], 
+    [vUmowyKurierzy].[Nazwa] AS [Nazwa], 
+    [vUmowyKurierzy].[Data_Zawarcia] AS [Data_Zawarcia], 
+    [vUmowyKurierzy].[Czas_Dostawy] AS [Czas_Dostawy], 
+    [vUmowyKurierzy].[Koszt_Km] AS [Koszt_Km], 
+    [vUmowyKurierzy].[Koszt_Staly] AS [Koszt_Staly]
+    FROM [dbo].[vUmowyKurierzy] AS [vUmowyKurierzy]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vZamowienieProcesyProdukcyjne" EntityType="Self.vZamowienieProcesyProdukcyjne" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vZamowienieProcesyProdukcyjne].[ID_Procesu_Produkcyjnego] AS [ID_Procesu_Produkcyjnego], 
@@ -3173,6 +3196,23 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="Data_rozpoczęcia" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Data_zakończenia" Type="DateTime" Precision="0" />
         </EntityType>
+        <EntityType Name="vOferty_Zebrane">
+          <Key>
+            <PropertyRef Name="ID_Oferta" />
+          </Key>
+          <Property Name="ID_Oferta" Type="Int32" Nullable="false" />
+          <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="Element_Oznaczenie" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Cena_Jedn" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Data_Oferty" Type="DateTime" Precision="0" />
+          <Property Name="Ilosc_Minimalna" Type="Int32" />
+          <Property Name="Ilosc_Maksymalna" Type="Int32" />
+          <Property Name="Ilosc_W_Opakowaniu_Pojedynczym" Type="Single" />
+          <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Ilosc_W_Opakowaniu_Zbiorczym" Type="Int32" />
+          <Property Name="Deklarowany_czas_dostawy" Type="Int32" />
+        </EntityType>
         <EntityType Name="vPolki_na_regalach">
           <Key>
             <PropertyRef Name="ID_Polka" />
@@ -3266,6 +3306,17 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="id" Type="Int64" Nullable="false" />
           <Property Name="Typ" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
           <Property Name="Szacowany_czas_wykonania" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="vUmowyKurierzy">
+          <Key>
+            <PropertyRef Name="ID_Umowy" />
+          </Key>
+          <Property Name="ID_Umowy" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Data_Zawarcia" Type="DateTime" Precision="0" />
+          <Property Name="Czas_Dostawy" Type="Int32" />
+          <Property Name="Koszt_Km" Type="Int32" />
+          <Property Name="Koszt_Staly" Type="Int32" />
         </EntityType>
         <EntityType Name="vZamowienieProcesyProdukcyjne">
           <Key>
@@ -4333,6 +4384,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <EntitySet Name="vMaszyny_serwis" EntityType="Self.vMaszyny_serwis" />
           <EntitySet Name="vNiezuzyteWMiesiacu" EntityType="Self.vNiezuzyteWMiesiacu" />
           <EntitySet Name="vObsluga" EntityType="Self.vObsluga" />
+          <EntitySet Name="vOferty_Zebrane" EntityType="Self.vOferty_Zebrane" />
           <EntitySet Name="vPolki_na_regalach" EntityType="Self.vPolki_na_regalach" />
           <EntitySet Name="vPolki_Rozmiary" EntityType="Self.vPolki_Rozmiary" />
           <EntitySet Name="vProcesMaxOdpadMiesiac" EntityType="Self.vProcesMaxOdpadMiesiac" />
@@ -4344,6 +4396,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <EntitySet Name="vSredniCzasWgElementu" EntityType="Self.vSredniCzasWgElementu" />
           <EntitySet Name="vSuma_czasu_procesu" EntityType="Self.vSuma_czasu_procesu" />
           <EntitySet Name="vSzacowanyCzasWykonania" EntityType="Self.vSzacowanyCzasWykonania" />
+          <EntitySet Name="vUmowyKurierzy" EntityType="Self.vUmowyKurierzy" />
           <EntitySet Name="vZamowienieProcesyProdukcyjne" EntityType="Self.vZamowienieProcesyProdukcyjne" />
           <EntitySet Name="vZawartosc_polki" EntityType="Self.vZawartosc_polki" />
           <AssociationSet Name="FK__Czesci_Ob__ID_El__4D5F7D71" Association="Self.FK__Czesci_Ob__ID_El__4D5F7D71">
@@ -4670,25 +4723,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
-          <EntitySet Name="vOferty_Zebrane" EntityType="SzwalniaModel.vOferty_Zebrane" />
         </EntityContainer>
-        <EntityType Name="vOferty_Zebrane">
-          <Key>
-            <PropertyRef Name="ID_Oferta" />
-          </Key>
-          <Property Name="ID_Oferta" Type="Int32" Nullable="false" />
-          <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
-          <Property Name="Element_Oznaczenie" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Nazwa" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="Cena_Jedn" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Data_Oferty" Type="DateTime" Precision="0" />
-          <Property Name="Ilosc_Minimalna" Type="Int32" />
-          <Property Name="Ilosc_Maksymalna" Type="Int32" />
-          <Property Name="Ilosc_W_Opakowaniu_Pojedynczym" Type="Single" />
-          <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Ilosc_W_Opakowaniu_Zbiorczym" Type="Int32" />
-          <Property Name="Deklarowany_czas_dostawy" Type="Int32" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -5391,6 +5426,24 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="vOferty_Zebrane">
+            <EntityTypeMapping TypeName="SzwalniaModel.vOferty_Zebrane">
+              <MappingFragment StoreEntitySet="vOferty_Zebrane">
+                <ScalarProperty Name="ID_Oferta" ColumnName="ID_Oferta" />
+                <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
+                <ScalarProperty Name="Element_Oznaczenie" ColumnName="Element_Oznaczenie" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Cena_Jedn" ColumnName="Cena_Jedn" />
+                <ScalarProperty Name="Data_Oferty" ColumnName="Data_Oferty" />
+                <ScalarProperty Name="Ilosc_Minimalna" ColumnName="Ilosc_Minimalna" />
+                <ScalarProperty Name="Ilosc_Maksymalna" ColumnName="Ilosc_Maksymalna" />
+                <ScalarProperty Name="Ilosc_W_Opakowaniu_Pojedynczym" ColumnName="Ilosc_W_Opakowaniu_Pojedynczym" />
+                <ScalarProperty Name="Jednostka" ColumnName="Jednostka" />
+                <ScalarProperty Name="Ilosc_W_Opakowaniu_Zbiorczym" ColumnName="Ilosc_W_Opakowaniu_Zbiorczym" />
+                <ScalarProperty Name="Deklarowany_czas_dostawy" ColumnName="Deklarowany_czas_dostawy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="vPolki_na_regalach">
             <EntityTypeMapping TypeName="SzwalniaModel.vPolki_na_regalach">
               <MappingFragment StoreEntitySet="vPolki_na_regalach">
@@ -5494,6 +5547,18 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="vUmowyKurierzy">
+            <EntityTypeMapping TypeName="SzwalniaModel.vUmowyKurierzy">
+              <MappingFragment StoreEntitySet="vUmowyKurierzy">
+                <ScalarProperty Name="ID_Umowy" ColumnName="ID_Umowy" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Data_Zawarcia" ColumnName="Data_Zawarcia" />
+                <ScalarProperty Name="Czas_Dostawy" ColumnName="Czas_Dostawy" />
+                <ScalarProperty Name="Koszt_Km" ColumnName="Koszt_Km" />
+                <ScalarProperty Name="Koszt_Staly" ColumnName="Koszt_Staly" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="vZamowienieProcesyProdukcyjne">
             <EntityTypeMapping TypeName="SzwalniaModel.vZamowienieProcesyProdukcyjne">
               <MappingFragment StoreEntitySet="vZamowienieProcesyProdukcyjne">
@@ -5519,24 +5584,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
                 <ScalarProperty Name="Ilosc_W_Opakowaniu_Pojedynczym" ColumnName="Ilosc_W_Opakowaniu_Pojedynczym" />
                 <ScalarProperty Name="Jednostka" ColumnName="Jednostka" />
                 <ScalarProperty Name="Ile_sztuk" ColumnName="Ile_sztuk" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vOferty_Zebrane">
-            <EntityTypeMapping TypeName="SzwalniaModel.vOferty_Zebrane">
-              <MappingFragment StoreEntitySet="vOferty_Zebrane">
-                <ScalarProperty Name="Deklarowany_czas_dostawy" ColumnName="Deklarowany_czas_dostawy" />
-                <ScalarProperty Name="Ilosc_W_Opakowaniu_Zbiorczym" ColumnName="Ilosc_W_Opakowaniu_Zbiorczym" />
-                <ScalarProperty Name="Jednostka" ColumnName="Jednostka" />
-                <ScalarProperty Name="Ilosc_W_Opakowaniu_Pojedynczym" ColumnName="Ilosc_W_Opakowaniu_Pojedynczym" />
-                <ScalarProperty Name="Ilosc_Maksymalna" ColumnName="Ilosc_Maksymalna" />
-                <ScalarProperty Name="Ilosc_Minimalna" ColumnName="Ilosc_Minimalna" />
-                <ScalarProperty Name="Data_Oferty" ColumnName="Data_Oferty" />
-                <ScalarProperty Name="Cena_Jedn" ColumnName="Cena_Jedn" />
-                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
-                <ScalarProperty Name="Element_Oznaczenie" ColumnName="Element_Oznaczenie" />
-                <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
-                <ScalarProperty Name="ID_Oferta" ColumnName="ID_Oferta" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

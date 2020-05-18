@@ -37,13 +37,10 @@
             this.telefon2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dostawcyZaopatrzenieBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.szwalniaDataSet6 = new Szwalnia.SzwalniaDataSet6();
-            this.dostawcy_ZaopatrzenieTableAdapter = new Szwalnia.SzwalniaDataSet6TableAdapters.Dostawcy_ZaopatrzenieTableAdapter();
             this.label1 = new System.Windows.Forms.Label();
             this.btnWstecz = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDostawcy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dostawcyZaopatrzenieBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet6)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDodaj
@@ -104,19 +101,6 @@
             this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
             // 
-            // dostawcyZaopatrzenieBindingSource
-            // 
-            this.dostawcyZaopatrzenieBindingSource.DataMember = "Dostawcy_Zaopatrzenie";
-            this.dostawcyZaopatrzenieBindingSource.DataSource = this.szwalniaDataSet6;
-            // 
-            // szwalniaDataSet6
-            // 
-            this.szwalniaDataSet6.DataSetName = "SzwalniaDataSet6";
-            this.szwalniaDataSet6.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dostawcy_ZaopatrzenieTableAdapter
-            // 
-            this.dostawcy_ZaopatrzenieTableAdapter.ClearBeforeFill = true;
             // 
             // label1
             // 
@@ -149,10 +133,8 @@
             this.Name = "Dostawcy";
             this.Text = "Dostawcy";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Dostawcy_FormClosed);
-            this.Load += new System.EventHandler(this.Dostawcy_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDostawcy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dostawcyZaopatrzenieBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,10 +144,7 @@
 
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.DataGridView dgvDostawcy;
-        private SzwalniaDataSet6 szwalniaDataSet6;
-        private System.Windows.Forms.BindingSource dostawcyZaopatrzenieBindingSource;
-        private SzwalniaDataSet6TableAdapters.Dostawcy_ZaopatrzenieTableAdapter dostawcy_ZaopatrzenieTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDostawcyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource dostawcyZaopatrzenieBindingSource;private System.Windows.Forms.DataGridViewTextBoxColumn iDDostawcyDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nazwaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefon1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefon2DataGridViewTextBoxColumn;
