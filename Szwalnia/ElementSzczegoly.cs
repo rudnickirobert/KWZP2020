@@ -42,7 +42,8 @@ namespace Szwalnia
 
         private void btnWstecz_Click(object sender, EventArgs e)
         {
-            Application.OpenForms[typeof(WyborElementu).Name].Show();
+            WyborElementu wybor = new WyborElementu();
+            wybor.Show();
             this.Hide();
         }
 
@@ -59,7 +60,8 @@ namespace Szwalnia
             db.Elementy.Remove(elementUsun);
             db.SaveChanges();
             MessageBox.Show("Pomyślnie usunięto element");
-            Application.OpenForms[typeof(ElementyForm).Name].Show();
+            DodoawanieCechElementowi cechyElementu = new DodoawanieCechElementowi(numID);
+            cechyElementu.Show();
             this.Hide();
         }
     }
