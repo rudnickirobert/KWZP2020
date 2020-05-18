@@ -85,7 +85,6 @@
             this.Name = "UmowyKurierzy";
             this.Text = "Umowy z kurierami";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UmowyKurierzy_FormClosed);
-            this.Load += new System.EventHandler(this.UmowyKurierzy_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUmowy)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

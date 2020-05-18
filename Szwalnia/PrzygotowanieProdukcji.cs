@@ -154,7 +154,7 @@ namespace Szwalnia
         private void btnWyszukaj_Obsluge_Click(object sender, EventArgs e)
         {
            
-            //dgvObsluga.DataSource = szwalnia.vObsluga.Where(nazwa => nazwa.Rodzaj_obsługi == cmbRodzajObslugi.Text).ToList();
+            dgvObsluga.DataSource = szwalnia.vObsluga.Where(nazwa => nazwa.Rodzaj_obsługi == cmbRodzajObslugi.Text).ToList();
             
         }
 

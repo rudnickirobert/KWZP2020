@@ -21,7 +21,7 @@ namespace Szwalnia
             txtMaszyna.Text = obsluga.Maszyny.Srodki_Trwale.Producent;
             txtPracownik.Text = obsluga.Pracownicy.Nazwisko;
             txtData.Text = obsluga.Data_Rozpoczecia.ToString();
-            //dgvObsluga.DataSource = db.vObsluga.Where(rodzaj => rodzaj.Rodzaj_obsługi == rodzajObslugi).ToList();
+            dgvObsluga.DataSource = db.vObsluga.Where(rodzaj => rodzaj.Rodzaj_obsługi == rodzajObslugi).ToList();
         }
     }
 }

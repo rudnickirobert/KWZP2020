@@ -18,12 +18,6 @@ namespace Szwalnia
         {
             db = Start.szwalnia;
             InitializeComponent();
-        }
-
-        private void UmowyKurierzy_Load(object sender, EventArgs e)
-        {
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'szwalniaDataSetUmowyKurierzy.Umowy_Kurierzy' . Możesz go przenieść lub usunąć.
-            //this.umowy_KurierzyTableAdapter.Fill(this.szwalniaDataSetUmowyKurierzy.Umowy_Kurierzy);
             dgvUmowy.DataSource = db.vUmowyKurierzy.ToList();
         }
 
