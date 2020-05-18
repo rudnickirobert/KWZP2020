@@ -100,6 +100,7 @@
             this.Controls.Add(this.btnNowe);
             this.Controls.Add(this.btnStare);
             this.Name = "Zamowienie";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Zamówienie";
             this.ResumeLayout(false);
 

@@ -35,9 +35,10 @@
             // 
             // btnZnajomosc
             // 
+            this.btnZnajomosc.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnZnajomosc.Location = new System.Drawing.Point(31, 22);
             this.btnZnajomosc.Name = "btnZnajomosc";
-            this.btnZnajomosc.Size = new System.Drawing.Size(150, 61);
+            this.btnZnajomosc.Size = new System.Drawing.Size(192, 144);
             this.btnZnajomosc.TabIndex = 0;
             this.btnZnajomosc.Text = "Sprawdź znajomość języków u pracowników";
             this.btnZnajomosc.UseVisualStyleBackColor = true;
@@ -45,9 +46,10 @@
             // 
             // btnNowy
             // 
-            this.btnNowy.Location = new System.Drawing.Point(31, 89);
+            this.btnNowy.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnNowy.Location = new System.Drawing.Point(262, 22);
             this.btnNowy.Name = "btnNowy";
-            this.btnNowy.Size = new System.Drawing.Size(150, 69);
+            this.btnNowy.Size = new System.Drawing.Size(197, 144);
             this.btnNowy.TabIndex = 1;
             this.btnNowy.Text = "Dodaj pracownikowi znajomość języka";
             this.btnNowy.UseVisualStyleBackColor = true;
@@ -55,7 +57,7 @@
             // 
             // btnZamknij
             // 
-            this.btnZamknij.Location = new System.Drawing.Point(31, 212);
+            this.btnZamknij.Location = new System.Drawing.Point(309, 179);
             this.btnZamknij.Name = "btnZamknij";
             this.btnZamknij.Size = new System.Drawing.Size(150, 43);
             this.btnZamknij.TabIndex = 2;
@@ -63,17 +65,17 @@
             this.btnZamknij.UseVisualStyleBackColor = true;
             this.btnZamknij.Click += new System.EventHandler(this.btnZamknij_Click);
             // 
-            // Panel_Języków
+            // PanelJezykow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(203, 269);
+            this.ClientSize = new System.Drawing.Size(471, 237);
             this.Controls.Add(this.btnZamknij);
             this.Controls.Add(this.btnNowy);
             this.Controls.Add(this.btnZnajomosc);
-            this.Name = "Panel_Języków";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Panel_Języków";
+            this.Name = "PanelJezykow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Panel języków";
             this.ResumeLayout(false);
 
         }

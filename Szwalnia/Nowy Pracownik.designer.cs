@@ -73,7 +73,7 @@
             // 
             this.lblNumerPracownika.AutoSize = true;
             this.lblNumerPracownika.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblNumerPracownika.Location = new System.Drawing.Point(841, 103);
+            this.lblNumerPracownika.Location = new System.Drawing.Point(602, 94);
             this.lblNumerPracownika.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lblNumerPracownika.Name = "lblNumerPracownika";
             this.lblNumerPracownika.Size = new System.Drawing.Size(95, 36);
@@ -183,10 +183,10 @@
             // btnDalej
             // 
             this.btnDalej.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDalej.Location = new System.Drawing.Point(540, 690);
+            this.btnDalej.Location = new System.Drawing.Point(668, 651);
             this.btnDalej.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
             this.btnDalej.Name = "btnDalej";
-            this.btnDalej.Size = new System.Drawing.Size(200, 93);
+            this.btnDalej.Size = new System.Drawing.Size(134, 65);
             this.btnDalej.TabIndex = 19;
             this.btnDalej.Text = "Dalej";
             this.btnDalej.UseVisualStyleBackColor = true;
@@ -195,10 +195,10 @@
             // btnAnuluj
             // 
             this.btnAnuluj.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAnuluj.Location = new System.Drawing.Point(28, 690);
+            this.btnAnuluj.Location = new System.Drawing.Point(12, 651);
             this.btnAnuluj.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
             this.btnAnuluj.Name = "btnAnuluj";
-            this.btnAnuluj.Size = new System.Drawing.Size(200, 93);
+            this.btnAnuluj.Size = new System.Drawing.Size(134, 65);
             this.btnAnuluj.TabIndex = 20;
             this.btnAnuluj.Text = "Anuluj";
             this.btnAnuluj.UseVisualStyleBackColor = true;
@@ -207,10 +207,10 @@
             // btnWyzeruj
             // 
             this.btnWyzeruj.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnWyzeruj.Location = new System.Drawing.Point(290, 690);
+            this.btnWyzeruj.Location = new System.Drawing.Point(325, 651);
             this.btnWyzeruj.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
             this.btnWyzeruj.Name = "btnWyzeruj";
-            this.btnWyzeruj.Size = new System.Drawing.Size(200, 93);
+            this.btnWyzeruj.Size = new System.Drawing.Size(134, 65);
             this.btnWyzeruj.TabIndex = 21;
             this.btnWyzeruj.Text = "Wyzeruj";
             this.btnWyzeruj.UseVisualStyleBackColor = true;
@@ -220,7 +220,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 36F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1205, 1012);
+            this.ClientSize = new System.Drawing.Size(854, 737);
             this.Controls.Add(this.btnWyzeruj);
             this.Controls.Add(this.btnAnuluj);
             this.Controls.Add(this.btnDalej);
@@ -240,7 +240,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.Name = "NowyPracownik";
-            this.Text = "Nowy_Pracownik";
+            this.Text = "Nowy pracownik";
             ((System.ComponentModel.ISupportInitialize)(this.dgvUkryty)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

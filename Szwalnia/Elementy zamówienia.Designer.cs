@@ -42,7 +42,7 @@
             // 
             // btnNowy
             // 
-            this.btnNowy.Location = new System.Drawing.Point(330, 117);
+            this.btnNowy.Location = new System.Drawing.Point(361, 117);
             this.btnNowy.Name = "btnNowy";
             this.btnNowy.Size = new System.Drawing.Size(163, 39);
             this.btnNowy.TabIndex = 0;
@@ -74,7 +74,7 @@
             this.cbElement.FormattingEnabled = true;
             this.cbElement.Location = new System.Drawing.Point(12, 117);
             this.cbElement.Name = "cbElement";
-            this.cbElement.Size = new System.Drawing.Size(203, 39);
+            this.cbElement.Size = new System.Drawing.Size(343, 39);
             this.cbElement.TabIndex = 3;
             // 
             // lblStary
@@ -98,7 +98,7 @@
             // 
             // btnZapisz
             // 
-            this.btnZapisz.Location = new System.Drawing.Point(373, 258);
+            this.btnZapisz.Location = new System.Drawing.Point(424, 258);
             this.btnZapisz.Name = "btnZapisz";
             this.btnZapisz.Size = new System.Drawing.Size(100, 54);
             this.btnZapisz.TabIndex = 7;
@@ -127,7 +127,7 @@
             // 
             // btnNastepny
             // 
-            this.btnNastepny.Location = new System.Drawing.Point(184, 258);
+            this.btnNastepny.Location = new System.Drawing.Point(202, 258);
             this.btnNastepny.Name = "btnNastepny";
             this.btnNastepny.Size = new System.Drawing.Size(100, 54);
             this.btnNastepny.TabIndex = 10;

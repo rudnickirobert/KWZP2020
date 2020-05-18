@@ -21,5 +21,10 @@ namespace Szwalnia
             dgvFakturyZewnetrzne.DataSource = db.vFakturyZewnetrzne.ToList();
             dgvFakturyZewnetrzne.Columns[0].Visible = false;
         }
+
+        private void btnZamknij_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

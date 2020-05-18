@@ -42,7 +42,7 @@
             this.cbIDZamowienia.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbIDZamowienia.FormattingEnabled = true;
             this.cbIDZamowienia.Location = new System.Drawing.Point(364, 113);
-            this.cbIDZamowienia.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cbIDZamowienia.Margin = new System.Windows.Forms.Padding(6);
             this.cbIDZamowienia.Name = "cbIDZamowienia";
             this.cbIDZamowienia.Size = new System.Drawing.Size(142, 39);
             this.cbIDZamowienia.TabIndex = 0;
@@ -51,7 +51,7 @@
             // 
             this.dtpZakonczenie.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dtpZakonczenie.Location = new System.Drawing.Point(389, 216);
-            this.dtpZakonczenie.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dtpZakonczenie.Margin = new System.Windows.Forms.Padding(6);
             this.dtpZakonczenie.Name = "dtpZakonczenie";
             this.dtpZakonczenie.Size = new System.Drawing.Size(494, 38);
             this.dtpZakonczenie.TabIndex = 1;
@@ -93,7 +93,7 @@
             // 
             this.btnAnuluj.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnAnuluj.Location = new System.Drawing.Point(612, 389);
-            this.btnAnuluj.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnAnuluj.Margin = new System.Windows.Forms.Padding(6);
             this.btnAnuluj.Name = "btnAnuluj";
             this.btnAnuluj.Size = new System.Drawing.Size(97, 66);
             this.btnAnuluj.TabIndex = 5;
@@ -105,7 +105,7 @@
             // 
             this.btnZapisz.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnZapisz.Location = new System.Drawing.Point(745, 396);
-            this.btnZapisz.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnZapisz.Margin = new System.Windows.Forms.Padding(6);
             this.btnZapisz.Name = "btnZapisz";
             this.btnZapisz.Size = new System.Drawing.Size(136, 59);
             this.btnZapisz.TabIndex = 6;
@@ -126,8 +126,9 @@
             this.Controls.Add(this.dtpZakonczenie);
             this.Controls.Add(this.cbIDZamowienia);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "ZakonczZamowienie";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Zakończ zamówienie";
             this.ResumeLayout(false);
             this.PerformLayout();

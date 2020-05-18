@@ -16,7 +16,6 @@ namespace Szwalnia
         {
             InitializeComponent();
             Klienci customer = db.Klienci.Where(wybrane => wybrane.ID_Klienta == ID).First();
-            lblTitle.Text = "Dane klienta o ID: " + customer.ID_Klienta;
             txtNazwa.Text = customer.Nazwa_Firmy;
             txtNIP.Text = customer.NIP;
             txtAdres.Text = customer.Adres;

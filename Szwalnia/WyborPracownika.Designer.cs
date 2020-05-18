@@ -74,7 +74,7 @@
             this.Controls.Add(this.dgvListaPracownikow);
             this.Controls.Add(this.lblWyborPracownika);
             this.Name = "WyborPracownika";
-            this.Text = "WyborPracownika";
+            this.Text = "Wybór pracownika";
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaPracownikow)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

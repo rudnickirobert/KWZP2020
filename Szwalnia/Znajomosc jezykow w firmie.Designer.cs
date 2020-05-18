@@ -39,16 +39,16 @@
             this.dgvJezyki.Name = "dgvJezyki";
             this.dgvJezyki.RowHeadersWidth = 51;
             this.dgvJezyki.RowTemplate.Height = 24;
-            this.dgvJezyki.Size = new System.Drawing.Size(776, 256);
+            this.dgvJezyki.Size = new System.Drawing.Size(428, 256);
             this.dgvJezyki.TabIndex = 0;
             // 
-            // Znajomość_języków_w_firmie
+            // ZnajomoscJezykowWFirmie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(461, 319);
             this.Controls.Add(this.dgvJezyki);
-            this.Name = "Znajomość_języków_w_firmie";
+            this.Name = "ZnajomoscJezykowWFirmie";
             this.Text = "Znajomość_języków_w_firmie";
             ((System.ComponentModel.ISupportInitialize)(this.dgvJezyki)).EndInit();
             this.ResumeLayout(false);

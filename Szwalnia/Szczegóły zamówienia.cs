@@ -19,7 +19,7 @@ namespace Szwalnia
             this.db = db;
 
             Zamowienia zamowienia = db.Zamowienia.Where(wybrane => wybrane.ID_Zamowienia == ID).First();
-            lblOpis.Text = "Zamówienie o ID: " + zamowienia.ID_Zamowienia;
+            lblOpis.Text = "Zamówienie klienta: " + zamowienia.ID_Klienta;
 
             dgvSzczegoly.DataSource = db.vKlienciZamowienie.Where(elementy => elementy.ID_Zamowienia == zamowienia.ID_Zamowienia).ToList();
             dgvSzczegoly.Columns[0].Visible = false;

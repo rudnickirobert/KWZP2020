@@ -52,104 +52,116 @@
             // 
             // cbImieNazwisko
             // 
+            this.cbImieNazwisko.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbImieNazwisko.FormattingEnabled = true;
-            this.cbImieNazwisko.Location = new System.Drawing.Point(133, 69);
+            this.cbImieNazwisko.Location = new System.Drawing.Point(251, 65);
             this.cbImieNazwisko.Name = "cbImieNazwisko";
-            this.cbImieNazwisko.Size = new System.Drawing.Size(390, 24);
+            this.cbImieNazwisko.Size = new System.Drawing.Size(482, 39);
             this.cbImieNazwisko.TabIndex = 0;
             // 
             // cbStanowisko
             // 
+            this.cbStanowisko.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbStanowisko.FormattingEnabled = true;
-            this.cbStanowisko.Location = new System.Drawing.Point(133, 114);
+            this.cbStanowisko.Location = new System.Drawing.Point(251, 110);
             this.cbStanowisko.Name = "cbStanowisko";
-            this.cbStanowisko.Size = new System.Drawing.Size(390, 24);
+            this.cbStanowisko.Size = new System.Drawing.Size(482, 39);
             this.cbStanowisko.TabIndex = 1;
             // 
             // cbEtat
             // 
+            this.cbEtat.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbEtat.FormattingEnabled = true;
-            this.cbEtat.Location = new System.Drawing.Point(133, 166);
+            this.cbEtat.Location = new System.Drawing.Point(251, 162);
             this.cbEtat.Name = "cbEtat";
-            this.cbEtat.Size = new System.Drawing.Size(390, 24);
+            this.cbEtat.Size = new System.Drawing.Size(482, 39);
             this.cbEtat.TabIndex = 2;
             // 
             // cbUmowa
             // 
+            this.cbUmowa.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbUmowa.FormattingEnabled = true;
-            this.cbUmowa.Location = new System.Drawing.Point(133, 218);
+            this.cbUmowa.Location = new System.Drawing.Point(251, 211);
             this.cbUmowa.Name = "cbUmowa";
-            this.cbUmowa.Size = new System.Drawing.Size(390, 24);
+            this.cbUmowa.Size = new System.Drawing.Size(482, 39);
             this.cbUmowa.TabIndex = 3;
             // 
             // cbDzial
             // 
+            this.cbDzial.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbDzial.FormattingEnabled = true;
-            this.cbDzial.Location = new System.Drawing.Point(133, 270);
+            this.cbDzial.Location = new System.Drawing.Point(251, 266);
             this.cbDzial.Name = "cbDzial";
-            this.cbDzial.Size = new System.Drawing.Size(390, 24);
+            this.cbDzial.Size = new System.Drawing.Size(482, 39);
             this.cbDzial.TabIndex = 4;
             // 
             // lblImieNazwisko
             // 
             this.lblImieNazwisko.AutoSize = true;
+            this.lblImieNazwisko.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblImieNazwisko.Location = new System.Drawing.Point(12, 72);
             this.lblImieNazwisko.Name = "lblImieNazwisko";
-            this.lblImieNazwisko.Size = new System.Drawing.Size(103, 17);
+            this.lblImieNazwisko.Size = new System.Drawing.Size(210, 32);
             this.lblImieNazwisko.TabIndex = 7;
             this.lblImieNazwisko.Text = "Imię i Nazwisko";
             // 
             // lblStanowisko
             // 
             this.lblStanowisko.AutoSize = true;
+            this.lblStanowisko.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblStanowisko.Location = new System.Drawing.Point(12, 117);
             this.lblStanowisko.Name = "lblStanowisko";
-            this.lblStanowisko.Size = new System.Drawing.Size(79, 17);
+            this.lblStanowisko.Size = new System.Drawing.Size(161, 32);
             this.lblStanowisko.TabIndex = 8;
             this.lblStanowisko.Text = "Stanowisko";
             // 
             // lblEtat
             // 
             this.lblEtat.AutoSize = true;
+            this.lblEtat.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblEtat.Location = new System.Drawing.Point(12, 169);
             this.lblEtat.Name = "lblEtat";
-            this.lblEtat.Size = new System.Drawing.Size(91, 17);
+            this.lblEtat.Size = new System.Drawing.Size(181, 32);
             this.lblEtat.TabIndex = 9;
             this.lblEtat.Text = "Wymiar etatu";
             // 
             // lblUmowa
             // 
             this.lblUmowa.AutoSize = true;
+            this.lblUmowa.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblUmowa.Location = new System.Drawing.Point(12, 218);
             this.lblUmowa.Name = "lblUmowa";
-            this.lblUmowa.Size = new System.Drawing.Size(99, 17);
+            this.lblUmowa.Size = new System.Drawing.Size(200, 32);
             this.lblUmowa.TabIndex = 10;
             this.lblUmowa.Text = "Rodzaj umowy";
             // 
             // lblDzial
             // 
             this.lblDzial.AutoSize = true;
+            this.lblDzial.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblDzial.Location = new System.Drawing.Point(12, 273);
             this.lblDzial.Name = "lblDzial";
-            this.lblDzial.Size = new System.Drawing.Size(39, 17);
+            this.lblDzial.Size = new System.Drawing.Size(79, 32);
             this.lblDzial.TabIndex = 11;
             this.lblDzial.Text = "Dział";
             // 
             // lblPoczatek
             // 
             this.lblPoczatek.AutoSize = true;
-            this.lblPoczatek.Location = new System.Drawing.Point(12, 315);
+            this.lblPoczatek.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblPoczatek.Location = new System.Drawing.Point(12, 321);
             this.lblPoczatek.Name = "lblPoczatek";
-            this.lblPoczatek.Size = new System.Drawing.Size(113, 17);
+            this.lblPoczatek.Size = new System.Drawing.Size(228, 32);
             this.lblPoczatek.TabIndex = 12;
             this.lblPoczatek.Text = "Początek umowy";
             // 
             // lblKoniec
             // 
             this.lblKoniec.AutoSize = true;
-            this.lblKoniec.Location = new System.Drawing.Point(12, 354);
+            this.lblKoniec.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblKoniec.Location = new System.Drawing.Point(12, 365);
             this.lblKoniec.Name = "lblKoniec";
-            this.lblKoniec.Size = new System.Drawing.Size(100, 17);
+            this.lblKoniec.Size = new System.Drawing.Size(203, 32);
             this.lblKoniec.TabIndex = 13;
             this.lblKoniec.Text = "Koniec Umowy";
             // 
@@ -165,7 +177,7 @@
             // 
             // btnAnuluj
             // 
-            this.btnAnuluj.Location = new System.Drawing.Point(174, 433);
+            this.btnAnuluj.Location = new System.Drawing.Point(18, 465);
             this.btnAnuluj.Name = "btnAnuluj";
             this.btnAnuluj.Size = new System.Drawing.Size(123, 51);
             this.btnAnuluj.TabIndex = 15;
@@ -175,7 +187,7 @@
             // 
             // btnJezyk
             // 
-            this.btnJezyk.Location = new System.Drawing.Point(12, 433);
+            this.btnJezyk.Location = new System.Drawing.Point(452, 465);
             this.btnJezyk.Name = "btnJezyk";
             this.btnJezyk.Size = new System.Drawing.Size(135, 51);
             this.btnJezyk.TabIndex = 17;
@@ -185,7 +197,7 @@
             // 
             // btnZapisz
             // 
-            this.btnZapisz.Location = new System.Drawing.Point(316, 433);
+            this.btnZapisz.Location = new System.Drawing.Point(610, 465);
             this.btnZapisz.Name = "btnZapisz";
             this.btnZapisz.Size = new System.Drawing.Size(123, 51);
             this.btnZapisz.TabIndex = 18;
@@ -195,41 +207,45 @@
             // 
             // dtpPoczatek
             // 
-            this.dtpPoczatek.Location = new System.Drawing.Point(133, 315);
+            this.dtpPoczatek.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dtpPoczatek.Location = new System.Drawing.Point(246, 315);
             this.dtpPoczatek.Name = "dtpPoczatek";
-            this.dtpPoczatek.Size = new System.Drawing.Size(200, 22);
+            this.dtpPoczatek.Size = new System.Drawing.Size(487, 38);
             this.dtpPoczatek.TabIndex = 19;
             // 
             // dtpKoniec
             // 
-            this.dtpKoniec.Location = new System.Drawing.Point(133, 349);
+            this.dtpKoniec.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dtpKoniec.Location = new System.Drawing.Point(246, 359);
             this.dtpKoniec.Name = "dtpKoniec";
-            this.dtpKoniec.Size = new System.Drawing.Size(200, 22);
+            this.dtpKoniec.Size = new System.Drawing.Size(487, 38);
             this.dtpKoniec.TabIndex = 20;
             // 
             // lblUrlop
             // 
             this.lblUrlop.AutoSize = true;
-            this.lblUrlop.Location = new System.Drawing.Point(12, 394);
+            this.lblUrlop.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblUrlop.Location = new System.Drawing.Point(12, 410);
             this.lblUrlop.Name = "lblUrlop";
-            this.lblUrlop.Size = new System.Drawing.Size(99, 17);
+            this.lblUrlop.Size = new System.Drawing.Size(197, 32);
             this.lblUrlop.TabIndex = 21;
             this.lblUrlop.Text = "Wymiar urlopu";
             // 
             // cbUrlop
             // 
+            this.cbUrlop.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbUrlop.FormattingEnabled = true;
-            this.cbUrlop.Location = new System.Drawing.Point(133, 391);
+            this.cbUrlop.Location = new System.Drawing.Point(246, 403);
             this.cbUrlop.Name = "cbUrlop";
-            this.cbUrlop.Size = new System.Drawing.Size(84, 24);
+            this.cbUrlop.Size = new System.Drawing.Size(84, 39);
             this.cbUrlop.TabIndex = 22;
             // 
             // InformacjeOZatrudnieniu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.ClientSize = new System.Drawing.Size(602, 528);
+            this.BackColor = System.Drawing.Color.Gainsboro;
+            this.ClientSize = new System.Drawing.Size(757, 528);
             this.Controls.Add(this.cbUrlop);
             this.Controls.Add(this.lblUrlop);
             this.Controls.Add(this.dtpKoniec);

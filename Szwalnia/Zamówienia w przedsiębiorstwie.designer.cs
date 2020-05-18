@@ -74,7 +74,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvZamowienia);
             this.Name = "ZamówieniaWPrzedsiębiorstwie";
-            this.Text = "Zamówienia_w_przedsiębiorstwie";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Zamówienia w przedsiębiorstwie";
             ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

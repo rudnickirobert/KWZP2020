@@ -74,7 +74,7 @@
             this.Controls.Add(this.dgvListaKlientow);
             this.Controls.Add(this.LblWyborKlienta);
             this.Name = "WyborKlienta";
-            this.Text = "WyborKlienta";
+            this.Text = "Wybór klienta";
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaKlientow)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
