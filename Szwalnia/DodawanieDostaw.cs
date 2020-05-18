@@ -29,7 +29,6 @@ namespace Szwalnia
         public DodawanieDostaw(bool czyPuste)
         {
             InitializeComponent();
-            db = null;
             db = Start.szwalnia;
             zamknieciePrzezInnyFormularz = false;
             if (czyPuste) 
