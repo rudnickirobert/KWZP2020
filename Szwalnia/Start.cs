@@ -52,13 +52,11 @@ namespace Szwalnia
             magForm.Show();
             this.Hide();
         }
-
         private void btnPrzygotowanieProdukcji_Click(object sender, EventArgs e)
         {
             PrzygotowanieProdukcji przygotowanieProdukcji = new PrzygotowanieProdukcji(db);
             przygotowanieProdukcji.Show();            
         }
-
         private void btnProdukcja_Click(object sender, EventArgs e)
         {
             Produkcja formularzProdukcji = new Produkcja(db);
@@ -70,7 +68,6 @@ namespace Szwalnia
             ZarzadzanieForm zarzadzanieForm = new ZarzadzanieForm(db);
             zarzadzanieForm.Show();
         }
-
         private void Start_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
