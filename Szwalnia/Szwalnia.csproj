@@ -173,6 +173,12 @@
     <Compile Include="Faktury_Zewnetrzne.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="GdzieLezaElementy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GdzieLezaElementy.Designer.cs">
+      <DependentUpon>GdzieLezaElementy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Grupa.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -764,6 +770,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ElementyForm.resx">
       <DependentUpon>ElementyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GdzieLezaElementy.resx">
+      <DependentUpon>GdzieLezaElementy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InneProdukcja.resx">
       <DependentUpon>InneProdukcja.cs</DependentUpon>
