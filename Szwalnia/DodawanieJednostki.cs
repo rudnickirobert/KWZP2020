@@ -17,12 +17,12 @@ namespace Szwalnia
         public DodawanieJednostki()
         {
             InitializeComponent();
-            db = Start.szwalnia;
-            jednostkaNew.Jednostka = txtNazwa.Text;           
+            db = Start.szwalnia;                    
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
+            jednostkaNew.Jednostka = txtNazwa.Text;
             MessageBox.Show("Pomyślnie dodano nowy rekord do bazy danych.");
             db.Elementy_Jednostki.Add(jednostkaNew);
             db.SaveChanges();

@@ -17,13 +17,13 @@ namespace Szwalnia
         public DodawanieTypu()
         {
             InitializeComponent();
-            db = Start.szwalnia;
-            typNew.Typ = txtNazwa.Text;
-            typNew.Czy_wlasne = chBoxWlasny.Checked;
+            db = Start.szwalnia;            
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
+            typNew.Typ = txtNazwa.Text;
+            typNew.Czy_wlasne = chBoxWlasny.Checked;
             MessageBox.Show("Pomyślnie dodano nowy rekord do bazy danych.");
             db.Elementy_Typy.Add(typNew);
             db.SaveChanges();

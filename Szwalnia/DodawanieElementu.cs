@@ -19,8 +19,7 @@ namespace Szwalnia
             InitializeComponent();
             db = Start.szwalnia;
             dgvListaTypy.DataSource = db.Elementy_Typy.ToList();
-            elementNew.Element_Nazwa = txtNazwa.Text;
-            elementNew.Okres_Przydatnosci_Miesiace = Decimal.ToInt32(numOkres.Value);
+            
         }
 
         private void dgvListaTypy_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -33,6 +32,8 @@ namespace Szwalnia
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
+            elementNew.Element_Nazwa = txtNazwa.Text;
+            elementNew.Okres_Przydatnosci_Miesiace = Decimal.ToInt32(numOkres.Value);
             MessageBox.Show("Pomyślnie dodano nowy rekord do bazy danych.");
             db.Elementy.Add(elementNew);
             db.SaveChanges();
