@@ -41,5 +41,11 @@ namespace Szwalnia
         {
             this.Close();
         }
+
+        private void btnDodajElementy_Click(object sender, EventArgs e)
+        {
+            ElementyZamowienia elementyZamowienia = new ElementyZamowienia(db);
+            elementyZamowienia.Show();
+        }
     }
 }

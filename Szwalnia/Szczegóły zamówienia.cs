@@ -21,9 +21,7 @@ namespace Szwalnia
             Zamowienia zamowienia = db.Zamowienia.Where(wybrane => wybrane.ID_Zamowienia == ID).First();
             lblOpis.Text = "Zamówienie o ID: " + zamowienia.ID_Zamowienia;
 
-
-
-            dgvSzczegoly.DataSource = db.Zamowienie_Element.Where(elementy => elementy.ID_Zamowienia == zamowienia.ID_Zamowienia).ToList();
+            dgvSzczegoly.DataSource = db.vKlienciZamowienie.Where(elementy => elementy.ID_Zamowienia == zamowienia.ID_Zamowienia).ToList();
             dgvSzczegoly.Columns[0].Visible = false;
         }
     }

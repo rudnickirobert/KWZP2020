@@ -32,6 +32,7 @@
             this.btnNowe = new System.Windows.Forms.Button();
             this.btnKoniecZamowienia = new System.Windows.Forms.Button();
             this.btnZamknij = new System.Windows.Forms.Button();
+            this.btnDodajElementy = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnStare
@@ -56,7 +57,7 @@
             // 
             // btnKoniecZamowienia
             // 
-            this.btnKoniecZamowienia.Location = new System.Drawing.Point(23, 217);
+            this.btnKoniecZamowienia.Location = new System.Drawing.Point(23, 193);
             this.btnKoniecZamowienia.Name = "btnKoniecZamowienia";
             this.btnKoniecZamowienia.Size = new System.Drawing.Size(163, 52);
             this.btnKoniecZamowienia.TabIndex = 7;
@@ -74,11 +75,22 @@
             this.btnZamknij.UseVisualStyleBackColor = true;
             this.btnZamknij.Click += new System.EventHandler(this.btnZamknij_Click);
             // 
+            // btnDodajElementy
+            // 
+            this.btnDodajElementy.Location = new System.Drawing.Point(23, 286);
+            this.btnDodajElementy.Name = "btnDodajElementy";
+            this.btnDodajElementy.Size = new System.Drawing.Size(163, 52);
+            this.btnDodajElementy.TabIndex = 9;
+            this.btnDodajElementy.Text = "Dodaj elementy do istniejącego zamówienia";
+            this.btnDodajElementy.UseVisualStyleBackColor = true;
+            this.btnDodajElementy.Click += new System.EventHandler(this.btnDodajElementy_Click);
+            // 
             // Zamowienie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(228, 462);
+            this.Controls.Add(this.btnDodajElementy);
             this.Controls.Add(this.btnZamknij);
             this.Controls.Add(this.btnKoniecZamowienia);
             this.Controls.Add(this.btnNowe);
@@ -95,5 +107,6 @@
         private System.Windows.Forms.Button btnNowe;
         private System.Windows.Forms.Button btnKoniecZamowienia;
         private System.Windows.Forms.Button btnZamknij;
+        private System.Windows.Forms.Button btnDodajElementy;
     }
 }

@@ -145,7 +145,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnNowy);
             this.Name = "ElementyZamowienia";
-            this.Text = "Elementy_zamówienia";
+            this.Text = "Elementy zamówienia";
             this.ResumeLayout(false);
             this.PerformLayout();
 
