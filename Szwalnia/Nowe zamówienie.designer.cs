@@ -30,8 +30,6 @@
         {
             this.lblOpisNumer = new System.Windows.Forms.Label();
             this.lblNumerZamowienia = new System.Windows.Forms.Label();
-            this.txtZakonczenie = new System.Windows.Forms.TextBox();
-            this.txtZlozenie = new System.Windows.Forms.TextBox();
             this.chbUmowa = new System.Windows.Forms.CheckBox();
             this.cbNazwa = new System.Windows.Forms.ComboBox();
             this.cbPracownik = new System.Windows.Forms.ComboBox();
@@ -44,6 +42,8 @@
             this.btnWroc = new System.Windows.Forms.Button();
             this.btnWyzeruj = new System.Windows.Forms.Button();
             this.btnDalej = new System.Windows.Forms.Button();
+            this.dtpZlozenie = new System.Windows.Forms.DateTimePicker();
+            this.dtpZakonczenie = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUkryty)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,26 +69,10 @@
             this.lblNumerZamowienia.TabIndex = 5;
             this.lblNumerZamowienia.Text = "label1";
             // 
-            // txtZakonczenie
-            // 
-            this.txtZakonczenie.Location = new System.Drawing.Point(184, 154);
-            this.txtZakonczenie.Margin = new System.Windows.Forms.Padding(4);
-            this.txtZakonczenie.Name = "txtZakonczenie";
-            this.txtZakonczenie.Size = new System.Drawing.Size(251, 22);
-            this.txtZakonczenie.TabIndex = 6;
-            // 
-            // txtZlozenie
-            // 
-            this.txtZlozenie.Location = new System.Drawing.Point(183, 114);
-            this.txtZlozenie.Margin = new System.Windows.Forms.Padding(4);
-            this.txtZlozenie.Name = "txtZlozenie";
-            this.txtZlozenie.Size = new System.Drawing.Size(251, 22);
-            this.txtZlozenie.TabIndex = 7;
-            // 
             // chbUmowa
             // 
             this.chbUmowa.AutoSize = true;
-            this.chbUmowa.Location = new System.Drawing.Point(183, 204);
+            this.chbUmowa.Location = new System.Drawing.Point(193, 200);
             this.chbUmowa.Name = "chbUmowa";
             this.chbUmowa.Size = new System.Drawing.Size(18, 17);
             this.chbUmowa.TabIndex = 8;
@@ -97,7 +81,7 @@
             // cbNazwa
             // 
             this.cbNazwa.FormattingEnabled = true;
-            this.cbNazwa.Location = new System.Drawing.Point(183, 73);
+            this.cbNazwa.Location = new System.Drawing.Point(193, 73);
             this.cbNazwa.Name = "cbNazwa";
             this.cbNazwa.Size = new System.Drawing.Size(251, 24);
             this.cbNazwa.TabIndex = 9;
@@ -105,7 +89,7 @@
             // cbPracownik
             // 
             this.cbPracownik.FormattingEnabled = true;
-            this.cbPracownik.Location = new System.Drawing.Point(184, 238);
+            this.cbPracownik.Location = new System.Drawing.Point(193, 238);
             this.cbPracownik.Name = "cbPracownik";
             this.cbPracownik.Size = new System.Drawing.Size(251, 24);
             this.cbPracownik.TabIndex = 10;
@@ -204,11 +188,27 @@
             this.btnDalej.UseVisualStyleBackColor = true;
             this.btnDalej.Click += new System.EventHandler(this.btnDalej_Click);
             // 
-            // NoweZamówienie
+            // dtpZlozenie
+            // 
+            this.dtpZlozenie.Location = new System.Drawing.Point(193, 112);
+            this.dtpZlozenie.Name = "dtpZlozenie";
+            this.dtpZlozenie.Size = new System.Drawing.Size(200, 22);
+            this.dtpZlozenie.TabIndex = 27;
+            // 
+            // dtpZakonczenie
+            // 
+            this.dtpZakonczenie.Location = new System.Drawing.Point(193, 154);
+            this.dtpZakonczenie.Name = "dtpZakonczenie";
+            this.dtpZakonczenie.Size = new System.Drawing.Size(200, 22);
+            this.dtpZakonczenie.TabIndex = 28;
+            // 
+            // NoweZamowienie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(482, 450);
+            this.ClientSize = new System.Drawing.Size(554, 450);
+            this.Controls.Add(this.dtpZakonczenie);
+            this.Controls.Add(this.dtpZlozenie);
             this.Controls.Add(this.btnDalej);
             this.Controls.Add(this.btnWyzeruj);
             this.Controls.Add(this.btnWroc);
@@ -221,11 +221,9 @@
             this.Controls.Add(this.cbPracownik);
             this.Controls.Add(this.cbNazwa);
             this.Controls.Add(this.chbUmowa);
-            this.Controls.Add(this.txtZlozenie);
-            this.Controls.Add(this.txtZakonczenie);
             this.Controls.Add(this.lblNumerZamowienia);
             this.Controls.Add(this.lblOpisNumer);
-            this.Name = "NoweZamówienie";
+            this.Name = "NoweZamowienie";
             this.Text = "Nowe_zamówienie";
             ((System.ComponentModel.ISupportInitialize)(this.dgvUkryty)).EndInit();
             this.ResumeLayout(false);
@@ -237,8 +235,6 @@
 
         private System.Windows.Forms.Label lblOpisNumer;
         private System.Windows.Forms.Label lblNumerZamowienia;
-        private System.Windows.Forms.TextBox txtZakonczenie;
-        private System.Windows.Forms.TextBox txtZlozenie;
         private System.Windows.Forms.CheckBox chbUmowa;
         private System.Windows.Forms.ComboBox cbNazwa;
         private System.Windows.Forms.ComboBox cbPracownik;
@@ -251,5 +247,7 @@
         private System.Windows.Forms.Button btnWroc;
         private System.Windows.Forms.Button btnWyzeruj;
         private System.Windows.Forms.Button btnDalej;
+        private System.Windows.Forms.DateTimePicker dtpZlozenie;
+        private System.Windows.Forms.DateTimePicker dtpZakonczenie;
     }
 }

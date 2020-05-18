@@ -12,10 +12,22 @@ namespace Szwalnia
 {
     public partial class ElementyZamowienia : Form
     {
-        public ElementyZamowienia(SzwalniaEntities szwalnia)
+        public SzwalniaEntities db;
+        public ElementyZamowienia(SzwalniaEntities db)
         {
             InitializeComponent();
+            this.db = db;
+
+            cbElement.DataSource = db.Elementy.ToList();
+            cbElement.ValueMember = "ID_Element";
+            cbElement.DisplayMember = "Element_Nazwa";
+            cbElement.Invalidate();
         }
 
+        private void btnNowy_Click(object sender, EventArgs e)
+        {
+            ElementyForm elementyForm = new ElementyForm();
+            elementyForm.Show();
+        }
     }
 }

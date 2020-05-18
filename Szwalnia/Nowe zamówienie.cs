@@ -28,15 +28,15 @@ namespace Szwalnia
             cbNazwa.Invalidate();
 
             cbPracownik.ValueMember = "ID_Pracownika";
-            cbPracownik.DisplayMember = "Nazwisko";
-            cbPracownik.DataSource = db.Pracownicy.Distinct().ToList();
+            cbPracownik.DisplayMember = "Imie_i_nazwisko_pracownika";
+            cbPracownik.DataSource = db.vImieNazwiskoPracownika.Distinct().ToList();
             cbPracownik.Invalidate();
         }
         private void btnDalej_Click(object sender, EventArgs e)
         {
             Zamowienia zamowienia = new Zamowienia();
-            zamowienia.Data_Zlozenia = Convert.ToDateTime(txtZlozenie.Text);
-            zamowienia.Data_Zakonczenia = Convert.ToDateTime(txtZakonczenie.Text);
+            zamowienia.Data_Zlozenia = Convert.ToDateTime(dtpZlozenie.Value);
+            zamowienia.Data_Zakonczenia = Convert.ToDateTime(dtpZakonczenie.Value);
             zamowienia.Umowa = Convert.ToBoolean(chbUmowa.Checked);
             zamowienia.ID_Klienta = Convert.ToInt32(cbNazwa.SelectedValue);
             zamowienia.ID_Pracownika = Convert.ToInt32(cbPracownik.SelectedValue);
