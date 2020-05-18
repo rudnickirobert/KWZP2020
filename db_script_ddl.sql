@@ -147,9 +147,9 @@ Status_zatw varchar(9)
 
 CREATE TABLE Polki_Rozmiary (
 ID_Rozmiar_Polki int IDENTITY(1,1) PRIMARY KEY,
-Wysokosc varchar(4),
-Szerokosc varchar(4),
-Glebokosc varchar(4)
+Wysokosc int,
+Szerokosc int,
+Glebokosc int
 )
 
 CREATE TABLE Elementy_Typy (
@@ -197,7 +197,7 @@ Nazwa varchar(20),
 
 CREATE TABLE Regaly(
 ID_regal int IDENTITY(1,1) PRIMARY KEY,
-Oznaczenie varchar(10)
+Oznaczenie varchar(2) UNIQUE
 )
 
 ---------------------------------------------------------TABELE Z KLUCZAMI OBCYMI MAGAZYN ---------------------------------------------------------
@@ -387,7 +387,7 @@ create table Rodzaj_Obslugi (
  
 create table Rodzaj_Maszyny ( 
     ID_Rodzaj_Maszyny int IDENTITY(1,1) not null PRIMARY KEY,  
-    Rodzaj_Maszyny varchar(30) not null,
+    Rodzaj_Maszyny varchar(50) not null,
 	Koszt_Rbh int not null,
 );  
   
@@ -400,7 +400,7 @@ create table Dokumentacje (
     ID_Dokumentacji int IDENTITY(1,1) not null PRIMARY KEY,  
     ID_Rodzaj_Dokumentacji int not null FOREIGN KEY REFERENCES Rodzaj_Dokumentacji (ID_Rodzaj_Dokumentacji), 
     ID_Pracownika int not null FOREIGN KEY REFERENCES Pracownicy (ID_Pracownika), 
-    Data_Wykonania smalldatetime not null, 
+    Data_Wykonania date not null, 
 	Plik varchar(30) not null,
 ); 
 

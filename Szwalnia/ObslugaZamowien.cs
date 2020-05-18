@@ -12,9 +12,11 @@ namespace Szwalnia
 {
     public partial class ObslugaZamowien : Form
     {
-        public ObslugaZamowien(SzwalniaEntities szwalnia)
+        public SzwalniaEntities db;
+        public ObslugaZamowien()
         {
             InitializeComponent();
+            db = Start.szwalnia;
         }
 
         private void ObslugaZamowien_FormClosed(object sender, FormClosedEventArgs e)
