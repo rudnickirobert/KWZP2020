@@ -15,7 +15,6 @@ namespace Szwalnia
     public partial class vKlienciZamowienie
     {
         public int ID_Klienta { get; set; }
-        public string Nazwa_Firmy { get; set; }
         public int ID_Zamowienia { get; set; }
         public string Element_Nazwa { get; set; }
         public int Ilosc { get; set; }

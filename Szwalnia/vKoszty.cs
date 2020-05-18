@@ -12,14 +12,14 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vWynagrodzenia
+    public partial class vKoszty
     {
-        public string Imie { get; set; }
-        public string Nazwisko { get; set; }
-        public string Pesel { get; set; }
-        public string Stanowisko { get; set; }
-        public float Pensja { get; set; }
-        public float Wymiar_Etatu { get; set; }
-        public Nullable<double> Wynagrodzenie { get; set; }
+        public int ID_Zamowienia { get; set; }
+        public int ID_Proces_Technologiczny { get; set; }
+        public int Liczba_Maszyn { get; set; }
+        public int Liczba_Rbh_Maszyna { get; set; }
+        public int Koszt_Rbh { get; set; }
+        public string Rodzaj_Maszyny { get; set; }
+        public Nullable<int> Koszt { get; set; }
     }
 }

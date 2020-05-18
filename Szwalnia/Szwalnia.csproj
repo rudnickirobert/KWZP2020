@@ -498,9 +498,6 @@
     <Compile Include="Urlop.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vCalkowityKosztZamowienia.cs">
-      <DependentUpon>Szwalnia.tt</DependentUpon>
-    </Compile>
     <Compile Include="vCechyElementu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -522,7 +519,7 @@
     <Compile Include="vEtapy_proces.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vFaktury.cs">
+    <Compile Include="vFakturyZewnetrzne.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vIdZamowienieElementProcesProdukcyjny.cs">
@@ -531,7 +528,7 @@
     <Compile Include="vKlienciZamowienie.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vKosztProcesu.cs">
+    <Compile Include="vKoszty.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vMaszyny_numer_seryjny.cs">
@@ -597,6 +594,12 @@
     <Compile Include="vSredniCzasWgElementu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vSumaKosztowProdukcji.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vSumaKosztowZamowienia.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vSuma_czasu_procesu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -610,9 +613,6 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vWszystkie_Maszyny.cs">
-      <DependentUpon>Szwalnia.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vWynagrodzenia.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vZamowienieProcesyProdukcyjne.cs">
@@ -707,6 +707,9 @@
     <EmbeddedResource Include="Elementy zamówienia.resx">
       <DependentUpon>Elementy zamówienia.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FakturyZewnetrzne.resx">
+      <DependentUpon>FakturyZewnetrzne.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Informacje o zatrudnieniu.resx">
       <DependentUpon>Informacje o zatrudnieniu.cs</DependentUpon>
     </EmbeddedResource>
@@ -763,9 +766,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FaktoryWystawiane.resx">
       <DependentUpon>FaktoryWystawiane.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FakturyZewnetrzne.resx">
-      <DependentUpon>FakturyZewnetrzne.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FakturyZewnetrzneSzczegoly.resx">
       <DependentUpon>FakturyZewnetrzneSzczegoly.cs</DependentUpon>

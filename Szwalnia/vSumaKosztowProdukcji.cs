@@ -12,9 +12,9 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vCalkowityKosztZamowienia
+    public partial class vSumaKosztowProdukcji
     {
-        public int ID_Zamowienia { get; set; }
-        public Nullable<int> Calkowity_koszt_produkcji { get; set; }
+        public int Numer_procesu { get; set; }
+        public Nullable<int> Koszt_maszynowy { get; set; }
     }
 }

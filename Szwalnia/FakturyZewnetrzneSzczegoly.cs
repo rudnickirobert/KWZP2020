@@ -18,7 +18,7 @@ namespace Szwalnia
         {
             InitializeComponent();
             this.db = db;
-            dgvFakturyZewnetrzne.DataSource = db.Faktury_Zewnetrzne.ToList();
+            dgvFakturyZewnetrzne.DataSource = db.vFakturyZewnetrzne.ToList();
             dgvFakturyZewnetrzne.Columns[0].Visible = false;
         }
     }
