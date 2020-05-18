@@ -64,13 +64,13 @@ namespace Szwalnia
 
         private void NowyRozmiarPolki_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (Application.OpenForms["NowaPolka"] == null)
+            if (Application.OpenForms[typeof(NowaPolka).Name] == null)
                 Start.GetForm.Show();
             else if (!NowaPolka.isClosedByAnotherForm)
                 Start.GetForm.Show();
             else
             {
-                Application.OpenForms["NowaPolka"].Close();
+                Application.OpenForms[typeof(NowaPolka).Name].Close();
                 NowaPolka nowaPolka = new NowaPolka();
                 nowaPolka.Show();
             }
