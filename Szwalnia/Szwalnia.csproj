@@ -846,9 +846,6 @@
     <Compile Include="ZawartoscPolki.Designer.cs">
       <DependentUpon>ZawartoscPolki.cs</DependentUpon>
     </Compile>
-    <Compile Include="Znajomosc_Jezykow.cs">
-      <DependentUpon>Szwalnia.tt</DependentUpon>
-    </Compile>
     <Compile Include="Znajomosc jezykow w firmie.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -860,6 +857,9 @@
     </Compile>
     <Compile Include="Dodaj nowy jezyk.Designer.cs">
       <DependentUpon>Dodaj nowy jezyk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Znajomosc_Jezykow.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="DodawanieCechy.resx">
       <DependentUpon>DodawanieCechy.cs</DependentUpon>
@@ -1136,6 +1136,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Legenda.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Szwalnia.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Szwalnia.edmx</DependentUpon>

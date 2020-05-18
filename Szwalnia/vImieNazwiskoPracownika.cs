@@ -14,7 +14,7 @@ namespace Szwalnia
     
     public partial class vImieNazwiskoPracownika
     {
-        public string Imie_i_nazwisko_pracownika { get; set; }
         public int ID_Pracownika { get; set; }
+        public string Imie_i_nazwisko_pracownika { get; set; }
     }
 }
