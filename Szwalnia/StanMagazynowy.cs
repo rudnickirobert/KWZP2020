@@ -12,9 +12,11 @@ namespace Szwalnia
 {
     public partial class StanMagazynowy : Form
     {
-        public StanMagazynowy(SzwalniaEntities szwalnia)
+        public SzwalniaEntities db;
+        public StanMagazynowy()
         {
             InitializeComponent();
+            db = Start.szwalnia;
         }
 
         private void StanMagazynowy_FormClosed(object sender, FormClosedEventArgs e)

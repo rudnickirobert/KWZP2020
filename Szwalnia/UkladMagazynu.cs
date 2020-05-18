@@ -15,10 +15,10 @@ namespace Szwalnia
     {
         public SzwalniaEntities db;
         int ostatniaPolka;
-        public UkladMagazynu(SzwalniaEntities szwalnia)
+        public UkladMagazynu()
         {
             InitializeComponent();
-            db = szwalnia;
+            db = Start.szwalnia;
             ostatniaPolka = db.Polki.Count();
         }
 
@@ -35,22 +35,29 @@ namespace Szwalnia
 
         private void btnDodajRegal_Click(object sender, EventArgs e)
         {
-            NowyRegal regal = new NowyRegal(db);
+            NowyRegal regal = new NowyRegal();
             regal.Show();
             this.Hide();
         }
 
         private void btnDodajPolke_Click(object sender, EventArgs e)
         {
-            NowaPolka polka = new NowaPolka(db, ostatniaPolka);
+            NowaPolka polka = new NowaPolka();
             polka.Show();
             this.Hide();
         }
 
         private void btnDodajRozmiar_Click(object sender, EventArgs e)
         {
-            NowyRozmiarPolki rozmiar = new NowyRozmiarPolki(db);
+            NowyRozmiarPolki rozmiar = new NowyRozmiarPolki();
             rozmiar.Show();
+            this.Hide();
+        }
+
+        private void btnPolkiNaRegalach_Click(object sender, EventArgs e)
+        {
+            PolkiNaRegalach polkiRegaly = new PolkiNaRegalach();
+            polkiRegaly.Show();
             this.Hide();
         }
 

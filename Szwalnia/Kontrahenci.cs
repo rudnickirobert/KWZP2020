@@ -18,6 +18,7 @@ namespace Szwalnia
         {
             db = szwalnia;
             InitializeComponent();
+            db = Start.szwalnia;
         }
 
         private void Kontrahenci_FormClosed(object sender, FormClosedEventArgs e)

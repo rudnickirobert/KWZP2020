@@ -44,6 +44,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -393,6 +394,12 @@
     <Compile Include="Polki.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="PolkiNaRegalach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PolkiNaRegalach.Designer.cs">
+      <DependentUpon>PolkiNaRegalach.cs</DependentUpon>
+    </Compile>
     <Compile Include="Polki_regaly.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -567,8 +574,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Szwalnia.edmx</DependentUpon>
     </Compile>
-    <Compile Include="SzwalniaDataSet.cs" />
-    <Compile Include="SzwalniaDataSet.Designer.cs" />
+    <Compile Include="SzwalniaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SzwalniaDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Typy_cechy_rejestr.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -611,7 +621,31 @@
     <Compile Include="vCechyElementu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vCzas_do_serwisu.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vDokumentacja_info.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vDokumentacja_proces.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vDokumentacja_technologiczna.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vElementy_proces.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vEtapy_proces.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vIdZamowienieElementProcesProdukcyjny.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vMaszyny_numer_seryjny.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vMaszyny_proces.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vMaszyny_rodzaj_liczba.cs">
@@ -638,7 +672,31 @@
     <Compile Include="vProcesMaxOdpadMiesiac.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vProcesy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vProces_elementy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vProces_Etapy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vProces_Maszyna.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vProces_technologiczny.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vRealizacjaProcesuProdukcyjnegoDetails.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vRegaly_alfabetycznie.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vResurs.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vRodzaj_Maszyny.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vRoznicaDatDni.cs">
@@ -660,6 +718,15 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vSzacowanyCzasWykonania.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vTechnolodzy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vWszystkie_Elementy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vWszystkie_Maszyny.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vUmowyKurierzy.cs">
@@ -732,6 +799,12 @@
     </Compile>
     <Compile Include="Zawartosc.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ZawartoscPolki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZawartoscPolki.Designer.cs">
+      <DependentUpon>ZawartoscPolki.cs</DependentUpon>
     </Compile>
     <Compile Include="Znajomosc_Jezykow.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
@@ -822,6 +895,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ObslugaZamowien.resx">
       <DependentUpon>ObslugaZamowien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PolkiNaRegalach.resx">
+      <DependentUpon>PolkiNaRegalach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Oferty.resx">
       <DependentUpon>Oferty.cs</DependentUpon>
@@ -953,17 +1029,10 @@
     <EmbeddedResource Include="ZarzadzanieForm.resx">
       <DependentUpon>ZarzadzanieForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Jednostki.xsc">
-      <DependentUpon>Jednostki.xsd</DependentUpon>
-    </None>
-    <None Include="Jednostki.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Jednostki.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Jednostki.xss">
-      <DependentUpon>Jednostki.xsd</DependentUpon>
-    </None>
+    <EmbeddedResource Include="ZawartoscPolki.resx">
+      <DependentUpon>ZawartoscPolki.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.Config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -986,7 +1055,7 @@
     </None>
     <None Include="SzwalniaDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SzwalniaDataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>SzwalniaDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="SzwalniaDataSet.xss">
@@ -994,13 +1063,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\regały.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lupa.png" />
+    <None Include="Resources\lupa1.png" />
+    <None Include="Resources\lupa2.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Szwalnia.Context.tt">
