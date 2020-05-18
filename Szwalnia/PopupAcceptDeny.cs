@@ -79,6 +79,9 @@ namespace Szwalnia
                 nowePrzypisanieZawartosciDostawyZasobow.Ilosc = intIlosc;
                 db.Dostawy_Wlasne_Zawartosc.Add(nowePrzypisanieZawartosciDostawyZasobow);
                 db.SaveChanges();
+                Zawartosc polkaZKtorejWzieto = db.Zawartosc.Where(polkaWybrana => polkaWybrana.ID_Polka == intPolka).First();
+                db.Zawartosc.Remove(polkaZKtorejWzieto);
+                db.SaveChanges();
                 Start.DataBaseRefresh();
                 //zamykanie formularzy
                 WyborOferty.czyZamknietyPrzezInny = true;
