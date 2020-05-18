@@ -199,6 +199,7 @@
         <EntityTypeShape EntityType="SzwalniaModel.vStanowisko" Width="1.5" PointX="22.375" PointY="22.75" />
         <EntityTypeShape EntityType="SzwalniaModel.vJezyk" Width="1.5" PointX="23.375" PointY="3.75" />
         <EntityTypeShape EntityType="SzwalniaModel.vJezykiWFirmie" Width="1.5" PointX="23.375" PointY="6.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vPolki_na_regalach" Width="1.5" PointX="5.125" PointY="12.375" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
