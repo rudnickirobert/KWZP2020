@@ -82,9 +82,9 @@
             this.lblInfo.Location = new System.Drawing.Point(43, 21);
             this.lblInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(307, 39);
+            this.lblInfo.Size = new System.Drawing.Size(288, 39);
             this.lblInfo.TabIndex = 25;
-            this.lblInfo.Text = "Wybierz typu z listy";
+            this.lblInfo.Text = "Wybierz typ z listy";
             // 
             // btnUsun
             // 

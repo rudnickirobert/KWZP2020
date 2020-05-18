@@ -74,7 +74,9 @@ namespace Szwalnia
 
         private void btnWyborCechy_Click(object sender, EventArgs e)
         {
-
+            WyborCechy cechaWybor = new WyborCechy();
+            cechaWybor.Show();
+            this.Hide();
         }
 
         private void btnWyborJednostki_Click(object sender, EventArgs e)

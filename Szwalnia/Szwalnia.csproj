@@ -661,6 +661,12 @@
     <Compile Include="WszystkieProcesyProdukcyjne.designer.cs">
       <DependentUpon>WszystkieProcesyProdukcyjne.cs</DependentUpon>
     </Compile>
+    <Compile Include="WyborCechy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WyborCechy.Designer.cs">
+      <DependentUpon>WyborCechy.cs</DependentUpon>
+    </Compile>
     <Compile Include="WyborElementu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -897,6 +903,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WszystkieProcesyProdukcyjne.resx">
       <DependentUpon>WszystkieProcesyProdukcyjne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WyborCechy.resx">
+      <DependentUpon>WyborCechy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WyborKlienta.resx">
       <DependentUpon>WyborKlienta.cs</DependentUpon>
