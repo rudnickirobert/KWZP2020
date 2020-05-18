@@ -296,8 +296,7 @@ namespace Szwalnia
 
         private void PrzygotowanieProdukcji_Load(object sender, EventArgs e)
         {
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'szwalniaDataSet.vObsluga' . Możesz go przenieść lub usunąć.
-            this.vObslugaTableAdapter.Fill(this.szwalniaDataSet.vObsluga);
+
 
         }
 
@@ -361,10 +360,7 @@ namespace Szwalnia
             MessageBox.Show("Dodano maszynę do procesu");
         }
 
-        private void btn_Szukaj_Dokumentacja_Click(object sender, EventArgs e)
-        {
-
-        }
+  
 
         private void btnPrzypisz_Dokumentacja_Click(object sender, EventArgs e)
         {
@@ -373,7 +369,7 @@ namespace Szwalnia
             dokumentacja_Proces.ID_Proces_Technologiczny = Convert.ToInt32(cmbID_Proces_Technologiczny.SelectedValue);
             szwalnia.Dokumentacja_Proces.Add(dokumentacja_Proces);
             szwalnia.SaveChanges();
-            MessageBox.Show("przypisano dokumentację do procesu");
+            MessageBox.Show("Przypisano dokumentację do procesu");
 
         }
 
@@ -434,6 +430,7 @@ namespace Szwalnia
             }
             else
                 MessageBox.Show("Wprowadź poprawne ID Zamowienia (wieksze od zera)!");
+
         }
     }
    
