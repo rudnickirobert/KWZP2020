@@ -40,7 +40,7 @@ namespace Szwalnia
         private void btnZapisz_Click(object sender, EventArgs e)
         {
             Zamowienie_Element zamowienieElement = new Zamowienie_Element();
-            zamowienieElement.ID_Zamowienie_Element = Convert.ToInt32(cbElement.SelectedValue);
+            zamowienieElement.ID_Element = Convert.ToInt32(cbElement.SelectedValue);
             zamowienieElement.ID_Zamowienia = Convert.ToInt32(cbIDZamowienia.SelectedValue);
             zamowienieElement.Ilosc = Convert.ToInt32(txtIlosc.Text);
             db.Zamowienie_Element.Add(zamowienieElement);
@@ -52,7 +52,7 @@ namespace Szwalnia
         private void btnNastepny_Click(object sender, EventArgs e)
         {
             Zamowienie_Element zamowienieElement = new Zamowienie_Element();
-            zamowienieElement.ID_Zamowienie_Element = Convert.ToInt32(cbElement.SelectedValue);
+            zamowienieElement.ID_Element = Convert.ToInt32(cbElement.SelectedValue);
             zamowienieElement.ID_Zamowienia = Convert.ToInt32(cbIDZamowienia.SelectedValue);
             zamowienieElement.Ilosc = Convert.ToInt32(txtIlosc.Text);
             db.Zamowienie_Element.Add(zamowienieElement);

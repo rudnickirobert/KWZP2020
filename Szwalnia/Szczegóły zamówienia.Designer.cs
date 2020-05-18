@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.dgvSzczegoly = new System.Windows.Forms.DataGridView();
+            this.lblOpis = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSzczegoly)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,21 +43,33 @@
             this.dgvSzczegoly.Size = new System.Drawing.Size(776, 220);
             this.dgvSzczegoly.TabIndex = 0;
             // 
-            // Szczegóły_zamówienia
+            // lblOpis
+            // 
+            this.lblOpis.AutoSize = true;
+            this.lblOpis.Location = new System.Drawing.Point(270, 19);
+            this.lblOpis.Name = "lblOpis";
+            this.lblOpis.Size = new System.Drawing.Size(46, 17);
+            this.lblOpis.TabIndex = 1;
+            this.lblOpis.Text = "label1";
+            // 
+            // SzczegolyZamowienia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblOpis);
             this.Controls.Add(this.dgvSzczegoly);
-            this.Name = "Szczegóły_zamówienia";
+            this.Name = "SzczegolyZamowienia";
             this.Text = "Szczegóły_zamówienia";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSzczegoly)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.DataGridView dgvSzczegoly;
+        private System.Windows.Forms.Label lblOpis;
     }
 }

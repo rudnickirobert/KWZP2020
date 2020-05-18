@@ -133,7 +133,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(774, 538);
+            this.ClientSize = new System.Drawing.Size(393, 250);
             this.Controls.Add(this.btnNastepny);
             this.Controls.Add(this.lblIDZamowienia);
             this.Controls.Add(this.cbIDZamowienia);
