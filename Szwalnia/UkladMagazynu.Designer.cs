@@ -38,13 +38,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblRegal = new System.Windows.Forms.Label();
             this.btnPolkiNaRegalach = new System.Windows.Forms.Button();
+            this.lblWymiary = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumerPolki)).BeginInit();
             this.SuspendLayout();
             // 
             // btnZnajdzPolke
             // 
             this.btnZnajdzPolke.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnZnajdzPolke.Location = new System.Drawing.Point(126, 144);
+            this.btnZnajdzPolke.Location = new System.Drawing.Point(129, 145);
             this.btnZnajdzPolke.Name = "btnZnajdzPolke";
             this.btnZnajdzPolke.Size = new System.Drawing.Size(86, 32);
             this.btnZnajdzPolke.TabIndex = 2;
@@ -66,7 +67,7 @@
             // btnDodajPolke
             // 
             this.btnDodajPolke.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnDodajPolke.Location = new System.Drawing.Point(38, 255);
+            this.btnDodajPolke.Location = new System.Drawing.Point(38, 241);
             this.btnDodajPolke.Name = "btnDodajPolke";
             this.btnDodajPolke.Size = new System.Drawing.Size(135, 33);
             this.btnDodajPolke.TabIndex = 4;
@@ -78,7 +79,7 @@
             // 
             this.btnDodajRozmiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnDodajRozmiar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDodajRozmiar.Location = new System.Drawing.Point(38, 308);
+            this.btnDodajRozmiar.Location = new System.Drawing.Point(38, 280);
             this.btnDodajRozmiar.Name = "btnDodajRozmiar";
             this.btnDodajRozmiar.Size = new System.Drawing.Size(135, 33);
             this.btnDodajRozmiar.TabIndex = 5;
@@ -98,17 +99,17 @@
             // 
             // nudNumerPolki
             // 
-            this.nudNumerPolki.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nudNumerPolki.Location = new System.Drawing.Point(80, 112);
+            this.nudNumerPolki.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nudNumerPolki.Location = new System.Drawing.Point(80, 108);
             this.nudNumerPolki.Name = "nudNumerPolki";
-            this.nudNumerPolki.Size = new System.Drawing.Size(77, 26);
+            this.nudNumerPolki.Size = new System.Drawing.Size(77, 30);
             this.nudNumerPolki.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label2.Location = new System.Drawing.Point(115, 81);
+            this.label2.Location = new System.Drawing.Point(115, 77);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(122, 24);
             this.label2.TabIndex = 6;
@@ -117,29 +118,40 @@
             // lblRegal
             // 
             this.lblRegal.AutoSize = true;
-            this.lblRegal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblRegal.Location = new System.Drawing.Point(164, 112);
+            this.lblRegal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblRegal.Location = new System.Drawing.Point(164, 105);
             this.lblRegal.Name = "lblRegal";
-            this.lblRegal.Size = new System.Drawing.Size(96, 25);
+            this.lblRegal.Size = new System.Drawing.Size(80, 20);
             this.lblRegal.TabIndex = 7;
             this.lblRegal.Text = "REGAŁ: ";
             // 
             // btnPolkiNaRegalach
             // 
             this.btnPolkiNaRegalach.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnPolkiNaRegalach.Location = new System.Drawing.Point(207, 202);
+            this.btnPolkiNaRegalach.Location = new System.Drawing.Point(188, 202);
             this.btnPolkiNaRegalach.Name = "btnPolkiNaRegalach";
-            this.btnPolkiNaRegalach.Size = new System.Drawing.Size(135, 56);
+            this.btnPolkiNaRegalach.Size = new System.Drawing.Size(114, 111);
             this.btnPolkiNaRegalach.TabIndex = 6;
             this.btnPolkiNaRegalach.Text = "Widok półek na regałach";
             this.btnPolkiNaRegalach.UseVisualStyleBackColor = true;
             this.btnPolkiNaRegalach.Click += new System.EventHandler(this.btnPolkiNaRegalach_Click);
             // 
+            // lblWymiary
+            // 
+            this.lblWymiary.AutoSize = true;
+            this.lblWymiary.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblWymiary.Location = new System.Drawing.Point(165, 125);
+            this.lblWymiary.Name = "lblWymiary";
+            this.lblWymiary.Size = new System.Drawing.Size(56, 15);
+            this.lblWymiary.TabIndex = 8;
+            this.lblWymiary.Text = "Wymiary:";
+            // 
             // UkladMagazynu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(354, 383);
+            this.ClientSize = new System.Drawing.Size(339, 332);
+            this.Controls.Add(this.lblWymiary);
             this.Controls.Add(this.btnPolkiNaRegalach);
             this.Controls.Add(this.lblRegal);
             this.Controls.Add(this.label2);
@@ -170,5 +182,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblRegal;
         private System.Windows.Forms.Button btnPolkiNaRegalach;
+        private System.Windows.Forms.Label lblWymiary;
     }
 }
