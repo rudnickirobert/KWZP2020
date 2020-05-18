@@ -493,3 +493,33 @@ FROM     dbo.Zamowienia INNER JOIN
                   dbo.Klienci ON dbo.Zamowienia.ID_Klienta = dbo.Klienci.ID_Klienta INNER JOIN
                   dbo.Pracownicy ON dbo.Zamowienia.ID_Pracownika = dbo.Pracownicy.ID_Pracownika
 GO
+
+
+CREATE VIEW vImieNazwiskoPracownika
+AS
+SELECT ID_Pracownika, Imie + ' ' + Nazwisko AS [Imie i nazwisko pracownika]
+FROM     dbo.Pracownicy
+GO
+
+CREATE VIEW vStanowisko AS
+SELECT ID_Stanowiska, Stanowisko
+FROM     dbo.Stanowisko
+GO
+
+CREATE VIEW vRodzajUmowy AS
+SELECT ID_Rodzaj_Umowy, Rodzaj_Umowy
+FROM     dbo.Rodzaj_Umowy
+GO
+
+CREATE VIEW vJezyk AS
+SELECT ID_Jezyk, Jezyk
+FROM     dbo.Jezyk
+Go
+
+CREATE VIEW vJezykiWFirmie AS
+SELECT dbo.Pracownicy.ID_Pracownika, dbo.Pracownicy.Imie + ' ' + dbo.Pracownicy.Nazwisko AS [Imie i nazwisko pracownika], dbo.Jezyk.Jezyk
+FROM     dbo.Pracownicy INNER JOIN
+                  dbo.Znajomosc_Jezykow ON dbo.Pracownicy.ID_Pracownika = dbo.Znajomosc_Jezykow.ID_Pracownika INNER JOIN
+                  dbo.Jezyk ON dbo.Znajomosc_Jezykow.ID_Jezyka = dbo.Jezyk.ID_Jezyk
+GO
+

@@ -43,5 +43,11 @@ namespace Szwalnia
             NowyPracownik nowyPracownik = new NowyPracownik(db);
             nowyPracownik.Show();
         }
+
+        private void btnJezyk_Click(object sender, EventArgs e)
+        {
+            PanelJezykow panelJezykow = new PanelJezykow(db);
+            panelJezykow.Show();
+        }
     }
 }

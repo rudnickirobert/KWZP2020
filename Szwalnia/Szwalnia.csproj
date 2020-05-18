@@ -359,6 +359,12 @@
     <Compile Include="Oferta.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="Panel Języków.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Panel Języków.Designer.cs">
+      <DependentUpon>Panel Języków.cs</DependentUpon>
+    </Compile>
     <Compile Include="PanelKlienta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -619,7 +625,16 @@
     <Compile Include="vIdZamowienieElementProcesProdukcyjny.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vImieNazwiskoPracownika.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vJezyk.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vJezykiPracownika.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vJezykiWFirmie.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vKlienciZamowienie.cs">
@@ -679,6 +694,9 @@
     <Compile Include="vResurs.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vRodzajUmowy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vRodzaj_Maszyny.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -695,6 +713,9 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vSredniCzasWgElementu.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vStanowisko.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vSumaKosztowProdukcji.cs">
@@ -816,6 +837,18 @@
     <Compile Include="Znajomosc_Jezykow.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="Znajomosc jezykow w firmie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Znajomosc jezykow w firmie.Designer.cs">
+      <DependentUpon>Znajomosc jezykow w firmie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dodaj nowy jezyk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dodaj nowy jezyk.Designer.cs">
+      <DependentUpon>Dodaj nowy jezyk.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DodawanieCechy.resx">
       <DependentUpon>DodawanieCechy.cs</DependentUpon>
     </EmbeddedResource>
@@ -899,6 +932,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ObslugaZamowien.resx">
       <DependentUpon>ObslugaZamowien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panel Języków.resx">
+      <DependentUpon>Panel Języków.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PolkiNaRegalach.resx">
       <DependentUpon>PolkiNaRegalach.cs</DependentUpon>
@@ -1032,6 +1068,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ZawartoscPolki.resx">
       <DependentUpon>ZawartoscPolki.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Znajomosc jezykow w firmie.resx">
+      <DependentUpon>Znajomosc jezykow w firmie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dodaj nowy jezyk.resx">
+      <DependentUpon>Dodaj nowy jezyk.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.Config" />
     <None Include="packages.config" />

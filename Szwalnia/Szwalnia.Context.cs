@@ -133,5 +133,10 @@ namespace Szwalnia
         public virtual DbSet<vZatrudnieniePracownika> vZatrudnieniePracownika { get; set; }
         public virtual DbSet<vZawartosc_polki> vZawartosc_polki { get; set; }
         public virtual DbSet<vZamowienie> vZamowienie { get; set; }
+        public virtual DbSet<vImieNazwiskoPracownika> vImieNazwiskoPracownika { get; set; }
+        public virtual DbSet<vRodzajUmowy> vRodzajUmowy { get; set; }
+        public virtual DbSet<vStanowisko> vStanowisko { get; set; }
+        public virtual DbSet<vJezyk> vJezyk { get; set; }
+        public virtual DbSet<vJezykiWFirmie> vJezykiWFirmie { get; set; }
     }
 }

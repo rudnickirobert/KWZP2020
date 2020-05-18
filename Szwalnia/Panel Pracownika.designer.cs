@@ -32,6 +32,7 @@
             this.btnZamknij = new System.Windows.Forms.Button();
             this.btnNowyPracownik = new System.Windows.Forms.Button();
             this.btnZatrudnienie = new System.Windows.Forms.Button();
+            this.btnJezyk = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnPracownicy
@@ -46,7 +47,7 @@
             // 
             // btnZamknij
             // 
-            this.btnZamknij.Location = new System.Drawing.Point(12, 236);
+            this.btnZamknij.Location = new System.Drawing.Point(12, 342);
             this.btnZamknij.Name = "btnZamknij";
             this.btnZamknij.Size = new System.Drawing.Size(164, 54);
             this.btnZamknij.TabIndex = 1;
@@ -74,16 +75,27 @@
             this.btnZatrudnienie.UseVisualStyleBackColor = true;
             this.btnZatrudnienie.Click += new System.EventHandler(this.btnZatrudnienie_Click);
             // 
-            // Panel_Pracownika
+            // btnJezyk
+            // 
+            this.btnJezyk.Location = new System.Drawing.Point(12, 217);
+            this.btnJezyk.Name = "btnJezyk";
+            this.btnJezyk.Size = new System.Drawing.Size(164, 54);
+            this.btnJezyk.TabIndex = 4;
+            this.btnJezyk.Text = "Zanjomość języków";
+            this.btnJezyk.UseVisualStyleBackColor = true;
+            this.btnJezyk.Click += new System.EventHandler(this.btnJezyk_Click);
+            // 
+            // PanelPracownika
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(188, 450);
+            this.Controls.Add(this.btnJezyk);
             this.Controls.Add(this.btnZatrudnienie);
             this.Controls.Add(this.btnNowyPracownik);
             this.Controls.Add(this.btnZamknij);
             this.Controls.Add(this.btnPracownicy);
-            this.Name = "Panel_Pracownika";
+            this.Name = "PanelPracownika";
             this.Text = "Panel_Pracownika";
             this.ResumeLayout(false);
 
@@ -95,5 +107,6 @@
         private System.Windows.Forms.Button btnZamknij;
         private System.Windows.Forms.Button btnNowyPracownik;
         private System.Windows.Forms.Button btnZatrudnienie;
+        private System.Windows.Forms.Button btnJezyk;
     }
 }

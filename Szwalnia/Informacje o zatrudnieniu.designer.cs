@@ -33,8 +33,6 @@
             this.cbEtat = new System.Windows.Forms.ComboBox();
             this.cbUmowa = new System.Windows.Forms.ComboBox();
             this.cbDzial = new System.Windows.Forms.ComboBox();
-            this.txtPoczatek = new System.Windows.Forms.TextBox();
-            this.txtKoniec = new System.Windows.Forms.TextBox();
             this.lblImieNazwisko = new System.Windows.Forms.Label();
             this.lblStanowisko = new System.Windows.Forms.Label();
             this.lblEtat = new System.Windows.Forms.Label();
@@ -44,9 +42,12 @@
             this.lblKoniec = new System.Windows.Forms.Label();
             this.lblInformacje = new System.Windows.Forms.Label();
             this.btnAnuluj = new System.Windows.Forms.Button();
-            this.btnUrlop = new System.Windows.Forms.Button();
             this.btnJezyk = new System.Windows.Forms.Button();
             this.btnZapisz = new System.Windows.Forms.Button();
+            this.dtpPoczatek = new System.Windows.Forms.DateTimePicker();
+            this.dtpKoniec = new System.Windows.Forms.DateTimePicker();
+            this.lblUrlop = new System.Windows.Forms.Label();
+            this.cbUrlop = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // cbImieNazwisko
@@ -88,20 +89,6 @@
             this.cbDzial.Name = "cbDzial";
             this.cbDzial.Size = new System.Drawing.Size(390, 24);
             this.cbDzial.TabIndex = 4;
-            // 
-            // txtPoczatek
-            // 
-            this.txtPoczatek.Location = new System.Drawing.Point(133, 312);
-            this.txtPoczatek.Name = "txtPoczatek";
-            this.txtPoczatek.Size = new System.Drawing.Size(100, 22);
-            this.txtPoczatek.TabIndex = 5;
-            // 
-            // txtKoniec
-            // 
-            this.txtKoniec.Location = new System.Drawing.Point(133, 351);
-            this.txtKoniec.Name = "txtKoniec";
-            this.txtKoniec.Size = new System.Drawing.Size(100, 22);
-            this.txtKoniec.TabIndex = 6;
             // 
             // lblImieNazwisko
             // 
@@ -178,7 +165,7 @@
             // 
             // btnAnuluj
             // 
-            this.btnAnuluj.Location = new System.Drawing.Point(334, 433);
+            this.btnAnuluj.Location = new System.Drawing.Point(174, 433);
             this.btnAnuluj.Name = "btnAnuluj";
             this.btnAnuluj.Size = new System.Drawing.Size(123, 51);
             this.btnAnuluj.TabIndex = 15;
@@ -186,32 +173,56 @@
             this.btnAnuluj.UseVisualStyleBackColor = true;
             this.btnAnuluj.Click += new System.EventHandler(this.btnAnuluj_Click);
             // 
-            // btnUrlop
-            // 
-            this.btnUrlop.Location = new System.Drawing.Point(12, 433);
-            this.btnUrlop.Name = "btnUrlop";
-            this.btnUrlop.Size = new System.Drawing.Size(136, 51);
-            this.btnUrlop.TabIndex = 16;
-            this.btnUrlop.Text = "Dodaj wymiar urlopu";
-            this.btnUrlop.UseVisualStyleBackColor = true;
-            // 
             // btnJezyk
             // 
-            this.btnJezyk.Location = new System.Drawing.Point(154, 433);
+            this.btnJezyk.Location = new System.Drawing.Point(12, 433);
             this.btnJezyk.Name = "btnJezyk";
             this.btnJezyk.Size = new System.Drawing.Size(135, 51);
             this.btnJezyk.TabIndex = 17;
             this.btnJezyk.Text = "Dodaj znajomość języków";
             this.btnJezyk.UseVisualStyleBackColor = true;
+            this.btnJezyk.Click += new System.EventHandler(this.btnJezyk_Click);
             // 
             // btnZapisz
             // 
-            this.btnZapisz.Location = new System.Drawing.Point(463, 433);
+            this.btnZapisz.Location = new System.Drawing.Point(316, 433);
             this.btnZapisz.Name = "btnZapisz";
             this.btnZapisz.Size = new System.Drawing.Size(123, 51);
             this.btnZapisz.TabIndex = 18;
             this.btnZapisz.Text = "Zapisz i zamknij";
             this.btnZapisz.UseVisualStyleBackColor = true;
+            this.btnZapisz.Click += new System.EventHandler(this.btnZapisz_Click);
+            // 
+            // dtpPoczatek
+            // 
+            this.dtpPoczatek.Location = new System.Drawing.Point(133, 315);
+            this.dtpPoczatek.Name = "dtpPoczatek";
+            this.dtpPoczatek.Size = new System.Drawing.Size(200, 22);
+            this.dtpPoczatek.TabIndex = 19;
+            // 
+            // dtpKoniec
+            // 
+            this.dtpKoniec.Location = new System.Drawing.Point(133, 349);
+            this.dtpKoniec.Name = "dtpKoniec";
+            this.dtpKoniec.Size = new System.Drawing.Size(200, 22);
+            this.dtpKoniec.TabIndex = 20;
+            // 
+            // lblUrlop
+            // 
+            this.lblUrlop.AutoSize = true;
+            this.lblUrlop.Location = new System.Drawing.Point(12, 394);
+            this.lblUrlop.Name = "lblUrlop";
+            this.lblUrlop.Size = new System.Drawing.Size(99, 17);
+            this.lblUrlop.TabIndex = 21;
+            this.lblUrlop.Text = "Wymiar urlopu";
+            // 
+            // cbUrlop
+            // 
+            this.cbUrlop.FormattingEnabled = true;
+            this.cbUrlop.Location = new System.Drawing.Point(133, 391);
+            this.cbUrlop.Name = "cbUrlop";
+            this.cbUrlop.Size = new System.Drawing.Size(84, 24);
+            this.cbUrlop.TabIndex = 22;
             // 
             // InformacjeOZatrudnieniu
             // 
@@ -219,9 +230,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(602, 528);
+            this.Controls.Add(this.cbUrlop);
+            this.Controls.Add(this.lblUrlop);
+            this.Controls.Add(this.dtpKoniec);
+            this.Controls.Add(this.dtpPoczatek);
             this.Controls.Add(this.btnZapisz);
             this.Controls.Add(this.btnJezyk);
-            this.Controls.Add(this.btnUrlop);
             this.Controls.Add(this.btnAnuluj);
             this.Controls.Add(this.lblInformacje);
             this.Controls.Add(this.lblKoniec);
@@ -231,8 +245,6 @@
             this.Controls.Add(this.lblEtat);
             this.Controls.Add(this.lblStanowisko);
             this.Controls.Add(this.lblImieNazwisko);
-            this.Controls.Add(this.txtKoniec);
-            this.Controls.Add(this.txtPoczatek);
             this.Controls.Add(this.cbDzial);
             this.Controls.Add(this.cbUmowa);
             this.Controls.Add(this.cbEtat);
@@ -253,8 +265,6 @@
         private System.Windows.Forms.ComboBox cbEtat;
         private System.Windows.Forms.ComboBox cbUmowa;
         private System.Windows.Forms.ComboBox cbDzial;
-        private System.Windows.Forms.TextBox txtPoczatek;
-        private System.Windows.Forms.TextBox txtKoniec;
         private System.Windows.Forms.Label lblImieNazwisko;
         private System.Windows.Forms.Label lblStanowisko;
         private System.Windows.Forms.Label lblEtat;
@@ -264,8 +274,11 @@
         private System.Windows.Forms.Label lblKoniec;
         private System.Windows.Forms.Label lblInformacje;
         private System.Windows.Forms.Button btnAnuluj;
-        private System.Windows.Forms.Button btnUrlop;
         private System.Windows.Forms.Button btnJezyk;
         private System.Windows.Forms.Button btnZapisz;
+        private System.Windows.Forms.DateTimePicker dtpPoczatek;
+        private System.Windows.Forms.DateTimePicker dtpKoniec;
+        private System.Windows.Forms.Label lblUrlop;
+        private System.Windows.Forms.ComboBox cbUrlop;
     }
 }
