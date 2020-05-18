@@ -132,14 +132,13 @@
             this.dtpDataZawarcia.Size = new System.Drawing.Size(120, 20);
             this.dtpDataZawarcia.TabIndex = 10;
             // 
-            // 
             // btnWstecz
             // 
             this.btnWstecz.Location = new System.Drawing.Point(74, 200);
             this.btnWstecz.Name = "btnWstecz";
             this.btnWstecz.Size = new System.Drawing.Size(75, 23);
             this.btnWstecz.TabIndex = 11;
-            this.btnWstecz.Text = "button1";
+            this.btnWstecz.Text = "Powrót";
             this.btnWstecz.UseVisualStyleBackColor = true;
             this.btnWstecz.Click += new System.EventHandler(this.btnWstecz_Click);
             // 
@@ -163,7 +162,6 @@
             this.cmbKurier.Size = new System.Drawing.Size(121, 21);
             this.cmbKurier.TabIndex = 6;
             this.cmbKurier.ValueMember = "Nazwa";
-            // 
             // 
             // DodajUmoweKurier
             // 
@@ -189,6 +187,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numCzas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numKosztKm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numKosztStaly)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kurierzyBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvOferty = new System.Windows.Forms.DataGridView();
             this.btnDodajOferte = new System.Windows.Forms.Button();
@@ -71,7 +70,7 @@
             this.btnWstecz.Name = "btnWstecz";
             this.btnWstecz.Size = new System.Drawing.Size(59, 35);
             this.btnWstecz.TabIndex = 5;
-            this.btnWstecz.Text = "button1";
+            this.btnWstecz.Text = "Powrót";
             this.btnWstecz.UseVisualStyleBackColor = true;
             this.btnWstecz.Click += new System.EventHandler(this.btnWstecz_Click);
             // 

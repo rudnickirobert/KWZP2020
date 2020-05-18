@@ -67,7 +67,7 @@
             this.btnWstecz.Name = "btnWstecz";
             this.btnWstecz.Size = new System.Drawing.Size(75, 23);
             this.btnWstecz.TabIndex = 21;
-            this.btnWstecz.Text = "button1";
+            this.btnWstecz.Text = "Powrót";
             this.btnWstecz.UseVisualStyleBackColor = true;
             this.btnWstecz.Click += new System.EventHandler(this.btnWstecz_Click);
             // 

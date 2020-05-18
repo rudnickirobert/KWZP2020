@@ -26,7 +26,7 @@ namespace Szwalnia
 
         private void btnWstecz_Click(object sender, EventArgs e)
         {
-            Application.OpenForms["UmowyKurierzy"].Show();
+            Application.OpenForms[typeof(UmowyKurierzy).Name].Show();
             this.Hide();
         }
 

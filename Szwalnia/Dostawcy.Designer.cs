@@ -28,19 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.btnDodaj = new System.Windows.Forms.Button();
             this.dgvDostawcy = new System.Windows.Forms.DataGridView();
-            this.iDDostawcyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nazwaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefon1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefon2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dostawcyZaopatrzenieBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.btnWstecz = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDostawcy)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dostawcyZaopatrzenieBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDodaj
@@ -55,52 +47,12 @@
             // 
             // dgvDostawcy
             // 
-            this.dgvDostawcy.AutoGenerateColumns = false;
             this.dgvDostawcy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDostawcy.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDDostawcyDataGridViewTextBoxColumn,
-            this.nazwaDataGridViewTextBoxColumn,
-            this.telefon1DataGridViewTextBoxColumn,
-            this.telefon2DataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn});
-            this.dgvDostawcy.DataSource = this.dostawcyZaopatrzenieBindingSource;
             this.dgvDostawcy.Location = new System.Drawing.Point(12, 70);
             this.dgvDostawcy.Name = "dgvDostawcy";
-            this.dgvDostawcy.Size = new System.Drawing.Size(548, 251);
+            this.dgvDostawcy.Size = new System.Drawing.Size(548, 368);
             this.dgvDostawcy.TabIndex = 1;
             this.dgvDostawcy.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDostawcy_CellContentDoubleClick);
-            // 
-            // iDDostawcyDataGridViewTextBoxColumn
-            // 
-            this.iDDostawcyDataGridViewTextBoxColumn.DataPropertyName = "ID_Dostawcy";
-            this.iDDostawcyDataGridViewTextBoxColumn.HeaderText = "ID_Dostawcy";
-            this.iDDostawcyDataGridViewTextBoxColumn.Name = "iDDostawcyDataGridViewTextBoxColumn";
-            this.iDDostawcyDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nazwaDataGridViewTextBoxColumn
-            // 
-            this.nazwaDataGridViewTextBoxColumn.DataPropertyName = "Nazwa";
-            this.nazwaDataGridViewTextBoxColumn.HeaderText = "Nazwa";
-            this.nazwaDataGridViewTextBoxColumn.Name = "nazwaDataGridViewTextBoxColumn";
-            // 
-            // telefon1DataGridViewTextBoxColumn
-            // 
-            this.telefon1DataGridViewTextBoxColumn.DataPropertyName = "Telefon_1";
-            this.telefon1DataGridViewTextBoxColumn.HeaderText = "Telefon_1";
-            this.telefon1DataGridViewTextBoxColumn.Name = "telefon1DataGridViewTextBoxColumn";
-            // 
-            // telefon2DataGridViewTextBoxColumn
-            // 
-            this.telefon2DataGridViewTextBoxColumn.DataPropertyName = "Telefon_2";
-            this.telefon2DataGridViewTextBoxColumn.HeaderText = "Telefon_2";
-            this.telefon2DataGridViewTextBoxColumn.Name = "telefon2DataGridViewTextBoxColumn";
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            // 
             // 
             // label1
             // 
@@ -117,7 +69,7 @@
             this.btnWstecz.Name = "btnWstecz";
             this.btnWstecz.Size = new System.Drawing.Size(75, 23);
             this.btnWstecz.TabIndex = 3;
-            this.btnWstecz.Text = "btnWstecz";
+            this.btnWstecz.Text = "Powrót";
             this.btnWstecz.UseVisualStyleBackColor = true;
             this.btnWstecz.Click += new System.EventHandler(this.btnWstecz_Click);
             // 
@@ -134,7 +86,6 @@
             this.Text = "Dostawcy";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Dostawcy_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDostawcy)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dostawcyZaopatrzenieBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,7 +95,6 @@
 
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.DataGridView dgvDostawcy;
-        private System.Windows.Forms.BindingSource dostawcyZaopatrzenieBindingSource;private System.Windows.Forms.DataGridViewTextBoxColumn iDDostawcyDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nazwaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefon1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefon2DataGridViewTextBoxColumn;

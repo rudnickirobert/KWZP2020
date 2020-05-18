@@ -262,11 +262,11 @@
             // 
             // btnWstecz
             // 
-            this.btnWstecz.Location = new System.Drawing.Point(316, 233);
+            this.btnWstecz.Location = new System.Drawing.Point(347, 238);
             this.btnWstecz.Name = "btnWstecz";
             this.btnWstecz.Size = new System.Drawing.Size(53, 34);
             this.btnWstecz.TabIndex = 57;
-            this.btnWstecz.Text = "button1";
+            this.btnWstecz.Text = "Powrót";
             this.btnWstecz.UseVisualStyleBackColor = true;
             this.btnWstecz.Click += new System.EventHandler(this.btnWstecz_Click);
             // 

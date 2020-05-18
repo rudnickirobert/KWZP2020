@@ -36,7 +36,7 @@ namespace Szwalnia
 
         private void btnWstecz_Click(object sender, EventArgs e)
         {
-            Application.OpenForms["Kontrahenci"].Show();
+            Application.OpenForms[typeof(Kontrahenci).Name].Show();
             this.Hide();
         }
 

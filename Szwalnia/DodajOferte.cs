@@ -67,7 +67,7 @@ namespace Szwalnia
 
         private void btnWstecz_Click(object sender, EventArgs e)
         {
-            Application.OpenForms["Oferty"].Show();
+            Application.OpenForms[typeof(Oferty).Name].Show();
             this.Hide();
         }
     }
