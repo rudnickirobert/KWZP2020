@@ -37,9 +37,10 @@
             // 
             // btnPracownicy
             // 
-            this.btnPracownicy.Location = new System.Drawing.Point(12, 12);
+            this.btnPracownicy.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnPracownicy.Location = new System.Drawing.Point(15, 29);
             this.btnPracownicy.Name = "btnPracownicy";
-            this.btnPracownicy.Size = new System.Drawing.Size(164, 55);
+            this.btnPracownicy.Size = new System.Drawing.Size(194, 89);
             this.btnPracownicy.TabIndex = 0;
             this.btnPracownicy.Text = "Pracownicy";
             this.btnPracownicy.UseVisualStyleBackColor = true;
@@ -47,9 +48,9 @@
             // 
             // btnZamknij
             // 
-            this.btnZamknij.Location = new System.Drawing.Point(12, 342);
+            this.btnZamknij.Location = new System.Drawing.Point(332, 273);
             this.btnZamknij.Name = "btnZamknij";
-            this.btnZamknij.Size = new System.Drawing.Size(164, 54);
+            this.btnZamknij.Size = new System.Drawing.Size(105, 42);
             this.btnZamknij.TabIndex = 1;
             this.btnZamknij.Text = "Zamknij";
             this.btnZamknij.UseVisualStyleBackColor = true;
@@ -57,9 +58,10 @@
             // 
             // btnNowyPracownik
             // 
-            this.btnNowyPracownik.Location = new System.Drawing.Point(12, 82);
+            this.btnNowyPracownik.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnNowyPracownik.Location = new System.Drawing.Point(240, 29);
             this.btnNowyPracownik.Name = "btnNowyPracownik";
-            this.btnNowyPracownik.Size = new System.Drawing.Size(164, 49);
+            this.btnNowyPracownik.Size = new System.Drawing.Size(197, 89);
             this.btnNowyPracownik.TabIndex = 2;
             this.btnNowyPracownik.Text = "Nowy Pracownik";
             this.btnNowyPracownik.UseVisualStyleBackColor = true;
@@ -67,9 +69,10 @@
             // 
             // btnZatrudnienie
             // 
-            this.btnZatrudnienie.Location = new System.Drawing.Point(12, 149);
+            this.btnZatrudnienie.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnZatrudnienie.Location = new System.Drawing.Point(240, 148);
             this.btnZatrudnienie.Name = "btnZatrudnienie";
-            this.btnZatrudnienie.Size = new System.Drawing.Size(164, 49);
+            this.btnZatrudnienie.Size = new System.Drawing.Size(194, 89);
             this.btnZatrudnienie.TabIndex = 3;
             this.btnZatrudnienie.Text = "Zmiana Zatrudnienia";
             this.btnZatrudnienie.UseVisualStyleBackColor = true;
@@ -77,9 +80,10 @@
             // 
             // btnJezyk
             // 
-            this.btnJezyk.Location = new System.Drawing.Point(12, 217);
+            this.btnJezyk.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnJezyk.Location = new System.Drawing.Point(15, 148);
             this.btnJezyk.Name = "btnJezyk";
-            this.btnJezyk.Size = new System.Drawing.Size(164, 54);
+            this.btnJezyk.Size = new System.Drawing.Size(197, 89);
             this.btnJezyk.TabIndex = 4;
             this.btnJezyk.Text = "Zanjomość języków";
             this.btnJezyk.UseVisualStyleBackColor = true;
@@ -89,14 +93,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(188, 450);
+            this.ClientSize = new System.Drawing.Size(448, 333);
             this.Controls.Add(this.btnJezyk);
             this.Controls.Add(this.btnZatrudnienie);
             this.Controls.Add(this.btnNowyPracownik);
             this.Controls.Add(this.btnZamknij);
             this.Controls.Add(this.btnPracownicy);
             this.Name = "PanelPracownika";
-            this.Text = "Panel_Pracownika";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Panel Pracownika";
             this.ResumeLayout(false);
 
         }

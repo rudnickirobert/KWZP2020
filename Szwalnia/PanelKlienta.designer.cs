@@ -35,9 +35,10 @@
             // 
             // btnKlient
             // 
-            this.btnKlient.Location = new System.Drawing.Point(48, 42);
+            this.btnKlient.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnKlient.Location = new System.Drawing.Point(12, 26);
             this.btnKlient.Name = "btnKlient";
-            this.btnKlient.Size = new System.Drawing.Size(191, 54);
+            this.btnKlient.Size = new System.Drawing.Size(201, 127);
             this.btnKlient.TabIndex = 0;
             this.btnKlient.Text = "Klienci";
             this.btnKlient.UseVisualStyleBackColor = true;
@@ -45,9 +46,10 @@
             // 
             // btnNowyKlient
             // 
-            this.btnNowyKlient.Location = new System.Drawing.Point(48, 113);
+            this.btnNowyKlient.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnNowyKlient.Location = new System.Drawing.Point(236, 26);
             this.btnNowyKlient.Name = "btnNowyKlient";
-            this.btnNowyKlient.Size = new System.Drawing.Size(191, 54);
+            this.btnNowyKlient.Size = new System.Drawing.Size(201, 127);
             this.btnNowyKlient.TabIndex = 1;
             this.btnNowyKlient.Text = "Nowy klient";
             this.btnNowyKlient.UseVisualStyleBackColor = true;
@@ -55,23 +57,25 @@
             // 
             // btnZamknij
             // 
-            this.btnZamknij.Location = new System.Drawing.Point(48, 268);
+            this.btnZamknij.Location = new System.Drawing.Point(333, 203);
             this.btnZamknij.Name = "btnZamknij";
-            this.btnZamknij.Size = new System.Drawing.Size(191, 54);
+            this.btnZamknij.Size = new System.Drawing.Size(104, 34);
             this.btnZamknij.TabIndex = 2;
             this.btnZamknij.Text = "Zamknij";
             this.btnZamknij.UseVisualStyleBackColor = true;
             this.btnZamknij.Click += new System.EventHandler(this.btnZamknij_Click);
             // 
-            // Panel_Klienta
+            // PanelKlienta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(287, 335);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(449, 256);
             this.Controls.Add(this.btnZamknij);
             this.Controls.Add(this.btnNowyKlient);
             this.Controls.Add(this.btnKlient);
-            this.Name = "Panel_Klienta";
+            this.Name = "PanelKlienta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Panel_Klienta";
             this.ResumeLayout(false);
 

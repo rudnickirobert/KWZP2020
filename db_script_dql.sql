@@ -443,7 +443,6 @@ FROM     dbo.Zamowienie_Element INNER JOIN
                   dbo.Zamowienia ON dbo.Zamowienie_Element.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia INNER JOIN
                   dbo.Klienci ON dbo.Zamowienia.ID_Klienta = dbo.Klienci.ID_Klienta
 GO
-
 				  
 CREATE VIEW vFakturyZewnetrzne AS
 SELECT dbo.Faktury_Zewnetrzne.Nr_Faktury, dbo.Faktury_Zewnetrzne.Nazwa_Firmy, dbo.Grupa.Nazwa, dbo.Faktury_Zewnetrzne.Netto, dbo.Faktury_Zewnetrzne.Brutto, dbo.Faktury_Zewnetrzne.Podatek

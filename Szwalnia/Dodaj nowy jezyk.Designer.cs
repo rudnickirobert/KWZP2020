@@ -52,9 +52,9 @@
             // 
             this.cbImieNazwisko.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbImieNazwisko.FormattingEnabled = true;
-            this.cbImieNazwisko.Location = new System.Drawing.Point(224, 62);
+            this.cbImieNazwisko.Location = new System.Drawing.Point(224, 65);
             this.cbImieNazwisko.Name = "cbImieNazwisko";
-            this.cbImieNazwisko.Size = new System.Drawing.Size(267, 39);
+            this.cbImieNazwisko.Size = new System.Drawing.Size(420, 39);
             this.cbImieNazwisko.TabIndex = 1;
             // 
             // cbJezyk
@@ -63,7 +63,7 @@
             this.cbJezyk.FormattingEnabled = true;
             this.cbJezyk.Location = new System.Drawing.Point(224, 110);
             this.cbJezyk.Name = "cbJezyk";
-            this.cbJezyk.Size = new System.Drawing.Size(267, 39);
+            this.cbJezyk.Size = new System.Drawing.Size(420, 39);
             this.cbJezyk.TabIndex = 3;
             // 
             // label1
@@ -119,7 +119,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(506, 262);
+            this.ClientSize = new System.Drawing.Size(656, 298);
             this.Controls.Add(this.btnZamknij);
             this.Controls.Add(this.Anuluj);
             this.Controls.Add(this.label3);

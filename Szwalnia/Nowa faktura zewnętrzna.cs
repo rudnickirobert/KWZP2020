@@ -33,22 +33,16 @@ namespace Szwalnia
         {
             this.Close();
         }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrWhiteSpace(txtNrFaktury.Text) || String.IsNullOrWhiteSpace(txtNazwaFirmy.Text) || String.IsNullOrWhiteSpace(txtKosztNetto.Text) || String.IsNullOrWhiteSpace(txtKosztBrutto.Text) || String.IsNullOrWhiteSpace(txtWartoscPodatku.Text))
             {
-                MessageBox.Show("Wszystkie pola muszą być uzupełnione", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                FakturyOknoDialogowe1();
             }
             if (int.TryParse(txtKosztNetto.Text, out int netto) && int.TryParse(txtKosztBrutto.Text, out int brutto) && int.TryParse(txtWartoscPodatku.Text, out int net))
             {
-                Faktury_Zewnetrzne fakturyZewnetrzne = new Faktury_Zewnetrzne();
-                fakturyZewnetrzne.Nr_Faktury = txtNrFaktury.Text;
-                fakturyZewnetrzne.Nazwa_Firmy = txtNazwaFirmy.Text;
-                fakturyZewnetrzne.Netto = netto;
-                fakturyZewnetrzne.Brutto = brutto;
-                fakturyZewnetrzne.Podatek = net;
-                fakturyZewnetrzne.ID_Grupa = Convert.ToInt32(cbGrupa.SelectedValue);
-                db.Faktury_Zewnetrzne.Add(fakturyZewnetrzne);
+                FakturyOknoDialogowe2(netto, brutto, net);
             }
             else
             {
@@ -61,6 +55,23 @@ namespace Szwalnia
             db.SaveChanges();
             MessageBox.Show("Dodano nową fakturę zewnętrzną");
             this.Close();
+        }
+
+        private static void FakturyOknoDialogowe1()
+        {
+            MessageBox.Show("Wszystkie pola muszą być uzupełnione", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void FakturyOknoDialogowe2(int netto, int brutto, int net)
+        {
+            Faktury_Zewnetrzne fakturyZewnetrzne = new Faktury_Zewnetrzne();
+            fakturyZewnetrzne.Nr_Faktury = txtNrFaktury.Text;
+            fakturyZewnetrzne.Nazwa_Firmy = txtNazwaFirmy.Text;
+            fakturyZewnetrzne.Netto = netto;
+            fakturyZewnetrzne.Brutto = brutto;
+            fakturyZewnetrzne.Podatek = net;
+            fakturyZewnetrzne.ID_Grupa = Convert.ToInt32(cbGrupa.SelectedValue);
+            db.Faktury_Zewnetrzne.Add(fakturyZewnetrzne);
         }
     }
 }

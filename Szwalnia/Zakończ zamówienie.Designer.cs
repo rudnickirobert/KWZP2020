@@ -39,51 +39,63 @@
             // 
             // cbIDZamowienia
             // 
+            this.cbIDZamowienia.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbIDZamowienia.FormattingEnabled = true;
-            this.cbIDZamowienia.Location = new System.Drawing.Point(208, 81);
+            this.cbIDZamowienia.Location = new System.Drawing.Point(364, 113);
+            this.cbIDZamowienia.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cbIDZamowienia.Name = "cbIDZamowienia";
-            this.cbIDZamowienia.Size = new System.Drawing.Size(73, 24);
+            this.cbIDZamowienia.Size = new System.Drawing.Size(142, 39);
             this.cbIDZamowienia.TabIndex = 0;
             // 
             // dtpZakonczenie
             // 
-            this.dtpZakonczenie.Location = new System.Drawing.Point(208, 163);
+            this.dtpZakonczenie.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dtpZakonczenie.Location = new System.Drawing.Point(389, 216);
+            this.dtpZakonczenie.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dtpZakonczenie.Name = "dtpZakonczenie";
-            this.dtpZakonczenie.Size = new System.Drawing.Size(200, 22);
+            this.dtpZakonczenie.Size = new System.Drawing.Size(494, 38);
             this.dtpZakonczenie.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(77, 28);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(317, 29);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 17);
+            this.label1.Size = new System.Drawing.Size(280, 32);
             this.label1.TabIndex = 2;
             this.label1.Text = "Zakończ zamówienie";
             // 
             // lblZamowienie
             // 
             this.lblZamowienie.AutoSize = true;
-            this.lblZamowienie.Location = new System.Drawing.Point(28, 84);
+            this.lblZamowienie.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblZamowienie.Location = new System.Drawing.Point(15, 113);
+            this.lblZamowienie.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblZamowienie.Name = "lblZamowienie";
-            this.lblZamowienie.Size = new System.Drawing.Size(157, 17);
+            this.lblZamowienie.Size = new System.Drawing.Size(315, 32);
             this.lblZamowienie.TabIndex = 3;
             this.lblZamowienie.Text = "Wybierz nr. zamówienie";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 163);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(15, 216);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(174, 17);
+            this.label3.Size = new System.Drawing.Size(346, 32);
             this.label3.TabIndex = 4;
             this.label3.Text = "Wybierz date zakończenia";
             // 
             // btnAnuluj
             // 
-            this.btnAnuluj.Location = new System.Drawing.Point(31, 233);
+            this.btnAnuluj.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnAnuluj.Location = new System.Drawing.Point(612, 389);
+            this.btnAnuluj.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnAnuluj.Name = "btnAnuluj";
-            this.btnAnuluj.Size = new System.Drawing.Size(75, 44);
+            this.btnAnuluj.Size = new System.Drawing.Size(97, 66);
             this.btnAnuluj.TabIndex = 5;
             this.btnAnuluj.Text = "Anuluj";
             this.btnAnuluj.UseVisualStyleBackColor = true;
@@ -91,9 +103,11 @@
             // 
             // btnZapisz
             // 
-            this.btnZapisz.Location = new System.Drawing.Point(138, 233);
+            this.btnZapisz.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnZapisz.Location = new System.Drawing.Point(745, 396);
+            this.btnZapisz.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnZapisz.Name = "btnZapisz";
-            this.btnZapisz.Size = new System.Drawing.Size(115, 44);
+            this.btnZapisz.Size = new System.Drawing.Size(136, 59);
             this.btnZapisz.TabIndex = 6;
             this.btnZapisz.Text = "Zakończ zamówienie";
             this.btnZapisz.UseVisualStyleBackColor = true;
@@ -101,9 +115,9 @@
             // 
             // ZakonczZamowienie
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(420, 303);
+            this.ClientSize = new System.Drawing.Size(896, 470);
             this.Controls.Add(this.btnZapisz);
             this.Controls.Add(this.btnAnuluj);
             this.Controls.Add(this.label3);
@@ -111,6 +125,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpZakonczenie);
             this.Controls.Add(this.cbIDZamowienia);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "ZakonczZamowienie";
             this.Text = "Zakończ zamówienie";
             this.ResumeLayout(false);

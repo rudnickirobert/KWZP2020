@@ -24,5 +24,10 @@ namespace Szwalnia
             dgvSzczegoly.DataSource = db.vKlienciZamowienie.Where(elementy => elementy.ID_Zamowienia == zamowienia.ID_Zamowienia).ToList();
             dgvSzczegoly.Columns[0].Visible = false;
         }
+
+        private void btnZamknij_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

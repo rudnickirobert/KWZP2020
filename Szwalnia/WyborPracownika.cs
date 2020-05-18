@@ -27,5 +27,10 @@ namespace Szwalnia
             pracownicySzczegoly.Show();
             this.Close();
         }
+
+        private void btnZamknij_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

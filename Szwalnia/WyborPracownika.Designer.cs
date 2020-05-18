@@ -30,6 +30,7 @@
         {
             this.lblWyborPracownika = new System.Windows.Forms.Label();
             this.dgvListaPracownikow = new System.Windows.Forms.DataGridView();
+            this.btnZamknij = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaPracownikow)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,19 +47,30 @@
             // dgvListaPracownikow
             // 
             this.dgvListaPracownikow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaPracownikow.Location = new System.Drawing.Point(57, 62);
+            this.dgvListaPracownikow.Location = new System.Drawing.Point(12, 62);
             this.dgvListaPracownikow.Name = "dgvListaPracownikow";
             this.dgvListaPracownikow.RowHeadersWidth = 51;
             this.dgvListaPracownikow.RowTemplate.Height = 24;
-            this.dgvListaPracownikow.Size = new System.Drawing.Size(1007, 376);
+            this.dgvListaPracownikow.Size = new System.Drawing.Size(1098, 376);
             this.dgvListaPracownikow.TabIndex = 1;
             this.dgvListaPracownikow.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvListaPracownikow_CellMouseDoubleClick);
+            // 
+            // btnZamknij
+            // 
+            this.btnZamknij.Location = new System.Drawing.Point(963, 11);
+            this.btnZamknij.Name = "btnZamknij";
+            this.btnZamknij.Size = new System.Drawing.Size(101, 45);
+            this.btnZamknij.TabIndex = 3;
+            this.btnZamknij.Text = "Zamknij";
+            this.btnZamknij.UseVisualStyleBackColor = true;
+            this.btnZamknij.Click += new System.EventHandler(this.btnZamknij_Click);
             // 
             // WyborPracownika
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1115, 450);
+            this.Controls.Add(this.btnZamknij);
             this.Controls.Add(this.dgvListaPracownikow);
             this.Controls.Add(this.lblWyborPracownika);
             this.Name = "WyborPracownika";
@@ -73,5 +85,6 @@
 
         private System.Windows.Forms.Label lblWyborPracownika;
         private System.Windows.Forms.DataGridView dgvListaPracownikow;
+        private System.Windows.Forms.Button btnZamknij;
     }
 }

@@ -30,6 +30,7 @@
         {
             this.dgvZamowienia = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnZamknij = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienia)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,7 +41,7 @@
             this.dgvZamowienia.Name = "dgvZamowienia";
             this.dgvZamowienia.RowHeadersWidth = 51;
             this.dgvZamowienia.RowTemplate.Height = 24;
-            this.dgvZamowienia.Size = new System.Drawing.Size(749, 331);
+            this.dgvZamowienia.Size = new System.Drawing.Size(1472, 331);
             this.dgvZamowienia.TabIndex = 0;
             this.dgvZamowienia.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvZamowienia_CellMouseDoubleClick);
             // 
@@ -54,11 +55,22 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Zamówienia w przedsiębiorstwie";
             // 
+            // btnZamknij
+            // 
+            this.btnZamknij.Location = new System.Drawing.Point(1393, 31);
+            this.btnZamknij.Name = "btnZamknij";
+            this.btnZamknij.Size = new System.Drawing.Size(101, 45);
+            this.btnZamknij.TabIndex = 2;
+            this.btnZamknij.Text = "Zamknij";
+            this.btnZamknij.UseVisualStyleBackColor = true;
+            this.btnZamknij.Click += new System.EventHandler(this.btnZamknij_Click);
+            // 
             // ZamówieniaWPrzedsiębiorstwie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1501, 450);
+            this.Controls.Add(this.btnZamknij);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvZamowienia);
             this.Name = "ZamówieniaWPrzedsiębiorstwie";
@@ -73,5 +85,6 @@
 
         private System.Windows.Forms.DataGridView dgvZamowienia;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnZamknij;
     }
 }
