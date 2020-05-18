@@ -36,5 +36,10 @@ namespace Szwalnia
             ZakonczZamowienie zakonczZamowienie = new ZakonczZamowienie(db);
             zakonczZamowienie.Show();
         }
+
+        private void btnZamknij_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

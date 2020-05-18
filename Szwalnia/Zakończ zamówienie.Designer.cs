@@ -112,7 +112,7 @@
             this.Controls.Add(this.dtpZakonczenie);
             this.Controls.Add(this.cbIDZamowienia);
             this.Name = "ZakonczZamowienie";
-            this.Text = "Zakończ_zamówienie";
+            this.Text = "Zakończ zamówienie";
             this.ResumeLayout(false);
             this.PerformLayout();
 

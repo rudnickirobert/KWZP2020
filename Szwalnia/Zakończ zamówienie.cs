@@ -14,7 +14,6 @@ namespace Szwalnia
     public partial class ZakonczZamowienie : Form
     {
         public SzwalniaEntities db;
-
         public ZakonczZamowienie(SzwalniaEntities db)
         {
             InitializeComponent();
@@ -25,20 +24,17 @@ namespace Szwalnia
             cbIDZamowienia.DataSource = db.Zamowienia.Distinct().ToList();
             cbIDZamowienia.Invalidate();
         }
-
-        private void btnZapisz_Click(object sender, EventArgs e)
-        {
-            Zamowienia zamowienia = new Zamowienia();
-            zamowienia.Data_Zakonczenia = Convert.ToDateTime(dtpZakonczenie.Value);
-           zamowienia.ID_Zamowienia = Convert.ToInt32(cbIDZamowienia.SelectedValue);
-            //db.Zamowienia.Add(zamowienia);
-           // db.SubmitChanges();
-            MessageBox.Show("Zamówienie zostało zakończone");
-            this.Close();
-        }
-
         private void btnAnuluj_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
+        private void btnZapisz_Click(object sender, EventArgs e)
+        {
+            int id_zamowienia = (int)cbIDZamowienia.SelectedValue;
+            Zamowienia zamowienia = db.Zamowienia.Where(x => x.ID_Zamowienia == id_zamowienia).First();
+            zamowienia.Data_Zakonczenia = Convert.ToDateTime(dtpZakonczenie.Value);
+            db.SaveChanges();
+            MessageBox.Show("Zamówienie zostało zakończone");
             this.Close();
         }
     }
