@@ -46,6 +46,8 @@
             this.btnDzisRozpoczecie = new System.Windows.Forms.Button();
             this.btnDzisZakonczenie = new System.Windows.Forms.Button();
             this.lblGwiazdka = new System.Windows.Forms.Label();
+            this.cbxZamowienieElement = new System.Windows.Forms.ComboBox();
+            this.mtbDataZakonczenia = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUkryty)).BeginInit();
             this.SuspendLayout();
             // 
@@ -248,12 +250,33 @@
             this.lblGwiazdka.TabIndex = 31;
             this.lblGwiazdka.Text = "*";
             // 
+            // cbxZamowienieElement
+            // 
+            this.cbxZamowienieElement.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cbxZamowienieElement.FormattingEnabled = true;
+            this.cbxZamowienieElement.Location = new System.Drawing.Point(461, 131);
+            this.cbxZamowienieElement.Name = "cbxZamowienieElement";
+            this.cbxZamowienieElement.Size = new System.Drawing.Size(250, 28);
+            this.cbxZamowienieElement.TabIndex = 32;
+            // 
+            // mtbDataZakonczenia
+            // 
+            this.mtbDataZakonczenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.mtbDataZakonczenia.Location = new System.Drawing.Point(460, 240);
+            this.mtbDataZakonczenia.Margin = new System.Windows.Forms.Padding(4);
+            this.mtbDataZakonczenia.Mask = "0000/00/00 00:00:00";
+            this.mtbDataZakonczenia.Name = "mtbDataZakonczenia";
+            this.mtbDataZakonczenia.Size = new System.Drawing.Size(251, 29);
+            this.mtbDataZakonczenia.TabIndex = 33;
+            // 
             // NowyProces
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(816, 478);
+            this.Controls.Add(this.mtbDataZakonczenia);
+            this.Controls.Add(this.cbxZamowienieElement);
             this.Controls.Add(this.lblGwiazdka);
             this.Controls.Add(this.btnDzisZakonczenie);
             this.Controls.Add(this.mtbDataRozpoczecia);
@@ -303,5 +326,7 @@
         private System.Windows.Forms.Button btnDzisRozpoczecie;
         private System.Windows.Forms.Button btnDzisZakonczenie;
         private System.Windows.Forms.Label lblGwiazdka;
+        private System.Windows.Forms.ComboBox cbxZamowienieElement;
+        private System.Windows.Forms.MaskedTextBox mtbDataZakonczenia;
     }
 }
