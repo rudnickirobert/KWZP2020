@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NowaPolka));
-            this.btnDodajRegal = new System.Windows.Forms.Button();
+            this.btnDodajPolke = new System.Windows.Forms.Button();
             this.lblOznaczenie = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblNumerPolki = new System.Windows.Forms.Label();
@@ -41,20 +41,21 @@
             this.lblRozmiar = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // btnDodajRegal
+            // btnDodajPolke
             // 
-            this.btnDodajRegal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnDodajRegal.Location = new System.Drawing.Point(169, 237);
-            this.btnDodajRegal.Name = "btnDodajRegal";
-            this.btnDodajRegal.Size = new System.Drawing.Size(86, 32);
-            this.btnDodajRegal.TabIndex = 12;
-            this.btnDodajRegal.Text = "Dodaj";
-            this.btnDodajRegal.UseVisualStyleBackColor = true;
+            this.btnDodajPolke.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnDodajPolke.Location = new System.Drawing.Point(166, 215);
+            this.btnDodajPolke.Name = "btnDodajPolke";
+            this.btnDodajPolke.Size = new System.Drawing.Size(86, 32);
+            this.btnDodajPolke.TabIndex = 12;
+            this.btnDodajPolke.Text = "Dodaj";
+            this.btnDodajPolke.UseVisualStyleBackColor = true;
+            this.btnDodajPolke.Click += new System.EventHandler(this.btnDodajPolke_Click);
             // 
             // lblOznaczenie
             // 
             this.lblOznaczenie.AutoSize = true;
-            this.lblOznaczenie.Location = new System.Drawing.Point(73, 129);
+            this.lblOznaczenie.Location = new System.Drawing.Point(67, 129);
             this.lblOznaczenie.Name = "lblOznaczenie";
             this.lblOznaczenie.Size = new System.Drawing.Size(40, 13);
             this.lblOznaczenie.TabIndex = 10;
@@ -64,7 +65,7 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.lblTitle.Location = new System.Drawing.Point(100, 27);
+            this.lblTitle.Location = new System.Drawing.Point(94, 27);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(229, 31);
             this.lblTitle.TabIndex = 9;
@@ -73,7 +74,7 @@
             // lblNumerPolki
             // 
             this.lblNumerPolki.AutoSize = true;
-            this.lblNumerPolki.Location = new System.Drawing.Point(39, 93);
+            this.lblNumerPolki.Location = new System.Drawing.Point(33, 93);
             this.lblNumerPolki.Name = "lblNumerPolki";
             this.lblNumerPolki.Size = new System.Drawing.Size(99, 13);
             this.lblNumerPolki.TabIndex = 13;
@@ -82,14 +83,14 @@
             // cmbOznaczenie
             // 
             this.cmbOznaczenie.FormattingEnabled = true;
-            this.cmbOznaczenie.Location = new System.Drawing.Point(141, 126);
+            this.cmbOznaczenie.Location = new System.Drawing.Point(135, 126);
             this.cmbOznaczenie.Name = "cmbOznaczenie";
             this.cmbOznaczenie.Size = new System.Drawing.Size(114, 21);
             this.cmbOznaczenie.TabIndex = 15;
             // 
             // btnNowyRegal
             // 
-            this.btnNowyRegal.Location = new System.Drawing.Point(273, 120);
+            this.btnNowyRegal.Location = new System.Drawing.Point(267, 120);
             this.btnNowyRegal.Name = "btnNowyRegal";
             this.btnNowyRegal.Size = new System.Drawing.Size(121, 30);
             this.btnNowyRegal.TabIndex = 16;
@@ -101,7 +102,7 @@
             // 
             this.lblNumerNowejPolki.AutoSize = true;
             this.lblNumerNowejPolki.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblNumerNowejPolki.Location = new System.Drawing.Point(174, 88);
+            this.lblNumerNowejPolki.Location = new System.Drawing.Point(168, 88);
             this.lblNumerNowejPolki.Name = "lblNumerNowejPolki";
             this.lblNumerNowejPolki.Size = new System.Drawing.Size(33, 20);
             this.lblNumerNowejPolki.TabIndex = 17;
@@ -109,7 +110,7 @@
             // 
             // btnNowyRozmiarPolki
             // 
-            this.btnNowyRozmiarPolki.Location = new System.Drawing.Point(273, 159);
+            this.btnNowyRozmiarPolki.Location = new System.Drawing.Point(267, 159);
             this.btnNowyRozmiarPolki.Name = "btnNowyRozmiarPolki";
             this.btnNowyRozmiarPolki.Size = new System.Drawing.Size(121, 30);
             this.btnNowyRozmiarPolki.TabIndex = 20;
@@ -121,7 +122,7 @@
             // 
             this.cmbRozmiar.DisplayMember = "Wymiar";
             this.cmbRozmiar.FormattingEnabled = true;
-            this.cmbRozmiar.Location = new System.Drawing.Point(141, 165);
+            this.cmbRozmiar.Location = new System.Drawing.Point(135, 165);
             this.cmbRozmiar.Name = "cmbRozmiar";
             this.cmbRozmiar.Size = new System.Drawing.Size(114, 21);
             this.cmbRozmiar.TabIndex = 19;
@@ -130,7 +131,7 @@
             // lblRozmiar
             // 
             this.lblRozmiar.AutoSize = true;
-            this.lblRozmiar.Location = new System.Drawing.Point(65, 168);
+            this.lblRozmiar.Location = new System.Drawing.Point(59, 168);
             this.lblRozmiar.Name = "lblRozmiar";
             this.lblRozmiar.Size = new System.Drawing.Size(48, 13);
             this.lblRozmiar.TabIndex = 18;
@@ -140,7 +141,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(437, 298);
+            this.ClientSize = new System.Drawing.Size(423, 271);
             this.Controls.Add(this.btnNowyRozmiarPolki);
             this.Controls.Add(this.cmbRozmiar);
             this.Controls.Add(this.lblRozmiar);
@@ -148,7 +149,7 @@
             this.Controls.Add(this.btnNowyRegal);
             this.Controls.Add(this.cmbOznaczenie);
             this.Controls.Add(this.lblNumerPolki);
-            this.Controls.Add(this.btnDodajRegal);
+            this.Controls.Add(this.btnDodajPolke);
             this.Controls.Add(this.lblOznaczenie);
             this.Controls.Add(this.lblTitle);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -162,7 +163,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnDodajRegal;
+        private System.Windows.Forms.Button btnDodajPolke;
         private System.Windows.Forms.Label lblOznaczenie;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblNumerPolki;

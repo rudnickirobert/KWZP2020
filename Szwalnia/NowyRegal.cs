@@ -44,9 +44,6 @@ namespace Szwalnia
                 db.Regaly.Add(regalNew);
                 db.SaveChanges();
                 MessageBox.Show("Pomyślnie dodano do bazy regał " + txtOznaczenie.Text);
-
-                Regaly_wykaz wykaz = new Regaly_wykaz(); //to na razie jest tylko w celu sprawdzenia czy się dodał i pokazuje alfabetycznie
-                wykaz.Show();
                 this.Close();
             }
             else
@@ -56,7 +53,16 @@ namespace Szwalnia
 
         private void NowyRegal_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Start.GetForm.Show();
+            if (Application.OpenForms["NowaPolka"] == null)
+                Start.GetForm.Show();
+            else if (!NowaPolka.isClosedByAnotherForm)
+                Start.GetForm.Show();
+            else
+            {
+                Application.OpenForms["NowaPolka"].Close();
+                NowaPolka nowaPolka = new NowaPolka();
+                nowaPolka.Show();
+            }
         }
     }
 }

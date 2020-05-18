@@ -37,6 +37,7 @@
             this.nudNumerPolki = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.lblRegal = new System.Windows.Forms.Label();
+            this.btnPolkiNaRegalach = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumerPolki)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +47,7 @@
             this.btnZnajdzPolke.Location = new System.Drawing.Point(126, 144);
             this.btnZnajdzPolke.Name = "btnZnajdzPolke";
             this.btnZnajdzPolke.Size = new System.Drawing.Size(86, 32);
-            this.btnZnajdzPolke.TabIndex = 0;
+            this.btnZnajdzPolke.TabIndex = 2;
             this.btnZnajdzPolke.Text = "Szukaj";
             this.btnZnajdzPolke.UseVisualStyleBackColor = true;
             this.btnZnajdzPolke.Click += new System.EventHandler(this.btnZnajdzPolke_Click);
@@ -54,10 +55,10 @@
             // btnDodajRegal
             // 
             this.btnDodajRegal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnDodajRegal.Location = new System.Drawing.Point(102, 202);
+            this.btnDodajRegal.Location = new System.Drawing.Point(38, 202);
             this.btnDodajRegal.Name = "btnDodajRegal";
             this.btnDodajRegal.Size = new System.Drawing.Size(135, 33);
-            this.btnDodajRegal.TabIndex = 1;
+            this.btnDodajRegal.TabIndex = 3;
             this.btnDodajRegal.Text = "Dodaj regał";
             this.btnDodajRegal.UseVisualStyleBackColor = true;
             this.btnDodajRegal.Click += new System.EventHandler(this.btnDodajRegal_Click);
@@ -65,10 +66,10 @@
             // btnDodajPolke
             // 
             this.btnDodajPolke.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnDodajPolke.Location = new System.Drawing.Point(102, 255);
+            this.btnDodajPolke.Location = new System.Drawing.Point(38, 255);
             this.btnDodajPolke.Name = "btnDodajPolke";
             this.btnDodajPolke.Size = new System.Drawing.Size(135, 33);
-            this.btnDodajPolke.TabIndex = 2;
+            this.btnDodajPolke.TabIndex = 4;
             this.btnDodajPolke.Text = "Dodaj półkę";
             this.btnDodajPolke.UseVisualStyleBackColor = true;
             this.btnDodajPolke.Click += new System.EventHandler(this.btnDodajPolke_Click);
@@ -77,10 +78,10 @@
             // 
             this.btnDodajRozmiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnDodajRozmiar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDodajRozmiar.Location = new System.Drawing.Point(102, 308);
+            this.btnDodajRozmiar.Location = new System.Drawing.Point(38, 308);
             this.btnDodajRozmiar.Name = "btnDodajRozmiar";
             this.btnDodajRozmiar.Size = new System.Drawing.Size(135, 33);
-            this.btnDodajRozmiar.TabIndex = 3;
+            this.btnDodajRozmiar.TabIndex = 5;
             this.btnDodajRozmiar.Text = "Dodaj rozmiar półki";
             this.btnDodajRozmiar.UseVisualStyleBackColor = true;
             this.btnDodajRozmiar.Click += new System.EventHandler(this.btnDodajRozmiar_Click);
@@ -101,7 +102,7 @@
             this.nudNumerPolki.Location = new System.Drawing.Point(80, 112);
             this.nudNumerPolki.Name = "nudNumerPolki";
             this.nudNumerPolki.Size = new System.Drawing.Size(77, 26);
-            this.nudNumerPolki.TabIndex = 5;
+            this.nudNumerPolki.TabIndex = 1;
             // 
             // label2
             // 
@@ -123,11 +124,23 @@
             this.lblRegal.TabIndex = 7;
             this.lblRegal.Text = "REGAŁ: ";
             // 
+            // btnPolkiNaRegalach
+            // 
+            this.btnPolkiNaRegalach.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnPolkiNaRegalach.Location = new System.Drawing.Point(207, 202);
+            this.btnPolkiNaRegalach.Name = "btnPolkiNaRegalach";
+            this.btnPolkiNaRegalach.Size = new System.Drawing.Size(135, 56);
+            this.btnPolkiNaRegalach.TabIndex = 6;
+            this.btnPolkiNaRegalach.Text = "Widok półek na regałach";
+            this.btnPolkiNaRegalach.UseVisualStyleBackColor = true;
+            this.btnPolkiNaRegalach.Click += new System.EventHandler(this.btnPolkiNaRegalach_Click);
+            // 
             // UkladMagazynu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(354, 383);
+            this.Controls.Add(this.btnPolkiNaRegalach);
             this.Controls.Add(this.lblRegal);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.nudNumerPolki);
@@ -156,5 +169,6 @@
         private System.Windows.Forms.NumericUpDown nudNumerPolki;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblRegal;
+        private System.Windows.Forms.Button btnPolkiNaRegalach;
     }
 }
