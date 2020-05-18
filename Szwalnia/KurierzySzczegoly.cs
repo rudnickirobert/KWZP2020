@@ -13,11 +13,11 @@ namespace Szwalnia
     public partial class KurierzySzczegoly : Form
     {
         public SzwalniaEntities db;
-        public KurierzySzczegoly(SzwalniaEntities szwalnia, int ID)
+        public KurierzySzczegoly(int ID)
         {
-            db = szwalnia;
+            db = Start.szwalnia;
             InitializeComponent();
-            Kurierzy kurier = szwalnia.Kurierzy.Where(wybrany => wybrany.ID_Kurier == ID).First();
+            Kurierzy kurier = db.Kurierzy.Where(wybrany => wybrany.ID_Kurier == ID).First();
             txtNazwa.Text = kurier.Nazwa;
             txtTel1.Text = kurier.Telefon_1.ToString();
             txtTel2.Text = kurier.Telefon_2.ToString();

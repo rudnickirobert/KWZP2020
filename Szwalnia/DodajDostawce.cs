@@ -14,9 +14,9 @@ namespace Szwalnia
     {
         public SzwalniaEntities db;
         public Dostawcy_Zaopatrzenie dostawcaNowy = new Dostawcy_Zaopatrzenie();
-        public DodajDostawce(SzwalniaEntities szwalnia)
+        public DodajDostawce()
         {
-            db = szwalnia;
+            db = Start.szwalnia;
             InitializeComponent();
             label4.Enabled = false;
             mtxtTel2.Enabled = false;

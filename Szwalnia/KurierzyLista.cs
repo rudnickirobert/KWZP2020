@@ -13,9 +13,9 @@ namespace Szwalnia
     public partial class KurierzyLista : Form
     {
         public SzwalniaEntities db;
-        public KurierzyLista(SzwalniaEntities szwalnia)
+        public KurierzyLista()
         {
-            db = szwalnia;
+            db = Start.szwalnia;
             InitializeComponent();
             dgvKurierzy.DataSource = db.Kurierzy.ToList();
         }
@@ -23,7 +23,7 @@ namespace Szwalnia
 
         private void btnDodajKuriera_Click(object sender, EventArgs e)
         {
-            DodajKuriera kurier = new DodajKuriera(db);
+            DodajKuriera kurier = new DodajKuriera();
             kurier.Show();
             this.Hide();
         }
@@ -42,7 +42,7 @@ namespace Szwalnia
         private void dgvKurierzy_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int numID = Convert.ToInt32(dgvKurierzy.CurrentRow.Cells[0].Value);
-            KurierzySzczegoly szczegolyKurier = new KurierzySzczegoly(db, Decimal.ToInt32(numID));
+            KurierzySzczegoly szczegolyKurier = new KurierzySzczegoly(Decimal.ToInt32(numID));
             szczegolyKurier.Show();
             this.Hide();
         }

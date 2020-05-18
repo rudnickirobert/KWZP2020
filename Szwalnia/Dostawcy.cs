@@ -13,9 +13,9 @@ namespace Szwalnia
     public partial class Dostawcy : Form
     {
         public SzwalniaEntities db;
-        public Dostawcy(SzwalniaEntities szwalnia)
+        public Dostawcy()
         {
-            db = szwalnia;
+            db = Start.szwalnia;
             InitializeComponent();
             dgvDostawcy.DataSource = db.Dostawcy_Zaopatrzenie.ToList();
         }
@@ -23,7 +23,7 @@ namespace Szwalnia
        
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            DodajDostawce dostawca = new DodajDostawce(db);
+            DodajDostawce dostawca = new DodajDostawce();
             dostawca.Show();
             this.Hide();
         }
@@ -42,7 +42,7 @@ namespace Szwalnia
         private void dgvDostawcy_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int numID = Convert.ToInt32(dgvDostawcy.CurrentRow.Cells[0].Value);
-            DostawcySzczegoly szczegolyDostawca = new DostawcySzczegoly(db, Decimal.ToInt32(numID));
+            DostawcySzczegoly szczegolyDostawca = new DostawcySzczegoly(Decimal.ToInt32(numID));
             szczegolyDostawca.Show();
             this.Hide();
         }

@@ -13,11 +13,11 @@ namespace Szwalnia
     public partial class DostawcySzczegoly : Form
     {
         public SzwalniaEntities db;
-        public DostawcySzczegoly(SzwalniaEntities szwalnia, int ID)
+        public DostawcySzczegoly(int ID)
         {
-            db = szwalnia;
+            db = Start.szwalnia;
             InitializeComponent();
-            Dostawcy_Zaopatrzenie dostawca = szwalnia.Dostawcy_Zaopatrzenie.Where(wybrany => wybrany.ID_Dostawcy == ID).First();
+            Dostawcy_Zaopatrzenie dostawca = db.Dostawcy_Zaopatrzenie.Where(wybrany => wybrany.ID_Dostawcy == ID).First();
             txtNazwa.Text = dostawca.Nazwa;
             txtTel1.Text = dostawca.Telefon_1.ToString();
             txtTel2.Text = dostawca.Telefon_2.ToString();

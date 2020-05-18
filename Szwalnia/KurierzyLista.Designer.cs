@@ -97,9 +97,5 @@
         private System.Windows.Forms.DataGridView dgvKurierzy;
         private System.Windows.Forms.Button btnDodajKuriera;
         private System.Windows.Forms.Button btnWstecz;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nazwaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefon1DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefon2DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
     }
 }

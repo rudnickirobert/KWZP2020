@@ -14,9 +14,9 @@ namespace Szwalnia
     {
         public SzwalniaEntities db;
         public Oferta ofertaNowa = new Oferta();
-        public DodajOferte(SzwalniaEntities szwalnia)
+        public DodajOferte()
         {
-            db = szwalnia;
+            db = Start.szwalnia;
             InitializeComponent();
             cmbElement.DataSource = db.Elementy.ToList();
             cmbElement.ValueMember = "Element_Nazwa";

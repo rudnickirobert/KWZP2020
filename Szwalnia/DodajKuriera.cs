@@ -14,9 +14,9 @@ namespace Szwalnia
     {
         public SzwalniaEntities db;
         public Kurierzy kurierNowy = new Kurierzy();
-        public DodajKuriera(SzwalniaEntities szwalnia)
+        public DodajKuriera()
         {
-            db = szwalnia;
+            db = Start.szwalnia;
             InitializeComponent();
             label4.Enabled = false;
             mtxtTel2.Enabled = false;

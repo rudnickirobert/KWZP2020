@@ -14,9 +14,8 @@ namespace Szwalnia
 
     {
         public SzwalniaEntities db;
-        public Kontrahenci(SzwalniaEntities szwalnia)
+        public Kontrahenci()
         {
-            db = szwalnia;
             InitializeComponent();
             db = Start.szwalnia;
         }
@@ -28,28 +27,28 @@ namespace Szwalnia
 
         private void btnOferty_Click(object sender, EventArgs e)
         {
-            Oferty oferta = new Oferty(db);
+            Oferty oferta = new Oferty();
             oferta.Show();
             this.Hide();
         }
 
         private void btnDostawcy_Click(object sender, EventArgs e)
         {
-            Dostawcy dostawca = new Dostawcy(db);
+            Dostawcy dostawca = new Dostawcy();
             dostawca.Show();
             this.Hide();
         }
 
         private void btnUmowyKur_Click(object sender, EventArgs e)
         {
-            UmowyKurierzy umowa = new UmowyKurierzy(db);
+            UmowyKurierzy umowa = new UmowyKurierzy();
             umowa.Show();
             this.Hide();
         }
 
         private void btnKurierzy_Click(object sender, EventArgs e)
         {
-            KurierzyLista kurier = new KurierzyLista(db);
+            KurierzyLista kurier = new KurierzyLista();
             kurier.Show();
             this.Hide();
         }

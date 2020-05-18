@@ -13,16 +13,16 @@ namespace Szwalnia
     public partial class Oferty : Form
     {
         public SzwalniaEntities db;
-        public Oferty(SzwalniaEntities szwalnia)
+        public Oferty()
         {
-            db = szwalnia;
+            db = Start.szwalnia;
             InitializeComponent();
             dgvOferty.DataSource = db.vOferty_Zebrane.ToList();
         }
 
         private void btnDodajOferte_Click(object sender, EventArgs e)
         {
-            DodajOferte oferta = new DodajOferte(db);
+            DodajOferte oferta = new DodajOferte();
             oferta.Show();
             this.Hide();
         }
@@ -31,7 +31,7 @@ namespace Szwalnia
         private void dgvOferty_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int numID = Convert.ToInt32(dgvOferty.CurrentRow.Cells[0].Value);
-            OfertySzczegoly szczegolyOferta = new OfertySzczegoly(db, Decimal.ToInt32(numID));
+            OfertySzczegoly szczegolyOferta = new OfertySzczegoly(Decimal.ToInt32(numID));
             szczegolyOferta.Show();
             this.Hide();
         }

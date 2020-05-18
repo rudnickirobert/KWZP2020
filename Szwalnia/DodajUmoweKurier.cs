@@ -15,9 +15,9 @@ namespace Szwalnia
     {
         public SzwalniaEntities db;
         public Umowy_Kurierzy umowaNowa = new Umowy_Kurierzy();
-        public DodajUmoweKurier(SzwalniaEntities szwalnia)
+        public DodajUmoweKurier()
         {
-            db = szwalnia;
+            db = Start.szwalnia;
             InitializeComponent();
             cmbKurier.DataSource = db.Kurierzy.ToList();
 

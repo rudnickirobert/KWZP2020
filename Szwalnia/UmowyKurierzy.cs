@@ -14,9 +14,9 @@ namespace Szwalnia
     public partial class UmowyKurierzy : Form
     {
         public SzwalniaEntities db;
-        public UmowyKurierzy(SzwalniaEntities szwalnia)
+        public UmowyKurierzy()
         {
-            db = szwalnia;
+            db = Start.szwalnia;
             InitializeComponent();
         }
 
@@ -29,7 +29,7 @@ namespace Szwalnia
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            DodajUmoweKurier umowa = new DodajUmoweKurier(db);
+            DodajUmoweKurier umowa = new DodajUmoweKurier();
             umowa.Show();
             this.Hide();
         }
@@ -43,7 +43,7 @@ namespace Szwalnia
         private void dgvUmowy_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int numID = Convert.ToInt32(dgvUmowy.CurrentRow.Cells[0].Value);
-            UmowySzczegoly szczegolyUmowa = new UmowySzczegoly(db, Decimal.ToInt32(numID));
+            UmowySzczegoly szczegolyUmowa = new UmowySzczegoly(Decimal.ToInt32(numID));
             szczegolyUmowa.Show();
             this.Hide();
         }
