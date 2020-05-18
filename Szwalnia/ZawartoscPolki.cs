@@ -18,20 +18,19 @@ namespace Szwalnia
             InitializeComponent();
             db = Start.szwalnia;
 
-            Polki_regaly id = db.Polki_regaly.Where(idRegal => idRegal.ID_Polka == idPolki).FirstOrDefault();
-            Regaly storage = db.Regaly.Where(regal => regal.ID_regal == id.ID_regal).FirstOrDefault();
+            //Polki_regaly id = db.Polki_regaly.Where(idRegal => idRegal.ID_Polka == idPolki).FirstOrDefault();
+            //Regaly storage = db.Regaly.Where(regal => regal.ID_regal == id.ID_regal).FirstOrDefault();
 
-            vZawartosc_polki content = db.vZawartosc_polki.Where(zawartosc => zawartosc.ID_Polka == idPolki).FirstOrDefault();
+            vStan_magazynowy_polki content = db.vStan_magazynowy_polki.Where(zawartosc => zawartosc.ID_Polka == idPolki).FirstOrDefault();
 
-            lblTitle.Text = "Półka nr " + content.ID_Polka.ToString() + ", regał: " +storage.Oznaczenie;
+            lblTitle.Text = "Półka nr " + content.ID_Polka.ToString() + ", regał: " +content.Oznaczenie;
             lblNazwaElementu.Text = content.Element_Nazwa;
             lblIdElementu.Text = content.ID_Element.ToString();
             lblIloscJednostka.Text = content.Ile.ToString() + ' ' + content.Jednostka;
 
             if (content.Okres_Przydatnosci_Miesiace != 0)
             {
-                DateTime data = Convert.ToDateTime(content.Data_Dostawy_Rzeczywista);
-                data = data.AddMonths(Convert.ToInt32(content.Okres_Przydatnosci_Miesiace));
+                DateTime data = Convert.ToDateTime(content.Przydatnosc);
                 lblPrzydatnosc.Text = data.ToString("dd.MM.yyyy") + "r.";
             }
             else

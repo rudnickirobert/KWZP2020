@@ -23,5 +23,20 @@ namespace Szwalnia
         {
             Start.GetForm.Show();
         }
+
+        private void btnCalkowity_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnWgElementow_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPustePolki_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

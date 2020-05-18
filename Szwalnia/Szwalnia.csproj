@@ -634,6 +634,9 @@
     <Compile Include="vSredniCzasWgElementu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vStan_magazynowy_polki.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vSuma_czasu_procesu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -650,9 +653,6 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vZamowienieProcesyProdukcyjne.cs">
-      <DependentUpon>Szwalnia.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vZawartosc_polki.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="WszystkieProcesyProdukcyjne.cs">
@@ -956,6 +956,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Legenda.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Szwalnia.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Szwalnia.edmx</DependentUpon>

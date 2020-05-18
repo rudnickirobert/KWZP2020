@@ -14,8 +14,8 @@ GO
 ---- Widok polek na regalach (z wymiarami)
 CREATE VIEW [dbo].[vPolki_na_regalach]
 AS
-SELECT        TOP (100) PERCENT dbo.Regaly.Oznaczenie, dbo.Polki.ID_Polka, dbo.Polki_Rozmiary.Wysokosc, dbo.Polki_Rozmiary.Szerokosc, dbo.Polki_Rozmiary.Glebokosc, CAST(dbo.Polki_Rozmiary.Wysokosc AS NVARCHAR) 
-                         + ' x ' + CAST(dbo.Polki_Rozmiary.Szerokosc AS NVARCHAR) + ' x ' + CAST(dbo.Polki_Rozmiary.Glebokosc AS NVARCHAR) + ' cm' AS Wymiar, '      ' AS [Stan]
+SELECT        TOP (100) PERCENT dbo.Regaly.Oznaczenie, dbo.Polki.ID_Polka, CAST(dbo.Polki_Rozmiary.Wysokosc AS NVARCHAR) 
+                         + ' x ' + CAST(dbo.Polki_Rozmiary.Szerokosc AS NVARCHAR) + ' x ' + CAST(dbo.Polki_Rozmiary.Glebokosc AS NVARCHAR) + ' cm' AS Wymiar
 FROM            dbo.Regaly INNER JOIN
                          dbo.Polki_regaly ON dbo.Regaly.ID_regal = dbo.Polki_regaly.ID_regal INNER JOIN
                          dbo.Polki ON dbo.Polki_regaly.ID_Polka = dbo.Polki.ID_Polka INNER JOIN
@@ -26,22 +26,10 @@ GO
 ---- Widok rozmiarow polek (posegregowane po wymiarach)
 CREATE VIEW [dbo].[vPolki_Rozmiary]
 AS
-SELECT        TOP (100) PERCENT ID_Rozmiar_Polki, Wysokosc, Szerokosc, Glebokosc, Wysokosc + ' x ' + Szerokosc + ' x ' + Glebokosc + ' cm' AS Wymiar
+SELECT        TOP (100) PERCENT ID_Rozmiar_Polki, Wysokosc, Szerokosc, Glebokosc, CAST(dbo.Polki_Rozmiary.Wysokosc AS NVARCHAR) 
+                         + ' x ' + CAST(dbo.Polki_Rozmiary.Szerokosc AS NVARCHAR) + ' x ' + CAST(dbo.Polki_Rozmiary.Glebokosc AS NVARCHAR) + ' cm' AS Wymiar
 FROM            dbo.Polki_Rozmiary
 ORDER BY Wysokosc, Szerokosc, Glebokosc
-GO
-
----- Widok zawartosci polek
-CREATE VIEW [dbo].[vZawartosc_polki]
-AS
-SELECT         dbo.Zawartosc.ID_Zawartosc, dbo.Zawartosc.ID_Polka, dbo.Elementy.Element_Nazwa, dbo.Oferta.ID_Element, dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym * dbo.Zawartosc.Ilosc_Paczek AS Ile, dbo.Elementy_Jednostki.Jednostka, 
-                         dbo.Zamowienia_Dostawy.Data_Dostawy_Rzeczywista, dbo.Elementy.Okres_Przydatnosci_Miesiace
-FROM            dbo.Zawartosc INNER JOIN
-                         dbo.Elementy ON dbo.Zawartosc.ID_Element = dbo.Elementy.ID_Element INNER JOIN
-                         dbo.Oferta ON dbo.Elementy.ID_Element = dbo.Oferta.ID_Element INNER JOIN
-                         dbo.Dostawy_Zawartosc ON dbo.Elementy.ID_Element = dbo.Dostawy_Zawartosc.ID_Element AND dbo.Oferta.ID_Oferta = dbo.Dostawy_Zawartosc.ID_oferta INNER JOIN
-                         dbo.Zamowienia_Dostawy ON dbo.Zawartosc.ID_Dostawy = dbo.Zamowienia_Dostawy.ID_Dostawy AND dbo.Dostawy_Zawartosc.ID_Dostawy = dbo.Zamowienia_Dostawy.ID_Dostawy INNER JOIN
-                         dbo.Elementy_Jednostki ON dbo.Oferta.ID_Jednostka = dbo.Elementy_Jednostki.ID_jednostka
 GO
 
 -- Widok oznaczeñ rega³ów alfabetycznie
@@ -55,8 +43,8 @@ GO
 ---- Widok stanu magazynowego wg pó³ek
 CREATE VIEW [dbo].[vStan_magazynowy_polki]
 AS
-SELECT        dbo.Zawartosc.ID_Polka, dbo.Regaly.Oznaczenie, dbo.Elementy.Element_Nazwa, dbo.Zawartosc.ID_Element, dbo.Zawartosc.ID_Dostawy, CASE WHEN dbo.Elementy.Okres_Przydatnosci_Miesiace = 0 THEN DATEADD(MONTH, 
-                         2, dbo.Zamowienia_Dostawy.Data_Dostawy_Rzeczywista) ELSE DATEADD(MONTH, dbo.Elementy.Okres_Przydatnosci_Miesiace, dbo.Zamowienia_Dostawy.Data_Dostawy_Rzeczywista) END AS Przydatnosc, 
+SELECT         dbo.Zawartosc.ID_Zawartosc, dbo.Zawartosc.ID_Polka, dbo.Regaly.Oznaczenie, dbo.Elementy.Element_Nazwa, dbo.Zawartosc.ID_Element, dbo.Zawartosc.ID_Dostawy, CASE WHEN dbo.Elementy.Okres_Przydatnosci_Miesiace = 0 THEN DATEADD(YEAR, 
+                         50, dbo.Zamowienia_Dostawy.Data_Dostawy_Rzeczywista) ELSE DATEADD(MONTH, dbo.Elementy.Okres_Przydatnosci_Miesiace, dbo.Zamowienia_Dostawy.Data_Dostawy_Rzeczywista) END AS Przydatnosc, dbo.Elementy.Okres_Przydatnosci_Miesiace,
                          dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym * dbo.Zawartosc.Ilosc_Paczek AS Ile, dbo.Elementy_Jednostki.Jednostka
 FROM            dbo.Polki_regaly INNER JOIN
                          dbo.Regaly ON dbo.Polki_regaly.ID_regal = dbo.Regaly.ID_regal INNER JOIN
