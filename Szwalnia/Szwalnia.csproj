@@ -44,6 +44,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -337,6 +338,12 @@
     <Compile Include="Polki.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="PolkiNaRegalach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PolkiNaRegalach.Designer.cs">
+      <DependentUpon>PolkiNaRegalach.cs</DependentUpon>
+    </Compile>
     <Compile Include="Polki_regaly.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -438,12 +445,6 @@
     </Compile>
     <Compile Include="Regaly.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Regaly_wykaz.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Regaly_wykaz.Designer.cs">
-      <DependentUpon>Regaly_wykaz.cs</DependentUpon>
     </Compile>
     <Compile Include="RodzajEtapu.cs">
       <SubType>Form</SubType>
@@ -776,6 +777,12 @@
     <Compile Include="Zawartosc.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="ZawartoscPolki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZawartoscPolki.Designer.cs">
+      <DependentUpon>ZawartoscPolki.cs</DependentUpon>
+    </Compile>
     <Compile Include="Znajomosc_Jezykow.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -844,6 +851,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ObslugaZamowien.resx">
       <DependentUpon>ObslugaZamowien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PolkiNaRegalach.resx">
+      <DependentUpon>PolkiNaRegalach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PopupAcceptDeny.resx">
       <DependentUpon>PopupAcceptDeny.cs</DependentUpon>
@@ -914,9 +924,6 @@
     <EmbeddedResource Include="PrzygotowanieProdukcji.resx">
       <DependentUpon>PrzygotowanieProdukcji.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Regaly_wykaz.resx">
-      <DependentUpon>Regaly_wykaz.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="RodzajEtapu.resx">
       <DependentUpon>RodzajEtapu.cs</DependentUpon>
     </EmbeddedResource>
@@ -978,6 +985,9 @@
     <EmbeddedResource Include="ZarzadzanieForm.resx">
       <DependentUpon>ZarzadzanieForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ZawartoscPolki.resx">
+      <DependentUpon>ZawartoscPolki.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.Config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -1013,6 +1023,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\regały.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lupa.png" />
+    <None Include="Resources\lupa1.png" />
+    <None Include="Resources\lupa2.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Szwalnia.Context.tt">

@@ -42,7 +42,7 @@ namespace Szwalnia
 
         private void btnDodajPolke_Click(object sender, EventArgs e)
         {
-            NowaPolka polka = new NowaPolka(ostatniaPolka);
+            NowaPolka polka = new NowaPolka();
             polka.Show();
             this.Hide();
         }
@@ -51,6 +51,13 @@ namespace Szwalnia
         {
             NowyRozmiarPolki rozmiar = new NowyRozmiarPolki();
             rozmiar.Show();
+            this.Hide();
+        }
+
+        private void btnPolkiNaRegalach_Click(object sender, EventArgs e)
+        {
+            PolkiNaRegalach polkiRegaly = new PolkiNaRegalach();
+            polkiRegaly.Show();
             this.Hide();
         }
 
