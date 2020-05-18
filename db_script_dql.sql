@@ -15,12 +15,22 @@ GO
 ---- Widok polek na regalach (z wymiarami)
 CREATE VIEW [dbo].[vPolki_na_regalach]
 AS
-SELECT        TOP (100) PERCENT dbo.Regaly.Oznaczenie, dbo.Polki.ID_Polka, dbo.Polki_Rozmiary.Wysokosc, dbo.Polki_Rozmiary.Szerokosc, dbo.Polki_Rozmiary.Glebokosc
+SELECT        TOP (100) PERCENT dbo.Regaly.Oznaczenie, dbo.Polki.ID_Polka, dbo.Polki_Rozmiary.Wysokosc, dbo.Polki_Rozmiary.Szerokosc, dbo.Polki_Rozmiary.Glebokosc, CAST(dbo.Polki_Rozmiary.Wysokosc AS NVARCHAR) 
+                         + ' x ' + CAST(dbo.Polki_Rozmiary.Szerokosc AS NVARCHAR) + ' x ' + CAST(dbo.Polki_Rozmiary.Glebokosc AS NVARCHAR) AS Wymiar
 FROM            dbo.Regaly INNER JOIN
-                         dbo.Polki_regaly ON dbo.Regaly.ID_Regal = dbo.Polki_regaly.ID_Regal INNER JOIN
+                         dbo.Polki_regaly ON dbo.Regaly.ID_regal = dbo.Polki_regaly.ID_regal INNER JOIN
                          dbo.Polki ON dbo.Polki_regaly.ID_Polka = dbo.Polki.ID_Polka INNER JOIN
                          dbo.Polki_Rozmiary ON dbo.Polki.ID_Rozmiar_Polki = dbo.Polki_Rozmiary.ID_Rozmiar_Polki
 ORDER BY dbo.Polki.ID_Polka
+GO
+
+---- Widok rozmiarow polek (posegregowane po wymiarach)
+CREATE VIEW [dbo].[vPolki_Rozmiary]
+AS
+SELECT        TOP (100) PERCENT ID_Rozmiar_Polki, Wysokosc, Szerokosc, Glebokosc, CAST(dbo.Polki_Rozmiary.Wysokosc AS NVARCHAR) 
+                         + ' x ' + CAST(dbo.Polki_Rozmiary.Szerokosc AS NVARCHAR) + ' x ' + CAST(dbo.Polki_Rozmiary.Glebokosc AS NVARCHAR) AS Wymiar
+FROM            dbo.Polki_Rozmiary
+ORDER BY Wysokosc, Szerokosc, Glebokosc
 GO
 
 ---- Widok zawartosci polek
@@ -38,6 +48,14 @@ FROM            dbo.Polki INNER JOIN
                          dbo.Regaly ON dbo.Polki_regaly.ID_Regal = dbo.Regaly.ID_Regal
 GO
 
+-- Widok oznaczeñ rega³ów alfabetycznie
+CREATE VIEW [dbo].[vRegaly_alfabetycznie]
+AS
+SELECT        TOP (100) PERCENT ID_regal, Oznaczenie
+FROM            dbo.Regaly
+GROUP BY ID_regal, Oznaczenie
+ORDER BY Oznaczenie
+GO
 
 
 ---------------------------------------------------------------------------------------------------------------------------
