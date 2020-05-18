@@ -56,7 +56,7 @@
             this.dgvListaCech.Name = "dgvListaCech";
             this.dgvListaCech.RowHeadersWidth = 51;
             this.dgvListaCech.RowTemplate.Height = 24;
-            this.dgvListaCech.Size = new System.Drawing.Size(503, 190);
+            this.dgvListaCech.Size = new System.Drawing.Size(330, 190);
             this.dgvListaCech.TabIndex = 1;
             this.dgvListaCech.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaCech_CellContentDoubleClick);
             // 
@@ -68,7 +68,7 @@
             this.dgvListaJednostek.Name = "dgvListaJednostek";
             this.dgvListaJednostek.RowHeadersWidth = 51;
             this.dgvListaJednostek.RowTemplate.Height = 24;
-            this.dgvListaJednostek.Size = new System.Drawing.Size(503, 190);
+            this.dgvListaJednostek.Size = new System.Drawing.Size(330, 190);
             this.dgvListaJednostek.TabIndex = 2;
             this.dgvListaJednostek.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaJednostek_CellContentDoubleClick);
             // 
@@ -196,7 +196,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(916, 417);
+            this.ClientSize = new System.Drawing.Size(745, 417);
             this.Controls.Add(this.btnWstecz);
             this.Controls.Add(this.txtJednostka);
             this.Controls.Add(this.label5);

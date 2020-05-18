@@ -20,9 +20,16 @@ namespace Szwalnia
         public DodoawanieCechElementowi(int numIDElementu)
         {
             InitializeComponent();
-            db = Start.szwalnia;            
+            db = Start.szwalnia;   
+            
             dgvListaCech.DataSource = db.Elementy_Cechy_Slownik.ToList();
-            dgvListaJednostek.DataSource = db.Elementy_Jednostki.ToList();
+            dgvListaCech.Columns[2].Visible = false;
+            dgvListaCech.Columns[3].Visible = false;
+
+            dgvListaJednostek.DataSource = db.Elementy_Jednostki.ToList();           
+            dgvListaJednostek.Columns[2].Visible = false;
+            dgvListaJednostek.Columns[3].Visible = false;
+            dgvListaJednostek.Columns[4].Visible = false;
 
             cechaElementuNew.ID_Element = numIDElementu;
             IDElement = numIDElementu;

@@ -61,9 +61,10 @@
             // 
             // dgvListaElementow
             // 
+            this.dgvListaElementow.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaElementow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaElementow.Location = new System.Drawing.Point(24, 69);
-            this.dgvListaElementow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvListaElementow.Margin = new System.Windows.Forms.Padding(4);
             this.dgvListaElementow.Name = "dgvListaElementow";
             this.dgvListaElementow.RowHeadersWidth = 51;
             this.dgvListaElementow.Size = new System.Drawing.Size(632, 462);
@@ -90,7 +91,7 @@
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.lblInfo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "WyborElementu";
             this.Text = "Okno wyboru elementow";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.WyborElementu_FormClosed);
