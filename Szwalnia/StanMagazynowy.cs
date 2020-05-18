@@ -26,7 +26,8 @@ namespace Szwalnia
 
         private void btnCalkowity_Click(object sender, EventArgs e)
         {
-
+            StanMagazynowyCalkowity calkowity = new StanMagazynowyCalkowity();
+            calkowity.Show();
         }
 
         private void btnWgElementow_Click(object sender, EventArgs e)
