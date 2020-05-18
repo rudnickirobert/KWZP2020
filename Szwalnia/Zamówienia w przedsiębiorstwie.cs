@@ -17,9 +17,7 @@ namespace Szwalnia
         {
             db = szwalnia;
             InitializeComponent();
-
-
-            dgvZamowienia.DataSource = db.Zamowienia.ToList();
+            dgvZamowienia.DataSource = db.vZamowienie.ToList();
         }
     }
 }

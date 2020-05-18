@@ -721,6 +721,9 @@
     <Compile Include="vWszystkie_Maszyny.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vZamowienie.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vZamowienieProcesyProdukcyjne.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>

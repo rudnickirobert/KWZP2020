@@ -442,12 +442,14 @@ FROM     dbo.Zamowienie_Element INNER JOIN
                   dbo.Elementy ON dbo.Zamowienie_Element.ID_Element = dbo.Elementy.ID_Element INNER JOIN
                   dbo.Zamowienia ON dbo.Zamowienie_Element.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia INNER JOIN
                   dbo.Klienci ON dbo.Zamowienia.ID_Klienta = dbo.Klienci.ID_Klienta
+GO
 
 				  
 CREATE VIEW vFakturyZewnetrzne AS
 SELECT dbo.Faktury_Zewnetrzne.Nr_Faktury, dbo.Faktury_Zewnetrzne.Nazwa_Firmy, dbo.Grupa.Nazwa, dbo.Faktury_Zewnetrzne.Netto, dbo.Faktury_Zewnetrzne.Brutto, dbo.Faktury_Zewnetrzne.Podatek
 FROM     dbo.Faktury_Zewnetrzne INNER JOIN
                   dbo.Grupa ON dbo.Faktury_Zewnetrzne.ID_Grupa = dbo.Grupa.ID_Grupa
+GO
 
 CREATE VIEW vDanePracownika
 AS
@@ -482,4 +484,12 @@ SELECT dbo.Pracownicy.ID_Pracownika, dbo.Urlop.Data_rozpoczecia, dbo.Urlop.Data_
 FROM     dbo.Urlop INNER JOIN
                   dbo.Pracownicy ON dbo.Urlop.ID_Pracownika = dbo.Pracownicy.ID_Pracownika INNER JOIN
                   dbo.Rodzaj_Urlopu ON dbo.Urlop.ID_Rodzaj_Urlopu = dbo.Rodzaj_Urlopu.ID_Rodzaj_Urlopu
+GO
+
+CREATE VIEW vZamowienie AS
+SELECT dbo.Zamowienia.ID_Zamowienia, dbo.Klienci.Imie, dbo.Klienci.Nazwisko, dbo.Klienci.Nazwa_Firmy, dbo.Zamowienia.Data_Zlozenia, dbo.Zamowienia.Data_Zakonczenia, dbo.Zamowienia.Umowa, dbo.Pracownicy.ID_Pracownika, 
+                  dbo.Pracownicy.Imie AS [Imie Pracownika], dbo.Pracownicy.Nazwisko AS [Nazwisko Pracownika]
+FROM     dbo.Zamowienia INNER JOIN
+                  dbo.Klienci ON dbo.Zamowienia.ID_Klienta = dbo.Klienci.ID_Klienta INNER JOIN
+                  dbo.Pracownicy ON dbo.Zamowienia.ID_Pracownika = dbo.Pracownicy.ID_Pracownika
 GO
