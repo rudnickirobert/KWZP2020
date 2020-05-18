@@ -687,6 +687,12 @@
     <Compile Include="WyborPracownika.Designer.cs">
       <DependentUpon>WyborPracownika.cs</DependentUpon>
     </Compile>
+    <Compile Include="WyborTypu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WyborTypu.Designer.cs">
+      <DependentUpon>WyborTypu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Wymiar_Urlopu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -903,6 +909,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WyborElementu.resx">
       <DependentUpon>WyborElementu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WyborTypu.resx">
+      <DependentUpon>WyborTypu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ZamowienieProcesyProdukcyjne.resx">
       <DependentUpon>ZamowienieProcesyProdukcyjne.cs</DependentUpon>

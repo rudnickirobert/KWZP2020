@@ -67,7 +67,9 @@ namespace Szwalnia
 
         private void btnWyborTypu_Click(object sender, EventArgs e)
         {
-
+            WyborTypu typWybor = new WyborTypu();
+            typWybor.Show();
+            this.Hide();
         }
 
         private void btnWyborCechy_Click(object sender, EventArgs e)
