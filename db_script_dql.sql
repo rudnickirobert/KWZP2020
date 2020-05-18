@@ -173,6 +173,68 @@ FROM            dbo.Pracownicy INNER JOIN
                          dbo.Pracownicy_Zatrudnienie ON dbo.Pracownicy.ID_Pracownika = dbo.Pracownicy_Zatrudnienie.ID_Pracownika
 WHERE        (dbo.Pracownicy_Zatrudnienie.ID_Dzialu = 2)
 GO
+--widok materia³ów dostarczonych na produkcje
+CREATE VIEW [dbo].[vDostarczeniaNaProdukcje]
+AS
+SELECT        ID_Dostarczenia, ID_Pracownicy, ID_Dostawy, ID_Zamowienie_element, ID_element, Ilosc_Dostarczona, ID_Miejsca, Data_Dostarczenia
+FROM            dbo.Dostarczenia_Wewn
+WHERE        (Ilosc_Dostarczona < 0)
+GO
+--widok materia³ów potrzebnych produkcji
+CREATE VIEW [dbo].[vPotrzebyProdukcjiZDatami]
+AS
+SELECT DISTINCT dbo.Proces_Produkcyjny.ID_Zamowienie_Element, dbo.Elementy_Proces.ID_Element, dbo.Elementy_Proces.Liczba, dbo.Proces_Produkcyjny.Proponowana_data_dostawy_materialu
+FROM            dbo.Zamowienie_Element INNER JOIN
+                         dbo.Proces_Produkcyjny ON dbo.Zamowienie_Element.ID_Zamowienie_Element = dbo.Proces_Produkcyjny.ID_Zamowienie_Element INNER JOIN
+                         dbo.Elementy_Proces INNER JOIN
+                         dbo.Proces_Technologiczny ON dbo.Elementy_Proces.ID_Proces_Technologiczny = dbo.Proces_Technologiczny.ID_Proces_Technologiczny INNER JOIN
+                         dbo.Proces_Zamowienie ON dbo.Proces_Technologiczny.ID_Proces_Technologiczny = dbo.Proces_Zamowienie.ID_Proces_Technologiczny ON 
+                         dbo.Zamowienie_Element.ID_Zamowienie_Element = dbo.Proces_Zamowienie.ID_Zamowienie_Element
+GO
+--widok materia³ów jeszcz nie wydanych a potrzebnych
+CREATE VIEW [dbo].[vDostawyDoWydania]
+AS
+SELECT        dbo.vPotrzebyProdukcjiZDatami.ID_Zamowienie_Element, dbo.vPotrzebyProdukcjiZDatami.ID_Element, dbo.vPotrzebyProdukcjiZDatami.Liczba, dbo.vPotrzebyProdukcjiZDatami.Proponowana_data_dostawy_materialu
+FROM            dbo.vDostarczeniaNaProdukcje RIGHT OUTER JOIN
+                         dbo.vPotrzebyProdukcjiZDatami ON dbo.vDostarczeniaNaProdukcje.ID_Zamowienie_element = dbo.vPotrzebyProdukcjiZDatami.ID_Zamowienie_Element AND 
+                         dbo.vDostarczeniaNaProdukcje.ID_element = dbo.vPotrzebyProdukcjiZDatami.ID_Element
+WHERE        (dbo.vDostarczeniaNaProdukcje.ID_element IS NULL) AND (dbo.vDostarczeniaNaProdukcje.ID_Zamowienie_element IS NULL)
+GO
+--widok materia³ów pozosta³ych po wyprodukowaniu
+CREATE VIEW [dbo].[vNiezuzytyMaterialNaProdukcji]
+AS
+SELECT        dbo.Proces_Produkcyjny.ID_Zamowienie_Element, dbo.Elementy_Proces.ID_Element, SUM(dbo.Material_Na_Produkcji.Niezuzyty_material) AS Niezuzyty_material
+FROM            dbo.Material_Na_Produkcji INNER JOIN
+                         dbo.Proces_Produkcyjny ON dbo.Material_Na_Produkcji.ID_Procesu_Produkcyjnego = dbo.Proces_Produkcyjny.ID_Procesu_Produkcyjnego INNER JOIN
+                         dbo.Elementy_Proces ON dbo.Material_Na_Produkcji.ID_Elementy_Proces = dbo.Elementy_Proces.ID_Elementy_Proces
+GROUP BY dbo.Proces_Produkcyjny.ID_Zamowienie_Element, dbo.Elementy_Proces.ID_Element
+GO
+--widok materia³ów ju¿ odebranych po wyprodukowaniu
+CREATE VIEW [dbo].[vMaterialyOdebraneZProdukcji]
+AS
+SELECT        ID_Dostarczenia, ID_Pracownicy, ID_Dostawy, ID_Zamowienie_element, ID_element, Ilosc_Dostarczona, ID_Miejsca, Data_Dostarczenia
+FROM            dbo.Dostarczenia_Wewn
+WHERE        (Ilosc_Dostarczona > 0) AND (ID_Miejsca = 2)
+GO
+--widok materia³ów oczekuj¹cych na odebranie wg ID_zamowienie_element
+CREATE VIEW [dbo].[vNieodebraneMaterialyWgZamowienieElement]
+AS
+SELECT        dbo.vNiezuzytyMaterialNaProdukcji.ID_Zamowienie_Element, dbo.vNiezuzytyMaterialNaProdukcji.ID_Element, dbo.vNiezuzytyMaterialNaProdukcji.Niezuzyty_material
+FROM            dbo.vMaterialyOdebraneZProdukcji RIGHT OUTER JOIN
+                         dbo.vNiezuzytyMaterialNaProdukcji ON dbo.vMaterialyOdebraneZProdukcji.ID_Zamowienie_element = dbo.vNiezuzytyMaterialNaProdukcji.ID_Zamowienie_Element AND 
+                         dbo.vMaterialyOdebraneZProdukcji.ID_element = dbo.vNiezuzytyMaterialNaProdukcji.ID_Element
+WHERE        (dbo.vMaterialyOdebraneZProdukcji.ID_element IS NULL) AND (dbo.vMaterialyOdebraneZProdukcji.ID_Zamowienie_element IS NULL)
+GO
+--widok materia³ów oczekuj¹cych na odebranie zawierajacy wszystkie dane
+CREATE VIEW [dbo].[vNieodebraneMaterialyWgDostawy]
+AS
+SELECT        dbo.vNieodebraneMaterialyWgZamowienieElement.ID_Zamowienie_Element, dbo.Zamowienia_Dostawy.ID_Dostawy, dbo.vNieodebraneMaterialyWgZamowienieElement.ID_Element, 
+                         dbo.vNieodebraneMaterialyWgZamowienieElement.Niezuzyty_material
+FROM            dbo.vNieodebraneMaterialyWgZamowienieElement INNER JOIN
+                         dbo.Zamowienie_Element ON dbo.vNieodebraneMaterialyWgZamowienieElement.ID_Zamowienie_Element = dbo.Zamowienie_Element.ID_Zamowienie_Element INNER JOIN
+                         dbo.Zamowienia ON dbo.Zamowienie_Element.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia INNER JOIN
+                         dbo.Zamowienia_Dostawy ON dbo.Zamowienia.ID_Zamowienia = dbo.Zamowienia_Dostawy.ID_Zamowienia
+GO
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------WIDOKI PRODUKCJA----------------------------------------------------

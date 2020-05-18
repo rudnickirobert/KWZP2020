@@ -84,5 +84,12 @@ namespace Szwalnia
             }
 
         }
+
+        private void btnWydajProdukcji_Click(object sender, EventArgs e)
+        {
+            WydajMaterialProdukcji wydajNowyMaterial = new WydajMaterialProdukcji();
+            wydajNowyMaterial.Show();
+            this.Hide();
+        }
     }
 }

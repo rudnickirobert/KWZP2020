@@ -32,6 +32,8 @@
             this.btnAddDelivery = new System.Windows.Forms.Button();
             this.lblInfo = new System.Windows.Forms.Label();
             this.btnPrzyjmijDostawe = new System.Windows.Forms.Button();
+            this.btnWydajProdukcji = new System.Windows.Forms.Button();
+            this.btnOdbierzMaterial = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAddDelivery
@@ -66,11 +68,33 @@
             this.btnPrzyjmijDostawe.UseVisualStyleBackColor = true;
             this.btnPrzyjmijDostawe.Click += new System.EventHandler(this.btnPrzyjmijDostawe_Click);
             // 
+            // btnWydajProdukcji
+            // 
+            this.btnWydajProdukcji.Location = new System.Drawing.Point(274, 12);
+            this.btnWydajProdukcji.Name = "btnWydajProdukcji";
+            this.btnWydajProdukcji.Size = new System.Drawing.Size(256, 111);
+            this.btnWydajProdukcji.TabIndex = 3;
+            this.btnWydajProdukcji.Text = "Wydaj materiały produkcji";
+            this.btnWydajProdukcji.UseVisualStyleBackColor = true;
+            this.btnWydajProdukcji.Click += new System.EventHandler(this.btnWydajProdukcji_Click);
+            // 
+            // btnOdbierzMaterial
+            // 
+            this.btnOdbierzMaterial.Location = new System.Drawing.Point(274, 129);
+            this.btnOdbierzMaterial.Name = "btnOdbierzMaterial";
+            this.btnOdbierzMaterial.Size = new System.Drawing.Size(256, 111);
+            this.btnOdbierzMaterial.TabIndex = 3;
+            this.btnOdbierzMaterial.Text = "Odbierz niezużyty materiał";
+            this.btnOdbierzMaterial.UseVisualStyleBackColor = true;
+            this.btnOdbierzMaterial.Click += new System.EventHandler(this.btnWydajProdukcji_Click);
+            // 
             // ObslugaDostaw
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(546, 254);
+            this.Controls.Add(this.btnOdbierzMaterial);
+            this.Controls.Add(this.btnWydajProdukcji);
             this.Controls.Add(this.btnPrzyjmijDostawe);
             this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.btnAddDelivery);
@@ -89,5 +113,7 @@
         private System.Windows.Forms.Button btnAddDelivery;
         private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.Button btnPrzyjmijDostawe;
+        private System.Windows.Forms.Button btnWydajProdukcji;
+        private System.Windows.Forms.Button btnOdbierzMaterial;
     }
 }

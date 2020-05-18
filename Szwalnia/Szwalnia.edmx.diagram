@@ -199,6 +199,13 @@
         <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_Za__2CF2ADDF" />
         <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_Za__30C33EC3" />
         <AssociationConnector Association="SzwalniaModel.FK__Zawartosc__ID_Do__19DFD96B" />
+        <EntityTypeShape EntityType="SzwalniaModel.vDostarczeniaNaProdukcje" Width="1.5" PointX="9.375" PointY="18.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vDostawyDoWydania" Width="1.5" PointX="11.375" PointY="18.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vPotrzebyProdukcjiZDatami" Width="1.5" PointX="13.375" PointY="18.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vMaterialyOdebraneZProdukcji" Width="1.5" PointX="19.375" PointY="7.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vNieodebraneMaterialyWgDostawy" Width="1.5" PointX="19.375" PointY="11.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vNieodebraneMaterialyWgZamowienieElement" Width="1.5" PointX="19.375" PointY="14.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vNiezuzytyMaterialNaProdukcji" Width="1.5" PointX="19.375" PointY="17.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
