@@ -32,6 +32,7 @@
             this.dgvWolnePolki = new System.Windows.Forms.DataGridView();
             this.lblInfoWybierzPracownika = new System.Windows.Forms.Label();
             this.lblInfoWybierzPolke = new System.Windows.Forms.Label();
+            this.btnApply = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWolnePolki)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,11 +46,13 @@
             // 
             // dgvWolnePolki
             // 
+            this.dgvWolnePolki.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvWolnePolki.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvWolnePolki.Location = new System.Drawing.Point(12, 108);
             this.dgvWolnePolki.Name = "dgvWolnePolki";
-            this.dgvWolnePolki.Size = new System.Drawing.Size(776, 330);
+            this.dgvWolnePolki.Size = new System.Drawing.Size(776, 257);
             this.dgvWolnePolki.TabIndex = 1;
+            this.dgvWolnePolki.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWolnePolki_CellContentDoubleClick);
             // 
             // lblInfoWybierzPracownika
             // 
@@ -69,11 +72,22 @@
             this.lblInfoWybierzPolke.Text = "Wybierz półkę na którą odłożony zostanie element";
             this.lblInfoWybierzPolke.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnApply
+            // 
+            this.btnApply.Location = new System.Drawing.Point(713, 415);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Size = new System.Drawing.Size(75, 23);
+            this.btnApply.TabIndex = 4;
+            this.btnApply.Text = "Zatwierdź";
+            this.btnApply.UseVisualStyleBackColor = true;
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
+            // 
             // WyborPolkiDoOdlozenia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnApply);
             this.Controls.Add(this.lblInfoWybierzPolke);
             this.Controls.Add(this.lblInfoWybierzPracownika);
             this.Controls.Add(this.dgvWolnePolki);
@@ -92,5 +106,6 @@
         private System.Windows.Forms.DataGridView dgvWolnePolki;
         private System.Windows.Forms.Label lblInfoWybierzPracownika;
         private System.Windows.Forms.Label lblInfoWybierzPolke;
+        private System.Windows.Forms.Button btnApply;
     }
 }

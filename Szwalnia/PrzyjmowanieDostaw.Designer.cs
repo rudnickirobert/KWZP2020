@@ -42,7 +42,7 @@
             this.dgvDostawyDoPrzyjecia.Name = "dgvDostawyDoPrzyjecia";
             this.dgvDostawyDoPrzyjecia.Size = new System.Drawing.Size(772, 388);
             this.dgvDostawyDoPrzyjecia.TabIndex = 0;
-            this.dgvDostawyDoPrzyjecia.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDostawyDoPrzyjecia_CellContentDoubleClick);
+            this.dgvDostawyDoPrzyjecia.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDostawyDoPrzyjecia_CellMouseDoubleClick);
             // 
             // lblInfo
             // 

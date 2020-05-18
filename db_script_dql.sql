@@ -136,11 +136,29 @@ GO
 --lista dostaw do przyjecia
 CREATE VIEW [dbo].[vDostawyDoOdbioru]
 AS
-SELECT        dbo.Zamowienia_Dostawy.ID_Dostawy, dbo.Dostawy_Zawartosc.ID_Element, dbo.Dostawy_Zawartosc.Ilosc_Dostarczona * dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym AS Ilosc
+SELECT        dbo.Zamowienia_Dostawy.ID_Dostawy, dbo.Dostawy_Zawartosc.ID_Element, dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym AS Ilosc_w_paczce, 
+                         dbo.Dostawy_Zawartosc.Ilosc_Dostarczona * dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym AS Ilosc
 FROM            dbo.Zamowienia_Dostawy INNER JOIN
                          dbo.Dostawy_Zawartosc ON dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Dostawy_Zawartosc.ID_Dostawy INNER JOIN
-                         dbo.Oferta ON dbo.Dostawy_Zawartosc.ID_oferta = dbo.Oferta.ID_Oferta
-WHERE        (dbo.Zamowienia_Dostawy.Data_Dostawy_Rzeczywista IS NULL)
+                         dbo.Oferta ON dbo.Dostawy_Zawartosc.ID_oferta = dbo.Oferta.ID_Oferta LEFT OUTER JOIN
+                         dbo.Dostarczenia_Wewn ON dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Dostarczenia_Wewn.ID_Dostawy
+WHERE        (dbo.Dostarczenia_Wewn.ID_Dostawy IS NULL)
+GO
+--lista wolnych polek
+CREATE VIEW [dbo].[vWolnePolki]
+AS
+SELECT        dbo.Polki.ID_Polka
+FROM            dbo.Zawartosc RIGHT OUTER JOIN
+                         dbo.Polki ON dbo.Zawartosc.ID_Polka = dbo.Polki.ID_Polka
+WHERE        (dbo.Zawartosc.ID_Polka IS NULL)
+GO
+--lista pracownikow magazynu 
+CREATE VIEW [dbo].[vPracownicyMagazynu]
+AS
+SELECT        dbo.Pracownicy.ID_Pracownika, dbo.Pracownicy.Imie + ' ' + dbo.Pracownicy.Nazwisko AS Dane_osobowe, dbo.Pracownicy_Zatrudnienie.ID_Dzialu
+FROM            dbo.Pracownicy INNER JOIN
+                         dbo.Pracownicy_Zatrudnienie ON dbo.Pracownicy.ID_Pracownika = dbo.Pracownicy_Zatrudnienie.ID_Pracownika
+WHERE        (dbo.Pracownicy_Zatrudnienie.ID_Dzialu = 2)
 GO
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
