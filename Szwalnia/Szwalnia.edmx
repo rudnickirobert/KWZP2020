@@ -666,6 +666,16 @@ warning 6002: The table/view 'Szwalnia.dbo.vDostawcyDostawDoZamowien' does not h
           <Property Name="ID_statusu" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vDostawyDoOdbioru' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vDostawyDoOdbioru">
+          <Key>
+            <PropertyRef Name="ID_Dostawy" />
+          </Key>
+          <Property Name="ID_Dostawy" Type="int" Nullable="false" />
+          <Property Name="ID_Element" Type="int" />
+          <Property Name="Ilosc" Type="real" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vElementy_proces' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vElementy_proces">
           <Key>
@@ -2283,6 +2293,13 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
     [vDostawcyDostawDoZamowien].[ID_statusu] AS [ID_statusu]
     FROM [dbo].[vDostawcyDostawDoZamowien] AS [vDostawcyDostawDoZamowien]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vDostawyDoOdbioru" EntityType="Self.vDostawyDoOdbioru" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vDostawyDoOdbioru].[ID_Dostawy] AS [ID_Dostawy], 
+    [vDostawyDoOdbioru].[ID_Element] AS [ID_Element], 
+    [vDostawyDoOdbioru].[Ilosc] AS [Ilosc]
+    FROM [dbo].[vDostawyDoOdbioru] AS [vDostawyDoOdbioru]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vElementy_proces" EntityType="Self.vElementy_proces" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vElementy_proces].[Numer procesu] AS [Numer procesu], 
@@ -3385,6 +3402,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
+          <EntitySet Name="vDostawyDoOdbioru" EntityType="SzwalniaModel.vDostawyDoOdbioru" />
         </EntityContainer>
         <EntityType Name="Czesci_Obsluga">
           <Key>
@@ -5626,6 +5644,14 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="vDostawyDoOdbioru">
+          <Key>
+            <PropertyRef Name="ID_Dostawy" />
+          </Key>
+          <Property Name="ID_Dostawy" Type="Int32" Nullable="false" />
+          <Property Name="ID_Element" Type="Int32" />
+          <Property Name="Ilosc" Type="Single" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -6713,6 +6739,15 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
                 <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
                 <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
                 <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vDostawyDoOdbioru">
+            <EntityTypeMapping TypeName="SzwalniaModel.vDostawyDoOdbioru">
+              <MappingFragment StoreEntitySet="vDostawyDoOdbioru">
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

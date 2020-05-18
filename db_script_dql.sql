@@ -133,6 +133,15 @@ FROM            dbo.Zamowienia_Dostawy INNER JOIN
                          dbo.Oferta ON dbo.Dostawy_Zawartosc.ID_oferta = dbo.Oferta.ID_Oferta
 WHERE        (dbo.Zamowienia_Dostawy.ID_statusu <> 3)
 GO
+--lista dostaw do przyjecia
+CREATE VIEW [dbo].[vDostawyDoOdbioru]
+AS
+SELECT        dbo.Zamowienia_Dostawy.ID_Dostawy, dbo.Dostawy_Zawartosc.ID_Element, dbo.Dostawy_Zawartosc.Ilosc_Dostarczona * dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym AS Ilosc
+FROM            dbo.Zamowienia_Dostawy INNER JOIN
+                         dbo.Dostawy_Zawartosc ON dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Dostawy_Zawartosc.ID_Dostawy INNER JOIN
+                         dbo.Oferta ON dbo.Dostawy_Zawartosc.ID_oferta = dbo.Oferta.ID_Oferta
+WHERE        (dbo.Zamowienia_Dostawy.Data_Dostawy_Rzeczywista IS NULL)
+GO
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------WIDOKI PRODUKCJA----------------------------------------------------

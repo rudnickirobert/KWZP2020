@@ -403,6 +403,12 @@
     <Compile Include="Przydzial_Zasobow.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="PrzyjmowanieDostaw.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrzyjmowanieDostaw.Designer.cs">
+      <DependentUpon>PrzyjmowanieDostaw.cs</DependentUpon>
+    </Compile>
     <Compile Include="RaportyProdukcja.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -573,6 +579,9 @@
     <Compile Include="vDostawcyDostawDoZamowien.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vDostawyDoOdbioru.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vElementy_proces.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -716,6 +725,12 @@
     <Compile Include="WyborOferty.Designer.cs">
       <DependentUpon>WyborOferty.cs</DependentUpon>
     </Compile>
+    <Compile Include="WyborPolkiDoOdlozenia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WyborPolkiDoOdlozenia.Designer.cs">
+      <DependentUpon>WyborPolkiDoOdlozenia.cs</DependentUpon>
+    </Compile>
     <Compile Include="WyborPracownika.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -857,6 +872,9 @@
     <EmbeddedResource Include="PrzegladProcesowProdukcyjnych.resx">
       <DependentUpon>PrzegladProcesowProdukcyjnych.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PrzyjmowanieDostaw.resx">
+      <DependentUpon>PrzyjmowanieDostaw.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RaportyProdukcja.resx">
       <DependentUpon>RaportyProdukcja.cs</DependentUpon>
     </EmbeddedResource>
@@ -935,6 +953,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WyborOferty.resx">
       <DependentUpon>WyborOferty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WyborPolkiDoOdlozenia.resx">
+      <DependentUpon>WyborPolkiDoOdlozenia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WyborPracownika.resx">
       <DependentUpon>WyborPracownika.cs</DependentUpon>

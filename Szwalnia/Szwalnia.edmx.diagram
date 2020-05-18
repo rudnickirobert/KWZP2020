@@ -196,6 +196,7 @@
         <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_Za__2CF2ADDF" />
         <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_Za__30C33EC3" />
         <AssociationConnector Association="SzwalniaModel.FK__Zawartosc__ID_Do__19DFD96B" />
+        <EntityTypeShape EntityType="SzwalniaModel.vDostawyDoOdbioru" Width="1.5" PointX="6.375" PointY="18.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

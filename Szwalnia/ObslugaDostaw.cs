@@ -67,5 +67,22 @@ namespace Szwalnia
                 this.Hide();
             }
         }
+
+        private void btnPrzyjmijDostawe_Click(object sender, EventArgs e)
+        {
+            if (db.vDostawyDoOdbioru.Where(doOdebrania => doOdebrania.Ilosc>0).Any() == false)
+            {
+                PrzyjmowanieDostaw formularzPrzyjmowanieDostaw = new PrzyjmowanieDostaw(true);
+                formularzPrzyjmowanieDostaw.Show();
+                this.Hide();
+            }
+            else
+            {
+                PrzyjmowanieDostaw formularzPrzyjmowanieDostaw = new PrzyjmowanieDostaw(false);
+                formularzPrzyjmowanieDostaw.Show();
+                this.Hide();
+            }
+
+        }
     }
 }
