@@ -58,8 +58,8 @@ namespace Szwalnia
         private void btnZapisz_Click(object sender, EventArgs e)
         {
             Pracownicy_Zatrudnienie zatrudnienie = new Pracownicy_Zatrudnienie();
-            zatrudnienie.Data_Zatrudnienia = Convert.ToDateTime(dtpPoczatek);
-            zatrudnienie.Koniec_umowy = Convert.ToDateTime(dtpKoniec);
+            zatrudnienie.Data_Zatrudnienia = Convert.ToDateTime(dtpPoczatek.Value);
+            zatrudnienie.Koniec_umowy = Convert.ToDateTime(dtpKoniec.Value);
             zatrudnienie.ID_Pracownika = Convert.ToInt32(cbImieNazwisko.SelectedValue);
             zatrudnienie.ID_Dzialu = Convert.ToInt32(cbDzial.SelectedValue);
             zatrudnienie.ID_Etatu = Convert.ToInt32(cbEtat.SelectedValue);
