@@ -30,6 +30,7 @@
         {
             this.btnStare = new System.Windows.Forms.Button();
             this.btnNowe = new System.Windows.Forms.Button();
+            this.btnKoniecZamowienia = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnStare
@@ -52,11 +53,22 @@
             this.btnNowe.UseVisualStyleBackColor = true;
             this.btnNowe.Click += new System.EventHandler(this.btnNowe_Click);
             // 
+            // btnKoniecZamowienia
+            // 
+            this.btnKoniecZamowienia.Location = new System.Drawing.Point(23, 217);
+            this.btnKoniecZamowienia.Name = "btnKoniecZamowienia";
+            this.btnKoniecZamowienia.Size = new System.Drawing.Size(163, 52);
+            this.btnKoniecZamowienia.TabIndex = 7;
+            this.btnKoniecZamowienia.Text = "Zakończ zamówienie";
+            this.btnKoniecZamowienia.UseVisualStyleBackColor = true;
+            this.btnKoniecZamowienia.Click += new System.EventHandler(this.btnKoniecZamowienia_Click);
+            // 
             // Zamowienie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(228, 212);
+            this.ClientSize = new System.Drawing.Size(228, 332);
+            this.Controls.Add(this.btnKoniecZamowienia);
             this.Controls.Add(this.btnNowe);
             this.Controls.Add(this.btnStare);
             this.Name = "Zamowienie";
@@ -69,5 +81,6 @@
 
         private System.Windows.Forms.Button btnStare;
         private System.Windows.Forms.Button btnNowe;
+        private System.Windows.Forms.Button btnKoniecZamowienia;
     }
 }

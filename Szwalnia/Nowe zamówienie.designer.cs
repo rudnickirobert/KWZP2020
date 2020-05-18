@@ -35,7 +35,6 @@
             this.cbPracownik = new System.Windows.Forms.ComboBox();
             this.lblNazwaFirmy = new System.Windows.Forms.Label();
             this.lblData = new System.Windows.Forms.Label();
-            this.lblDataZakonczenia = new System.Windows.Forms.Label();
             this.lblUmowa = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvUkryty = new System.Windows.Forms.DataGridView();
@@ -43,7 +42,6 @@
             this.btnWyzeruj = new System.Windows.Forms.Button();
             this.btnDalej = new System.Windows.Forms.Button();
             this.dtpZlozenie = new System.Windows.Forms.DateTimePicker();
-            this.dtpZakonczenie = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUkryty)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,7 +70,7 @@
             // chbUmowa
             // 
             this.chbUmowa.AutoSize = true;
-            this.chbUmowa.Location = new System.Drawing.Point(193, 200);
+            this.chbUmowa.Location = new System.Drawing.Point(193, 163);
             this.chbUmowa.Name = "chbUmowa";
             this.chbUmowa.Size = new System.Drawing.Size(18, 17);
             this.chbUmowa.TabIndex = 8;
@@ -89,7 +87,7 @@
             // cbPracownik
             // 
             this.cbPracownik.FormattingEnabled = true;
-            this.cbPracownik.Location = new System.Drawing.Point(193, 238);
+            this.cbPracownik.Location = new System.Drawing.Point(193, 196);
             this.cbPracownik.Name = "cbPracownik";
             this.cbPracownik.Size = new System.Drawing.Size(251, 24);
             this.cbPracownik.TabIndex = 10;
@@ -116,22 +114,11 @@
             this.lblData.TabIndex = 12;
             this.lblData.Text = "Data złożenia";
             // 
-            // lblDataZakonczenia
-            // 
-            this.lblDataZakonczenia.AutoSize = true;
-            this.lblDataZakonczenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblDataZakonczenia.Location = new System.Drawing.Point(33, 154);
-            this.lblDataZakonczenia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDataZakonczenia.Name = "lblDataZakonczenia";
-            this.lblDataZakonczenia.Size = new System.Drawing.Size(143, 20);
-            this.lblDataZakonczenia.TabIndex = 13;
-            this.lblDataZakonczenia.Text = "Data zakończenia";
-            // 
             // lblUmowa
             // 
             this.lblUmowa.AutoSize = true;
             this.lblUmowa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblUmowa.Location = new System.Drawing.Point(33, 196);
+            this.lblUmowa.Location = new System.Drawing.Point(33, 159);
             this.lblUmowa.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUmowa.Name = "lblUmowa";
             this.lblUmowa.Size = new System.Drawing.Size(65, 20);
@@ -142,7 +129,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(33, 238);
+            this.label5.Location = new System.Drawing.Point(33, 196);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(86, 20);
@@ -162,7 +149,7 @@
             // 
             // btnWroc
             // 
-            this.btnWroc.Location = new System.Drawing.Point(23, 361);
+            this.btnWroc.Location = new System.Drawing.Point(23, 280);
             this.btnWroc.Name = "btnWroc";
             this.btnWroc.Size = new System.Drawing.Size(96, 40);
             this.btnWroc.TabIndex = 24;
@@ -171,7 +158,7 @@
             // 
             // btnWyzeruj
             // 
-            this.btnWyzeruj.Location = new System.Drawing.Point(141, 361);
+            this.btnWyzeruj.Location = new System.Drawing.Point(138, 280);
             this.btnWyzeruj.Name = "btnWyzeruj";
             this.btnWyzeruj.Size = new System.Drawing.Size(96, 40);
             this.btnWyzeruj.TabIndex = 25;
@@ -180,7 +167,7 @@
             // 
             // btnDalej
             // 
-            this.btnDalej.Location = new System.Drawing.Point(257, 361);
+            this.btnDalej.Location = new System.Drawing.Point(258, 280);
             this.btnDalej.Name = "btnDalej";
             this.btnDalej.Size = new System.Drawing.Size(96, 40);
             this.btnDalej.TabIndex = 26;
@@ -195,19 +182,11 @@
             this.dtpZlozenie.Size = new System.Drawing.Size(200, 22);
             this.dtpZlozenie.TabIndex = 27;
             // 
-            // dtpZakonczenie
-            // 
-            this.dtpZakonczenie.Location = new System.Drawing.Point(193, 154);
-            this.dtpZakonczenie.Name = "dtpZakonczenie";
-            this.dtpZakonczenie.Size = new System.Drawing.Size(200, 22);
-            this.dtpZakonczenie.TabIndex = 28;
-            // 
             // NoweZamowienie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(554, 450);
-            this.Controls.Add(this.dtpZakonczenie);
+            this.ClientSize = new System.Drawing.Size(466, 343);
             this.Controls.Add(this.dtpZlozenie);
             this.Controls.Add(this.btnDalej);
             this.Controls.Add(this.btnWyzeruj);
@@ -215,7 +194,6 @@
             this.Controls.Add(this.dgvUkryty);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblUmowa);
-            this.Controls.Add(this.lblDataZakonczenia);
             this.Controls.Add(this.lblData);
             this.Controls.Add(this.lblNazwaFirmy);
             this.Controls.Add(this.cbPracownik);
@@ -240,7 +218,6 @@
         private System.Windows.Forms.ComboBox cbPracownik;
         private System.Windows.Forms.Label lblNazwaFirmy;
         private System.Windows.Forms.Label lblData;
-        private System.Windows.Forms.Label lblDataZakonczenia;
         private System.Windows.Forms.Label lblUmowa;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dgvUkryty;
@@ -248,6 +225,5 @@
         private System.Windows.Forms.Button btnWyzeruj;
         private System.Windows.Forms.Button btnDalej;
         private System.Windows.Forms.DateTimePicker dtpZlozenie;
-        private System.Windows.Forms.DateTimePicker dtpZakonczenie;
     }
 }

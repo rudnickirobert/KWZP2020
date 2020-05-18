@@ -30,5 +30,11 @@ namespace Szwalnia
             NoweZamowienie noweZamowienie = new NoweZamowienie(db);
             noweZamowienie.Show();
         }
+
+        private void btnKoniecZamowienia_Click(object sender, EventArgs e)
+        {
+            ZakonczZamowienie zakonczZamowienie = new ZakonczZamowienie(db);
+            zakonczZamowienie.Show();
+        }
     }
 }

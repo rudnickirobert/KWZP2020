@@ -42,6 +42,7 @@
             this.dgvZamowienia.RowTemplate.Height = 24;
             this.dgvZamowienia.Size = new System.Drawing.Size(749, 331);
             this.dgvZamowienia.TabIndex = 0;
+            this.dgvZamowienia.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvZamowienia_CellMouseDoubleClick);
             // 
             // label1
             // 

@@ -36,7 +36,6 @@ namespace Szwalnia
         {
             Zamowienia zamowienia = new Zamowienia();
             zamowienia.Data_Zlozenia = Convert.ToDateTime(dtpZlozenie.Value);
-            zamowienia.Data_Zakonczenia = Convert.ToDateTime(dtpZakonczenie.Value);
             zamowienia.Umowa = Convert.ToBoolean(chbUmowa.Checked);
             zamowienia.ID_Klienta = Convert.ToInt32(cbNazwa.SelectedValue);
             zamowienia.ID_Pracownika = Convert.ToInt32(cbPracownik.SelectedValue);

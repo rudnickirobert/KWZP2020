@@ -19,5 +19,13 @@ namespace Szwalnia
             InitializeComponent();
             dgvZamowienia.DataSource = db.vZamowienie.ToList();
         }
+
+        private void dgvZamowienia_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int numerIDZamowienia = Convert.ToInt32(dgvZamowienia.CurrentRow.Cells[0].Value);
+            SzczegolyZamowienia szczegolyZamowienia = new SzczegolyZamowienia(db, Decimal.ToInt32(numerIDZamowienia));
+            szczegolyZamowienia.Show();
+            this.Close();
+        }
     }
 }

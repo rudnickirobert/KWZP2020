@@ -548,6 +548,12 @@
     <Compile Include="SzczegolyProcesu.designer.cs">
       <DependentUpon>SzczegolyProcesu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Szczegóły zamówienia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Szczegóły zamówienia.Designer.cs">
+      <DependentUpon>Szczegóły zamówienia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Szwalnia.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -788,6 +794,12 @@
     </Compile>
     <Compile Include="Wymiar_Urlopu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Zakończ zamówienie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zakończ zamówienie.Designer.cs">
+      <DependentUpon>Zakończ zamówienie.cs</DependentUpon>
     </Compile>
     <Compile Include="Zamowienia.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
@@ -1039,6 +1051,9 @@
     <EmbeddedResource Include="SzczegolyProcesu.resx">
       <DependentUpon>SzczegolyProcesu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Szczegóły zamówienia.resx">
+      <DependentUpon>Szczegóły zamówienia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WszystkieProcesyProdukcyjne.resx">
       <DependentUpon>WszystkieProcesyProdukcyjne.cs</DependentUpon>
     </EmbeddedResource>
@@ -1053,6 +1068,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WyborElementu.resx">
       <DependentUpon>WyborElementu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zakończ zamówienie.resx">
+      <DependentUpon>Zakończ zamówienie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ZamowienieProcesyProdukcyjne.resx">
       <DependentUpon>ZamowienieProcesyProdukcyjne.cs</DependentUpon>
