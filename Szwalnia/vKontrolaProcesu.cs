@@ -21,6 +21,6 @@ namespace Szwalnia
         public Nullable<int> Liczba_poprawnych { get; set; }
         public string Status_produktów { get; set; }
         public Nullable<int> Bilans_produktów { get; set; }
-        public Nullable <System.DateTime> Data_kontroli { get; set; }
+        public Nullable<System.DateTime> Data_kontroli { get; set; }
     }
 }

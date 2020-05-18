@@ -22,7 +22,7 @@ namespace Szwalnia
 
             dgvPotrzebnyMaterialDoProcesuProdukcyjnego.DataSource = this.db.vPotrzebnyMaterialDoProcesuProdukcyjnego.Where(nun => nun.ID_Procesu_Produkcyjnego == idProcesu).ToList();
             dgvPotrzebnyMaterialDoProcesuProdukcyjnego.Columns[0].Visible = false;
-            dgvPotrzebnyMaterialDoProcesuProdukcyjnego.Columns[2].HeaderText = "ID elementu";
+            dgvPotrzebnyMaterialDoProcesuProdukcyjnego.Columns[1].HeaderText = "ID elementu";
             dgvPotrzebnyMaterialDoProcesuProdukcyjnego.Columns[2].HeaderText = "Nazwa elementu";
             dgvPotrzebnyMaterialDoProcesuProdukcyjnego.Columns[3].HeaderText = "Liczba";
             dgvPotrzebnyMaterialDoProcesuProdukcyjnego.Columns[4].HeaderText = "Jednostka";

@@ -1037,7 +1037,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\lupa28x28.jpg" />
-    <None Include="Resources\Legenda.png" />
     <Content Include="Szwalnia.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Szwalnia.edmx</DependentUpon>
@@ -1048,6 +1047,7 @@
       <DependentUpon>Szwalnia.edmx</DependentUpon>
       <LastGenOutput>Szwalnia.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\Legenda.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -517,9 +517,7 @@ CREATE TABLE Kontrola_Efektywnosci
 (ID_Kontrola_Efektywnosci int IDENTITY(1,1) PRIMARY KEY NOT NULL, 
 ID_Procesu_Produkcyjnego int FOREIGN KEY REFERENCES Proces_Produkcyjny (ID_Procesu_Produkcyjnego) NOT NULL,  
 Data_Kontroli smalldatetime NULL, 
-Dokument image NULL, 
 Uwagi varchar(300) NULL, 
-Zgodnosc_Zamowienia bit NULL, 
 Liczba_Poprawnych int NULL);
 
 ---------------------Koniec Produkcji--------------------------------------------------------------
