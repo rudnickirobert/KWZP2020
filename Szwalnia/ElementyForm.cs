@@ -71,5 +71,20 @@ namespace Szwalnia
             Application.OpenForms[typeof(MagazynForm).Name].Show();
             this.Hide();
         }
+
+        private void btnWyborTypu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnWyborCechy_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnWyborJednostki_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
