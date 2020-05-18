@@ -24,12 +24,12 @@ namespace Szwalnia
 
             cbNazwa.ValueMember = "ID_Klienta";
             cbNazwa.DisplayMember = "Nazwa_Firmy";
-            cbNazwa.DataSource = db.Klienci.Distinct().ToList();
+            cbNazwa.DataSource = db.Klienci.ToList();
             cbNazwa.Invalidate();
 
             cbPracownik.ValueMember = "ID_Pracownika";
             cbPracownik.DisplayMember = "Imie_i_nazwisko_pracownika";
-            cbPracownik.DataSource = db.vImieNazwiskoPracownika.Distinct().ToList();
+            cbPracownik.DataSource = db.vImieNazwiskoPracownika.ToList();
             cbPracownik.Invalidate();
         }
         private void btnDalej_Click(object sender, EventArgs e)

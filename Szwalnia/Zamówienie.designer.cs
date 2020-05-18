@@ -37,19 +37,21 @@
             // 
             // btnStare
             // 
+            this.btnStare.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnStare.Location = new System.Drawing.Point(23, 26);
             this.btnStare.Name = "btnStare";
-            this.btnStare.Size = new System.Drawing.Size(163, 60);
+            this.btnStare.Size = new System.Drawing.Size(215, 109);
             this.btnStare.TabIndex = 0;
-            this.btnStare.Text = "Zamówienia";
+            this.btnStare.Text = "Podgląd zamówień";
             this.btnStare.UseVisualStyleBackColor = true;
             this.btnStare.Click += new System.EventHandler(this.btnStare_Click);
             // 
             // btnNowe
             // 
-            this.btnNowe.Location = new System.Drawing.Point(23, 120);
+            this.btnNowe.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnNowe.Location = new System.Drawing.Point(281, 26);
             this.btnNowe.Name = "btnNowe";
-            this.btnNowe.Size = new System.Drawing.Size(163, 52);
+            this.btnNowe.Size = new System.Drawing.Size(215, 109);
             this.btnNowe.TabIndex = 6;
             this.btnNowe.Text = "Nowe Zamówienie";
             this.btnNowe.UseVisualStyleBackColor = true;
@@ -57,9 +59,10 @@
             // 
             // btnKoniecZamowienia
             // 
-            this.btnKoniecZamowienia.Location = new System.Drawing.Point(23, 193);
+            this.btnKoniecZamowienia.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnKoniecZamowienia.Location = new System.Drawing.Point(281, 198);
             this.btnKoniecZamowienia.Name = "btnKoniecZamowienia";
-            this.btnKoniecZamowienia.Size = new System.Drawing.Size(163, 52);
+            this.btnKoniecZamowienia.Size = new System.Drawing.Size(215, 109);
             this.btnKoniecZamowienia.TabIndex = 7;
             this.btnKoniecZamowienia.Text = "Zakończ zamówienie";
             this.btnKoniecZamowienia.UseVisualStyleBackColor = true;
@@ -67,9 +70,9 @@
             // 
             // btnZamknij
             // 
-            this.btnZamknij.Location = new System.Drawing.Point(23, 353);
+            this.btnZamknij.Location = new System.Drawing.Point(378, 381);
             this.btnZamknij.Name = "btnZamknij";
-            this.btnZamknij.Size = new System.Drawing.Size(163, 52);
+            this.btnZamknij.Size = new System.Drawing.Size(118, 54);
             this.btnZamknij.TabIndex = 8;
             this.btnZamknij.Text = "Zamknij";
             this.btnZamknij.UseVisualStyleBackColor = true;
@@ -77,9 +80,10 @@
             // 
             // btnDodajElementy
             // 
-            this.btnDodajElementy.Location = new System.Drawing.Point(23, 286);
+            this.btnDodajElementy.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnDodajElementy.Location = new System.Drawing.Point(23, 198);
             this.btnDodajElementy.Name = "btnDodajElementy";
-            this.btnDodajElementy.Size = new System.Drawing.Size(163, 52);
+            this.btnDodajElementy.Size = new System.Drawing.Size(215, 109);
             this.btnDodajElementy.TabIndex = 9;
             this.btnDodajElementy.Text = "Dodaj elementy do istniejącego zamówienia";
             this.btnDodajElementy.UseVisualStyleBackColor = true;
@@ -89,7 +93,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(228, 462);
+            this.ClientSize = new System.Drawing.Size(517, 462);
             this.Controls.Add(this.btnDodajElementy);
             this.Controls.Add(this.btnZamknij);
             this.Controls.Add(this.btnKoniecZamowienia);

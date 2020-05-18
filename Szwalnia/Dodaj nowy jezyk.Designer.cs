@@ -40,7 +40,7 @@
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(449, 201);
+            this.btnDodaj.Location = new System.Drawing.Point(390, 201);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(101, 45);
             this.btnDodaj.TabIndex = 0;
@@ -50,50 +50,55 @@
             // 
             // cbImieNazwisko
             // 
+            this.cbImieNazwisko.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbImieNazwisko.FormattingEnabled = true;
-            this.cbImieNazwisko.Location = new System.Drawing.Point(137, 55);
+            this.cbImieNazwisko.Location = new System.Drawing.Point(224, 62);
             this.cbImieNazwisko.Name = "cbImieNazwisko";
-            this.cbImieNazwisko.Size = new System.Drawing.Size(267, 24);
+            this.cbImieNazwisko.Size = new System.Drawing.Size(267, 39);
             this.cbImieNazwisko.TabIndex = 1;
             // 
             // cbJezyk
             // 
+            this.cbJezyk.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbJezyk.FormattingEnabled = true;
-            this.cbJezyk.Location = new System.Drawing.Point(137, 107);
+            this.cbJezyk.Location = new System.Drawing.Point(224, 110);
             this.cbJezyk.Name = "cbJezyk";
-            this.cbJezyk.Size = new System.Drawing.Size(267, 24);
+            this.cbJezyk.Size = new System.Drawing.Size(267, 39);
             this.cbJezyk.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 62);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(12, 65);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 17);
+            this.label1.Size = new System.Drawing.Size(206, 32);
             this.label1.TabIndex = 4;
             this.label1.Text = "Imię i nazwisko";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 110);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(12, 113);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 17);
+            this.label2.Size = new System.Drawing.Size(87, 32);
             this.label2.TabIndex = 5;
             this.label2.Text = "Język";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(191, 18);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(90, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(169, 17);
+            this.label3.Size = new System.Drawing.Size(341, 32);
             this.label3.TabIndex = 6;
             this.label3.Text = "Dodaj znajomość języków";
             // 
             // Anuluj
             // 
-            this.Anuluj.Location = new System.Drawing.Point(119, 201);
+            this.Anuluj.Location = new System.Drawing.Point(18, 205);
             this.Anuluj.Name = "Anuluj";
             this.Anuluj.Size = new System.Drawing.Size(86, 45);
             this.Anuluj.TabIndex = 7;
@@ -102,19 +107,19 @@
             // 
             // btnZamknij
             // 
-            this.btnZamknij.Location = new System.Drawing.Point(27, 201);
+            this.btnZamknij.Location = new System.Drawing.Point(110, 205);
             this.btnZamknij.Name = "btnZamknij";
             this.btnZamknij.Size = new System.Drawing.Size(86, 45);
             this.btnZamknij.TabIndex = 8;
-            this.btnZamknij.Text = "Zapisz ";
+            this.btnZamknij.Text = "Dodaj następny";
             this.btnZamknij.UseVisualStyleBackColor = true;
             this.btnZamknij.Click += new System.EventHandler(this.btnZamknij_Click);
             // 
-            // ZnajomoscJezyków
+            // DodajNowyJezyk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(562, 450);
+            this.ClientSize = new System.Drawing.Size(506, 262);
             this.Controls.Add(this.btnZamknij);
             this.Controls.Add(this.Anuluj);
             this.Controls.Add(this.label3);
@@ -123,7 +128,7 @@
             this.Controls.Add(this.cbJezyk);
             this.Controls.Add(this.cbImieNazwisko);
             this.Controls.Add(this.btnDodaj);
-            this.Name = "ZnajomoscJezyków";
+            this.Name = "DodajNowyJezyk";
             this.Text = "Dodaj nowy język";
             this.ResumeLayout(false);
             this.PerformLayout();
