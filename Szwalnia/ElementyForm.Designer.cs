@@ -34,7 +34,6 @@
             this.btnTyp = new System.Windows.Forms.Button();
             this.btnCecha = new System.Windows.Forms.Button();
             this.btnJednostka = new System.Windows.Forms.Button();
-            this.btnCechyElementow = new System.Windows.Forms.Button();
             this.btnWstecz = new System.Windows.Forms.Button();
             this.btnWyborTypu = new System.Windows.Forms.Button();
             this.btnWyborCechy = new System.Windows.Forms.Button();
@@ -101,18 +100,6 @@
             this.btnJednostka.UseVisualStyleBackColor = true;
             this.btnJednostka.Click += new System.EventHandler(this.btnJednostka_Click);
             // 
-            // btnCechyElementow
-            // 
-            this.btnCechyElementow.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnCechyElementow.Location = new System.Drawing.Point(12, 279);
-            this.btnCechyElementow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCechyElementow.Name = "btnCechyElementow";
-            this.btnCechyElementow.Size = new System.Drawing.Size(249, 62);
-            this.btnCechyElementow.TabIndex = 5;
-            this.btnCechyElementow.Text = "Przypisz cechy elementom";
-            this.btnCechyElementow.UseVisualStyleBackColor = true;
-            this.btnCechyElementow.Click += new System.EventHandler(this.btnCechyElementow_Click);
-            // 
             // btnWstecz
             // 
             this.btnWstecz.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -169,7 +156,6 @@
             this.Controls.Add(this.btnWyborCechy);
             this.Controls.Add(this.btnWyborTypu);
             this.Controls.Add(this.btnWstecz);
-            this.Controls.Add(this.btnCechyElementow);
             this.Controls.Add(this.btnJednostka);
             this.Controls.Add(this.btnCecha);
             this.Controls.Add(this.btnTyp);
@@ -191,7 +177,6 @@
         private System.Windows.Forms.Button btnTyp;
         private System.Windows.Forms.Button btnCecha;
         private System.Windows.Forms.Button btnJednostka;
-        private System.Windows.Forms.Button btnCechyElementow;
         private System.Windows.Forms.Button btnWstecz;
         private System.Windows.Forms.Button btnWyborTypu;
         private System.Windows.Forms.Button btnWyborCechy;

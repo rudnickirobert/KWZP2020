@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvListaElementow = new System.Windows.Forms.DataGridView();
             this.dgvListaCech = new System.Windows.Forms.DataGridView();
             this.dgvListaJednostek = new System.Windows.Forms.DataGridView();
             this.btnDodaj = new System.Windows.Forms.Button();
@@ -44,23 +43,10 @@
             this.txtJednostka = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnWstecz = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaElementow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaCech)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaJednostek)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCecha)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvListaElementow
-            // 
-            this.dgvListaElementow.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvListaElementow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaElementow.Location = new System.Drawing.Point(399, 12);
-            this.dgvListaElementow.Name = "dgvListaElementow";
-            this.dgvListaElementow.RowHeadersWidth = 51;
-            this.dgvListaElementow.RowTemplate.Height = 24;
-            this.dgvListaElementow.Size = new System.Drawing.Size(1018, 190);
-            this.dgvListaElementow.TabIndex = 0;
-            this.dgvListaElementow.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaElementow_CellContentDoubleClick);
             // 
             // dgvListaCech
             // 
@@ -78,7 +64,7 @@
             // 
             this.dgvListaJednostek.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaJednostek.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaJednostek.Location = new System.Drawing.Point(917, 208);
+            this.dgvListaJednostek.Location = new System.Drawing.Point(399, 12);
             this.dgvListaJednostek.Name = "dgvListaJednostek";
             this.dgvListaJednostek.RowHeadersWidth = 51;
             this.dgvListaJednostek.RowTemplate.Height = 24;
@@ -210,7 +196,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1429, 417);
+            this.ClientSize = new System.Drawing.Size(916, 417);
             this.Controls.Add(this.btnWstecz);
             this.Controls.Add(this.txtJednostka);
             this.Controls.Add(this.label5);
@@ -226,10 +212,8 @@
             this.Controls.Add(this.lblMain);
             this.Controls.Add(this.dgvListaJednostek);
             this.Controls.Add(this.dgvListaCech);
-            this.Controls.Add(this.dgvListaElementow);
             this.Name = "DodoawanieCechElementowi";
             this.Text = "DodoawanieCechElementowi";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaElementow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaCech)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaJednostek)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCecha)).EndInit();
@@ -239,8 +223,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvListaElementow;
         private System.Windows.Forms.DataGridView dgvListaCech;
         private System.Windows.Forms.DataGridView dgvListaJednostek;
         private System.Windows.Forms.Button btnDodaj;

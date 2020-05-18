@@ -67,12 +67,12 @@
             this.dgvSzczegol.Margin = new System.Windows.Forms.Padding(4);
             this.dgvSzczegol.Name = "dgvSzczegol";
             this.dgvSzczegol.RowHeadersWidth = 51;
-            this.dgvSzczegol.Size = new System.Drawing.Size(1035, 383);
+            this.dgvSzczegol.Size = new System.Drawing.Size(656, 383);
             this.dgvSzczegol.TabIndex = 4;
             // 
             // txtOkres
             // 
-            this.txtOkres.Location = new System.Drawing.Point(159, 128);
+            this.txtOkres.Location = new System.Drawing.Point(159, 101);
             this.txtOkres.Margin = new System.Windows.Forms.Padding(4);
             this.txtOkres.Name = "txtOkres";
             this.txtOkres.Size = new System.Drawing.Size(132, 22);
@@ -91,7 +91,7 @@
             // lblOkres
             // 
             this.lblOkres.AutoSize = true;
-            this.lblOkres.Location = new System.Drawing.Point(21, 132);
+            this.lblOkres.Location = new System.Drawing.Point(21, 105);
             this.lblOkres.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOkres.Name = "lblOkres";
             this.lblOkres.Size = new System.Drawing.Size(130, 17);
@@ -100,7 +100,7 @@
             // 
             // btnWstecz
             // 
-            this.btnWstecz.Location = new System.Drawing.Point(364, 124);
+            this.btnWstecz.Location = new System.Drawing.Point(541, 119);
             this.btnWstecz.Name = "btnWstecz";
             this.btnWstecz.Size = new System.Drawing.Size(131, 30);
             this.btnWstecz.TabIndex = 25;
@@ -110,7 +110,7 @@
             // 
             // btnUsun
             // 
-            this.btnUsun.Location = new System.Drawing.Point(364, 88);
+            this.btnUsun.Location = new System.Drawing.Point(541, 83);
             this.btnUsun.Name = "btnUsun";
             this.btnUsun.Size = new System.Drawing.Size(131, 30);
             this.btnUsun.TabIndex = 26;
@@ -120,7 +120,7 @@
             // 
             // btnDodawanieCech
             // 
-            this.btnDodawanieCech.Location = new System.Drawing.Point(364, 52);
+            this.btnDodawanieCech.Location = new System.Drawing.Point(541, 47);
             this.btnDodawanieCech.Name = "btnDodawanieCech";
             this.btnDodawanieCech.Size = new System.Drawing.Size(131, 30);
             this.btnDodawanieCech.TabIndex = 27;
@@ -132,7 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(707, 554);
             this.Controls.Add(this.btnDodawanieCech);
             this.Controls.Add(this.btnUsun);
             this.Controls.Add(this.btnWstecz);

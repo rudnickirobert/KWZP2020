@@ -54,13 +54,6 @@ namespace Szwalnia
             this.Hide();
         }
 
-        private void btnCechyElementow_Click(object sender, EventArgs e)
-        {
-            DodoawanieCechElementowi cechyElementu = new DodoawanieCechElementowi();
-            cechyElementu.Show();
-            this.Hide();
-        }
-
         private void ElementyForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Start.GetForm.Show();

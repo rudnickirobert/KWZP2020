@@ -20,8 +20,9 @@ namespace Szwalnia
             db = Start.szwalnia;
             numID = ID;
             Elementy element = db.Elementy.Where(wybrany => wybrany.ID_Element == ID).First();
-            lblElement.Text = "Szczegoly elementu o ID: " + element.ID_Element;
             txtNazwa.Text = element.Element_Nazwa;
+            lblElement.Text = "Elementu: " + element.Element_Nazwa + " (ID = " + element.ID_Element + ")";
+            
             if (element.Okres_Przydatnosci_Miesiace == 0)
             {
                 txtOkres.Text = "Nie dotyczy";
@@ -47,7 +48,7 @@ namespace Szwalnia
 
         private void btnDodawanieCech_Click(object sender, EventArgs e)
         {
-            DodoawanieCechElementowi cechyElementu = new DodoawanieCechElementowi();
+            DodoawanieCechElementowi cechyElementu = new DodoawanieCechElementowi(numID);
             cechyElementu.Show();
             this.Hide();
         }
@@ -55,7 +56,11 @@ namespace Szwalnia
         private void btnUsun_Click(object sender, EventArgs e)
         {
             Elementy elementUsun = db.Elementy.Where(wybrany => wybrany.ID_Element == numID).First();
-            void Clear(Elementy,)
+            db.Elementy.Remove(elementUsun);
+            db.SaveChanges();
+            MessageBox.Show("Pomyślnie usunięto element");
+            Application.OpenForms[typeof(ElementyForm).Name].Show();
+            this.Hide();
         }
     }
 }
