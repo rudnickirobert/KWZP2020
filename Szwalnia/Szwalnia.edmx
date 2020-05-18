@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SzwalniaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SzwalniaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Czesci_Obsluga">
           <Key>
             <PropertyRef Name="ID_Czesci_Obsluga" />
@@ -767,13 +767,15 @@ warning 6002: The table/view 'Szwalnia.dbo.vPolki_na_regalach' does not have a p
         <EntityType Name="vPolki_na_regalach">
           <Key>
             <PropertyRef Name="ID_Polka" />
+            <PropertyRef Name="Stan" />
           </Key>
           <Property Name="Oznaczenie" Type="varchar" MaxLength="2" />
           <Property Name="ID_Polka" Type="int" Nullable="false" />
           <Property Name="Wysokosc" Type="int" />
           <Property Name="Szerokosc" Type="int" />
           <Property Name="Glebokosc" Type="int" />
-          <Property Name="Wymiar" Type="nvarchar" MaxLength="96" />
+          <Property Name="Wymiar" Type="nvarchar" MaxLength="99" />
+          <Property Name="Stan" Type="varchar" MaxLength="6" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vPolki_Rozmiary' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -785,7 +787,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPolki_Rozmiary' does not have a prim
           <Property Name="Wysokosc" Type="int" />
           <Property Name="Szerokosc" Type="int" />
           <Property Name="Glebokosc" Type="int" />
-          <Property Name="Wymiar" Type="int" />
+          <Property Name="Wymiar" Type="nvarchar" MaxLength="96" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vProces_elementy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1032,16 +1034,16 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
 warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vZawartosc_polki">
           <Key>
-            <PropertyRef Name="ID_Regal" />
+            <PropertyRef Name="ID_Zawartosc" />
           </Key>
-          <Property Name="ID_Regal" Type="int" Nullable="false" />
-          <Property Name="Oznaczenie" Type="varchar" MaxLength="2" />
+          <Property Name="ID_Zawartosc" Type="int" Nullable="false" />
           <Property Name="ID_Polka" Type="int" />
           <Property Name="Element_Nazwa" Type="varchar" MaxLength="35" />
-          <Property Name="Ilosc_Paczek" Type="real" />
-          <Property Name="Ilosc_W_Opakowaniu_Pojedynczym" Type="real" />
+          <Property Name="ID_Element" Type="int" />
+          <Property Name="Ile" Type="real" />
           <Property Name="Jednostka" Type="varchar" MaxLength="10" />
-          <Property Name="Ile_sztuk" Type="real" />
+          <Property Name="Data_Dostawy_Rzeczywista" Type="date" />
+          <Property Name="Okres_Przydatnosci_Miesiace" Type="int" />
         </EntityType>
         <Association Name="FK__Czesci_Ob__ID_El__4E53A1AA">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
@@ -2200,7 +2202,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
     [vPolki_na_regalach].[Wysokosc] AS [Wysokosc], 
     [vPolki_na_regalach].[Szerokosc] AS [Szerokosc], 
     [vPolki_na_regalach].[Glebokosc] AS [Glebokosc], 
-    [vPolki_na_regalach].[Wymiar] AS [Wymiar]
+    [vPolki_na_regalach].[Wymiar] AS [Wymiar], 
+    [vPolki_na_regalach].[Stan] AS [Stan]
     FROM [dbo].[vPolki_na_regalach] AS [vPolki_na_regalach]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vPolki_Rozmiary" EntityType="Self.vPolki_Rozmiary" store:Type="Views" store:Schema="dbo">
@@ -2368,14 +2371,14 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           </EntitySet>
           <EntitySet Name="vZawartosc_polki" EntityType="Self.vZawartosc_polki" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [vZawartosc_polki].[ID_Regal] AS [ID_Regal], 
-    [vZawartosc_polki].[Oznaczenie] AS [Oznaczenie], 
+    [vZawartosc_polki].[ID_Zawartosc] AS [ID_Zawartosc], 
     [vZawartosc_polki].[ID_Polka] AS [ID_Polka], 
     [vZawartosc_polki].[Element_Nazwa] AS [Element_Nazwa], 
-    [vZawartosc_polki].[Ilosc_Paczek] AS [Ilosc_Paczek], 
-    [vZawartosc_polki].[Ilosc_W_Opakowaniu_Pojedynczym] AS [Ilosc_W_Opakowaniu_Pojedynczym], 
+    [vZawartosc_polki].[ID_Element] AS [ID_Element], 
+    [vZawartosc_polki].[Ile] AS [Ile], 
     [vZawartosc_polki].[Jednostka] AS [Jednostka], 
-    [vZawartosc_polki].[Ile_sztuk] AS [Ile_sztuk]
+    [vZawartosc_polki].[Data_Dostawy_Rzeczywista] AS [Data_Dostawy_Rzeczywista], 
+    [vZawartosc_polki].[Okres_Przydatnosci_Miesiace] AS [Okres_Przydatnosci_Miesiace]
     FROM [dbo].[vZawartosc_polki] AS [vZawartosc_polki]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__Czesci_Ob__ID_El__4E53A1AA" Association="Self.FK__Czesci_Ob__ID_El__4E53A1AA">
@@ -2703,7 +2706,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             <End Role="Znajomosc_Jezykow" EntitySet="Znajomosc_Jezykow" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SzwalniaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -3598,6 +3602,19 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="Rodzaj_obsługi" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Imię_i_nazwisko" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
+        <EntityType Name="vPolki_na_regalach">
+          <Key>
+            <PropertyRef Name="ID_Polka" />
+            <PropertyRef Name="Stan" />
+          </Key>
+          <Property Name="Oznaczenie" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Polka" Type="Int32" Nullable="false" />
+          <Property Name="Wysokosc" Type="Int32" />
+          <Property Name="Szerokosc" Type="Int32" />
+          <Property Name="Glebokosc" Type="Int32" />
+          <Property Name="Wymiar" Type="String" MaxLength="99" FixedLength="false" Unicode="true" />
+          <Property Name="Stan" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
         <EntityType Name="vPolki_Rozmiary">
           <Key>
             <PropertyRef Name="ID_Rozmiar_Polki" />
@@ -3606,7 +3623,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="Wysokosc" Type="Int32" />
           <Property Name="Szerokosc" Type="Int32" />
           <Property Name="Glebokosc" Type="Int32" />
-          <Property Name="Wymiar" Type="Int32" />
+          <Property Name="Wymiar" Type="String" MaxLength="96" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="vProces_elementy">
           <Key>
@@ -3809,16 +3826,16 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
         </EntityType>
         <EntityType Name="vZawartosc_polki">
           <Key>
-            <PropertyRef Name="ID_Regal" />
+            <PropertyRef Name="ID_Zawartosc" />
           </Key>
-          <Property Name="ID_Regal" Type="Int32" Nullable="false" />
-          <Property Name="Oznaczenie" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Zawartosc" Type="Int32" Nullable="false" />
           <Property Name="ID_Polka" Type="Int32" />
           <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
-          <Property Name="Ilosc_Paczek" Type="Single" />
-          <Property Name="Ilosc_W_Opakowaniu_Pojedynczym" Type="Single" />
+          <Property Name="ID_Element" Type="Int32" />
+          <Property Name="Ile" Type="Single" />
           <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Ile_sztuk" Type="Single" />
+          <Property Name="Data_Dostawy_Rzeczywista" Type="DateTime" Precision="0" />
+          <Property Name="Okres_Przydatnosci_Miesiace" Type="Int32" />
         </EntityType>
         <Association Name="FK__Czesci_Ob__ID_El__4E53A1AA">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
@@ -4867,6 +4884,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <EntitySet Name="vMaszyny_serwis" EntityType="Self.vMaszyny_serwis" />
           <EntitySet Name="vNiezuzyteWMiesiacu" EntityType="Self.vNiezuzyteWMiesiacu" />
           <EntitySet Name="vObsluga" EntityType="Self.vObsluga" />
+          <EntitySet Name="vPolki_na_regalach" EntityType="Self.vPolki_na_regalach" />
           <EntitySet Name="vPolki_Rozmiary" EntityType="Self.vPolki_Rozmiary" />
           <EntitySet Name="vProces_elementy" EntityType="Self.vProces_elementy" />
           <EntitySet Name="vProces_Etapy" EntityType="Self.vProces_Etapy" />
@@ -5214,19 +5232,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
-          <EntitySet Name="vPolki_na_regalach" EntityType="SzwalniaModel.vPolki_na_regalach" />
         </EntityContainer>
-        <EntityType Name="vPolki_na_regalach">
-          <Key>
-            <PropertyRef Name="ID_Polka" />
-          </Key>
-          <Property Name="Oznaczenie" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
-          <Property Name="ID_Polka" Type="Int32" Nullable="false" />
-          <Property Name="Wysokosc" Type="Int32" />
-          <Property Name="Szerokosc" Type="Int32" />
-          <Property Name="Glebokosc" Type="Int32" />
-          <Property Name="Wymiar" Type="String" MaxLength="96" FixedLength="false" Unicode="true" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -6005,6 +6011,19 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="vPolki_na_regalach">
+            <EntityTypeMapping TypeName="SzwalniaModel.vPolki_na_regalach">
+              <MappingFragment StoreEntitySet="vPolki_na_regalach">
+                <ScalarProperty Name="Oznaczenie" ColumnName="Oznaczenie" />
+                <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
+                <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
+                <ScalarProperty Name="Szerokosc" ColumnName="Szerokosc" />
+                <ScalarProperty Name="Glebokosc" ColumnName="Glebokosc" />
+                <ScalarProperty Name="Wymiar" ColumnName="Wymiar" />
+                <ScalarProperty Name="Stan" ColumnName="Stan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="vPolki_Rozmiary">
             <EntityTypeMapping TypeName="SzwalniaModel.vPolki_Rozmiary">
               <MappingFragment StoreEntitySet="vPolki_Rozmiary">
@@ -6215,26 +6234,14 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <EntitySetMapping Name="vZawartosc_polki">
             <EntityTypeMapping TypeName="SzwalniaModel.vZawartosc_polki">
               <MappingFragment StoreEntitySet="vZawartosc_polki">
-                <ScalarProperty Name="ID_Regal" ColumnName="ID_Regal" />
-                <ScalarProperty Name="Oznaczenie" ColumnName="Oznaczenie" />
+                <ScalarProperty Name="ID_Zawartosc" ColumnName="ID_Zawartosc" />
                 <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
                 <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
-                <ScalarProperty Name="Ilosc_Paczek" ColumnName="Ilosc_Paczek" />
-                <ScalarProperty Name="Ilosc_W_Opakowaniu_Pojedynczym" ColumnName="Ilosc_W_Opakowaniu_Pojedynczym" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="Ile" ColumnName="Ile" />
                 <ScalarProperty Name="Jednostka" ColumnName="Jednostka" />
-                <ScalarProperty Name="Ile_sztuk" ColumnName="Ile_sztuk" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vPolki_na_regalach">
-            <EntityTypeMapping TypeName="SzwalniaModel.vPolki_na_regalach">
-              <MappingFragment StoreEntitySet="vPolki_na_regalach">
-                <ScalarProperty Name="Wymiar" ColumnName="Wymiar" />
-                <ScalarProperty Name="Glebokosc" ColumnName="Glebokosc" />
-                <ScalarProperty Name="Szerokosc" ColumnName="Szerokosc" />
-                <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
-                <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
-                <ScalarProperty Name="Oznaczenie" ColumnName="Oznaczenie" />
+                <ScalarProperty Name="Data_Dostawy_Rzeczywista" ColumnName="Data_Dostawy_Rzeczywista" />
+                <ScalarProperty Name="Okres_Przydatnosci_Miesiace" ColumnName="Okres_Przydatnosci_Miesiace" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

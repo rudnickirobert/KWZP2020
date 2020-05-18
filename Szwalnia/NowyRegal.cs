@@ -35,7 +35,6 @@ namespace Szwalnia
         private void btnDodajRegal_Click(object sender, EventArgs e)
         {
             txtOznaczenie.Text = txtOznaczenie.Text.ToUpper();
-            string nowy = txtOznaczenie.Text;
            
             Regaly regalNew = new Regaly();
 
@@ -44,20 +43,26 @@ namespace Szwalnia
                 regalNew.Oznaczenie = txtOznaczenie.Text;
                 db.Regaly.Add(regalNew);
                 db.SaveChanges();
-                MessageBox.Show("Pomyślnie dodano do bazy regał " + nowy);
-
-                Regaly_wykaz wykaz = new Regaly_wykaz(); //to na razie jest tylko w celu sprawdzenia czy się dodał i pokazuje alfabetycznie
-                wykaz.Show();
+                MessageBox.Show("Pomyślnie dodano do bazy regał " + txtOznaczenie.Text);
                 this.Close();
             }
             else
-                MessageBox.Show("Regał " + nowy + " już istnieje!");
+                MessageBox.Show("Regał " + txtOznaczenie.Text + " już istnieje!");
                 regalNew = null;    
         }
 
         private void NowyRegal_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Start.GetForm.Show();
+            if (Application.OpenForms["NowaPolka"] == null)
+                Start.GetForm.Show();
+            else if (!NowaPolka.isClosedByAnotherForm)
+                Start.GetForm.Show();
+            else
+            {
+                Application.OpenForms["NowaPolka"].Close();
+                NowaPolka nowaPolka = new NowaPolka();
+                nowaPolka.Show();
+            }
         }
     }
 }
