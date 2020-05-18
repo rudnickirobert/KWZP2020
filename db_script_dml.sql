@@ -377,10 +377,10 @@ INSERT INTO
 	Regaly(Oznaczenie)
 VALUES
 	 ('AA'),
-	 ('AB'),
-	 ('AC'),
-	 ('AD'),
-	 ('AE')
+	 ('RR'),
+	 ('ZZ'),
+	 ('KD'),
+	 ('PM')
 
 INSERT INTO
 	Typy_cechy_rejestr (ID_typ, ID_cecha)
