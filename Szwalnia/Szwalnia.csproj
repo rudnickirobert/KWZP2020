@@ -470,6 +470,12 @@
     <Compile Include="SredniCzasProdukcji.Designer.cs">
       <DependentUpon>SredniCzasProdukcji.cs</DependentUpon>
     </Compile>
+    <Compile Include="StanMagazynowyElementy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StanMagazynowyElementy.Designer.cs">
+      <DependentUpon>StanMagazynowyElementy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Stanowisko.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -638,6 +644,9 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vSredniCzasWgElementu.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vStan_magazynowy_elementy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vStan_magazynowy_polki.cs">
@@ -875,6 +884,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StanMagazynowyCalkowity.resx">
       <DependentUpon>StanMagazynowyCalkowity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StanMagazynowyElementy.resx">
+      <DependentUpon>StanMagazynowyElementy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SumaCzasuPokaz.resx">
       <DependentUpon>SumaCzasuPokaz.cs</DependentUpon>

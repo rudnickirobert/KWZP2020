@@ -956,6 +956,17 @@ warning 6002: The table/view 'Szwalnia.dbo.vSredniCzasWgElementu' does not have 
           <Property Name="Sredni_czas" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vStan_magazynowy_elementy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vStan_magazynowy_elementy">
+          <Key>
+            <PropertyRef Name="ID_Element" />
+          </Key>
+          <Property Name="Element_Nazwa" Type="varchar" MaxLength="35" />
+          <Property Name="ID_Element" Type="int" Nullable="false" />
+          <Property Name="Ile" Type="float" />
+          <Property Name="Jednostka" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vStan_magazynowy_polki' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vStan_magazynowy_polki">
           <Key>
@@ -2315,6 +2326,14 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
     [vSredniCzasWgElementu].[Nazwa_produktu] AS [Nazwa_produktu], 
     [vSredniCzasWgElementu].[Sredni_czas] AS [Sredni_czas]
     FROM [dbo].[vSredniCzasWgElementu] AS [vSredniCzasWgElementu]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vStan_magazynowy_elementy" EntityType="Self.vStan_magazynowy_elementy" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vStan_magazynowy_elementy].[Element_Nazwa] AS [Element_Nazwa], 
+    [vStan_magazynowy_elementy].[ID_Element] AS [ID_Element], 
+    [vStan_magazynowy_elementy].[Ile] AS [Ile], 
+    [vStan_magazynowy_elementy].[Jednostka] AS [Jednostka]
+    FROM [dbo].[vStan_magazynowy_elementy] AS [vStan_magazynowy_elementy]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vStan_magazynowy_polki" EntityType="Self.vStan_magazynowy_polki" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -5213,6 +5232,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
             <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
           <EntitySet Name="vPolki_Rozmiary" EntityType="SzwalniaModel.vPolki_Rozmiary" />
+          <EntitySet Name="vStan_magazynowy_elementy" EntityType="SzwalniaModel.vStan_magazynowy_elementy" />
         </EntityContainer>
         <EntityType Name="vPolki_Rozmiary">
           <Key>
@@ -5223,6 +5243,15 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
           <Property Name="Szerokosc" Type="Int32" />
           <Property Name="Glebokosc" Type="Int32" />
           <Property Name="Wymiar" Type="String" MaxLength="96" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vStan_magazynowy_elementy">
+          <Key>
+            <PropertyRef Name="ID_Element" />
+          </Key>
+          <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Element" Type="Int32" Nullable="false" />
+          <Property Name="Ile" Type="Double" />
+          <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -6231,6 +6260,16 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienieProcesyProdukcyjne' does n
                 <ScalarProperty Name="Szerokosc" ColumnName="Szerokosc" />
                 <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
                 <ScalarProperty Name="ID_Rozmiar_Polki" ColumnName="ID_Rozmiar_Polki" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vStan_magazynowy_elementy">
+            <EntityTypeMapping TypeName="SzwalniaModel.vStan_magazynowy_elementy">
+              <MappingFragment StoreEntitySet="vStan_magazynowy_elementy">
+                <ScalarProperty Name="Jednostka" ColumnName="Jednostka" />
+                <ScalarProperty Name="Ile" ColumnName="Ile" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -32,7 +32,8 @@ namespace Szwalnia
 
         private void btnWgElementow_Click(object sender, EventArgs e)
         {
-
+            StanMagazynowyElementy elementy = new StanMagazynowyElementy();
+            elementy.Show();
         }
 
         private void btnPustePolki_Click(object sender, EventArgs e)
