@@ -16,7 +16,7 @@ namespace Szwalnia
     {
         public int ID_Dostawy { get; set; }
         public Nullable<int> ID_Element { get; set; }
-        public Nullable<float> Ilosc { get; set; }
         public Nullable<float> Ilosc_w_paczce { get; set; }
+        public Nullable<float> Ilosc { get; set; }
     }
 }
