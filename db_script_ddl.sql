@@ -342,6 +342,7 @@ ID_Pracownicy int
 ID_Dostawy int
 	FOREIGN KEY REFERENCES
 	Zamowienia_Dostawy (ID_Dostawy),
+ID_Zamowienie_element int,
 ID_element int
 	FOREIGN KEY REFERENCES
 	Elementy(ID_Element),
@@ -351,6 +352,7 @@ ID_Miejsca int
 	Miejsca(ID_Miejsca),
 Data_Dostarczenia varchar(10),
 )
+
 
 CREATE TABLE Dostarczenia_Zewn (
 ID_Dostarczenia int IDENTITY(1,1) PRIMARY KEY,
@@ -514,7 +516,7 @@ Data_Zakonczenia SMALLDATETIME NULL);
 CREATE TABLE Kontrola_Efektywnosci  
 (ID_Kontrola_Efektywnosci int IDENTITY(1,1) PRIMARY KEY NOT NULL, 
 ID_Procesu_Produkcyjnego int FOREIGN KEY REFERENCES Proces_Produkcyjny (ID_Procesu_Produkcyjnego) NOT NULL,  
-Data_Kontroli smalldatetime NOT NULL, 
+Data_Kontroli smalldatetime NULL, 
 Dokument image NULL, 
 Uwagi varchar(300) NULL, 
 Zgodnosc_Zamowienia bit NULL, 

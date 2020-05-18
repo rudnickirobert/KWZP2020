@@ -13,13 +13,13 @@ namespace Szwalnia
     public partial class NiewykorzystanyMaterialProces : Form
     {
         public SzwalniaEntities db;
-        public int IdProcesu;
-        public NiewykorzystanyMaterialProces(SzwalniaEntities db, int IdProcesu )
+        public int idProcesu;
+        public NiewykorzystanyMaterialProces(SzwalniaEntities db, int idProcesu )
         {
             InitializeComponent();
             this.db = db;
-            this.IdProcesu = IdProcesu;
-            Proces_Produkcyjny proces = db.Proces_Produkcyjny.Where(wybrany => wybrany.ID_Procesu_Produkcyjnego == IdProcesu).First();
+            this.idProcesu = idProcesu;
+            Proces_Produkcyjny proces = db.Proces_Produkcyjny.Where(wybrany => wybrany.ID_Procesu_Produkcyjnego == idProcesu).First();
             lblTekst.Text = "Niewykorzystany materiał / odpad w procesie produkcyjnym o ID " + proces.ID_Procesu_Produkcyjnego;
             dgvNiewykorzystanyMaterial.DataSource = db.vNieuzytyMaterialOdpad.Where(material => material.ID_Procesu_Produkcyjnego == proces.ID_Procesu_Produkcyjnego).ToList();
            
@@ -51,7 +51,7 @@ namespace Szwalnia
 
         private void btnNowy_Click(object sender, EventArgs e)
         {
-            NowyNiewykorzystanyMaterialOdpad nowyNiewykorzystanyMaterialOdpad = new NowyNiewykorzystanyMaterialOdpad(db, IdProcesu);
+            NowyNiewykorzystanyMaterialOdpad nowyNiewykorzystanyMaterialOdpad = new NowyNiewykorzystanyMaterialOdpad(db, idProcesu);
             nowyNiewykorzystanyMaterialOdpad.Show();
         }
     }

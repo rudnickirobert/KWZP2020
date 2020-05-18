@@ -13,13 +13,13 @@ namespace Szwalnia
     public partial class KontrolaEfektywnosciSzczegoly : Form
     {
         public SzwalniaEntities db;
-        public int IdProcesu;
-        public KontrolaEfektywnosciSzczegoly(SzwalniaEntities db, int IdProcesu)
+        public int idProcesu;
+        public KontrolaEfektywnosciSzczegoly(SzwalniaEntities db, int idProcesu)
         {
             InitializeComponent();
             this.db = db;
-            this.IdProcesu = IdProcesu; 
-            Kontrola_Efektywnosci numerProcesu = db.Kontrola_Efektywnosci.Where(proces => proces.ID_Procesu_Produkcyjnego == IdProcesu).First();
+            this.idProcesu = idProcesu; 
+            Kontrola_Efektywnosci numerProcesu = db.Kontrola_Efektywnosci.Where(proces => proces.ID_Procesu_Produkcyjnego == idProcesu).First();
             lblProces.Text = "Kontrola efektywności dla procesu produkcyjnego o ID " + numerProcesu.ID_Procesu_Produkcyjnego;
             mtbDataKontroli.Text = numerProcesu.Data_Kontroli.ToString();
             txtLiczbaPoprawnych.Text = numerProcesu.Liczba_Poprawnych.ToString();

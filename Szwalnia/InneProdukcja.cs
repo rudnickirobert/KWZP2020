@@ -50,10 +50,10 @@ namespace Szwalnia
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSzacowanyCzasTechnologia_Click(object sender, EventArgs e)
         {
-            SzacowanyCzasTechnologia szacowanyCzasWgTechnologow = new SzacowanyCzasTechnologia(db);
-            szacowanyCzasWgTechnologow.Show();
+            SzacowanyCzasTechnologia szacowanyCzasTechnologow = new SzacowanyCzasTechnologia(db);
+            szacowanyCzasTechnologow.Show();
         }
     }
 }

@@ -45,20 +45,25 @@ namespace Szwalnia
             czasTeraz = DateTime.Now;
             czasTeraz2 = czasTeraz.TimeOfDay;
             godziny = czasTeraz2.Hours;
+            int ostatniaGodzinaPracy = 22;
+            int czasPracy = 16;
+            int dobowaPrzerwa = 8;
+            int weekend = 48;
+            int piatek = 5;
 
-            if ((22 - godziny) > czasWieluSztukInt)
+            if ((ostatniaGodzinaPracy - godziny) > czasWieluSztukInt)
             {
                 czasObliczeniowy = czasWieluSztukInt;
             }
             else {
-                czasObliczeniowyDni = (czasWieluSztukInt - (22 - godziny)) / 16 + 1; 
+                czasObliczeniowyDni = (czasWieluSztukInt - (ostatniaGodzinaPracy - godziny)) / czasPracy + 1; 
                 
 
-                if ((Convert.ToInt32(czasTeraz.DayOfWeek) + czasObliczeniowyDni) > 5 )
+                if ((Convert.ToInt32(czasTeraz.DayOfWeek) + czasObliczeniowyDni) > piatek )
                 {
-                    czasObliczeniowy = czasObliczeniowyDni * 8 + 48 + czasWieluSztukInt;
+                    czasObliczeniowy = czasObliczeniowyDni * dobowaPrzerwa + weekend + czasWieluSztukInt;
                 }
-                else czasObliczeniowy = (czasObliczeniowyDni * 8) + czasWieluSztukInt;
+                else czasObliczeniowy = (czasObliczeniowyDni * dobowaPrzerwa) + czasWieluSztukInt;
             }
 
             czasWykonania = DateTime.Now;

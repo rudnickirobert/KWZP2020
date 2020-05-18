@@ -31,8 +31,6 @@ namespace Szwalnia
         {
             Material_Na_Produkcji materialProdukcja = new Material_Na_Produkcji();
 
-
-
             if (string.IsNullOrEmpty(cbxElement.Text))
             {
                 MessageBox.Show("Uzupełnienie pola 'Element' jest wymagane!");
@@ -42,25 +40,17 @@ namespace Szwalnia
                 materialProdukcja.ID_Elementy_Proces = Convert.ToInt32(cbxElement.SelectedValue);
                 materialProdukcja.ID_Procesu_Produkcyjnego = idProcesu;
 
-
-
                 if (tbNiewykorzystanyMaterial.Text != pustePoleMagazyn)
                 {
                     materialProdukcja.Niezuzyty_material = Convert.ToUInt64(tbNiewykorzystanyMaterial.Text);
                 }
-
-
 
                 if (tbOdpad.Text != pustePoleMagazyn)
                 {
                     materialProdukcja.Odpad = Convert.ToUInt64(tbOdpad.Text);
                 }
 
-
-
                 materialProdukcja.Magazyn_odebral_material = chbOdbior.Checked;
-
-
 
             }
             db.Material_Na_Produkcji.Add(materialProdukcja);

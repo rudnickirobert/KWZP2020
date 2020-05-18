@@ -30,9 +30,6 @@ namespace Szwalnia
             dgvProcesyProdukcyjne.Columns[6].HeaderText = "Data zakończenia";
             dgvProcesyProdukcyjne.Columns[0].Width = 95;
             dgvProcesyProdukcyjne.Columns[7].Width = 130;
-
-
-
         }
 
         private void btnWszystkieProcesy_Click(object sender, EventArgs e)

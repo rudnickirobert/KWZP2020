@@ -100,7 +100,7 @@
             this.btnSzacowanyCzasTechnologia.TabIndex = 10;
             this.btnSzacowanyCzasTechnologia.Text = "Szacowany czas wykonania zamówienia według  technologii";
             this.btnSzacowanyCzasTechnologia.UseVisualStyleBackColor = true;
-            this.btnSzacowanyCzasTechnologia.Click += new System.EventHandler(this.button1_Click);
+            this.btnSzacowanyCzasTechnologia.Click += new System.EventHandler(this.btnSzacowanyCzasTechnologia_Click);
             // 
             // InneProdukcja
             // 

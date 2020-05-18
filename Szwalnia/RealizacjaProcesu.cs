@@ -40,7 +40,7 @@ namespace Szwalnia
 
         private void btnZapisz_Click(object sender, EventArgs e)
         {
-           // this.db.AcceptChanges();
+            db.SaveChanges();
             MessageBox.Show("Zaaktualizowano realizację procesu");
         }
 

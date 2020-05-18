@@ -40,6 +40,7 @@
             this.lblGwiazdka = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnWyzeruj = new System.Windows.Forms.Button();
+            this.lblOpisGwiazdy = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label3
@@ -173,12 +174,23 @@
             this.btnWyzeruj.UseVisualStyleBackColor = true;
             this.btnWyzeruj.Click += new System.EventHandler(this.btnWyzeruj_Click);
             // 
+            // lblOpisGwiazdy
+            // 
+            this.lblOpisGwiazdy.AutoSize = true;
+            this.lblOpisGwiazdy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblOpisGwiazdy.Location = new System.Drawing.Point(58, 306);
+            this.lblOpisGwiazdy.Name = "lblOpisGwiazdy";
+            this.lblOpisGwiazdy.Size = new System.Drawing.Size(137, 20);
+            this.lblOpisGwiazdy.TabIndex = 35;
+            this.lblOpisGwiazdy.Text = "* Pole wymagane";
+            // 
             // KontrolaEfektywnosciSzczegoly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(933, 457);
+            this.Controls.Add(this.lblOpisGwiazdy);
             this.Controls.Add(this.btnWyzeruj);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblGwiazdka);
@@ -213,5 +225,6 @@
         private System.Windows.Forms.Label lblGwiazdka;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnWyzeruj;
+        private System.Windows.Forms.Label lblOpisGwiazdy;
     }
 }
