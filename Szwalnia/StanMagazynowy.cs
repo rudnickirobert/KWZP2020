@@ -19,11 +19,6 @@ namespace Szwalnia
             db = Start.szwalnia;
         }
 
-        private void StanMagazynowy_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Start.GetForm.Show();
-        }
-
         private void btnCalkowity_Click(object sender, EventArgs e)
         {
             StanMagazynowyCalkowity calkowity = new StanMagazynowyCalkowity();
@@ -39,6 +34,11 @@ namespace Szwalnia
         private void btnPustePolki_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void StanMagazynowy_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Start.GetForm.Show();
         }
     }
 }

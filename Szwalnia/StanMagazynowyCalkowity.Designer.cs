@@ -37,7 +37,7 @@
             // 
             this.dgvStanMagazynowyCalosciowy.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStanMagazynowyCalosciowy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStanMagazynowyCalosciowy.Location = new System.Drawing.Point(29, 82);
+            this.dgvStanMagazynowyCalosciowy.Location = new System.Drawing.Point(12, 81);
             this.dgvStanMagazynowyCalosciowy.Name = "dgvStanMagazynowyCalosciowy";
             this.dgvStanMagazynowyCalosciowy.Size = new System.Drawing.Size(855, 255);
             this.dgvStanMagazynowyCalosciowy.TabIndex = 0;
@@ -46,7 +46,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label1.Location = new System.Drawing.Point(274, 27);
+            this.label1.Location = new System.Drawing.Point(264, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(355, 31);
             this.label1.TabIndex = 12;
@@ -56,7 +56,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(913, 366);
+            this.ClientSize = new System.Drawing.Size(879, 347);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvStanMagazynowyCalosciowy);
             this.Name = "StanMagazynowyCalkowity";

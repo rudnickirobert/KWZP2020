@@ -18,9 +18,6 @@ namespace Szwalnia
             InitializeComponent();
             db = Start.szwalnia;
 
-            //Polki_regaly id = db.Polki_regaly.Where(idRegal => idRegal.ID_Polka == idPolki).FirstOrDefault();
-            //Regaly storage = db.Regaly.Where(regal => regal.ID_regal == id.ID_regal).FirstOrDefault();
-
             vStan_magazynowy_polki content = db.vStan_magazynowy_polki.Where(zawartosc => zawartosc.ID_Polka == idPolki).FirstOrDefault();
 
             lblTitle.Text = "Półka nr " + content.ID_Polka.ToString() + ", regał: " +content.Oznaczenie;
