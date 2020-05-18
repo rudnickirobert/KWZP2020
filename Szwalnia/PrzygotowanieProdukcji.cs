@@ -294,12 +294,7 @@ namespace Szwalnia
             MessageBox.Show("Dodano nowy proces technologiczny");
         }
 
-        private void PrzygotowanieProdukcji_Load(object sender, EventArgs e)
-        {
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'szwalniaDataSet.vObsluga' . Możesz go przenieść lub usunąć.
-            //this.vObslugaTableAdapter.Fill(this.szwalniaDataSet.vObsluga);
 
-        }
 
         private void btnDodaj_Maszyne_Click(object sender, EventArgs e)
         {
