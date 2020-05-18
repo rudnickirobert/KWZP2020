@@ -85,8 +85,13 @@ namespace Szwalnia
 
         private void dgvListaOfert_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            double ilosc = Convert.ToDouble(Math.Abs(intIlosc));
+            double iloscWPaczce = Convert.ToDouble(dgvListaOfert.CurrentRow.Cells[5].Value);
+            int intIloscPaczek = Convert.ToInt32(Math.Ceiling(ilosc / iloscWPaczce));
             int intDostawca = Convert.ToInt32(dgvListaOfert.CurrentRow.Cells[2].Value);
-            PopupAcceptDeny popupAkceptujOdrzuc = new PopupAcceptDeny(intDostawca,intZamowienie);
+            int intOferta = Convert.ToInt32(dgvListaOfert.CurrentRow.Cells[1].Value);
+            int intElementID = Convert.ToInt32(dgvListaOfert.CurrentRow.Cells[0].Value);
+            PopupAcceptDeny popupAkceptujOdrzuc = new PopupAcceptDeny(true,intDostawca,intZamowienie,intIloscPaczek,intOferta,intElementID);
             popupAkceptujOdrzuc.Show();
             this.Hide();
         }

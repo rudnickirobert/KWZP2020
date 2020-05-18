@@ -123,13 +123,15 @@ FROM            dbo.Zawartosc INNER JOIN
                          dbo.Oferta ON dbo.Dostawy_Zawartosc.ID_oferta = dbo.Oferta.ID_Oferta INNER JOIN
                          dbo.Polki ON dbo.Zawartosc.ID_Polka = dbo.Polki.ID_Polka
 GO
---widok pokazujacy ostatnio wstawiona dostawe
-CREATE VIEW [dbo].[vOstatniaDostawaWlasnaID]
+
+--widok pokazuj¹cy od kogo jest która dostawa i do którego zamówienia
+CREATE VIEW [dbo].[vDostawcyDostawDoZamowien]
 AS
-SELECT        MAX(dbo.Zamowienia_Dostawy_Wlasne.ID_Zamowienia_dostawy_wlasne) AS OstatnieID, dbo.Zamowienia.ID_Zamowienia, dbo.Zamowienia_Dostawy_Wlasne.ID_miejsca
-FROM            dbo.Zamowienia_Dostawy_Wlasne INNER JOIN
-                         dbo.Zamowienia ON dbo.Zamowienia_Dostawy_Wlasne.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia
-GROUP BY dbo.Zamowienia.ID_Zamowienia, dbo.Zamowienia_Dostawy_Wlasne.ID_miejsca
+SELECT        dbo.Zamowienia_Dostawy.ID_Zamowienia, dbo.Zamowienia_Dostawy.ID_Dostawy, dbo.Oferta.ID_Dostawcy, dbo.Zamowienia_Dostawy.ID_statusu
+FROM            dbo.Zamowienia_Dostawy INNER JOIN
+                         dbo.Dostawy_Zawartosc ON dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Dostawy_Zawartosc.ID_Dostawy INNER JOIN
+                         dbo.Oferta ON dbo.Dostawy_Zawartosc.ID_oferta = dbo.Oferta.ID_Oferta
+WHERE        (dbo.Zamowienia_Dostawy.ID_statusu <> 3)
 GO
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------

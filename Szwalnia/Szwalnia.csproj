@@ -570,6 +570,9 @@
     <Compile Include="vDokumentacja_technologiczna.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vDostawcyDostawDoZamowien.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vElementy_proces.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -604,9 +607,6 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vOferta.cs">
-      <DependentUpon>Szwalnia.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vOstatniaDostawaWlasnaID.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vPolki_na_regalach.cs">
