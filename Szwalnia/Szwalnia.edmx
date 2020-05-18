@@ -837,6 +837,16 @@ warning 6002: The table/view 'Szwalnia.dbo.vOferta' does not have a primary key 
           <Property Name="Telefon_1" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vOstatniaDostawaWlasnaID' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vOstatniaDostawaWlasnaID">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia" />
+          </Key>
+          <Property Name="OstatnieID" Type="int" />
+          <Property Name="ID_Zamowienia" Type="int" Nullable="false" />
+          <Property Name="ID_miejsca" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vPolki_na_regalach' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vPolki_na_regalach">
           <Key>
@@ -1116,6 +1126,19 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
           <Property Name="Ilosc_W_Opakowaniu_Pojedynczym" Type="real" />
           <Property Name="Jednostka" Type="varchar" MaxLength="10" />
           <Property Name="Ile_sztuk" Type="real" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vZawartoscMagazynuDoPrzydzialu">
+          <Key>
+            <PropertyRef Name="ID_Polka" />
+          </Key>
+          <Property Name="ID_Polka" Type="int" Nullable="false" />
+          <Property Name="ID_Element" Type="int" />
+          <Property Name="ID_Dostawy" Type="int" />
+          <Property Name="Element_Oznaczenie" Type="varchar" MaxLength="20" />
+          <Property Name="Ilosc" Type="real" />
+          <Property Name="Cena" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <Association Name="FK__Czesci_Ob__ID_El__56E8E7AB">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
@@ -2359,6 +2382,13 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
     [vOferta].[Telefon_1] AS [Telefon_1]
     FROM [dbo].[vOferta] AS [vOferta]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vOstatniaDostawaWlasnaID" EntityType="Self.vOstatniaDostawaWlasnaID" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vOstatniaDostawaWlasnaID].[OstatnieID] AS [OstatnieID], 
+    [vOstatniaDostawaWlasnaID].[ID_Zamowienia] AS [ID_Zamowienia], 
+    [vOstatniaDostawaWlasnaID].[ID_miejsca] AS [ID_miejsca]
+    FROM [dbo].[vOstatniaDostawaWlasnaID] AS [vOstatniaDostawaWlasnaID]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vPolki_na_regalach" EntityType="Self.vPolki_na_regalach" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vPolki_na_regalach].[Oznaczenie] AS [Oznaczenie], 
@@ -2543,6 +2573,16 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
     [vZawartosc_polki].[Jednostka] AS [Jednostka], 
     [vZawartosc_polki].[Ile_sztuk] AS [Ile_sztuk]
     FROM [dbo].[vZawartosc_polki] AS [vZawartosc_polki]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vZawartoscMagazynuDoPrzydzialu" EntityType="Self.vZawartoscMagazynuDoPrzydzialu" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vZawartoscMagazynuDoPrzydzialu].[ID_Polka] AS [ID_Polka], 
+    [vZawartoscMagazynuDoPrzydzialu].[ID_Element] AS [ID_Element], 
+    [vZawartoscMagazynuDoPrzydzialu].[ID_Dostawy] AS [ID_Dostawy], 
+    [vZawartoscMagazynuDoPrzydzialu].[Element_Oznaczenie] AS [Element_Oznaczenie], 
+    [vZawartoscMagazynuDoPrzydzialu].[Ilosc] AS [Ilosc], 
+    [vZawartoscMagazynuDoPrzydzialu].[Cena] AS [Cena]
+    FROM [dbo].[vZawartoscMagazynuDoPrzydzialu] AS [vZawartoscMagazynuDoPrzydzialu]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__Czesci_Ob__ID_El__56E8E7AB" Association="Self.FK__Czesci_Ob__ID_El__56E8E7AB">
             <End Role="Elementy" EntitySet="Elementy" />
@@ -3341,6 +3381,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
+          <EntitySet Name="vZawartoscMagazynuDoPrzydzialu" EntityType="SzwalniaModel.vZawartoscMagazynuDoPrzydzialu" />
+          <EntitySet Name="vOstatniaDostawaWlasnaID" EntityType="SzwalniaModel.vOstatniaDostawaWlasnaID" />
         </EntityContainer>
         <EntityType Name="Czesci_Obsluga">
           <Key>
@@ -5562,6 +5604,25 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="vZawartoscMagazynuDoPrzydzialu">
+          <Key>
+            <PropertyRef Name="ID_Polka" />
+          </Key>
+          <Property Name="ID_Polka" Type="Int32" Nullable="false" />
+          <Property Name="ID_Element" Type="Int32" />
+          <Property Name="ID_Dostawy" Type="Int32" />
+          <Property Name="Ilosc" Type="Single" />
+          <Property Name="Cena" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Element_Oznaczenie" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vOstatniaDostawaWlasnaID">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia" />
+          </Key>
+          <Property Name="OstatnieID" Type="Int32" />
+          <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
+          <Property Name="ID_miejsca" Type="Int32" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -6627,6 +6688,27 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartosc_polki' does not have a pri
                 <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
                 <ScalarProperty Name="Oznaczenie" ColumnName="Oznaczenie" />
                 <ScalarProperty Name="ID_Regal" ColumnName="ID_Regal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vZawartoscMagazynuDoPrzydzialu">
+            <EntityTypeMapping TypeName="SzwalniaModel.vZawartoscMagazynuDoPrzydzialu">
+              <MappingFragment StoreEntitySet="vZawartoscMagazynuDoPrzydzialu">
+                <ScalarProperty Name="Element_Oznaczenie" ColumnName="Element_Oznaczenie" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+                <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vOstatniaDostawaWlasnaID">
+            <EntityTypeMapping TypeName="SzwalniaModel.vOstatniaDostawaWlasnaID">
+              <MappingFragment StoreEntitySet="vOstatniaDostawaWlasnaID">
+                <ScalarProperty Name="ID_miejsca" ColumnName="ID_miejsca" />
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
+                <ScalarProperty Name="OstatnieID" ColumnName="OstatnieID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

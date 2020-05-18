@@ -12,11 +12,26 @@ namespace Szwalnia
 {
     public partial class DodawanieDostaw : Form
     {
+        private static bool zamknieciePrzezInnyFormularz;
+        public static bool czyZamknietyPrzezInny
+        {
+            get
+            {
+                return zamknieciePrzezInnyFormularz;
+            }
+            set
+            {
+                if (zamknieciePrzezInnyFormularz != value)
+                    zamknieciePrzezInnyFormularz = value;
+            }
+        }
         public SzwalniaEntities db;
         public DodawanieDostaw(bool czyPuste)
         {
             InitializeComponent();
+            db = null;
             db = Start.szwalnia;
+            zamknieciePrzezInnyFormularz = false;
             if (czyPuste) 
             {
                 dgvListaMaterialow.Visible = false;
@@ -24,6 +39,7 @@ namespace Szwalnia
             else
             {
                 dgvListaMaterialow.Visible = true;
+                dgvListaMaterialow.DataSource = null;
                 dgvListaMaterialow.DataSource = db.vMaterialyDoZamowieniaBrak.ToList();
                 dgvListaMaterialow.Columns[0].HeaderText = "Numer zamówienia";
                 dgvListaMaterialow.Columns[1].HeaderText = "Numer produktu";
@@ -36,7 +52,10 @@ namespace Szwalnia
 
         private void DodawanieDostaw_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Start.GetForm.Show();
+            if (!zamknieciePrzezInnyFormularz)
+            {
+                Start.GetForm.Show();
+            }
         }
 
         private void dgvListaMaterialow_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

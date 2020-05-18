@@ -50,7 +50,26 @@ namespace Szwalnia
             {
                 dgvListaOfert.Visible = false;
             }
-            
+            //petla dla drugiego dgv
+            if (db.vZawartoscMagazynuDoPrzydzialu.Where(element => element.ID_Element == intElement).Any() == true)
+            {
+                dgvMagazynZawartosc.DataSource = db.vZawartoscMagazynuDoPrzydzialu.Where(element => element.ID_Element == intElement).ToList();
+                dgvMagazynZawartosc.Columns[0].Visible = false;
+                dgvMagazynZawartosc.Columns[1].Visible = false;
+                dgvMagazynZawartosc.Columns[2].Visible = false;
+            }
+            else
+            {
+                DataTable informacjaOBrakuNaMagazynie = new DataTable();
+                informacjaOBrakuNaMagazynie.Columns.Add("Informacja");
+                informacjaOBrakuNaMagazynie.Rows.Add("Na magazynie nie ma produktów spełniających wymagania");
+                dgvMagazynZawartosc.DataSource = informacjaOBrakuNaMagazynie;
+            }
+
+
+
+
+
         }
 
         private void WyborOferty_FormClosed(object sender, FormClosedEventArgs e)
@@ -59,12 +78,26 @@ namespace Szwalnia
             {
                 Start.GetForm.Show();
             }
+
+            DodawanieDostaw.czyZamknietyPrzezInny = true;
+            Application.OpenForms["DodawanieDostaw"].Close();
         }
 
         private void dgvListaOfert_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int intDostawca = Convert.ToInt32(dgvListaOfert.CurrentRow.Cells[2].Value);
-            PopupAcceptDeny popupAkceptujOdrzuc = new PopupAcceptDeny(intDostawca);
+            PopupAcceptDeny popupAkceptujOdrzuc = new PopupAcceptDeny(intDostawca,intZamowienie);
+            popupAkceptujOdrzuc.Show();
+            this.Hide();
+        }
+
+        private void dgvMagazynZawartosc_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int intPolka = Convert.ToInt32(dgvMagazynZawartosc.CurrentRow.Cells[0].Value);
+            int intDostawa = Convert.ToInt32(dgvMagazynZawartosc.CurrentRow.Cells[2].Value);
+            int intElement = Convert.ToInt32(dgvMagazynZawartosc.CurrentRow.Cells[1].Value);
+            int intIlosc = Convert.ToInt32(dgvMagazynZawartosc.CurrentRow.Cells[3].Value);
+            PopupAcceptDeny popupAkceptujOdrzuc = new PopupAcceptDeny(intPolka,intDostawa,intElement,intIlosc,intZamowienie);
             popupAkceptujOdrzuc.Show();
             this.Hide();
         }

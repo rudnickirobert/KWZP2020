@@ -112,6 +112,25 @@ GROUP BY dbo.Oferta.ID_Element, dbo.Oferta.ID_Oferta, dbo.Oferta.Element_Oznacze
                          dbo.Dostawcy_Zaopatrzenie.Nazwa, dbo.Dostawcy_Zaopatrzenie.Telefon_1, dbo.Oferta.Ilosc_Minimalna, dbo.Oferta.Ilosc_Maksymalna, dbo.Oferta.Deklarowany_czas_dostawy
 GO
 
+--widok zawartosci magazynu do przydzia³u do zamowien
+CREATE VIEW [dbo].[vZawartoscMagazynuDoPrzydzialu]
+AS
+SELECT        dbo.Polki.ID_Polka, dbo.Zawartosc.ID_Element, dbo.Zawartosc.ID_Dostawy, dbo.Oferta.Element_Oznaczenie, dbo.Zawartosc.Ilosc_Paczek * dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym AS Ilosc, 
+                         CAST(dbo.Oferta.Cena_Jedn AS DECIMAL(18, 2)) AS Cena
+FROM            dbo.Zawartosc INNER JOIN
+                         dbo.Zamowienia_Dostawy ON dbo.Zawartosc.ID_Dostawy = dbo.Zamowienia_Dostawy.ID_Dostawy INNER JOIN
+                         dbo.Dostawy_Zawartosc ON dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Dostawy_Zawartosc.ID_Dostawy INNER JOIN
+                         dbo.Oferta ON dbo.Dostawy_Zawartosc.ID_oferta = dbo.Oferta.ID_Oferta INNER JOIN
+                         dbo.Polki ON dbo.Zawartosc.ID_Polka = dbo.Polki.ID_Polka
+GO
+--widok pokazujacy ostatnio wstawiona dostawe
+CREATE VIEW [dbo].[vOstatniaDostawaWlasnaID]
+AS
+SELECT        MAX(dbo.Zamowienia_Dostawy_Wlasne.ID_Zamowienia_dostawy_wlasne) AS OstatnieID, dbo.Zamowienia.ID_Zamowienia, dbo.Zamowienia_Dostawy_Wlasne.ID_miejsca
+FROM            dbo.Zamowienia_Dostawy_Wlasne INNER JOIN
+                         dbo.Zamowienia ON dbo.Zamowienia_Dostawy_Wlasne.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia
+GROUP BY dbo.Zamowienia.ID_Zamowienia, dbo.Zamowienia_Dostawy_Wlasne.ID_miejsca
+GO
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------WIDOKI PRODUKCJA----------------------------------------------------
