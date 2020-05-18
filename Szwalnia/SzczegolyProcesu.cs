@@ -13,30 +13,52 @@ namespace Szwalnia
     public partial class SzczegolyProcesu : Form
     {
         public SzwalniaEntities db;
-        public int IdProcesu;
-        public SzczegolyProcesu(SzwalniaEntities db, int IdProcesu)
+        public int idProcesu;
+        public SzczegolyProcesu(SzwalniaEntities db, int idProcesu)
         {
             InitializeComponent();
             this.db = db;
-            this.IdProcesu = IdProcesu;
+            this.idProcesu = idProcesu;
+            Proces_Produkcyjny proces = db.Proces_Produkcyjny.Where(wybrany => wybrany.ID_Procesu_Produkcyjnego == idProcesu).First();
+            lblProces.Text = "Szczegóły procesu produkcyjnego o ID " + proces.ID_Procesu_Produkcyjnego;
         }
 
         private void btnRealizacjaProcesu_Click(object sender, EventArgs e)
         {
-            RealizacjaProcesu realizacjaProcesu = new RealizacjaProcesu(db,IdProcesu);
+            RealizacjaProcesu realizacjaProcesu = new RealizacjaProcesu(db,idProcesu);
             realizacjaProcesu.Show();
         }
 
         private void btnKontrolaEfektywnosci_Click(object sender, EventArgs e)
         {
-            KontrolaEfektywnosciFormSzczegoly kontrolaEfektywnosciFormSzczegoly = new KontrolaEfektywnosciFormSzczegoly(db, IdProcesu);
+            KontrolaEfektywnosciFormSzczegoly kontrolaEfektywnosciFormSzczegoly = new KontrolaEfektywnosciFormSzczegoly(db, idProcesu);
             kontrolaEfektywnosciFormSzczegoly.Show();
         }
 
         private void btnMaterialProdukcja_Click(object sender, EventArgs e)
         {
-            NiewykorzystanyMaterialProces niewykorzystanyMaterialProces = new NiewykorzystanyMaterialProces(db, IdProcesu);
+            NiewykorzystanyMaterialProces niewykorzystanyMaterialProces = new NiewykorzystanyMaterialProces(db, idProcesu);
             niewykorzystanyMaterialProces.Show();
+        }
+
+        private void btnWstecz_Click(object sender, EventArgs e)
+        {
+            PrzegladProcesowProdukcyjnych przegladProcesowProdukcyjnych = new PrzegladProcesowProdukcyjnych(db);
+            przegladProcesowProdukcyjnych.Show();
+            this.Close();
+        }
+
+        private void btnTechnologia_Click(object sender, EventArgs e)
+        {
+            ProdukcjaOdTechnologii produkcjaOdTechnologii = new ProdukcjaOdTechnologii(db,idProcesu);
+            produkcjaOdTechnologii.Show();
+
+        }
+
+        private void btnOdbiorMaterialu_Click(object sender, EventArgs e)
+        {
+            OdbiorMaterialu odbiorMaterialu = new OdbiorMaterialu(db, idProcesu);
+            odbiorMaterialu.Show();
         }
     }
 }

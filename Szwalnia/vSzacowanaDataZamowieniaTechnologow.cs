@@ -12,10 +12,12 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vProcesMaxOdpadMiesiac
+    public partial class vSzacowanaDataZamowieniaTechnologow
     {
-        public long id { get; set; }
-        public Nullable<int> Miesiac { get; set; }
-        public Nullable<double> Max_odpad_w_msc { get; set; }
+        public int ID_Zamowienia { get; set; }
+        public int ID_Zamowienie_Element { get; set; }
+        public string Element_Nazwa { get; set; }
+        public Nullable<int> Suma_czasu_godz { get; set; }
+        public Nullable<System.DateTime> Prognozowana_data_wykonania { get; set; }
     }
 }

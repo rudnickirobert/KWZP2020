@@ -12,10 +12,10 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vSredniCzasWgElementu
+    public partial class vPotrzebneMaszynyDoProcesuProdukcyjnego
     {
-        public long id { get; set; }
-        public string Nazwa_produktu { get; set; }
-        public Nullable<int> Sredni_czas { get; set; }
+        public int ID_Procesu_Produkcyjnego { get; set; }
+        public string Rodzaj_Maszyny { get; set; }
+        public int Liczba_Maszyn { get; set; }
     }
 }

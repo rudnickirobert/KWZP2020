@@ -245,6 +245,14 @@
     <Compile Include="NowaPolka.Designer.cs">
       <DependentUpon>NowaPolka.cs</DependentUpon>
     </Compile>
+    <Compile Include="NowyNiewykorzystanyMaterialOdpad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NowyNiewykorzystanyMaterialOdpad.Designer.cs" />
+    <Compile Include="NowyPrzydzialZasobow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NowyPrzydzialZasobow.Designer.cs" />
     <Compile Include="NowyRegal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,23 +268,11 @@
     <Compile Include="MaszynySerwis.Designer.cs">
       <DependentUpon>MaszynySerwis.cs</DependentUpon>
     </Compile>
-    <Compile Include="NajwiekszyOdpad.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NajwiekszyOdpad.Designer.cs">
-      <DependentUpon>NajwiekszyOdpad.cs</DependentUpon>
-    </Compile>
     <Compile Include="NiewykorzystanyMaterialProces.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="NiewykorzystanyMaterialProces.Designer.cs">
       <DependentUpon>NiewykorzystanyMaterialProces.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NiewykorzystanyMaterialWMiesiacu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NiewykorzystanyMaterialWMiesiacu.Designer.cs">
-      <DependentUpon>NiewykorzystanyMaterialWMiesiacu.cs</DependentUpon>
     </Compile>
     <Compile Include="NowaRealizacjaProcesu.cs">
       <SubType>Form</SubType>
@@ -317,6 +313,10 @@
     <Compile Include="Obsluga_Techniczna.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="OdbiorMaterialu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OdbiorMaterialu.Designer.cs" />
     <Compile Include="Odbior_Dostarczenia.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -386,15 +386,47 @@
     <Compile Include="Produkcja.Designer.cs">
       <DependentUpon>Produkcja.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProdukcjaOdTechnologii.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProdukcjaOdTechnologii.Designer.cs" />
     <Compile Include="PrzegladProcesowProdukcyjnych.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PrzegladProcesowProdukcyjnych.designer.cs">
       <DependentUpon>PrzegladProcesowProdukcyjnych.cs</DependentUpon>
     </Compile>
+    <Compile Include="PrzydzialZasobowRealizacja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrzydzialZasobowRealizacja.Designer.cs" />
     <Compile Include="Przydzial_Zasobow.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="RaportKontrolaEfektywnosci.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RaportKontrolaEfektywnosci.Designer.cs" />
+    <Compile Include="RaportMaszynyProdukcja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RaportMaszynyProdukcja.Designer.cs">
+      <DependentUpon>RaportMaszynyProdukcja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportNieuzytyMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RaportNieuzytyMaterial.Designer.cs" />
+    <Compile Include="RaportPracownicyProdukcji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RaportPracownicyProdukcji.designer.cs">
+      <DependentUpon>RaportPracownicyProdukcji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaportProcesyProdukcyjne.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RaportProcesyProdukcyjne.Designer.cs" />
     <Compile Include="RaportyProdukcja.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -482,12 +514,14 @@
     <Compile Include="SumaCzasuPokaz.Designer.cs">
       <DependentUpon>SumaCzasuPokaz.cs</DependentUpon>
     </Compile>
-    <Compile Include="SzacowanyCzasWykonaniaNowegoElementu.cs">
+    <Compile Include="SzacowanyCzas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SzacowanyCzasWykonaniaNowegoElementu.Designer.cs">
-      <DependentUpon>SzacowanyCzasWykonaniaNowegoElementu.cs</DependentUpon>
+    <Compile Include="SzacowanyCzas.Designer.cs" />
+    <Compile Include="SzacowanyCzasTechnologia.cs">
+      <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SzacowanyCzasTechnologia.designer.cs" />
     <Compile Include="SzczegolyProcesu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -544,6 +578,9 @@
     <Compile Include="vCechyElementu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vCzasZamowieniaTechnologow.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vCzas_do_serwisu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -556,13 +593,16 @@
     <Compile Include="vDokumentacja_technologiczna.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vElementyProcesProdukcyjny.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vElementy_proces.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vEtapy_proces.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vIdZamowienieElementProcesProdukcyjny.cs">
+    <Compile Include="vKontrolaProcesu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vMaszyny_numer_seryjny.cs">
@@ -577,10 +617,16 @@
     <Compile Include="vMaszyny_serwis.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vNiezuzyteWMiesiacu.cs">
+    <Compile Include="vNieuzytyMaterialOdpad.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vObsluga.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vOdebranyMaterialMagazyn.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vOdebranyMaterialProdukcja.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vPolki_na_regalach.cs">
@@ -589,7 +635,16 @@
     <Compile Include="vPolki_Rozmiary.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vProcesMaxOdpadMiesiac.cs">
+    <Compile Include="vPotrzebnaDokumentacjaDoProcesuProdukcyjnego.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vPotrzebneEtapyDoProcesuProdukcyjnego.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vPotrzebneMaszynyDoProcesuProdukcyjnego.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vPotrzebnyMaterialDoProcesuProdukcyjnego.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vProcesy.cs">
@@ -605,6 +660,12 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vProces_technologiczny.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vPrzydzialZasobow.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vPrzydzialZasobowEtap.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vRealizacjaProcesuProdukcyjnegoDetails.cs">
@@ -628,19 +689,37 @@
     <Compile Include="vRoznicaGodzin.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vSredniaLiczbaSztuk.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vSrednia_ilosc_maszyn.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vSredniCzasWgElementu.cs">
+    <Compile Include="vSredniCzasSztuki.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vSredniCzasWedlugElementu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vSuma_czasu_procesu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vSzacowanyCzasWykonania.cs">
+    <Compile Include="vSzacowanaDataZamowieniaTechnologow.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vTechnolodzy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vWolneMaszyny.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vWolniPracownicyProdukcji.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vWszyscyPracownicyProdukcji.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vWszystkieMaszyny.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vWszystkie_Elementy.cs">
@@ -756,14 +835,8 @@
     <EmbeddedResource Include="KontrolaEfektywnosciFormSzczegoly.resx">
       <DependentUpon>KontrolaEfektywnosciFormSzczegoly.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NajwiekszyOdpad.resx">
-      <DependentUpon>NajwiekszyOdpad.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="NiewykorzystanyMaterialProces.resx">
       <DependentUpon>NiewykorzystanyMaterialProces.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NiewykorzystanyMaterialWMiesiacu.resx">
-      <DependentUpon>NiewykorzystanyMaterialWMiesiacu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NowaPolka.resx">
       <DependentUpon>NowaPolka.cs</DependentUpon>
@@ -821,6 +894,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PrzegladProcesowProdukcyjnych.resx">
       <DependentUpon>PrzegladProcesowProdukcyjnych.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportMaszynyProdukcja.resx">
+      <DependentUpon>RaportMaszynyProdukcja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaportPracownicyProdukcji.resx">
+      <DependentUpon>RaportPracownicyProdukcji.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RaportyProdukcja.resx">
       <DependentUpon>RaportyProdukcja.cs</DependentUpon>
@@ -883,9 +962,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SzacowanyCzasWykonaniaNowegoElementu.resx">
-      <DependentUpon>SzacowanyCzasWykonaniaNowegoElementu.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="SzczegolyProcesu.resx">
       <DependentUpon>SzczegolyProcesu.cs</DependentUpon>
     </EmbeddedResource>
@@ -955,6 +1031,7 @@
     <None Include="Resources\lupa2.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\lupa28x28.jpg" />
     <Content Include="Szwalnia.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Szwalnia.edmx</DependentUpon>

@@ -12,10 +12,14 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vSzacowanyCzasWykonania
+    public partial class vPrzydzialZasobowEtap
     {
-        public long id { get; set; }
-        public string Typ { get; set; }
-        public Nullable<System.DateTime> Szacowany_czas_wykonania { get; set; }
+        public int ID_procesu_produkcyjnego { get; set; }
+        public int ID_realizacji_procesu { get; set; }
+        public string Nazwa_etapu { get; set; }
+        public string ID_Pracownika__Imię__Nazwisko { get; set; }
+        public string ID_Maszyny__Nazwa { get; set; }
+        public Nullable<System.DateTime> Data_rozpoczęcia { get; set; }
+        public Nullable<System.DateTime> Data_zakończenia { get; set; }
     }
 }

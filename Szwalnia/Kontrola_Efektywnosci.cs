@@ -16,7 +16,7 @@ namespace Szwalnia
     {
         public int ID_Kontrola_Efektywnosci { get; set; }
         public int ID_Procesu_Produkcyjnego { get; set; }
-        public System.DateTime Data_Kontroli { get; set; }
+        public Nullable<System.DateTime> Data_Kontroli { get; set; }
         public byte[] Dokument { get; set; }
         public string Uwagi { get; set; }
         public Nullable<bool> Zgodnosc_Zamowienia { get; set; }

@@ -19,28 +19,33 @@ namespace Szwalnia
             this.db = db;
         }
 
-        private void btnRealizacjaProcesu_Click(object sender, EventArgs e)
-        {
-            RealizacjaProcesuSzczegoly realizacjaProcesu = new RealizacjaProcesuSzczegoly(db);
-            realizacjaProcesu.Show();
-        }
-
         private void btnRaporty_Click(object sender, EventArgs e)
         {
             RaportyProdukcja formularzRaportyProdukcja = new RaportyProdukcja(db);
             formularzRaportyProdukcja.Show();
+            this.Close();
         }
 
         private void btnProcesProdukcyjny_Click(object sender, EventArgs e)
         {
             ProcesProdukcyjny formularzProcesProdukcyjny = new ProcesProdukcyjny(db);
             formularzProcesProdukcyjny.Show();
+            this.Close();
         }
 
         private void btnInne_Click(object sender, EventArgs e)
         {
             InneProdukcja formularzInneProdukcja = new InneProdukcja(db);
             formularzInneProdukcja.Show();
+            this.Close();
+        }
+
+        private void btnWstecz_Click(object sender, EventArgs e)
+        {
+            Start start = new Start();
+            start.Show();
+            this.Close();
+
         }
     }
 }

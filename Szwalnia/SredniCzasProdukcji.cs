@@ -17,8 +17,10 @@ namespace Szwalnia
         {
             InitializeComponent();
             this.db = db;
-            dgvSredniCzasProdukcji.DataSource = db.vSredniCzasWgElementu.ToList();
+            dgvSredniCzasProdukcji.DataSource = db.vSredniCzasWedlugElementu.ToList();
             dgvSredniCzasProdukcji.Columns[0].Visible = false;
+            dgvSredniCzasProdukcji.Columns[1].HeaderText = "Nazwa produktu";
+            dgvSredniCzasProdukcji.Columns[2].HeaderText = "Średni czas [h]";
         }
     }
 }
