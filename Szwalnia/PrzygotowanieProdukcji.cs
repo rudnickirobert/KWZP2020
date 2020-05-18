@@ -294,7 +294,11 @@ namespace Szwalnia
             MessageBox.Show("Dodano nowy proces technologiczny");
         }
 
+        private void PrzygotowanieProdukcji_Load(object sender, EventArgs e)
+        {
 
+
+        }
 
         private void btnDodaj_Maszyne_Click(object sender, EventArgs e)
         {
