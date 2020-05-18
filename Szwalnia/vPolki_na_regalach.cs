@@ -19,6 +19,5 @@ namespace Szwalnia
         public Nullable<int> Wysokosc { get; set; }
         public Nullable<int> Szerokosc { get; set; }
         public Nullable<int> Glebokosc { get; set; }
-        public string Wymiar { get; set; }
     }
 }

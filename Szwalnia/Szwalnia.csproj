@@ -609,9 +609,6 @@
     <Compile Include="vRealizacjaProcesuProdukcyjnegoDetails.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vRegaly_alfabetycznie.cs">
-      <DependentUpon>Szwalnia.tt</DependentUpon>
-    </Compile>
     <Compile Include="vResurs.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
