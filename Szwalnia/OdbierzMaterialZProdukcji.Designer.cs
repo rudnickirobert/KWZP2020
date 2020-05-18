@@ -28,18 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvMaterialDoOdebrania = new System.Windows.Forms.DataGridView();
             this.lblInfo = new System.Windows.Forms.Label();
+            this.dgvMaterialDoOdebrania = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterialDoOdebrania)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvMaterialDoOdebrania
-            // 
-            this.dgvMaterialDoOdebrania.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMaterialDoOdebrania.Location = new System.Drawing.Point(15, 44);
-            this.dgvMaterialDoOdebrania.Name = "dgvMaterialDoOdebrania";
-            this.dgvMaterialDoOdebrania.Size = new System.Drawing.Size(773, 394);
-            this.dgvMaterialDoOdebrania.TabIndex = 0;
             // 
             // lblInfo
             // 
@@ -50,13 +42,24 @@
             this.lblInfo.Text = "Wybierz materiał z produkcji który odbierasz";
             this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // dgvMaterialDoOdebrania
+            // 
+            this.dgvMaterialDoOdebrania.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMaterialDoOdebrania.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMaterialDoOdebrania.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvMaterialDoOdebrania.Location = new System.Drawing.Point(12, 44);
+            this.dgvMaterialDoOdebrania.Name = "dgvMaterialDoOdebrania";
+            this.dgvMaterialDoOdebrania.Size = new System.Drawing.Size(776, 394);
+            this.dgvMaterialDoOdebrania.TabIndex = 2;
+            this.dgvMaterialDoOdebrania.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMaterialDoOdebrania_CellDoubleClick);
+            // 
             // OdbierzMaterialZProdukcji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.dgvMaterialDoOdebrania);
+            this.Controls.Add(this.lblInfo);
             this.Name = "OdbierzMaterialZProdukcji";
             this.Text = "OdbierzMaterialZProdukcji";
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterialDoOdebrania)).EndInit();
@@ -65,8 +68,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvMaterialDoOdebrania;
         private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.DataGridView dgvMaterialDoOdebrania;
     }
 }

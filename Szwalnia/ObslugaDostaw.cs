@@ -91,5 +91,12 @@ namespace Szwalnia
             wydajNowyMaterial.Show();
             this.Hide();
         }
+
+        private void btnOdbierzMaterial_Click(object sender, EventArgs e)
+        {
+            OdbierzMaterialZProdukcji odbierzNieodebranyMaterial = new OdbierzMaterialZProdukcji();
+            odbierzNieodebranyMaterial.Show();
+            this.Hide();
+        }
     }
 }

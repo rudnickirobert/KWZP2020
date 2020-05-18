@@ -86,7 +86,7 @@
             this.btnOdbierzMaterial.TabIndex = 3;
             this.btnOdbierzMaterial.Text = "Odbierz niezużyty materiał";
             this.btnOdbierzMaterial.UseVisualStyleBackColor = true;
-            this.btnOdbierzMaterial.Click += new System.EventHandler(this.btnWydajProdukcji_Click);
+            this.btnOdbierzMaterial.Click += new System.EventHandler(this.btnOdbierzMaterial_Click);
             // 
             // ObslugaDostaw
             // 

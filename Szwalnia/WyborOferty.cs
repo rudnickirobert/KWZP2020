@@ -109,7 +109,7 @@ namespace Szwalnia
                 int intPolka = Convert.ToInt32(dgvMagazynZawartosc.CurrentRow.Cells[0].Value);
                 int intDostawa = Convert.ToInt32(dgvMagazynZawartosc.CurrentRow.Cells[2].Value);
                 int intElement = Convert.ToInt32(dgvMagazynZawartosc.CurrentRow.Cells[1].Value);
-                int intIlosc = Convert.ToInt32(dgvMagazynZawartosc.CurrentRow.Cells[3].Value);
+                int intIlosc = Convert.ToInt32(dgvMagazynZawartosc.CurrentRow.Cells[4].Value);
                 PopupAcceptDeny popupAkceptujOdrzuc = new PopupAcceptDeny(intPolka, intDostawa, intElement, intIlosc, intZamowienie);
                 popupAkceptujOdrzuc.Show();
                 this.Hide();

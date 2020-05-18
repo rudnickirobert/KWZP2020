@@ -854,6 +854,21 @@ warning 6013: The table/view 'Szwalnia.dbo.vMaterialyZMagazynu' does not have a 
           <Property Name="Ilosc" Type="int" />
         </EntityType>-->
         <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vNieodebraneMaterialyWgDostawcyZNazwaIOferta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vNieodebraneMaterialyWgDostawcyZNazwaIOferta">
+          <Key>
+            <PropertyRef Name="ID_Zamowienie_Element" />
+            <PropertyRef Name="ID_Dostawy" />
+            <PropertyRef Name="ID_Element" />
+          </Key>
+          <Property Name="ID_Zamowienie_Element" Type="int" Nullable="false" />
+          <Property Name="ID_Dostawy" Type="int" Nullable="false" />
+          <Property Name="ID_Element" Type="int" Nullable="false" />
+          <Property Name="Element_Nazwa" Type="varchar" MaxLength="35" />
+          <Property Name="Niezuzyty_material" Type="float" />
+          <Property Name="Ilosc_W_Opakowaniu_Pojedynczym" Type="real" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vNieodebraneMaterialyWgDostawy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vNieodebraneMaterialyWgDostawy">
           <Key>
@@ -864,6 +879,20 @@ warning 6002: The table/view 'Szwalnia.dbo.vNieodebraneMaterialyWgDostawy' does 
           <Property Name="ID_Zamowienie_Element" Type="int" Nullable="false" />
           <Property Name="ID_Dostawy" Type="int" Nullable="false" />
           <Property Name="ID_Element" Type="int" Nullable="false" />
+          <Property Name="Niezuzyty_material" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vNieodebraneMaterialyWgDostawyZNazwa' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vNieodebraneMaterialyWgDostawyZNazwa">
+          <Key>
+            <PropertyRef Name="ID_Zamowienie_Element" />
+            <PropertyRef Name="ID_Dostawy" />
+            <PropertyRef Name="ID_Element" />
+          </Key>
+          <Property Name="ID_Zamowienie_Element" Type="int" Nullable="false" />
+          <Property Name="ID_Dostawy" Type="int" Nullable="false" />
+          <Property Name="ID_Element" Type="int" Nullable="false" />
+          <Property Name="Element_Nazwa" Type="varchar" MaxLength="35" />
           <Property Name="Niezuzyty_material" Type="float" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -2520,6 +2549,16 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
     [vMaterialyOdebraneZProdukcji].[Data_Dostarczenia] AS [Data_Dostarczenia]
     FROM [dbo].[vMaterialyOdebraneZProdukcji] AS [vMaterialyOdebraneZProdukcji]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vNieodebraneMaterialyWgDostawcyZNazwaIOferta" EntityType="Self.vNieodebraneMaterialyWgDostawcyZNazwaIOferta" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vNieodebraneMaterialyWgDostawcyZNazwaIOferta].[ID_Zamowienie_Element] AS [ID_Zamowienie_Element], 
+    [vNieodebraneMaterialyWgDostawcyZNazwaIOferta].[ID_Dostawy] AS [ID_Dostawy], 
+    [vNieodebraneMaterialyWgDostawcyZNazwaIOferta].[ID_Element] AS [ID_Element], 
+    [vNieodebraneMaterialyWgDostawcyZNazwaIOferta].[Element_Nazwa] AS [Element_Nazwa], 
+    [vNieodebraneMaterialyWgDostawcyZNazwaIOferta].[Niezuzyty_material] AS [Niezuzyty_material], 
+    [vNieodebraneMaterialyWgDostawcyZNazwaIOferta].[Ilosc_W_Opakowaniu_Pojedynczym] AS [Ilosc_W_Opakowaniu_Pojedynczym]
+    FROM [dbo].[vNieodebraneMaterialyWgDostawcyZNazwaIOferta] AS [vNieodebraneMaterialyWgDostawcyZNazwaIOferta]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vNieodebraneMaterialyWgDostawy" EntityType="Self.vNieodebraneMaterialyWgDostawy" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vNieodebraneMaterialyWgDostawy].[ID_Zamowienie_Element] AS [ID_Zamowienie_Element], 
@@ -2527,6 +2566,15 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
     [vNieodebraneMaterialyWgDostawy].[ID_Element] AS [ID_Element], 
     [vNieodebraneMaterialyWgDostawy].[Niezuzyty_material] AS [Niezuzyty_material]
     FROM [dbo].[vNieodebraneMaterialyWgDostawy] AS [vNieodebraneMaterialyWgDostawy]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vNieodebraneMaterialyWgDostawyZNazwa" EntityType="Self.vNieodebraneMaterialyWgDostawyZNazwa" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vNieodebraneMaterialyWgDostawyZNazwa].[ID_Zamowienie_Element] AS [ID_Zamowienie_Element], 
+    [vNieodebraneMaterialyWgDostawyZNazwa].[ID_Dostawy] AS [ID_Dostawy], 
+    [vNieodebraneMaterialyWgDostawyZNazwa].[ID_Element] AS [ID_Element], 
+    [vNieodebraneMaterialyWgDostawyZNazwa].[Element_Nazwa] AS [Element_Nazwa], 
+    [vNieodebraneMaterialyWgDostawyZNazwa].[Niezuzyty_material] AS [Niezuzyty_material]
+    FROM [dbo].[vNieodebraneMaterialyWgDostawyZNazwa] AS [vNieodebraneMaterialyWgDostawyZNazwa]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vNieodebraneMaterialyWgZamowienieElement" EntityType="Self.vNieodebraneMaterialyWgZamowienieElement" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -3209,8 +3257,10 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <EntitySet Name="vDokumentacja_info" EntityType="SzwalniaModel.vDokumentacja_info" />
           <EntitySet Name="vDokumentacja_proces" EntityType="SzwalniaModel.vDokumentacja_proces" />
           <EntitySet Name="vDokumentacja_technologiczna" EntityType="SzwalniaModel.vDokumentacja_technologiczna" />
+          <EntitySet Name="vDostarczeniaNaProdukcje" EntityType="SzwalniaModel.vDostarczeniaNaProdukcje" />
           <EntitySet Name="vDostawcyDostawDoZamowien" EntityType="SzwalniaModel.vDostawcyDostawDoZamowien" />
           <EntitySet Name="vDostawyDoOdbioru" EntityType="SzwalniaModel.vDostawyDoOdbioru" />
+          <EntitySet Name="vDostawyDoWydania" EntityType="SzwalniaModel.vDostawyDoWydania" />
           <EntitySet Name="vElementy_proces" EntityType="SzwalniaModel.vElementy_proces" />
           <EntitySet Name="vEtapy_proces" EntityType="SzwalniaModel.vEtapy_proces" />
           <EntitySet Name="vIdZamowienieElementProcesProdukcyjny" EntityType="SzwalniaModel.vIdZamowienieElementProcesProdukcyjny" />
@@ -3220,11 +3270,18 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <EntitySet Name="vMaszyny_serwis" EntityType="SzwalniaModel.vMaszyny_serwis" />
           <EntitySet Name="vMaterialyDoZamowienia" EntityType="SzwalniaModel.vMaterialyDoZamowienia" />
           <EntitySet Name="vMaterialyDoZamowieniaBrak" EntityType="SzwalniaModel.vMaterialyDoZamowieniaBrak" />
+          <EntitySet Name="vMaterialyOdebraneZProdukcji" EntityType="SzwalniaModel.vMaterialyOdebraneZProdukcji" />
+          <EntitySet Name="vNieodebraneMaterialyWgDostawcyZNazwaIOferta" EntityType="SzwalniaModel.vNieodebraneMaterialyWgDostawcyZNazwaIOferta" />
+          <EntitySet Name="vNieodebraneMaterialyWgDostawy" EntityType="SzwalniaModel.vNieodebraneMaterialyWgDostawy" />
+          <EntitySet Name="vNieodebraneMaterialyWgDostawyZNazwa" EntityType="SzwalniaModel.vNieodebraneMaterialyWgDostawyZNazwa" />
+          <EntitySet Name="vNieodebraneMaterialyWgZamowienieElement" EntityType="SzwalniaModel.vNieodebraneMaterialyWgZamowienieElement" />
           <EntitySet Name="vNiezuzyteWMiesiacu" EntityType="SzwalniaModel.vNiezuzyteWMiesiacu" />
+          <EntitySet Name="vNiezuzytyMaterialNaProdukcji" EntityType="SzwalniaModel.vNiezuzytyMaterialNaProdukcji" />
           <EntitySet Name="vObsluga" EntityType="SzwalniaModel.vObsluga" />
           <EntitySet Name="vOferta" EntityType="SzwalniaModel.vOferta" />
           <EntitySet Name="vPolki_na_regalach" EntityType="SzwalniaModel.vPolki_na_regalach" />
           <EntitySet Name="vPolki_Rozmiary" EntityType="SzwalniaModel.vPolki_Rozmiary" />
+          <EntitySet Name="vPotrzebyProdukcjiZDatami" EntityType="SzwalniaModel.vPotrzebyProdukcjiZDatami" />
           <EntitySet Name="vPracownicyMagazynu" EntityType="SzwalniaModel.vPracownicyMagazynu" />
           <EntitySet Name="vProces_elementy" EntityType="SzwalniaModel.vProces_elementy" />
           <EntitySet Name="vProces_Etapy" EntityType="SzwalniaModel.vProces_Etapy" />
@@ -3594,13 +3651,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
-          <EntitySet Name="vDostarczeniaNaProdukcje" EntityType="SzwalniaModel.vDostarczeniaNaProdukcje" />
-          <EntitySet Name="vDostawyDoWydania" EntityType="SzwalniaModel.vDostawyDoWydania" />
-          <EntitySet Name="vPotrzebyProdukcjiZDatami" EntityType="SzwalniaModel.vPotrzebyProdukcjiZDatami" />
-          <EntitySet Name="vMaterialyOdebraneZProdukcji" EntityType="SzwalniaModel.vMaterialyOdebraneZProdukcji" />
-          <EntitySet Name="vNieodebraneMaterialyWgDostawy" EntityType="SzwalniaModel.vNieodebraneMaterialyWgDostawy" />
-          <EntitySet Name="vNieodebraneMaterialyWgZamowienieElement" EntityType="SzwalniaModel.vNieodebraneMaterialyWgZamowienieElement" />
-          <EntitySet Name="vNiezuzytyMaterialNaProdukcji" EntityType="SzwalniaModel.vNiezuzytyMaterialNaProdukcji" />
         </EntityContainer>
         <EntityType Name="Czesci_Obsluga">
           <Key>
@@ -4413,6 +4463,19 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           </Key>
           <Property Name="Nazwa" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="vDostarczeniaNaProdukcje">
+          <Key>
+            <PropertyRef Name="ID_Dostarczenia" />
+          </Key>
+          <Property Name="ID_Dostarczenia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Pracownicy" Type="Int32" />
+          <Property Name="ID_Dostawy" Type="Int32" />
+          <Property Name="ID_Zamowienie_element" Type="Int32" />
+          <Property Name="ID_element" Type="Int32" />
+          <Property Name="Ilosc_Dostarczona" Type="Double" />
+          <Property Name="ID_Miejsca" Type="Int32" />
+          <Property Name="Data_Dostarczenia" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="vDostawcyDostawDoZamowien">
           <Key>
             <PropertyRef Name="ID_Dostawy" />
@@ -4430,6 +4493,17 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="ID_Element" Type="Int32" />
           <Property Name="Ilosc_w_paczce" Type="Single" />
           <Property Name="Ilosc" Type="Single" />
+        </EntityType>
+        <EntityType Name="vDostawyDoWydania">
+          <Key>
+            <PropertyRef Name="ID_Zamowienie_Element" />
+            <PropertyRef Name="ID_Element" />
+            <PropertyRef Name="Liczba" />
+          </Key>
+          <Property Name="ID_Zamowienie_Element" Type="Int32" Nullable="false" />
+          <Property Name="ID_Element" Type="Int32" Nullable="false" />
+          <Property Name="Liczba" Type="Int32" Nullable="false" />
+          <Property Name="Proponowana_data_dostawy_materialu" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="vElementy_proces">
           <Key>
@@ -4533,6 +4607,64 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
           <Property Name="Ilosc" Type="Double" />
         </EntityType>
+        <EntityType Name="vMaterialyOdebraneZProdukcji">
+          <Key>
+            <PropertyRef Name="ID_Dostarczenia" />
+          </Key>
+          <Property Name="ID_Dostarczenia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Pracownicy" Type="Int32" />
+          <Property Name="ID_Dostawy" Type="Int32" />
+          <Property Name="ID_Zamowienie_element" Type="Int32" />
+          <Property Name="ID_element" Type="Int32" />
+          <Property Name="Ilosc_Dostarczona" Type="Double" />
+          <Property Name="ID_Miejsca" Type="Int32" />
+          <Property Name="Data_Dostarczenia" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vNieodebraneMaterialyWgDostawcyZNazwaIOferta">
+          <Key>
+            <PropertyRef Name="ID_Zamowienie_Element" />
+            <PropertyRef Name="ID_Dostawy" />
+            <PropertyRef Name="ID_Element" />
+          </Key>
+          <Property Name="ID_Zamowienie_Element" Type="Int32" Nullable="false" />
+          <Property Name="ID_Dostawy" Type="Int32" Nullable="false" />
+          <Property Name="ID_Element" Type="Int32" Nullable="false" />
+          <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="Niezuzyty_material" Type="Double" />
+          <Property Name="Ilosc_W_Opakowaniu_Pojedynczym" Type="Single" />
+        </EntityType>
+        <EntityType Name="vNieodebraneMaterialyWgDostawy">
+          <Key>
+            <PropertyRef Name="ID_Zamowienie_Element" />
+            <PropertyRef Name="ID_Dostawy" />
+            <PropertyRef Name="ID_Element" />
+          </Key>
+          <Property Name="ID_Zamowienie_Element" Type="Int32" Nullable="false" />
+          <Property Name="ID_Dostawy" Type="Int32" Nullable="false" />
+          <Property Name="ID_Element" Type="Int32" Nullable="false" />
+          <Property Name="Niezuzyty_material" Type="Double" />
+        </EntityType>
+        <EntityType Name="vNieodebraneMaterialyWgDostawyZNazwa">
+          <Key>
+            <PropertyRef Name="ID_Zamowienie_Element" />
+            <PropertyRef Name="ID_Dostawy" />
+            <PropertyRef Name="ID_Element" />
+          </Key>
+          <Property Name="ID_Zamowienie_Element" Type="Int32" Nullable="false" />
+          <Property Name="ID_Dostawy" Type="Int32" Nullable="false" />
+          <Property Name="ID_Element" Type="Int32" Nullable="false" />
+          <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="Niezuzyty_material" Type="Double" />
+        </EntityType>
+        <EntityType Name="vNieodebraneMaterialyWgZamowienieElement">
+          <Key>
+            <PropertyRef Name="ID_Zamowienie_Element" />
+            <PropertyRef Name="ID_Element" />
+          </Key>
+          <Property Name="ID_Zamowienie_Element" Type="Int32" Nullable="false" />
+          <Property Name="ID_Element" Type="Int32" Nullable="false" />
+          <Property Name="Niezuzyty_material" Type="Double" />
+        </EntityType>
         <EntityType Name="vNiezuzyteWMiesiacu">
           <Key>
             <PropertyRef Name="id" />
@@ -4542,6 +4674,15 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Niezuzyty_material" Type="Double" />
           <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Miesiac" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vNiezuzytyMaterialNaProdukcji">
+          <Key>
+            <PropertyRef Name="ID_Zamowienie_Element" />
+            <PropertyRef Name="ID_Element" />
+          </Key>
+          <Property Name="ID_Zamowienie_Element" Type="Int32" Nullable="false" />
+          <Property Name="ID_Element" Type="Int32" Nullable="false" />
+          <Property Name="Niezuzyty_material" Type="Double" />
         </EntityType>
         <EntityType Name="vObsluga">
           <Key>
@@ -4597,6 +4738,17 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Szerokosc" Type="Int32" />
           <Property Name="Glebokosc" Type="Int32" />
           <Property Name="Wymiar" Type="String" MaxLength="96" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vPotrzebyProdukcjiZDatami">
+          <Key>
+            <PropertyRef Name="ID_Zamowienie_Element" />
+            <PropertyRef Name="ID_Element" />
+            <PropertyRef Name="Liczba" />
+          </Key>
+          <Property Name="ID_Zamowienie_Element" Type="Int32" Nullable="false" />
+          <Property Name="ID_Element" Type="Int32" Nullable="false" />
+          <Property Name="Liczba" Type="Int32" Nullable="false" />
+          <Property Name="Proponowana_data_dostawy_materialu" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="vPracownicyMagazynu">
           <Key>
@@ -5868,83 +6020,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="vDostarczeniaNaProdukcje">
-          <Key>
-            <PropertyRef Name="ID_Dostarczenia" />
-          </Key>
-          <Property Name="ID_Dostarczenia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ID_Pracownicy" Type="Int32" />
-          <Property Name="ID_Dostawy" Type="Int32" />
-          <Property Name="ID_Zamowienie_element" Type="Int32" />
-          <Property Name="ID_element" Type="Int32" />
-          <Property Name="Ilosc_Dostarczona" Type="Double" />
-          <Property Name="ID_Miejsca" Type="Int32" />
-          <Property Name="Data_Dostarczenia" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="vDostawyDoWydania">
-          <Key>
-            <PropertyRef Name="ID_Zamowienie_Element" />
-            <PropertyRef Name="ID_Element" />
-            <PropertyRef Name="Liczba" />
-          </Key>
-          <Property Name="ID_Zamowienie_Element" Type="Int32" Nullable="false" />
-          <Property Name="ID_Element" Type="Int32" Nullable="false" />
-          <Property Name="Liczba" Type="Int32" Nullable="false" />
-          <Property Name="Proponowana_data_dostawy_materialu" Type="DateTime" Precision="0" />
-        </EntityType>
-        <EntityType Name="vPotrzebyProdukcjiZDatami">
-          <Key>
-            <PropertyRef Name="ID_Zamowienie_Element" />
-            <PropertyRef Name="ID_Element" />
-            <PropertyRef Name="Liczba" />
-          </Key>
-          <Property Name="ID_Zamowienie_Element" Type="Int32" Nullable="false" />
-          <Property Name="ID_Element" Type="Int32" Nullable="false" />
-          <Property Name="Liczba" Type="Int32" Nullable="false" />
-          <Property Name="Proponowana_data_dostawy_materialu" Type="DateTime" Precision="0" />
-        </EntityType>
-        <EntityType Name="vMaterialyOdebraneZProdukcji">
-          <Key>
-            <PropertyRef Name="ID_Dostarczenia" />
-          </Key>
-          <Property Name="ID_Dostarczenia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ID_Pracownicy" Type="Int32" />
-          <Property Name="ID_Dostawy" Type="Int32" />
-          <Property Name="ID_Zamowienie_element" Type="Int32" />
-          <Property Name="ID_element" Type="Int32" />
-          <Property Name="Ilosc_Dostarczona" Type="Double" />
-          <Property Name="ID_Miejsca" Type="Int32" />
-          <Property Name="Data_Dostarczenia" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="vNieodebraneMaterialyWgDostawy">
-          <Key>
-            <PropertyRef Name="ID_Zamowienie_Element" />
-            <PropertyRef Name="ID_Dostawy" />
-            <PropertyRef Name="ID_Element" />
-          </Key>
-          <Property Name="ID_Zamowienie_Element" Type="Int32" Nullable="false" />
-          <Property Name="ID_Dostawy" Type="Int32" Nullable="false" />
-          <Property Name="ID_Element" Type="Int32" Nullable="false" />
-          <Property Name="Niezuzyty_material" Type="Double" />
-        </EntityType>
-        <EntityType Name="vNieodebraneMaterialyWgZamowienieElement">
-          <Key>
-            <PropertyRef Name="ID_Zamowienie_Element" />
-            <PropertyRef Name="ID_Element" />
-          </Key>
-          <Property Name="ID_Zamowienie_Element" Type="Int32" Nullable="false" />
-          <Property Name="ID_Element" Type="Int32" Nullable="false" />
-          <Property Name="Niezuzyty_material" Type="Double" />
-        </EntityType>
-        <EntityType Name="vNiezuzytyMaterialNaProdukcji">
-          <Key>
-            <PropertyRef Name="ID_Zamowienie_Element" />
-            <PropertyRef Name="ID_Element" />
-          </Key>
-          <Property Name="ID_Zamowienie_Element" Type="Int32" Nullable="false" />
-          <Property Name="ID_Element" Type="Int32" Nullable="false" />
-          <Property Name="Niezuzyty_material" Type="Double" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -6648,6 +6723,20 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="vDostarczeniaNaProdukcje">
+            <EntityTypeMapping TypeName="SzwalniaModel.vDostarczeniaNaProdukcje">
+              <MappingFragment StoreEntitySet="vDostarczeniaNaProdukcje">
+                <ScalarProperty Name="Data_Dostarczenia" ColumnName="Data_Dostarczenia" />
+                <ScalarProperty Name="ID_Miejsca" ColumnName="ID_Miejsca" />
+                <ScalarProperty Name="Ilosc_Dostarczona" ColumnName="Ilosc_Dostarczona" />
+                <ScalarProperty Name="ID_element" ColumnName="ID_element" />
+                <ScalarProperty Name="ID_Zamowienie_element" ColumnName="ID_Zamowienie_element" />
+                <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
+                <ScalarProperty Name="ID_Pracownicy" ColumnName="ID_Pracownicy" />
+                <ScalarProperty Name="ID_Dostarczenia" ColumnName="ID_Dostarczenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="vDostawcyDostawDoZamowien">
             <EntityTypeMapping TypeName="SzwalniaModel.vDostawcyDostawDoZamowien">
               <MappingFragment StoreEntitySet="vDostawcyDostawDoZamowien">
@@ -6665,6 +6754,16 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
                 <ScalarProperty Name="Ilosc_w_paczce" ColumnName="Ilosc_w_paczce" />
                 <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
                 <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vDostawyDoWydania">
+            <EntityTypeMapping TypeName="SzwalniaModel.vDostawyDoWydania">
+              <MappingFragment StoreEntitySet="vDostawyDoWydania">
+                <ScalarProperty Name="Proponowana_data_dostawy_materialu" ColumnName="Proponowana_data_dostawy_materialu" />
+                <ScalarProperty Name="Liczba" ColumnName="Liczba" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="ID_Zamowienie_Element" ColumnName="ID_Zamowienie_Element" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -6760,6 +6859,62 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="vMaterialyOdebraneZProdukcji">
+            <EntityTypeMapping TypeName="SzwalniaModel.vMaterialyOdebraneZProdukcji">
+              <MappingFragment StoreEntitySet="vMaterialyOdebraneZProdukcji">
+                <ScalarProperty Name="Data_Dostarczenia" ColumnName="Data_Dostarczenia" />
+                <ScalarProperty Name="ID_Miejsca" ColumnName="ID_Miejsca" />
+                <ScalarProperty Name="Ilosc_Dostarczona" ColumnName="Ilosc_Dostarczona" />
+                <ScalarProperty Name="ID_element" ColumnName="ID_element" />
+                <ScalarProperty Name="ID_Zamowienie_element" ColumnName="ID_Zamowienie_element" />
+                <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
+                <ScalarProperty Name="ID_Pracownicy" ColumnName="ID_Pracownicy" />
+                <ScalarProperty Name="ID_Dostarczenia" ColumnName="ID_Dostarczenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vNieodebraneMaterialyWgDostawcyZNazwaIOferta">
+            <EntityTypeMapping TypeName="SzwalniaModel.vNieodebraneMaterialyWgDostawcyZNazwaIOferta">
+              <MappingFragment StoreEntitySet="vNieodebraneMaterialyWgDostawcyZNazwaIOferta">
+                <ScalarProperty Name="Ilosc_W_Opakowaniu_Pojedynczym" ColumnName="Ilosc_W_Opakowaniu_Pojedynczym" />
+                <ScalarProperty Name="Niezuzyty_material" ColumnName="Niezuzyty_material" />
+                <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
+                <ScalarProperty Name="ID_Zamowienie_Element" ColumnName="ID_Zamowienie_Element" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vNieodebraneMaterialyWgDostawy">
+            <EntityTypeMapping TypeName="SzwalniaModel.vNieodebraneMaterialyWgDostawy">
+              <MappingFragment StoreEntitySet="vNieodebraneMaterialyWgDostawy">
+                <ScalarProperty Name="Niezuzyty_material" ColumnName="Niezuzyty_material" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
+                <ScalarProperty Name="ID_Zamowienie_Element" ColumnName="ID_Zamowienie_Element" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vNieodebraneMaterialyWgDostawyZNazwa">
+            <EntityTypeMapping TypeName="SzwalniaModel.vNieodebraneMaterialyWgDostawyZNazwa">
+              <MappingFragment StoreEntitySet="vNieodebraneMaterialyWgDostawyZNazwa">
+                <ScalarProperty Name="Niezuzyty_material" ColumnName="Niezuzyty_material" />
+                <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
+                <ScalarProperty Name="ID_Zamowienie_Element" ColumnName="ID_Zamowienie_Element" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vNieodebraneMaterialyWgZamowienieElement">
+            <EntityTypeMapping TypeName="SzwalniaModel.vNieodebraneMaterialyWgZamowienieElement">
+              <MappingFragment StoreEntitySet="vNieodebraneMaterialyWgZamowienieElement">
+                <ScalarProperty Name="Niezuzyty_material" ColumnName="Niezuzyty_material" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="ID_Zamowienie_Element" ColumnName="ID_Zamowienie_Element" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="vNiezuzyteWMiesiacu">
             <EntityTypeMapping TypeName="SzwalniaModel.vNiezuzyteWMiesiacu">
               <MappingFragment StoreEntitySet="vNiezuzyteWMiesiacu">
@@ -6768,6 +6923,15 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
                 <ScalarProperty Name="Niezuzyty_material" ColumnName="Niezuzyty_material" />
                 <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vNiezuzytyMaterialNaProdukcji">
+            <EntityTypeMapping TypeName="SzwalniaModel.vNiezuzytyMaterialNaProdukcji">
+              <MappingFragment StoreEntitySet="vNiezuzytyMaterialNaProdukcji">
+                <ScalarProperty Name="Niezuzyty_material" ColumnName="Niezuzyty_material" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="ID_Zamowienie_Element" ColumnName="ID_Zamowienie_Element" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -6821,6 +6985,16 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
                 <ScalarProperty Name="Szerokosc" ColumnName="Szerokosc" />
                 <ScalarProperty Name="Wysokosc" ColumnName="Wysokosc" />
                 <ScalarProperty Name="ID_Rozmiar_Polki" ColumnName="ID_Rozmiar_Polki" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vPotrzebyProdukcjiZDatami">
+            <EntityTypeMapping TypeName="SzwalniaModel.vPotrzebyProdukcjiZDatami">
+              <MappingFragment StoreEntitySet="vPotrzebyProdukcjiZDatami">
+                <ScalarProperty Name="Proponowana_data_dostawy_materialu" ColumnName="Proponowana_data_dostawy_materialu" />
+                <ScalarProperty Name="Liczba" ColumnName="Liczba" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="ID_Zamowienie_Element" ColumnName="ID_Zamowienie_Element" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -7059,82 +7233,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
                 <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
                 <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
                 <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vDostarczeniaNaProdukcje">
-            <EntityTypeMapping TypeName="SzwalniaModel.vDostarczeniaNaProdukcje">
-              <MappingFragment StoreEntitySet="vDostarczeniaNaProdukcje">
-                <ScalarProperty Name="Data_Dostarczenia" ColumnName="Data_Dostarczenia" />
-                <ScalarProperty Name="ID_Miejsca" ColumnName="ID_Miejsca" />
-                <ScalarProperty Name="Ilosc_Dostarczona" ColumnName="Ilosc_Dostarczona" />
-                <ScalarProperty Name="ID_element" ColumnName="ID_element" />
-                <ScalarProperty Name="ID_Zamowienie_element" ColumnName="ID_Zamowienie_element" />
-                <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
-                <ScalarProperty Name="ID_Pracownicy" ColumnName="ID_Pracownicy" />
-                <ScalarProperty Name="ID_Dostarczenia" ColumnName="ID_Dostarczenia" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vDostawyDoWydania">
-            <EntityTypeMapping TypeName="SzwalniaModel.vDostawyDoWydania">
-              <MappingFragment StoreEntitySet="vDostawyDoWydania">
-                <ScalarProperty Name="Proponowana_data_dostawy_materialu" ColumnName="Proponowana_data_dostawy_materialu" />
-                <ScalarProperty Name="Liczba" ColumnName="Liczba" />
-                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
-                <ScalarProperty Name="ID_Zamowienie_Element" ColumnName="ID_Zamowienie_Element" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vPotrzebyProdukcjiZDatami">
-            <EntityTypeMapping TypeName="SzwalniaModel.vPotrzebyProdukcjiZDatami">
-              <MappingFragment StoreEntitySet="vPotrzebyProdukcjiZDatami">
-                <ScalarProperty Name="Proponowana_data_dostawy_materialu" ColumnName="Proponowana_data_dostawy_materialu" />
-                <ScalarProperty Name="Liczba" ColumnName="Liczba" />
-                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
-                <ScalarProperty Name="ID_Zamowienie_Element" ColumnName="ID_Zamowienie_Element" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vMaterialyOdebraneZProdukcji">
-            <EntityTypeMapping TypeName="SzwalniaModel.vMaterialyOdebraneZProdukcji">
-              <MappingFragment StoreEntitySet="vMaterialyOdebraneZProdukcji">
-                <ScalarProperty Name="Data_Dostarczenia" ColumnName="Data_Dostarczenia" />
-                <ScalarProperty Name="ID_Miejsca" ColumnName="ID_Miejsca" />
-                <ScalarProperty Name="Ilosc_Dostarczona" ColumnName="Ilosc_Dostarczona" />
-                <ScalarProperty Name="ID_element" ColumnName="ID_element" />
-                <ScalarProperty Name="ID_Zamowienie_element" ColumnName="ID_Zamowienie_element" />
-                <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
-                <ScalarProperty Name="ID_Pracownicy" ColumnName="ID_Pracownicy" />
-                <ScalarProperty Name="ID_Dostarczenia" ColumnName="ID_Dostarczenia" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vNieodebraneMaterialyWgDostawy">
-            <EntityTypeMapping TypeName="SzwalniaModel.vNieodebraneMaterialyWgDostawy">
-              <MappingFragment StoreEntitySet="vNieodebraneMaterialyWgDostawy">
-                <ScalarProperty Name="Niezuzyty_material" ColumnName="Niezuzyty_material" />
-                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
-                <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
-                <ScalarProperty Name="ID_Zamowienie_Element" ColumnName="ID_Zamowienie_Element" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vNieodebraneMaterialyWgZamowienieElement">
-            <EntityTypeMapping TypeName="SzwalniaModel.vNieodebraneMaterialyWgZamowienieElement">
-              <MappingFragment StoreEntitySet="vNieodebraneMaterialyWgZamowienieElement">
-                <ScalarProperty Name="Niezuzyty_material" ColumnName="Niezuzyty_material" />
-                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
-                <ScalarProperty Name="ID_Zamowienie_Element" ColumnName="ID_Zamowienie_Element" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vNiezuzytyMaterialNaProdukcji">
-            <EntityTypeMapping TypeName="SzwalniaModel.vNiezuzytyMaterialNaProdukcji">
-              <MappingFragment StoreEntitySet="vNiezuzytyMaterialNaProdukcji">
-                <ScalarProperty Name="Niezuzyty_material" ColumnName="Niezuzyty_material" />
-                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
-                <ScalarProperty Name="ID_Zamowienie_Element" ColumnName="ID_Zamowienie_Element" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

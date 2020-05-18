@@ -60,7 +60,7 @@ namespace Szwalnia
             int intElementID = Convert.ToInt32(dgvDostawyDoPrzyjecia.CurrentRow.Cells[1].Value);
             int intIlosc = Convert.ToInt32(dgvDostawyDoPrzyjecia.CurrentRow.Cells[2].Value);
             int intIloscPaczek = Convert.ToInt32(dgvDostawyDoPrzyjecia.CurrentRow.Cells[3].Value);
-            WyborPolkiDoOdlozenia wybieraniePolkiDoOdlozeniaElementu = new WyborPolkiDoOdlozenia(intDostawaID,intElementID,intIlosc, intIloscPaczek);
+            WyborPolkiDoOdlozenia wybieraniePolkiDoOdlozeniaElementu = new WyborPolkiDoOdlozenia("dostawa",intDostawaID,intElementID,intIlosc, intIloscPaczek);
             wybieraniePolkiDoOdlozeniaElementu.Show();
             this.Hide();
         }

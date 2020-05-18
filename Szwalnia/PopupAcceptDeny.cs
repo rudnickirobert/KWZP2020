@@ -111,7 +111,7 @@ namespace Szwalnia
                 nowePrzypisanieDostawyZasobow.ID_Zamowienia = intIDZamowienie;
                 db.Zamowienia_Dostawy_Wlasne.Add(nowePrzypisanieDostawyZasobow);
                 db.SaveChanges();
-                int IDDostawyWlasne = db.Zamowienia_Dostawy_Wlasne.Count()+1;
+                int IDDostawyWlasne = db.Zamowienia_Dostawy_Wlasne.Count();
                 Dostawy_Wlasne_Zawartosc nowePrzypisanieZawartosciDostawyZasobow = new Dostawy_Wlasne_Zawartosc();
                 nowePrzypisanieZawartosciDostawyZasobow.ID_Zamowienia_dostawy_wlasne = IDDostawyWlasne;
                 nowePrzypisanieZawartosciDostawyZasobow.ID_Element = intElementID;

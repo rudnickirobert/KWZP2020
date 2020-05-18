@@ -17,9 +17,12 @@ namespace Szwalnia
         {
             InitializeComponent();
             db = Start.szwalnia;
-            if (db.vNieodebraneMaterialyWgDostawy.Any())
+            if (db.vNieodebraneMaterialyWgDostawcyZNazwaIOferta.Any())
             {
-                dgvMaterialDoOdebrania.DataSource = db.vNieodebraneMaterialyWgDostawy.ToList();
+                dgvMaterialDoOdebrania.DataSource = db.vNieodebraneMaterialyWgDostawcyZNazwaIOferta.ToList();
+                dgvMaterialDoOdebrania.Columns[0].Visible = false;
+                dgvMaterialDoOdebrania.Columns[1].Visible = false;
+                dgvMaterialDoOdebrania.Columns[2].Visible = false;
             }
             else
             {
@@ -27,6 +30,24 @@ namespace Szwalnia
                 informacjaOBrakuMaterialowDoOdbioru.Columns.Add("Informacja");
                 informacjaOBrakuMaterialowDoOdbioru.Rows.Add("Brak resztek materiałów do odbioru");
                 dgvMaterialDoOdebrania.DataSource = informacjaOBrakuMaterialowDoOdbioru;
+            }
+        }
+
+
+        private void dgvMaterialDoOdebrania_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (db.vNieodebraneMaterialyWgDostawcyZNazwaIOferta.Any())
+            {
+                int intDostawaID = Convert.ToInt32(dgvMaterialDoOdebrania.CurrentRow.Cells[1].Value);
+                int intElementID = Convert.ToInt32(dgvMaterialDoOdebrania.CurrentRow.Cells[2].Value);
+                int intIlosc = Convert.ToInt32(dgvMaterialDoOdebrania.CurrentRow.Cells[4].Value);
+                double intIloscLacznie = Convert.ToDouble(dgvMaterialDoOdebrania.CurrentRow.Cells[4].Value);
+                double intIloscWPaczce = Convert.ToDouble(dgvMaterialDoOdebrania.CurrentRow.Cells[5].Value);
+                double dblIlosc = intIloscLacznie / intIloscWPaczce;
+                int intIDZamowienieElement = Convert.ToInt32(dgvMaterialDoOdebrania.CurrentRow.Cells[0].Value);
+                WyborPolkiDoOdlozenia wyborPolki = new WyborPolkiDoOdlozenia("przyjecieResztek", intDostawaID, intElementID, dblIlosc,intIlosc, intIDZamowienieElement);
+                wyborPolki.Show();
+                this.Hide();
             }
         }
     }

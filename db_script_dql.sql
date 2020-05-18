@@ -233,7 +233,27 @@ SELECT        dbo.vNieodebraneMaterialyWgZamowienieElement.ID_Zamowienie_Element
 FROM            dbo.vNieodebraneMaterialyWgZamowienieElement INNER JOIN
                          dbo.Zamowienie_Element ON dbo.vNieodebraneMaterialyWgZamowienieElement.ID_Zamowienie_Element = dbo.Zamowienie_Element.ID_Zamowienie_Element INNER JOIN
                          dbo.Zamowienia ON dbo.Zamowienie_Element.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia INNER JOIN
-                         dbo.Zamowienia_Dostawy ON dbo.Zamowienia.ID_Zamowienia = dbo.Zamowienia_Dostawy.ID_Zamowienia
+                         dbo.Zamowienia_Dostawy ON dbo.Zamowienia.ID_Zamowienia = dbo.Zamowienia_Dostawy.ID_Zamowienia INNER JOIN
+                         dbo.Dostawy_Zawartosc ON dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Dostawy_Zawartosc.ID_Dostawy 
+						 AND dbo.vNieodebraneMaterialyWgZamowienieElement.ID_Element = dbo.Dostawy_Zawartosc.ID_Element
+GO
+--widok materia³ów oczekuj¹cych na odebranie zawierajacy wszystkie dane plus nazwe do wyswietlania
+CREATE VIEW [dbo].[vNieodebraneMaterialyWgDostawyZNazwa]
+AS
+SELECT        dbo.vNieodebraneMaterialyWgDostawy.ID_Zamowienie_Element, dbo.vNieodebraneMaterialyWgDostawy.ID_Dostawy, dbo.vNieodebraneMaterialyWgDostawy.ID_Element, dbo.Elementy.Element_Nazwa, 
+                         dbo.vNieodebraneMaterialyWgDostawy.Niezuzyty_material
+FROM            dbo.Elementy INNER JOIN
+                         dbo.vNieodebraneMaterialyWgDostawy ON dbo.Elementy.ID_Element = dbo.vNieodebraneMaterialyWgDostawy.ID_Element
+GO
+--do [vNieodebraneMaterialyWgDostawyZNazwa] dodano ilosc_w_paczce z Oferta aby liczyæ iloœæ paczek
+CREATE VIEW [dbo].[vNieodebraneMaterialyWgDostawcyZNazwaIOferta]
+AS
+SELECT        dbo.vNieodebraneMaterialyWgDostawyZNazwa.ID_Zamowienie_Element, dbo.vNieodebraneMaterialyWgDostawyZNazwa.ID_Dostawy, dbo.vNieodebraneMaterialyWgDostawyZNazwa.ID_Element, 
+                         dbo.vNieodebraneMaterialyWgDostawyZNazwa.Element_Nazwa, dbo.vNieodebraneMaterialyWgDostawyZNazwa.Niezuzyty_material, dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym
+FROM            dbo.Oferta INNER JOIN
+                         dbo.Dostawy_Zawartosc ON dbo.Oferta.ID_Oferta = dbo.Dostawy_Zawartosc.ID_oferta INNER JOIN
+                         dbo.vNieodebraneMaterialyWgDostawyZNazwa ON dbo.Dostawy_Zawartosc.ID_Dostawy = dbo.vNieodebraneMaterialyWgDostawyZNazwa.ID_Dostawy AND 
+                         dbo.Dostawy_Zawartosc.ID_Element = dbo.vNieodebraneMaterialyWgDostawyZNazwa.ID_Element
 GO
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------

@@ -625,7 +625,13 @@
     <Compile Include="vMaterialyOdebraneZProdukcji.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vNieodebraneMaterialyWgDostawcyZNazwaIOferta.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vNieodebraneMaterialyWgDostawy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vNieodebraneMaterialyWgDostawyZNazwa.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vNieodebraneMaterialyWgZamowienieElement.cs">
