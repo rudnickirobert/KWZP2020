@@ -96,6 +96,8 @@ namespace Szwalnia
         public virtual DbSet<vDostawcyDostawDoZamowien> vDostawcyDostawDoZamowien { get; set; }
         public virtual DbSet<vDostawyDoOdbioru> vDostawyDoOdbioru { get; set; }
         public virtual DbSet<vDostawyDoWydania> vDostawyDoWydania { get; set; }
+        public virtual DbSet<vDostawyMagazynuIDostawcow> vDostawyMagazynuIDostawcow { get; set; }
+        public virtual DbSet<vDostawyNiewydaneBezDat> vDostawyNiewydaneBezDat { get; set; }
         public virtual DbSet<vElementy_proces> vElementy_proces { get; set; }
         public virtual DbSet<vEtapy_proces> vEtapy_proces { get; set; }
         public virtual DbSet<vIdZamowienieElementProcesProdukcyjny> vIdZamowienieElementProcesProdukcyjny { get; set; }
@@ -105,7 +107,9 @@ namespace Szwalnia
         public virtual DbSet<vMaszyny_serwis> vMaszyny_serwis { get; set; }
         public virtual DbSet<vMaterialyDoZamowienia> vMaterialyDoZamowienia { get; set; }
         public virtual DbSet<vMaterialyDoZamowieniaBrak> vMaterialyDoZamowieniaBrak { get; set; }
+        public virtual DbSet<vMaterialyNiewydaneZDatami> vMaterialyNiewydaneZDatami { get; set; }
         public virtual DbSet<vMaterialyOdebraneZProdukcji> vMaterialyOdebraneZProdukcji { get; set; }
+        public virtual DbSet<vMaterialyZamowione> vMaterialyZamowione { get; set; }
         public virtual DbSet<vNieodebraneMaterialyWgDostawcyZNazwaIOferta> vNieodebraneMaterialyWgDostawcyZNazwaIOferta { get; set; }
         public virtual DbSet<vNieodebraneMaterialyWgDostawy> vNieodebraneMaterialyWgDostawy { get; set; }
         public virtual DbSet<vNieodebraneMaterialyWgDostawyZNazwa> vNieodebraneMaterialyWgDostawyZNazwa { get; set; }

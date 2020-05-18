@@ -595,6 +595,12 @@
     <Compile Include="vDostawyDoWydania.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vDostawyMagazynuIDostawcow.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vDostawyNiewydaneBezDat.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vElementy_proces.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -622,7 +628,13 @@
     <Compile Include="vMaterialyDoZamowieniaBrak.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vMaterialyNiewydaneZDatami.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vMaterialyOdebraneZProdukcji.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vMaterialyZamowione.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vNieodebraneMaterialyWgDostawcyZNazwaIOferta.cs">

@@ -37,7 +37,7 @@
             // 
             this.lblInfo.Location = new System.Drawing.Point(12, 9);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(776, 28);
+            this.lblInfo.Size = new System.Drawing.Size(960, 28);
             this.lblInfo.TabIndex = 0;
             this.lblInfo.Text = "Wybierz materiał do wydania dla produkcji";
             this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -50,16 +50,17 @@
             this.dgvMaterialyDoWydania.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMaterialyDoWydania.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMaterialyDoWydania.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvMaterialyDoWydania.Location = new System.Drawing.Point(12, 40);
+            this.dgvMaterialyDoWydania.Location = new System.Drawing.Point(15, 40);
             this.dgvMaterialyDoWydania.Name = "dgvMaterialyDoWydania";
-            this.dgvMaterialyDoWydania.Size = new System.Drawing.Size(776, 378);
+            this.dgvMaterialyDoWydania.Size = new System.Drawing.Size(957, 378);
             this.dgvMaterialyDoWydania.TabIndex = 1;
+            this.dgvMaterialyDoWydania.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMaterialyDoWydania_CellContentDoubleClick);
             // 
             // WydajMaterialProdukcji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(984, 450);
             this.Controls.Add(this.dgvMaterialyDoWydania);
             this.Controls.Add(this.lblInfo);
             this.Name = "WydajMaterialProdukcji";
