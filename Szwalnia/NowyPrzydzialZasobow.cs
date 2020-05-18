@@ -120,5 +120,6 @@ namespace Szwalnia
             cbxMaszyna.ValueMember = "ID_Maszyny";
 
         }
+
     }
 }

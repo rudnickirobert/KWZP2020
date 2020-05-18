@@ -48,6 +48,7 @@
             this.lblGwiazdka = new System.Windows.Forms.Label();
             this.cbxZamowienieElement = new System.Windows.Forms.ComboBox();
             this.mtbDataZakonczenia = new System.Windows.Forms.MaskedTextBox();
+            this.lblOpisGwiazdki = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUkryty)).BeginInit();
             this.SuspendLayout();
             // 
@@ -269,12 +270,23 @@
             this.mtbDataZakonczenia.Size = new System.Drawing.Size(251, 29);
             this.mtbDataZakonczenia.TabIndex = 33;
             // 
+            // lblOpisGwiazdki
+            // 
+            this.lblOpisGwiazdki.AutoSize = true;
+            this.lblOpisGwiazdki.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblOpisGwiazdki.Location = new System.Drawing.Point(83, 342);
+            this.lblOpisGwiazdki.Name = "lblOpisGwiazdki";
+            this.lblOpisGwiazdki.Size = new System.Drawing.Size(137, 20);
+            this.lblOpisGwiazdki.TabIndex = 34;
+            this.lblOpisGwiazdki.Text = "* Pole wymagane";
+            // 
             // NowyProces
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(816, 478);
+            this.Controls.Add(this.lblOpisGwiazdki);
             this.Controls.Add(this.mtbDataZakonczenia);
             this.Controls.Add(this.cbxZamowienieElement);
             this.Controls.Add(this.lblGwiazdka);
@@ -328,5 +340,6 @@
         private System.Windows.Forms.Label lblGwiazdka;
         private System.Windows.Forms.ComboBox cbxZamowienieElement;
         private System.Windows.Forms.MaskedTextBox mtbDataZakonczenia;
+        private System.Windows.Forms.Label lblOpisGwiazdki;
     }
 }

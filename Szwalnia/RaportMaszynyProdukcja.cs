@@ -24,6 +24,8 @@ namespace Szwalnia
             dgvMaszyny.Columns[0].HeaderText = "ID procesu produkcyjnego";
             dgvMaszyny.Columns[1].HeaderText = "ID realizacji procesu";
             dgvMaszyny.Columns[2].HeaderText = "Nazwa etapu";
+            dgvMaszyny.Columns[6].HeaderText = "ID maszyny";
+            dgvMaszyny.Columns[7].HeaderText = "Nazwa maszyny";
             dgvMaszyny.Columns[8].HeaderText = "Data rozpoczęcia";
             dgvMaszyny.Columns[9].HeaderText = "Data zakończenia";
             cbxEtap.DataSource = db.Rodzaj_Etapu.ToList();

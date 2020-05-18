@@ -41,9 +41,9 @@
             this.btnSredniCzasProdukcji.Location = new System.Drawing.Point(68, 70);
             this.btnSredniCzasProdukcji.Margin = new System.Windows.Forms.Padding(6);
             this.btnSredniCzasProdukcji.Name = "btnSredniCzasProdukcji";
-            this.btnSredniCzasProdukcji.Size = new System.Drawing.Size(300, 80);
+            this.btnSredniCzasProdukcji.Size = new System.Drawing.Size(375, 80);
             this.btnSredniCzasProdukcji.TabIndex = 0;
-            this.btnSredniCzasProdukcji.Text = "Średni czas produkcji wg produktu";
+            this.btnSredniCzasProdukcji.Text = "Średni czas produkcji według produktu";
             this.btnSredniCzasProdukcji.UseVisualStyleBackColor = true;
             this.btnSredniCzasProdukcji.Click += new System.EventHandler(this.btnSredniCzasProdukcji_Click);
             // 
@@ -52,9 +52,9 @@
             this.btnSzacowanyCzasProdukcja.Location = new System.Drawing.Point(68, 162);
             this.btnSzacowanyCzasProdukcja.Margin = new System.Windows.Forms.Padding(6);
             this.btnSzacowanyCzasProdukcja.Name = "btnSzacowanyCzasProdukcja";
-            this.btnSzacowanyCzasProdukcja.Size = new System.Drawing.Size(300, 80);
+            this.btnSzacowanyCzasProdukcja.Size = new System.Drawing.Size(375, 80);
             this.btnSzacowanyCzasProdukcja.TabIndex = 0;
-            this.btnSzacowanyCzasProdukcja.Text = "Szacowany czas wykonania produktu wg produkcji";
+            this.btnSzacowanyCzasProdukcja.Text = "Szacowany czas wykonania produktu według  produkcji";
             this.btnSzacowanyCzasProdukcja.UseVisualStyleBackColor = true;
             this.btnSzacowanyCzasProdukcja.Click += new System.EventHandler(this.btnSzacowanyCzas_Click);
             // 
@@ -63,7 +63,7 @@
             this.btnNowyRodzajEtapu.Location = new System.Drawing.Point(68, 438);
             this.btnNowyRodzajEtapu.Margin = new System.Windows.Forms.Padding(6);
             this.btnNowyRodzajEtapu.Name = "btnNowyRodzajEtapu";
-            this.btnNowyRodzajEtapu.Size = new System.Drawing.Size(300, 80);
+            this.btnNowyRodzajEtapu.Size = new System.Drawing.Size(375, 80);
             this.btnNowyRodzajEtapu.TabIndex = 0;
             this.btnNowyRodzajEtapu.Text = "Nowy rodzaj etapu";
             this.btnNowyRodzajEtapu.UseVisualStyleBackColor = true;
@@ -74,7 +74,7 @@
             this.btnRodzajEtapu.Location = new System.Drawing.Point(68, 346);
             this.btnRodzajEtapu.Margin = new System.Windows.Forms.Padding(6);
             this.btnRodzajEtapu.Name = "btnRodzajEtapu";
-            this.btnRodzajEtapu.Size = new System.Drawing.Size(300, 80);
+            this.btnRodzajEtapu.Size = new System.Drawing.Size(375, 80);
             this.btnRodzajEtapu.TabIndex = 0;
             this.btnRodzajEtapu.Text = "Rodzaj etapu";
             this.btnRodzajEtapu.UseVisualStyleBackColor = true;
@@ -96,18 +96,18 @@
             this.btnSzacowanyCzasTechnologia.Location = new System.Drawing.Point(68, 254);
             this.btnSzacowanyCzasTechnologia.Margin = new System.Windows.Forms.Padding(6);
             this.btnSzacowanyCzasTechnologia.Name = "btnSzacowanyCzasTechnologia";
-            this.btnSzacowanyCzasTechnologia.Size = new System.Drawing.Size(300, 80);
+            this.btnSzacowanyCzasTechnologia.Size = new System.Drawing.Size(375, 80);
             this.btnSzacowanyCzasTechnologia.TabIndex = 10;
-            this.btnSzacowanyCzasTechnologia.Text = "Szacowany czas wykonania zamówienia wg technologii";
+            this.btnSzacowanyCzasTechnologia.Text = "Szacowany czas wykonania zamówienia według  technologii";
             this.btnSzacowanyCzasTechnologia.UseVisualStyleBackColor = true;
             this.btnSzacowanyCzasTechnologia.Click += new System.EventHandler(this.button1_Click);
             // 
             // InneProdukcja
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(434, 531);
+            this.ClientSize = new System.Drawing.Size(493, 536);
             this.Controls.Add(this.btnSzacowanyCzasTechnologia);
             this.Controls.Add(this.btnWstecz);
             this.Controls.Add(this.btnRodzajEtapu);

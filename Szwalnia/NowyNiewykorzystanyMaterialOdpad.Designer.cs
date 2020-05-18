@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbxElement = new System.Windows.Forms.ComboBox();
             this.lblElement = new System.Windows.Forms.Label();
             this.btnWyzeruj = new System.Windows.Forms.Button();
@@ -48,6 +48,7 @@
             this.lblTekst = new System.Windows.Forms.Label();
             this.dgvUkryty = new System.Windows.Forms.DataGridView();
             this.lblOpis = new System.Windows.Forms.Label();
+            this.lblOpisGwiazdki = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUkryty)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,9 +56,10 @@
             // 
             this.cbxElement.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbxElement.FormattingEnabled = true;
-            this.cbxElement.Location = new System.Drawing.Point(376, 119);
+            this.cbxElement.Location = new System.Drawing.Point(501, 146);
+            this.cbxElement.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbxElement.Name = "cbxElement";
-            this.cbxElement.Size = new System.Drawing.Size(130, 26);
+            this.cbxElement.Size = new System.Drawing.Size(172, 32);
             this.cbxElement.TabIndex = 4;
             this.cbxElement.SelectedIndexChanged += new System.EventHandler(this.cbxElement_SelectedIndexChanged);
             // 
@@ -65,18 +67,20 @@
             // 
             this.lblElement.AutoSize = true;
             this.lblElement.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblElement.Location = new System.Drawing.Point(153, 122);
+            this.lblElement.Location = new System.Drawing.Point(204, 150);
+            this.lblElement.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblElement.Name = "lblElement";
-            this.lblElement.Size = new System.Drawing.Size(62, 18);
+            this.lblElement.Size = new System.Drawing.Size(80, 24);
             this.lblElement.TabIndex = 3;
             this.lblElement.Text = "Element";
             // 
             // btnWyzeruj
             // 
             this.btnWyzeruj.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnWyzeruj.Location = new System.Drawing.Point(391, 332);
+            this.btnWyzeruj.Location = new System.Drawing.Point(521, 409);
+            this.btnWyzeruj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnWyzeruj.Name = "btnWyzeruj";
-            this.btnWyzeruj.Size = new System.Drawing.Size(80, 50);
+            this.btnWyzeruj.Size = new System.Drawing.Size(107, 62);
             this.btnWyzeruj.TabIndex = 7;
             this.btnWyzeruj.Text = "Wyzeruj";
             this.btnWyzeruj.UseVisualStyleBackColor = true;
@@ -85,9 +89,10 @@
             // btnAnuluj
             // 
             this.btnAnuluj.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAnuluj.Location = new System.Drawing.Point(283, 332);
+            this.btnAnuluj.Location = new System.Drawing.Point(377, 409);
+            this.btnAnuluj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAnuluj.Name = "btnAnuluj";
-            this.btnAnuluj.Size = new System.Drawing.Size(80, 50);
+            this.btnAnuluj.Size = new System.Drawing.Size(107, 62);
             this.btnAnuluj.TabIndex = 8;
             this.btnAnuluj.Text = "Anuluj";
             this.btnAnuluj.UseVisualStyleBackColor = true;
@@ -96,9 +101,10 @@
             // btnZapisz
             // 
             this.btnZapisz.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnZapisz.Location = new System.Drawing.Point(164, 332);
+            this.btnZapisz.Location = new System.Drawing.Point(219, 409);
+            this.btnZapisz.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnZapisz.Name = "btnZapisz";
-            this.btnZapisz.Size = new System.Drawing.Size(80, 50);
+            this.btnZapisz.Size = new System.Drawing.Size(107, 62);
             this.btnZapisz.TabIndex = 9;
             this.btnZapisz.Text = "Zapisz";
             this.btnZapisz.UseVisualStyleBackColor = true;
@@ -108,18 +114,20 @@
             // 
             this.lblOdpad.AutoSize = true;
             this.lblOdpad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblOdpad.Location = new System.Drawing.Point(153, 187);
+            this.lblOdpad.Location = new System.Drawing.Point(204, 230);
+            this.lblOdpad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOdpad.Name = "lblOdpad";
-            this.lblOdpad.Size = new System.Drawing.Size(0, 18);
+            this.lblOdpad.Size = new System.Drawing.Size(0, 24);
             this.lblOdpad.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(153, 224);
+            this.label2.Location = new System.Drawing.Point(204, 276);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 18);
+            this.label2.Size = new System.Drawing.Size(68, 24);
             this.label2.TabIndex = 3;
             this.label2.Text = "Odpad";
             // 
@@ -127,9 +135,10 @@
             // 
             this.lblNiewykorzystanyMaterial.AutoSize = true;
             this.lblNiewykorzystanyMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblNiewykorzystanyMaterial.Location = new System.Drawing.Point(153, 187);
+            this.lblNiewykorzystanyMaterial.Location = new System.Drawing.Point(204, 230);
+            this.lblNiewykorzystanyMaterial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNiewykorzystanyMaterial.Name = "lblNiewykorzystanyMaterial";
-            this.lblNiewykorzystanyMaterial.Size = new System.Drawing.Size(176, 18);
+            this.lblNiewykorzystanyMaterial.Size = new System.Drawing.Size(223, 24);
             this.lblNiewykorzystanyMaterial.TabIndex = 3;
             this.lblNiewykorzystanyMaterial.Text = "Niewykorzystany materiał";
             // 
@@ -137,44 +146,49 @@
             // 
             this.lblOdbior.AutoSize = true;
             this.lblOdbior.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblOdbior.Location = new System.Drawing.Point(153, 258);
+            this.lblOdbior.Location = new System.Drawing.Point(204, 318);
+            this.lblOdbior.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOdbior.Name = "lblOdbior";
-            this.lblOdbior.Size = new System.Drawing.Size(121, 18);
+            this.lblOdbior.Size = new System.Drawing.Size(159, 24);
             this.lblOdbior.TabIndex = 10;
             this.lblOdbior.Text = "Magazyn odebrał";
             // 
             // tbNiewykorzystanyMaterial
             // 
             this.tbNiewykorzystanyMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbNiewykorzystanyMaterial.Location = new System.Drawing.Point(376, 184);
+            this.tbNiewykorzystanyMaterial.Location = new System.Drawing.Point(501, 226);
+            this.tbNiewykorzystanyMaterial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbNiewykorzystanyMaterial.Name = "tbNiewykorzystanyMaterial";
-            this.tbNiewykorzystanyMaterial.Size = new System.Drawing.Size(130, 24);
+            this.tbNiewykorzystanyMaterial.Size = new System.Drawing.Size(172, 29);
             this.tbNiewykorzystanyMaterial.TabIndex = 11;
             // 
             // tbOdpad
             // 
             this.tbOdpad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbOdpad.Location = new System.Drawing.Point(376, 221);
+            this.tbOdpad.Location = new System.Drawing.Point(501, 272);
+            this.tbOdpad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbOdpad.Name = "tbOdpad";
-            this.tbOdpad.Size = new System.Drawing.Size(130, 24);
+            this.tbOdpad.Size = new System.Drawing.Size(172, 29);
             this.tbOdpad.TabIndex = 12;
             // 
             // lblGwiazdka
             // 
             this.lblGwiazdka.AutoSize = true;
             this.lblGwiazdka.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblGwiazdka.Location = new System.Drawing.Point(512, 119);
+            this.lblGwiazdka.Location = new System.Drawing.Point(683, 146);
+            this.lblGwiazdka.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGwiazdka.Name = "lblGwiazdka";
-            this.lblGwiazdka.Size = new System.Drawing.Size(14, 18);
+            this.lblGwiazdka.Size = new System.Drawing.Size(17, 24);
             this.lblGwiazdka.TabIndex = 14;
             this.lblGwiazdka.Text = "*";
             // 
             // chbOdbior
             // 
             this.chbOdbior.AutoSize = true;
-            this.chbOdbior.Location = new System.Drawing.Point(426, 262);
+            this.chbOdbior.Location = new System.Drawing.Point(568, 322);
+            this.chbOdbior.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chbOdbior.Name = "chbOdbior";
-            this.chbOdbior.Size = new System.Drawing.Size(15, 14);
+            this.chbOdbior.Size = new System.Drawing.Size(18, 17);
             this.chbOdbior.TabIndex = 16;
             this.chbOdbior.UseVisualStyleBackColor = true;
             // 
@@ -182,9 +196,10 @@
             // 
             this.lblJednostka.AutoSize = true;
             this.lblJednostka.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblJednostka.Location = new System.Drawing.Point(153, 156);
+            this.lblJednostka.Location = new System.Drawing.Point(204, 192);
+            this.lblJednostka.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblJednostka.Name = "lblJednostka";
-            this.lblJednostka.Size = new System.Drawing.Size(77, 18);
+            this.lblJednostka.Size = new System.Drawing.Size(95, 24);
             this.lblJednostka.TabIndex = 17;
             this.lblJednostka.Text = "Jednostka";
             // 
@@ -192,9 +207,10 @@
             // 
             this.lblTekst.AutoSize = true;
             this.lblTekst.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblTekst.Location = new System.Drawing.Point(223, 69);
+            this.lblTekst.Location = new System.Drawing.Point(297, 85);
+            this.lblTekst.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTekst.Name = "lblTekst";
-            this.lblTekst.Size = new System.Drawing.Size(51, 20);
+            this.lblTekst.Size = new System.Drawing.Size(64, 25);
             this.lblTekst.TabIndex = 19;
             this.lblTekst.Text = "label1";
             this.lblTekst.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -205,30 +221,31 @@
             this.dgvUkryty.AllowUserToDeleteRows = false;
             this.dgvUkryty.AllowUserToResizeColumns = false;
             this.dgvUkryty.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvUkryty.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvUkryty.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvUkryty.BackgroundColor = System.Drawing.SystemColors.ScrollBar;
             this.dgvUkryty.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.ScrollBar;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUkryty.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ScrollBar;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUkryty.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvUkryty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUkryty.ColumnHeadersVisible = false;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ScrollBar;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUkryty.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvUkryty.Location = new System.Drawing.Point(376, 154);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ScrollBar;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUkryty.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvUkryty.Location = new System.Drawing.Point(501, 190);
+            this.dgvUkryty.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvUkryty.MultiSelect = false;
             this.dgvUkryty.Name = "dgvUkryty";
             this.dgvUkryty.ReadOnly = true;
@@ -236,26 +253,38 @@
             this.dgvUkryty.RowHeadersVisible = false;
             this.dgvUkryty.RowHeadersWidth = 24;
             this.dgvUkryty.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvUkryty.Size = new System.Drawing.Size(130, 24);
+            this.dgvUkryty.Size = new System.Drawing.Size(173, 30);
             this.dgvUkryty.TabIndex = 20;
             // 
             // lblOpis
             // 
             this.lblOpis.AutoSize = true;
             this.lblOpis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblOpis.Location = new System.Drawing.Point(133, 28);
+            this.lblOpis.Location = new System.Drawing.Point(177, 34);
+            this.lblOpis.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOpis.Name = "lblOpis";
-            this.lblOpis.Size = new System.Drawing.Size(448, 20);
+            this.lblOpis.Size = new System.Drawing.Size(555, 25);
             this.lblOpis.TabIndex = 21;
             this.lblOpis.Text = "Wprowadzenie nowego niewykorzystanego materiału / odpadu";
             this.lblOpis.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lblOpisGwiazdki
+            // 
+            this.lblOpisGwiazdki.AutoSize = true;
+            this.lblOpisGwiazdki.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblOpisGwiazdki.Location = new System.Drawing.Point(189, 360);
+            this.lblOpisGwiazdki.Name = "lblOpisGwiazdki";
+            this.lblOpisGwiazdki.Size = new System.Drawing.Size(137, 20);
+            this.lblOpisGwiazdki.TabIndex = 35;
+            this.lblOpisGwiazdki.Text = "* Pole wymagane";
+            // 
             // NowyNiewykorzystanyMaterialOdpad
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(684, 441);
+            this.ClientSize = new System.Drawing.Size(912, 543);
+            this.Controls.Add(this.lblOpisGwiazdki);
             this.Controls.Add(this.lblOpis);
             this.Controls.Add(this.dgvUkryty);
             this.Controls.Add(this.lblTekst);
@@ -273,6 +302,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblOdpad);
             this.Controls.Add(this.lblElement);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "NowyNiewykorzystanyMaterialOdpad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nowy niewykorzystany materiał / odpad";
@@ -301,5 +331,6 @@
         private System.Windows.Forms.Label lblTekst;
         private System.Windows.Forms.DataGridView dgvUkryty;
         private System.Windows.Forms.Label lblOpis;
+        private System.Windows.Forms.Label lblOpisGwiazdki;
     }
 }

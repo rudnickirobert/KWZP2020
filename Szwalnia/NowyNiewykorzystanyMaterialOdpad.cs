@@ -21,7 +21,7 @@ namespace Szwalnia
             this.db = db;
             this.idProcesu = idProcesu;
             vElementyProcesProdukcyjny proces = db.vElementyProcesProdukcyjny.Where(elementy => elementy.ID_Procesu_Produkcyjnego == idProcesu).First();
-            lblTekst.Text = "dla procesu produkcyjnego o ID " + proces.ID_Procesu_Produkcyjnego;
+            lblTekst.Text = "do procesu produkcyjnego o ID " + proces.ID_Procesu_Produkcyjnego;
             cbxElement.DataSource = db.vElementyProcesProdukcyjny.Where(material => material.ID_Procesu_Produkcyjnego == proces.ID_Procesu_Produkcyjnego).ToList();
             cbxElement.DisplayMember = "Element";
             cbxElement.ValueMember = "ID_Elementy_Proces";

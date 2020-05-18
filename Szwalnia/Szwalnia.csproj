@@ -188,11 +188,11 @@
     <Compile Include="Klienci.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="KontrolaEfektywnosciFormSzczegoly.cs">
+    <Compile Include="KontrolaEfektywnosciSzczegoly.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KontrolaEfektywnosciFormSzczegoly.designer.cs">
-      <DependentUpon>KontrolaEfektywnosciFormSzczegoly.cs</DependentUpon>
+    <Compile Include="KontrolaEfektywnosciSzczegoly.designer.cs">
+      <DependentUpon>KontrolaEfektywnosciSzczegoly.cs</DependentUpon>
     </Compile>
     <Compile Include="KlienciSzczegoly.cs">
       <SubType>Form</SubType>
@@ -822,8 +822,8 @@
     <EmbeddedResource Include="InneProdukcja.resx">
       <DependentUpon>InneProdukcja.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KontrolaEfektywnosciFormSzczegoly.resx">
-      <DependentUpon>KontrolaEfektywnosciFormSzczegoly.cs</DependentUpon>
+    <EmbeddedResource Include="KontrolaEfektywnosciSzczegoly.resx">
+      <DependentUpon>KontrolaEfektywnosciSzczegoly.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NiewykorzystanyMaterialProces.resx">
       <DependentUpon>NiewykorzystanyMaterialProces.cs</DependentUpon>

@@ -56,22 +56,19 @@ namespace Szwalnia
         private void btnPrzygotowanieProdukcji_Click(object sender, EventArgs e)
         {
             PrzygotowanieProdukcji przygotowanieProdukcji = new PrzygotowanieProdukcji(db);
-            przygotowanieProdukcji.Show();
-            this.Hide();
+            przygotowanieProdukcji.Show();            
         }
 
         private void btnProdukcja_Click(object sender, EventArgs e)
         {
             Produkcja formularzProdukcji = new Produkcja(db);
             formularzProdukcji.Show();
-            this.Hide();
         }
 
         private void btnZarzadzanie_Click(object sender, EventArgs e)
         {
             ZarzadzanieForm zarzadzanieForm = new ZarzadzanieForm(db);
             zarzadzanieForm.Show();
-            this.Hide();
         }
 
         private void Start_FormClosed(object sender, FormClosedEventArgs e)

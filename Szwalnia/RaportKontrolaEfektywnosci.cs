@@ -28,6 +28,7 @@ namespace Szwalnia
             dgvKontrolaProcesu.Columns[4].HeaderText = "Liczba poprawnie wykonanych";
             dgvKontrolaProcesu.Columns[5].HeaderText = "Status produktów";
             dgvKontrolaProcesu.Columns[6].HeaderText = "Bilans produktów";
+            dgvKontrolaProcesu.Columns[5].Width = 110;
 
             string[] statusProduktow = { "Nadwyżka produktów", "Poprawna ilość produktów", "Niedobór produktów" };
             cbxStatus.DataSource = statusProduktow.ToList();

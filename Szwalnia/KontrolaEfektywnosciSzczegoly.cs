@@ -10,20 +10,20 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class KontrolaEfektywnosciFormSzczegoly : Form
+    public partial class KontrolaEfektywnosciSzczegoly : Form
     {
         public SzwalniaEntities db;
         public int IdProcesu;
-        public KontrolaEfektywnosciFormSzczegoly(SzwalniaEntities db, int IdProcesu)
+        public KontrolaEfektywnosciSzczegoly(SzwalniaEntities db, int IdProcesu)
         {
             InitializeComponent();
             this.db = db;
             this.IdProcesu = IdProcesu; 
-           Kontrola_Efektywnosci numerProcesu = db.Kontrola_Efektywnosci.Where(proces => proces.ID_Procesu_Produkcyjnego == IdProcesu).First();
+            Kontrola_Efektywnosci numerProcesu = db.Kontrola_Efektywnosci.Where(proces => proces.ID_Procesu_Produkcyjnego == IdProcesu).First();
             lblProces.Text = "Kontrola efektywności dla procesu produkcyjnego o ID " + numerProcesu.ID_Procesu_Produkcyjnego;
             mtbDataKontroli.Text = numerProcesu.Data_Kontroli.ToString();
             txtLiczbaPoprawnych.Text = numerProcesu.Liczba_Poprawnych.ToString();
-            txtUwagiDoKontroli.Text = numerProcesu.Uwagi.ToString();
+            txtUwagiDoKontroli.Text = numerProcesu.Uwagi.ToString();            
         }
 
         private void btnZapisz_Click(object sender, EventArgs e)

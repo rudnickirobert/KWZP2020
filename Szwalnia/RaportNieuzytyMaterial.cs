@@ -32,7 +32,7 @@ namespace Szwalnia
             dgvNieuzytyMaterialOdpad.Columns[8].HeaderText = "Odpad";
             dgvNieuzytyMaterialOdpad.Columns[9].HeaderText = "Niewykorzystany materiał";
             dgvNieuzytyMaterialOdpad.Columns[10].HeaderText = "Magazyn odebrał";
-            dgvNieuzytyMaterialOdpad.Columns[11].HeaderText = "Data zakończenia";
+            dgvNieuzytyMaterialOdpad.Columns[11].HeaderText = "Data zakończenia procesu";
         }
 
         private void btnSzukajIDPrcoesu_Click(object sender, EventArgs e)

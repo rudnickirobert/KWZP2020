@@ -37,5 +37,10 @@ namespace Szwalnia
         {
             dgvProcesy.DataSource = db.vZamowienieProcesyProdukcyjne.Where(data => (((data.Data_Zakonczenia.Value.Day >= dtpPierwszaDataZakonczenia.Value.Day) && (data.Data_Zakonczenia.Value.Day <= dtpDrugaDataZakonczenia.Value.Day)) && ((data.Data_Zakonczenia.Value.Month >= dtpPierwszaDataZakonczenia.Value.Month) && (data.Data_Zakonczenia.Value.Month <= dtpDrugaDataZakonczenia.Value.Month)) && ((data.Data_Zakonczenia.Value.Year >= dtpPierwszaDataZakonczenia.Value.Year) && (data.Data_Zakonczenia.Value.Year <= dtpDrugaDataZakonczenia.Value.Year)))).ToList();
         }
+
+        private void btnWszystkie_Click(object sender, EventArgs e)
+        {
+            dgvProcesy.DataSource = db.vZamowienieProcesyProdukcyjne.ToList();
+        }
     }
 }

@@ -46,9 +46,5 @@ namespace Szwalnia
 
         }
 
-        private void Produkcja_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Start.GetForm.Show();
-        }
     }
 }

@@ -31,7 +31,7 @@ namespace Szwalnia
 
         private void btnKontrolaEfektywnosci_Click(object sender, EventArgs e)
         {
-            KontrolaEfektywnosciFormSzczegoly kontrolaEfektywnosciFormSzczegoly = new KontrolaEfektywnosciFormSzczegoly(db, idProcesu);
+            KontrolaEfektywnosciSzczegoly kontrolaEfektywnosciFormSzczegoly = new KontrolaEfektywnosciSzczegoly(db, idProcesu);
             kontrolaEfektywnosciFormSzczegoly.Show();
         }
 

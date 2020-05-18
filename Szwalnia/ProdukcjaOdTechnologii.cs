@@ -22,9 +22,10 @@ namespace Szwalnia
 
             dgvPotrzebnyMaterialDoProcesuProdukcyjnego.DataSource = this.db.vPotrzebnyMaterialDoProcesuProdukcyjnego.Where(nun => nun.ID_Procesu_Produkcyjnego == idProcesu).ToList();
             dgvPotrzebnyMaterialDoProcesuProdukcyjnego.Columns[0].Visible = false;
-            dgvPotrzebnyMaterialDoProcesuProdukcyjnego.Columns[1].HeaderText = "Nazwa elementu";
-            dgvPotrzebnyMaterialDoProcesuProdukcyjnego.Columns[2].HeaderText = "Liczba";
-            dgvPotrzebnyMaterialDoProcesuProdukcyjnego.Columns[3].HeaderText = "Jednostka";
+            dgvPotrzebnyMaterialDoProcesuProdukcyjnego.Columns[2].HeaderText = "ID elementu";
+            dgvPotrzebnyMaterialDoProcesuProdukcyjnego.Columns[2].HeaderText = "Nazwa elementu";
+            dgvPotrzebnyMaterialDoProcesuProdukcyjnego.Columns[3].HeaderText = "Liczba";
+            dgvPotrzebnyMaterialDoProcesuProdukcyjnego.Columns[4].HeaderText = "Jednostka";
 
             dgvPotrzebneEtapyDoProcesuProdukcyjnego.DataSource = this.db.vPotrzebneEtapyDoProcesuProdukcyjnego.Where(nun => nun.ID_Procesu_Produkcyjnego == idProcesu).ToList();
             dgvPotrzebneEtapyDoProcesuProdukcyjnego.Columns[0].Visible = false;
@@ -39,7 +40,7 @@ namespace Szwalnia
             dgvPotrzebneMaszynyDoProcesuProdukcyjnego.Columns[1].Width = 140;
 
             dgvPotrzebnaDokumentacjaDoProcesuProdukcyjnego.DataSource = this.db.vPotrzebnaDokumentacjaDoProcesuProdukcyjnego.Where(nun => nun.ID_Procesu_Produkcyjnego == idProcesu).ToList();
-            dgvPotrzebneMaszynyDoProcesuProdukcyjnego.Columns[0].Visible = false;
+            dgvPotrzebnaDokumentacjaDoProcesuProdukcyjnego.Columns[0].Visible = false;
             dgvPotrzebnaDokumentacjaDoProcesuProdukcyjnego.Columns[1].HeaderText = "ID Dokumentacji";
             dgvPotrzebnaDokumentacjaDoProcesuProdukcyjnego.Columns[2].HeaderText = "Rodzaj";
         }
