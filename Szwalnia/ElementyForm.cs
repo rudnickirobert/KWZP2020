@@ -81,7 +81,9 @@ namespace Szwalnia
 
         private void btnWyborJednostki_Click(object sender, EventArgs e)
         {
-
+            WyborJednostki jednostkaWybor = new WyborJednostki();
+            jednostkaWybor.Show();
+            this.Hide();
         }
     }
 }

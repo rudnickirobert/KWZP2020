@@ -26,8 +26,8 @@ namespace Szwalnia
         {
             int numID = Convert.ToInt32(dgvListaCech.CurrentRow.Cells[0].Value);
             ID = numID;
-            Elementy_Cechy_Slownik typ = db.Elementy_Cechy_Slownik.Where(wybrany => wybrany.ID_Cecha == ID).First();
-            txtNazwa.Text = typ.Cecha;
+            Elementy_Cechy_Slownik cecha = db.Elementy_Cechy_Slownik.Where(wybrany => wybrany.ID_Cecha == ID).First();
+            txtNazwa.Text = cecha.Cecha;
         }
         private void btnDodawanie_Click(object sender, EventArgs e)
         {

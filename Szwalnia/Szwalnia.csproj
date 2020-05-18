@@ -681,6 +681,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WyborJednostki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WyborJednostki.Designer.cs">
+      <DependentUpon>WyborJednostki.cs</DependentUpon>
+    </Compile>
     <Compile Include="WyborKlienta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -906,6 +912,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WyborCechy.resx">
       <DependentUpon>WyborCechy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WyborJednostki.resx">
+      <DependentUpon>WyborJednostki.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WyborKlienta.resx">
       <DependentUpon>WyborKlienta.cs</DependentUpon>

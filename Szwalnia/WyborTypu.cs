@@ -51,8 +51,8 @@ namespace Szwalnia
         {
             Elementy_Typy typUsun = db.Elementy_Typy.Where(wybrany => wybrany.ID_Element_Typ == ID).First();
             db.Elementy_Typy.Remove(typUsun);
-            db.SaveChanges();
-            MessageBox.Show("Pomyślnie usunięto element");
+            db.SaveChanges();            
+            MessageBox.Show("Pomyślnie usunięto element");            
         }
     }
 }
