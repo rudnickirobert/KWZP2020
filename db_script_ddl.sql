@@ -197,7 +197,7 @@ Nazwa varchar(20),
 
 CREATE TABLE Regaly(
 ID_regal int IDENTITY(1,1) PRIMARY KEY,
-Oznaczenie varchar(10)
+Oznaczenie varchar(2) UNIQUE
 )
 
 ---------------------------------------------------------TABELE Z KLUCZAMI OBCYMI MAGAZYN ---------------------------------------------------------
