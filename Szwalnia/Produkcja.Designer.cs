@@ -36,9 +36,10 @@
             // btnProcesProdukcyjny
             // 
             this.btnProcesProdukcyjny.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnProcesProdukcyjny.Location = new System.Drawing.Point(74, 45);
+            this.btnProcesProdukcyjny.Location = new System.Drawing.Point(99, 55);
+            this.btnProcesProdukcyjny.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnProcesProdukcyjny.Name = "btnProcesProdukcyjny";
-            this.btnProcesProdukcyjny.Size = new System.Drawing.Size(300, 120);
+            this.btnProcesProdukcyjny.Size = new System.Drawing.Size(400, 148);
             this.btnProcesProdukcyjny.TabIndex = 3;
             this.btnProcesProdukcyjny.Text = "Proces produkcyjny";
             this.btnProcesProdukcyjny.UseVisualStyleBackColor = true;
@@ -47,9 +48,10 @@
             // btnRaporty
             // 
             this.btnRaporty.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnRaporty.Location = new System.Drawing.Point(74, 171);
+            this.btnRaporty.Location = new System.Drawing.Point(99, 210);
+            this.btnRaporty.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRaporty.Name = "btnRaporty";
-            this.btnRaporty.Size = new System.Drawing.Size(300, 120);
+            this.btnRaporty.Size = new System.Drawing.Size(400, 148);
             this.btnRaporty.TabIndex = 4;
             this.btnRaporty.Text = "Raporty";
             this.btnRaporty.UseVisualStyleBackColor = true;
@@ -58,9 +60,10 @@
             // btnInne
             // 
             this.btnInne.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnInne.Location = new System.Drawing.Point(74, 297);
+            this.btnInne.Location = new System.Drawing.Point(99, 366);
+            this.btnInne.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnInne.Name = "btnInne";
-            this.btnInne.Size = new System.Drawing.Size(300, 120);
+            this.btnInne.Size = new System.Drawing.Size(400, 148);
             this.btnInne.TabIndex = 5;
             this.btnInne.Text = "Inne";
             this.btnInne.UseVisualStyleBackColor = true;
@@ -68,16 +71,18 @@
             // 
             // Produkcja
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(434, 461);
+            this.ClientSize = new System.Drawing.Size(579, 567);
             this.Controls.Add(this.btnInne);
             this.Controls.Add(this.btnRaporty);
             this.Controls.Add(this.btnProcesProdukcyjny);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Produkcja";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Produkcja";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Produkcja_FormClosed);
             this.ResumeLayout(false);
 
         }

@@ -42,10 +42,13 @@ namespace Szwalnia
 
         private void btnWstecz_Click(object sender, EventArgs e)
         {
-            Start start = new Start();
-            start.Show();
-            this.Close();
+            Start.GetForm.Show();
 
+        }
+
+        private void Produkcja_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Start.GetForm.Show();
         }
     }
 }

@@ -21,14 +21,17 @@ namespace Szwalnia
             this.db = db;
             dgvUkryty.DataSource = db.Proces_Produkcyjny.ToList();
             int numerOstatniegoProcesu = dgvUkryty.Rows.Count;
-            lblNumerProcesu.Text = (numerOstatniegoProcesu+1).ToString();            
+            lblNumerProcesu.Text = (numerOstatniegoProcesu+1).ToString();
+            cbxZamowienieElement.DataSource = db.Zamowienie_Element.ToList();
+            cbxZamowienieElement.DisplayMember = "ID_Zamowienie_Element";
+            cbxZamowienieElement.ValueMember = "ID_Zamowienie_Element";
         }
 
         private void btnWyzeruj_Click(object sender, EventArgs e)
         {
             mtbDataRozpoczecia.Text = "";
             mtbDataZakonczenia.Text = "";
-            tbIdZamowienieElement.Text = "";
+            cbxZamowienieElement.Text = "";
             mtbProponowanaData.Text = "";
             tbUwagi.Text = "";
         }
@@ -44,14 +47,14 @@ namespace Szwalnia
         {
             Proces_Produkcyjny proces = new Proces_Produkcyjny();
 
-            if (string.IsNullOrEmpty(tbIdZamowienieElement.Text))
+            if (string.IsNullOrEmpty(cbxZamowienieElement.Text))
             {
                 MessageBox.Show("Uzupełnienie pola 'ID zamówienie element' jest wymagane!");
                 return;
             }
             else
             {
-                proces.ID_Zamowienie_Element = Convert.ToInt32(tbIdZamowienieElement.Text);
+                proces.ID_Zamowienie_Element = Convert.ToInt32(cbxZamowienieElement.Text);
             }
 
             if (mtbProponowanaData.Text != pustePole)

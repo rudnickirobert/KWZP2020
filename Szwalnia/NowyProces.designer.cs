@@ -30,7 +30,6 @@
         {
             this.lblOpisNumer = new System.Windows.Forms.Label();
             this.lblIdZamowienieElement = new System.Windows.Forms.Label();
-            this.tbIdZamowienieElement = new System.Windows.Forms.TextBox();
             this.lblProponowanaDataDostawy = new System.Windows.Forms.Label();
             this.lblDataRozpoczecia = new System.Windows.Forms.Label();
             this.lblDataZakonczenia = new System.Windows.Forms.Label();
@@ -45,10 +44,8 @@
             this.btnDzisProponowana = new System.Windows.Forms.Button();
             this.mtbDataRozpoczecia = new System.Windows.Forms.MaskedTextBox();
             this.btnDzisRozpoczecie = new System.Windows.Forms.Button();
-            this.mtbDataZakonczenia = new System.Windows.Forms.MaskedTextBox();
             this.btnDzisZakonczenie = new System.Windows.Forms.Button();
             this.lblGwiazdka = new System.Windows.Forms.Label();
-            this.lblOpisGwiazdki = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUkryty)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,9 +53,10 @@
             // 
             this.lblOpisNumer.AutoSize = true;
             this.lblOpisNumer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblOpisNumer.Location = new System.Drawing.Point(77, 44);
+            this.lblOpisNumer.Location = new System.Drawing.Point(103, 54);
+            this.lblOpisNumer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOpisNumer.Name = "lblOpisNumer";
-            this.lblOpisNumer.Size = new System.Drawing.Size(200, 24);
+            this.lblOpisNumer.Size = new System.Drawing.Size(254, 29);
             this.lblOpisNumer.TabIndex = 0;
             this.lblOpisNumer.Text = "ID nowego procesu to:";
             // 
@@ -66,26 +64,21 @@
             // 
             this.lblIdZamowienieElement.AutoSize = true;
             this.lblIdZamowienieElement.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblIdZamowienieElement.Location = new System.Drawing.Point(62, 110);
+            this.lblIdZamowienieElement.Location = new System.Drawing.Point(83, 135);
+            this.lblIdZamowienieElement.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIdZamowienieElement.Name = "lblIdZamowienieElement";
-            this.lblIdZamowienieElement.Size = new System.Drawing.Size(161, 18);
+            this.lblIdZamowienieElement.Size = new System.Drawing.Size(206, 24);
             this.lblIdZamowienieElement.TabIndex = 1;
             this.lblIdZamowienieElement.Text = "ID zamówienie element";
-            // 
-            // tbIdZamowienieElement
-            // 
-            this.tbIdZamowienieElement.Location = new System.Drawing.Point(346, 111);
-            this.tbIdZamowienieElement.Name = "tbIdZamowienieElement";
-            this.tbIdZamowienieElement.Size = new System.Drawing.Size(189, 20);
-            this.tbIdZamowienieElement.TabIndex = 2;
             // 
             // lblProponowanaDataDostawy
             // 
             this.lblProponowanaDataDostawy.AutoSize = true;
             this.lblProponowanaDataDostawy.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblProponowanaDataDostawy.Location = new System.Drawing.Point(62, 140);
+            this.lblProponowanaDataDostawy.Location = new System.Drawing.Point(83, 172);
+            this.lblProponowanaDataDostawy.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblProponowanaDataDostawy.Name = "lblProponowanaDataDostawy";
-            this.lblProponowanaDataDostawy.Size = new System.Drawing.Size(256, 18);
+            this.lblProponowanaDataDostawy.Size = new System.Drawing.Size(326, 24);
             this.lblProponowanaDataDostawy.TabIndex = 1;
             this.lblProponowanaDataDostawy.Text = "Proponowana data dostawy materiału";
             // 
@@ -93,9 +86,10 @@
             // 
             this.lblDataRozpoczecia.AutoSize = true;
             this.lblDataRozpoczecia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblDataRozpoczecia.Location = new System.Drawing.Point(62, 169);
+            this.lblDataRozpoczecia.Location = new System.Drawing.Point(83, 208);
+            this.lblDataRozpoczecia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDataRozpoczecia.Name = "lblDataRozpoczecia";
-            this.lblDataRozpoczecia.Size = new System.Drawing.Size(125, 18);
+            this.lblDataRozpoczecia.Size = new System.Drawing.Size(154, 24);
             this.lblDataRozpoczecia.TabIndex = 1;
             this.lblDataRozpoczecia.Text = "Data rozpoczęcia";
             // 
@@ -103,9 +97,10 @@
             // 
             this.lblDataZakonczenia.AutoSize = true;
             this.lblDataZakonczenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblDataZakonczenia.Location = new System.Drawing.Point(62, 198);
+            this.lblDataZakonczenia.Location = new System.Drawing.Point(83, 244);
+            this.lblDataZakonczenia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDataZakonczenia.Name = "lblDataZakonczenia";
-            this.lblDataZakonczenia.Size = new System.Drawing.Size(127, 18);
+            this.lblDataZakonczenia.Size = new System.Drawing.Size(157, 24);
             this.lblDataZakonczenia.TabIndex = 1;
             this.lblDataZakonczenia.Text = "Data zakończenia";
             // 
@@ -113,25 +108,28 @@
             // 
             this.lblUwagi.AutoSize = true;
             this.lblUwagi.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblUwagi.Location = new System.Drawing.Point(62, 224);
+            this.lblUwagi.Location = new System.Drawing.Point(83, 276);
+            this.lblUwagi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUwagi.Name = "lblUwagi";
-            this.lblUwagi.Size = new System.Drawing.Size(49, 18);
+            this.lblUwagi.Size = new System.Drawing.Size(62, 24);
             this.lblUwagi.TabIndex = 1;
             this.lblUwagi.Text = "Uwagi";
             // 
             // tbUwagi
             // 
-            this.tbUwagi.Location = new System.Drawing.Point(346, 225);
+            this.tbUwagi.Location = new System.Drawing.Point(461, 277);
+            this.tbUwagi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbUwagi.Name = "tbUwagi";
-            this.tbUwagi.Size = new System.Drawing.Size(189, 20);
+            this.tbUwagi.Size = new System.Drawing.Size(251, 22);
             this.tbUwagi.TabIndex = 2;
             // 
             // btnZapisz
             // 
             this.btnZapisz.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnZapisz.Location = new System.Drawing.Point(119, 326);
+            this.btnZapisz.Location = new System.Drawing.Point(159, 401);
+            this.btnZapisz.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnZapisz.Name = "btnZapisz";
-            this.btnZapisz.Size = new System.Drawing.Size(80, 50);
+            this.btnZapisz.Size = new System.Drawing.Size(107, 62);
             this.btnZapisz.TabIndex = 3;
             this.btnZapisz.Text = "Zapisz";
             this.btnZapisz.UseVisualStyleBackColor = true;
@@ -140,9 +138,10 @@
             // btnAnuluj
             // 
             this.btnAnuluj.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAnuluj.Location = new System.Drawing.Point(238, 326);
+            this.btnAnuluj.Location = new System.Drawing.Point(317, 401);
+            this.btnAnuluj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAnuluj.Name = "btnAnuluj";
-            this.btnAnuluj.Size = new System.Drawing.Size(80, 50);
+            this.btnAnuluj.Size = new System.Drawing.Size(107, 62);
             this.btnAnuluj.TabIndex = 3;
             this.btnAnuluj.Text = "Anuluj";
             this.btnAnuluj.UseVisualStyleBackColor = true;
@@ -151,9 +150,10 @@
             // btnWyzeruj
             // 
             this.btnWyzeruj.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnWyzeruj.Location = new System.Drawing.Point(346, 326);
+            this.btnWyzeruj.Location = new System.Drawing.Point(461, 401);
+            this.btnWyzeruj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnWyzeruj.Name = "btnWyzeruj";
-            this.btnWyzeruj.Size = new System.Drawing.Size(80, 50);
+            this.btnWyzeruj.Size = new System.Drawing.Size(107, 62);
             this.btnWyzeruj.TabIndex = 3;
             this.btnWyzeruj.Text = "Wyzeruj";
             this.btnWyzeruj.UseVisualStyleBackColor = true;
@@ -163,36 +163,41 @@
             // 
             this.lblNumerProcesu.AutoSize = true;
             this.lblNumerProcesu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblNumerProcesu.Location = new System.Drawing.Point(342, 48);
+            this.lblNumerProcesu.Location = new System.Drawing.Point(456, 59);
+            this.lblNumerProcesu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNumerProcesu.Name = "lblNumerProcesu";
-            this.lblNumerProcesu.Size = new System.Drawing.Size(51, 20);
+            this.lblNumerProcesu.Size = new System.Drawing.Size(64, 25);
             this.lblNumerProcesu.TabIndex = 4;
             this.lblNumerProcesu.Text = "label1";
             // 
             // dgvUkryty
             // 
             this.dgvUkryty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUkryty.Location = new System.Drawing.Point(24, 13);
+            this.dgvUkryty.Location = new System.Drawing.Point(32, 16);
+            this.dgvUkryty.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvUkryty.Name = "dgvUkryty";
-            this.dgvUkryty.Size = new System.Drawing.Size(47, 43);
+            this.dgvUkryty.RowHeadersWidth = 51;
+            this.dgvUkryty.Size = new System.Drawing.Size(63, 53);
             this.dgvUkryty.TabIndex = 5;
             this.dgvUkryty.Visible = false;
             // 
             // mtbProponowanaData
             // 
             this.mtbProponowanaData.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.mtbProponowanaData.Location = new System.Drawing.Point(346, 137);
-            this.mtbProponowanaData.Mask = "00/00/0000 00:00:00";
+            this.mtbProponowanaData.Location = new System.Drawing.Point(461, 169);
+            this.mtbProponowanaData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mtbProponowanaData.Mask = "0000/00/00 00:00:00";
             this.mtbProponowanaData.Name = "mtbProponowanaData";
-            this.mtbProponowanaData.Size = new System.Drawing.Size(189, 24);
+            this.mtbProponowanaData.Size = new System.Drawing.Size(251, 29);
             this.mtbProponowanaData.TabIndex = 26;
             // 
             // btnDzisProponowana
             // 
             this.btnDzisProponowana.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDzisProponowana.Location = new System.Drawing.Point(541, 139);
+            this.btnDzisProponowana.Location = new System.Drawing.Point(721, 171);
+            this.btnDzisProponowana.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDzisProponowana.Name = "btnDzisProponowana";
-            this.btnDzisProponowana.Size = new System.Drawing.Size(43, 23);
+            this.btnDzisProponowana.Size = new System.Drawing.Size(57, 28);
             this.btnDzisProponowana.TabIndex = 25;
             this.btnDzisProponowana.Text = "Dziś";
             this.btnDzisProponowana.UseVisualStyleBackColor = true;
@@ -201,38 +206,32 @@
             // mtbDataRozpoczecia
             // 
             this.mtbDataRozpoczecia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.mtbDataRozpoczecia.Location = new System.Drawing.Point(346, 166);
-            this.mtbDataRozpoczecia.Mask = "00/00/0000 00:00:00";
+            this.mtbDataRozpoczecia.Location = new System.Drawing.Point(461, 204);
+            this.mtbDataRozpoczecia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mtbDataRozpoczecia.Mask = "0000/00/00 00:00:00";
             this.mtbDataRozpoczecia.Name = "mtbDataRozpoczecia";
-            this.mtbDataRozpoczecia.Size = new System.Drawing.Size(189, 24);
+            this.mtbDataRozpoczecia.Size = new System.Drawing.Size(251, 29);
             this.mtbDataRozpoczecia.TabIndex = 28;
             // 
             // btnDzisRozpoczecie
             // 
             this.btnDzisRozpoczecie.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDzisRozpoczecie.Location = new System.Drawing.Point(541, 168);
+            this.btnDzisRozpoczecie.Location = new System.Drawing.Point(721, 207);
+            this.btnDzisRozpoczecie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDzisRozpoczecie.Name = "btnDzisRozpoczecie";
-            this.btnDzisRozpoczecie.Size = new System.Drawing.Size(43, 23);
+            this.btnDzisRozpoczecie.Size = new System.Drawing.Size(57, 28);
             this.btnDzisRozpoczecie.TabIndex = 27;
             this.btnDzisRozpoczecie.Text = "Dziś";
             this.btnDzisRozpoczecie.UseVisualStyleBackColor = true;
             this.btnDzisRozpoczecie.Click += new System.EventHandler(this.btnDzisRozpoczecie_Click);
             // 
-            // mtbDataZakonczenia
-            // 
-            this.mtbDataZakonczenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.mtbDataZakonczenia.Location = new System.Drawing.Point(346, 195);
-            this.mtbDataZakonczenia.Mask = "00/00/0000 00:00:00";
-            this.mtbDataZakonczenia.Name = "mtbDataZakonczenia";
-            this.mtbDataZakonczenia.Size = new System.Drawing.Size(189, 24);
-            this.mtbDataZakonczenia.TabIndex = 30;
-            // 
             // btnDzisZakonczenie
             // 
             this.btnDzisZakonczenie.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDzisZakonczenie.Location = new System.Drawing.Point(541, 197);
+            this.btnDzisZakonczenie.Location = new System.Drawing.Point(721, 242);
+            this.btnDzisZakonczenie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDzisZakonczenie.Name = "btnDzisZakonczenie";
-            this.btnDzisZakonczenie.Size = new System.Drawing.Size(43, 23);
+            this.btnDzisZakonczenie.Size = new System.Drawing.Size(57, 28);
             this.btnDzisZakonczenie.TabIndex = 29;
             this.btnDzisZakonczenie.Text = "Dziś";
             this.btnDzisZakonczenie.UseVisualStyleBackColor = true;
@@ -242,31 +241,20 @@
             // 
             this.lblGwiazdka.AutoSize = true;
             this.lblGwiazdka.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblGwiazdka.Location = new System.Drawing.Point(541, 110);
+            this.lblGwiazdka.Location = new System.Drawing.Point(721, 135);
+            this.lblGwiazdka.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGwiazdka.Name = "lblGwiazdka";
-            this.lblGwiazdka.Size = new System.Drawing.Size(14, 18);
+            this.lblGwiazdka.Size = new System.Drawing.Size(17, 24);
             this.lblGwiazdka.TabIndex = 31;
             this.lblGwiazdka.Text = "*";
             // 
-            // lblOpisGwiazdki
-            // 
-            this.lblOpisGwiazdki.AutoSize = true;
-            this.lblOpisGwiazdki.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblOpisGwiazdki.Location = new System.Drawing.Point(62, 291);
-            this.lblOpisGwiazdki.Name = "lblOpisGwiazdki";
-            this.lblOpisGwiazdki.Size = new System.Drawing.Size(113, 16);
-            this.lblOpisGwiazdki.TabIndex = 32;
-            this.lblOpisGwiazdki.Text = "* Pole wymagane";
-            // 
             // NowyProces
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(612, 388);
-            this.Controls.Add(this.lblOpisGwiazdki);
+            this.ClientSize = new System.Drawing.Size(816, 478);
             this.Controls.Add(this.lblGwiazdka);
-            this.Controls.Add(this.mtbDataZakonczenia);
             this.Controls.Add(this.btnDzisZakonczenie);
             this.Controls.Add(this.mtbDataRozpoczecia);
             this.Controls.Add(this.btnDzisRozpoczecie);
@@ -282,12 +270,12 @@
             this.Controls.Add(this.lblDataZakonczenia);
             this.Controls.Add(this.lblDataRozpoczecia);
             this.Controls.Add(this.lblProponowanaDataDostawy);
-            this.Controls.Add(this.tbIdZamowienieElement);
             this.Controls.Add(this.lblIdZamowienieElement);
             this.Controls.Add(this.lblOpisNumer);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "NowyProces";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Nowy Proces";
+            this.Text = "Nowy proces";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NowyProces_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUkryty)).EndInit();
             this.ResumeLayout(false);
@@ -299,7 +287,6 @@
 
         private System.Windows.Forms.Label lblOpisNumer;
         private System.Windows.Forms.Label lblIdZamowienieElement;
-        private System.Windows.Forms.TextBox tbIdZamowienieElement;
         private System.Windows.Forms.Label lblProponowanaDataDostawy;
         private System.Windows.Forms.Label lblDataRozpoczecia;
         private System.Windows.Forms.Label lblDataZakonczenia;
@@ -314,9 +301,7 @@
         private System.Windows.Forms.Button btnDzisProponowana;
         private System.Windows.Forms.MaskedTextBox mtbDataRozpoczecia;
         private System.Windows.Forms.Button btnDzisRozpoczecie;
-        private System.Windows.Forms.MaskedTextBox mtbDataZakonczenia;
         private System.Windows.Forms.Button btnDzisZakonczenie;
         private System.Windows.Forms.Label lblGwiazdka;
-        private System.Windows.Forms.Label lblOpisGwiazdki;
     }
 }
