@@ -375,4 +375,81 @@ GO
 -----------------------------------------KONIEC PRZYGOTOWANIE PRODUKCJI----------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
-USE master
+
+
+CREATE VIEW vKoszty
+AS
+SELECT        dbo.Zamowienia.ID_Zamowienia, dbo.Proces_Zamowienie.ID_Proces_Technologiczny, dbo.Maszyny_Proces.Liczba_Maszyn, dbo.Maszyny_Proces.Liczba_Rbh_Maszyna, dbo.Rodzaj_Maszyny.Koszt_Rbh, 
+                         dbo.Rodzaj_Maszyny.Rodzaj_Maszyny, dbo.Maszyny_Proces.Liczba_Maszyn * dbo.Maszyny_Proces.Liczba_Rbh_Maszyna * dbo.Rodzaj_Maszyny.Koszt_Rbh AS Koszt
+FROM            dbo.Proces_Technologiczny INNER JOIN
+                         dbo.Maszyny_Proces ON dbo.Proces_Technologiczny.ID_Proces_Technologiczny = dbo.Maszyny_Proces.ID_Proces_Technologiczny INNER JOIN
+                         dbo.Rodzaj_Maszyny ON dbo.Maszyny_Proces.ID_Rodzaj_Maszyny = dbo.Rodzaj_Maszyny.ID_Rodzaj_Maszyny INNER JOIN
+                         dbo.Proces_Zamowienie ON dbo.Proces_Technologiczny.ID_Proces_Technologiczny = dbo.Proces_Zamowienie.ID_Proces_Technologiczny INNER JOIN
+                         dbo.Zamowienie_Element ON dbo.Proces_Zamowienie.ID_Zamowienie_Element = dbo.Zamowienie_Element.ID_Zamowienie_Element INNER JOIN
+                         dbo.Zamowienia ON dbo.Zamowienie_Element.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia
+GO
+
+
+CREATE VIEW vSumaKosztowProdukcji
+AS
+SELECT        ID_Proces_Technologiczny AS [Numer procesu], SUM(Koszt) AS [Koszt maszynowy]
+FROM            dbo.vKoszty
+GROUP BY ID_Proces_Technologiczny
+GO
+
+
+
+CREATE VIEW vSumaKosztowZamowienia
+AS
+SELECT        ID_Zamowienia AS [Numer procesu], SUM(Koszt) AS [Koszt maszynowy]
+FROM            dbo.vKoszty
+GROUP BY ID_Zamowienia
+GO
+
+CREATE VIEW vKlienciZamowienie AS
+SELECT dbo.Klienci.ID_Klienta, dbo.Zamowienia.ID_Zamowienia, dbo.Elementy.Element_Nazwa, dbo.Zamowienie_Element.Ilosc, dbo.Zamowienia.Data_Zlozenia, dbo.Zamowienia.Data_Zakonczenia
+FROM     dbo.Zamowienie_Element INNER JOIN
+                  dbo.Elementy ON dbo.Zamowienie_Element.ID_Element = dbo.Elementy.ID_Element INNER JOIN
+                  dbo.Zamowienia ON dbo.Zamowienie_Element.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia INNER JOIN
+                  dbo.Klienci ON dbo.Zamowienia.ID_Klienta = dbo.Klienci.ID_Klienta
+
+				  
+CREATE VIEW vFakturyZewnetrzne AS
+SELECT dbo.Faktury_Zewnetrzne.Nr_Faktury, dbo.Faktury_Zewnetrzne.Nazwa_Firmy, dbo.Grupa.Nazwa, dbo.Faktury_Zewnetrzne.Netto, dbo.Faktury_Zewnetrzne.Brutto, dbo.Faktury_Zewnetrzne.Podatek
+FROM     dbo.Faktury_Zewnetrzne INNER JOIN
+                  dbo.Grupa ON dbo.Faktury_Zewnetrzne.ID_Grupa = dbo.Grupa.ID_Grupa
+
+CREATE VIEW vDanePracownika
+AS
+SELECT ID_Pracownika, Imie, Nazwisko, Pesel, Adres, Telefon
+FROM     dbo.Pracownicy
+GO
+
+CREATE VIEW vZatrudnieniePracownika
+AS
+SELECT dbo.Pracownicy.ID_Pracownika, dbo.Stanowisko.Stanowisko, dbo.Pracownicy_Zatrudnienie.Data_Zatrudnienia, dbo.Pracownicy_Zatrudnienie.Koniec_umowy, dbo.Rodzaj_Umowy.Rodzaj_Umowy, dbo.Etat.Wymiar_Etatu, 
+                  dbo.Pensja.Pensja
+FROM     dbo.Pracownicy INNER JOIN
+                  dbo.Pracownicy_Zatrudnienie ON dbo.Pracownicy.ID_Pracownika = dbo.Pracownicy_Zatrudnienie.ID_Pracownika INNER JOIN
+                  dbo.Stanowisko ON dbo.Pracownicy_Zatrudnienie.ID_Stanowiska = dbo.Stanowisko.ID_Stanowiska INNER JOIN
+                  dbo.Etat ON dbo.Pracownicy_Zatrudnienie.ID_Etatu = dbo.Etat.ID_Etat INNER JOIN
+                  dbo.Rodzaj_Umowy ON dbo.Pracownicy_Zatrudnienie.ID_Rodzaju_Umowy = dbo.Rodzaj_Umowy.ID_Rodzaj_Umowy INNER JOIN
+                  dbo.Pensja ON dbo.Stanowisko.ID_Pensji = dbo.Pensja.ID_Pensja
+GO
+
+
+CREATE VIEW vJezykiPracownika
+AS
+SELECT dbo.Pracownicy.ID_Pracownika, dbo.Jezyk.Jezyk
+FROM     dbo.Pracownicy INNER JOIN
+                  dbo.Znajomosc_Jezykow ON dbo.Pracownicy.ID_Pracownika = dbo.Znajomosc_Jezykow.ID_Pracownika INNER JOIN
+                  dbo.Jezyk ON dbo.Znajomosc_Jezykow.ID_Jezyka = dbo.Jezyk.ID_Jezyk
+GO
+
+CREATE VIEW vUrlopPracownika
+AS
+SELECT dbo.Pracownicy.ID_Pracownika, dbo.Urlop.Data_rozpoczecia, dbo.Urlop.Data_zakonczenia, dbo.Rodzaj_Urlopu.Nazwa
+FROM     dbo.Urlop INNER JOIN
+                  dbo.Pracownicy ON dbo.Urlop.ID_Pracownika = dbo.Pracownicy.ID_Pracownika INNER JOIN
+                  dbo.Rodzaj_Urlopu ON dbo.Urlop.ID_Rodzaj_Urlopu = dbo.Rodzaj_Urlopu.ID_Rodzaj_Urlopu
+GO
