@@ -422,6 +422,12 @@
     <Compile Include="Przydzial_Zasobow.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="PustePolki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PustePolki.Designer.cs">
+      <DependentUpon>PustePolki.cs</DependentUpon>
+    </Compile>
     <Compile Include="RaportKontrolaEfektywnosci.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -533,14 +539,14 @@
     <Compile Include="StanMagazynowyElementy.Designer.cs">
       <DependentUpon>StanMagazynowyElementy.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stanowisko.cs">
-      <DependentUpon>Szwalnia.tt</DependentUpon>
-    </Compile>
     <Compile Include="StanMagazynowyCalkowity.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="StanMagazynowyCalkowity.Designer.cs">
       <DependentUpon>StanMagazynowyCalkowity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stanowisko.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="Statusy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
@@ -802,15 +808,6 @@
     <Compile Include="vZawartoscMagazynuDoPrzydzialu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vZawartosc_polki.cs">
-      <DependentUpon>Szwalnia.tt</DependentUpon>
-    </Compile>
-    <Compile Include="WszystkieProcesyProdukcyjne.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WszystkieProcesyProdukcyjne.designer.cs">
-      <DependentUpon>WszystkieProcesyProdukcyjne.cs</DependentUpon>
-    </Compile>
     <Compile Include="WyborElementu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -993,6 +990,9 @@
     <EmbeddedResource Include="PrzydzialZasobowRealizacja.resx">
       <DependentUpon>PrzydzialZasobowRealizacja.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PustePolki.resx">
+      <DependentUpon>PustePolki.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RaportKontrolaEfektywnosci.resx">
       <DependentUpon>RaportKontrolaEfektywnosci.cs</DependentUpon>
     </EmbeddedResource>
@@ -1153,6 +1153,9 @@
     <None Include="Resources\Legenda.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Legenda.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Szwalnia.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Szwalnia.edmx</DependentUpon>
@@ -1163,7 +1166,6 @@
       <DependentUpon>Szwalnia.edmx</DependentUpon>
       <LastGenOutput>Szwalnia.cs</LastGenOutput>
     </Content>
-    <None Include="Resources\Legenda.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -15,5 +15,7 @@ namespace Szwalnia
     public partial class vWolnePolki
     {
         public int ID_Polka { get; set; }
+        public string Oznaczenie { get; set; }
+        public string Wymiar { get; set; }
     }
 }

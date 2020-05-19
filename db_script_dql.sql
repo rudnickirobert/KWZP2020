@@ -148,9 +148,13 @@ GO
 --lista wolnych polek
 CREATE VIEW [dbo].[vWolnePolki]
 AS
-SELECT        dbo.Polki.ID_Polka
-FROM            dbo.Zawartosc RIGHT OUTER JOIN
-                         dbo.Polki ON dbo.Zawartosc.ID_Polka = dbo.Polki.ID_Polka
+SELECT        dbo.Polki.ID_Polka, dbo.Regaly.Oznaczenie, CAST(dbo.Polki_Rozmiary.Wysokosc AS NVARCHAR) + ' x ' + CAST(dbo.Polki_Rozmiary.Szerokosc AS NVARCHAR) + ' x ' + CAST(dbo.Polki_Rozmiary.Glebokosc AS NVARCHAR) 
+                         + ' cm' AS Wymiar
+FROM            dbo.Polki_Rozmiary INNER JOIN
+                         dbo.Polki ON dbo.Polki_Rozmiary.ID_Rozmiar_Polki = dbo.Polki.ID_Rozmiar_Polki INNER JOIN
+                         dbo.Polki_regaly ON dbo.Polki.ID_Polka = dbo.Polki_regaly.ID_Polka INNER JOIN
+                         dbo.Regaly ON dbo.Polki_regaly.ID_regal = dbo.Regaly.ID_regal LEFT OUTER JOIN
+                         dbo.Zawartosc ON dbo.Polki.ID_Polka = dbo.Zawartosc.ID_Polka
 WHERE        (dbo.Zawartosc.ID_Polka IS NULL)
 GO
 --lista pracownikow magazynu 

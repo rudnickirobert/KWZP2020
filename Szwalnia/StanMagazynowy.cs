@@ -33,7 +33,8 @@ namespace Szwalnia
 
         private void btnPustePolki_Click(object sender, EventArgs e)
         {
-
+            PustePolki puste = new PustePolki();
+            puste.Show();
         }
 
         private void StanMagazynowy_FormClosed(object sender, FormClosedEventArgs e)
