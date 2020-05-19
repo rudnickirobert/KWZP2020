@@ -86,6 +86,25 @@ GROUP BY Wszystko.ID_Zamowienia, dbo.Elementy.Element_Nazwa, dbo.Elementy.ID_Ele
 HAVING        (SUM(Wszystko.Ilosc) > 0)
 GO
 
+---Widok ofert
+CREATE VIEW vOferty_Zebrane
+AS
+SELECT        TOP (100) PERCENT dbo.Oferta.ID_Oferta, dbo.Elementy.Element_Nazwa, dbo.Oferta.Element_Oznaczenie, dbo.Dostawcy_Zaopatrzenie.Nazwa, dbo.Oferta.Cena_Jedn, dbo.Oferta.Data_Oferty, dbo.Oferta.Ilosc_Minimalna, 
+                         dbo.Oferta.Ilosc_Maksymalna, dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym, dbo.Elementy_Jednostki.Jednostka, dbo.Oferta.Ilosc_W_Opakowaniu_Zbiorczym, dbo.Oferta.Deklarowany_czas_dostawy
+FROM            dbo.Elementy INNER JOIN
+                         dbo.Oferta ON dbo.Elementy.ID_Element = dbo.Oferta.ID_Element INNER JOIN
+                         dbo.Elementy_Jednostki ON dbo.Oferta.ID_Jednostka = dbo.Elementy_Jednostki.ID_jednostka INNER JOIN
+                         dbo.Dostawcy_Zaopatrzenie ON dbo.Oferta.ID_Dostawcy = dbo.Dostawcy_Zaopatrzenie.ID_Dostawcy
+ORDER BY dbo.Elementy.Element_Nazwa
+GO
+----Widok umow z kurierami
+CREATE VIEW vUmowyKurierzy
+AS
+SELECT        TOP (100) PERCENT dbo.Umowy_Kurierzy.ID_Umowy, dbo.Kurierzy.Nazwa, dbo.Umowy_Kurierzy.Data_Zawarcia, dbo.Umowy_Kurierzy.Czas_Dostawy, dbo.Umowy_Kurierzy.Koszt_Km, dbo.Umowy_Kurierzy.Koszt_Staly
+FROM            dbo.Kurierzy INNER JOIN
+                         dbo.Umowy_Kurierzy ON dbo.Kurierzy.ID_Kurier = dbo.Umowy_Kurierzy.ID_Kurier
+ORDER BY dbo.Umowy_Kurierzy.Data_Zawarcia DESC
+GO
 --widok ofert
 CREATE VIEW [dbo].[vOferta]
 AS
