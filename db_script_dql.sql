@@ -879,7 +879,7 @@ FROM            dbo.Elementy
 GO
 
 CREATE VIEW vWszystkie_Maszyny AS
-SELECT        dbo.Maszyny.ID_Maszyny, dbo.Srodki_Trwale.Producent, dbo.Srodki_Trwale.Nazwa, dbo.Srodki_Trwale.Numer_seryjny, dbo.Rodzaj_Maszyny.Rodzaj_Maszyny
+SELECT        dbo.Maszyny.ID_Maszyny AS [Numer maszyny], dbo.Srodki_Trwale.Producent, dbo.Srodki_Trwale.Nazwa, dbo.Srodki_Trwale.Numer_seryjny AS [Numer seryjny]
 FROM            dbo.Srodki_Trwale INNER JOIN
                          dbo.Maszyny ON dbo.Srodki_Trwale.ID_Srodki_trwale = dbo.Maszyny.ID_Srodki_Trwale INNER JOIN
                          dbo.Rodzaj_Maszyny ON dbo.Maszyny.ID_Rodzaj_Maszyny = dbo.Rodzaj_Maszyny.ID_Rodzaj_Maszyny
@@ -914,6 +914,31 @@ FROM            dbo.Proces_Technologiczny INNER JOIN
                          dbo.Etapy_W_Procesie ON dbo.Proces_Technologiczny.ID_Proces_Technologiczny = dbo.Etapy_W_Procesie.ID_Proces_Technologiczny INNER JOIN
                          dbo.Rodzaj_Etapu ON dbo.Etapy_W_Procesie.ID_Etapu = dbo.Rodzaj_Etapu.ID_Etapu
 GROUP BY dbo.Proces_Technologiczny.ID_Proces_Technologiczny, dbo.Rodzaj_Etapu.Nazwa, dbo.Etapy_W_Procesie.Czas
+GO
+
+CREATE VIEW vMaterialy AS
+SELECT        dbo.Elementy.ID_Element AS [Numer elementu], dbo.Elementy.Element_Nazwa AS [Nazwa elementu], dbo.Elementy_Typy.Typ
+FROM            dbo.Elementy INNER JOIN
+                         dbo.Elementy_Typy ON dbo.Elementy.ID_Element_Typ = dbo.Elementy_Typy.ID_Element_Typ
+WHERE        (dbo.Elementy_Typy.Typ = 'Tkanina') OR
+                         (dbo.Elementy_Typy.Typ = 'Guziki') OR
+                         (dbo.Elementy_Typy.Typ = 'Suwak')
+GO 
+
+CREATE VIEW vTechnologowie AS
+SELECT        dbo.Pracownicy.Imie + ' ' + dbo.Pracownicy.Nazwisko AS [Imiê i nazwisko], dbo.Stanowisko.Stanowisko, dbo.Pracownicy.ID_Pracownika
+FROM            dbo.Stanowisko INNER JOIN
+                         dbo.Pracownicy_Zatrudnienie ON dbo.Stanowisko.ID_Stanowiska = dbo.Pracownicy_Zatrudnienie.ID_Stanowiska INNER JOIN
+                         dbo.Pracownicy ON dbo.Pracownicy_Zatrudnienie.ID_Pracownika = dbo.Pracownicy.ID_Pracownika
+WHERE        (dbo.Stanowisko.Stanowisko = 'Technik utrzymania ruchu')
+GO
+
+CREATE VIEW vMaszynownia AS
+SELECT        dbo.Proces_Technologiczny.ID_Proces_Technologiczny AS [Numer procesu technologicznego], dbo.Rodzaj_Maszyny.Rodzaj_Maszyny AS [Rodzaj maszyny], dbo.Maszyny_Proces.Liczba_Maszyn AS [Liczba maszyn], 
+                         dbo.Maszyny_Proces.Liczba_Rbh_Maszyna AS [Liczba roboczogodzin maszyny]
+FROM            dbo.Proces_Technologiczny INNER JOIN
+                         dbo.Maszyny_Proces ON dbo.Proces_Technologiczny.ID_Proces_Technologiczny = dbo.Maszyny_Proces.ID_Proces_Technologiczny INNER JOIN
+                         dbo.Rodzaj_Maszyny ON dbo.Maszyny_Proces.ID_Rodzaj_Maszyny = dbo.Rodzaj_Maszyny.ID_Rodzaj_Maszyny
 GO
 
 ---------------------------------------------------------------------------------------------------------------------------

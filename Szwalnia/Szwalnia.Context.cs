@@ -167,5 +167,9 @@ namespace Szwalnia
         public virtual DbSet<vZamowieniaNieprzypisaneDoPracownikaIKuriera> vZamowieniaNieprzypisaneDoPracownikaIKuriera { get; set; }
         public virtual DbSet<vZamowienieProcesyProdukcyjne> vZamowienieProcesyProdukcyjne { get; set; }
         public virtual DbSet<vZawartoscMagazynuDoPrzydzialu> vZawartoscMagazynuDoPrzydzialu { get; set; }
+        public virtual DbSet<vMaszynownia> vMaszynownia { get; set; }
+        public virtual DbSet<vMaterialy> vMaterialy { get; set; }
+        public virtual DbSet<vWszystkie_Maszyny> vWszystkie_Maszyny { get; set; }
+        public virtual DbSet<vTechnologowie> vTechnologowie { get; set; }
     }
 }
