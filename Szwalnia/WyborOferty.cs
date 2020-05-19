@@ -45,6 +45,14 @@ namespace Szwalnia
                 dgvListaOfert.Columns[0].Visible = false;
                 dgvListaOfert.Columns[1].Visible = false;
                 dgvListaOfert.Columns[2].Visible = false;
+                dgvListaOfert.Columns[3].HeaderText = "Oznaczenie";
+                dgvListaOfert.Columns[4].HeaderText = "Cena jednostkowa";
+                dgvListaOfert.Columns[5].HeaderText = "Ilosc w opakowaniu";
+                dgvListaOfert.Columns[6].HeaderText = "Czas dostawy";
+                dgvListaOfert.Columns[7].HeaderText = "Dostawca";
+                dgvListaOfert.Columns[8].HeaderText = "Minimalna ilość";
+                dgvListaOfert.Columns[9].HeaderText = "Maksymalna ilość";
+                dgvListaOfert.Columns[10].HeaderText = "Telefon";
             }
             else
             {
@@ -60,6 +68,9 @@ namespace Szwalnia
                 dgvMagazynZawartosc.Columns[0].Visible = false;
                 dgvMagazynZawartosc.Columns[1].Visible = false;
                 dgvMagazynZawartosc.Columns[2].Visible = false;
+                dgvMagazynZawartosc.Columns[3].HeaderText = "Oznaczenie";
+                dgvMagazynZawartosc.Columns[4].HeaderText = "Ilosc na półce";
+                dgvMagazynZawartosc.Columns[5].HeaderText = "Cena jednostkowa";
             }
             else
             {
@@ -79,11 +90,11 @@ namespace Szwalnia
         {
             if (!zamknieciePrzezInnyFormularz)
             {
-                Start.GetForm.Show();
+                Application.OpenForms[typeof(ObslugaDostaw).Name].Show();
             }
 
             DodawanieDostaw.czyZamknietyPrzezInny = true;
-            Application.OpenForms["DodawanieDostaw"].Close();
+            Application.OpenForms[typeof(DodawanieDostaw).Name].Close();
         }
 
         private void dgvListaOfert_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -98,7 +109,6 @@ namespace Szwalnia
                 int intElementID = Convert.ToInt32(dgvListaOfert.CurrentRow.Cells[0].Value);
                 PopupAcceptDeny popupAkceptujOdrzuc = new PopupAcceptDeny(true, intDostawca, intZamowienie, intIloscPaczek, intOferta, intElementID);
                 popupAkceptujOdrzuc.Show();
-                this.Hide();
             }
         }
 
@@ -109,10 +119,9 @@ namespace Szwalnia
                 int intPolka = Convert.ToInt32(dgvMagazynZawartosc.CurrentRow.Cells[0].Value);
                 int intDostawa = Convert.ToInt32(dgvMagazynZawartosc.CurrentRow.Cells[2].Value);
                 int intElement = Convert.ToInt32(dgvMagazynZawartosc.CurrentRow.Cells[1].Value);
-                int intIlosc = Convert.ToInt32(dgvMagazynZawartosc.CurrentRow.Cells[3].Value);
+                int intIlosc = Convert.ToInt32(dgvMagazynZawartosc.CurrentRow.Cells[4].Value);
                 PopupAcceptDeny popupAkceptujOdrzuc = new PopupAcceptDeny(intPolka, intDostawa, intElement, intIlosc, intZamowienie);
                 popupAkceptujOdrzuc.Show();
-                this.Hide();
             }
         }
     }
