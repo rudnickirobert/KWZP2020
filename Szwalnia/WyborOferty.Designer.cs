@@ -40,6 +40,7 @@
             // 
             this.dgvListaOfert.AllowUserToAddRows = false;
             this.dgvListaOfert.AllowUserToDeleteRows = false;
+            this.dgvListaOfert.AllowUserToOrderColumns = true;
             this.dgvListaOfert.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaOfert.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaOfert.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -62,6 +63,7 @@
             // 
             this.dgvMagazynZawartosc.AllowUserToAddRows = false;
             this.dgvMagazynZawartosc.AllowUserToDeleteRows = false;
+            this.dgvMagazynZawartosc.AllowUserToOrderColumns = true;
             this.dgvMagazynZawartosc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMagazynZawartosc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMagazynZawartosc.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;

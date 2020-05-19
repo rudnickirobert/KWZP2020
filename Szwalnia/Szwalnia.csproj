@@ -326,6 +326,12 @@
     <Compile Include="Obsluga_Techniczna.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="OdbierzMaterialZProdukcji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OdbierzMaterialZProdukcji.Designer.cs">
+      <DependentUpon>OdbierzMaterialZProdukcji.cs</DependentUpon>
+    </Compile>
     <Compile Include="OdbiorMaterialu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -616,10 +622,22 @@
     <Compile Include="vDokumentacja_technologiczna.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vDostarczeniaNaProdukcje.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vDostawcyDostawDoZamowien.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vDostawyDoOdbioru.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vDostawyDoWydania.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vDostawyMagazynuIDostawcow.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vDostawyNiewydaneBezDat.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vElementyProcesProdukcyjny.cs">
@@ -652,7 +670,31 @@
     <Compile Include="vMaterialyDoZamowieniaBrak.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vMaterialyNiewydaneZDatami.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vMaterialyOdebraneZProdukcji.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vMaterialyZamowione.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vNieodebraneMaterialyWgDostawcyZNazwaIOferta.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vNieodebraneMaterialyWgDostawy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vNieodebraneMaterialyWgDostawyZNazwa.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vNieodebraneMaterialyWgZamowienieElement.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vNieuzytyMaterialOdpad.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vNiezuzytyMaterialNaProdukcji.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vObsluga.cs">
@@ -683,6 +725,9 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vPotrzebnyMaterialDoProcesuProdukcyjnego.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vPotrzebyProdukcjiZDatami.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vPracownicyMagazynu.cs">
@@ -751,6 +796,9 @@
     <Compile Include="vTechnolodzy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vUmowyKurierzy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vWolneMaszyny.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -770,6 +818,12 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vWszystkie_Maszyny.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vZamowieniaDystans.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vZamowieniaNieprzypisaneDoPracownikaIKuriera.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vZamowienieProcesyProdukcyjne.cs">
@@ -818,6 +872,12 @@
     </Compile>
     <Compile Include="WyborPracownika.Designer.cs">
       <DependentUpon>WyborPracownika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WydajMaterialProdukcji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WydajMaterialProdukcji.Designer.cs">
+      <DependentUpon>WydajMaterialProdukcji.cs</DependentUpon>
     </Compile>
     <Compile Include="Wymiar_Urlopu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
@@ -920,6 +980,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ObslugaZamowien.resx">
       <DependentUpon>ObslugaZamowien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OdbierzMaterialZProdukcji.resx">
+      <DependentUpon>OdbierzMaterialZProdukcji.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OdbiorMaterialu.resx">
       <DependentUpon>OdbiorMaterialu.cs</DependentUpon>
@@ -1063,6 +1126,9 @@
     <EmbeddedResource Include="WyborElementu.resx">
       <DependentUpon>WyborElementu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WydajMaterialProdukcji.resx">
+      <DependentUpon>WydajMaterialProdukcji.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ZarzadzanieForm.resx">
       <DependentUpon>ZarzadzanieForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -1109,6 +1175,9 @@
     <None Include="Resources\lupa.png" />
     <None Include="Resources\lupa1.png" />
     <None Include="Resources\lupa2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Legenda.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\lupa28x28.jpg" />
