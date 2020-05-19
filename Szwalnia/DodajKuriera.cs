@@ -18,7 +18,7 @@ namespace Szwalnia
         {
             db = Start.szwalnia;
             InitializeComponent();
-            label4.Enabled = false;
+            lblTelefon2.Enabled = false;
             mtxtTel2.Enabled = false;
         }
 
@@ -60,12 +60,12 @@ namespace Szwalnia
         {
             if (chkTel2.Checked == false)
             {
-                label4.Enabled = false;
+                lblTelefon2.Enabled = false;
                 mtxtTel2.Enabled = false;
             }
             else
             {
-                label4.Enabled = true;
+                lblTelefon2.Enabled = true;
                 mtxtTel2.Enabled = true;
             }
         }
