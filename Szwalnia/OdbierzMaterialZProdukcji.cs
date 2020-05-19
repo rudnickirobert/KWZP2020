@@ -12,6 +12,19 @@ namespace Szwalnia
 {
     public partial class OdbierzMaterialZProdukcji : Form
     {
+        private static bool zamknieciePrzezInnyFormularz;
+        public static bool czyZamknietyPrzezInny
+        {
+            get
+            {
+                return zamknieciePrzezInnyFormularz;
+            }
+            set
+            {
+                if (zamknieciePrzezInnyFormularz != value)
+                    zamknieciePrzezInnyFormularz = value;
+            }
+        }
         public SzwalniaEntities db;
         public OdbierzMaterialZProdukcji()
         {
@@ -23,6 +36,9 @@ namespace Szwalnia
                 dgvMaterialDoOdebrania.Columns[0].Visible = false;
                 dgvMaterialDoOdebrania.Columns[1].Visible = false;
                 dgvMaterialDoOdebrania.Columns[2].Visible = false;
+                dgvMaterialDoOdebrania.Columns[3].HeaderText = "Nazwa materiału";
+                dgvMaterialDoOdebrania.Columns[4].HeaderText = "Ilość pozostała";
+                dgvMaterialDoOdebrania.Columns[5].Visible = false;
             }
             else
             {
@@ -48,6 +64,14 @@ namespace Szwalnia
                 WyborPolkiDoOdlozenia wyborPolki = new WyborPolkiDoOdlozenia("przyjecieResztek", intDostawaID, intElementID, dblIlosc,intIlosc, intIDZamowienieElement);
                 wyborPolki.Show();
                 this.Hide();
+            }
+        }
+
+        private void OdbierzMaterialZProdukcji_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!zamknieciePrzezInnyFormularz)
+            {
+                Application.OpenForms[typeof(ObslugaDostaw).Name].Show();
             }
         }
     }

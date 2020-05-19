@@ -29,7 +29,6 @@ namespace Szwalnia
         public DodawanieDostaw(bool czyPuste)
         {
             InitializeComponent();
-            db = null;
             db = Start.szwalnia;
             zamknieciePrzezInnyFormularz = false;
             if (czyPuste) 
@@ -54,7 +53,7 @@ namespace Szwalnia
         {
             if (!zamknieciePrzezInnyFormularz)
             {
-                Start.GetForm.Show();
+                Application.OpenForms[typeof(ObslugaDostaw).Name].Show();
             }
         }
 

@@ -26,8 +26,9 @@ namespace Szwalnia
         public int intIlosc;
         public int intPracownikID;
         public int intOferta;
+        public bool boolCzyCancel = false;
         public bool czyOferta;
-        public bool czyWydanie;
+        public bool czyWydanie=false;
         Dostawcy_Zaopatrzenie dostawcaWybrany = new Dostawcy_Zaopatrzenie();
         public PopupAcceptDeny(bool czyOferta, int intIDDostawcy, int intIDZamowienie, int intIlosc, int intOferta, int intElementID)
         {
@@ -40,7 +41,7 @@ namespace Szwalnia
             this.intElementID = intElementID;
             this.intIDDostawcy = intIDDostawcy;
             dostawcaWybrany = db.Dostawcy_Zaopatrzenie.Where(wybrany => wybrany.ID_Dostawcy == intIDDostawcy).First();
-            lblInfo.Text = "Czy na pewno chcesz wybrać ofertę " + dostawcaWybrany.Nazwa + " ?" + Convert.ToString(intIlosc);
+            lblInfo.Text = "Czy na pewno chcesz wybrać ofertę " + dostawcaWybrany.Nazwa + " ?";
         }
         public PopupAcceptDeny(int intPolka, int intDostawa, int intElementID, int intIlosc, int intIDZamowienie)
         {
@@ -52,7 +53,7 @@ namespace Szwalnia
             this.intDostawa = intDostawa;
             this.intElementID = intElementID;
             this.intIlosc = intIlosc;
-            lblInfo.Text = "Czy na pewno chcesz wybrac materiał z półki " + Convert.ToString(intPolka);
+            lblInfo.Text = "Czy na pewno chcesz wybrac materiał z półki nr " + Convert.ToString(intPolka)+"?";
         }
         public PopupAcceptDeny(bool czyWydanie,int intIDZamowienia, int intIDZamowieniaElement, int intIDElement, int intIDDostawy, int intIDPolka, int intIlosc, int intPracownikID)
         {
@@ -66,7 +67,7 @@ namespace Szwalnia
             this.intPolka = intIDPolka;
             this.intIlosc = intIlosc;
             this.intPracownikID = intPracownikID;
-
+            lblInfo.Text = "Czy na pewno chcesz wydać materiał?";
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
@@ -119,8 +120,10 @@ namespace Szwalnia
                         DodawanieDostaw.czyZamknietyPrzezInny = true;
                         Application.OpenForms["DodawanieDostaw"].Close();
                     }
+                    WyborOferty.czyZamknietyPrzezInny = false;
                     DodawanieDostaw formularzDodawanieDostaw = new DodawanieDostaw(!db.vMaterialyDoZamowieniaBrak.Where(elementDoZamowienia => elementDoZamowienia.ID_Element > 0).Any());
                     formularzDodawanieDostaw.Show();
+                    boolCzyCancel = true;
                     this.Close();
                 }
                 else
@@ -153,6 +156,7 @@ namespace Szwalnia
                     }
                     DodawanieDostaw formularzDodawanieDostaw = new DodawanieDostaw(!db.vMaterialyDoZamowieniaBrak.Where(elementDoZamowienia => elementDoZamowienia.ID_Element > 0).Any());
                     formularzDodawanieDostaw.Show();
+                    boolCzyCancel = true;
                     this.Close();
                 }
             }
@@ -172,8 +176,14 @@ namespace Szwalnia
                 db.Zawartosc.Remove(polkaDoWyczyszczenia);
                 db.SaveChanges();
                 Start.DataBaseRefresh();
-                this.Close();
+                WydajMaterialProdukcji.czyZamknietyPrzezInny = true;
                 Application.OpenForms[typeof(WydajMaterialProdukcji).Name].Close();
+                WydajMaterialProdukcji.czyZamknietyPrzezInny = false;
+                WydajMaterialProdukcji wydajKolejny = new WydajMaterialProdukcji();
+                wydajKolejny.Show();
+                boolCzyCancel = true;
+                this.Close();
+                
 
             }
         }
@@ -183,15 +193,31 @@ namespace Szwalnia
             //akcja powrot
             if (!czyWydanie)
             {
-                Application.OpenForms["WyborOferty"].Show();
+                boolCzyCancel = true;
                 this.Close();
             }
             else
             {
-                Application.OpenForms["WydajMaterialProdukcji"].Show();
+                boolCzyCancel = true;
                 this.Close();
             }
         }
-        
+
+        private void PopupAcceptDeny_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!boolCzyCancel)
+            {
+                Application.OpenForms[typeof(ObslugaDostaw).Name].Show();
+                if (Application.OpenForms.OfType<WydajMaterialProdukcji>().Count() > 0)
+                {
+                    Application.OpenForms[typeof(WydajMaterialProdukcji).Name].Close();
+                }
+                if (Application.OpenForms.OfType<WyborOferty>().Count() > 0)
+                {
+                    Application.OpenForms[typeof(WyborOferty).Name].Close();
+                }
+            }
+            
+        }
     }
 }

@@ -19,6 +19,7 @@ namespace Szwalnia
         public int intIloscPaczek;
         public int intZamowienieElementID;
         public string rodzajFormularza;
+        public bool czyWyswietlicStart=true;
         public SzwalniaEntities db;
         public WyborPolkiDoOdlozenia(string rodzajFormularza,int intDostawaID, int intElementID, int intIlosc, int intIloscPaczek)
         {
@@ -32,6 +33,7 @@ namespace Szwalnia
             if (db.vWolnePolki.Where(polka => polka.ID_Polka>0).Any())
             {
                 dgvWolnePolki.DataSource = db.vWolnePolki.ToList();
+                dgvWolnePolki.Columns[0].HeaderText = "Numer półki";
             }
             else
             {
@@ -95,12 +97,23 @@ namespace Szwalnia
         }
         private void WyborPolkiDoOdlozenia_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Start.GetForm.Show();
+            if (czyWyswietlicStart)
+            {
+                if(Application.OpenForms.OfType<ObslugaDostaw>().Count()>0)
+                {
+                    Application.OpenForms[typeof(ObslugaDostaw).Name].Show();
+                }
+                else
+                {
+                    ObslugaDostaw otworzPonownieMagazynForm = new ObslugaDostaw();
+                    otworzPonownieMagazynForm.Show();
+                }
+            }
         }
 
         private void dgvWolnePolki_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            btnApply_Click(sender,e);
         }
 
         private void btnApply_Click(object sender, EventArgs e)
@@ -133,9 +146,20 @@ namespace Szwalnia
                 dostawaDoUpdate.Data_Dostawy_Rzeczywista = DateTime.Now;
                 //db.SaveChanges();
                 Start.DataBaseRefresh();
-                this.Close();
                 PrzyjmowanieDostaw.czyZamknietyPrzezInny = true;
                 Application.OpenForms["PrzyjmowanieDostaw"].Close();
+                czyWyswietlicStart = false;
+                if (db.vDostawyDoOdbioru.Where(doOdebrania => doOdebrania.Ilosc > 0).Any() == false)
+                {
+                    PrzyjmowanieDostaw kolejnaDostawa = new PrzyjmowanieDostaw(true);
+                    kolejnaDostawa.Show();
+                }
+                else
+                {
+                    PrzyjmowanieDostaw kolejnaDostawa = new PrzyjmowanieDostaw(false);
+                    kolejnaDostawa.Show();
+                }
+                this.Close();
             }
             else if (rodzajFormularza == "przyjecieResztek")
             {
@@ -156,7 +180,6 @@ namespace Szwalnia
                 db.Dostarczenia_Wewn.Add(nowaDostawaRejestr);
                 db.SaveChanges();
                 Start.DataBaseRefresh();
-
                 Zawartosc nowaZawartoscPolki = new Zawartosc();
                 nowaZawartoscPolki.ID_Polka = intIDPolki;
                 nowaZawartoscPolki.Ilosc_Paczek = Convert.ToSingle(dblIloscDlaPolki);
@@ -164,9 +187,15 @@ namespace Szwalnia
                 nowaZawartoscPolki.ID_Dostawy = intDostawaID;
                 db.Zawartosc.Add(nowaZawartoscPolki);
                 db.SaveChanges();
-
-                this.Close();
+                Start.DataBaseRefresh();
+                czyWyswietlicStart = false;
+                OdbierzMaterialZProdukcji.czyZamknietyPrzezInny = true;
                 Application.OpenForms[typeof(OdbierzMaterialZProdukcji).Name].Close();
+                OdbierzMaterialZProdukcji odbierzKolejnyMaterial = new OdbierzMaterialZProdukcji();
+                OdbierzMaterialZProdukcji.czyZamknietyPrzezInny = false;
+                odbierzKolejnyMaterial.Show();
+                this.Close();
+                
             }    
         }
 

@@ -44,6 +44,9 @@
             // 
             // dgvMaterialDoOdebrania
             // 
+            this.dgvMaterialDoOdebrania.AllowUserToAddRows = false;
+            this.dgvMaterialDoOdebrania.AllowUserToDeleteRows = false;
+            this.dgvMaterialDoOdebrania.AllowUserToOrderColumns = true;
             this.dgvMaterialDoOdebrania.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMaterialDoOdebrania.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMaterialDoOdebrania.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -62,6 +65,7 @@
             this.Controls.Add(this.lblInfo);
             this.Name = "OdbierzMaterialZProdukcji";
             this.Text = "OdbierzMaterialZProdukcji";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OdbierzMaterialZProdukcji_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterialDoOdebrania)).EndInit();
             this.ResumeLayout(false);
 

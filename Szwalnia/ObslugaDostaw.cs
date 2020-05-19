@@ -21,7 +21,15 @@ namespace Szwalnia
 
         private void ObslugaDostaw_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Start.GetForm.Show();
+            if (Application.OpenForms.OfType<MagazynForm>().Count() > 0)
+            {
+                Application.OpenForms[typeof(MagazynForm).Name].Show();
+            }
+            else
+            {
+                MagazynForm otworzNowyMagazynForm = new MagazynForm();
+                otworzNowyMagazynForm.Show();
+            }
         }
 
         private void ObslugaDostaw_Load(object sender, EventArgs e)
