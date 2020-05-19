@@ -365,6 +365,18 @@ FROM            dbo.Dostarczenia_Zewn INNER JOIN
                          dbo.Pracownicy ON dbo.Dostarczenia_Zewn.ID_Pracownicy = dbo.Pracownicy.ID_Pracownika
 GO
 
+---- Widok produktow do odebrania z produkcji 
+CREATE VIEW [dbo].[vOdbior_Gotowych_Produktow]
+AS
+SELECT        dbo.Zamowienie_Element.ID_Zamowienia, dbo.Zamowienie_Element.ID_Zamowienie_Element, dbo.Elementy.Element_Nazwa, dbo.Zamowienie_Element.ID_Element, dbo.Zamowienie_Element.Ilosc
+FROM            dbo.Zamowienie_Element INNER JOIN
+                         dbo.Proces_Produkcyjny ON dbo.Zamowienie_Element.ID_Zamowienie_Element = dbo.Proces_Produkcyjny.ID_Zamowienie_Element INNER JOIN
+                         dbo.Elementy ON dbo.Zamowienie_Element.ID_Element = dbo.Elementy.ID_Element LEFT OUTER JOIN
+                             (SELECT        ID_Dostarczenia, ID_Pracownicy, ID_Zamowienia, ID_element, Ilosc_Dostarczona, ID_Miejsca, Data_Dostarczenia
+                               FROM            dbo.Dostarczenia_Zewn
+                               WHERE        (Ilosc_Dostarczona > 0)) AS Wybor ON dbo.Zamowienie_Element.ID_Element = Wybor.ID_element AND dbo.Zamowienie_Element.ID_Zamowienia = Wybor.ID_Zamowienia
+WHERE        (Wybor.ID_Zamowienia IS NULL) AND (Wybor.ID_element IS NULL) AND (dbo.Proces_Produkcyjny.Data_Zakonczenia IS NOT NULL)
+GO
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------WIDOKI PRODUKCJA----------------------------------------------------
