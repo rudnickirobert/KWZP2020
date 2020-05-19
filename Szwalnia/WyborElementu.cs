@@ -20,6 +20,8 @@ namespace Szwalnia
             InitializeComponent();
             db = Start.szwalnia;
             dgvListaElementow.DataSource = db.Elementy.ToList();
+            for (int i = 4; i < 14; i++)
+            { dgvListaElementow.Columns[i].Visible = false;}
         }
 
         private void dgvListaElementow_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -33,6 +35,12 @@ namespace Szwalnia
         private void WyborElementu_FormClosed(object sender, FormClosedEventArgs e)
         {
             Start.GetForm.Show();
+        }
+
+        private void btnWstecz_Click(object sender, EventArgs e)
+        {
+            Application.OpenForms[typeof(ElementyForm).Name].Show();
+            this.Hide();
         }
     }
 }
