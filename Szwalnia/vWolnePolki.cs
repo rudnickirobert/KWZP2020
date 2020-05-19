@@ -12,14 +12,8 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vPolki_na_regalach
+    public partial class vWolnePolki
     {
-        public string Oznaczenie { get; set; }
         public int ID_Polka { get; set; }
-        public Nullable<int> Wysokosc { get; set; }
-        public Nullable<int> Szerokosc { get; set; }
-        public Nullable<int> Glebokosc { get; set; }
-        public string Wymiar { get; set; }
-        public string Stan { get; set; }
     }
 }
