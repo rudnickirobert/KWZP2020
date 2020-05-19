@@ -736,6 +736,9 @@
     <Compile Include="vUmowyKurierzy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vUmowyKurierzyNazwyKurierow.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vWolnePolki.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>

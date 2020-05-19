@@ -215,6 +215,7 @@
         <EntityTypeShape EntityType="SzwalniaModel.vZamowieniaNieprzypisaneDoPracownikaIKuriera" Width="1.5" PointX="23.375" PointY="3.75" />
         <EntityTypeShape EntityType="SzwalniaModel.vUmowyKurierzy" Width="1.5" PointX="23.375" PointY="5.75" />
         <EntityTypeShape EntityType="SzwalniaModel.vZamowieniaDystans" Width="1.5" PointX="23.375" PointY="8.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vUmowyKurierzyNazwyKurierow" Width="1.5" PointX="23.375" PointY="11.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

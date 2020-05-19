@@ -535,11 +535,11 @@ VALUES
 
 INSERT INTO Zamowienia_Przydzial(ID_Zamowienia, ID_pracownicy, ID_umowy) 
 VALUES 
-	(1,2,3),
-	(2,4,5),
-	(5,4,3),
-	(3,3,2),
-	(4,2,1)
+	(1,11,3),
+	(2,11,5),
+	(5,11,3),
+	(3,11,2),
+	(4,11,1)
 
 INSERT INTO 
 	Zamowienia_Dostawy(ID_zamowienia,Data_dostawy_planowana,Data_dostawy_rzeczywista,ID_statusu) 

@@ -41,22 +41,28 @@
             // cmbPracownicy
             // 
             this.cmbPracownicy.FormattingEnabled = true;
-            this.cmbPracownicy.Location = new System.Drawing.Point(396, 62);
+            this.cmbPracownicy.Location = new System.Drawing.Point(342, 62);
             this.cmbPracownicy.Name = "cmbPracownicy";
-            this.cmbPracownicy.Size = new System.Drawing.Size(169, 21);
+            this.cmbPracownicy.Size = new System.Drawing.Size(234, 21);
             this.cmbPracownicy.TabIndex = 0;
             // 
             // dgvKurierzy
             // 
+            this.dgvKurierzy.AllowUserToAddRows = false;
+            this.dgvKurierzy.AllowUserToDeleteRows = false;
+            this.dgvKurierzy.AllowUserToResizeColumns = false;
+            this.dgvKurierzy.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvKurierzy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvKurierzy.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvKurierzy.Location = new System.Drawing.Point(12, 121);
             this.dgvKurierzy.Name = "dgvKurierzy";
             this.dgvKurierzy.Size = new System.Drawing.Size(778, 324);
             this.dgvKurierzy.TabIndex = 1;
+            this.dgvKurierzy.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKurierzy_CellDoubleClick);
             // 
             // lblPracownikDane
             // 
-            this.lblPracownikDane.Location = new System.Drawing.Point(261, 60);
+            this.lblPracownikDane.Location = new System.Drawing.Point(207, 60);
             this.lblPracownikDane.Name = "lblPracownikDane";
             this.lblPracownikDane.Size = new System.Drawing.Size(129, 23);
             this.lblPracownikDane.TabIndex = 2;
@@ -65,7 +71,7 @@
             // 
             // lblKurierzyDane
             // 
-            this.lblKurierzyDane.Location = new System.Drawing.Point(4, 95);
+            this.lblKurierzyDane.Location = new System.Drawing.Point(12, 95);
             this.lblKurierzyDane.Name = "lblKurierzyDane";
             this.lblKurierzyDane.Size = new System.Drawing.Size(781, 23);
             this.lblKurierzyDane.TabIndex = 2;
@@ -85,14 +91,15 @@
             // cmbZamowienia
             // 
             this.cmbZamowienia.FormattingEnabled = true;
-            this.cmbZamowienia.Location = new System.Drawing.Point(396, 35);
+            this.cmbZamowienia.Location = new System.Drawing.Point(342, 34);
             this.cmbZamowienia.Name = "cmbZamowienia";
-            this.cmbZamowienia.Size = new System.Drawing.Size(169, 21);
+            this.cmbZamowienia.Size = new System.Drawing.Size(234, 21);
             this.cmbZamowienia.TabIndex = 0;
+            this.cmbZamowienia.SelectedIndexChanged += new System.EventHandler(this.cmbZamowienia_SelectedIndexChanged);
             // 
             // lblWybierzZamowienia
             // 
-            this.lblWybierzZamowienia.Location = new System.Drawing.Point(261, 33);
+            this.lblWybierzZamowienia.Location = new System.Drawing.Point(207, 32);
             this.lblWybierzZamowienia.Name = "lblWybierzZamowienia";
             this.lblWybierzZamowienia.Size = new System.Drawing.Size(129, 23);
             this.lblWybierzZamowienia.TabIndex = 2;
@@ -113,6 +120,8 @@
             this.Controls.Add(this.cmbPracownicy);
             this.Name = "PrzypiszPracownikaKuriera";
             this.Text = "PrzypiszPracownikaKuriera";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PrzypiszPracownikaKuriera_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PrzypiszPracownikaKuriera_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKurierzy)).EndInit();
             this.ResumeLayout(false);
 
