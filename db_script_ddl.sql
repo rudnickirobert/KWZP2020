@@ -353,6 +353,7 @@ ID_Miejsca int
 Data_Dostarczenia varchar(10),
 )
 
+
 CREATE TABLE Dostarczenia_Zewn (
 ID_Dostarczenia int IDENTITY(1,1) PRIMARY KEY,
 ID_Pracownicy int
@@ -539,10 +540,8 @@ Data_Zakonczenia SMALLDATETIME NULL);
 CREATE TABLE Kontrola_Efektywnosci  
 (ID_Kontrola_Efektywnosci int IDENTITY(1,1) PRIMARY KEY NOT NULL, 
 ID_Procesu_Produkcyjnego int FOREIGN KEY REFERENCES Proces_Produkcyjny (ID_Procesu_Produkcyjnego) NOT NULL,  
-Data_Kontroli smalldatetime NOT NULL, 
-Dokument image NULL, 
+Data_Kontroli smalldatetime NULL, 
 Uwagi varchar(300) NULL, 
-Zgodnosc_Zamowienia bit DEFAULT NULL, 
 Liczba_Poprawnych int NULL);
 
 ---------------------Koniec Produkcji--------------------------------------------------------------
