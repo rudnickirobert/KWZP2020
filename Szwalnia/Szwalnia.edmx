@@ -1485,7 +1485,16 @@ warning 6002: The table/view 'Szwalnia.dbo.vUmowyKurierzy' does not have a prima
           <Property Name="Czas_Dostawy" Type="int" />
           <Property Name="Koszt_Km" Type="int" />
           <Property Name="Koszt_Staly" Type="int" />
-          <Property Name="Koszt_dostawy" Type="int" />
+          <Property Name="Koszt_calkowity" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vUmowyKurierzyNazwyKurierow' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vUmowyKurierzyNazwyKurierow">
+          <Key>
+            <PropertyRef Name="ID_Umowy" />
+          </Key>
+          <Property Name="ID_Umowy" Type="int" Nullable="false" />
+          <Property Name="Nazwa" Type="varchar" MaxLength="20" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vWolneMaszyny' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -3304,8 +3313,14 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
     [vUmowyKurierzy].[Czas_Dostawy] AS [Czas_Dostawy], 
     [vUmowyKurierzy].[Koszt_Km] AS [Koszt_Km], 
     [vUmowyKurierzy].[Koszt_Staly] AS [Koszt_Staly], 
-    [vUmowyKurierzy].[Koszt_dostawy] AS [Koszt_dostawy]
+    [vUmowyKurierzy].[Koszt_calkowity] AS [Koszt_calkowity]
     FROM [dbo].[vUmowyKurierzy] AS [vUmowyKurierzy]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vUmowyKurierzyNazwyKurierow" EntityType="Self.vUmowyKurierzyNazwyKurierow" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vUmowyKurierzyNazwyKurierow].[ID_Umowy] AS [ID_Umowy], 
+    [vUmowyKurierzyNazwyKurierow].[Nazwa] AS [Nazwa]
+    FROM [dbo].[vUmowyKurierzyNazwyKurierow] AS [vUmowyKurierzyNazwyKurierow]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vWolneMaszyny" EntityType="Self.vWolneMaszyny" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -5263,7 +5278,14 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Czas_Dostawy" Type="Int32" />
           <Property Name="Koszt_Km" Type="Int32" />
           <Property Name="Koszt_Staly" Type="Int32" />
-          <Property Name="Koszt_dostawy" Type="Int32" />
+          <Property Name="Koszt_calkowity" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vUmowyKurierzyNazwyKurierow">
+          <Key>
+            <PropertyRef Name="ID_Umowy" />
+          </Key>
+          <Property Name="ID_Umowy" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="vWolneMaszyny">
           <Key>
@@ -6545,6 +6567,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <EntitySet Name="vSzacowanaDataZamowieniaTechnologow" EntityType="Self.vSzacowanaDataZamowieniaTechnologow" />
           <EntitySet Name="vTechnolodzy" EntityType="Self.vTechnolodzy" />
           <EntitySet Name="vUmowyKurierzy" EntityType="Self.vUmowyKurierzy" />
+          <EntitySet Name="vUmowyKurierzyNazwyKurierow" EntityType="Self.vUmowyKurierzyNazwyKurierow" />
           <EntitySet Name="vWolneMaszyny" EntityType="Self.vWolneMaszyny" />
           <EntitySet Name="vWolnePolki" EntityType="Self.vWolnePolki" />
           <EntitySet Name="vWolniPracownicyProdukcji" EntityType="Self.vWolniPracownicyProdukcji" />
@@ -8268,7 +8291,15 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
                 <ScalarProperty Name="Czas_Dostawy" ColumnName="Czas_Dostawy" />
                 <ScalarProperty Name="Koszt_Km" ColumnName="Koszt_Km" />
                 <ScalarProperty Name="Koszt_Staly" ColumnName="Koszt_Staly" />
-                <ScalarProperty Name="Koszt_dostawy" ColumnName="Koszt_dostawy" />
+                <ScalarProperty Name="Koszt_calkowity" ColumnName="Koszt_calkowity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vUmowyKurierzyNazwyKurierow">
+            <EntityTypeMapping TypeName="SzwalniaModel.vUmowyKurierzyNazwyKurierow">
+              <MappingFragment StoreEntitySet="vUmowyKurierzyNazwyKurierow">
+                <ScalarProperty Name="ID_Umowy" ColumnName="ID_Umowy" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

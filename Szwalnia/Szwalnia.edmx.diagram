@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="da577315bf814463bbf21458aaeecd2f" Name="Diagram1">
+      <Diagram DiagramId="921d481804854584b2165d3c2566f457" Name="Diagram1">
         <EntityTypeShape EntityType="SzwalniaModel.Czesci_Obsluga" Width="1.5" PointX="8.25" PointY="41.625" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Dokumentacja_Proces" Width="1.5" PointX="5.25" PointY="44.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Dokumentacje" Width="1.5" PointX="3" PointY="34.375" IsExpanded="true" />
@@ -134,17 +134,18 @@
         <EntityTypeShape EntityType="SzwalniaModel.vSzacowanaDataZamowieniaTechnologow" Width="1.5" PointX="22.75" PointY="19.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vTechnolodzy" Width="1.5" PointX="21.75" PointY="22.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vUmowyKurierzy" Width="1.5" PointX="23.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vUmowyKurierzyNazwyKurierow" Width="1.5" PointX="23.75" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vWolneMaszyny" Width="1.5" PointX="24.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.vWolnePolki" Width="1.5" PointX="23.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.vWolniPracownicyProdukcji" Width="1.5" PointX="24.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.vWszyscyPracownicyProdukcji" Width="1.5" PointX="24.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.vWszystkie_Elementy" Width="1.5" PointX="24.75" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.vWszystkie_Maszyny" Width="1.5" PointX="24.75" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.vWszystkieMaszyny" Width="1.5" PointX="25.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.vZamowieniaDystans" Width="1.5" PointX="25.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vWolnePolki" Width="1.5" PointX="24.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vWolniPracownicyProdukcji" Width="1.5" PointX="24.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vWszyscyPracownicyProdukcji" Width="1.5" PointX="24.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vWszystkie_Elementy" Width="1.5" PointX="24.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vWszystkie_Maszyny" Width="1.5" PointX="25.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vWszystkieMaszyny" Width="1.5" PointX="25.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vZamowieniaDystans" Width="1.5" PointX="25.75" PointY="24.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vZamowieniaNieprzypisaneDoPracownikaIKuriera" Width="1.5" PointX="5.75" PointY="20.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.vZamowienieProcesyProdukcyjne" Width="1.5" PointX="25.75" PointY="24.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.vZawartoscMagazynuDoPrzydzialu" Width="1.5" PointX="26.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vZamowienieProcesyProdukcyjne" Width="1.5" PointX="26.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vZawartoscMagazynuDoPrzydzialu" Width="1.5" PointX="26.75" PointY="4.75" IsExpanded="true" />
         <AssociationConnector Association="SzwalniaModel.FK__Czesci_Ob__ID_El__56E8E7AB" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Czesci_Ob__ID_Ob__55F4C372" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Dokumenta__ID_Do__45BE5BA9" ManuallyRouted="false" />
