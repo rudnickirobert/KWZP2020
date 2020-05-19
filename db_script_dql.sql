@@ -314,9 +314,16 @@ GO
 CREATE VIEW [dbo].[vUmowyKurierzy]
 AS
 SELECT        dbo.Umowy_Kurierzy.ID_Umowy, dbo.Kurierzy.Nazwa, dbo.Umowy_Kurierzy.Data_Zawarcia, dbo.Umowy_Kurierzy.Czas_Dostawy, dbo.Umowy_Kurierzy.Koszt_Km, dbo.Umowy_Kurierzy.Koszt_Staly, NULL 
-                         AS Koszt_dostawy
+                         AS Koszt_calkowity
 FROM            dbo.Umowy_Kurierzy INNER JOIN
                          dbo.Kurierzy ON dbo.Umowy_Kurierzy.ID_Kurier = dbo.Kurierzy.ID_Kurier
+GO
+--widok nazw kurierów
+CREATE VIEW [dbo].[vUmowyKurierzyNazwyKurierow]
+AS
+SELECT        dbo.Umowy_Kurierzy.ID_Umowy, dbo.Kurierzy.Nazwa
+FROM            dbo.Kurierzy INNER JOIN
+                         dbo.Umowy_Kurierzy ON dbo.Kurierzy.ID_Kurier = dbo.Umowy_Kurierzy.ID_Kurier
 GO
 
 ---- Widok stanu magazynowego wg elementów

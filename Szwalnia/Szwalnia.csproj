@@ -482,6 +482,12 @@
     <Compile Include="PrzyjmowanieDostaw.Designer.cs">
       <DependentUpon>PrzyjmowanieDostaw.cs</DependentUpon>
     </Compile>
+    <Compile Include="PrzypiszPracownikaKuriera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrzypiszPracownikaKuriera.Designer.cs">
+      <DependentUpon>PrzypiszPracownikaKuriera.cs</DependentUpon>
+    </Compile>
     <Compile Include="RaportyProdukcja.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -850,6 +856,9 @@
     <Compile Include="vUmowyKurierzy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vUmowyKurierzyNazwyKurierow.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vWolneMaszyny.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -1100,6 +1109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PrzyjmowanieDostaw.resx">
       <DependentUpon>PrzyjmowanieDostaw.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrzypiszPracownikaKuriera.resx">
+      <DependentUpon>PrzypiszPracownikaKuriera.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RaportyProdukcja.resx">
       <DependentUpon>RaportyProdukcja.cs</DependentUpon>

@@ -21,7 +21,23 @@ namespace Szwalnia
 
         private void ObslugaZamowien_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Start.GetForm.Show();
+
+            if (Application.OpenForms.OfType<MagazynForm>().Count() > 0)
+            {
+                Application.OpenForms[typeof(MagazynForm).Name].Show();
+            }
+            else
+            {
+                MagazynForm otworzNowyMagazynForm = new MagazynForm();
+                otworzNowyMagazynForm.Show();
+            }
+        }
+
+        private void btnAddWorkersDeliverers_Click(object sender, EventArgs e)
+        {
+            PrzypiszPracownikaKuriera nowePrzyporzadkowanie = new PrzypiszPracownikaKuriera();
+            nowePrzyporzadkowanie.Show();
+            this.Hide();
         }
     }
 }

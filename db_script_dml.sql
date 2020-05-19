@@ -19,8 +19,8 @@ INSERT into Klienci (Imie, Nazwisko, Nazwa_Firmy, NIP, Adres, Odleglosc_km, Tele
 VALUES
 ('Jan','Jankowski','Firmowo','1213141516','Firmowa 2, Warszawa','100','987548362','mailfirmowy@gmail.com'),
 ('Piotr','Piotrowski','Zamaseczowo','9882351235','Kazimierza Wielkiego 44, £ódŸ', '90','675234123','Zamaseczki@gmail.com'),
-('Pawe³','Paw³owski','Ulandia','7654827346','Aleje Religijne 784, Mr¹gowo','526374583','92','Tomasz.Rogulski@gmail.com'),
-('Kamil','Kamilowski','Primaris','2845401300','Królewska 1, Warszawa','748372421','70','FirmowyMail@gmail.com'),
+('Pawe³','Paw³owski','Ulandia','7654827346','Aleje Religijne 784, Mr¹gowo','92','526374583','Tomasz.Rogulski@gmail.com'),
+('Kamil','Kamilowski','Primaris','2845401300','Królewska 1, Warszawa','70','748372421','FirmowyMail@gmail.com'),
 ('Ferrus','Manus','IOM','1113123125','Pa³acowa 1, Terra', '70','777838352','IOM.mail@gmail.com');
 
 INSERT into Pensja (Pensja)
@@ -535,11 +535,11 @@ VALUES
 
 INSERT INTO Zamowienia_Przydzial(ID_Zamowienia, ID_pracownicy, ID_umowy) 
 VALUES 
-	(1,2,3),
-	(2,4,5),
-	(5,4,3),
-	(3,3,2),
-	(4,2,1)
+	(1,11,3),
+	(2,11,5),
+	(5,11,3),
+	(3,11,2),
+	(4,11,1)
 
 INSERT INTO 
 	Zamowienia_Dostawy(ID_zamowienia,Data_dostawy_planowana,Data_dostawy_rzeczywista,ID_statusu) 
