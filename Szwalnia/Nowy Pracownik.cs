@@ -44,7 +44,7 @@ namespace Szwalnia
             pracownicy.Telefon = txtTelefon.Text;
             db.Pracownicy.Add(pracownicy);
             db.SaveChanges();
-            MessageBox.Show("Dodano nowego pracownika - usupełnij dane o zatrudnieniu");
+            MessageBox.Show("Dodano nowego pracownika - uzupełnij dane o zatrudnieniu");
 
             InformacjeOZatrudnieniu informacjeOZatrudnieniu = new InformacjeOZatrudnieniu(db);
             informacjeOZatrudnieniu.Show();
