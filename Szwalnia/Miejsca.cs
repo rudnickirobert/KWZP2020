@@ -19,6 +19,7 @@ namespace Szwalnia
         {
             this.Dostarczenia_Wewn = new HashSet<Dostarczenia_Wewn>();
             this.Dostarczenia_Zewn = new HashSet<Dostarczenia_Zewn>();
+            this.Zamowienia_Dostawy_Wlasne = new HashSet<Zamowienia_Dostawy_Wlasne>();
         }
     
         public int ID_Miejsca { get; set; }
@@ -28,5 +29,7 @@ namespace Szwalnia
         public virtual ICollection<Dostarczenia_Wewn> Dostarczenia_Wewn { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dostarczenia_Zewn> Dostarczenia_Zewn { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Zamowienia_Dostawy_Wlasne> Zamowienia_Dostawy_Wlasne { get; set; }
     }
 }
