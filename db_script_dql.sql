@@ -304,6 +304,7 @@ FROM            dbo.Zamowienia INNER JOIN
 GO
 --widok umow z kurierami
 CREATE VIEW [dbo].[vUmowyKurierzy]
+AS
 SELECT        dbo.Umowy_Kurierzy.ID_Umowy, dbo.Kurierzy.Nazwa, dbo.Umowy_Kurierzy.Data_Zawarcia, dbo.Umowy_Kurierzy.Czas_Dostawy, dbo.Umowy_Kurierzy.Koszt_Km, dbo.Umowy_Kurierzy.Koszt_Staly, NULL 
                          AS Koszt_calkowity
 FROM            dbo.Umowy_Kurierzy INNER JOIN
