@@ -35,6 +35,7 @@ namespace Szwalnia
         private void btnDodajRegal_Click(object sender, EventArgs e)
         {
             txtOznaczenie.Text = txtOznaczenie.Text.ToUpper();
+            string nowy = txtOznaczenie.Text;
            
             Regaly regalNew = new Regaly();
 
@@ -47,7 +48,7 @@ namespace Szwalnia
                 this.Close();
             }
             else
-                MessageBox.Show("Regał " + txtOznaczenie.Text + " już istnieje!");
+                MessageBox.Show("Regał " + nowy + " już istnieje!");
                 regalNew = null;    
         }
 
