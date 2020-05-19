@@ -37,7 +37,7 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtNazwa = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblTelefon2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -125,14 +125,14 @@
             this.label5.TabIndex = 15;
             this.label5.Text = "Email";
             // 
-            // label4
+            // lblTelefon2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(60, 125);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 13);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Telefon 2";
+            this.lblTelefon2.AutoSize = true;
+            this.lblTelefon2.Location = new System.Drawing.Point(60, 125);
+            this.lblTelefon2.Name = "lblTelefon2";
+            this.lblTelefon2.Size = new System.Drawing.Size(52, 13);
+            this.lblTelefon2.TabIndex = 14;
+            this.lblTelefon2.Text = "Telefon 2";
             // 
             // label3
             // 
@@ -165,7 +165,7 @@
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtNazwa);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblTelefon2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -188,7 +188,7 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtNazwa;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblTelefon2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
     }
