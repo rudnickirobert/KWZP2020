@@ -615,6 +615,17 @@ VALUES --ID_miejsca 6 to wysylka, 2 to produkcja
 	(12,3,16,-100,6,'2020-04-21'),
 	(12,5,14,-50,6,'2020-05-04'),
 	(12,5,16,-50,6,'2020-05-04')
+INSERT INTO 
+	Zamowienia_Dostawy_Wlasne(ID_zamowienia, ID_Miejsca)
+VALUES
+	(5,1)
+
+INSERT INTO 
+	Dostawy_Wlasne_Zawartosc (ID_Zamowienia_Dostawy_Wlasne,ID_Dostawy,ID_Element,Ilosc)
+VALUES
+	(1,2,3,4),
+	(1,4,3,3)
+
 
 ------Dodatokowy insert zarz¹dzanie---
 INSERT INTO Zamowienie_Element (ID_Zamowienia, ID_Element, Ilosc, Licz_do_zamowienia)
