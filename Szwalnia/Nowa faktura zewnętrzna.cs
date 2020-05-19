@@ -63,8 +63,6 @@ namespace Szwalnia
                 txtWartoscPodatku.ForeColor = Color.FromArgb(255, 0, 0);
             }
         }
-
-
         private bool czyKtoresPoleNieUzupelnione()
         {
             return String.IsNullOrWhiteSpace(txtNrFaktury.Text) ||
