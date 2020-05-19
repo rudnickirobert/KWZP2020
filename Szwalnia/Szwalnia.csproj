@@ -735,9 +735,6 @@
     <Compile Include="vObsluga.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vOferty_Zebrane.cs">
-      <DependentUpon>Szwalnia.tt</DependentUpon>
-    </Compile>
     <Compile Include="vOdebranyMaterialMagazyn.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -745,6 +742,9 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vOferta.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vOferty_Zebrane.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vPolki_na_regalach.cs">
@@ -765,9 +765,6 @@
     <Compile Include="vPotrzebnyMaterialDoProcesuProdukcyjnego.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-	  <Compile Include="vProcesMaxOdpadMiesiac.cs">
-		  <DependentUpon>Szwalnia.tt</DependentUpon>
-	  </Compile>
     <Compile Include="vPracownicyMagazynu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -834,6 +831,9 @@
     <Compile Include="vTechnolodzy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vUmowyKurierzy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vWolneMaszyny.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -853,9 +853,6 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vWszystkie_Maszyny.cs">
-      <DependentUpon>Szwalnia.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vUmowyKurierzy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vZamowienieProcesyProdukcyjne.cs">
@@ -997,9 +994,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KurierzySzczegoly.resx">
       <DependentUpon>KurierzySzczegoly.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NajwiekszyOdpad.resx">
-      <DependentUpon>NajwiekszyOdpad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NiewykorzystanyMaterialProces.resx">
       <DependentUpon>NiewykorzystanyMaterialProces.cs</DependentUpon>
@@ -1169,9 +1163,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UmowySzczegoly.resx">
       <DependentUpon>UmowySzczegoly.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WszystkieProcesyProdukcyjne.resx">
-      <DependentUpon>WszystkieProcesyProdukcyjne.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WyborKlienta.resx">
       <DependentUpon>WyborKlienta.cs</DependentUpon>

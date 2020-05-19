@@ -931,6 +931,25 @@ warning 6002: The table/view 'Szwalnia.dbo.vOferta' does not have a primary key 
           <Property Name="Telefon_1" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vOferty_Zebrane' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vOferty_Zebrane">
+          <Key>
+            <PropertyRef Name="ID_Oferta" />
+          </Key>
+          <Property Name="ID_Oferta" Type="int" Nullable="false" />
+          <Property Name="Element_Nazwa" Type="varchar" MaxLength="35" />
+          <Property Name="Element_Oznaczenie" Type="varchar" MaxLength="20" />
+          <Property Name="Nazwa" Type="varchar" MaxLength="40" />
+          <Property Name="Cena_Jedn" Type="money" />
+          <Property Name="Data_Oferty" Type="date" />
+          <Property Name="Ilosc_Minimalna" Type="int" />
+          <Property Name="Ilosc_Maksymalna" Type="int" />
+          <Property Name="Ilosc_W_Opakowaniu_Pojedynczym" Type="real" />
+          <Property Name="Jednostka" Type="varchar" MaxLength="10" />
+          <Property Name="Ilosc_W_Opakowaniu_Zbiorczym" Type="int" />
+          <Property Name="Deklarowany_czas_dostawy" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vPolki_na_regalach' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vPolki_na_regalach">
           <Key>
@@ -955,7 +974,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vPolki_Rozmiary' does not have a prim
           <Property Name="Wysokosc" Type="int" />
           <Property Name="Szerokosc" Type="int" />
           <Property Name="Glebokosc" Type="int" />
-          <Property Name="Wymiar" Type="nvarchar" MaxLength="96" />
+          <Property Name="Wymiar" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vPotrzebnaDokumentacjaDoProcesuProdukcyjnego' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1274,6 +1293,19 @@ warning 6002: The table/view 'Szwalnia.dbo.vTechnolodzy' does not have a primary
           </Key>
           <Property Name="ID_Pracownika" Type="int" Nullable="false" />
           <Property Name="Autor" Type="varchar" MaxLength="101" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vUmowyKurierzy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vUmowyKurierzy">
+          <Key>
+            <PropertyRef Name="ID_Umowy" />
+          </Key>
+          <Property Name="ID_Umowy" Type="int" Nullable="false" />
+          <Property Name="Nazwa" Type="varchar" MaxLength="20" />
+          <Property Name="Data_Zawarcia" Type="date" />
+          <Property Name="Czas_Dostawy" Type="int" />
+          <Property Name="Koszt_Km" Type="int" />
+          <Property Name="Koszt_Staly" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vWolneMaszyny' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -2717,6 +2749,22 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
     [vOferta].[Telefon_1] AS [Telefon_1]
     FROM [dbo].[vOferta] AS [vOferta]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vOferty_Zebrane" EntityType="Self.vOferty_Zebrane" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vOferty_Zebrane].[ID_Oferta] AS [ID_Oferta], 
+    [vOferty_Zebrane].[Element_Nazwa] AS [Element_Nazwa], 
+    [vOferty_Zebrane].[Element_Oznaczenie] AS [Element_Oznaczenie], 
+    [vOferty_Zebrane].[Nazwa] AS [Nazwa], 
+    [vOferty_Zebrane].[Cena_Jedn] AS [Cena_Jedn], 
+    [vOferty_Zebrane].[Data_Oferty] AS [Data_Oferty], 
+    [vOferty_Zebrane].[Ilosc_Minimalna] AS [Ilosc_Minimalna], 
+    [vOferty_Zebrane].[Ilosc_Maksymalna] AS [Ilosc_Maksymalna], 
+    [vOferty_Zebrane].[Ilosc_W_Opakowaniu_Pojedynczym] AS [Ilosc_W_Opakowaniu_Pojedynczym], 
+    [vOferty_Zebrane].[Jednostka] AS [Jednostka], 
+    [vOferty_Zebrane].[Ilosc_W_Opakowaniu_Zbiorczym] AS [Ilosc_W_Opakowaniu_Zbiorczym], 
+    [vOferty_Zebrane].[Deklarowany_czas_dostawy] AS [Deklarowany_czas_dostawy]
+    FROM [dbo].[vOferty_Zebrane] AS [vOferty_Zebrane]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vPolki_na_regalach" EntityType="Self.vPolki_na_regalach" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vPolki_na_regalach].[Oznaczenie] AS [Oznaczenie], 
@@ -2937,6 +2985,16 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
     [vTechnolodzy].[ID_Pracownika] AS [ID_Pracownika], 
     [vTechnolodzy].[Autor] AS [Autor]
     FROM [dbo].[vTechnolodzy] AS [vTechnolodzy]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vUmowyKurierzy" EntityType="Self.vUmowyKurierzy" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vUmowyKurierzy].[ID_Umowy] AS [ID_Umowy], 
+    [vUmowyKurierzy].[Nazwa] AS [Nazwa], 
+    [vUmowyKurierzy].[Data_Zawarcia] AS [Data_Zawarcia], 
+    [vUmowyKurierzy].[Czas_Dostawy] AS [Czas_Dostawy], 
+    [vUmowyKurierzy].[Koszt_Km] AS [Koszt_Km], 
+    [vUmowyKurierzy].[Koszt_Staly] AS [Koszt_Staly]
+    FROM [dbo].[vUmowyKurierzy] AS [vUmowyKurierzy]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vWolneMaszyny" EntityType="Self.vWolneMaszyny" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -4420,6 +4478,23 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Ilosc_Maksymalna" Type="Int32" />
           <Property Name="Telefon_1" Type="Int32" />
         </EntityType>
+        <EntityType Name="vOferty_Zebrane">
+          <Key>
+            <PropertyRef Name="ID_Oferta" />
+          </Key>
+          <Property Name="ID_Oferta" Type="Int32" Nullable="false" />
+          <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="Element_Oznaczenie" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Cena_Jedn" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Data_Oferty" Type="DateTime" Precision="0" />
+          <Property Name="Ilosc_Minimalna" Type="Int32" />
+          <Property Name="Ilosc_Maksymalna" Type="Int32" />
+          <Property Name="Ilosc_W_Opakowaniu_Pojedynczym" Type="Single" />
+          <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Ilosc_W_Opakowaniu_Zbiorczym" Type="Int32" />
+          <Property Name="Deklarowany_czas_dostawy" Type="Int32" />
+        </EntityType>
         <EntityType Name="vPolki_na_regalach">
           <Key>
             <PropertyRef Name="ID_Polka" />
@@ -4441,7 +4516,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Wysokosc" Type="Int32" />
           <Property Name="Szerokosc" Type="Int32" />
           <Property Name="Glebokosc" Type="Int32" />
-          <Property Name="Wymiar" Type="String" MaxLength="96" FixedLength="false" Unicode="true" />
+          <Property Name="Wymiar" Type="Int32" />
         </EntityType>
         <EntityType Name="vPotrzebnaDokumentacjaDoProcesuProdukcyjnego">
           <Key>
@@ -4708,6 +4783,17 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           </Key>
           <Property Name="ID_Pracownika" Type="Int32" Nullable="false" />
           <Property Name="Autor" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vUmowyKurierzy">
+          <Key>
+            <PropertyRef Name="ID_Umowy" />
+          </Key>
+          <Property Name="ID_Umowy" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Data_Zawarcia" Type="DateTime" Precision="0" />
+          <Property Name="Czas_Dostawy" Type="Int32" />
+          <Property Name="Koszt_Km" Type="Int32" />
+          <Property Name="Koszt_Staly" Type="Int32" />
         </EntityType>
         <EntityType Name="vWolneMaszyny">
           <Key>
@@ -5942,6 +6028,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <EntitySet Name="vOdebranyMaterialMagazyn" EntityType="Self.vOdebranyMaterialMagazyn" />
           <EntitySet Name="vOdebranyMaterialProdukcja" EntityType="Self.vOdebranyMaterialProdukcja" />
           <EntitySet Name="vOferta" EntityType="Self.vOferta" />
+          <EntitySet Name="vOferty_Zebrane" EntityType="Self.vOferty_Zebrane" />
           <EntitySet Name="vPolki_na_regalach" EntityType="Self.vPolki_na_regalach" />
           <EntitySet Name="vPolki_Rozmiary" EntityType="Self.vPolki_Rozmiary" />
           <EntitySet Name="vPotrzebnaDokumentacjaDoProcesuProdukcyjnego" EntityType="Self.vPotrzebnaDokumentacjaDoProcesuProdukcyjnego" />
@@ -5970,6 +6057,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <EntitySet Name="vSuma_czasu_procesu" EntityType="Self.vSuma_czasu_procesu" />
           <EntitySet Name="vSzacowanaDataZamowieniaTechnologow" EntityType="Self.vSzacowanaDataZamowieniaTechnologow" />
           <EntitySet Name="vTechnolodzy" EntityType="Self.vTechnolodzy" />
+          <EntitySet Name="vUmowyKurierzy" EntityType="Self.vUmowyKurierzy" />
           <EntitySet Name="vWolneMaszyny" EntityType="Self.vWolneMaszyny" />
           <EntitySet Name="vWolnePolki" EntityType="Self.vWolnePolki" />
           <EntitySet Name="vWolniPracownicyProdukcji" EntityType="Self.vWolniPracownicyProdukcji" />
@@ -7235,6 +7323,24 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="vOferty_Zebrane">
+            <EntityTypeMapping TypeName="SzwalniaModel.vOferty_Zebrane">
+              <MappingFragment StoreEntitySet="vOferty_Zebrane">
+                <ScalarProperty Name="ID_Oferta" ColumnName="ID_Oferta" />
+                <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
+                <ScalarProperty Name="Element_Oznaczenie" ColumnName="Element_Oznaczenie" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Cena_Jedn" ColumnName="Cena_Jedn" />
+                <ScalarProperty Name="Data_Oferty" ColumnName="Data_Oferty" />
+                <ScalarProperty Name="Ilosc_Minimalna" ColumnName="Ilosc_Minimalna" />
+                <ScalarProperty Name="Ilosc_Maksymalna" ColumnName="Ilosc_Maksymalna" />
+                <ScalarProperty Name="Ilosc_W_Opakowaniu_Pojedynczym" ColumnName="Ilosc_W_Opakowaniu_Pojedynczym" />
+                <ScalarProperty Name="Jednostka" ColumnName="Jednostka" />
+                <ScalarProperty Name="Ilosc_W_Opakowaniu_Zbiorczym" ColumnName="Ilosc_W_Opakowaniu_Zbiorczym" />
+                <ScalarProperty Name="Deklarowany_czas_dostawy" ColumnName="Deklarowany_czas_dostawy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="vPolki_na_regalach">
             <EntityTypeMapping TypeName="SzwalniaModel.vPolki_na_regalach">
               <MappingFragment StoreEntitySet="vPolki_na_regalach">
@@ -7509,6 +7615,18 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
               <MappingFragment StoreEntitySet="vTechnolodzy">
                 <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
                 <ScalarProperty Name="Autor" ColumnName="Autor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vUmowyKurierzy">
+            <EntityTypeMapping TypeName="SzwalniaModel.vUmowyKurierzy">
+              <MappingFragment StoreEntitySet="vUmowyKurierzy">
+                <ScalarProperty Name="ID_Umowy" ColumnName="ID_Umowy" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Data_Zawarcia" ColumnName="Data_Zawarcia" />
+                <ScalarProperty Name="Czas_Dostawy" ColumnName="Czas_Dostawy" />
+                <ScalarProperty Name="Koszt_Km" ColumnName="Koszt_Km" />
+                <ScalarProperty Name="Koszt_Staly" ColumnName="Koszt_Staly" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
