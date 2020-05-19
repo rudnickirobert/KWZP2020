@@ -49,7 +49,9 @@ namespace Szwalnia
 
         private void btnWydajKurierowi_Click(object sender, EventArgs e)
         {
-
+            WydawanieProduktowKurierowi wydawanieKurierowi = new WydawanieProduktowKurierowi(); ;
+            wydawanieKurierowi.Show();
+            this.Hide();
         }
     }
 }

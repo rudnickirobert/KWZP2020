@@ -54,6 +54,7 @@
             this.btnWydajProdukty.TabIndex = 23;
             this.btnWydajProdukty.Text = "Wydaj produkty";
             this.btnWydajProdukty.UseVisualStyleBackColor = true;
+            this.btnWydajProdukty.Click += new System.EventHandler(this.btnWydajProdukty_Click);
             // 
             // lblPracownik
             // 
@@ -81,6 +82,7 @@
             this.dgvGotoweProdukty.Name = "dgvGotoweProdukty";
             this.dgvGotoweProdukty.Size = new System.Drawing.Size(570, 150);
             this.dgvGotoweProdukty.TabIndex = 20;
+            this.dgvGotoweProdukty.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGotoweProdukty_CellClick);
             // 
             // WydawanieProduktowKurierowi
             // 
@@ -95,6 +97,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "WydawanieProduktowKurierowi";
             this.Text = "Wydawanie zamówień kurierowi";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.WydawanieProduktowKurierowi_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGotoweProdukty)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
