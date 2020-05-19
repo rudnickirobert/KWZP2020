@@ -18,7 +18,6 @@ namespace Szwalnia
             InitializeComponent();
             db = Start.szwalnia;
             dgvStanMagazynowyElementy.DataSource = db.vStan_magazynowy_elementy.ToList();
-            dgvStanMagazynowyElementy.Columns[0].Visible = false;
         }
 
         private void dgvStanMagazynowyElementy_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
