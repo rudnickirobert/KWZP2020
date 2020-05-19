@@ -85,7 +85,7 @@
             this.btnJezyk.Name = "btnJezyk";
             this.btnJezyk.Size = new System.Drawing.Size(197, 89);
             this.btnJezyk.TabIndex = 4;
-            this.btnJezyk.Text = "Zanjomość języków";
+            this.btnJezyk.Text = "Znajomość języków";
             this.btnJezyk.UseVisualStyleBackColor = true;
             this.btnJezyk.Click += new System.EventHandler(this.btnJezyk_Click);
             // 
@@ -93,6 +93,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(448, 333);
             this.Controls.Add(this.btnJezyk);
             this.Controls.Add(this.btnZatrudnienie);

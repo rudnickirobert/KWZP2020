@@ -879,3 +879,45 @@ FROM     dbo.Zamowienia INNER JOIN
 GO
 
 
+CREATE VIEW vWynagrodzenia
+AS
+SELECT dbo.Pracownicy.Imie, dbo.Pracownicy.Nazwisko, dbo.Pracownicy.Pesel, dbo.Stanowisko.Stanowisko, dbo.Pensja.Pensja, dbo.Etat.Wymiar_Etatu, AVG(DISTINCT dbo.Pensja.Pensja * dbo.Etat.Wymiar_Etatu) AS Wynagrodzenie
+FROM     dbo.Pracownicy_Zatrudnienie INNER JOIN
+                  dbo.Pracownicy ON dbo.Pracownicy_Zatrudnienie.ID_Pracownika = dbo.Pracownicy.ID_Pracownika INNER JOIN
+                  dbo.Stanowisko ON dbo.Pracownicy_Zatrudnienie.ID_Stanowiska = dbo.Stanowisko.ID_Stanowiska INNER JOIN
+                  dbo.Pensja ON dbo.Stanowisko.ID_Pensji = dbo.Pensja.ID_Pensja INNER JOIN
+                  dbo.Etat ON dbo.Pracownicy_Zatrudnienie.ID_Etatu = dbo.Etat.ID_Etat
+GROUP BY dbo.Pracownicy.Imie, dbo.Pracownicy.Nazwisko, dbo.Pracownicy.Pesel, dbo.Stanowisko.Stanowisko, dbo.Pensja.Pensja, dbo.Etat.Wymiar_Etatu
+GO
+
+
+CREATE VIEW vSrodkiZamortyzowane
+AS
+SELECT ID_Srodki_trwale, Nazwa, Producent, Numer_seryjny, Koszt_zakupu, Roczny_stopien_amortyzacji, Zamortyzowane
+FROM     dbo.Srodki_Trwale
+WHERE  (Zamortyzowane = 1)
+GO
+
+
+CREATE VIEW vPrzychody
+AS
+SELECT SUM(dbo.vFaktury.[Cena brutto]) AS Przychody
+FROM     dbo.vFaktury INNER JOIN
+                  dbo.Zamowienia ON dbo.vFaktury.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia
+GO
+
+CREATE VIEW vRozchody
+AS
+SELECT SUM(dbo.Faktury_Zewnetrzne.Brutto) AS Wydatki, SUM(dbo.vWynagrodzenia.Wynagrodzenie) AS Wynagrodzenia
+FROM     dbo.Faktury_Zewnetrzne CROSS JOIN
+                  dbo.vWynagrodzenia
+GO
+
+CREATE VIEW vBilans
+AS
+SELECT dbo.vPrzychody.Przychody - dbo.vRozchody.Wydatki - dbo.vRozchody.Wynagrodzenia AS Bilans
+FROM     dbo.vRozchody CROSS JOIN
+                  dbo.vPrzychody
+GO
+
+

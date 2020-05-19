@@ -40,7 +40,7 @@
             this.btnZnajomosc.Name = "btnZnajomosc";
             this.btnZnajomosc.Size = new System.Drawing.Size(192, 144);
             this.btnZnajomosc.TabIndex = 0;
-            this.btnZnajomosc.Text = "Sprawdź znajomość języków u pracowników";
+            this.btnZnajomosc.Text = "Znajomość języków wśród pracowników";
             this.btnZnajomosc.UseVisualStyleBackColor = true;
             this.btnZnajomosc.Click += new System.EventHandler(this.btnZnajomosc_Click);
             // 
@@ -69,6 +69,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(471, 237);
             this.Controls.Add(this.btnZamknij);
             this.Controls.Add(this.btnNowy);

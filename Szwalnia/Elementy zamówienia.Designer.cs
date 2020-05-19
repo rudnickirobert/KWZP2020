@@ -42,9 +42,9 @@
             // 
             // btnNowy
             // 
-            this.btnNowy.Location = new System.Drawing.Point(361, 117);
+            this.btnNowy.Location = new System.Drawing.Point(280, 179);
             this.btnNowy.Name = "btnNowy";
-            this.btnNowy.Size = new System.Drawing.Size(163, 39);
+            this.btnNowy.Size = new System.Drawing.Size(244, 39);
             this.btnNowy.TabIndex = 0;
             this.btnNowy.Text = "Dodaj nowy element";
             this.btnNowy.UseVisualStyleBackColor = true;
@@ -54,7 +54,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(9, 186);
+            this.label1.Location = new System.Drawing.Point(22, 179);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 32);
             this.label1.TabIndex = 1;
@@ -63,7 +63,7 @@
             // txtIlosc
             // 
             this.txtIlosc.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtIlosc.Location = new System.Drawing.Point(88, 183);
+            this.txtIlosc.Location = new System.Drawing.Point(111, 179);
             this.txtIlosc.Name = "txtIlosc";
             this.txtIlosc.Size = new System.Drawing.Size(163, 38);
             this.txtIlosc.TabIndex = 2;
@@ -74,14 +74,14 @@
             this.cbElement.FormattingEnabled = true;
             this.cbElement.Location = new System.Drawing.Point(12, 117);
             this.cbElement.Name = "cbElement";
-            this.cbElement.Size = new System.Drawing.Size(343, 39);
+            this.cbElement.Size = new System.Drawing.Size(512, 39);
             this.cbElement.TabIndex = 3;
             // 
             // lblStary
             // 
             this.lblStary.AutoSize = true;
             this.lblStary.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblStary.Location = new System.Drawing.Point(9, 82);
+            this.lblStary.Location = new System.Drawing.Point(12, 66);
             this.lblStary.Name = "lblStary";
             this.lblStary.Size = new System.Drawing.Size(515, 32);
             this.lblStary.TabIndex = 5;
@@ -127,7 +127,7 @@
             // 
             // btnNastepny
             // 
-            this.btnNastepny.Location = new System.Drawing.Point(202, 258);
+            this.btnNastepny.Location = new System.Drawing.Point(130, 258);
             this.btnNastepny.Name = "btnNastepny";
             this.btnNastepny.Size = new System.Drawing.Size(100, 54);
             this.btnNastepny.TabIndex = 10;
@@ -139,7 +139,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(547, 343);
+            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.ClientSize = new System.Drawing.Size(557, 340);
             this.Controls.Add(this.btnNastepny);
             this.Controls.Add(this.lblIDZamowienia);
             this.Controls.Add(this.cbIDZamowienia);

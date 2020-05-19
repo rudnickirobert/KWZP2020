@@ -40,9 +40,9 @@
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(390, 201);
+            this.btnDodaj.Location = new System.Drawing.Point(600, 196);
             this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(101, 45);
+            this.btnDodaj.Size = new System.Drawing.Size(118, 54);
             this.btnDodaj.TabIndex = 0;
             this.btnDodaj.Text = "Zapisz i zamknij";
             this.btnDodaj.UseVisualStyleBackColor = true;
@@ -52,7 +52,7 @@
             // 
             this.cbImieNazwisko.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbImieNazwisko.FormattingEnabled = true;
-            this.cbImieNazwisko.Location = new System.Drawing.Point(224, 65);
+            this.cbImieNazwisko.Location = new System.Drawing.Point(298, 65);
             this.cbImieNazwisko.Name = "cbImieNazwisko";
             this.cbImieNazwisko.Size = new System.Drawing.Size(420, 39);
             this.cbImieNazwisko.TabIndex = 1;
@@ -61,7 +61,7 @@
             // 
             this.cbJezyk.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbJezyk.FormattingEnabled = true;
-            this.cbJezyk.Location = new System.Drawing.Point(224, 110);
+            this.cbJezyk.Location = new System.Drawing.Point(298, 110);
             this.cbJezyk.Name = "cbJezyk";
             this.cbJezyk.Size = new System.Drawing.Size(420, 39);
             this.cbJezyk.TabIndex = 3;
@@ -90,7 +90,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(90, 9);
+            this.label3.Location = new System.Drawing.Point(158, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(341, 32);
             this.label3.TabIndex = 6;
@@ -98,18 +98,18 @@
             // 
             // Anuluj
             // 
-            this.Anuluj.Location = new System.Drawing.Point(18, 205);
+            this.Anuluj.Location = new System.Drawing.Point(1, 200);
             this.Anuluj.Name = "Anuluj";
-            this.Anuluj.Size = new System.Drawing.Size(86, 45);
+            this.Anuluj.Size = new System.Drawing.Size(118, 54);
             this.Anuluj.TabIndex = 7;
             this.Anuluj.Text = "Anuluj";
             this.Anuluj.UseVisualStyleBackColor = true;
             // 
             // btnZamknij
             // 
-            this.btnZamknij.Location = new System.Drawing.Point(110, 205);
+            this.btnZamknij.Location = new System.Drawing.Point(125, 200);
             this.btnZamknij.Name = "btnZamknij";
-            this.btnZamknij.Size = new System.Drawing.Size(86, 45);
+            this.btnZamknij.Size = new System.Drawing.Size(118, 54);
             this.btnZamknij.TabIndex = 8;
             this.btnZamknij.Text = "Dodaj następny";
             this.btnZamknij.UseVisualStyleBackColor = true;
@@ -119,7 +119,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(656, 298);
+            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.ClientSize = new System.Drawing.Size(730, 270);
             this.Controls.Add(this.btnZamknij);
             this.Controls.Add(this.Anuluj);
             this.Controls.Add(this.label3);
@@ -129,6 +130,7 @@
             this.Controls.Add(this.cbImieNazwisko);
             this.Controls.Add(this.btnDodaj);
             this.Name = "DodajNowyJezyk";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dodaj nowy język";
             this.ResumeLayout(false);
             this.PerformLayout();

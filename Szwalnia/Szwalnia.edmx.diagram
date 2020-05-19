@@ -233,6 +233,8 @@
         <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_Za__2CF2ADDF" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_Za__30C33EC3" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Zawartosc__ID_Do__19DFD96B" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SzwalniaModel.vSrodkiZamortyzowane" Width="1.5" PointX="24.375" PointY="26.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vWynagrodzenia" Width="1.5" PointX="26.375" PointY="26.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
