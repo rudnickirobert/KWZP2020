@@ -12,9 +12,18 @@ namespace Szwalnia
 {
     public partial class EwidencjaMaterialow : Form
     {
+        public SzwalniaEntities db;
         public EwidencjaMaterialow()
         {
             InitializeComponent();
+            db = Start.szwalnia;
+            dgvEwidencjaMatarialow.DataSource = db.vEwidencja_dostaw_wewnetrznych.ToList();
+            dgvEwidencjaMatarialow.Columns[0].Visible = false;
+        }
+
+        private void EwidencjaMaterialow_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Start.GetForm.Show();
         }
     }
 }

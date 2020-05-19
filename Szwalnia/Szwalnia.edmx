@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SzwalniaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SzwalniaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Czesci_Obsluga">
           <Key>
             <PropertyRef Name="ID_Czesci_Obsluga" />
@@ -808,6 +808,23 @@ warning 6002: The table/view 'Szwalnia.dbo.vEwidencja_dostaw_wewnetrznych' does 
           <Property Name="ID_Zamowienia" Type="int" />
           <Property Name="ID_Zamowienie_element" Type="int" />
           <Property Name="ID_Dostawy" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vEwidencja_dostaw_zewnetrznych' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vEwidencja_dostaw_zewnetrznych">
+          <Key>
+            <PropertyRef Name="ID_Dostarczenia" />
+            <PropertyRef Name="Pracownik" />
+            <PropertyRef Name="ID_Element" />
+          </Key>
+          <Property Name="ID_Dostarczenia" Type="int" Nullable="false" />
+          <Property Name="Data_Dostarczenia" Type="varchar" MaxLength="10" />
+          <Property Name="Pracownik" Type="varchar" MaxLength="101" Nullable="false" />
+          <Property Name="Element_Nazwa" Type="varchar" MaxLength="35" />
+          <Property Name="ID_Element" Type="int" Nullable="false" />
+          <Property Name="Miejsce" Type="varchar" MaxLength="20" />
+          <Property Name="Akcja" Type="nvarchar" MaxLength="44" />
+          <Property Name="ID_Zamowienia" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vKontrolaProcesu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -2887,6 +2904,18 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
     [vEwidencja_dostaw_wewnetrznych].[ID_Dostawy] AS [ID_Dostawy]
     FROM [dbo].[vEwidencja_dostaw_wewnetrznych] AS [vEwidencja_dostaw_wewnetrznych]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vEwidencja_dostaw_zewnetrznych" EntityType="Self.vEwidencja_dostaw_zewnetrznych" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vEwidencja_dostaw_zewnetrznych].[ID_Dostarczenia] AS [ID_Dostarczenia], 
+    [vEwidencja_dostaw_zewnetrznych].[Data_Dostarczenia] AS [Data_Dostarczenia], 
+    [vEwidencja_dostaw_zewnetrznych].[Pracownik] AS [Pracownik], 
+    [vEwidencja_dostaw_zewnetrznych].[Element_Nazwa] AS [Element_Nazwa], 
+    [vEwidencja_dostaw_zewnetrznych].[ID_Element] AS [ID_Element], 
+    [vEwidencja_dostaw_zewnetrznych].[Miejsce] AS [Miejsce], 
+    [vEwidencja_dostaw_zewnetrznych].[Akcja] AS [Akcja], 
+    [vEwidencja_dostaw_zewnetrznych].[ID_Zamowienia] AS [ID_Zamowienia]
+    FROM [dbo].[vEwidencja_dostaw_zewnetrznych] AS [vEwidencja_dostaw_zewnetrznych]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vKontrolaProcesu" EntityType="Self.vKontrolaProcesu" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vKontrolaProcesu].[ID procesu produkcyjnego] AS [ID procesu produkcyjnego], 
@@ -3780,7 +3809,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Znajomosc_Jezykow" EntitySet="Znajomosc_Jezykow" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SzwalniaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -4711,6 +4741,37 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Numer_procesu" Type="Int32" Nullable="false" />
           <Property Name="Nazwa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Czas__h_" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vEwidencja_dostaw_wewnetrznych">
+          <Key>
+            <PropertyRef Name="ID_Dostarczenia" />
+            <PropertyRef Name="Pracownik" />
+          </Key>
+          <Property Name="ID_Dostarczenia" Type="Int32" Nullable="false" />
+          <Property Name="Data_Dostarczenia" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Pracownik" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="ID_element" Type="Int32" />
+          <Property Name="Miejsce" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Akcja" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Zamowienia" Type="Int32" />
+          <Property Name="ID_Zamowienie_element" Type="Int32" />
+          <Property Name="ID_Dostawy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vEwidencja_dostaw_zewnetrznych">
+          <Key>
+            <PropertyRef Name="ID_Dostarczenia" />
+            <PropertyRef Name="Pracownik" />
+            <PropertyRef Name="ID_Element" />
+          </Key>
+          <Property Name="ID_Dostarczenia" Type="Int32" Nullable="false" />
+          <Property Name="Data_Dostarczenia" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Pracownik" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Element" Type="Int32" Nullable="false" />
+          <Property Name="Miejsce" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Akcja" Type="String" MaxLength="44" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Zamowienia" Type="Int32" />
         </EntityType>
         <EntityType Name="vKontrolaProcesu">
           <Key>
@@ -6524,6 +6585,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <EntitySet Name="vElementy_proces" EntityType="Self.vElementy_proces" />
           <EntitySet Name="vElementyProcesProdukcyjny" EntityType="Self.vElementyProcesProdukcyjny" />
           <EntitySet Name="vEtapy_proces" EntityType="Self.vEtapy_proces" />
+          <EntitySet Name="vEwidencja_dostaw_wewnetrznych" EntityType="Self.vEwidencja_dostaw_wewnetrznych" />
+          <EntitySet Name="vEwidencja_dostaw_zewnetrznych" EntityType="Self.vEwidencja_dostaw_zewnetrznych" />
           <EntitySet Name="vKontrolaProcesu" EntityType="Self.vKontrolaProcesu" />
           <EntitySet Name="vMaszyny_numer_seryjny" EntityType="Self.vMaszyny_numer_seryjny" />
           <EntitySet Name="vMaszyny_proces" EntityType="Self.vMaszyny_proces" />
@@ -6931,24 +6994,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
-          <EntitySet Name="vEwidencja_dostaw_wewnetrznych" EntityType="SzwalniaModel.vEwidencja_dostaw_wewnetrznych" />
         </EntityContainer>
-        <EntityType Name="vEwidencja_dostaw_wewnetrznych">
-          <Key>
-            <PropertyRef Name="ID_Dostarczenia" />
-            <PropertyRef Name="Pracownik" />
-          </Key>
-          <Property Name="ID_Dostarczenia" Type="Int32" Nullable="false" />
-          <Property Name="Data_Dostarczenia" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Pracownik" Type="String" Nullable="false" MaxLength="101" FixedLength="false" Unicode="false" />
-          <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
-          <Property Name="ID_element" Type="Int32" />
-          <Property Name="Miejsce" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Akcja" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
-          <Property Name="ID_Zamowienia" Type="Int32" />
-          <Property Name="ID_Zamowienie_element" Type="Int32" />
-          <Property Name="ID_Dostawy" Type="Int32" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -7764,6 +7810,36 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="vEwidencja_dostaw_wewnetrznych">
+            <EntityTypeMapping TypeName="SzwalniaModel.vEwidencja_dostaw_wewnetrznych">
+              <MappingFragment StoreEntitySet="vEwidencja_dostaw_wewnetrznych">
+                <ScalarProperty Name="ID_Dostarczenia" ColumnName="ID_Dostarczenia" />
+                <ScalarProperty Name="Data_Dostarczenia" ColumnName="Data_Dostarczenia" />
+                <ScalarProperty Name="Pracownik" ColumnName="Pracownik" />
+                <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
+                <ScalarProperty Name="ID_element" ColumnName="ID_element" />
+                <ScalarProperty Name="Miejsce" ColumnName="Miejsce" />
+                <ScalarProperty Name="Akcja" ColumnName="Akcja" />
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
+                <ScalarProperty Name="ID_Zamowienie_element" ColumnName="ID_Zamowienie_element" />
+                <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vEwidencja_dostaw_zewnetrznych">
+            <EntityTypeMapping TypeName="SzwalniaModel.vEwidencja_dostaw_zewnetrznych">
+              <MappingFragment StoreEntitySet="vEwidencja_dostaw_zewnetrznych">
+                <ScalarProperty Name="ID_Dostarczenia" ColumnName="ID_Dostarczenia" />
+                <ScalarProperty Name="Data_Dostarczenia" ColumnName="Data_Dostarczenia" />
+                <ScalarProperty Name="Pracownik" ColumnName="Pracownik" />
+                <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="Miejsce" ColumnName="Miejsce" />
+                <ScalarProperty Name="Akcja" ColumnName="Akcja" />
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="vKontrolaProcesu">
             <EntityTypeMapping TypeName="SzwalniaModel.vKontrolaProcesu">
               <MappingFragment StoreEntitySet="vKontrolaProcesu">
@@ -8435,22 +8511,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
                 <ScalarProperty Name="Element_Oznaczenie" ColumnName="Element_Oznaczenie" />
                 <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
                 <ScalarProperty Name="Cena" ColumnName="Cena" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vEwidencja_dostaw_wewnetrznych">
-            <EntityTypeMapping TypeName="SzwalniaModel.vEwidencja_dostaw_wewnetrznych">
-              <MappingFragment StoreEntitySet="vEwidencja_dostaw_wewnetrznych">
-                <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
-                <ScalarProperty Name="ID_Zamowienie_element" ColumnName="ID_Zamowienie_element" />
-                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
-                <ScalarProperty Name="Akcja" ColumnName="Akcja" />
-                <ScalarProperty Name="Miejsce" ColumnName="Miejsce" />
-                <ScalarProperty Name="ID_element" ColumnName="ID_element" />
-                <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
-                <ScalarProperty Name="Pracownik" ColumnName="Pracownik" />
-                <ScalarProperty Name="Data_Dostarczenia" ColumnName="Data_Dostarczenia" />
-                <ScalarProperty Name="ID_Dostarczenia" ColumnName="ID_Dostarczenia" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

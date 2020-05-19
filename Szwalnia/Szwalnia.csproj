@@ -688,6 +688,9 @@
     <Compile Include="vEwidencja_dostaw_wewnetrznych.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vEwidencja_dostaw_zewnetrznych.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vKontrolaProcesu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -986,6 +989,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EwidencjaMaterialow.resx">
       <DependentUpon>EwidencjaMaterialow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EwidencjaProduktow.resx">
+      <DependentUpon>EwidencjaProduktow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GdzieLezaElementy.resx">
       <DependentUpon>GdzieLezaElementy.cs</DependentUpon>

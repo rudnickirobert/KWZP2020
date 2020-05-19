@@ -10,11 +10,20 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class EwidencjaProduktow : Form
+    public partial class EwidencjaDostawWewnetrznych : Form
     {
-        public EwidencjaProduktow()
+        public SzwalniaEntities db;
+        public EwidencjaDostawWewnetrznych()
         {
             InitializeComponent();
+            db = Start.szwalnia;
+            dgvEwidencjaProduktow.DataSource = db.vEwidencja_dostaw_zewnetrznych.ToList();
+            dgvEwidencjaProduktow.Columns[0].Visible = false;
+        }
+
+        private void EwidencjaDostawWewnetrznych_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Start.GetForm.Show();
         }
     }
 }
