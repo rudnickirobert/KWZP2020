@@ -12,13 +12,10 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vUmowyKurierzy
+    public partial class vMaterialy
     {
-        public int ID_Umowy { get; set; }
-        public string Nazwa { get; set; }
-        public Nullable<System.DateTime> Data_Zawarcia { get; set; }
-        public Nullable<int> Czas_Dostawy { get; set; }
-        public Nullable<int> Koszt_Km { get; set; }
-        public Nullable<int> Koszt_Staly { get; set; }
+        public int Numer_elementu { get; set; }
+        public string Nazwa_elementu { get; set; }
+        public string Typ { get; set; }
     }
 }

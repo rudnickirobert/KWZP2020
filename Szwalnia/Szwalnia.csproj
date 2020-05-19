@@ -918,6 +918,9 @@
     <Compile Include="vTechnolodzy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vTechnologowie.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vUmowyKurierzy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -925,9 +928,6 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vWolneMaszyny.cs">
-      <DependentUpon>Szwalnia.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vTechnologowie.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vWolnePolki.cs">
@@ -960,10 +960,6 @@
     <Compile Include="vZawartoscMagazynuDoPrzydzialu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vZawartosc_polki.cs">
-      <DependentUpon>Szwalnia.tt</DependentUpon>
-    </Compile>
-
     <Compile Include="WszystkieProcesyProdukcyjne.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -976,7 +972,6 @@
     <Compile Include="WyborCechy.Designer.cs">
       <DependentUpon>WyborCechy.cs</DependentUpon>
     </Compile>
-
     <Compile Include="WyborElementu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1307,7 +1302,6 @@
     <EmbeddedResource Include="SzczegolyProcesu.resx">
       <DependentUpon>SzczegolyProcesu.cs</DependentUpon>
     </EmbeddedResource>
-
     <EmbeddedResource Include="WszystkieProcesyProdukcyjne.resx">
       <DependentUpon>WszystkieProcesyProdukcyjne.cs</DependentUpon>
     </EmbeddedResource>
@@ -1317,7 +1311,6 @@
     <EmbeddedResource Include="WyborJednostki.resx">
       <DependentUpon>WyborJednostki.cs</DependentUpon>
     </EmbeddedResource>
-
     <EmbeddedResource Include="UmowyKurierzy.resx">
       <DependentUpon>UmowyKurierzy.cs</DependentUpon>
     </EmbeddedResource>
@@ -1342,14 +1335,12 @@
     <EmbeddedResource Include="WyborElementu.resx">
       <DependentUpon>WyborElementu.cs</DependentUpon>
     </EmbeddedResource>
-
     <EmbeddedResource Include="WyborTypu.resx">
       <DependentUpon>WyborTypu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ZamowienieProcesyProdukcyjne.resx">
       <DependentUpon>ZamowienieProcesyProdukcyjne.cs</DependentUpon>
     </EmbeddedResource>
-
     <EmbeddedResource Include="WydajMaterialProdukcji.resx">
       <DependentUpon>WydajMaterialProdukcji.cs</DependentUpon>
     </EmbeddedResource>
