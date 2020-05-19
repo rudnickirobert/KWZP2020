@@ -862,6 +862,23 @@
     <Compile Include="vZawartoscMagazynuDoPrzydzialu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vZawartosc_polki.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+
+    <Compile Include="WszystkieProcesyProdukcyjne.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WszystkieProcesyProdukcyjne.designer.cs">
+      <DependentUpon>WszystkieProcesyProdukcyjne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WyborCechy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WyborCechy.Designer.cs">
+      <DependentUpon>WyborCechy.cs</DependentUpon>
+    </Compile>
+
     <Compile Include="WyborElementu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -876,6 +893,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WyborJednostki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WyborJednostki.Designer.cs">
+      <DependentUpon>WyborJednostki.cs</DependentUpon>
+    </Compile>
     <Compile Include="WyborKlienta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -905,6 +928,12 @@
     </Compile>
     <Compile Include="WydajMaterialProdukcji.Designer.cs">
       <DependentUpon>WydajMaterialProdukcji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WyborTypu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WyborTypu.Designer.cs">
+      <DependentUpon>WyborTypu.cs</DependentUpon>
     </Compile>
     <Compile Include="Wymiar_Urlopu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
@@ -1147,6 +1176,17 @@
     <EmbeddedResource Include="SzczegolyProcesu.resx">
       <DependentUpon>SzczegolyProcesu.cs</DependentUpon>
     </EmbeddedResource>
+
+    <EmbeddedResource Include="WszystkieProcesyProdukcyjne.resx">
+      <DependentUpon>WszystkieProcesyProdukcyjne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WyborCechy.resx">
+      <DependentUpon>WyborCechy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WyborJednostki.resx">
+      <DependentUpon>WyborJednostki.cs</DependentUpon>
+    </EmbeddedResource>
+
     <EmbeddedResource Include="WyborKlienta.resx">
       <DependentUpon>WyborKlienta.cs</DependentUpon>
     </EmbeddedResource>
@@ -1165,6 +1205,14 @@
     <EmbeddedResource Include="WyborElementu.resx">
       <DependentUpon>WyborElementu.cs</DependentUpon>
     </EmbeddedResource>
+
+    <EmbeddedResource Include="WyborTypu.resx">
+      <DependentUpon>WyborTypu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZamowienieProcesyProdukcyjne.resx">
+      <DependentUpon>ZamowienieProcesyProdukcyjne.cs</DependentUpon>
+    </EmbeddedResource>
+
     <EmbeddedResource Include="WydajMaterialProdukcji.resx">
       <DependentUpon>WydajMaterialProdukcji.cs</DependentUpon>
     </EmbeddedResource>
