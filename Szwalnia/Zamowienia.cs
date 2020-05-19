@@ -21,6 +21,7 @@ namespace Szwalnia
             this.Zamowienia_Przydzial = new HashSet<Zamowienia_Przydzial>();
             this.Zamowienia_Dostawy = new HashSet<Zamowienia_Dostawy>();
             this.Zamowienie_Element = new HashSet<Zamowienie_Element>();
+            this.Zamowienia_Dostawy_Wlasne = new HashSet<Zamowienia_Dostawy_Wlasne>();
         }
     
         public int ID_Zamowienia { get; set; }
@@ -40,5 +41,7 @@ namespace Szwalnia
         public virtual ICollection<Zamowienia_Dostawy> Zamowienia_Dostawy { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zamowienie_Element> Zamowienie_Element { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Zamowienia_Dostawy_Wlasne> Zamowienia_Dostawy_Wlasne { get; set; }
     }
 }

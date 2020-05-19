@@ -14,12 +14,15 @@ namespace Szwalnia
     
     public partial class vPrzydzialZasobow
     {
-        public int ID_Procesu_Produkcyjnego { get; set; }
-        public int ID_Realizacji_Procesu { get; set; }
-        public int ID_Pracownika { get; set; }
-        public string Imie { get; set; }
+        public int ID_procesu_produkcyjnego { get; set; }
+        public int ID_realizacji_procesu { get; set; }
+        public string Nazwa_etapu { get; set; }
+        public int ID_pracownika { get; set; }
+        public string Imię { get; set; }
         public string Nazwisko { get; set; }
-        public int ID_Maszyny { get; set; }
-        public string Model { get; set; }
+        public int ID_maszyna { get; set; }
+        public string Nazwa_maszyny { get; set; }
+        public Nullable<System.DateTime> Data_rozpoczęcia { get; set; }
+        public Nullable<System.DateTime> Data_zakończenia { get; set; }
     }
 }

@@ -342,6 +342,7 @@ ID_Pracownicy int
 ID_Dostawy int
 	FOREIGN KEY REFERENCES
 	Zamowienia_Dostawy (ID_Dostawy),
+ID_Zamowienie_element int,
 ID_element int
 	FOREIGN KEY REFERENCES
 	Elementy(ID_Element),
@@ -351,6 +352,7 @@ ID_Miejsca int
 	Miejsca(ID_Miejsca),
 Data_Dostarczenia varchar(10),
 )
+
 
 CREATE TABLE Dostarczenia_Zewn (
 ID_Dostarczenia int IDENTITY(1,1) PRIMARY KEY,
@@ -377,6 +379,30 @@ CREATE TABLE Zamowienie_Element (
 	Ilosc int not null,
 	Licz_do_zamowienia bit NOT NULL
 );
+
+CREATE TABLE Zamowienia_Dostawy_Wlasne (
+	ID_Zamowienia_dostawy_wlasne int IDENTITY (1,1) PRIMARY KEY,
+	ID_Zamowienia int 
+	FOREIGN KEY REFERENCES
+	Zamowienia(ID_Zamowienia),
+	ID_miejsca int 
+	FOREIGN KEY REFERENCES
+	Miejsca (ID_Miejsca)
+)
+
+CREATE TABLE Dostawy_Wlasne_Zawartosc (
+	ID_Dostawy_Wlasne_Zawartosc int IDENTITY (1,1) PRIMARY KEY,
+	ID_Zamowienia_dostawy_wlasne int 
+	FOREIGN KEY REFERENCES
+	Zamowienia_Dostawy_Wlasne (ID_Zamowienia_dostawy_wlasne),
+	ID_Dostawy int
+	FOREIGN KEY REFERENCES
+	Zamowienia_Dostawy(ID_Dostawy),
+	ID_Element int
+	FOREIGN KEY REFERENCES
+	Elementy(ID_Element),
+	Ilosc int
+)
 ---------------------------------------------------------KONIEC MAGAZYN---------------------------------------------------------
  
 ---------------------- Pocz¹tek Przygotowanie produkcji------------------------- 
@@ -514,10 +540,8 @@ Data_Zakonczenia SMALLDATETIME NULL);
 CREATE TABLE Kontrola_Efektywnosci  
 (ID_Kontrola_Efektywnosci int IDENTITY(1,1) PRIMARY KEY NOT NULL, 
 ID_Procesu_Produkcyjnego int FOREIGN KEY REFERENCES Proces_Produkcyjny (ID_Procesu_Produkcyjnego) NOT NULL,  
-Data_Kontroli smalldatetime NOT NULL, 
-Dokument image NULL, 
+Data_Kontroli smalldatetime NULL, 
 Uwagi varchar(300) NULL, 
-Zgodnosc_Zamowienia bit NULL, 
 Liczba_Poprawnych int NULL);
 
 ---------------------Koniec Produkcji--------------------------------------------------------------

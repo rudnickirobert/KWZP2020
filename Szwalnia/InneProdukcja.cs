@@ -33,14 +33,27 @@ namespace Szwalnia
 
         private void btnSzacowanyCzas_Click(object sender, EventArgs e)
         {
-            SzacowanyCzasWykonaniaNowegoElementu szacowanyCzasWykonaniaNowegoElementu = new SzacowanyCzasWykonaniaNowegoElementu(db);
-            szacowanyCzasWykonaniaNowegoElementu.Show();
+            SzacowanyCzas szacowanyCzas = new SzacowanyCzas(db);
+            szacowanyCzas.Show();
         }
 
         private void btnRodzajEtapu_Click(object sender, EventArgs e)
         {
             RodzajEtapu rodzajEtapu = new RodzajEtapu(db);
             rodzajEtapu.Show();
+        }
+
+        private void btnWstecz_Click(object sender, EventArgs e)
+        {
+            Produkcja produkcja = new Produkcja(db);
+            produkcja.Show();
+            this.Close();
+        }
+
+        private void btnSzacowanyCzasTechnologia_Click(object sender, EventArgs e)
+        {
+            SzacowanyCzasTechnologia szacowanyCzasTechnologow = new SzacowanyCzasTechnologia(db);
+            szacowanyCzasTechnologow.Show();
         }
     }
 }
