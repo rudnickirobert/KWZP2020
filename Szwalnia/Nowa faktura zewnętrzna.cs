@@ -36,10 +36,16 @@ namespace Szwalnia
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrWhiteSpace(txtNrFaktury.Text) || String.IsNullOrWhiteSpace(txtNazwaFirmy.Text) || String.IsNullOrWhiteSpace(txtKosztNetto.Text) || String.IsNullOrWhiteSpace(txtKosztBrutto.Text) || String.IsNullOrWhiteSpace(txtWartoscPodatku.Text))
-            {
-                FakturyOknoDialogowe1();
-            }
+            ZabezpieczeniePrzedPustymiPolami();
+            UzupelnianiePol();
+
+            db.SaveChanges();
+            MessageBox.Show("Dodano nową fakturę zewnętrzną");
+            this.Close();
+        }
+
+        private void UzupelnianiePol()
+        {
             if (int.TryParse(txtKosztNetto.Text, out int netto) && int.TryParse(txtKosztBrutto.Text, out int brutto) && int.TryParse(txtWartoscPodatku.Text, out int net))
             {
                 FakturyOknoDialogowe2(netto, brutto, net);
@@ -51,10 +57,14 @@ namespace Szwalnia
                 txtKosztBrutto.ForeColor = Color.FromArgb(255, 0, 0);
                 txtWartoscPodatku.ForeColor = Color.FromArgb(255, 0, 0);
             }
-          
-            db.SaveChanges();
-            MessageBox.Show("Dodano nową fakturę zewnętrzną");
-            this.Close();
+        }
+
+        private void ZabezpieczeniePrzedPustymiPolami()
+        {
+            if (String.IsNullOrWhiteSpace(txtNrFaktury.Text) || String.IsNullOrWhiteSpace(txtNazwaFirmy.Text) || String.IsNullOrWhiteSpace(txtKosztNetto.Text) || String.IsNullOrWhiteSpace(txtKosztBrutto.Text) || String.IsNullOrWhiteSpace(txtWartoscPodatku.Text))
+            {
+                FakturyOknoDialogowe1();
+            }
         }
 
         private static void FakturyOknoDialogowe1()
