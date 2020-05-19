@@ -93,8 +93,12 @@ namespace Szwalnia
         public virtual DbSet<vDokumentacja_info> vDokumentacja_info { get; set; }
         public virtual DbSet<vDokumentacja_proces> vDokumentacja_proces { get; set; }
         public virtual DbSet<vDokumentacja_technologiczna> vDokumentacja_technologiczna { get; set; }
+        public virtual DbSet<vDostarczeniaNaProdukcje> vDostarczeniaNaProdukcje { get; set; }
         public virtual DbSet<vDostawcyDostawDoZamowien> vDostawcyDostawDoZamowien { get; set; }
         public virtual DbSet<vDostawyDoOdbioru> vDostawyDoOdbioru { get; set; }
+        public virtual DbSet<vDostawyDoWydania> vDostawyDoWydania { get; set; }
+        public virtual DbSet<vDostawyMagazynuIDostawcow> vDostawyMagazynuIDostawcow { get; set; }
+        public virtual DbSet<vDostawyNiewydaneBezDat> vDostawyNiewydaneBezDat { get; set; }
         public virtual DbSet<vElementy_proces> vElementy_proces { get; set; }
         public virtual DbSet<vElementyProcesProdukcyjny> vElementyProcesProdukcyjny { get; set; }
         public virtual DbSet<vEtapy_proces> vEtapy_proces { get; set; }
@@ -105,7 +109,15 @@ namespace Szwalnia
         public virtual DbSet<vMaszyny_serwis> vMaszyny_serwis { get; set; }
         public virtual DbSet<vMaterialyDoZamowienia> vMaterialyDoZamowienia { get; set; }
         public virtual DbSet<vMaterialyDoZamowieniaBrak> vMaterialyDoZamowieniaBrak { get; set; }
+        public virtual DbSet<vMaterialyNiewydaneZDatami> vMaterialyNiewydaneZDatami { get; set; }
+        public virtual DbSet<vMaterialyOdebraneZProdukcji> vMaterialyOdebraneZProdukcji { get; set; }
+        public virtual DbSet<vMaterialyZamowione> vMaterialyZamowione { get; set; }
+        public virtual DbSet<vNieodebraneMaterialyWgDostawcyZNazwaIOferta> vNieodebraneMaterialyWgDostawcyZNazwaIOferta { get; set; }
+        public virtual DbSet<vNieodebraneMaterialyWgDostawy> vNieodebraneMaterialyWgDostawy { get; set; }
+        public virtual DbSet<vNieodebraneMaterialyWgDostawyZNazwa> vNieodebraneMaterialyWgDostawyZNazwa { get; set; }
+        public virtual DbSet<vNieodebraneMaterialyWgZamowienieElement> vNieodebraneMaterialyWgZamowienieElement { get; set; }
         public virtual DbSet<vNieuzytyMaterialOdpad> vNieuzytyMaterialOdpad { get; set; }
+        public virtual DbSet<vNiezuzytyMaterialNaProdukcji> vNiezuzytyMaterialNaProdukcji { get; set; }
         public virtual DbSet<vObsluga> vObsluga { get; set; }
         public virtual DbSet<vOdebranyMaterialMagazyn> vOdebranyMaterialMagazyn { get; set; }
         public virtual DbSet<vOdebranyMaterialProdukcja> vOdebranyMaterialProdukcja { get; set; }
@@ -117,6 +129,7 @@ namespace Szwalnia
         public virtual DbSet<vPotrzebneEtapyDoProcesuProdukcyjnego> vPotrzebneEtapyDoProcesuProdukcyjnego { get; set; }
         public virtual DbSet<vPotrzebneMaszynyDoProcesuProdukcyjnego> vPotrzebneMaszynyDoProcesuProdukcyjnego { get; set; }
         public virtual DbSet<vPotrzebnyMaterialDoProcesuProdukcyjnego> vPotrzebnyMaterialDoProcesuProdukcyjnego { get; set; }
+        public virtual DbSet<vPotrzebyProdukcjiZDatami> vPotrzebyProdukcjiZDatami { get; set; }
         public virtual DbSet<vPracownicyMagazynu> vPracownicyMagazynu { get; set; }
         public virtual DbSet<vProces_elementy> vProces_elementy { get; set; }
         public virtual DbSet<vProces_Etapy> vProces_Etapy { get; set; }
@@ -147,6 +160,8 @@ namespace Szwalnia
         public virtual DbSet<vWszystkie_Elementy> vWszystkie_Elementy { get; set; }
         public virtual DbSet<vWszystkie_Maszyny> vWszystkie_Maszyny { get; set; }
         public virtual DbSet<vWszystkieMaszyny> vWszystkieMaszyny { get; set; }
+        public virtual DbSet<vZamowieniaDystans> vZamowieniaDystans { get; set; }
+        public virtual DbSet<vZamowieniaNieprzypisaneDoPracownikaIKuriera> vZamowieniaNieprzypisaneDoPracownikaIKuriera { get; set; }
         public virtual DbSet<vZamowienieProcesyProdukcyjne> vZamowienieProcesyProdukcyjne { get; set; }
         public virtual DbSet<vZawartosc_polki> vZawartosc_polki { get; set; }
         public virtual DbSet<vZawartoscMagazynuDoPrzydzialu> vZawartoscMagazynuDoPrzydzialu { get; set; }

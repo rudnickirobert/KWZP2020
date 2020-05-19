@@ -43,26 +43,27 @@ namespace Szwalnia
                 dgvDostawyDoPrzyjecia.DataSource = db.vDostawyDoOdbioru.ToList();
             }    
         }
-
-     
-
+          
         private void PrzyjmowanieDostaw_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (!zamknieciePrzezInnyFormularz)
             {
-                Start.GetForm.Show();
+                Application.OpenForms[typeof(ObslugaDostaw).Name].Show();
             }
         }
 
         private void dgvDostawyDoPrzyjecia_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            int intDostawaID = Convert.ToInt32(dgvDostawyDoPrzyjecia.CurrentRow.Cells[0].Value);
-            int intElementID = Convert.ToInt32(dgvDostawyDoPrzyjecia.CurrentRow.Cells[1].Value);
-            int intIlosc = Convert.ToInt32(dgvDostawyDoPrzyjecia.CurrentRow.Cells[2].Value);
-            int intIloscPaczek = Convert.ToInt32(dgvDostawyDoPrzyjecia.CurrentRow.Cells[3].Value);
-            WyborPolkiDoOdlozenia wybieraniePolkiDoOdlozeniaElementu = new WyborPolkiDoOdlozenia(intDostawaID,intElementID,intIlosc, intIloscPaczek);
-            wybieraniePolkiDoOdlozeniaElementu.Show();
-            this.Hide();
+            if (db.vDostawyDoOdbioru.Where(doOdebrania => doOdebrania.Ilosc > 0).Any())
+            {
+                int intDostawaID = Convert.ToInt32(dgvDostawyDoPrzyjecia.CurrentRow.Cells[0].Value);
+                int intElementID = Convert.ToInt32(dgvDostawyDoPrzyjecia.CurrentRow.Cells[1].Value);
+                int intIlosc = Convert.ToInt32(dgvDostawyDoPrzyjecia.CurrentRow.Cells[2].Value);
+                int intIloscPaczek = Convert.ToInt32(dgvDostawyDoPrzyjecia.CurrentRow.Cells[3].Value);
+                WyborPolkiDoOdlozenia wybieraniePolkiDoOdlozeniaElementu = new WyborPolkiDoOdlozenia("dostawa", intDostawaID, intElementID, intIlosc, intIloscPaczek);
+                wybieraniePolkiDoOdlozeniaElementu.Show();
+                this.Hide();
+            }
         }
     }
 }
