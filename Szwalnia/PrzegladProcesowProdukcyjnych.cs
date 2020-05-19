@@ -13,36 +13,98 @@ namespace Szwalnia
     public partial class PrzegladProcesowProdukcyjnych : Form
     {
         public SzwalniaEntities db;
+        public int ostatniNumerZamowienia;
         public PrzegladProcesowProdukcyjnych(SzwalniaEntities db)
         {
             InitializeComponent();
-            this.db = db;
-        }
-
-        private void btnNumerZamowienia_Click(object sender, EventArgs e)
-        {
-            ZamowienieProcesyProdukcyjne zamowienieProcesyProdukcyjne = new ZamowienieProcesyProdukcyjne(db);
-            zamowienieProcesyProdukcyjne.Show();
+            this.db = db; 
+            dgvProcesyProdukcyjne.DataSource = db.vZamowienieProcesyProdukcyjne.ToList();
+            dgvProcesyProdukcyjne.Columns.OfType<DataGridViewColumn>().ToList().ForEach(kolumna => kolumna.Visible = true);
+            int ostatniNumer = dgvProcesyProdukcyjne.Rows.Cast<DataGridViewRow>().Max(wartosc => Convert.ToInt32(wartosc.Cells["ID_Zamowienia"].Value));
+            ostatniNumerZamowienia = ostatniNumer;
+            dgvProcesyProdukcyjne.Columns[0].HeaderText = "ID procesu produkcyjnego";
+            dgvProcesyProdukcyjne.Columns[1].HeaderText = "ID zamówienia";
+            dgvProcesyProdukcyjne.Columns[2].HeaderText = "ID zamówienia element";
+            dgvProcesyProdukcyjne.Columns[4].HeaderText = "Proponowana data dostawy materiału";
+            dgvProcesyProdukcyjne.Columns[5].HeaderText = "Data rozpoczęcia";
+            dgvProcesyProdukcyjne.Columns[6].HeaderText = "Data zakończenia";
+            dgvProcesyProdukcyjne.Columns[0].Width = 95;
+            dgvProcesyProdukcyjne.Columns[7].Width = 130;
         }
 
         private void btnWszystkieProcesy_Click(object sender, EventArgs e)
         {
-            WszystkieProcesyProdukcyjne wszystkieProcesyProdukcyjne = new WszystkieProcesyProdukcyjne(db);
-            wszystkieProcesyProdukcyjne.Show();
+            dgvProcesyProdukcyjne.DataSource = db.vZamowienieProcesyProdukcyjne.ToList();
+            dgvProcesyProdukcyjne.Columns.OfType<DataGridViewColumn>().ToList().ForEach(kolumna => kolumna.Visible = true);
         }
 
-       
-
-        private void btnNumerProcesu_Click(object sender, EventArgs e)
+        private void btnRozpoczeteProcesy_Click(object sender, EventArgs e)
         {
-            ProcesyProdukcyjneID procesyProdukcyjneID = new ProcesyProdukcyjneID(db);
-            procesyProdukcyjneID.Show();
+            dgvProcesyProdukcyjne.DataSource = this.db.vZamowienieProcesyProdukcyjne.Where(data => data.Data_Zakonczenia.Value == null).ToList();
+            dgvProcesyProdukcyjne.Columns.OfType<DataGridViewColumn>().ToList().ForEach(kolumna => kolumna.Visible = true);
         }
 
-        private void btnNumerZamowienieElement_Click(object sender, EventArgs e)
+        private void btnIdProcesu_Click(object sender, EventArgs e)
         {
-            ProcesyProdukcyjneDlaZamowienieElement procesyProdukcyjneDlaZamowienieElement = new ProcesyProdukcyjneDlaZamowienieElement(db);
-            procesyProdukcyjneDlaZamowienieElement.Show();
+            dgvProcesyProdukcyjne.DataSource = this.db.vZamowienieProcesyProdukcyjne.Where(numer => numer.ID_Procesu_Produkcyjnego == nudNumerProcesu.Value).ToList();
+            dgvProcesyProdukcyjne.Columns.OfType<DataGridViewColumn>().ToList().ForEach(kolumna => kolumna.Visible = true);
+            dgvProcesyProdukcyjne.Columns[0].Visible = false;
+        }
+
+        private void btnIdZamowienia_Click(object sender, EventArgs e)
+        {
+            if (nudNumerZamowienia.Value > 0)
+            {
+                if (nudNumerZamowienia.Value <= ostatniNumerZamowienia)
+                {
+                    dgvProcesyProdukcyjne.DataSource = this.db.vZamowienieProcesyProdukcyjne.Where(zamowienie => zamowienie.ID_Zamowienia == nudNumerZamowienia.Value).ToList();
+                    dgvProcesyProdukcyjne.Columns.OfType<DataGridViewColumn>().ToList().ForEach(kolumna => kolumna.Visible = true);
+                    dgvProcesyProdukcyjne.Columns[1].Visible = false;
+                }
+                else
+                    MessageBox.Show("Nie istnieje takie ID Zamowienia!");
+            }
+            else
+                MessageBox.Show("Wprowadź poprawne ID Zamowienia (wieksze od zera)!");
+        }
+
+        private void dgvProcesyProdukcyjne_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int numerProcesu = Convert.ToInt32(dgvProcesyProdukcyjne.CurrentRow.Cells[0].Value);
+            SzczegolyProcesu szczegolyProcesu = new SzczegolyProcesu(db, Decimal.ToInt32(numerProcesu));
+            this.Close();
+            szczegolyProcesu.Show();
+        }
+
+        private void btnIdZamowienieElement_Click(object sender, EventArgs e)
+        {
+
+            dgvProcesyProdukcyjne.DataSource = this.db.vZamowienieProcesyProdukcyjne.Where(numer => numer.ID_Zamowienie_Element == nudNumerZamowienieElement.Value).ToList();
+            dgvProcesyProdukcyjne.Columns.OfType<DataGridViewColumn>().ToList().ForEach(kolumna => kolumna.Visible = true);
+            dgvProcesyProdukcyjne.Columns[2].Visible = false;
+
+
+        }
+
+        private void btnDataRozpoczecia_Click(object sender, EventArgs e)
+        {
+
+            dgvProcesyProdukcyjne.DataSource = this.db.vZamowienieProcesyProdukcyjne.Where(data => (data.Data_Rozpoczecia.Value.Day == dtpDataRozpoczecia.Value.Day) && (data.Data_Rozpoczecia.Value.Month == dtpDataRozpoczecia.Value.Month) && (data.Data_Rozpoczecia.Value.Year == dtpDataRozpoczecia.Value.Year)).ToList();
+            dgvProcesyProdukcyjne.Columns.OfType<DataGridViewColumn>().ToList().ForEach(kolumna => kolumna.Visible = true);
+        }
+
+        private void btnDataZakonczenia_Click(object sender, EventArgs e)
+        {
+
+            dgvProcesyProdukcyjne.DataSource = this.db.vZamowienieProcesyProdukcyjne.Where(data => (data.Data_Zakonczenia.Value.Day == dtpDataZakonczenia.Value.Day) && (data.Data_Zakonczenia.Value.Month == dtpDataZakonczenia.Value.Month) && (data.Data_Zakonczenia.Value.Year == dtpDataZakonczenia.Value.Year) ).ToList();
+            dgvProcesyProdukcyjne.Columns.OfType<DataGridViewColumn>().ToList().ForEach(kolumna => kolumna.Visible = true);
+        }
+
+        private void btnWstecz_Click(object sender, EventArgs e)
+        {
+            ProcesProdukcyjny procesProdukcyjny = new ProcesProdukcyjny(db);
+            procesProdukcyjny.Show();
+            this.Close();
         }
     }
 }
