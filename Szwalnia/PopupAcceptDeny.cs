@@ -24,6 +24,7 @@ namespace Szwalnia
         public int intPolka;
         public int intDostawa;
         public int intIlosc;
+        public int intPracownikID;
         public int intOferta;
         public bool czyOferta;
         public bool czyWydanie;
@@ -53,7 +54,7 @@ namespace Szwalnia
             this.intIlosc = intIlosc;
             lblInfo.Text = "Czy na pewno chcesz wybrac materiał z półki " + Convert.ToString(intPolka);
         }
-        public PopupAcceptDeny(bool czyWydanie,int intIDZamowienia, int intIDZamowieniaElement, int intIDElement, int intIDDostawy, int intIDPolka, int intIlosc)
+        public PopupAcceptDeny(bool czyWydanie,int intIDZamowienia, int intIDZamowieniaElement, int intIDElement, int intIDDostawy, int intIDPolka, int intIlosc, int intPracownikID)
         {
             InitializeComponent();
             db = Start.szwalnia;
@@ -64,6 +65,7 @@ namespace Szwalnia
             this.intIDDostawy = intIDDostawy;
             this.intPolka = intIDPolka;
             this.intIlosc = intIlosc;
+            this.intPracownikID = intPracownikID;
 
         }
 
@@ -156,6 +158,22 @@ namespace Szwalnia
             }
             else
             {
+                Dostarczenia_Wewn noweWydanie = new Dostarczenia_Wewn();
+                noweWydanie.ID_Pracownicy = intPracownikID;
+                noweWydanie.ID_Dostawy = intIDDostawy;
+                noweWydanie.ID_Zamowienie_element = intIDZamowienieElement;
+                noweWydanie.ID_element = intElementID;
+                noweWydanie.Ilosc_Dostarczona = (-1)*intIlosc;
+                noweWydanie.ID_Miejsca = 2;
+                noweWydanie.Data_Dostarczenia = (Convert.ToString(DateTime.Now)).Substring(0,10);
+                db.Dostarczenia_Wewn.Add(noweWydanie);
+                db.SaveChanges();
+                Zawartosc polkaDoWyczyszczenia = db.Zawartosc.Where(polka => polka.ID_Polka == intPolka).First();
+                db.Zawartosc.Remove(polkaDoWyczyszczenia);
+                db.SaveChanges();
+                Start.DataBaseRefresh();
+                this.Close();
+                Application.OpenForms[typeof(WydajMaterialProdukcji).Name].Close();
 
             }
         }
@@ -163,9 +181,16 @@ namespace Szwalnia
         private void btnDeny_Click(object sender, EventArgs e)
         {
             //akcja powrot
-            Application.OpenForms["WyborOferty"].Show();
-            this.Close();
-            
+            if (!czyWydanie)
+            {
+                Application.OpenForms["WyborOferty"].Show();
+                this.Close();
+            }
+            else
+            {
+                Application.OpenForms["WydajMaterialProdukcji"].Show();
+                this.Close();
+            }
         }
         
     }

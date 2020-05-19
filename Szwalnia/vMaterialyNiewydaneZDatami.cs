@@ -18,8 +18,9 @@ namespace Szwalnia
         public int ID_Zamowienie_Element { get; set; }
         public int ID_Element { get; set; }
         public string Element_Nazwa { get; set; }
-        public Nullable<double> Ilosc { get; set; }
-        public Nullable<int> ID_Dostawy { get; set; }
+        public int Ilosc { get; set; }
+        public int ID_Dostawy { get; set; }
         public Nullable<System.DateTime> Proponowana_data_dostawy_materialu { get; set; }
+        public Nullable<int> ID_Polka { get; set; }
     }
 }

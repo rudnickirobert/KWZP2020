@@ -71,10 +71,10 @@ GO
 -- Widok podsumowujacy materialy z magazynu ktore zostaly przypisane do zamowien
 CREATE VIEW [dbo].[vMaterialyZMagazynu]
 AS
-SELECT        dbo.Zamowienia_Dostawy_Wlasne.ID_Zamowienia, dbo.Dostawy_Wlasne_Zawartosc.ID_Element, SUM(dbo.Dostawy_Wlasne_Zawartosc.Ilosc) * - 1 AS Ilosc
+SELECT        dbo.Dostawy_Wlasne_Zawartosc.ID_Dostawy, dbo.Zamowienia_Dostawy_Wlasne.ID_Zamowienia, dbo.Dostawy_Wlasne_Zawartosc.ID_Element, SUM(dbo.Dostawy_Wlasne_Zawartosc.Ilosc) * - 1 AS Ilosc
 FROM            dbo.Dostawy_Wlasne_Zawartosc INNER JOIN
                          dbo.Zamowienia_Dostawy_Wlasne ON dbo.Dostawy_Wlasne_Zawartosc.ID_Zamowienia_dostawy_wlasne = dbo.Zamowienia_Dostawy_Wlasne.ID_Zamowienia_dostawy_wlasne
-GROUP BY dbo.Zamowienia_Dostawy_Wlasne.ID_Zamowienia, dbo.Dostawy_Wlasne_Zawartosc.ID_Element
+GROUP BY dbo.Zamowienia_Dostawy_Wlasne.ID_Zamowienia, dbo.Dostawy_Wlasne_Zawartosc.ID_Element, dbo.Dostawy_Wlasne_Zawartosc.ID_Dostawy
 GO
 --Widok podsumowujacy materialy potrzebne do wykonania zamowienia
 CREATE VIEW [dbo].[vMaterialyDoZamowienia]
@@ -91,7 +91,8 @@ GO
 --Widok podsumowujacy juz zamowione materialy
 CREATE VIEW [dbo].[vMaterialyZamowione]
 AS
-SELECT        dbo.Zamowienia_Dostawy.ID_Zamowienia, dbo.Dostawy_Zawartosc.ID_Element, dbo.Dostawy_Zawartosc.Ilosc_Dostarczona * dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym * - 1 AS Ilosc
+SELECT        dbo.Zamowienia_Dostawy.ID_Dostawy, dbo.Zamowienia_Dostawy.ID_Zamowienia, dbo.Dostawy_Zawartosc.ID_Element, 
+                         dbo.Dostawy_Zawartosc.Ilosc_Dostarczona * dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym * - 1 AS Ilosc
 FROM            dbo.Zamowienia_Dostawy INNER JOIN
                          dbo.Dostawy_Zawartosc ON dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Dostawy_Zawartosc.ID_Dostawy INNER JOIN
                          dbo.Oferta ON dbo.Dostawy_Zawartosc.ID_oferta = dbo.Oferta.ID_Oferta
@@ -194,12 +195,18 @@ GO
 --widok materia³ów jeszcz nie wydanych a potrzebnych
 CREATE VIEW [dbo].[vDostawyDoWydania]
 AS
-SELECT        dbo.vPotrzebyProdukcjiZDatami.ID_Zamowienie_Element, dbo.vPotrzebyProdukcjiZDatami.ID_Element, dbo.vPotrzebyProdukcjiZDatami.Liczba + dbo.vDostarczeniaNaProdukcje.Ilosc_Dostarczona AS Ilosc_do_dostarczenia, 
-                         dbo.vPotrzebyProdukcjiZDatami.Proponowana_data_dostawy_materialu
-FROM            dbo.vDostarczeniaNaProdukcje RIGHT OUTER JOIN
-                         dbo.vPotrzebyProdukcjiZDatami ON dbo.vDostarczeniaNaProdukcje.ID_Zamowienie_element = dbo.vPotrzebyProdukcjiZDatami.ID_Zamowienie_Element AND 
-                         dbo.vDostarczeniaNaProdukcje.ID_element = dbo.vPotrzebyProdukcjiZDatami.ID_Element
-WHERE        (dbo.vPotrzebyProdukcjiZDatami.Liczba + dbo.vDostarczeniaNaProdukcje.Ilosc_Dostarczona > 0)
+SELECT DISTINCT 
+                         dbo.vPotrzebyProdukcjiZDatami.ID_Zamowienie_Element, dbo.vPotrzebyProdukcjiZDatami.ID_Element, dbo.vPotrzebyProdukcjiZDatami.Liczba AS Ilosc, dbo.vPotrzebyProdukcjiZDatami.Proponowana_data_dostawy_materialu, 
+                         dbo.Elementy.Element_Nazwa, dbo.Zamowienie_Element.ID_Zamowienia, dbo.vMaterialyZamowione.ID_Dostawy
+FROM            dbo.Elementy INNER JOIN
+                         dbo.vPotrzebyProdukcjiZDatami INNER JOIN
+                         dbo.Zamowienie_Element ON dbo.vPotrzebyProdukcjiZDatami.ID_Zamowienie_Element = dbo.Zamowienie_Element.ID_Zamowienie_Element ON 
+                         dbo.Elementy.ID_Element = dbo.vPotrzebyProdukcjiZDatami.ID_Element INNER JOIN
+                         dbo.Zamowienia ON dbo.Zamowienie_Element.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia INNER JOIN
+                         dbo.vMaterialyZamowione ON dbo.Zamowienia.ID_Zamowienia = dbo.vMaterialyZamowione.ID_Zamowienia AND dbo.vPotrzebyProdukcjiZDatami.ID_Element = dbo.vMaterialyZamowione.ID_Element LEFT OUTER JOIN
+                         dbo.vDostarczeniaNaProdukcje ON dbo.vPotrzebyProdukcjiZDatami.ID_Element = dbo.vDostarczeniaNaProdukcje.ID_element AND 
+                         dbo.vPotrzebyProdukcjiZDatami.ID_Zamowienie_Element = dbo.vDostarczeniaNaProdukcje.ID_Zamowienie_element
+WHERE        (dbo.vDostarczeniaNaProdukcje.ID_Zamowienie_element IS NULL) AND (dbo.vDostarczeniaNaProdukcje.ID_element IS NULL)
 GO
 --widok materia³ów pozosta³ych po wyprodukowaniu
 CREATE VIEW [dbo].[vNiezuzytyMaterialNaProdukcji]
