@@ -218,10 +218,10 @@ VALUES
 ('Pralka','Whirpool','B56/678', 3, '8000', '14','2027-10-01', '0'),
 ('Pralka','Whirpool','B36/878', 3, '8000', '14','2027-10-01', '0'),
 ('Pralka','Whirpool','B56/345', 3, '8000', '14','2027-10-01', '0'),
-('疾lasko przemys這we','Bosh','MD2/125/2019', 3, '4500', '14','2025-04-12', '0'),
-('疾lasko przemys這we','Bosh','MD2/225/2019', 3, '4500', '14','2025-04-12', '0'),
-('疾lasko przemys這we','Bosh','MD2/199/2019', 3, '4500', '14','2025-04-12', '0'),
-('疾lasko przemys這we','Bosh','MD2/198/2019', 3, '4500', '14','2025-04-12', '0');
+('疾lazko przemys這we','Bosh','MD2/125/2019', 3, '4500', '14','2025-04-12', '0'),
+('疾lazko przemys這we','Bosh','MD2/225/2019', 3, '4500', '14','2025-04-12', '0'),
+('疾lazko przemys這we','Bosh','MD2/199/2019', 3, '4500', '14','2025-04-12', '0'),
+('疾lazko przemys這we','Bosh','MD2/198/2019', 3, '4500', '14','2025-04-12', '0');
 
 ---------------------INSERTY MAGAZYN---------------------------------------------------------
 INSERT INTO
@@ -976,6 +976,18 @@ VALUES
 (4, 6, 3, 4, 1), 
 (5, 8, 0, 4, 1); 
 
+INSERT INTO Odbior_Dostarczenia (ID_Procesu_Produkcyjnego, ID_Dostarczenia, Odebrano)
+VALUES
+(1, 1, 1),
+(2, 2, 1),
+(1, 3, 1),
+(2, 4, 1),
+(3, 5, 1),
+(5, 6, 1),
+(4, 7, 1),
+(5, 8, 1),
+(6, 9, 1),
+(6, 10, 1);
 
 
 INSERT INTO Realizacja_Procesu (ID_Procesu_Produkcyjnego, ID_Etapu, Data_Rozpoczecia_Procesu, Data_Zakonczenia_Procesu, Data_Kontroli, Uwagi_Kontroli)
@@ -1062,16 +1074,16 @@ VALUES
 (5, 3, 12, '2020-04-16 14:45:15', '2020-04-16 20:50:00'),
 (6, 6, 11, '2020-04-16 21:06:15', '2020-04-17 08:00:00');
 
-INSERT INTO Kontrola_Efektywnosci (ID_Procesu_Produkcyjnego, Data_Kontroli, Dokument, Uwagi, Zgodnosc_Zamowienia , Liczba_Poprawnych)
+INSERT INTO Kontrola_Efektywnosci (ID_Procesu_Produkcyjnego, Data_Kontroli, Uwagi, Liczba_Poprawnych)
 VALUES
-(1, '2020-04-17 10:50:00', 'dok_1.img', 'brak uwag', 1, 100),
-(2, '2020-04-17 07:30:00', 'dok_2.img', 'brak uwag', 1, 105),
-(3, '2020-04-20 19:40:01', 'dok_3.img', 'brak uwag', 1, 500),
-(4, '2020-04-20 09:30:00', 'dok_4.img', 'brak uwag', 1, 100),
-(5, '2020-04-20 10:50:00', 'dok_4.img', 'brak uwag', 1, 103),
-(6, '2020-04-29 20:50:01', 'dok_3.img', 'brak uwag', 1, 5010),
-(7, '2020-04-28 11:00:00', 'dok_4.img', 'brak uwag', 1, 51),
-(8, '2020-04-30 12:40:00', 'dok_4.img', 'brak uwag', 1, 50);
+(1, '2020-04-17 10:50:00', 'brak uwag', 100),
+(2, '2020-04-17 07:30:00', 'brak uwag', 105),
+(3, '2020-04-20 19:40:01', 'brak uwag', 500),
+(4, '2020-04-20 09:30:00', 'brak uwag', 100),
+(5, '2020-04-20 10:50:00', 'brak uwag', 103),
+(6, '2020-04-29 20:50:01', 'brak uwag', 5010),
+(7, '2020-04-28 11:00:00', 'brak uwag', 51),
+(8, '2020-04-30 12:40:00', 'brak uwag', 50);
 use master
 
 

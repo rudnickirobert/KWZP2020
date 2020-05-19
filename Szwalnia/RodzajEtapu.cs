@@ -20,6 +20,10 @@ namespace Szwalnia
             dgvRodzajEtapu.DataSource = db.Rodzaj_Etapu.ToList();
             dgvRodzajEtapu.Columns[2].Visible = false;
             dgvRodzajEtapu.Columns[3].Visible = false;
+            dgvRodzajEtapu.Columns[0].HeaderText = "ID Etapu";
+            dgvRodzajEtapu.Columns[1].HeaderText = "Nazwa";
+            dgvRodzajEtapu.Columns[0].Width = 90;
+            dgvRodzajEtapu.Columns[1].Width = 200;
 
         }
     }

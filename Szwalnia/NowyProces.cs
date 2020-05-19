@@ -14,6 +14,7 @@ namespace Szwalnia
     {
         public SzwalniaEntities db;
         public int ostatniNumerProcesu;
+        public const string pustePole = "  .  .       :  :";
         public NowyProces(SzwalniaEntities db)
         {
             InitializeComponent();
@@ -21,40 +22,82 @@ namespace Szwalnia
             dgvUkryty.DataSource = db.Proces_Produkcyjny.ToList();
             int numerOstatniegoProcesu = dgvUkryty.Rows.Count;
             lblNumerProcesu.Text = (numerOstatniegoProcesu+1).ToString();
+            cbxZamowienieElement.DataSource = db.Zamowienie_Element.ToList();
+            cbxZamowienieElement.DisplayMember = "ID_Zamowienie_Element";
+            cbxZamowienieElement.ValueMember = "ID_Zamowienie_Element";
         }
 
         private void btnWyzeruj_Click(object sender, EventArgs e)
         {
-            tbDataRozpoczecia.Text = "";
-            tbDataZakonczenia.Text = "";
-            tbIdZamowienieElement.Text = "";
-            tbProponowanaData.Text = "";
+            mtbDataRozpoczecia.Text = "";
+            mtbDataZakonczenia.Text = "";
+            cbxZamowienieElement.Text = "";
+            mtbProponowanaData.Text = "";
             tbUwagi.Text = "";
         }
 
         private void btnAnuluj_Click(object sender, EventArgs e)
         {
             this.Close();
+            ProcesProdukcyjny proces = new ProcesProdukcyjny(db);
+            proces.Show();
         }
 
         private void btnZapisz_Click(object sender, EventArgs e)
         {
             Proces_Produkcyjny proces = new Proces_Produkcyjny();
-            if(string.IsNullOrEmpty(tbIdZamowienieElement.Text))
+
+            if (string.IsNullOrEmpty(cbxZamowienieElement.Text))
             {
-                MessageBox.Show("Uzupełnienie pola ID zamowienie element jest wymagane!");
+                MessageBox.Show("Uzupełnienie pola 'ID zamówienie element' jest wymagane!");
+                return;
             }
             else
-            { 
-               proces.ID_Zamowienie_Element = Convert.ToInt32(tbIdZamowienieElement.Text);
-               proces.Proponowana_data_dostawy_materialu = Convert.ToDateTime(tbProponowanaData);
-               proces.Data_Rozpoczecia = Convert.ToDateTime(tbDataRozpoczecia);
-               proces.Data_Zakonczenia = Convert.ToDateTime(tbDataZakonczenia);
-               proces.Uwagi = tbUwagi.Text;
-               db.Proces_Produkcyjny.Add(proces);
-               db.SaveChanges();
-               MessageBox.Show("Dodano nowy proces technologiczny");
+            {
+                proces.ID_Zamowienie_Element = Convert.ToInt32(cbxZamowienieElement.Text);
             }
+
+            if (mtbProponowanaData.Text != pustePole)
+            {
+                proces.Proponowana_data_dostawy_materialu = Convert.ToDateTime(mtbProponowanaData.Text);
+            }
+
+            if (mtbDataRozpoczecia.Text != pustePole)
+            {
+                proces.Data_Rozpoczecia = Convert.ToDateTime(mtbDataRozpoczecia.Text);
+            }
+
+            if (mtbDataZakonczenia.Text != pustePole)
+            {
+                proces.Data_Zakonczenia = Convert.ToDateTime(mtbDataZakonczenia.Text);
+            }
+
+            proces.Uwagi = tbUwagi.Text;
+
+            db.Proces_Produkcyjny.Add(proces);
+            db.SaveChanges();
+            MessageBox.Show("Dodano nowy proces produkcyjny");
+        }
+
+        private void btnDzisProponowana_Click(object sender, EventArgs e)
+        {
+            mtbProponowanaData.Text = DateTime.Now.ToString();
+        }
+
+        private void btnDzisRozpoczecie_Click(object sender, EventArgs e)
+        {
+            mtbDataRozpoczecia.Text = DateTime.Now.ToString();
+        }
+
+        private void btnDzisZakonczenie_Click(object sender, EventArgs e)
+        {
+            mtbDataZakonczenia.Text = DateTime.Now.ToString();
+        }
+
+        private void NowyProces_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ProcesProdukcyjny proces = new ProcesProdukcyjny(db);
+            proces.Show();
         }
     }
 }
