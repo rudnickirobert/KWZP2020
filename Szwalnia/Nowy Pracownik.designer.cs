@@ -220,6 +220,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 36F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(854, 737);
             this.Controls.Add(this.btnWyzeruj);
             this.Controls.Add(this.btnAnuluj);

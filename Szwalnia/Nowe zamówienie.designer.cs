@@ -72,7 +72,7 @@
             this.chbUmowa.AutoSize = true;
             this.chbUmowa.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.chbUmowa.Location = new System.Drawing.Point(214, 316);
-            this.chbUmowa.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.chbUmowa.Margin = new System.Windows.Forms.Padding(6);
             this.chbUmowa.Name = "chbUmowa";
             this.chbUmowa.Size = new System.Drawing.Size(18, 17);
             this.chbUmowa.TabIndex = 8;
@@ -83,7 +83,7 @@
             this.cbNazwa.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbNazwa.FormattingEnabled = true;
             this.cbNazwa.Location = new System.Drawing.Point(214, 146);
-            this.cbNazwa.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cbNazwa.Margin = new System.Windows.Forms.Padding(6);
             this.cbNazwa.Name = "cbNazwa";
             this.cbNazwa.Size = new System.Drawing.Size(498, 39);
             this.cbNazwa.TabIndex = 9;
@@ -93,7 +93,7 @@
             this.cbPracownik.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbPracownik.FormattingEnabled = true;
             this.cbPracownik.Location = new System.Drawing.Point(214, 374);
-            this.cbPracownik.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cbPracownik.Margin = new System.Windows.Forms.Padding(6);
             this.cbPracownik.Name = "cbPracownik";
             this.cbPracownik.Size = new System.Drawing.Size(498, 39);
             this.cbPracownik.TabIndex = 10;
@@ -146,7 +146,7 @@
             // 
             this.dgvUkryty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUkryty.Location = new System.Drawing.Point(751, 28);
-            this.dgvUkryty.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.dgvUkryty.Margin = new System.Windows.Forms.Padding(8);
             this.dgvUkryty.Name = "dgvUkryty";
             this.dgvUkryty.RowHeadersWidth = 51;
             this.dgvUkryty.Size = new System.Drawing.Size(47, 45);
@@ -157,7 +157,7 @@
             // 
             this.btnWroc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnWroc.Location = new System.Drawing.Point(15, 516);
-            this.btnWroc.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnWroc.Margin = new System.Windows.Forms.Padding(6);
             this.btnWroc.Name = "btnWroc";
             this.btnWroc.Size = new System.Drawing.Size(132, 56);
             this.btnWroc.TabIndex = 24;
@@ -168,7 +168,7 @@
             // 
             this.btnWyzeruj.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnWyzeruj.Location = new System.Drawing.Point(395, 516);
-            this.btnWyzeruj.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnWyzeruj.Margin = new System.Windows.Forms.Padding(6);
             this.btnWyzeruj.Name = "btnWyzeruj";
             this.btnWyzeruj.Size = new System.Drawing.Size(132, 56);
             this.btnWyzeruj.TabIndex = 25;
@@ -179,7 +179,7 @@
             // 
             this.btnDalej.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnDalej.Location = new System.Drawing.Point(666, 516);
-            this.btnDalej.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnDalej.Margin = new System.Windows.Forms.Padding(6);
             this.btnDalej.Name = "btnDalej";
             this.btnDalej.Size = new System.Drawing.Size(132, 56);
             this.btnDalej.TabIndex = 26;
@@ -191,7 +191,7 @@
             // 
             this.dtpZlozenie.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dtpZlozenie.Location = new System.Drawing.Point(214, 215);
-            this.dtpZlozenie.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dtpZlozenie.Margin = new System.Windows.Forms.Padding(6);
             this.dtpZlozenie.Name = "dtpZlozenie";
             this.dtpZlozenie.Size = new System.Drawing.Size(498, 38);
             this.dtpZlozenie.TabIndex = 27;
@@ -200,6 +200,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(806, 582);
             this.Controls.Add(this.dtpZlozenie);
             this.Controls.Add(this.btnDalej);
@@ -216,7 +217,7 @@
             this.Controls.Add(this.lblNumerZamowienia);
             this.Controls.Add(this.lblOpisNumer);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "NoweZamowienie";
             this.Text = "Nowe_zamówienie";
             ((System.ComponentModel.ISupportInitialize)(this.dgvUkryty)).EndInit();
