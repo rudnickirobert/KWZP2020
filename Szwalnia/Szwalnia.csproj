@@ -440,6 +440,12 @@
     <Compile Include="Przydzial_Zasobow.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="PrzyjmowanieGotowychProduktow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrzyjmowanieGotowychProduktow.Designer.cs">
+      <DependentUpon>PrzyjmowanieGotowychProduktow.cs</DependentUpon>
+    </Compile>
     <Compile Include="PustePolki.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -936,6 +942,12 @@
     <Compile Include="WydajMaterialProdukcji.Designer.cs">
       <DependentUpon>WydajMaterialProdukcji.cs</DependentUpon>
     </Compile>
+    <Compile Include="WydawanieProduktowKurierowi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WydawanieProduktowKurierowi.Designer.cs">
+      <DependentUpon>WydawanieProduktowKurierowi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Wymiar_Urlopu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -1089,6 +1101,9 @@
     <EmbeddedResource Include="PrzydzialZasobowRealizacja.resx">
       <DependentUpon>PrzydzialZasobowRealizacja.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PrzyjmowanieGotowychProduktow.resx">
+      <DependentUpon>PrzyjmowanieGotowychProduktow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PustePolki.resx">
       <DependentUpon>PustePolki.cs</DependentUpon>
     </EmbeddedResource>
@@ -1206,6 +1221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WydajMaterialProdukcji.resx">
       <DependentUpon>WydajMaterialProdukcji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WydawanieProduktowKurierowi.resx">
+      <DependentUpon>WydawanieProduktowKurierowi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ZarzadzanieForm.resx">
       <DependentUpon>ZarzadzanieForm.cs</DependentUpon>
