@@ -622,8 +622,6 @@ GROUP BY dbo.Zawartosc.Ilosc_Paczek, dbo.Oferta.Cena_Jedn, dbo.Zamowienia.ID_Zam
 ORDER BY dbo.Zamowienia.ID_Zamowienia
 GO
 
-select * from vCenaZaMaterial
-
 CREATE VIEW vKosztyMaterialowe
 AS
 SELECT dbo.Zamowienia.ID_Zamowienia, SUM(dbo.vCenaZaMaterial.[Cena za material]) AS [Koszt materialowy]
@@ -631,8 +629,6 @@ FROM     dbo.vCenaZaMaterial INNER JOIN
                   dbo.Zamowienia ON dbo.vCenaZaMaterial.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia
 GROUP BY dbo.Zamowienia.ID_Zamowienia
 Go
-
-select * from vKosztyMaterialowe
 
 CREATE VIEW vCalkowityKosztZamowienia
 AS
@@ -645,7 +641,6 @@ GROUP BY dbo.Zamowienia.ID_Zamowienia
 ORDER BY dbo.Zamowienia.ID_Zamowienia
 GO
 
-Select * from vCalkowityKosztZamowienia
 
 CREATE VIEW vFaktury
 AS
@@ -655,7 +650,5 @@ FROM     dbo.Zamowienia INNER JOIN
                   dbo.Klienci ON dbo.Zamowienia.ID_Klienta = dbo.Klienci.ID_Klienta INNER JOIN
                   dbo.vCalkowityKosztZamowienia ON dbo.Zamowienia.ID_Zamowienia = dbo.vCalkowityKosztZamowienia.ID_Zamowienia
 GO
-
-Select * from vFaktury
 
 
