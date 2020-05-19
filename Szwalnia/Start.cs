@@ -19,7 +19,7 @@ namespace Szwalnia
             InitializeComponent();
             db = new SzwalniaEntities();
         }
-
+        
         public static Start pomocniczy;
         public static Start GetForm
         {
@@ -55,7 +55,7 @@ namespace Szwalnia
         private void btnPrzygotowanieProdukcji_Click(object sender, EventArgs e)
         {
             PrzygotowanieProdukcji przygotowanieProdukcji = new PrzygotowanieProdukcji(db);
-            przygotowanieProdukcji.Show();
+            przygotowanieProdukcji.Show();            
         }
         private void btnProdukcja_Click(object sender, EventArgs e)
         {
@@ -71,6 +71,12 @@ namespace Szwalnia
         private void Start_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        public static void DataBaseRefresh()
+        {
+            szwalnia_static = null;
+            szwalnia_static = new SzwalniaEntities();
         }
     } 
 }

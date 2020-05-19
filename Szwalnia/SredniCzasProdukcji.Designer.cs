@@ -29,32 +29,52 @@
         private void InitializeComponent()
         {
             this.dgvSredniCzasProdukcji = new System.Windows.Forms.DataGridView();
+            this.lblOpis = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSredniCzasProdukcji)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvSredniCzasProdukcji
             // 
             this.dgvSredniCzasProdukcji.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSredniCzasProdukcji.Location = new System.Drawing.Point(45, 55);
+            this.dgvSredniCzasProdukcji.Location = new System.Drawing.Point(56, 102);
+            this.dgvSredniCzasProdukcji.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvSredniCzasProdukcji.Name = "dgvSredniCzasProdukcji";
-            this.dgvSredniCzasProdukcji.Size = new System.Drawing.Size(698, 347);
+            this.dgvSredniCzasProdukcji.RowHeadersWidth = 51;
+            this.dgvSredniCzasProdukcji.Size = new System.Drawing.Size(369, 295);
             this.dgvSredniCzasProdukcji.TabIndex = 0;
+            // 
+            // lblOpis
+            // 
+            this.lblOpis.AutoSize = true;
+            this.lblOpis.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblOpis.Location = new System.Drawing.Point(61, 47);
+            this.lblOpis.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblOpis.Name = "lblOpis";
+            this.lblOpis.Size = new System.Drawing.Size(340, 24);
+            this.lblOpis.TabIndex = 1;
+            this.lblOpis.Text = "Średni czas produkcji według produktu";
             // 
             // SredniCzasProdukcji
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(484, 412);
+            this.Controls.Add(this.lblOpis);
             this.Controls.Add(this.dgvSredniCzasProdukcji);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "SredniCzasProdukcji";
-            this.Text = "Sredni Czas Produkcji";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Średni czas produkcji";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSredniCzasProdukcji)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.DataGridView dgvSredniCzasProdukcji;
+        private System.Windows.Forms.Label lblOpis;
     }
 }

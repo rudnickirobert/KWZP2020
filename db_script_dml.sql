@@ -218,10 +218,10 @@ VALUES
 ('Pralka','Whirpool','B56/678', 3, '8000', '14','2027-10-01', '0'),
 ('Pralka','Whirpool','B36/878', 3, '8000', '14','2027-10-01', '0'),
 ('Pralka','Whirpool','B56/345', 3, '8000', '14','2027-10-01', '0'),
-('疾lasko przemys這we','Bosh','MD2/125/2019', 3, '4500', '14','2025-04-12', '0'),
-('疾lasko przemys這we','Bosh','MD2/225/2019', 3, '4500', '14','2025-04-12', '0'),
-('疾lasko przemys這we','Bosh','MD2/199/2019', 3, '4500', '14','2025-04-12', '0'),
-('疾lasko przemys這we','Bosh','MD2/198/2019', 3, '4500', '14','2025-04-12', '0');
+('疾lazko przemys這we','Bosh','MD2/125/2019', 3, '4500', '14','2025-04-12', '0'),
+('疾lazko przemys這we','Bosh','MD2/225/2019', 3, '4500', '14','2025-04-12', '0'),
+('疾lazko przemys這we','Bosh','MD2/199/2019', 3, '4500', '14','2025-04-12', '0'),
+('疾lazko przemys這we','Bosh','MD2/198/2019', 3, '4500', '14','2025-04-12', '0');
 
 ---------------------INSERTY MAGAZYN---------------------------------------------------------
 INSERT INTO
@@ -575,25 +575,27 @@ VALUES
 	(9,3,7,14) --175, 1 paczka = 12 mb ZA MAΜ O 7 WEZMIEMY TO Z NADMIARU Z DOSTAWY 4 ZOSTANIE 3 SZT 
 
 INSERT INTO		
-	Dostarczenia_Wewn(ID_pracownicy,ID_dostawy,ID_element,Ilosc_dostarczona,ID_miejsca,Data_dostarczenia) 
+	Dostarczenia_Wewn(ID_pracownicy,ID_dostawy,ID_Zamowienie_element,ID_element,Ilosc_dostarczona,ID_miejsca,Data_dostarczenia) 
 VALUES --ID_miejsca 2 to produkcja
-	(12,1,2,-50,2,'2020-04-14'), --wydania na produkcje
-	(12,2,3,-120,2,'2020-04-14'),
-	(12,3,4,-1200,2,'2020-04-14'),
-	(11,4,3,-80,2,'2020-04-17'),
-	(11,5,2,-50,2,'2020-04-17'),
-	(12,6,4,-1000,2,'2020-04-17'),
-	(11,7,3,-20000,2,'2020-04-23'),
-	(12,8,4,-5000,2,'2020-04-23'),
-	(11,2,3,-4,2,'2020-04-24'), -- 10 by這 nadmiaru, 4 niezu篡te (ale u Angeliki jest 4, wi璚 tak zostawiamy)
-	(11,4,3,-3,2,'2020-04-24'), --tez pozostalosc
-	(11,9,3,-168,2,'2020-04-24'), -- wydana ca豉 dostawa ( z tymi resztkami jest juz 175)
-	(12,3,2,4,2,'2020-04-17'),  -- wraca z produkcji
-	(12,3,4,8,2,'2020-04-17'),
-	(11,2,3,4,2,'2020-04-17'),
-	(11,4,3,3,2,'2020-04-20'),
-	(11,8,2,4,2,'2020-04-20'),
-	(12,7,4,4,2,'2020-04-20')
+	(12,1,1,2,-50,2,'2020-04-14'), --wydania na produkcje
+	(12,2,2,3,-120,2,'2020-04-14'),
+	(12,3,1,4,-1000,2,'2020-04-14'),
+	(12,3,2,4,-200,2,'2020-04-14'),---MARK
+	(11,4,3,3,-80,2,'2020-04-17'),
+	(11,5,6,2,-50,2,'2020-04-17'),	
+	(11,5,5,2,-400,2,'2020-04-17'),
+	(12,6,4,4,-1000,2,'2020-04-17'),
+	(11,7,6,3,-20000,2,'2020-04-23'),
+	(12,8,4,4,-5000,2,'2020-04-23'),
+	(11,2,8,3,-4,2,'2020-04-24'), -- 10 by這 nadmiaru, 4 niezu篡te (ale u Angeliki jest 4, wi璚 tak zostawiamy)
+	(11,4,8,3,-3,2,'2020-04-24'), --tez pozostalosc
+	(11,9,8,3,-168,2,'2020-04-24'), -- wydana ca豉 dostawa ( z tymi resztkami jest juz 175)
+	(12,3,1,2,4,2,'2020-04-17'),  -- wraca z produkcji
+	(12,3,1,4,8,2,'2020-04-17'),
+	(11,2,2,3,4,2,'2020-04-17'),
+	(11,4,3,3,3,2,'2020-04-20'),
+	(11,8,5,2,4,2,'2020-04-20'),
+	(12,7,6,4,4,2,'2020-04-20')
 INSERT INTO 
 	Dostarczenia_Zewn(ID_pracownicy,ID_zamowienia,ID_element,Ilosc_dostarczona,ID_miejsca,Data_dostarczenia) 
 VALUES --ID_miejsca 6 to wysylka, 2 to produkcja
@@ -613,6 +615,17 @@ VALUES --ID_miejsca 6 to wysylka, 2 to produkcja
 	(12,3,16,-100,6,'2020-04-21'),
 	(12,5,14,-50,6,'2020-05-04'),
 	(12,5,16,-50,6,'2020-05-04')
+INSERT INTO 
+	Zamowienia_Dostawy_Wlasne(ID_zamowienia, ID_Miejsca)
+VALUES
+	(5,1)
+
+INSERT INTO 
+	Dostawy_Wlasne_Zawartosc (ID_Zamowienia_Dostawy_Wlasne,ID_Dostawy,ID_Element,Ilosc)
+VALUES
+	(1,2,3,4),
+	(1,4,3,3)
+
 
 ------Dodatokowy insert zarz鉅zanie---
 INSERT INTO Zamowienie_Element (ID_Zamowienia, ID_Element, Ilosc, Licz_do_zamowienia)
@@ -963,6 +976,18 @@ VALUES
 (4, 6, 3, 4, 1), 
 (5, 8, 0, 4, 1); 
 
+INSERT INTO Odbior_Dostarczenia (ID_Procesu_Produkcyjnego, ID_Dostarczenia, Odebrano)
+VALUES
+(1, 1, 1),
+(2, 2, 1),
+(1, 3, 1),
+(2, 4, 1),
+(3, 5, 1),
+(5, 6, 1),
+(4, 7, 1),
+(5, 8, 1),
+(6, 9, 1),
+(6, 10, 1);
 
 
 INSERT INTO Realizacja_Procesu (ID_Procesu_Produkcyjnego, ID_Etapu, Data_Rozpoczecia_Procesu, Data_Zakonczenia_Procesu, Data_Kontroli, Uwagi_Kontroli)
@@ -1049,16 +1074,16 @@ VALUES
 (5, 3, 12, '2020-04-16 14:45:15', '2020-04-16 20:50:00'),
 (6, 6, 11, '2020-04-16 21:06:15', '2020-04-17 08:00:00');
 
-INSERT INTO Kontrola_Efektywnosci (ID_Procesu_Produkcyjnego, Data_Kontroli, Dokument, Uwagi, Zgodnosc_Zamowienia , Liczba_Poprawnych)
+INSERT INTO Kontrola_Efektywnosci (ID_Procesu_Produkcyjnego, Data_Kontroli, Uwagi, Liczba_Poprawnych)
 VALUES
-(1, '2020-04-17 10:50:00', 'dok_1.img', 'brak uwag', 1, 100),
-(2, '2020-04-17 07:30:00', 'dok_2.img', 'brak uwag', 1, 105),
-(3, '2020-04-20 19:40:01', 'dok_3.img', 'brak uwag', 1, 500),
-(4, '2020-04-20 09:30:00', 'dok_4.img', 'brak uwag', 1, 100),
-(5, '2020-04-20 10:50:00', 'dok_4.img', 'brak uwag', 1, 103),
-(6, '2020-04-29 20:50:01', 'dok_3.img', 'brak uwag', 1, 5010),
-(7, '2020-04-28 11:00:00', 'dok_4.img', 'brak uwag', 1, 51),
-(8, '2020-04-30 12:40:00', 'dok_4.img', 'brak uwag', 1, 50);
+(1, '2020-04-17 10:50:00', 'brak uwag', 100),
+(2, '2020-04-17 07:30:00', 'brak uwag', 105),
+(3, '2020-04-20 19:40:01', 'brak uwag', 500),
+(4, '2020-04-20 09:30:00', 'brak uwag', 100),
+(5, '2020-04-20 10:50:00', 'brak uwag', 103),
+(6, '2020-04-29 20:50:01', 'brak uwag', 5010),
+(7, '2020-04-28 11:00:00', 'brak uwag', 51),
+(8, '2020-04-30 12:40:00', 'brak uwag', 50);
 use master
 
 

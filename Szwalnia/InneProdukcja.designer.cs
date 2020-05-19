@@ -29,39 +29,41 @@
         private void InitializeComponent()
         {
             this.btnSredniCzasProdukcji = new System.Windows.Forms.Button();
-            this.btnSzacowanyCzas = new System.Windows.Forms.Button();
+            this.btnSzacowanyCzasProdukcja = new System.Windows.Forms.Button();
             this.btnNowyRodzajEtapu = new System.Windows.Forms.Button();
             this.btnRodzajEtapu = new System.Windows.Forms.Button();
+            this.btnWstecz = new System.Windows.Forms.Button();
+            this.btnSzacowanyCzasTechnologia = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSredniCzasProdukcji
             // 
-            this.btnSredniCzasProdukcji.Location = new System.Drawing.Point(94, 30);
+            this.btnSredniCzasProdukcji.Location = new System.Drawing.Point(68, 70);
             this.btnSredniCzasProdukcji.Margin = new System.Windows.Forms.Padding(6);
             this.btnSredniCzasProdukcji.Name = "btnSredniCzasProdukcji";
-            this.btnSredniCzasProdukcji.Size = new System.Drawing.Size(300, 90);
+            this.btnSredniCzasProdukcji.Size = new System.Drawing.Size(375, 80);
             this.btnSredniCzasProdukcji.TabIndex = 0;
-            this.btnSredniCzasProdukcji.Text = "Średni czas produkcji wg produktu";
+            this.btnSredniCzasProdukcji.Text = "Średni czas produkcji według produktu";
             this.btnSredniCzasProdukcji.UseVisualStyleBackColor = true;
             this.btnSredniCzasProdukcji.Click += new System.EventHandler(this.btnSredniCzasProdukcji_Click);
             // 
-            // btnSzacowanyCzas
+            // btnSzacowanyCzasProdukcja
             // 
-            this.btnSzacowanyCzas.Location = new System.Drawing.Point(94, 132);
-            this.btnSzacowanyCzas.Margin = new System.Windows.Forms.Padding(6);
-            this.btnSzacowanyCzas.Name = "btnSzacowanyCzas";
-            this.btnSzacowanyCzas.Size = new System.Drawing.Size(300, 90);
-            this.btnSzacowanyCzas.TabIndex = 0;
-            this.btnSzacowanyCzas.Text = "Szacowany czas wykonania nowego zamówienia";
-            this.btnSzacowanyCzas.UseVisualStyleBackColor = true;
-            this.btnSzacowanyCzas.Click += new System.EventHandler(this.btnSzacowanyCzas_Click);
+            this.btnSzacowanyCzasProdukcja.Location = new System.Drawing.Point(68, 162);
+            this.btnSzacowanyCzasProdukcja.Margin = new System.Windows.Forms.Padding(6);
+            this.btnSzacowanyCzasProdukcja.Name = "btnSzacowanyCzasProdukcja";
+            this.btnSzacowanyCzasProdukcja.Size = new System.Drawing.Size(375, 80);
+            this.btnSzacowanyCzasProdukcja.TabIndex = 0;
+            this.btnSzacowanyCzasProdukcja.Text = "Szacowany czas wykonania produktu według  produkcji";
+            this.btnSzacowanyCzasProdukcja.UseVisualStyleBackColor = true;
+            this.btnSzacowanyCzasProdukcja.Click += new System.EventHandler(this.btnSzacowanyCzas_Click);
             // 
             // btnNowyRodzajEtapu
             // 
-            this.btnNowyRodzajEtapu.Location = new System.Drawing.Point(94, 336);
+            this.btnNowyRodzajEtapu.Location = new System.Drawing.Point(68, 438);
             this.btnNowyRodzajEtapu.Margin = new System.Windows.Forms.Padding(6);
             this.btnNowyRodzajEtapu.Name = "btnNowyRodzajEtapu";
-            this.btnNowyRodzajEtapu.Size = new System.Drawing.Size(300, 90);
+            this.btnNowyRodzajEtapu.Size = new System.Drawing.Size(375, 80);
             this.btnNowyRodzajEtapu.TabIndex = 0;
             this.btnNowyRodzajEtapu.Text = "Nowy rodzaj etapu";
             this.btnNowyRodzajEtapu.UseVisualStyleBackColor = true;
@@ -69,27 +71,53 @@
             // 
             // btnRodzajEtapu
             // 
-            this.btnRodzajEtapu.Location = new System.Drawing.Point(94, 234);
+            this.btnRodzajEtapu.Location = new System.Drawing.Point(68, 346);
             this.btnRodzajEtapu.Margin = new System.Windows.Forms.Padding(6);
             this.btnRodzajEtapu.Name = "btnRodzajEtapu";
-            this.btnRodzajEtapu.Size = new System.Drawing.Size(300, 90);
+            this.btnRodzajEtapu.Size = new System.Drawing.Size(375, 80);
             this.btnRodzajEtapu.TabIndex = 0;
-            this.btnRodzajEtapu.Text = "Rodzaj Etapu";
+            this.btnRodzajEtapu.Text = "Rodzaj etapu";
             this.btnRodzajEtapu.UseVisualStyleBackColor = true;
             this.btnRodzajEtapu.Click += new System.EventHandler(this.btnRodzajEtapu_Click);
             // 
+            // btnWstecz
+            // 
+            this.btnWstecz.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnWstecz.Location = new System.Drawing.Point(12, 12);
+            this.btnWstecz.Name = "btnWstecz";
+            this.btnWstecz.Size = new System.Drawing.Size(75, 30);
+            this.btnWstecz.TabIndex = 9;
+            this.btnWstecz.Text = "wstecz";
+            this.btnWstecz.UseVisualStyleBackColor = true;
+            this.btnWstecz.Click += new System.EventHandler(this.btnWstecz_Click);
+            // 
+            // btnSzacowanyCzasTechnologia
+            // 
+            this.btnSzacowanyCzasTechnologia.Location = new System.Drawing.Point(68, 254);
+            this.btnSzacowanyCzasTechnologia.Margin = new System.Windows.Forms.Padding(6);
+            this.btnSzacowanyCzasTechnologia.Name = "btnSzacowanyCzasTechnologia";
+            this.btnSzacowanyCzasTechnologia.Size = new System.Drawing.Size(375, 80);
+            this.btnSzacowanyCzasTechnologia.TabIndex = 10;
+            this.btnSzacowanyCzasTechnologia.Text = "Szacowany czas wykonania zamówienia według  technologii";
+            this.btnSzacowanyCzasTechnologia.UseVisualStyleBackColor = true;
+            this.btnSzacowanyCzasTechnologia.Click += new System.EventHandler(this.btnSzacowanyCzasTechnologia_Click);
+            // 
             // InneProdukcja
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(479, 472);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(493, 536);
+            this.Controls.Add(this.btnSzacowanyCzasTechnologia);
+            this.Controls.Add(this.btnWstecz);
             this.Controls.Add(this.btnRodzajEtapu);
             this.Controls.Add(this.btnNowyRodzajEtapu);
-            this.Controls.Add(this.btnSzacowanyCzas);
+            this.Controls.Add(this.btnSzacowanyCzasProdukcja);
             this.Controls.Add(this.btnSredniCzasProdukcji);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "InneProdukcja";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inne";
             this.ResumeLayout(false);
 
@@ -98,8 +126,10 @@
         #endregion
 
         private System.Windows.Forms.Button btnSredniCzasProdukcji;
-        private System.Windows.Forms.Button btnSzacowanyCzas;
+        private System.Windows.Forms.Button btnSzacowanyCzasProdukcja;
         private System.Windows.Forms.Button btnNowyRodzajEtapu;
         private System.Windows.Forms.Button btnRodzajEtapu;
+        private System.Windows.Forms.Button btnWstecz;
+        private System.Windows.Forms.Button btnSzacowanyCzasTechnologia;
     }
 }
