@@ -155,6 +155,18 @@
     <Compile Include="Etat.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="EwidencjaMaterialow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EwidencjaMaterialow.Designer.cs">
+      <DependentUpon>EwidencjaMaterialow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EwidencjaProduktow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EwidencjaProduktow.Designer.cs">
+      <DependentUpon>EwidencjaProduktow.cs</DependentUpon>
+    </Compile>
     <Compile Include="FaktoryWystawiane.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -673,6 +685,9 @@
     <Compile Include="vEtapy_proces.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vEwidencja_dostaw_wewnetrznych.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vKontrolaProcesu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -968,6 +983,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ElementyForm.resx">
       <DependentUpon>ElementyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EwidencjaMaterialow.resx">
+      <DependentUpon>EwidencjaMaterialow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GdzieLezaElementy.resx">
       <DependentUpon>GdzieLezaElementy.cs</DependentUpon>

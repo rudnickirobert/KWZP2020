@@ -37,6 +37,18 @@ namespace Szwalnia
             puste.Show();
         }
 
+        private void btnEwidencjaMaterialow_Click(object sender, EventArgs e)
+        {
+            EwidencjaMaterialow ewidencjaMaterialow = new EwidencjaMaterialow();
+            ewidencjaMaterialow.Show();
+        }
+
+        private void btnEwidencjaProduktow_Click(object sender, EventArgs e)
+        {
+            EwidencjaProduktow ewidencjaProduktow = new EwidencjaProduktow();
+            ewidencjaProduktow.Show();
+        }
+
         private void StanMagazynowy_FormClosed(object sender, FormClosedEventArgs e)
         {
             Start.GetForm.Show();

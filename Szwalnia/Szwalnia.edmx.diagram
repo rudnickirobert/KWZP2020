@@ -231,6 +231,7 @@
         <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_Za__2CF2ADDF" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_Za__30C33EC3" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Zawartosc__ID_Do__19DFD96B" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SzwalniaModel.vEwidencja_dostaw_wewnetrznych" Width="1.5" PointX="27.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

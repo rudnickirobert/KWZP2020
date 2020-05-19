@@ -333,6 +333,38 @@ FROM            dbo.Zawartosc INNER JOIN
 GROUP BY dbo.Elementy_Jednostki.Jednostka, dbo.Elementy.Element_Nazwa, dbo.Elementy.ID_Element
 ORDER BY dbo.Elementy.ID_Element
 GO
+
+---- Widok ewidencji dostaw wewnetrznych
+CREATE VIEW [dbo].[vEwidencja_dostaw_wewnetrznych]
+AS
+SELECT        dbo.Dostarczenia_Wewn.ID_Dostarczenia, dbo.Dostarczenia_Wewn.Data_Dostarczenia, dbo.Pracownicy.Nazwisko + ' ' + dbo.Pracownicy.Imie AS Pracownik, dbo.Elementy.Element_Nazwa, 
+                         dbo.Dostarczenia_Wewn.ID_element, dbo.Miejsca.Nazwa AS Miejsce, CASE WHEN dbo.Dostarczenia_Wewn.Ilosc_Dostarczona < 0 THEN 'Wydano ' + CAST(- dbo.Dostarczenia_Wewn.Ilosc_Dostarczona AS NVARCHAR) 
+                         + ' ' + CAST(dbo.Elementy_Jednostki.Jednostka AS NVARCHAR) ELSE 'Odebrano ' + CAST(dbo.Dostarczenia_Wewn.Ilosc_Dostarczona AS NVARCHAR) + ' ' + CAST(dbo.Elementy_Jednostki.Jednostka AS NVARCHAR) 
+                         END AS Akcja, dbo.Zamowienie_Element.ID_Zamowienia, dbo.Dostarczenia_Wewn.ID_Zamowienie_element, dbo.Dostarczenia_Wewn.ID_Dostawy
+FROM            dbo.Oferta INNER JOIN
+                         dbo.Dostarczenia_Wewn INNER JOIN
+                         dbo.Pracownicy ON dbo.Dostarczenia_Wewn.ID_Pracownicy = dbo.Pracownicy.ID_Pracownika INNER JOIN
+                         dbo.Elementy ON dbo.Dostarczenia_Wewn.ID_element = dbo.Elementy.ID_Element INNER JOIN
+                         dbo.Miejsca ON dbo.Dostarczenia_Wewn.ID_Miejsca = dbo.Miejsca.ID_Miejsca ON dbo.Oferta.ID_Element = dbo.Elementy.ID_Element INNER JOIN
+                         dbo.Zamowienia_Dostawy ON dbo.Dostarczenia_Wewn.ID_Dostawy = dbo.Zamowienia_Dostawy.ID_Dostawy INNER JOIN
+                         dbo.Dostawy_Zawartosc ON dbo.Oferta.ID_Oferta = dbo.Dostawy_Zawartosc.ID_oferta AND dbo.Elementy.ID_Element = dbo.Dostawy_Zawartosc.ID_Element AND 
+                         dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Dostawy_Zawartosc.ID_Dostawy INNER JOIN
+                         dbo.Elementy_Jednostki ON dbo.Oferta.ID_Jednostka = dbo.Elementy_Jednostki.ID_jednostka INNER JOIN
+                         dbo.Zamowienie_Element ON dbo.Dostarczenia_Wewn.ID_Zamowienie_element = dbo.Zamowienie_Element.ID_Zamowienie_Element
+GO
+
+---- Widok ewidencji dostaw zewnetrznych
+CREATE VIEW [dbo].[vEwidencja_dostaw_zewnetrznych]
+AS
+SELECT        dbo.Dostarczenia_Zewn.ID_Dostarczenia, dbo.Dostarczenia_Zewn.Data_Dostarczenia, dbo.Pracownicy.Nazwisko + ' ' + dbo.Pracownicy.Imie AS Pracownik, dbo.Elementy.Element_Nazwa, dbo.Elementy.ID_Element, 
+                         dbo.Miejsca.Nazwa AS Miejsce, CASE WHEN dbo.Dostarczenia_Zewn.Ilosc_Dostarczona < 0 THEN 'Wydano ' + CAST(- dbo.Dostarczenia_Zewn.Ilosc_Dostarczona AS NVARCHAR) 
+                         + ' szt.' ELSE 'Odebrano ' + CAST(dbo.Dostarczenia_Zewn.Ilosc_Dostarczona AS NVARCHAR) + ' szt.' END AS Akcja, dbo.Dostarczenia_Zewn.ID_Zamowienia
+FROM            dbo.Dostarczenia_Zewn INNER JOIN
+                         dbo.Elementy ON dbo.Dostarczenia_Zewn.ID_element = dbo.Elementy.ID_Element INNER JOIN
+                         dbo.Miejsca ON dbo.Dostarczenia_Zewn.ID_Miejsca = dbo.Miejsca.ID_Miejsca INNER JOIN
+                         dbo.Pracownicy ON dbo.Dostarczenia_Zewn.ID_Pracownicy = dbo.Pracownicy.ID_Pracownika
+GO
+
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------WIDOKI PRODUKCJA----------------------------------------------------
