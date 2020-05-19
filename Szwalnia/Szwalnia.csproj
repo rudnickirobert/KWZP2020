@@ -790,10 +790,10 @@
     <Compile Include="vTechnolodzy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vWolnePolki.cs">
+    <Compile Include="vUrlopPracownika.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vUrlopPracownika.cs">
+    <Compile Include="vWolnePolki.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vWszystkie_Elementy.cs">
@@ -808,10 +808,10 @@
     <Compile Include="vZamowienieProcesyProdukcyjne.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vZawartoscMagazynuDoPrzydzialu.cs">
+    <Compile Include="vZatrudnieniePracownika.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vZatrudnieniePracownika.cs">
+    <Compile Include="vZawartoscMagazynuDoPrzydzialu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vZawartosc_polki.cs">
