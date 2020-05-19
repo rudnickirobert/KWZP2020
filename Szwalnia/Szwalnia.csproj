@@ -233,11 +233,7 @@
     <Compile Include="InneProdukcja.designer.cs">
       <DependentUpon>InneProdukcja.cs</DependentUpon>
     </Compile>
-    <Compile Include="Jednostki.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Jednostki.xsd</DependentUpon>
-    </Compile>
+
     <Compile Include="Jezyk.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
