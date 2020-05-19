@@ -108,8 +108,7 @@
         <EntityTypeShape EntityType="SzwalniaModel.vSzacowanyCzasWykonania" Width="1.5" PointX="16.75" PointY="12.75" />
         <EntityTypeShape EntityType="SzwalniaModel.vTechnolodzy" Width="1.5" PointX="16.75" PointY="15.75" />
         <EntityTypeShape EntityType="SzwalniaModel.vWolnePolki" Width="1.5" PointX="17.75" PointY="0.75" />
-        <EntityTypeShape EntityType="SzwalniaModel.vWszystkie_Elementy" Width="1.5" PointX="18.75" PointY="2.75" />
-        <EntityTypeShape EntityType="SzwalniaModel.vWszystkie_Maszyny" Width="1.5" PointX="18.75" PointY="5.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vWszystkie_Elementy" PointX="19.375" PointY="2.75" Width="1.5" />
         <EntityTypeShape EntityType="SzwalniaModel.vZamowienieProcesyProdukcyjne" Width="1.5" PointX="18.75" PointY="8.75" />
         <EntityTypeShape EntityType="SzwalniaModel.vZawartosc_polki" Width="1.5" PointX="18.75" PointY="12.75" />
         <EntityTypeShape EntityType="SzwalniaModel.vZawartoscMagazynuDoPrzydzialu" Width="1.5" PointX="18.75" PointY="16.75" />
@@ -199,6 +198,10 @@
         <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_Za__2CF2ADDF" />
         <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_Za__30C33EC3" />
         <AssociationConnector Association="SzwalniaModel.FK__Zawartosc__ID_Do__19DFD96B" />
+        <EntityTypeShape EntityType="SzwalniaModel.vMaszynownia" Width="1.5" PointX="6.375" PointY="19.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vMaterialy" Width="1.5" PointX="8.375" PointY="19.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vWszystkie_Maszyny" Width="1.5" PointX="19.375" PointY="5.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vTechnologowie" Width="1.5" PointX="19.375" PointY="19.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

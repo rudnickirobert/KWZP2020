@@ -129,9 +129,12 @@ namespace Szwalnia
         public virtual DbSet<vTechnolodzy> vTechnolodzy { get; set; }
         public virtual DbSet<vWolnePolki> vWolnePolki { get; set; }
         public virtual DbSet<vWszystkie_Elementy> vWszystkie_Elementy { get; set; }
-        public virtual DbSet<vWszystkie_Maszyny> vWszystkie_Maszyny { get; set; }
         public virtual DbSet<vZamowienieProcesyProdukcyjne> vZamowienieProcesyProdukcyjne { get; set; }
         public virtual DbSet<vZawartosc_polki> vZawartosc_polki { get; set; }
         public virtual DbSet<vZawartoscMagazynuDoPrzydzialu> vZawartoscMagazynuDoPrzydzialu { get; set; }
+        public virtual DbSet<vMaszynownia> vMaszynownia { get; set; }
+        public virtual DbSet<vMaterialy> vMaterialy { get; set; }
+        public virtual DbSet<vWszystkie_Maszyny> vWszystkie_Maszyny { get; set; }
+        public virtual DbSet<vTechnologowie> vTechnologowie { get; set; }
     }
 }
