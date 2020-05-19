@@ -218,6 +218,12 @@
     <Compile Include="Faktury_Zewnetrzne.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="GdzieLezaElementy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GdzieLezaElementy.Designer.cs">
+      <DependentUpon>GdzieLezaElementy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Grupa.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -487,6 +493,12 @@
     <Compile Include="Przydzial_Zasobow.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="PustePolki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PustePolki.Designer.cs">
+      <DependentUpon>PustePolki.cs</DependentUpon>
+    </Compile>
     <Compile Include="RaportKontrolaEfektywnosci.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -591,6 +603,18 @@
     </Compile>
     <Compile Include="SredniCzasProdukcji.Designer.cs">
       <DependentUpon>SredniCzasProdukcji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StanMagazynowyElementy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StanMagazynowyElementy.Designer.cs">
+      <DependentUpon>StanMagazynowyElementy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StanMagazynowyCalkowity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StanMagazynowyCalkowity.Designer.cs">
+      <DependentUpon>StanMagazynowyCalkowity.cs</DependentUpon>
     </Compile>
     <Compile Include="Stanowisko.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
@@ -867,6 +891,12 @@
     <Compile Include="vSredniCzasWedlugElementu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vStan_magazynowy_elementy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vStan_magazynowy_polki.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vSuma_czasu_procesu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -910,9 +940,6 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vZawartoscMagazynuDoPrzydzialu.cs">
-      <DependentUpon>Szwalnia.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vZawartosc_polki.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="WyborElementu.cs">
@@ -1040,6 +1067,9 @@
     <EmbeddedResource Include="ElementyForm.resx">
       <DependentUpon>ElementyForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GdzieLezaElementy.resx">
+      <DependentUpon>GdzieLezaElementy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InneProdukcja.resx">
       <DependentUpon>InneProdukcja.cs</DependentUpon>
     </EmbeddedResource>
@@ -1133,6 +1163,9 @@
     <EmbeddedResource Include="PrzydzialZasobowRealizacja.resx">
       <DependentUpon>PrzydzialZasobowRealizacja.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PustePolki.resx">
+      <DependentUpon>PustePolki.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RaportKontrolaEfektywnosci.resx">
       <DependentUpon>RaportKontrolaEfektywnosci.cs</DependentUpon>
     </EmbeddedResource>
@@ -1192,6 +1225,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StanMagazynowy.resx">
       <DependentUpon>StanMagazynowy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StanMagazynowyCalkowity.resx">
+      <DependentUpon>StanMagazynowyCalkowity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StanMagazynowyElementy.resx">
+      <DependentUpon>StanMagazynowyElementy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SumaCzasuPokaz.resx">
       <DependentUpon>SumaCzasuPokaz.cs</DependentUpon>
