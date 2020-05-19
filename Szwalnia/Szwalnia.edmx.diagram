@@ -199,6 +199,10 @@
         <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_Za__1332DBDC" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_Za__2CF2ADDF" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Zawartosc__ID_Do__19DFD96B" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SzwalniaModel.vCalkowityKosztZamowienia" Width="1.5" PointX="24.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vCenaZaMaterial" Width="1.5" PointX="24.375" PointY="15.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vFaktury" Width="1.5" PointX="24.375" PointY="18.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vKosztyMaterialowe" Width="1.5" PointX="24.375" PointY="22.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
