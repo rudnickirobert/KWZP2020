@@ -299,12 +299,6 @@
     <Compile Include="NiewykorzystanyMaterialProces.Designer.cs">
       <DependentUpon>NiewykorzystanyMaterialProces.cs</DependentUpon>
     </Compile>
-    <Compile Include="NiewykorzystanyMaterialWMiesiacu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NiewykorzystanyMaterialWMiesiacu.Designer.cs">
-      <DependentUpon>NiewykorzystanyMaterialWMiesiacu.cs</DependentUpon>
-    </Compile>
     <Compile Include="Nowa faktura zewnętrzna.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -670,10 +664,10 @@
     <Compile Include="vCechyElementu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vCzasZamowieniaTechnologow.cs">
+    <Compile Include="vCenaZaMaterial.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vCenaZaMaterial.cs">
+    <Compile Include="vCzasZamowieniaTechnologow.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vCzas_do_serwisu.cs">
@@ -712,10 +706,6 @@
     <Compile Include="vFakturyZewnetrzne.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vIdZamowienieElementProcesProdukcyjny.cs">
-    <Compile Include="vKontrolaProcesu.cs">
-      <DependentUpon>Szwalnia.tt</DependentUpon>
-    </Compile>
     <Compile Include="vImieNazwiskoPracownika.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -729,6 +719,9 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vKlienciZamowienie.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vKontrolaProcesu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vKoszty.cs">
@@ -845,6 +838,9 @@
     <Compile Include="vSredniCzasSztuki.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vSredniCzasWedlugElementu.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vStanowisko.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -852,9 +848,6 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vSumaKosztowZamowienia.cs">
-      <DependentUpon>Szwalnia.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vSredniCzasWedlugElementu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vSuma_czasu_procesu.cs">
@@ -866,10 +859,10 @@
     <Compile Include="vTechnolodzy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vWolneMaszyny.cs">
+    <Compile Include="vUrlopPracownika.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vUrlopPracownika.cs">
+    <Compile Include="vWolneMaszyny.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vWolnePolki.cs">
@@ -1229,9 +1222,6 @@
     <EmbeddedResource Include="Szczegóły zamówienia.resx">
       <DependentUpon>Szczegóły zamówienia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WszystkieProcesyProdukcyjne.resx">
-      <DependentUpon>WszystkieProcesyProdukcyjne.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="WyborKlienta.resx">
       <DependentUpon>WyborKlienta.cs</DependentUpon>
     </EmbeddedResource>
@@ -1252,9 +1242,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Zakończ zamówienie.resx">
       <DependentUpon>Zakończ zamówienie.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ZamowienieProcesyProdukcyjne.resx">
-      <DependentUpon>ZamowienieProcesyProdukcyjne.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Zamówienia w przedsiębiorstwie.resx">
       <DependentUpon>Zamówienia w przedsiębiorstwie.cs</DependentUpon>
