@@ -742,6 +742,9 @@
     <Compile Include="vObsluga.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vOdbior_Gotowych_Produktow.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vOdebranyMaterialMagazyn.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>

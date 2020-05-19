@@ -121,6 +121,7 @@ namespace Szwalnia
         public virtual DbSet<vNieuzytyMaterialOdpad> vNieuzytyMaterialOdpad { get; set; }
         public virtual DbSet<vNiezuzytyMaterialNaProdukcji> vNiezuzytyMaterialNaProdukcji { get; set; }
         public virtual DbSet<vObsluga> vObsluga { get; set; }
+        public virtual DbSet<vOdbior_Gotowych_Produktow> vOdbior_Gotowych_Produktow { get; set; }
         public virtual DbSet<vOdebranyMaterialMagazyn> vOdebranyMaterialMagazyn { get; set; }
         public virtual DbSet<vOdebranyMaterialProdukcja> vOdebranyMaterialProdukcja { get; set; }
         public virtual DbSet<vOferta> vOferta { get; set; }
