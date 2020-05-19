@@ -33,13 +33,15 @@
             this.lblPracownikDane = new System.Windows.Forms.Label();
             this.lblKurierzyDane = new System.Windows.Forms.Label();
             this.lblInfo = new System.Windows.Forms.Label();
+            this.cmbZamowienia = new System.Windows.Forms.ComboBox();
+            this.lblWybierzZamowienia = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKurierzy)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbPracownicy
             // 
             this.cmbPracownicy.FormattingEnabled = true;
-            this.cmbPracownicy.Location = new System.Drawing.Point(403, 42);
+            this.cmbPracownicy.Location = new System.Drawing.Point(396, 62);
             this.cmbPracownicy.Name = "cmbPracownicy";
             this.cmbPracownicy.Size = new System.Drawing.Size(169, 21);
             this.cmbPracownicy.TabIndex = 0;
@@ -47,14 +49,14 @@
             // dgvKurierzy
             // 
             this.dgvKurierzy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKurierzy.Location = new System.Drawing.Point(10, 114);
+            this.dgvKurierzy.Location = new System.Drawing.Point(12, 121);
             this.dgvKurierzy.Name = "dgvKurierzy";
             this.dgvKurierzy.Size = new System.Drawing.Size(778, 324);
             this.dgvKurierzy.TabIndex = 1;
             // 
             // lblPracownikDane
             // 
-            this.lblPracownikDane.Location = new System.Drawing.Point(268, 42);
+            this.lblPracownikDane.Location = new System.Drawing.Point(261, 60);
             this.lblPracownikDane.Name = "lblPracownikDane";
             this.lblPracownikDane.Size = new System.Drawing.Size(129, 23);
             this.lblPracownikDane.TabIndex = 2;
@@ -63,7 +65,7 @@
             // 
             // lblKurierzyDane
             // 
-            this.lblKurierzyDane.Location = new System.Drawing.Point(7, 88);
+            this.lblKurierzyDane.Location = new System.Drawing.Point(4, 95);
             this.lblKurierzyDane.Name = "lblKurierzyDane";
             this.lblKurierzyDane.Size = new System.Drawing.Size(781, 23);
             this.lblKurierzyDane.TabIndex = 2;
@@ -80,15 +82,34 @@
     "zamówienie";
             this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // cmbZamowienia
+            // 
+            this.cmbZamowienia.FormattingEnabled = true;
+            this.cmbZamowienia.Location = new System.Drawing.Point(396, 35);
+            this.cmbZamowienia.Name = "cmbZamowienia";
+            this.cmbZamowienia.Size = new System.Drawing.Size(169, 21);
+            this.cmbZamowienia.TabIndex = 0;
+            // 
+            // lblWybierzZamowienia
+            // 
+            this.lblWybierzZamowienia.Location = new System.Drawing.Point(261, 33);
+            this.lblWybierzZamowienia.Name = "lblWybierzZamowienia";
+            this.lblWybierzZamowienia.Size = new System.Drawing.Size(129, 23);
+            this.lblWybierzZamowienia.TabIndex = 2;
+            this.lblWybierzZamowienia.Text = "Wybierz zamówienie";
+            this.lblWybierzZamowienia.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // PrzypiszPracownikaKuriera
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 456);
             this.Controls.Add(this.lblKurierzyDane);
             this.Controls.Add(this.lblInfo);
+            this.Controls.Add(this.lblWybierzZamowienia);
             this.Controls.Add(this.lblPracownikDane);
             this.Controls.Add(this.dgvKurierzy);
+            this.Controls.Add(this.cmbZamowienia);
             this.Controls.Add(this.cmbPracownicy);
             this.Name = "PrzypiszPracownikaKuriera";
             this.Text = "PrzypiszPracownikaKuriera";
@@ -104,5 +125,7 @@
         private System.Windows.Forms.Label lblPracownikDane;
         private System.Windows.Forms.Label lblKurierzyDane;
         private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.ComboBox cmbZamowienia;
+        private System.Windows.Forms.Label lblWybierzZamowienia;
     }
 }

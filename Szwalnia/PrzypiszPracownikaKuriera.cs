@@ -12,6 +12,7 @@ namespace Szwalnia
 {
     public partial class PrzypiszPracownikaKuriera : Form
     {
+        public bool czyZostalyZamowieniaDoPrzypisania = false;
         public SzwalniaEntities db;
         public PrzypiszPracownikaKuriera()
         {
@@ -33,6 +34,24 @@ namespace Szwalnia
                 cmbPracownicy.DisplayMember = "Informacja";
                 cmbPracownicy.ValueMember = "Informacja";
             }
+
+            if(db.vZamowieniaNieprzypisaneDoPracownikaIKuriera.Where(nieprzypisane => nieprzypisane.ID_Zamowienia>0).Any())
+            {
+                czyZostalyZamowieniaDoPrzypisania = true;
+                cmbZamowienia.DataSource = db.vZamowieniaNieprzypisaneDoPracownikaIKuriera.ToList();
+                cmbZamowienia.DisplayMember = "ID_Zamowienia";
+                cmbZamowienia.ValueMember = "ID_Zamowienia";
+            }
+            else
+            {
+                DataTable brakZamowienDoPrzypisania = new DataTable();
+                brakZamowienDoPrzypisania.Columns.Add("Informacja");
+                brakZamowienDoPrzypisania.Rows.Add("Nie ma już zamówień do przypisania");
+                cmbZamowienia.DataSource = brakZamowienDoPrzypisania;
+                cmbZamowienia.DisplayMember = "Informacja";
+                cmbZamowienia.ValueMember = "Informacja";
+            }
+
         }
 
     }

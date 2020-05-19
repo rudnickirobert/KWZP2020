@@ -742,6 +742,9 @@
     <Compile Include="vWszystkie_Maszyny.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vZamowieniaNieprzypisaneDoPracownikaIKuriera.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vZamowienieProcesyProdukcyjne.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
