@@ -286,6 +286,31 @@ FROM            dbo.vDostawyNiewydaneBezDat INNER JOIN
                          dbo.vPotrzebyProdukcjiZDatami ON dbo.vDostawyNiewydaneBezDat.ID_Zamowienie_Element = dbo.vPotrzebyProdukcjiZDatami.ID_Zamowienie_Element INNER JOIN
                          dbo.Zawartosc ON dbo.vDostawyNiewydaneBezDat.ID_Element = dbo.Zawartosc.ID_Element AND dbo.vDostawyNiewydaneBezDat.ID_Dostawy = dbo.Zawartosc.ID_Dostawy
 GO
+--lista zamówieñ bez przypisanych pracowników i kurierów
+CREATE VIEW [dbo].[vZamowieniaNieprzypisaneDoPracownikaIKuriera]
+AS
+SELECT        dbo.Zamowienia.ID_Zamowienia
+FROM            dbo.Zamowienia_Przydzial RIGHT OUTER JOIN
+                         dbo.Zamowienia ON dbo.Zamowienia_Przydzial.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia INNER JOIN
+                         dbo.Klienci ON dbo.Zamowienia.ID_Klienta = dbo.Klienci.ID_Klienta
+WHERE        (dbo.Zamowienia_Przydzial.ID_Zamowienia IS NULL)
+GO
+--dystans na który trzeba dostarczyæ zamówienie
+CREATE VIEW [dbo].[vZamowieniaDystans]
+AS
+SELECT        dbo.Zamowienia.ID_Zamowienia, dbo.Klienci.Odleglosc_km
+FROM            dbo.Zamowienia INNER JOIN
+                         dbo.Klienci ON dbo.Zamowienia.ID_Klienta = dbo.Klienci.ID_Klienta
+GO
+--widok umow z kurierami
+CREATE VIEW [dbo].[vUmowyKurierzy]
+AS
+SELECT        dbo.Umowy_Kurierzy.ID_Umowy, dbo.Kurierzy.Nazwa, dbo.Umowy_Kurierzy.Data_Zawarcia, dbo.Umowy_Kurierzy.Czas_Dostawy, dbo.Umowy_Kurierzy.Koszt_Km, dbo.Umowy_Kurierzy.Koszt_Staly, NULL 
+                         AS Koszt_dostawy
+FROM            dbo.Umowy_Kurierzy INNER JOIN
+                         dbo.Kurierzy ON dbo.Umowy_Kurierzy.ID_Kurier = dbo.Kurierzy.ID_Kurier
+GO
+
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------WIDOKI PRODUKCJA----------------------------------------------------
