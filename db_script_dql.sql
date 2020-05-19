@@ -506,3 +506,53 @@ FROM     dbo.Pracownicy INNER JOIN
                   dbo.Jezyk ON dbo.Znajomosc_Jezykow.ID_Jezyka = dbo.Jezyk.ID_Jezyk
 GO
 
+CREATE VIEW vCenaZaMaterial
+AS
+SELECT TOP (100) PERCENT dbo.Zamowienia.ID_Zamowienia, dbo.Zawartosc.Ilosc_Paczek, dbo.Elementy.Element_Nazwa, dbo.Oferta.Cena_Jedn, dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym, 
+                  AVG(dbo.Zawartosc.Ilosc_Paczek * dbo.Oferta.Cena_Jedn * dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym) AS [Cena za material]
+FROM     dbo.Zamowienia_Dostawy INNER JOIN
+                  dbo.Zawartosc ON dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Zawartosc.ID_Dostawy INNER JOIN
+                  dbo.Elementy ON dbo.Zawartosc.ID_Element = dbo.Elementy.ID_Element INNER JOIN
+                  dbo.Oferta ON dbo.Elementy.ID_Element = dbo.Oferta.ID_Element INNER JOIN
+                  dbo.Zamowienia ON dbo.Zamowienia_Dostawy.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia
+GROUP BY dbo.Zawartosc.Ilosc_Paczek, dbo.Oferta.Cena_Jedn, dbo.Zamowienia.ID_Zamowienia, dbo.Elementy.Element_Nazwa, dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym
+ORDER BY dbo.Zamowienia.ID_Zamowienia
+GO
+
+select * from vCenaZaMaterial
+
+CREATE VIEW vKosztyMaterialowe
+AS
+SELECT dbo.Zamowienia.ID_Zamowienia, SUM(dbo.vCenaZaMaterial.[Cena za material]) AS [Koszt materialowy]
+FROM     dbo.vCenaZaMaterial INNER JOIN
+                  dbo.Zamowienia ON dbo.vCenaZaMaterial.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia
+GROUP BY dbo.Zamowienia.ID_Zamowienia
+Go
+
+select * from vKosztyMaterialowe
+
+CREATE VIEW vCalkowityKosztZamowienia
+AS
+SELECT TOP (100) PERCENT dbo.Zamowienia.ID_Zamowienia, SUM(dbo.vSumaKosztowProdukcji.[Koszt maszynowy] + dbo.vKosztyMaterialowe.[Koszt materialowy]) AS [Koszty zamowienia]
+FROM     dbo.Zamowienia INNER JOIN
+                  dbo.Klienci ON dbo.Zamowienia.ID_Klienta = dbo.Klienci.ID_Klienta INNER JOIN
+                  dbo.vKosztyMaterialowe ON dbo.Zamowienia.ID_Zamowienia = dbo.vKosztyMaterialowe.ID_Zamowienia CROSS JOIN
+                  dbo.vSumaKosztowProdukcji
+GROUP BY dbo.Zamowienia.ID_Zamowienia
+ORDER BY dbo.Zamowienia.ID_Zamowienia
+GO
+
+Select * from vCalkowityKosztZamowienia
+
+CREATE VIEW vFaktury
+AS
+SELECT dbo.Zamowienia.ID_Zamowienia, dbo.Klienci.Imie, dbo.Klienci.Nazwisko, dbo.Klienci.NIP, FLOOR(dbo.vCalkowityKosztZamowienia.[Koszty zamowienia] * 1.2) AS [Cena netto], '23%' AS Podatek, 
+                  FLOOR(dbo.vCalkowityKosztZamowienia.[Koszty zamowienia] * '1.2' * '1.23') AS [Cena brutto]
+FROM     dbo.Zamowienia INNER JOIN
+                  dbo.Klienci ON dbo.Zamowienia.ID_Klienta = dbo.Klienci.ID_Klienta INNER JOIN
+                  dbo.vCalkowityKosztZamowienia ON dbo.Zamowienia.ID_Zamowienia = dbo.vCalkowityKosztZamowienia.ID_Zamowienia
+GO
+
+Select * from vFaktury
+
+
