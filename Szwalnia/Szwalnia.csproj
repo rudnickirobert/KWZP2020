@@ -733,6 +733,9 @@
     <Compile Include="vTechnolodzy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vUmowyKurierzy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vWolnePolki.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -740,6 +743,9 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vWszystkie_Maszyny.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vZamowieniaDystans.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vZamowieniaNieprzypisaneDoPracownikaIKuriera.cs">
