@@ -20,6 +20,7 @@ namespace Szwalnia
             this.Czesci_Obsluga = new HashSet<Czesci_Obsluga>();
             this.Dostarczenia_Wewn = new HashSet<Dostarczenia_Wewn>();
             this.Dostarczenia_Zewn = new HashSet<Dostarczenia_Zewn>();
+            this.Dostawy_Wlasne_Zawartosc = new HashSet<Dostawy_Wlasne_Zawartosc>();
             this.Dostawy_Zawartosc = new HashSet<Dostawy_Zawartosc>();
             this.Elementy_Cechy = new HashSet<Elementy_Cechy>();
             this.Elementy_Proces = new HashSet<Elementy_Proces>();
@@ -39,6 +40,8 @@ namespace Szwalnia
         public virtual ICollection<Dostarczenia_Wewn> Dostarczenia_Wewn { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dostarczenia_Zewn> Dostarczenia_Zewn { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Dostawy_Wlasne_Zawartosc> Dostawy_Wlasne_Zawartosc { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dostawy_Zawartosc> Dostawy_Zawartosc { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
