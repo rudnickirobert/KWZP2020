@@ -17,7 +17,11 @@ namespace Szwalnia
         public DodawanieTypu()
         {
             InitializeComponent();
-            db = Start.szwalnia;            
+            db = Start.szwalnia;
+            typNew.Typ = txtNazwa.Text;
+            if (chBoxWlasny.Checked == true)
+            { typNew.Czy_wlasne = true; }
+            else { typNew.Czy_wlasne = false; }
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
