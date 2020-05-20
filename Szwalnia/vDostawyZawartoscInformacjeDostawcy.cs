@@ -23,5 +23,6 @@ namespace Szwalnia
         public Nullable<int> Telefon_1 { get; set; }
         public string Email { get; set; }
         public Nullable<int> Deklarowany_czas_dostawy { get; set; }
+        public string Jednostka { get; set; }
     }
 }

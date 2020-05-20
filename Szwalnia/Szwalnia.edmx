@@ -778,6 +778,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vDostawyZawartoscInformacjeDostawcy' 
           <Property Name="Telefon_1" Type="int" />
           <Property Name="Email" Type="varchar" MaxLength="40" />
           <Property Name="Deklarowany_czas_dostawy" Type="int" />
+          <Property Name="Jednostka" Type="varchar" MaxLength="10" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vElementy_proces' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -964,14 +965,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vMaterialyZamowione' does not have a 
           <Property Name="ID_Element" Type="int" />
           <Property Name="Ilosc" Type="real" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'Szwalnia.dbo.vMaterialyZMagazynu' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="vMaterialyZMagazynu">
-          <Property Name="ID_Dostawy" Type="int" />
-          <Property Name="ID_Zamowienia" Type="int" />
-          <Property Name="ID_Element" Type="int" />
-          <Property Name="Ilosc" Type="int" />
-        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vNieodebraneMaterialyWgDostawcyZNazwaIOferta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vNieodebraneMaterialyWgDostawcyZNazwaIOferta">
@@ -2899,7 +2892,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
     [vDostawyZawartoscInformacjeDostawcy].[Nazwa] AS [Nazwa], 
     [vDostawyZawartoscInformacjeDostawcy].[Telefon_1] AS [Telefon_1], 
     [vDostawyZawartoscInformacjeDostawcy].[Email] AS [Email], 
-    [vDostawyZawartoscInformacjeDostawcy].[Deklarowany_czas_dostawy] AS [Deklarowany_czas_dostawy]
+    [vDostawyZawartoscInformacjeDostawcy].[Deklarowany_czas_dostawy] AS [Deklarowany_czas_dostawy], 
+    [vDostawyZawartoscInformacjeDostawcy].[Jednostka] AS [Jednostka]
     FROM [dbo].[vDostawyZawartoscInformacjeDostawcy] AS [vDostawyZawartoscInformacjeDostawcy]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vElementy_proces" EntityType="Self.vElementy_proces" store:Type="Views" store:Schema="dbo">
@@ -7031,6 +7025,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Telefon_1" Type="Int32" />
           <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="Deklarowany_czas_dostawy" Type="Int32" />
+          <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -8553,6 +8548,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <EntitySetMapping Name="vDostawyZawartoscInformacjeDostawcy">
             <EntityTypeMapping TypeName="SzwalniaModel.vDostawyZawartoscInformacjeDostawcy">
               <MappingFragment StoreEntitySet="vDostawyZawartoscInformacjeDostawcy">
+                <ScalarProperty Name="Jednostka" ColumnName="Jednostka" />
                 <ScalarProperty Name="Deklarowany_czas_dostawy" ColumnName="Deklarowany_czas_dostawy" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Telefon_1" ColumnName="Telefon_1" />

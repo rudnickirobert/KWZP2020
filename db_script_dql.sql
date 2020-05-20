@@ -362,12 +362,13 @@ CREATE VIEW [dbo].[vDostawyZawartoscInformacjeDostawcy]
 AS
 SELECT        TOP (100) PERCENT dbo.Zamowienia_Dostawy.ID_Dostawy, dbo.Elementy.Element_Nazwa, dbo.Oferta.Element_Oznaczenie, dbo.Dostawy_Zawartosc.Ilosc_Dostarczona AS Ilosc_paczek, 
                          dbo.Dostawy_Zawartosc.Ilosc_Dostarczona * dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym AS Ilosc_calkowita, dbo.Dostawcy_Zaopatrzenie.Nazwa, dbo.Dostawcy_Zaopatrzenie.Telefon_1, dbo.Dostawcy_Zaopatrzenie.Email, 
-                         dbo.Oferta.Deklarowany_czas_dostawy
+                         dbo.Oferta.Deklarowany_czas_dostawy, dbo.Elementy_Jednostki.Jednostka
 FROM            dbo.Zamowienia_Dostawy INNER JOIN
                          dbo.Dostawy_Zawartosc ON dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Dostawy_Zawartosc.ID_Dostawy INNER JOIN
                          dbo.Oferta ON dbo.Dostawy_Zawartosc.ID_oferta = dbo.Oferta.ID_Oferta INNER JOIN
                          dbo.Dostawcy_Zaopatrzenie ON dbo.Oferta.ID_Dostawcy = dbo.Dostawcy_Zaopatrzenie.ID_Dostawcy INNER JOIN
-                         dbo.Elementy ON dbo.Dostawy_Zawartosc.ID_Element = dbo.Elementy.ID_Element AND dbo.Oferta.ID_Element = dbo.Elementy.ID_Element
+                         dbo.Elementy ON dbo.Dostawy_Zawartosc.ID_Element = dbo.Elementy.ID_Element AND dbo.Oferta.ID_Element = dbo.Elementy.ID_Element INNER JOIN
+                         dbo.Elementy_Jednostki ON dbo.Oferta.ID_Jednostka = dbo.Elementy_Jednostki.ID_jednostka
 ORDER BY dbo.Oferta.Deklarowany_czas_dostawy DESC
 GO
 

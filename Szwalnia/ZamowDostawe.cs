@@ -25,11 +25,15 @@ namespace Szwalnia
             {
                 dgvZawartoscDostawy.DataSource = db.vDostawyZawartoscInformacjeDostawcy.Where(wybrany => wybrany.ID_Dostawy == intDostawaID).ToList();
                 dgvZawartoscDostawy.Columns[0].Visible = false;
-                dgvZawartoscDostawy.Columns[1].Visible = false;
                 dgvZawartoscDostawy.Columns[5].Visible = false;
                 dgvZawartoscDostawy.Columns[6].Visible = false;
                 dgvZawartoscDostawy.Columns[7].Visible = false;
-                //dgvZawartoscDostawy.Columns[8].Visible = false;
+                dgvZawartoscDostawy.Columns[8].Visible = false;
+                dgvZawartoscDostawy.Columns[1].HeaderText = "Nazwa";
+                dgvZawartoscDostawy.Columns[2].HeaderText = "Oznaczenie";
+                dgvZawartoscDostawy.Columns[3].HeaderText = "Ilość paczek";
+                dgvZawartoscDostawy.Columns[4].HeaderText = "Ilość łącznie";
+                dgvZawartoscDostawy.Columns[9].HeaderText = "Jednostka";
                 vDostawyZawartoscInformacjeDostawcy dowolnyWierszZDanymi = db.vDostawyZawartoscInformacjeDostawcy.Where(wybrany => wybrany.ID_Dostawy == intDostawaID).First();
                 txtNazwa.Text = dowolnyWierszZDanymi.Nazwa;
                 txtNumerTelefonu.Text = Convert.ToString(dowolnyWierszZDanymi.Telefon_1);
