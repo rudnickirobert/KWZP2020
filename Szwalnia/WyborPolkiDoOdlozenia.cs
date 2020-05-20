@@ -242,45 +242,40 @@ namespace Szwalnia
             }
             else if (rodzajFormularza == "przyjecieGotowychProduktow")
             {
-                /*Dostarczenia_Zewn noweDostarczenie = new Dostarczenia_Zewn();
+                Dostarczenia_Zewn noweDostarczenie = new Dostarczenia_Zewn();
 
                 noweDostarczenie.ID_Pracownicy = Convert.ToInt32(cmbPracownicy.SelectedValue);
+                noweDostarczenie.ID_Zamowienia = intZamowienieID;
+                noweDostarczenie.ID_element = intElementID;
+                noweDostarczenie.Ilosc_Dostarczona = intIloscSztuk;
 
+                Miejsca produkcja = db.Miejsca.Where(miejsce => miejsce.Nazwa == "Produkcja").FirstOrDefault();
+                noweDostarczenie.ID_Miejsca = produkcja.ID_Miejsca;
 
-         
-                
-                int intIDPolki = Convert.ToInt32(dgvWolnePolki.CurrentRow.Cells[0].Value);
-                int intMiejsceDostawy = 2;
-                Dostarczenia_Wewn nowaDostawaRejestr = new Dostarczenia_Wewn();
                 string dataDzis = Convert.ToString(DateTime.Now).Substring(0, 10);
-                
-                nowaDostawaRejestr.ID_Dostawy = intDostawaID;
-                nowaDostawaRejestr.ID_element = intElementID;
-                nowaDostawaRejestr.Ilosc_Dostarczona = intIlosc;
-                nowaDostawaRejestr.ID_Miejsca = intMiejsceDostawy;
-                nowaDostawaRejestr.Data_Dostarczenia = dataDzis;
-                nowaDostawaRejestr.ID_Zamowienie_element = intZamowienieElementID;
-                db.Dostarczenia_Wewn.Add(nowaDostawaRejestr);
+                noweDostarczenie.Data_Dostarczenia = dataDzis;
+                db.Dostarczenia_Zewn.Add(noweDostarczenie);
                 db.SaveChanges();
                 Start.DataBaseRefresh();
+
                 Zawartosc nowaZawartoscPolki = new Zawartosc();
-                nowaZawartoscPolki.ID_Polka = intIDPolki;
-                nowaZawartoscPolki.Ilosc_Paczek = Convert.ToSingle(dblIloscDlaPolki);
+                nowaZawartoscPolki.ID_Polka = Convert.ToInt32(dgvWolnePolki.CurrentRow.Cells[0].Value);
                 nowaZawartoscPolki.ID_Element = intElementID;
-                nowaZawartoscPolki.ID_Dostawy = intDostawaID;
+                nowaZawartoscPolki.Ilosc_Paczek = intIloscSztuk;
+                nowaZawartoscPolki.ID_Zamowienia = intZamowienieID;
                 db.Zawartosc.Add(nowaZawartoscPolki);
                 db.SaveChanges();
                 Start.DataBaseRefresh();
-                czyWyswietlicStart = false;
-                OdbierzMaterialZProdukcji.czyZamknietyPrzezInny = true;
-                Application.OpenForms[typeof(OdbierzMaterialZProdukcji).Name].Close();
-                OdbierzMaterialZProdukcji odbierzKolejnyMaterial = new OdbierzMaterialZProdukcji();
-                OdbierzMaterialZProdukcji.czyZamknietyPrzezInny = false;
-                odbierzKolejnyMaterial.Show();
-                this.Close();*/
+                MessageBox.Show("Pomyślnie przyjęto produkty z działu produkcji.");
 
+                czyWyswietlicStart = false;
+                PrzyjmowanieGotowychProduktow.czyZamknietyPrzezInny = true;
+                Application.OpenForms[typeof(PrzyjmowanieGotowychProduktow).Name].Close();
+                PrzyjmowanieGotowychProduktow przyjmijKolejnyProdukt = new PrzyjmowanieGotowychProduktow();
+                PrzyjmowanieGotowychProduktow.czyZamknietyPrzezInny = false;
+                przyjmijKolejnyProdukt.Show();
+                this.Close();
             }
         }
-
     }
 }

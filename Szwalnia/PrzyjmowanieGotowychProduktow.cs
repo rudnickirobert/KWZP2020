@@ -14,6 +14,19 @@ namespace Szwalnia
 {
     public partial class PrzyjmowanieGotowychProduktow : Form
     {
+        private static bool zamknieciePrzezInnyFormularz;
+        public static bool czyZamknietyPrzezInny
+        {
+            get
+            {
+                return zamknieciePrzezInnyFormularz;
+            }
+            set
+            {
+                if (zamknieciePrzezInnyFormularz != value)
+                    zamknieciePrzezInnyFormularz = value;
+            }
+        }
         public SzwalniaEntities db;
         public PrzyjmowanieGotowychProduktow()
         {
@@ -36,42 +49,14 @@ namespace Szwalnia
                 dgvGotoweProdukty.DataSource = brakProduktow;
                 dgvGotoweProdukty.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
-
-            cmbPracownik.DataSource = db.vPracownicyMagazynu.ToList();
-            cmbPracownik.DisplayMember = "Dane_osobowe";
-            cmbPracownik.ValueMember = "ID_Pracownika";
-            btnPrzyjmijProdukty.Enabled = false;
-        }
-
-        private void btnPrzyjmijProdukty_Click(object sender, EventArgs e)
-        {
-            Dostarczenia_Zewn dostarczenia = new Dostarczenia_Zewn();
-
-            dostarczenia.ID_Pracownicy = Convert.ToInt32(cmbPracownik.SelectedValue);
-            dostarczenia.ID_Zamowienia = Convert.ToInt32(dgvGotoweProdukty.CurrentRow.Cells[0].Value);
-            dostarczenia.ID_element = Convert.ToInt32(dgvGotoweProdukty.CurrentRow.Cells[3].Value);
-            dostarczenia.Ilosc_Dostarczona = Convert.ToInt32(dgvGotoweProdukty.CurrentRow.Cells[4].Value);
-
-            Miejsca produkcja = db.Miejsca.Where(miejsce => miejsce.Nazwa == "Produkcja").FirstOrDefault();
-            dostarczenia.ID_Miejsca = produkcja.ID_Miejsca;
-            string dataDzis = Convert.ToString(DateTime.Now).Substring(0, 10);
-            dostarczenia.Data_Dostarczenia = dataDzis;
-            db.Dostarczenia_Zewn.Add(dostarczenia);
-            db.SaveChanges();
-            Start.DataBaseRefresh();
-            MessageBox.Show("Pomyślnie przyjęto produkty z działu produkcji.");
-            this.Close();
-        }
-
-        private void dgvGotoweProdukty_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (db.vOdbior_Gotowych_Produktow.Any())
-                btnPrzyjmijProdukty.Enabled = true;
         }
 
         private void PrzyjmowanieGotowychProduktow_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Start.GetForm.Show();
+            if (!zamknieciePrzezInnyFormularz)
+            {
+                Application.OpenForms[typeof(ObslugaZamowien).Name].Show();
+            }
         }
 
         private void dgvGotoweProdukty_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
