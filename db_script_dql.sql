@@ -151,15 +151,17 @@ GO
 --lista dostaw do przyjecia
 CREATE VIEW [dbo].[vDostawyDoOdbioru]
 AS
-SELECT        dbo.Zamowienia_Dostawy.ID_Dostawy, dbo.Dostawy_Zawartosc.ID_Element, dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym AS Ilosc_w_paczce, 
+SELECT        dbo.Zamowienia_Dostawy.ID_Dostawy, dbo.Dostawy_Zawartosc.ID_Element, dbo.Elementy.Element_Nazwa, dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym AS Ilosc_w_paczce, 
                          dbo.Dostawy_Zawartosc.Ilosc_Dostarczona * dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym AS Ilosc
 FROM            dbo.Zamowienia_Dostawy INNER JOIN
                          dbo.Dostawy_Zawartosc ON dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Dostawy_Zawartosc.ID_Dostawy INNER JOIN
-                         dbo.Oferta ON dbo.Dostawy_Zawartosc.ID_oferta = dbo.Oferta.ID_Oferta LEFT OUTER JOIN
+                         dbo.Oferta ON dbo.Dostawy_Zawartosc.ID_oferta = dbo.Oferta.ID_Oferta INNER JOIN
+                         dbo.Elementy ON dbo.Dostawy_Zawartosc.ID_Element = dbo.Elementy.ID_Element LEFT OUTER JOIN
                              (SELECT        ID_Dostarczenia, ID_Pracownicy, ID_Dostawy, ID_Zamowienie_element, ID_element, Ilosc_Dostarczona, ID_Miejsca, Data_Dostarczenia
                                FROM            dbo.Dostarczenia_Wewn
-                               WHERE        (Ilosc_Dostarczona > 0) AND (ID_Miejsca <> 2)) AS Dostarczenia_wewn_select ON dbo.Zamowienia_Dostawy.ID_Dostawy = Dostarczenia_wewn_select.ID_Dostawy
-WHERE        (Dostarczenia_wewn_select.ID_Dostawy IS NULL)
+                               WHERE        (Ilosc_Dostarczona > 0) AND (ID_Miejsca <> 2)) AS Dostarczenia_wewn_select ON dbo.Dostawy_Zawartosc.ID_Dostawy = Dostarczenia_wewn_select.ID_Dostawy AND 
+                         dbo.Dostawy_Zawartosc.ID_Element = Dostarczenia_wewn_select.ID_element
+WHERE        (Dostarczenia_wewn_select.ID_Dostawy IS NULL) AND (Dostarczenia_wewn_select.ID_element IS NULL)
 GO
 --lista wolnych polek
 CREATE VIEW [dbo].[vWolnePolki]
@@ -287,7 +289,7 @@ GO
 CREATE VIEW [dbo].[vDostawyNiewydaneBezDat]
 AS
 SELECT        dbo.vDostawyDoWydania.ID_Zamowienia, dbo.Zamowienie_Element.ID_Zamowienie_Element, dbo.vDostawyDoWydania.ID_Element, dbo.vDostawyDoWydania.Element_Nazwa, dbo.vDostawyDoWydania.Ilosc, 
-                         dbo.vDostawyDoWydania.ID_Dostawy
+                         dbo.vDostawyDoWydania.ID_Dostawy, dbo.vDostawyDoWydania.Proponowana_data_dostawy_materialu
 FROM            dbo.Proces_Technologiczny INNER JOIN
                          dbo.Elementy_Proces ON dbo.Proces_Technologiczny.ID_Proces_Technologiczny = dbo.Elementy_Proces.ID_Proces_Technologiczny INNER JOIN
                          dbo.Proces_Zamowienie ON dbo.Proces_Technologiczny.ID_Proces_Technologiczny = dbo.Proces_Zamowienie.ID_Proces_Technologiczny INNER JOIN
@@ -418,6 +420,27 @@ FROM            dbo.Polki INNER JOIN
                          dbo.Zawartosc ON dbo.Polki.ID_Polka = dbo.Zawartosc.ID_Polka INNER JOIN
                          dbo.vDostawyNiewydaneBezDat ON dbo.Zawartosc.ID_Dostawy = dbo.vDostawyNiewydaneBezDat.ID_Dostawy AND dbo.Zawartosc.ID_Element = dbo.vDostawyNiewydaneBezDat.ID_Element
 GROUP BY dbo.vDostawyNiewydaneBezDat.ID_Zamowienia, dbo.vDostawyNiewydaneBezDat.ID_Element, dbo.vDostawyNiewydaneBezDat.Element_Nazwa, dbo.vDostawyNiewydaneBezDat.ID_Dostawy, dbo.Polki.ID_Polka
+GO
+--lista zamówieñ jeszcze nie zamówionych u dostawców
+CREATE VIEW [dbo].[vZamowieniaDoWykonaniaUDostawcy]
+AS
+SELECT DISTINCT ID_Dostawy
+FROM            dbo.Zamowienia_Dostawy
+WHERE        (ID_statusu = 3) AND (Data_Dostawy_Planowana IS NULL)
+GO
+--widok listuj¹cy zawartoœæ dostaw i kontakty do dostawców
+CREATE VIEW [dbo].[vDostawyZawartoscInformacjeDostawcy]
+AS
+SELECT        TOP (100) PERCENT dbo.Zamowienia_Dostawy.ID_Dostawy, dbo.Elementy.Element_Nazwa, dbo.Oferta.Element_Oznaczenie, dbo.Dostawy_Zawartosc.Ilosc_Dostarczona AS Ilosc_paczek, 
+                         dbo.Dostawy_Zawartosc.Ilosc_Dostarczona * dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym AS Ilosc_calkowita, dbo.Dostawcy_Zaopatrzenie.Nazwa, dbo.Dostawcy_Zaopatrzenie.Telefon_1, dbo.Dostawcy_Zaopatrzenie.Email, 
+                         dbo.Oferta.Deklarowany_czas_dostawy, dbo.Elementy_Jednostki.Jednostka
+FROM            dbo.Zamowienia_Dostawy INNER JOIN
+                         dbo.Dostawy_Zawartosc ON dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Dostawy_Zawartosc.ID_Dostawy INNER JOIN
+                         dbo.Oferta ON dbo.Dostawy_Zawartosc.ID_oferta = dbo.Oferta.ID_Oferta INNER JOIN
+                         dbo.Dostawcy_Zaopatrzenie ON dbo.Oferta.ID_Dostawcy = dbo.Dostawcy_Zaopatrzenie.ID_Dostawcy INNER JOIN
+                         dbo.Elementy ON dbo.Dostawy_Zawartosc.ID_Element = dbo.Elementy.ID_Element AND dbo.Oferta.ID_Element = dbo.Elementy.ID_Element INNER JOIN
+                         dbo.Elementy_Jednostki ON dbo.Oferta.ID_Jednostka = dbo.Elementy_Jednostki.ID_jednostka
+ORDER BY dbo.Oferta.Deklarowany_czas_dostawy DESC
 GO
 
 ---------------------------------------------------------------------------------------------------------------------------

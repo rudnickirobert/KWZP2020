@@ -106,5 +106,12 @@ namespace Szwalnia
             odbierzNieodebranyMaterial.Show();
             this.Hide();
         }
+
+        private void btnZamowTowary_Click(object sender, EventArgs e)
+        {
+            WybierzZamowienie zamowNowyTowar = new WybierzZamowienie();
+            zamowNowyTowar.Show();
+            this.Hide();
+        }
     }
 }

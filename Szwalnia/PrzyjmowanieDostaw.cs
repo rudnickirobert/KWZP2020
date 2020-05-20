@@ -41,6 +41,11 @@ namespace Szwalnia
             else
             {                
                 dgvDostawyDoPrzyjecia.DataSource = db.vDostawyDoOdbioru.ToList();
+                dgvDostawyDoPrzyjecia.Columns[0].HeaderText = "ID Dostawy";
+                dgvDostawyDoPrzyjecia.Columns[1].Visible = false;
+                dgvDostawyDoPrzyjecia.Columns[2].HeaderText = "Nazwa elementu";
+                dgvDostawyDoPrzyjecia.Columns[3].HeaderText = "Ilość";
+                dgvDostawyDoPrzyjecia.Columns[4].HeaderText = "Ilość paczek";
             }    
         }
           
@@ -58,8 +63,8 @@ namespace Szwalnia
             {
                 int intDostawaID = Convert.ToInt32(dgvDostawyDoPrzyjecia.CurrentRow.Cells[0].Value);
                 int intElementID = Convert.ToInt32(dgvDostawyDoPrzyjecia.CurrentRow.Cells[1].Value);
-                int intIlosc = Convert.ToInt32(dgvDostawyDoPrzyjecia.CurrentRow.Cells[2].Value);
-                int intIloscPaczek = Convert.ToInt32(dgvDostawyDoPrzyjecia.CurrentRow.Cells[3].Value);
+                int intIlosc = Convert.ToInt32(dgvDostawyDoPrzyjecia.CurrentRow.Cells[3].Value);
+                int intIloscPaczek = Convert.ToInt32(dgvDostawyDoPrzyjecia.CurrentRow.Cells[4].Value);
                 WyborPolkiDoOdlozenia wybieraniePolkiDoOdlozeniaElementu = new WyborPolkiDoOdlozenia("dostawa", intDostawaID, intElementID, intIlosc, intIloscPaczek);
                 wybieraniePolkiDoOdlozeniaElementu.Show();
                 this.Hide();

@@ -12,12 +12,8 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vDostawyDoOdbioru
+    public partial class vZamowieniaDoWykonaniaUDostawcy
     {
         public int ID_Dostawy { get; set; }
-        public Nullable<int> ID_Element { get; set; }
-        public string Element_Nazwa { get; set; }
-        public Nullable<float> Ilosc_w_paczce { get; set; }
-        public Nullable<float> Ilosc { get; set; }
     }
 }
