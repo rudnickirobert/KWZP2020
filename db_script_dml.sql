@@ -371,7 +371,8 @@ VALUES
 	('Utrzymanie ruchu'),
 	('Biuro'),
 	('Dzial finansow'),
-	('Wysylka')
+	('Wysylka'),
+	('Dostawa')
 
 INSERT INTO 
 	Regaly(Oznaczenie)
