@@ -65,6 +65,30 @@
     <Compile Include="Czesci_Obsluga.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="DodajDostawce.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajDostawce.Designer.cs">
+      <DependentUpon>DodajDostawce.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DodajKuriera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajKuriera.Designer.cs">
+      <DependentUpon>DodajKuriera.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DodajOferte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajOferte.Designer.cs">
+      <DependentUpon>DodajOferte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DodajUmoweKurier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajUmoweKurier.Designer.cs">
+      <DependentUpon>DodajUmoweKurier.cs</DependentUpon>
+    </Compile>
     <Compile Include="DodawanieCechy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +130,18 @@
     </Compile>
     <Compile Include="Dostarczenia_Zewn.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dostawcy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dostawcy.Designer.cs">
+      <DependentUpon>Dostawcy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DostawcySzczegoly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DostawcySzczegoly.Designer.cs">
+      <DependentUpon>DostawcySzczegoly.cs</DependentUpon>
     </Compile>
     <Compile Include="Dostawcy_Zaopatrzenie.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
@@ -197,6 +233,11 @@
     <Compile Include="InneProdukcja.designer.cs">
       <DependentUpon>InneProdukcja.cs</DependentUpon>
     </Compile>
+    <Compile Include="Jednostki.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Jednostki.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Jezyk.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -226,6 +267,18 @@
     </Compile>
     <Compile Include="Kurierzy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KurierzyLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KurierzyLista.Designer.cs">
+      <DependentUpon>KurierzyLista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KurierzySzczegoly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KurierzySzczegoly.Designer.cs">
+      <DependentUpon>KurierzySzczegoly.cs</DependentUpon>
     </Compile>
     <Compile Include="Maszyny.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
@@ -349,6 +402,18 @@
     </Compile>
     <Compile Include="Oferta.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Oferty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Oferty.Designer.cs">
+      <DependentUpon>Oferty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OfertySzczegoly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OfertySzczegoly.Designer.cs">
+      <DependentUpon>OfertySzczegoly.cs</DependentUpon>
     </Compile>
     <Compile Include="Pensja.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
@@ -628,6 +693,18 @@
     <Compile Include="ObslugaSzukaj.Designer.cs">
       <DependentUpon>ObslugaSzukaj.cs</DependentUpon>
     </Compile>
+    <Compile Include="UmowyKurierzy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UmowyKurierzy.Designer.cs">
+      <DependentUpon>UmowyKurierzy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UmowySzczegoly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UmowySzczegoly.Designer.cs">
+      <DependentUpon>UmowySzczegoly.cs</DependentUpon>
+    </Compile>
     <Compile Include="Umowy_Kurierzy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -688,6 +765,9 @@
     <Compile Include="vKontrolaProcesu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vMaszynownia.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vMaszyny_numer_seryjny.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -698,6 +778,9 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vMaszyny_serwis.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vMaterialy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vMaterialyDoZamowienia.cs">
@@ -743,6 +826,9 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vOferta.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vOferty_Zebrane.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vPolki_na_regalach.cs">
@@ -847,6 +933,9 @@
     <Compile Include="vWolneMaszyny.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vTechnologowie.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vWolnePolki.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -886,6 +975,23 @@
     <Compile Include="WybierzZamowienie.Designer.cs">
       <DependentUpon>WybierzZamowienie.cs</DependentUpon>
     </Compile>
+    <Compile Include="vZawartosc_polki.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+
+    <Compile Include="WszystkieProcesyProdukcyjne.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WszystkieProcesyProdukcyjne.designer.cs">
+      <DependentUpon>WszystkieProcesyProdukcyjne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WyborCechy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WyborCechy.Designer.cs">
+      <DependentUpon>WyborCechy.cs</DependentUpon>
+    </Compile>
+
     <Compile Include="WyborElementu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -900,6 +1006,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WyborJednostki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WyborJednostki.Designer.cs">
+      <DependentUpon>WyborJednostki.cs</DependentUpon>
+    </Compile>
     <Compile Include="WyborKlienta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -929,6 +1041,12 @@
     </Compile>
     <Compile Include="WydajMaterialProdukcji.Designer.cs">
       <DependentUpon>WydajMaterialProdukcji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WyborTypu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WyborTypu.Designer.cs">
+      <DependentUpon>WyborTypu.cs</DependentUpon>
     </Compile>
     <Compile Include="Wymiar_Urlopu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
@@ -972,6 +1090,18 @@
     <Compile Include="Znajomosc_Jezykow.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DodajDostawce.resx">
+      <DependentUpon>DodajDostawce.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodajKuriera.resx">
+      <DependentUpon>DodajKuriera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodajOferte.resx">
+      <DependentUpon>DodajOferte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodajUmoweKurier.resx">
+      <DependentUpon>DodajUmoweKurier.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DodawanieCechy.resx">
       <DependentUpon>DodawanieCechy.cs</DependentUpon>
     </EmbeddedResource>
@@ -993,6 +1123,12 @@
     <EmbeddedResource Include="DodoawanieCechElementowi.resx">
       <DependentUpon>DodoawanieCechElementowi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dostawcy.resx">
+      <DependentUpon>Dostawcy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DostawcySzczegoly.resx">
+      <DependentUpon>DostawcySzczegoly.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ElementSzczegoly.resx">
       <DependentUpon>ElementSzczegoly.cs</DependentUpon>
     </EmbeddedResource>
@@ -1007,6 +1143,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KontrolaEfektywnosciSzczegoly.resx">
       <DependentUpon>KontrolaEfektywnosciSzczegoly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KurierzyLista.resx">
+      <DependentUpon>KurierzyLista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KurierzySzczegoly.resx">
+      <DependentUpon>KurierzySzczegoly.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NiewykorzystanyMaterialProces.resx">
       <DependentUpon>NiewykorzystanyMaterialProces.cs</DependentUpon>
@@ -1049,6 +1191,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PolkiNaRegalach.resx">
       <DependentUpon>PolkiNaRegalach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Oferty.resx">
+      <DependentUpon>Oferty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OfertySzczegoly.resx">
+      <DependentUpon>OfertySzczegoly.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PopupAcceptDeny.resx">
       <DependentUpon>PopupAcceptDeny.cs</DependentUpon>
@@ -1183,6 +1331,23 @@
     <EmbeddedResource Include="WybierzZamowienie.resx">
       <DependentUpon>WybierzZamowienie.cs</DependentUpon>
     </EmbeddedResource>
+
+    <EmbeddedResource Include="WszystkieProcesyProdukcyjne.resx">
+      <DependentUpon>WszystkieProcesyProdukcyjne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WyborCechy.resx">
+      <DependentUpon>WyborCechy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WyborJednostki.resx">
+      <DependentUpon>WyborJednostki.cs</DependentUpon>
+    </EmbeddedResource>
+
+    <EmbeddedResource Include="UmowyKurierzy.resx">
+      <DependentUpon>UmowyKurierzy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UmowySzczegoly.resx">
+      <DependentUpon>UmowySzczegoly.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WyborKlienta.resx">
       <DependentUpon>WyborKlienta.cs</DependentUpon>
     </EmbeddedResource>
@@ -1201,6 +1366,14 @@
     <EmbeddedResource Include="WyborElementu.resx">
       <DependentUpon>WyborElementu.cs</DependentUpon>
     </EmbeddedResource>
+
+    <EmbeddedResource Include="WyborTypu.resx">
+      <DependentUpon>WyborTypu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZamowienieProcesyProdukcyjne.resx">
+      <DependentUpon>ZamowienieProcesyProdukcyjne.cs</DependentUpon>
+    </EmbeddedResource>
+
     <EmbeddedResource Include="WydajMaterialProdukcji.resx">
       <DependentUpon>WydajMaterialProdukcji.cs</DependentUpon>
     </EmbeddedResource>
