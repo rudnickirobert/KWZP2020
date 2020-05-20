@@ -44,8 +44,8 @@ namespace Szwalnia
                 dgvDostawyDoPrzyjecia.Columns[0].HeaderText = "ID Dostawy";
                 dgvDostawyDoPrzyjecia.Columns[1].Visible = false;
                 dgvDostawyDoPrzyjecia.Columns[2].HeaderText = "Nazwa elementu";
-                dgvDostawyDoPrzyjecia.Columns[3].HeaderText = "Ilość";
-                dgvDostawyDoPrzyjecia.Columns[4].HeaderText = "Ilość paczek";
+                dgvDostawyDoPrzyjecia.Columns[3].HeaderText = "Ilość w paczce";
+                dgvDostawyDoPrzyjecia.Columns[4].HeaderText = "Ilość";
             }    
         }
           
