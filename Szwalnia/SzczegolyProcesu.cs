@@ -14,11 +14,13 @@ namespace Szwalnia
     {
         public SzwalniaEntities db;
         public int idProcesu;
-        public SzczegolyProcesu(SzwalniaEntities db, int idProcesu)
+        public int idZamowienieElement;
+        public SzczegolyProcesu(SzwalniaEntities db, int idProcesu, int idZamowienieElement)
         {
             InitializeComponent();
             this.db = db;
             this.idProcesu = idProcesu;
+            this.idZamowienieElement = idZamowienieElement;
             Proces_Produkcyjny proces = db.Proces_Produkcyjny.Where(wybrany => wybrany.ID_Procesu_Produkcyjnego == idProcesu).First();
             lblProces.Text = "Szczegóły procesu produkcyjnego o ID " + proces.ID_Procesu_Produkcyjnego;
         }
@@ -59,6 +61,12 @@ namespace Szwalnia
         {
             OdbiorMaterialu odbiorMaterialu = new OdbiorMaterialu(db, idProcesu);
             odbiorMaterialu.Show();
+        }
+
+        private void btnEdycja_Click(object sender, EventArgs e)
+        {
+            EdycjaProcesu edycjaProcesu = new EdycjaProcesu(db, idProcesu, idZamowienieElement);
+            edycjaProcesu.Show();
         }
     }
 }
