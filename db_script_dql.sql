@@ -456,6 +456,42 @@ FROM            dbo.Zamowienia INNER JOIN
 WHERE        (dbo.Proces_Produkcyjny.Data_Zakonczenia IS NOT NULL) AND (Dostarczenia_zewn_filtrowane.ID_Zamowienia IS NOT NULL) AND (Dostarczenia_zewn_filtrowane.ID_element IS NOT NULL)
 GO
 
+CREATE VIEW [dbo].[vProduktyDoWykonania]
+AS
+SELECT        dbo.Zamowienia.ID_Zamowienia, dbo.Zamowienie_Element.ID_Element
+FROM            dbo.Zamowienia INNER JOIN
+                         dbo.Zamowienie_Element ON dbo.Zamowienia.ID_Zamowienia = dbo.Zamowienie_Element.ID_Zamowienia
+GO
+
+CREATE VIEW [dbo].[vProduktyWykonane]
+AS
+SELECT        dbo.Proces_Produkcyjny.Data_Zakonczenia, dbo.Zamowienia.ID_Zamowienia, dbo.Zamowienie_Element.ID_Element
+FROM            dbo.Zamowienia INNER JOIN
+                         dbo.Zamowienie_Element ON dbo.Zamowienia.ID_Zamowienia = dbo.Zamowienie_Element.ID_Zamowienia INNER JOIN
+                         dbo.Proces_Produkcyjny ON dbo.Zamowienie_Element.ID_Zamowienie_Element = dbo.Proces_Produkcyjny.ID_Zamowienie_Element
+WHERE        (dbo.Zamowienie_Element.ID_Element IS NOT NULL)
+GO
+
+CREATE VIEW [dbo].[vProduktyNiewykonane]
+AS
+SELECT DISTINCT dbo.Zamowienia.ID_Zamowienia
+FROM            dbo.vProduktyWykonane INNER JOIN
+                         dbo.Zamowienia ON dbo.vProduktyWykonane.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia LEFT OUTER JOIN
+                             (SELECT        ID_Dostarczenia, ID_Pracownicy, ID_Zamowienia, ID_element, Ilosc_Dostarczona, ID_Miejsca, Data_Dostarczenia
+                               FROM            dbo.Dostarczenia_Zewn
+                               WHERE        (Ilosc_Dostarczona > 0)) AS Posrednia_Zamowienia_zewn ON dbo.vProduktyWykonane.ID_Zamowienia = Posrednia_Zamowienia_zewn.ID_Zamowienia AND 
+                         dbo.vProduktyWykonane.ID_Element = Posrednia_Zamowienia_zewn.ID_element
+WHERE        (Posrednia_Zamowienia_zewn.ID_Zamowienia IS NULL) AND (Posrednia_Zamowienia_zewn.ID_element IS NULL)
+GO
+
+CREATE VIEW [dbo].[vZamowienia_Do_Wydania_Kompletne]
+AS
+SELECT        dbo.Zamowienia.ID_Zamowienia
+FROM            dbo.vProduktyNiewykonane RIGHT OUTER JOIN
+                         dbo.Zamowienia ON dbo.vProduktyNiewykonane.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia
+WHERE        (dbo.vProduktyNiewykonane.ID_Zamowienia IS NULL)
+GO
+
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------WIDOKI PRODUKCJA----------------------------------------------------
