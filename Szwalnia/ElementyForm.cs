@@ -54,16 +54,36 @@ namespace Szwalnia
             this.Hide();
         }
 
-        private void btnCechyElementow_Click(object sender, EventArgs e)
-        {
-            DodoawanieCechElementowi cechyElementu = new DodoawanieCechElementowi(db);
-            cechyElementu.Show();
-            this.Hide();
-        }
-
         private void ElementyForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Start.GetForm.Show();
+        }
+
+        private void btnWstecz_Click(object sender, EventArgs e)
+        {            
+            Application.OpenForms[typeof(MagazynForm).Name].Show();
+            this.Hide();
+        }
+
+        private void btnWyborTypu_Click(object sender, EventArgs e)
+        {
+            WyborTypu typWybor = new WyborTypu();
+            typWybor.Show();
+            this.Hide();
+        }
+
+        private void btnWyborCechy_Click(object sender, EventArgs e)
+        {
+            WyborCechy cechaWybor = new WyborCechy();
+            cechaWybor.Show();
+            this.Hide();
+        }
+
+        private void btnWyborJednostki_Click(object sender, EventArgs e)
+        {
+            WyborJednostki jednostkaWybor = new WyborJednostki();
+            jednostkaWybor.Show();
+            this.Hide();
         }
     }
 }

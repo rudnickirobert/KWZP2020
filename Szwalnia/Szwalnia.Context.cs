@@ -103,10 +103,12 @@ namespace Szwalnia
         public virtual DbSet<vElementyProcesProdukcyjny> vElementyProcesProdukcyjny { get; set; }
         public virtual DbSet<vEtapy_proces> vEtapy_proces { get; set; }
         public virtual DbSet<vKontrolaProcesu> vKontrolaProcesu { get; set; }
+        public virtual DbSet<vMaszynownia> vMaszynownia { get; set; }
         public virtual DbSet<vMaszyny_numer_seryjny> vMaszyny_numer_seryjny { get; set; }
         public virtual DbSet<vMaszyny_proces> vMaszyny_proces { get; set; }
         public virtual DbSet<vMaszyny_rodzaj_liczba> vMaszyny_rodzaj_liczba { get; set; }
         public virtual DbSet<vMaszyny_serwis> vMaszyny_serwis { get; set; }
+        public virtual DbSet<vMaterialy> vMaterialy { get; set; }
         public virtual DbSet<vMaterialyDoZamowienia> vMaterialyDoZamowienia { get; set; }
         public virtual DbSet<vMaterialyDoZamowieniaBrak> vMaterialyDoZamowieniaBrak { get; set; }
         public virtual DbSet<vMaterialyNiewydaneZDatami> vMaterialyNiewydaneZDatami { get; set; }
@@ -122,6 +124,7 @@ namespace Szwalnia
         public virtual DbSet<vOdebranyMaterialMagazyn> vOdebranyMaterialMagazyn { get; set; }
         public virtual DbSet<vOdebranyMaterialProdukcja> vOdebranyMaterialProdukcja { get; set; }
         public virtual DbSet<vOferta> vOferta { get; set; }
+        public virtual DbSet<vOferty_Zebrane> vOferty_Zebrane { get; set; }
         public virtual DbSet<vPolki_na_regalach> vPolki_na_regalach { get; set; }
         public virtual DbSet<vPolki_Rozmiary> vPolki_Rozmiary { get; set; }
         public virtual DbSet<vPotrzebnaDokumentacjaDoProcesuProdukcyjnego> vPotrzebnaDokumentacjaDoProcesuProdukcyjnego { get; set; }
@@ -153,7 +156,9 @@ namespace Szwalnia
         public virtual DbSet<vSuma_czasu_procesu> vSuma_czasu_procesu { get; set; }
         public virtual DbSet<vSzacowanaDataZamowieniaTechnologow> vSzacowanaDataZamowieniaTechnologow { get; set; }
         public virtual DbSet<vTechnolodzy> vTechnolodzy { get; set; }
+        public virtual DbSet<vTechnologowie> vTechnologowie { get; set; }
         public virtual DbSet<vUmowyKurierzy> vUmowyKurierzy { get; set; }
+        public virtual DbSet<vUmowyKurierzyNazwyKurierow> vUmowyKurierzyNazwyKurierow { get; set; }
         public virtual DbSet<vWolneMaszyny> vWolneMaszyny { get; set; }
         public virtual DbSet<vWolnePolki> vWolnePolki { get; set; }
         public virtual DbSet<vWolniPracownicyProdukcji> vWolniPracownicyProdukcji { get; set; }
