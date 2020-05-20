@@ -23,7 +23,14 @@ namespace Szwalnia
             lblTitle.Text = "Półka nr " + content.Nr_polki.ToString() + ", regał: " + content.Regal;
             lblNazwaElementu.Text = content.Nazwa_elementu;
             lblIdElementu.Text = content.Nr_elementu.ToString();
-            lblIloscJednostka.Text = content.Ile.ToString();           
+            lblIloscJednostka.Text = content.Ile.ToString();
+            lblPrzydatnosc.Text = content.Przydatnosc;
+
+            if (content.Przydatnosc == "Nie dotyczy")
+            {
+                lblPrzydatnosc.Font = new Font(lblPrzydatnosc.Font.FontFamily, 8);
+                lblPrzydatnosc.Location = new Point(158, 199);
+            }
         }
     }
 }

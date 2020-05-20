@@ -32,6 +32,8 @@ namespace Szwalnia
             this.intIlosc = intIlosc;
             this.intIloscPaczek = intIloscPaczek;
             this.rodzajFormularza = rodzajFormularza;
+            dgvWolnePolki.ReadOnly = true;
+
             if (db.vWolnePolki.Where(polka => polka.ID_Polka>0).Any())
             {
                 dgvWolnePolki.DataSource = db.vWolnePolki.ToList();
@@ -70,6 +72,8 @@ namespace Szwalnia
             this.intIlosc = intIlosc;
             this.dblIloscDlaPolki = dblIloscDlaPolki;
             this.rodzajFormularza = rodzajFormularza;
+            dgvWolnePolki.ReadOnly = true;
+
             if (db.vWolnePolki.Where(polka => polka.ID_Polka > 0).Any())
             {
                 dgvWolnePolki.DataSource = db.vWolnePolki.ToList();
@@ -106,6 +110,7 @@ namespace Szwalnia
             this.intZamowienieID = intZamowienieID;
             this.intElementID = intElementID;
             this.intIloscSztuk = intIloscSztuk;
+            dgvWolnePolki.ReadOnly = true;
 
             lblInfoWybierzPracownika.Text = "Wybierz pracownika odbierającego produkty";
 

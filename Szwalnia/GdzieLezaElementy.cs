@@ -17,14 +17,13 @@ namespace Szwalnia
         {
             InitializeComponent();
             db = Start.szwalnia;
+            dgvLokalizacjeElementu.ReadOnly = true;
+
             Elementy thing = db.Elementy.Where(element => element.ID_Element == idElement).FirstOrDefault();
             lblTitle.Text = "Lokalizacje elementu: " + thing.Element_Nazwa + ", ID: " + thing.ID_Element.ToString();
 
             dgvLokalizacjeElementu.DataSource = db.vStan_magazynowy_polki.Where(stan => stan.Nr_elementu == idElement).ToList();
             dgvLokalizacjeElementu.Columns[0].Visible = false;
-            dgvLokalizacjeElementu.Columns[3].Visible = false;
-            dgvLokalizacjeElementu.Columns[4].Visible = false;
-            dgvLokalizacjeElementu.Columns[7].Visible = false;
         }
     }
 }

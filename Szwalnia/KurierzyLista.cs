@@ -17,9 +17,9 @@ namespace Szwalnia
         {
             db = Start.szwalnia;
             InitializeComponent();
+            dgvKurierzy.ReadOnly = true;
             dgvKurierzy.DataSource = db.Kurierzy.ToList();
         }
-
 
         private void btnDodajKuriera_Click(object sender, EventArgs e)
         {

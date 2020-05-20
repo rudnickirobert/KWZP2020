@@ -32,6 +32,8 @@ namespace Szwalnia
         {
             InitializeComponent();
             db = Start.szwalnia;
+            dgvGotoweProdukty.ReadOnly = true;
+
             if (db.vOdbior_Gotowych_Produktow.Any())
             {
                 dgvGotoweProdukty.DataSource = db.vOdbior_Gotowych_Produktow.ToList();

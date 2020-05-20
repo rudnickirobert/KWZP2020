@@ -41,6 +41,7 @@ namespace Szwalnia
                 dgvMaterialyDoWydania.Columns[4].HeaderText = "Ilość";
                 dgvMaterialyDoWydania.Columns[5].HeaderText = "Sugerowana data wydania";
                 dgvMaterialyDoWydania.Columns[6].HeaderText = "Numer półki";
+                dgvMaterialyDoWydania.ReadOnly = true;
             }
             else
             {

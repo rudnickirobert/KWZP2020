@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KurierzyLista));
             this.label1 = new System.Windows.Forms.Label();
             this.dgvKurierzy = new System.Windows.Forms.DataGridView();
             this.btnDodajKuriera = new System.Windows.Forms.Button();
@@ -38,7 +39,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(60, 51);
+            this.label1.Location = new System.Drawing.Point(60, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 13);
             this.label1.TabIndex = 0;
@@ -47,15 +48,15 @@
             // dgvKurierzy
             // 
             this.dgvKurierzy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKurierzy.Location = new System.Drawing.Point(63, 84);
+            this.dgvKurierzy.Location = new System.Drawing.Point(12, 56);
             this.dgvKurierzy.Name = "dgvKurierzy";
-            this.dgvKurierzy.Size = new System.Drawing.Size(548, 328);
+            this.dgvKurierzy.Size = new System.Drawing.Size(610, 248);
             this.dgvKurierzy.TabIndex = 1;
             this.dgvKurierzy.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKurierzy_CellDoubleClick);
             // 
             // btnDodajKuriera
             // 
-            this.btnDodajKuriera.Location = new System.Drawing.Point(393, 45);
+            this.btnDodajKuriera.Location = new System.Drawing.Point(393, 17);
             this.btnDodajKuriera.Name = "btnDodajKuriera";
             this.btnDodajKuriera.Size = new System.Drawing.Size(133, 24);
             this.btnDodajKuriera.TabIndex = 2;
@@ -65,7 +66,7 @@
             // 
             // btnWstecz
             // 
-            this.btnWstecz.Location = new System.Drawing.Point(270, 45);
+            this.btnWstecz.Location = new System.Drawing.Point(270, 17);
             this.btnWstecz.Name = "btnWstecz";
             this.btnWstecz.Size = new System.Drawing.Size(75, 23);
             this.btnWstecz.TabIndex = 3;
@@ -77,11 +78,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(634, 450);
+            this.ClientSize = new System.Drawing.Size(634, 316);
             this.Controls.Add(this.btnWstecz);
             this.Controls.Add(this.btnDodajKuriera);
             this.Controls.Add(this.dgvKurierzy);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "KurierzyLista";
             this.Text = "Kurierzy";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.KurierzyLista_FormClosed);

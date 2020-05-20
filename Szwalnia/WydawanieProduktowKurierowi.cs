@@ -38,6 +38,7 @@ namespace Szwalnia
                 {
                     int numerZamowienia = Convert.ToInt32(cmbZamowienie.SelectedValue);
                     dgvGotoweProdukty.DataSource = db.vWydawanie_Zamowien_Kurierowi.Where(zamowienie => zamowienie.ID_Zamowienia == numerZamowienia).ToList();
+                    dgvGotoweProdukty.ReadOnly = true;
                 }
                 else
                 {
@@ -46,6 +47,7 @@ namespace Szwalnia
                     brakProduktow.Rows.Add("Brak produktów do przyjęcia");
                     dgvGotoweProdukty.DataSource = brakProduktow;
                     dgvGotoweProdukty.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dgvGotoweProdukty.ReadOnly = true;
                 }
 
                 btnWydajProdukty.Enabled = true;
