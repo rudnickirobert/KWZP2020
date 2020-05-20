@@ -38,7 +38,6 @@
             this.txtAdres = new System.Windows.Forms.TextBox();
             this.txtTelefon = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.btnZamknij = new System.Windows.Forms.Button();
             this.dgvKlienciSzczegoly = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlienciSzczegoly)).BeginInit();
@@ -47,119 +46,121 @@
             // lblNazwaFirmy
             // 
             this.lblNazwaFirmy.AutoSize = true;
-            this.lblNazwaFirmy.Location = new System.Drawing.Point(12, 44);
+            this.lblNazwaFirmy.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblNazwaFirmy.Location = new System.Drawing.Point(14, 41);
             this.lblNazwaFirmy.Name = "lblNazwaFirmy";
-            this.lblNazwaFirmy.Size = new System.Drawing.Size(50, 17);
+            this.lblNazwaFirmy.Size = new System.Drawing.Size(101, 32);
             this.lblNazwaFirmy.TabIndex = 0;
             this.lblNazwaFirmy.Text = "Nazwa";
             // 
             // lblNIP
             // 
             this.lblNIP.AutoSize = true;
-            this.lblNIP.Location = new System.Drawing.Point(12, 77);
+            this.lblNIP.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblNIP.Location = new System.Drawing.Point(14, 90);
             this.lblNIP.Name = "lblNIP";
-            this.lblNIP.Size = new System.Drawing.Size(30, 17);
+            this.lblNIP.Size = new System.Drawing.Size(61, 32);
             this.lblNIP.TabIndex = 1;
             this.lblNIP.Text = "NIP";
             // 
             // lblAdres
             // 
             this.lblAdres.AutoSize = true;
-            this.lblAdres.Location = new System.Drawing.Point(12, 107);
+            this.lblAdres.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblAdres.Location = new System.Drawing.Point(14, 147);
             this.lblAdres.Name = "lblAdres";
-            this.lblAdres.Size = new System.Drawing.Size(45, 17);
+            this.lblAdres.Size = new System.Drawing.Size(89, 32);
             this.lblAdres.TabIndex = 2;
             this.lblAdres.Text = "Adres";
             // 
             // lblTelefon
             // 
             this.lblTelefon.AutoSize = true;
-            this.lblTelefon.Location = new System.Drawing.Point(12, 135);
+            this.lblTelefon.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblTelefon.Location = new System.Drawing.Point(14, 200);
             this.lblTelefon.Name = "lblTelefon";
-            this.lblTelefon.Size = new System.Drawing.Size(56, 17);
+            this.lblTelefon.Size = new System.Drawing.Size(111, 32);
             this.lblTelefon.TabIndex = 3;
             this.lblTelefon.Text = "Telefon";
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(12, 162);
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblEmail.Location = new System.Drawing.Point(14, 256);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(42, 17);
+            this.lblEmail.Size = new System.Drawing.Size(87, 32);
             this.lblEmail.TabIndex = 4;
             this.lblEmail.Text = "Email";
             // 
             // txtNazwa
             // 
-            this.txtNazwa.Location = new System.Drawing.Point(78, 44);
+            this.txtNazwa.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtNazwa.Location = new System.Drawing.Point(164, 41);
             this.txtNazwa.Name = "txtNazwa";
-            this.txtNazwa.Size = new System.Drawing.Size(334, 22);
+            this.txtNazwa.Size = new System.Drawing.Size(419, 38);
             this.txtNazwa.TabIndex = 5;
             // 
             // txtNIP
             // 
-            this.txtNIP.Location = new System.Drawing.Point(78, 77);
+            this.txtNIP.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtNIP.Location = new System.Drawing.Point(164, 90);
             this.txtNIP.Name = "txtNIP";
-            this.txtNIP.Size = new System.Drawing.Size(334, 22);
+            this.txtNIP.Size = new System.Drawing.Size(419, 38);
             this.txtNIP.TabIndex = 6;
             // 
             // txtAdres
             // 
-            this.txtAdres.Location = new System.Drawing.Point(78, 107);
+            this.txtAdres.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtAdres.Location = new System.Drawing.Point(164, 147);
             this.txtAdres.Name = "txtAdres";
-            this.txtAdres.Size = new System.Drawing.Size(334, 22);
+            this.txtAdres.Size = new System.Drawing.Size(419, 38);
             this.txtAdres.TabIndex = 7;
             // 
             // txtTelefon
             // 
-            this.txtTelefon.Location = new System.Drawing.Point(78, 135);
+            this.txtTelefon.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtTelefon.Location = new System.Drawing.Point(164, 200);
             this.txtTelefon.Name = "txtTelefon";
-            this.txtTelefon.Size = new System.Drawing.Size(334, 22);
+            this.txtTelefon.Size = new System.Drawing.Size(419, 38);
             this.txtTelefon.TabIndex = 8;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(78, 163);
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtEmail.Location = new System.Drawing.Point(164, 256);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(334, 22);
+            this.txtEmail.Size = new System.Drawing.Size(419, 38);
             this.txtEmail.TabIndex = 9;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(366, 16);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(46, 17);
-            this.lblTitle.TabIndex = 10;
-            this.lblTitle.Text = "label1";
             // 
             // btnZamknij
             // 
-            this.btnZamknij.Location = new System.Drawing.Point(612, 146);
+            this.btnZamknij.Location = new System.Drawing.Point(862, 264);
             this.btnZamknij.Name = "btnZamknij";
             this.btnZamknij.Size = new System.Drawing.Size(111, 33);
             this.btnZamknij.TabIndex = 11;
             this.btnZamknij.Text = "Zamknij";
             this.btnZamknij.UseVisualStyleBackColor = true;
+            this.btnZamknij.Click += new System.EventHandler(this.btnZamknij_Click);
             // 
             // dgvKlienciSzczegoly
             // 
             this.dgvKlienciSzczegoly.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKlienciSzczegoly.Location = new System.Drawing.Point(12, 191);
+            this.dgvKlienciSzczegoly.Location = new System.Drawing.Point(12, 303);
             this.dgvKlienciSzczegoly.Name = "dgvKlienciSzczegoly";
             this.dgvKlienciSzczegoly.RowHeadersWidth = 51;
             this.dgvKlienciSzczegoly.RowTemplate.Height = 24;
-            this.dgvKlienciSzczegoly.Size = new System.Drawing.Size(776, 216);
+            this.dgvKlienciSzczegoly.Size = new System.Drawing.Size(961, 216);
             this.dgvKlienciSzczegoly.TabIndex = 12;
             // 
             // KlienciSzczegoly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.ClientSize = new System.Drawing.Size(985, 531);
             this.Controls.Add(this.dgvKlienciSzczegoly);
             this.Controls.Add(this.btnZamknij);
-            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtTelefon);
             this.Controls.Add(this.txtAdres);
@@ -190,7 +191,6 @@
         private System.Windows.Forms.TextBox txtAdres;
         private System.Windows.Forms.TextBox txtTelefon;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnZamknij;
         private System.Windows.Forms.DataGridView dgvKlienciSzczegoly;
     }

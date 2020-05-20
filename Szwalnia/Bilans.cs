@@ -15,7 +15,7 @@ namespace Szwalnia
         public Bilans(SzwalniaEntities db)
         {
             InitializeComponent();
-         // dgvBilans.DataSource = db.
+         //dgvBilans.DataSource = db.
         }
     }
 }
