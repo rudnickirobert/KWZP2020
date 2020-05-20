@@ -15,6 +15,6 @@ namespace Szwalnia
     public partial class vKompletnyProces
     {
         public int ID_Procesu_Produkcyjnego { get; set; }
-        public bool Kompletny_Proces { get; set; }
+        public Nullable<bool> Kompletny_Proces { get; set; }
     }
 }
