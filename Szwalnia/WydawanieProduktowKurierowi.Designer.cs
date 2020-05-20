@@ -80,7 +80,7 @@
             this.dgvGotoweProdukty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGotoweProdukty.Location = new System.Drawing.Point(20, 113);
             this.dgvGotoweProdukty.Name = "dgvGotoweProdukty";
-            this.dgvGotoweProdukty.Size = new System.Drawing.Size(570, 150);
+            this.dgvGotoweProdukty.Size = new System.Drawing.Size(557, 150);
             this.dgvGotoweProdukty.TabIndex = 20;
             this.dgvGotoweProdukty.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGotoweProdukty_CellClick);
             // 
@@ -88,7 +88,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(606, 313);
+            this.ClientSize = new System.Drawing.Size(592, 313);
             this.Controls.Add(this.cmbPracownik);
             this.Controls.Add(this.btnWydajProdukty);
             this.Controls.Add(this.lblPracownik);

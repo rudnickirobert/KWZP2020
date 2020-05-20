@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SzwalniaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SzwalniaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Czesci_Obsluga">
           <Key>
             <PropertyRef Name="ID_Czesci_Obsluga" />
@@ -1636,6 +1636,18 @@ warning 6002: The table/view 'Szwalnia.dbo.vWszystkieMaszyny' does not have a pr
           </Key>
           <Property Name="ID_Maszyny" Type="int" Nullable="false" />
           <Property Name="Maszyna" Type="varchar" MaxLength="64" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vWydawanie_Zamowien_Kurierowi' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vWydawanie_Zamowien_Kurierowi">
+          <Key>
+            <PropertyRef Name="ID_Zamowienie_Element" />
+          </Key>
+          <Property Name="ID_Zamowienia" Type="int" />
+          <Property Name="ID_Zamowienie_Element" Type="int" Nullable="false" />
+          <Property Name="Element_Nazwa" Type="varchar" MaxLength="35" />
+          <Property Name="ID_element" Type="int" />
+          <Property Name="Ilosc" Type="float" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vZamowieniaDystans' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -3468,6 +3480,15 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
     [vWszystkieMaszyny].[Maszyna] AS [Maszyna]
     FROM [dbo].[vWszystkieMaszyny] AS [vWszystkieMaszyny]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vWydawanie_Zamowien_Kurierowi" EntityType="Self.vWydawanie_Zamowien_Kurierowi" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vWydawanie_Zamowien_Kurierowi].[ID_Zamowienia] AS [ID_Zamowienia], 
+    [vWydawanie_Zamowien_Kurierowi].[ID_Zamowienie_Element] AS [ID_Zamowienie_Element], 
+    [vWydawanie_Zamowien_Kurierowi].[Element_Nazwa] AS [Element_Nazwa], 
+    [vWydawanie_Zamowien_Kurierowi].[ID_element] AS [ID_element], 
+    [vWydawanie_Zamowien_Kurierowi].[Ilosc] AS [Ilosc]
+    FROM [dbo].[vWydawanie_Zamowien_Kurierowi] AS [vWydawanie_Zamowien_Kurierowi]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vZamowieniaDystans" EntityType="Self.vZamowieniaDystans" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vZamowieniaDystans].[ID_Zamowienia] AS [ID_Zamowienia], 
@@ -3846,8 +3867,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Znajomosc_Jezykow" EntitySet="Znajomosc_Jezykow" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SzwalniaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -7051,7 +7071,18 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
+          <EntitySet Name="vWydawanie_Zamowien_Kurierowi" EntityType="SzwalniaModel.vWydawanie_Zamowien_Kurierowi" />
         </EntityContainer>
+        <EntityType Name="vWydawanie_Zamowien_Kurierowi">
+          <Key>
+            <PropertyRef Name="ID_Zamowienie_Element" />
+          </Key>
+          <Property Name="ID_Zamowienia" Type="Int32" />
+          <Property Name="ID_Zamowienie_Element" Type="Int32" Nullable="false" />
+          <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="ID_element" Type="Int32" />
+          <Property Name="Ilosc" Type="Double" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -8587,6 +8618,17 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
                 <ScalarProperty Name="Element_Oznaczenie" ColumnName="Element_Oznaczenie" />
                 <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
                 <ScalarProperty Name="Cena" ColumnName="Cena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vWydawanie_Zamowien_Kurierowi">
+            <EntityTypeMapping TypeName="SzwalniaModel.vWydawanie_Zamowien_Kurierowi">
+              <MappingFragment StoreEntitySet="vWydawanie_Zamowien_Kurierowi">
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+                <ScalarProperty Name="ID_element" ColumnName="ID_element" />
+                <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
+                <ScalarProperty Name="ID_Zamowienie_Element" ColumnName="ID_Zamowienie_Element" />
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

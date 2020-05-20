@@ -17,10 +17,10 @@ namespace Szwalnia
         {
             InitializeComponent();
             db = Start.szwalnia;
-            if (db.vOdbior_Gotowych_Produktow.Any())
+            
+            if (db.vWydawanie_Zamowien_Kurierowi.Any())
             {
-                //do zmiany na widok wydawania kurierom
-                dgvGotoweProdukty.DataSource = db.vOdbior_Gotowych_Produktow.ToList();
+                dgvGotoweProdukty.DataSource = db.vWydawanie_Zamowien_Kurierowi.ToList();
                 dgvGotoweProdukty.Columns[0].Width = 100;
                 dgvGotoweProdukty.Columns[1].Width = 100;
                 dgvGotoweProdukty.Columns[2].Width = 160;
@@ -46,7 +46,6 @@ namespace Szwalnia
         {
             Dostarczenia_Zewn dostarczenia = new Dostarczenia_Zewn();
 
-            //byc moze do zmiany kolumny
             dostarczenia.ID_Pracownicy = Convert.ToInt32(cmbPracownik.SelectedValue);
             dostarczenia.ID_Zamowienia = Convert.ToInt32(dgvGotoweProdukty.CurrentRow.Cells[0].Value);
             dostarczenia.ID_element = Convert.ToInt32(dgvGotoweProdukty.CurrentRow.Cells[3].Value);
@@ -65,7 +64,7 @@ namespace Szwalnia
 
         private void dgvGotoweProdukty_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (db.vOdbior_Gotowych_Produktow.Any())
+            if (db.vWydawanie_Zamowien_Kurierowi.Any())
                 btnWydajProdukty.Enabled = true;
         }
 
