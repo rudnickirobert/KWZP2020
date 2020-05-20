@@ -39,5 +39,12 @@ namespace Szwalnia
             nowePrzyporzadkowanie.Show();
             this.Hide();
         }
+
+        private void btnWydajKurierowi_Click(object sender, EventArgs e)
+        {
+            RealizacjaZamowien noweWydanie = new RealizacjaZamowien();
+            noweWydanie.Show();
+            this.Hide();
+        }
     }
 }

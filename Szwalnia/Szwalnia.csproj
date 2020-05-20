@@ -494,6 +494,12 @@
     <Compile Include="PrzygotowanieProdukcji.Designer.cs">
       <DependentUpon>PrzygotowanieProdukcji.cs</DependentUpon>
     </Compile>
+    <Compile Include="RealizacjaZamowien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RealizacjaZamowien.Designer.cs">
+      <DependentUpon>RealizacjaZamowien.cs</DependentUpon>
+    </Compile>
     <Compile Include="Realizacja_Procesu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -1116,6 +1122,7 @@
     <EmbeddedResource Include="PrzygotowanieProdukcji.resx">
       <DependentUpon>PrzygotowanieProdukcji.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RealizacjaZamowien.resx" />
     <EmbeddedResource Include="RodzajEtapu.resx">
       <DependentUpon>RodzajEtapu.cs</DependentUpon>
     </EmbeddedResource>
