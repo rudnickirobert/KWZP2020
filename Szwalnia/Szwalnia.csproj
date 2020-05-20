@@ -1063,10 +1063,10 @@
     <Compile Include="vWszystkie_Maszyny.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vZamowieniaDoWykonaniaUDostawcy.cs">
+    <Compile Include="vWynagrodzenia.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vWynagrodzenia.cs">
+    <Compile Include="vZamowieniaDoWykonaniaUDostawcy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vZamowieniaDystans.cs">
@@ -1084,14 +1084,14 @@
     <Compile Include="vZatrudnieniePracownika.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vZawartoscMagazynuDoPrzydzialu.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="WybierzZamowienie.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WybierzZamowienie.Designer.cs">
       <DependentUpon>WybierzZamowienie.cs</DependentUpon>
-    </Compile>
-    <Compile Include="vZawartoscMagazynuDoPrzydzialu.cs">
-      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="WyborCechy.cs">
       <SubType>Form</SubType>
