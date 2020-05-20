@@ -428,10 +428,10 @@ GO
 
 --realizacja procesu produkcyjnego
 
-CREATE VIEW vRealizacjaProcesuProdukcyjnegoDetails 
+CREATE VIEW vRealizacjaProcesuProdukcyjnego
 AS
 SELECT dbo.Proces_Produkcyjny.ID_Procesu_Produkcyjnego, dbo.Realizacja_Procesu.ID_Realizacji_Procesu, dbo.Rodzaj_Etapu.Nazwa as 'Nazwa etapu', dbo.Realizacja_Procesu.Data_Rozpoczecia_Procesu, 
-                  dbo.Realizacja_Procesu.Data_Zakonczenia_Procesu
+                  dbo.Realizacja_Procesu.Data_Zakonczenia_Procesu, dbo.Realizacja_Procesu.Data_Kontroli, dbo.Realizacja_Procesu.Uwagi_Kontroli
 FROM     dbo.Realizacja_Procesu INNER JOIN
                   dbo.Rodzaj_Etapu ON dbo.Realizacja_Procesu.ID_Etapu = dbo.Rodzaj_Etapu.ID_Etapu INNER JOIN
                   dbo.Proces_Produkcyjny ON dbo.Realizacja_Procesu.ID_Procesu_Produkcyjnego = dbo.Proces_Produkcyjny.ID_Procesu_Produkcyjnego
@@ -535,7 +535,7 @@ GO
 
 CREATE VIEW vPrzydzialZasobow
 AS
-SELECT dbo.Realizacja_Procesu.ID_Procesu_Produkcyjnego AS 'ID procesu produkcyjnego', dbo.Przydzial_Zasobow.ID_Realizacji_Procesu AS 'ID realizacji procesu', dbo.Rodzaj_Etapu.Nazwa AS 'Nazwa etapu',
+SELECT dbo.Przydzial_Zasobow.ID_Realizacji_Procesu, Przydzial_Zasobow.ID_Przydzial_Zasobow, dbo.Realizacja_Procesu.ID_Procesu_Produkcyjnego AS 'ID procesu produkcyjnego', dbo.Przydzial_Zasobow.ID_Realizacji_Procesu AS 'ID realizacji procesu', dbo.Rodzaj_Etapu.Nazwa AS 'Nazwa etapu',
       dbo.Przydzial_Zasobow.ID_Pracownika AS 'ID pracownika', dbo.Pracownicy.Imie AS 'Imiê', dbo.Pracownicy.Nazwisko, 
       dbo.Przydzial_Zasobow.ID_Maszyny AS 'ID maszyna', dbo.Srodki_Trwale.Nazwa AS 'Nazwa maszyny', 
       dbo.Przydzial_Zasobow.Data_Rozpoczecia AS 'Data rozpoczêcia',
@@ -769,6 +769,13 @@ FROM     dbo.Odbior_Dostarczenia INNER JOIN
                   dbo.Elementy ON dbo.Dostarczenia_Wewn.ID_element = dbo.Elementy.ID_Element
 GO
 
+CREATE VIEW vKompletnyProces
+AS
+SELECT        dbo.Proces_Produkcyjny.ID_Procesu_Produkcyjnego, dbo.Proces_Zamowienie.Kompletny_Proces
+FROM            dbo.Proces_Produkcyjny INNER JOIN
+                         dbo.Zamowienie_Element ON dbo.Proces_Produkcyjny.ID_Zamowienie_Element = dbo.Zamowienie_Element.ID_Zamowienie_Element INNER JOIN
+                         dbo.Proces_Zamowienie ON dbo.Zamowienie_Element.ID_Zamowienie_Element = dbo.Proces_Zamowienie.ID_Zamowienie_Element
+GO
 
 
 

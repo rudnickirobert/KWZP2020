@@ -5,49 +5,39 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class NowyProces : Form
+    public partial class EdycjaProcesu : Form
     {
         public SzwalniaEntities db;
-        public int nowyProces;
+        Proces_Produkcyjny proces = new Proces_Produkcyjny();
+        int idProcesu;
         public const string pustePole = "  .  .       :  :";
-        public NowyProces(SzwalniaEntities db)
+        public int idZamowienieElement;
+        public EdycjaProcesu(SzwalniaEntities db, int idProcesu, int idZamowienieElement)
         {
             InitializeComponent();
             this.db = db;
-            dgvUkryty.DataSource = db.Proces_Produkcyjny.ToList();
-            int numerOstatniegoProcesu = dgvUkryty.Rows.Count;
-            lblNumerProcesu.Text = (numerOstatniegoProcesu+1).ToString();
+            this.idProcesu = idProcesu;
+            this.idZamowienieElement = idZamowienieElement;
+            lblOpis.Text = "Edycja procesu produkcyjnego o ID " + idProcesu;
+            proces = this.db.Proces_Produkcyjny.Where(procesProdukcyjny => procesProdukcyjny.ID_Procesu_Produkcyjnego == idProcesu).First();
             cbxZamowienieElement.DataSource = db.Zamowienie_Element.ToList();
-            cbxZamowienieElement.DisplayMember = "ID_Zamowienie_Element";
             cbxZamowienieElement.ValueMember = "ID_Zamowienie_Element";
-            this.nowyProces = numerOstatniegoProcesu + 1;
-
-
-        }
-
-        private void btnWyzeruj_Click(object sender, EventArgs e)
-        {
-            mtbDataRozpoczecia.Text = "";
-            mtbDataZakonczenia.Text = "";
-            cbxZamowienieElement.Text = "";
-            mtbProponowanaData.Text = "";
-            tbUwagi.Text = "";
-        }
-
-        private void btnAnuluj_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            cbxZamowienieElement.DisplayMember = "ID_Zamowienie_Element";
+            mtbProponowanaData.Text = proces.Proponowana_data_dostawy_materialu.ToString();
+            mtbDataRozpoczecia.Text = proces.Data_Rozpoczecia.ToString();
+            mtbDataZakonczenia.Text = proces.Data_Zakonczenia.ToString();
+            cbxZamowienieElement.SelectedValue = idZamowienieElement;
+            tbUwagi.Text = proces.Uwagi;
         }
 
         private void btnZapisz_Click(object sender, EventArgs e)
         {
-            Proces_Produkcyjny proces = new Proces_Produkcyjny();
-
             if (string.IsNullOrEmpty(cbxZamowienieElement.Text))
             {
                 MessageBox.Show("Uzupełnienie pola 'ID zamówienie element' jest wymagane!");
@@ -72,17 +62,14 @@ namespace Szwalnia
             {
                 proces.Data_Zakonczenia = Convert.ToDateTime(mtbDataZakonczenia.Text);
             }
+            if (tbUwagi.TextLength <= 300)
+            {
+                proces.Uwagi = tbUwagi.Text;
+            }
 
-            proces.Uwagi = tbUwagi.Text;
-
-            db.Proces_Produkcyjny.Add(proces);
+            this.db.Entry(proces).State = EntityState.Modified;
             db.SaveChanges();
-            MessageBox.Show("Dodano nowy proces produkcyjny");
-
-            Kontrola_Efektywnosci kontrola = new Kontrola_Efektywnosci();
-            kontrola.ID_Procesu_Produkcyjnego = nowyProces;
-            db.Kontrola_Efektywnosci.Add(kontrola);
-            db.SaveChanges();
+            MessageBox.Show("Zapisano zmiany w procesie");
             this.Close();
 
         }
@@ -102,10 +89,9 @@ namespace Szwalnia
             mtbDataZakonczenia.Text = DateTime.Now.ToString();
         }
 
-        private void NowyProces_FormClosed(object sender, FormClosedEventArgs e)
+        private void btnAnuluj_Click(object sender, EventArgs e)
         {
-            ProcesProdukcyjny proces = new ProcesProdukcyjny(db);
-            proces.Show();
+            this.Close();
         }
     }
 }

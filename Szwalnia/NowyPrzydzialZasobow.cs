@@ -54,13 +54,13 @@ namespace Szwalnia
             Przydzial_Zasobow przydzial = new Przydzial_Zasobow();
             if (string.IsNullOrEmpty(cbxPracownik.Text))
             {
-                MessageBox.Show("Uzupełnienie obu pola 'Pracownik' jest wymagane!");
+                MessageBox.Show("Uzupełnienie pola 'Pracownik' jest wymagane!");
             }
             else
             {
                 if (string.IsNullOrEmpty(cbxMaszyna.Text))
                 {
-                    MessageBox.Show("Uzupełnienie obu pola 'Maszyna' jest wymagane!");
+                    MessageBox.Show("Uzupełnienie pola 'Maszyna' jest wymagane!");
                 }
                 else
                 {
