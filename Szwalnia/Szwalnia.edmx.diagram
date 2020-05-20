@@ -237,6 +237,7 @@
         <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_Za__30C33EC3" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Zawartosc__ID_Do__19DFD96B" ManuallyRouted="false" />
         <EntityTypeShape EntityType="SzwalniaModel.vWydawanie_Zamowien_Kurierowi" Width="1.5" PointX="27.375" PointY="7.75" />
+        <AssociationConnector Association="SzwalniaModel.FK__Zawartosc__ID_Za__54CB950F" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -317,7 +317,10 @@ ID_Element int
 ID_Dostawy int
 	FOREIGN KEY REFERENCES
 	Zamowienia_Dostawy(ID_Dostawy),
-Ilosc_Paczek real
+Ilosc_Paczek real,
+ID_Zamowienia int
+	FOREIGN KEY REFERENCES
+	Zamowienia(ID_Zamowienia)
 )
 
 CREATE TABLE Dostawy_Zawartosc (

@@ -580,6 +580,7 @@
           <Property Name="ID_Element" Type="int" />
           <Property Name="ID_Dostawy" Type="int" />
           <Property Name="Ilosc_Paczek" Type="real" />
+          <Property Name="ID_Zamowienia" Type="int" />
         </EntityType>
         <EntityType Name="Znajomosc_Jezykow">
           <Key>
@@ -990,14 +991,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vMaterialyZamowione' does not have a 
           <Property Name="ID_Element" Type="int" />
           <Property Name="Ilosc" Type="real" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'Szwalnia.dbo.vMaterialyZMagazynu' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="vMaterialyZMagazynu">
-          <Property Name="ID_Dostawy" Type="int" />
-          <Property Name="ID_Zamowienia" Type="int" />
-          <Property Name="ID_Element" Type="int" />
-          <Property Name="Ilosc" Type="int" />
-        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vNieodebraneMaterialyWgDostawcyZNazwaIOferta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vNieodebraneMaterialyWgDostawcyZNazwaIOferta">
@@ -2720,7 +2713,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zawartosc__ID_Do__19DFD96B">
+        <Association Name="FK__Zawartosc__ID_Do__53D770D6">
           <End Role="Zamowienia_Dostawy" Type="Self.Zamowienia_Dostawy" Multiplicity="0..1" />
           <End Role="Zawartosc" Type="Self.Zawartosc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2732,7 +2725,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zawartosc__ID_El__18EBB532">
+        <Association Name="FK__Zawartosc__ID_El__52E34C9D">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="0..1" />
           <End Role="Zawartosc" Type="Self.Zawartosc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2744,7 +2737,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zawartosc__ID_Po__17F790F9">
+        <Association Name="FK__Zawartosc__ID_Po__51EF2864">
           <End Role="Polki" Type="Self.Polki" Multiplicity="0..1" />
           <End Role="Zawartosc" Type="Self.Zawartosc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2753,6 +2746,18 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Principal>
             <Dependent Role="Zawartosc">
               <PropertyRef Name="ID_Polka" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Zawartosc__ID_Za__54CB950F">
+          <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
+          <End Role="Zawartosc" Type="Self.Zawartosc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zamowienia">
+              <PropertyRef Name="ID_Zamowienia" />
+            </Principal>
+            <Dependent Role="Zawartosc">
+              <PropertyRef Name="ID_Zamowienia" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3934,16 +3939,20 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Zamowienia" EntitySet="Zamowienia" />
             <End Role="Zamowienia_Dostawy_Wlasne" EntitySet="Zamowienia_Dostawy_Wlasne" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zawartosc__ID_Do__19DFD96B" Association="Self.FK__Zawartosc__ID_Do__19DFD96B">
+          <AssociationSet Name="FK__Zawartosc__ID_Do__53D770D6" Association="Self.FK__Zawartosc__ID_Do__53D770D6">
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zawartosc__ID_El__18EBB532" Association="Self.FK__Zawartosc__ID_El__18EBB532">
+          <AssociationSet Name="FK__Zawartosc__ID_El__52E34C9D" Association="Self.FK__Zawartosc__ID_El__52E34C9D">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zawartosc__ID_Po__17F790F9" Association="Self.FK__Zawartosc__ID_Po__17F790F9">
+          <AssociationSet Name="FK__Zawartosc__ID_Po__51EF2864" Association="Self.FK__Zawartosc__ID_Po__51EF2864">
             <End Role="Polki" EntitySet="Polki" />
+            <End Role="Zawartosc" EntitySet="Zawartosc" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zawartosc__ID_Za__54CB950F" Association="Self.FK__Zawartosc__ID_Za__54CB950F">
+            <End Role="Zamowienia" EntitySet="Zamowienia" />
             <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
           <AssociationSet Name="FK__Znajomosc__ID_Je__534D60F1" Association="Self.FK__Znajomosc__ID_Je__534D60F1">
@@ -4638,6 +4647,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <NavigationProperty Name="Zamowienia_Dostawy" Relationship="Self.FK__Zamowieni__ID_Za__1332DBDC" FromRole="Zamowienia" ToRole="Zamowienia_Dostawy" />
           <NavigationProperty Name="Zamowienie_Element" Relationship="Self.FK__Zamowieni__ID_Za__2CF2ADDF" FromRole="Zamowienia" ToRole="Zamowienie_Element" />
           <NavigationProperty Name="Zamowienia_Dostawy_Wlasne" Relationship="Self.FK__Zamowieni__ID_Za__30C33EC3" FromRole="Zamowienia" ToRole="Zamowienia_Dostawy_Wlasne" />
+          <NavigationProperty Name="Zawartosc" Relationship="SzwalniaModel.FK__Zawartosc__ID_Za__54CB950F" FromRole="Zamowienia" ToRole="Zawartosc" />
         </EntityType>
         <EntityType Name="Zamowienia_Dostawy">
           <Key>
@@ -4704,6 +4714,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <NavigationProperty Name="Elementy" Relationship="Self.FK__Zawartosc__ID_El__18EBB532" FromRole="Zawartosc" ToRole="Elementy" />
           <NavigationProperty Name="Polki" Relationship="Self.FK__Zawartosc__ID_Po__17F790F9" FromRole="Zawartosc" ToRole="Polki" />
           <NavigationProperty Name="Zamowienia_Dostawy" Relationship="Self.FK__Zawartosc__ID_Do__19DFD96B" FromRole="Zawartosc" ToRole="Zamowienia_Dostawy" />
+          <Property Name="ID_Zamowienia" Type="Int32" />
+          <NavigationProperty Name="Zamowienia" Relationship="SzwalniaModel.FK__Zawartosc__ID_Za__54CB950F" FromRole="Zawartosc" ToRole="Zamowienia" />
         </EntityType>
         <EntityType Name="Znajomosc_Jezykow">
           <Key>
@@ -7208,6 +7220,10 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
           <EntitySet Name="vWydawanie_Zamowien_Kurierowi" EntityType="SzwalniaModel.vWydawanie_Zamowien_Kurierowi" />
+          <AssociationSet Name="FK__Zawartosc__ID_Za__54CB950F" Association="SzwalniaModel.FK__Zawartosc__ID_Za__54CB950F">
+            <End Role="Zamowienia" EntitySet="Zamowienia" />
+            <End Role="Zawartosc" EntitySet="Zawartosc" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="vWydawanie_Zamowien_Kurierowi">
           <Key>
@@ -7219,6 +7235,18 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="ID_element" Type="Int32" />
           <Property Name="Ilosc" Type="Double" />
         </EntityType>
+        <Association Name="FK__Zawartosc__ID_Za__54CB950F">
+          <End Type="SzwalniaModel.Zamowienia" Role="Zamowienia" Multiplicity="0..1" />
+          <End Type="SzwalniaModel.Zawartosc" Role="Zawartosc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zamowienia">
+              <PropertyRef Name="ID_Zamowienia" />
+            </Principal>
+            <Dependent Role="Zawartosc">
+              <PropertyRef Name="ID_Zamowienia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -7854,6 +7882,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <EntitySetMapping Name="Zawartosc">
             <EntityTypeMapping TypeName="SzwalniaModel.Zawartosc">
               <MappingFragment StoreEntitySet="Zawartosc">
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
                 <ScalarProperty Name="ID_Zawartosc" ColumnName="ID_Zawartosc" />
                 <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
                 <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />

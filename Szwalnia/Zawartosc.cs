@@ -19,9 +19,11 @@ namespace Szwalnia
         public Nullable<int> ID_Element { get; set; }
         public Nullable<int> ID_Dostawy { get; set; }
         public Nullable<float> Ilosc_Paczek { get; set; }
+        public Nullable<int> ID_Zamowienia { get; set; }
     
         public virtual Elementy Elementy { get; set; }
         public virtual Polki Polki { get; set; }
         public virtual Zamowienia_Dostawy Zamowienia_Dostawy { get; set; }
+        public virtual Zamowienia Zamowienia { get; set; }
     }
 }
