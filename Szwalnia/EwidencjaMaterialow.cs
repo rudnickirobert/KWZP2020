@@ -10,19 +10,18 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class StanMagazynowyCalkowity : Form
+    public partial class EwidencjaMaterialow : Form
     {
         public SzwalniaEntities db;
-        public StanMagazynowyCalkowity()
+        public EwidencjaMaterialow()
         {
             InitializeComponent();
             db = Start.szwalnia;
-            dgvStanMagazynowyCalosciowy.DataSource = db.vStan_magazynowy_polki.ToList();
-            dgvStanMagazynowyCalosciowy.Columns[0].Visible = false;
-            dgvStanMagazynowyCalosciowy.Columns[7].Visible = false;
+            dgvEwidencjaMatarialow.DataSource = db.vEwidencja_dostaw_wewnetrznych.ToList();
+            dgvEwidencjaMatarialow.Columns[0].Visible = false;
         }
 
-        private void StanMagazynowyCalkowity_FormClosed(object sender, FormClosedEventArgs e)
+        private void EwidencjaMaterialow_FormClosed(object sender, FormClosedEventArgs e)
         {
             Start.GetForm.Show();
         }

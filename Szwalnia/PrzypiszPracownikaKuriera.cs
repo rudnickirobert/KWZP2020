@@ -93,7 +93,6 @@ namespace Szwalnia
             {
                 dgvKurierzy.DataSource = null;
             }
-            
         }
 
         private void PrzypiszPracownikaKuriera_FormClosed(object sender, FormClosedEventArgs e)
@@ -133,7 +132,6 @@ namespace Szwalnia
                 }
             }
         }
-
 
         private void PrzypiszPracownikaKuriera_FormClosing(object sender, FormClosingEventArgs e)
         {

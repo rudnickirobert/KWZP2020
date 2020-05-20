@@ -75,6 +75,5 @@ namespace Szwalnia
                 nowaPolka.Show();
             }
         }
-
     }
 }

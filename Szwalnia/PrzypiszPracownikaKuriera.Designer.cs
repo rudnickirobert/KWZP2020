@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrzypiszPracownikaKuriera));
             this.cmbPracownicy = new System.Windows.Forms.ComboBox();
             this.dgvKurierzy = new System.Windows.Forms.DataGridView();
             this.lblPracownikDane = new System.Windows.Forms.Label();
@@ -118,8 +119,9 @@
             this.Controls.Add(this.dgvKurierzy);
             this.Controls.Add(this.cmbZamowienia);
             this.Controls.Add(this.cmbPracownicy);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PrzypiszPracownikaKuriera";
-            this.Text = "PrzypiszPracownikaKuriera";
+            this.Text = "Przypisywanie pracownika i firmy kurierskiej do zamówienia";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PrzypiszPracownikaKuriera_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PrzypiszPracownikaKuriera_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKurierzy)).EndInit();

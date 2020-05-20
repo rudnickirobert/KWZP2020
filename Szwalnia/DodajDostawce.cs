@@ -48,10 +48,31 @@ namespace Szwalnia
                     dostawcaNowy.Telefon_2 = Convert.ToInt32(mtxtTel2.Text);
                 }
                 dostawcaNowy.Email = txtEmail.Text;
-                
-                db.Dostawcy_Zaopatrzenie.Add(dostawcaNowy);
-                db.SaveChanges();
-                MessageBox.Show("Dodano nowego dostawcę.");
+
+                if(!db.Dostawcy_Zaopatrzenie.Where(dostawca => dostawca.Nazwa == txtNazwa.Text).Any())
+                {
+                    if (!db.Dostawcy_Zaopatrzenie.Where(dostawca => dostawca.Telefon_1 == dostawcaNowy.Telefon_1).Any())
+                    {
+                        if (!db.Dostawcy_Zaopatrzenie.Where(dostawca => dostawca.Email == txtEmail.Text).Any())
+                        {
+                            db.Dostawcy_Zaopatrzenie.Add(dostawcaNowy);
+                            db.SaveChanges();
+                            MessageBox.Show("Dodano nowego dostawcę.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Dostawca z takim adresem e-mail już istnieje.");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Dostawca z takim numerem telefonu już istnieje.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Dostawca o takiej nazwie już istnieje");
+                }
 
             }
         }

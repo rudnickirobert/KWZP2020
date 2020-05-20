@@ -12,18 +12,12 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class Zawartosc
+    public partial class vWydawanie_Zamowien_Kurierowi
     {
-        public int ID_Zawartosc { get; set; }
-        public Nullable<int> ID_Polka { get; set; }
-        public Nullable<int> ID_Element { get; set; }
-        public Nullable<int> ID_Dostawy { get; set; }
-        public Nullable<float> Ilosc_Paczek { get; set; }
         public Nullable<int> ID_Zamowienia { get; set; }
-    
-        public virtual Elementy Elementy { get; set; }
-        public virtual Polki Polki { get; set; }
-        public virtual Zamowienia Zamowienia { get; set; }
-        public virtual Zamowienia_Dostawy Zamowienia_Dostawy { get; set; }
+        public int ID_Zamowienie_Element { get; set; }
+        public string Element_Nazwa { get; set; }
+        public Nullable<int> ID_element { get; set; }
+        public Nullable<double> Ilosc { get; set; }
     }
 }

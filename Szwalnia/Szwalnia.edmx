@@ -580,6 +580,7 @@
           <Property Name="ID_Element" Type="int" />
           <Property Name="ID_Dostawy" Type="int" />
           <Property Name="Ilosc_Paczek" Type="real" />
+          <Property Name="ID_Zamowienia" Type="int" />
         </EntityType>
         <EntityType Name="Znajomosc_Jezykow">
           <Key>
@@ -870,6 +871,41 @@ warning 6002: The table/view 'Szwalnia.dbo.vEtapy_proces' does not have a primar
           <Property Name="Numer procesu" Type="int" Nullable="false" />
           <Property Name="Nazwa" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="Czas (h)" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vEwidencja_dostaw_wewnetrznych' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vEwidencja_dostaw_wewnetrznych">
+          <Key>
+            <PropertyRef Name="ID_Dostarczenia" />
+            <PropertyRef Name="Pracownik" />
+          </Key>
+          <Property Name="ID_Dostarczenia" Type="int" Nullable="false" />
+          <Property Name="Data_Dostarczenia" Type="varchar" MaxLength="10" />
+          <Property Name="Pracownik" Type="varchar" MaxLength="101" Nullable="false" />
+          <Property Name="Element_Nazwa" Type="varchar" MaxLength="35" />
+          <Property Name="ID_element" Type="int" />
+          <Property Name="Miejsce" Type="varchar" MaxLength="20" />
+          <Property Name="Akcja" Type="nvarchar" MaxLength="70" />
+          <Property Name="ID_Zamowienia" Type="int" />
+          <Property Name="ID_Zamowienie_element" Type="int" />
+          <Property Name="ID_Dostawy" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vEwidencja_dostaw_zewnetrznych' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vEwidencja_dostaw_zewnetrznych">
+          <Key>
+            <PropertyRef Name="ID_Dostarczenia" />
+            <PropertyRef Name="Pracownik" />
+            <PropertyRef Name="ID_Element" />
+          </Key>
+          <Property Name="ID_Dostarczenia" Type="int" Nullable="false" />
+          <Property Name="Data_Dostarczenia" Type="varchar" MaxLength="10" />
+          <Property Name="Pracownik" Type="varchar" MaxLength="101" Nullable="false" />
+          <Property Name="Element_Nazwa" Type="varchar" MaxLength="35" />
+          <Property Name="ID_Element" Type="int" Nullable="false" />
+          <Property Name="Miejsce" Type="varchar" MaxLength="20" />
+          <Property Name="Akcja" Type="nvarchar" MaxLength="44" />
+          <Property Name="ID_Zamowienia" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vFaktury' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1275,6 +1311,19 @@ warning 6002: The table/view 'Szwalnia.dbo.vObsluga' does not have a primary key
           <Property Name="Numer seryjny" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Rodzaj obsługi" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="Imię i nazwisko" Type="varchar" MaxLength="101" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vOdbior_Gotowych_Produktow' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vOdbior_Gotowych_Produktow">
+          <Key>
+            <PropertyRef Name="ID_Zamowienie_Element" />
+            <PropertyRef Name="Ilosc" />
+          </Key>
+          <Property Name="ID_Zamowienia" Type="int" />
+          <Property Name="ID_Zamowienie_Element" Type="int" Nullable="false" />
+          <Property Name="Element_Nazwa" Type="varchar" MaxLength="35" />
+          <Property Name="ID_Element" Type="int" />
+          <Property Name="Ilosc" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vOdebranyMaterialMagazyn' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1941,6 +1990,18 @@ warning 6002: The table/view 'Szwalnia.dbo.vWszystkieMaszyny' does not have a pr
           <Property Name="Maszyna" Type="varchar" MaxLength="64" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vWydawanie_Zamowien_Kurierowi' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vWydawanie_Zamowien_Kurierowi">
+          <Key>
+            <PropertyRef Name="ID_Zamowienie_Element" />
+          </Key>
+          <Property Name="ID_Zamowienia" Type="int" />
+          <Property Name="ID_Zamowienie_Element" Type="int" Nullable="false" />
+          <Property Name="Element_Nazwa" Type="varchar" MaxLength="35" />
+          <Property Name="ID_element" Type="int" />
+          <Property Name="Ilosc" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vWynagrodzenia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vWynagrodzenia">
           <Key>
@@ -1958,6 +2019,14 @@ warning 6002: The table/view 'Szwalnia.dbo.vWynagrodzenia' does not have a prima
           <Property Name="Pensja" Type="real" Nullable="false" />
           <Property Name="Wymiar_Etatu" Type="real" Nullable="false" />
           <Property Name="Wynagrodzenie" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vZamowienia_Do_Wydania' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vZamowienia_Do_Wydania">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia" />
+          </Key>
+          <Property Name="ID_Zamowienia" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vZamowieniaDoWykonaniaUDostawcy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -2056,7 +2125,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Ilosc" Type="real" />
           <Property Name="Cena" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
-        <Association Name="FK__Czesci_Ob__ID_El__56E8E7AB">
+        <Association Name="FK__Czesci_Ob__ID_El__57DD0BE4">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
           <End Role="Czesci_Obsluga" Type="Self.Czesci_Obsluga" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2068,7 +2137,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Czesci_Ob__ID_Ob__55F4C372">
+        <Association Name="FK__Czesci_Ob__ID_Ob__56E8E7AB">
           <End Role="Obsluga_Techniczna" Type="Self.Obsluga_Techniczna" Multiplicity="1" />
           <End Role="Czesci_Obsluga" Type="Self.Czesci_Obsluga" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2080,7 +2149,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dokumenta__ID_Do__45BE5BA9">
+        <Association Name="FK__Dokumenta__ID_Do__46B27FE2">
           <End Role="Dokumentacje" Type="Self.Dokumentacje" Multiplicity="1" />
           <End Role="Dokumentacja_Proces" Type="Self.Dokumentacja_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2092,7 +2161,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dokumenta__ID_Pr__40058253">
+        <Association Name="FK__Dokumenta__ID_Pr__40F9A68C">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
           <End Role="Dokumentacje" Type="Self.Dokumentacje" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2104,7 +2173,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dokumenta__ID_Pr__46B27FE2">
+        <Association Name="FK__Dokumenta__ID_Pr__47A6A41B">
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
           <End Role="Dokumentacja_Proces" Type="Self.Dokumentacja_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2116,7 +2185,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dokumenta__ID_Ro__3F115E1A">
+        <Association Name="FK__Dokumenta__ID_Ro__40058253">
           <End Role="Rodzaj_Dokumentacji" Type="Self.Rodzaj_Dokumentacji" Multiplicity="1" />
           <End Role="Dokumentacje" Type="Self.Dokumentacje" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2128,7 +2197,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostarcze__ID_Do__22751F6C">
+        <Association Name="FK__Dostarcze__ID_Do__236943A5">
           <End Role="Zamowienia_Dostawy" Type="Self.Zamowienia_Dostawy" Multiplicity="0..1" />
           <End Role="Dostarczenia_Wewn" Type="Self.Dostarczenia_Wewn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2140,7 +2209,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostarcze__ID_el__236943A5">
+        <Association Name="FK__Dostarcze__ID_el__245D67DE">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="0..1" />
           <End Role="Dostarczenia_Wewn" Type="Self.Dostarczenia_Wewn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2152,7 +2221,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostarcze__ID_el__29221CFB">
+        <Association Name="FK__Dostarcze__ID_el__2A164134">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="0..1" />
           <End Role="Dostarczenia_Zewn" Type="Self.Dostarczenia_Zewn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2164,7 +2233,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostarcze__ID_Mi__245D67DE">
+        <Association Name="FK__Dostarcze__ID_Mi__25518C17">
           <End Role="Miejsca" Type="Self.Miejsca" Multiplicity="0..1" />
           <End Role="Dostarczenia_Wewn" Type="Self.Dostarczenia_Wewn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2176,7 +2245,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostarcze__ID_Mi__2A164134">
+        <Association Name="FK__Dostarcze__ID_Mi__2B0A656D">
           <End Role="Miejsca" Type="Self.Miejsca" Multiplicity="0..1" />
           <End Role="Dostarczenia_Zewn" Type="Self.Dostarczenia_Zewn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2188,7 +2257,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostarcze__ID_Pr__2180FB33">
+        <Association Name="FK__Dostarcze__ID_Pr__22751F6C">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
           <End Role="Dostarczenia_Wewn" Type="Self.Dostarczenia_Wewn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2200,7 +2269,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostarcze__ID_Pr__2739D489">
+        <Association Name="FK__Dostarcze__ID_Pr__282DF8C2">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
           <End Role="Dostarczenia_Zewn" Type="Self.Dostarczenia_Zewn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2212,7 +2281,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostarcze__ID_Za__282DF8C2">
+        <Association Name="FK__Dostarcze__ID_Za__29221CFB">
           <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
           <End Role="Dostarczenia_Zewn" Type="Self.Dostarczenia_Zewn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2224,7 +2293,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostawy_W__ID_Do__3587F3E0">
+        <Association Name="FK__Dostawy_W__ID_Do__367C1819">
           <End Role="Zamowienia_Dostawy" Type="Self.Zamowienia_Dostawy" Multiplicity="0..1" />
           <End Role="Dostawy_Wlasne_Zawartosc" Type="Self.Dostawy_Wlasne_Zawartosc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2236,7 +2305,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostawy_W__ID_El__367C1819">
+        <Association Name="FK__Dostawy_W__ID_El__37703C52">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="0..1" />
           <End Role="Dostawy_Wlasne_Zawartosc" Type="Self.Dostawy_Wlasne_Zawartosc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2248,7 +2317,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostawy_W__ID_Za__3493CFA7">
+        <Association Name="FK__Dostawy_W__ID_Za__3587F3E0">
           <End Role="Zamowienia_Dostawy_Wlasne" Type="Self.Zamowienia_Dostawy_Wlasne" Multiplicity="0..1" />
           <End Role="Dostawy_Wlasne_Zawartosc" Type="Self.Dostawy_Wlasne_Zawartosc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2260,7 +2329,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostawy_Z__ID_Do__1CBC4616">
+        <Association Name="FK__Dostawy_Z__ID_Do__1DB06A4F">
           <End Role="Zamowienia_Dostawy" Type="Self.Zamowienia_Dostawy" Multiplicity="0..1" />
           <End Role="Dostawy_Zawartosc" Type="Self.Dostawy_Zawartosc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2272,7 +2341,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostawy_Z__ID_El__1DB06A4F">
+        <Association Name="FK__Dostawy_Z__ID_El__1EA48E88">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="0..1" />
           <End Role="Dostawy_Zawartosc" Type="Self.Dostawy_Zawartosc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2284,7 +2353,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostawy_Z__ID_of__1EA48E88">
+        <Association Name="FK__Dostawy_Z__ID_of__1F98B2C1">
           <End Role="Oferta" Type="Self.Oferta" Multiplicity="0..1" />
           <End Role="Dostawy_Zawartosc" Type="Self.Dostawy_Zawartosc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2320,7 +2389,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Elementy___ID_El__5E8A0973">
+        <Association Name="FK__Elementy___ID_El__5F7E2DAC">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
           <End Role="Elementy_Proces" Type="Self.Elementy_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2344,7 +2413,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Elementy___ID_je__5F7E2DAC">
+        <Association Name="FK__Elementy___ID_je__607251E5">
           <End Role="Elementy_Jednostki" Type="Self.Elementy_Jednostki" Multiplicity="1" />
           <End Role="Elementy_Proces" Type="Self.Elementy_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2356,7 +2425,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Elementy___ID_Pr__5D95E53A">
+        <Association Name="FK__Elementy___ID_Pr__5E8A0973">
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
           <End Role="Elementy_Proces" Type="Self.Elementy_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2380,7 +2449,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Etapy_W_P__ID_Et__634EBE90">
+        <Association Name="FK__Etapy_W_P__ID_Et__6442E2C9">
           <End Role="Rodzaj_Etapu" Type="Self.Rodzaj_Etapu" Multiplicity="1" />
           <End Role="Etapy_W_Procesie" Type="Self.Etapy_W_Procesie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2392,7 +2461,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Etapy_W_P__ID_Pr__625A9A57">
+        <Association Name="FK__Etapy_W_P__ID_Pr__634EBE90">
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
           <End Role="Etapy_W_Procesie" Type="Self.Etapy_W_Procesie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2416,7 +2485,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Kontrola___ID_Pr__793DFFAF">
+        <Association Name="FK__Kontrola___ID_Pr__7A3223E8">
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="1" />
           <End Role="Kontrola_Efektywnosci" Type="Self.Kontrola_Efektywnosci" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2428,7 +2497,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Maszyny__ID_Rodz__4E53A1AA">
+        <Association Name="FK__Maszyny__ID_Rodz__4F47C5E3">
           <End Role="Rodzaj_Maszyny" Type="Self.Rodzaj_Maszyny" Multiplicity="1" />
           <End Role="Maszyny" Type="Self.Maszyny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2440,7 +2509,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Maszyny__ID_Srod__4D5F7D71">
+        <Association Name="FK__Maszyny__ID_Srod__4E53A1AA">
           <End Role="Srodki_Trwale" Type="Self.Srodki_Trwale" Multiplicity="1" />
           <End Role="Maszyny" Type="Self.Maszyny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2452,7 +2521,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Maszyny_P__ID_Pr__498EEC8D">
+        <Association Name="FK__Maszyny_P__ID_Pr__4A8310C6">
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
           <End Role="Maszyny_Proces" Type="Self.Maszyny_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2464,7 +2533,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Maszyny_P__ID_Ro__4A8310C6">
+        <Association Name="FK__Maszyny_P__ID_Ro__4B7734FF">
           <End Role="Rodzaj_Maszyny" Type="Self.Rodzaj_Maszyny" Multiplicity="1" />
           <End Role="Maszyny_Proces" Type="Self.Maszyny_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2476,7 +2545,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Material___ID_El__6DCC4D03">
+        <Association Name="FK__Material___ID_El__6EC0713C">
           <End Role="Elementy_Proces" Type="Self.Elementy_Proces" Multiplicity="1" />
           <End Role="Material_Na_Produkcji" Type="Self.Material_Na_Produkcji" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2488,7 +2557,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Material___ID_Pr__6CD828CA">
+        <Association Name="FK__Material___ID_Pr__6DCC4D03">
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="1" />
           <End Role="Material_Na_Produkcji" Type="Self.Material_Na_Produkcji" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2500,7 +2569,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Obsluga_T__ID_Ma__51300E55">
+        <Association Name="FK__Obsluga_T__ID_Ma__5224328E">
           <End Role="Maszyny" Type="Self.Maszyny" Multiplicity="1" />
           <End Role="Obsluga_Techniczna" Type="Self.Obsluga_Techniczna" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2512,7 +2581,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Obsluga_T__ID_Pr__531856C7">
+        <Association Name="FK__Obsluga_T__ID_Pr__540C7B00">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
           <End Role="Obsluga_Techniczna" Type="Self.Obsluga_Techniczna" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2524,7 +2593,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Obsluga_T__ID_Ro__5224328E">
+        <Association Name="FK__Obsluga_T__ID_Ro__531856C7">
           <End Role="Rodzaj_Obslugi" Type="Self.Rodzaj_Obslugi" Multiplicity="1" />
           <End Role="Obsluga_Techniczna" Type="Self.Obsluga_Techniczna" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2536,7 +2605,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Odbior_Do__ID_Do__69FBBC1F">
+        <Association Name="FK__Odbior_Do__ID_Do__6AEFE058">
           <End Role="Dostarczenia_Wewn" Type="Self.Dostarczenia_Wewn" Multiplicity="1" />
           <End Role="Odbior_Dostarczenia" Type="Self.Odbior_Dostarczenia" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2548,7 +2617,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Odbior_Do__ID_Pr__690797E6">
+        <Association Name="FK__Odbior_Do__ID_Pr__69FBBC1F">
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="1" />
           <End Role="Odbior_Dostarczenia" Type="Self.Odbior_Dostarczenia" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2692,7 +2761,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Proces_Pr__ID_Za__662B2B3B">
+        <Association Name="FK__Proces_Pr__ID_Za__671F4F74">
           <End Role="Zamowienie_Element" Type="Self.Zamowienie_Element" Multiplicity="1" />
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2704,7 +2773,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Proces_Te__ID_Pr__42E1EEFE">
+        <Association Name="FK__Proces_Te__ID_Pr__43D61337">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2716,7 +2785,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Proces_Za__ID_Pr__59C55456">
+        <Association Name="FK__Proces_Za__ID_Pr__5AB9788F">
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
           <End Role="Proces_Zamowienie" Type="Self.Proces_Zamowienie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2728,7 +2797,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Proces_Za__ID_Za__5AB9788F">
+        <Association Name="FK__Proces_Za__ID_Za__5BAD9CC8">
           <End Role="Zamowienie_Element" Type="Self.Zamowienie_Element" Multiplicity="1" />
           <End Role="Proces_Zamowienie" Type="Self.Proces_Zamowienie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2740,7 +2809,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Przydzial__ID_Ma__76619304">
+        <Association Name="FK__Przydzial__ID_Ma__7755B73D">
           <End Role="Maszyny" Type="Self.Maszyny" Multiplicity="1" />
           <End Role="Przydzial_Zasobow" Type="Self.Przydzial_Zasobow" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2752,7 +2821,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Przydzial__ID_Pr__756D6ECB">
+        <Association Name="FK__Przydzial__ID_Pr__76619304">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
           <End Role="Przydzial_Zasobow" Type="Self.Przydzial_Zasobow" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2764,7 +2833,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Przydzial__ID_Re__74794A92">
+        <Association Name="FK__Przydzial__ID_Re__756D6ECB">
           <End Role="Realizacja_Procesu" Type="Self.Realizacja_Procesu" Multiplicity="1" />
           <End Role="Przydzial_Zasobow" Type="Self.Przydzial_Zasobow" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2776,7 +2845,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Realizacj__ID_Et__719CDDE7">
+        <Association Name="FK__Realizacj__ID_Et__72910220">
           <End Role="Rodzaj_Etapu" Type="Self.Rodzaj_Etapu" Multiplicity="1" />
           <End Role="Realizacja_Procesu" Type="Self.Realizacja_Procesu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2788,7 +2857,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Realizacj__ID_Pr__70A8B9AE">
+        <Association Name="FK__Realizacj__ID_Pr__719CDDE7">
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="1" />
           <End Role="Realizacja_Procesu" Type="Self.Realizacja_Procesu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2896,7 +2965,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zamowieni__ID_El__2DE6D218">
+        <Association Name="FK__Zamowieni__ID_El__2EDAF651">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="0..1" />
           <End Role="Zamowienie_Element" Type="Self.Zamowienie_Element" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2920,7 +2989,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zamowieni__ID_mi__31B762FC">
+        <Association Name="FK__Zamowieni__ID_mi__32AB8735">
           <End Role="Miejsca" Type="Self.Miejsca" Multiplicity="0..1" />
           <End Role="Zamowienia_Dostawy_Wlasne" Type="Self.Zamowienia_Dostawy_Wlasne" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3004,7 +3073,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zamowieni__ID_Za__2CF2ADDF">
+        <Association Name="FK__Zamowieni__ID_Za__2DE6D218">
           <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
           <End Role="Zamowienie_Element" Type="Self.Zamowienie_Element" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3016,7 +3085,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zamowieni__ID_Za__30C33EC3">
+        <Association Name="FK__Zamowieni__ID_Za__31B762FC">
           <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
           <End Role="Zamowienia_Dostawy_Wlasne" Type="Self.Zamowienia_Dostawy_Wlasne" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3061,6 +3130,18 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Principal>
             <Dependent Role="Zawartosc">
               <PropertyRef Name="ID_Polka" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Zawartosc__ID_Za__1AD3FDA4">
+          <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
+          <End Role="Zawartosc" Type="Self.Zawartosc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zamowienia">
+              <PropertyRef Name="ID_Zamowienia" />
+            </Principal>
+            <Dependent Role="Zawartosc">
+              <PropertyRef Name="ID_Zamowienia" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3337,6 +3418,32 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
     [vEtapy_proces].[Czas (h)] AS [Czas (h)]
     FROM [dbo].[vEtapy_proces] AS [vEtapy_proces]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vEwidencja_dostaw_wewnetrznych" EntityType="Self.vEwidencja_dostaw_wewnetrznych" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vEwidencja_dostaw_wewnetrznych].[ID_Dostarczenia] AS [ID_Dostarczenia], 
+    [vEwidencja_dostaw_wewnetrznych].[Data_Dostarczenia] AS [Data_Dostarczenia], 
+    [vEwidencja_dostaw_wewnetrznych].[Pracownik] AS [Pracownik], 
+    [vEwidencja_dostaw_wewnetrznych].[Element_Nazwa] AS [Element_Nazwa], 
+    [vEwidencja_dostaw_wewnetrznych].[ID_element] AS [ID_element], 
+    [vEwidencja_dostaw_wewnetrznych].[Miejsce] AS [Miejsce], 
+    [vEwidencja_dostaw_wewnetrznych].[Akcja] AS [Akcja], 
+    [vEwidencja_dostaw_wewnetrznych].[ID_Zamowienia] AS [ID_Zamowienia], 
+    [vEwidencja_dostaw_wewnetrznych].[ID_Zamowienie_element] AS [ID_Zamowienie_element], 
+    [vEwidencja_dostaw_wewnetrznych].[ID_Dostawy] AS [ID_Dostawy]
+    FROM [dbo].[vEwidencja_dostaw_wewnetrznych] AS [vEwidencja_dostaw_wewnetrznych]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vEwidencja_dostaw_zewnetrznych" EntityType="Self.vEwidencja_dostaw_zewnetrznych" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vEwidencja_dostaw_zewnetrznych].[ID_Dostarczenia] AS [ID_Dostarczenia], 
+    [vEwidencja_dostaw_zewnetrznych].[Data_Dostarczenia] AS [Data_Dostarczenia], 
+    [vEwidencja_dostaw_zewnetrznych].[Pracownik] AS [Pracownik], 
+    [vEwidencja_dostaw_zewnetrznych].[Element_Nazwa] AS [Element_Nazwa], 
+    [vEwidencja_dostaw_zewnetrznych].[ID_Element] AS [ID_Element], 
+    [vEwidencja_dostaw_zewnetrznych].[Miejsce] AS [Miejsce], 
+    [vEwidencja_dostaw_zewnetrznych].[Akcja] AS [Akcja], 
+    [vEwidencja_dostaw_zewnetrznych].[ID_Zamowienia] AS [ID_Zamowienia]
+    FROM [dbo].[vEwidencja_dostaw_zewnetrznych] AS [vEwidencja_dostaw_zewnetrznych]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vFaktury" EntityType="Self.vFaktury" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vFaktury].[ID_Zamowienia] AS [ID_Zamowienia], 
@@ -3589,6 +3696,15 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
     [vObsluga].[Rodzaj obsługi] AS [Rodzaj obsługi], 
     [vObsluga].[Imię i nazwisko] AS [Imię i nazwisko]
     FROM [dbo].[vObsluga] AS [vObsluga]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vOdbior_Gotowych_Produktow" EntityType="Self.vOdbior_Gotowych_Produktow" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vOdbior_Gotowych_Produktow].[ID_Zamowienia] AS [ID_Zamowienia], 
+    [vOdbior_Gotowych_Produktow].[ID_Zamowienie_Element] AS [ID_Zamowienie_Element], 
+    [vOdbior_Gotowych_Produktow].[Element_Nazwa] AS [Element_Nazwa], 
+    [vOdbior_Gotowych_Produktow].[ID_Element] AS [ID_Element], 
+    [vOdbior_Gotowych_Produktow].[Ilosc] AS [Ilosc]
+    FROM [dbo].[vOdbior_Gotowych_Produktow] AS [vOdbior_Gotowych_Produktow]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vOdebranyMaterialMagazyn" EntityType="Self.vOdebranyMaterialMagazyn" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -4021,6 +4137,15 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
     [vWszystkieMaszyny].[Maszyna] AS [Maszyna]
     FROM [dbo].[vWszystkieMaszyny] AS [vWszystkieMaszyny]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vWydawanie_Zamowien_Kurierowi" EntityType="Self.vWydawanie_Zamowien_Kurierowi" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vWydawanie_Zamowien_Kurierowi].[ID_Zamowienia] AS [ID_Zamowienia], 
+    [vWydawanie_Zamowien_Kurierowi].[ID_Zamowienie_Element] AS [ID_Zamowienie_Element], 
+    [vWydawanie_Zamowien_Kurierowi].[Element_Nazwa] AS [Element_Nazwa], 
+    [vWydawanie_Zamowien_Kurierowi].[ID_element] AS [ID_element], 
+    [vWydawanie_Zamowien_Kurierowi].[Ilosc] AS [Ilosc]
+    FROM [dbo].[vWydawanie_Zamowien_Kurierowi] AS [vWydawanie_Zamowien_Kurierowi]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vWynagrodzenia" EntityType="Self.vWynagrodzenia" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vWynagrodzenia].[Imie] AS [Imie], 
@@ -4031,6 +4156,11 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
     [vWynagrodzenia].[Wymiar_Etatu] AS [Wymiar_Etatu], 
     [vWynagrodzenia].[Wynagrodzenie] AS [Wynagrodzenie]
     FROM [dbo].[vWynagrodzenia] AS [vWynagrodzenia]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vZamowienia_Do_Wydania" EntityType="Self.vZamowienia_Do_Wydania" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vZamowienia_Do_Wydania].[ID_Zamowienia] AS [ID_Zamowienia]
+    FROM [dbo].[vZamowienia_Do_Wydania] AS [vZamowienia_Do_Wydania]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vZamowieniaDoWykonaniaUDostawcy" EntityType="Self.vZamowieniaDoWykonaniaUDostawcy" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -4095,83 +4225,83 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
     [vZawartoscMagazynuDoPrzydzialu].[Cena] AS [Cena]
     FROM [dbo].[vZawartoscMagazynuDoPrzydzialu] AS [vZawartoscMagazynuDoPrzydzialu]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__Czesci_Ob__ID_El__56E8E7AB" Association="Self.FK__Czesci_Ob__ID_El__56E8E7AB">
+          <AssociationSet Name="FK__Czesci_Ob__ID_El__57DD0BE4" Association="Self.FK__Czesci_Ob__ID_El__57DD0BE4">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Czesci_Obsluga" EntitySet="Czesci_Obsluga" />
           </AssociationSet>
-          <AssociationSet Name="FK__Czesci_Ob__ID_Ob__55F4C372" Association="Self.FK__Czesci_Ob__ID_Ob__55F4C372">
+          <AssociationSet Name="FK__Czesci_Ob__ID_Ob__56E8E7AB" Association="Self.FK__Czesci_Ob__ID_Ob__56E8E7AB">
             <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
             <End Role="Czesci_Obsluga" EntitySet="Czesci_Obsluga" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dokumenta__ID_Do__45BE5BA9" Association="Self.FK__Dokumenta__ID_Do__45BE5BA9">
+          <AssociationSet Name="FK__Dokumenta__ID_Do__46B27FE2" Association="Self.FK__Dokumenta__ID_Do__46B27FE2">
             <End Role="Dokumentacje" EntitySet="Dokumentacje" />
             <End Role="Dokumentacja_Proces" EntitySet="Dokumentacja_Proces" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dokumenta__ID_Pr__40058253" Association="Self.FK__Dokumenta__ID_Pr__40058253">
+          <AssociationSet Name="FK__Dokumenta__ID_Pr__40F9A68C" Association="Self.FK__Dokumenta__ID_Pr__40F9A68C">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Dokumentacje" EntitySet="Dokumentacje" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dokumenta__ID_Pr__46B27FE2" Association="Self.FK__Dokumenta__ID_Pr__46B27FE2">
+          <AssociationSet Name="FK__Dokumenta__ID_Pr__47A6A41B" Association="Self.FK__Dokumenta__ID_Pr__47A6A41B">
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
             <End Role="Dokumentacja_Proces" EntitySet="Dokumentacja_Proces" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dokumenta__ID_Ro__3F115E1A" Association="Self.FK__Dokumenta__ID_Ro__3F115E1A">
+          <AssociationSet Name="FK__Dokumenta__ID_Ro__40058253" Association="Self.FK__Dokumenta__ID_Ro__40058253">
             <End Role="Rodzaj_Dokumentacji" EntitySet="Rodzaj_Dokumentacji" />
             <End Role="Dokumentacje" EntitySet="Dokumentacje" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Do__22751F6C" Association="Self.FK__Dostarcze__ID_Do__22751F6C">
+          <AssociationSet Name="FK__Dostarcze__ID_Do__236943A5" Association="Self.FK__Dostarcze__ID_Do__236943A5">
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_el__236943A5" Association="Self.FK__Dostarcze__ID_el__236943A5">
+          <AssociationSet Name="FK__Dostarcze__ID_el__245D67DE" Association="Self.FK__Dostarcze__ID_el__245D67DE">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_el__29221CFB" Association="Self.FK__Dostarcze__ID_el__29221CFB">
+          <AssociationSet Name="FK__Dostarcze__ID_el__2A164134" Association="Self.FK__Dostarcze__ID_el__2A164134">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Dostarczenia_Zewn" EntitySet="Dostarczenia_Zewn" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Mi__245D67DE" Association="Self.FK__Dostarcze__ID_Mi__245D67DE">
+          <AssociationSet Name="FK__Dostarcze__ID_Mi__25518C17" Association="Self.FK__Dostarcze__ID_Mi__25518C17">
             <End Role="Miejsca" EntitySet="Miejsca" />
             <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Mi__2A164134" Association="Self.FK__Dostarcze__ID_Mi__2A164134">
+          <AssociationSet Name="FK__Dostarcze__ID_Mi__2B0A656D" Association="Self.FK__Dostarcze__ID_Mi__2B0A656D">
             <End Role="Miejsca" EntitySet="Miejsca" />
             <End Role="Dostarczenia_Zewn" EntitySet="Dostarczenia_Zewn" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Pr__2180FB33" Association="Self.FK__Dostarcze__ID_Pr__2180FB33">
+          <AssociationSet Name="FK__Dostarcze__ID_Pr__22751F6C" Association="Self.FK__Dostarcze__ID_Pr__22751F6C">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Pr__2739D489" Association="Self.FK__Dostarcze__ID_Pr__2739D489">
+          <AssociationSet Name="FK__Dostarcze__ID_Pr__282DF8C2" Association="Self.FK__Dostarcze__ID_Pr__282DF8C2">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Dostarczenia_Zewn" EntitySet="Dostarczenia_Zewn" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Za__282DF8C2" Association="Self.FK__Dostarcze__ID_Za__282DF8C2">
+          <AssociationSet Name="FK__Dostarcze__ID_Za__29221CFB" Association="Self.FK__Dostarcze__ID_Za__29221CFB">
             <End Role="Zamowienia" EntitySet="Zamowienia" />
             <End Role="Dostarczenia_Zewn" EntitySet="Dostarczenia_Zewn" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostawy_W__ID_Do__3587F3E0" Association="Self.FK__Dostawy_W__ID_Do__3587F3E0">
+          <AssociationSet Name="FK__Dostawy_W__ID_Do__367C1819" Association="Self.FK__Dostawy_W__ID_Do__367C1819">
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Dostawy_Wlasne_Zawartosc" EntitySet="Dostawy_Wlasne_Zawartosc" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostawy_W__ID_El__367C1819" Association="Self.FK__Dostawy_W__ID_El__367C1819">
+          <AssociationSet Name="FK__Dostawy_W__ID_El__37703C52" Association="Self.FK__Dostawy_W__ID_El__37703C52">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Dostawy_Wlasne_Zawartosc" EntitySet="Dostawy_Wlasne_Zawartosc" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostawy_W__ID_Za__3493CFA7" Association="Self.FK__Dostawy_W__ID_Za__3493CFA7">
+          <AssociationSet Name="FK__Dostawy_W__ID_Za__3587F3E0" Association="Self.FK__Dostawy_W__ID_Za__3587F3E0">
             <End Role="Zamowienia_Dostawy_Wlasne" EntitySet="Zamowienia_Dostawy_Wlasne" />
             <End Role="Dostawy_Wlasne_Zawartosc" EntitySet="Dostawy_Wlasne_Zawartosc" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostawy_Z__ID_Do__1CBC4616" Association="Self.FK__Dostawy_Z__ID_Do__1CBC4616">
+          <AssociationSet Name="FK__Dostawy_Z__ID_Do__1DB06A4F" Association="Self.FK__Dostawy_Z__ID_Do__1DB06A4F">
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Dostawy_Zawartosc" EntitySet="Dostawy_Zawartosc" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostawy_Z__ID_El__1DB06A4F" Association="Self.FK__Dostawy_Z__ID_El__1DB06A4F">
+          <AssociationSet Name="FK__Dostawy_Z__ID_El__1EA48E88" Association="Self.FK__Dostawy_Z__ID_El__1EA48E88">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Dostawy_Zawartosc" EntitySet="Dostawy_Zawartosc" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostawy_Z__ID_of__1EA48E88" Association="Self.FK__Dostawy_Z__ID_of__1EA48E88">
+          <AssociationSet Name="FK__Dostawy_Z__ID_of__1F98B2C1" Association="Self.FK__Dostawy_Z__ID_of__1F98B2C1">
             <End Role="Oferta" EntitySet="Oferta" />
             <End Role="Dostawy_Zawartosc" EntitySet="Dostawy_Zawartosc" />
           </AssociationSet>
@@ -4183,7 +4313,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Elementy_Cechy" EntitySet="Elementy_Cechy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Elementy___ID_El__5E8A0973" Association="Self.FK__Elementy___ID_El__5E8A0973">
+          <AssociationSet Name="FK__Elementy___ID_El__5F7E2DAC" Association="Self.FK__Elementy___ID_El__5F7E2DAC">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Elementy_Proces" EntitySet="Elementy_Proces" />
           </AssociationSet>
@@ -4191,11 +4321,11 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Elementy_Jednostki" EntitySet="Elementy_Jednostki" />
             <End Role="Elementy_Cechy" EntitySet="Elementy_Cechy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Elementy___ID_je__5F7E2DAC" Association="Self.FK__Elementy___ID_je__5F7E2DAC">
+          <AssociationSet Name="FK__Elementy___ID_je__607251E5" Association="Self.FK__Elementy___ID_je__607251E5">
             <End Role="Elementy_Jednostki" EntitySet="Elementy_Jednostki" />
             <End Role="Elementy_Proces" EntitySet="Elementy_Proces" />
           </AssociationSet>
-          <AssociationSet Name="FK__Elementy___ID_Pr__5D95E53A" Association="Self.FK__Elementy___ID_Pr__5D95E53A">
+          <AssociationSet Name="FK__Elementy___ID_Pr__5E8A0973" Association="Self.FK__Elementy___ID_Pr__5E8A0973">
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
             <End Role="Elementy_Proces" EntitySet="Elementy_Proces" />
           </AssociationSet>
@@ -4203,11 +4333,11 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Elementy_Typy" EntitySet="Elementy_Typy" />
             <End Role="Elementy" EntitySet="Elementy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Etapy_W_P__ID_Et__634EBE90" Association="Self.FK__Etapy_W_P__ID_Et__634EBE90">
+          <AssociationSet Name="FK__Etapy_W_P__ID_Et__6442E2C9" Association="Self.FK__Etapy_W_P__ID_Et__6442E2C9">
             <End Role="Rodzaj_Etapu" EntitySet="Rodzaj_Etapu" />
             <End Role="Etapy_W_Procesie" EntitySet="Etapy_W_Procesie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Etapy_W_P__ID_Pr__625A9A57" Association="Self.FK__Etapy_W_P__ID_Pr__625A9A57">
+          <AssociationSet Name="FK__Etapy_W_P__ID_Pr__634EBE90" Association="Self.FK__Etapy_W_P__ID_Pr__634EBE90">
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
             <End Role="Etapy_W_Procesie" EntitySet="Etapy_W_Procesie" />
           </AssociationSet>
@@ -4215,51 +4345,51 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Grupa" EntitySet="Grupa" />
             <End Role="Faktury_Zewnetrzne" EntitySet="Faktury_Zewnetrzne" />
           </AssociationSet>
-          <AssociationSet Name="FK__Kontrola___ID_Pr__793DFFAF" Association="Self.FK__Kontrola___ID_Pr__793DFFAF">
+          <AssociationSet Name="FK__Kontrola___ID_Pr__7A3223E8" Association="Self.FK__Kontrola___ID_Pr__7A3223E8">
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
             <End Role="Kontrola_Efektywnosci" EntitySet="Kontrola_Efektywnosci" />
           </AssociationSet>
-          <AssociationSet Name="FK__Maszyny__ID_Rodz__4E53A1AA" Association="Self.FK__Maszyny__ID_Rodz__4E53A1AA">
+          <AssociationSet Name="FK__Maszyny__ID_Rodz__4F47C5E3" Association="Self.FK__Maszyny__ID_Rodz__4F47C5E3">
             <End Role="Rodzaj_Maszyny" EntitySet="Rodzaj_Maszyny" />
             <End Role="Maszyny" EntitySet="Maszyny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Maszyny__ID_Srod__4D5F7D71" Association="Self.FK__Maszyny__ID_Srod__4D5F7D71">
+          <AssociationSet Name="FK__Maszyny__ID_Srod__4E53A1AA" Association="Self.FK__Maszyny__ID_Srod__4E53A1AA">
             <End Role="Srodki_Trwale" EntitySet="Srodki_Trwale" />
             <End Role="Maszyny" EntitySet="Maszyny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Maszyny_P__ID_Pr__498EEC8D" Association="Self.FK__Maszyny_P__ID_Pr__498EEC8D">
+          <AssociationSet Name="FK__Maszyny_P__ID_Pr__4A8310C6" Association="Self.FK__Maszyny_P__ID_Pr__4A8310C6">
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
             <End Role="Maszyny_Proces" EntitySet="Maszyny_Proces" />
           </AssociationSet>
-          <AssociationSet Name="FK__Maszyny_P__ID_Ro__4A8310C6" Association="Self.FK__Maszyny_P__ID_Ro__4A8310C6">
+          <AssociationSet Name="FK__Maszyny_P__ID_Ro__4B7734FF" Association="Self.FK__Maszyny_P__ID_Ro__4B7734FF">
             <End Role="Rodzaj_Maszyny" EntitySet="Rodzaj_Maszyny" />
             <End Role="Maszyny_Proces" EntitySet="Maszyny_Proces" />
           </AssociationSet>
-          <AssociationSet Name="FK__Material___ID_El__6DCC4D03" Association="Self.FK__Material___ID_El__6DCC4D03">
+          <AssociationSet Name="FK__Material___ID_El__6EC0713C" Association="Self.FK__Material___ID_El__6EC0713C">
             <End Role="Elementy_Proces" EntitySet="Elementy_Proces" />
             <End Role="Material_Na_Produkcji" EntitySet="Material_Na_Produkcji" />
           </AssociationSet>
-          <AssociationSet Name="FK__Material___ID_Pr__6CD828CA" Association="Self.FK__Material___ID_Pr__6CD828CA">
+          <AssociationSet Name="FK__Material___ID_Pr__6DCC4D03" Association="Self.FK__Material___ID_Pr__6DCC4D03">
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
             <End Role="Material_Na_Produkcji" EntitySet="Material_Na_Produkcji" />
           </AssociationSet>
-          <AssociationSet Name="FK__Obsluga_T__ID_Ma__51300E55" Association="Self.FK__Obsluga_T__ID_Ma__51300E55">
+          <AssociationSet Name="FK__Obsluga_T__ID_Ma__5224328E" Association="Self.FK__Obsluga_T__ID_Ma__5224328E">
             <End Role="Maszyny" EntitySet="Maszyny" />
             <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
           </AssociationSet>
-          <AssociationSet Name="FK__Obsluga_T__ID_Pr__531856C7" Association="Self.FK__Obsluga_T__ID_Pr__531856C7">
+          <AssociationSet Name="FK__Obsluga_T__ID_Pr__540C7B00" Association="Self.FK__Obsluga_T__ID_Pr__540C7B00">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
           </AssociationSet>
-          <AssociationSet Name="FK__Obsluga_T__ID_Ro__5224328E" Association="Self.FK__Obsluga_T__ID_Ro__5224328E">
+          <AssociationSet Name="FK__Obsluga_T__ID_Ro__531856C7" Association="Self.FK__Obsluga_T__ID_Ro__531856C7">
             <End Role="Rodzaj_Obslugi" EntitySet="Rodzaj_Obslugi" />
             <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
           </AssociationSet>
-          <AssociationSet Name="FK__Odbior_Do__ID_Do__69FBBC1F" Association="Self.FK__Odbior_Do__ID_Do__69FBBC1F">
+          <AssociationSet Name="FK__Odbior_Do__ID_Do__6AEFE058" Association="Self.FK__Odbior_Do__ID_Do__6AEFE058">
             <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
             <End Role="Odbior_Dostarczenia" EntitySet="Odbior_Dostarczenia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Odbior_Do__ID_Pr__690797E6" Association="Self.FK__Odbior_Do__ID_Pr__690797E6">
+          <AssociationSet Name="FK__Odbior_Do__ID_Pr__69FBBC1F" Association="Self.FK__Odbior_Do__ID_Pr__69FBBC1F">
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
             <End Role="Odbior_Dostarczenia" EntitySet="Odbior_Dostarczenia" />
           </AssociationSet>
@@ -4307,39 +4437,39 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Stanowisko" EntitySet="Stanowisko" />
             <End Role="Pracownicy_Zatrudnienie" EntitySet="Pracownicy_Zatrudnienie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Proces_Pr__ID_Za__662B2B3B" Association="Self.FK__Proces_Pr__ID_Za__662B2B3B">
+          <AssociationSet Name="FK__Proces_Pr__ID_Za__671F4F74" Association="Self.FK__Proces_Pr__ID_Za__671F4F74">
             <End Role="Zamowienie_Element" EntitySet="Zamowienie_Element" />
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Proces_Te__ID_Pr__42E1EEFE" Association="Self.FK__Proces_Te__ID_Pr__42E1EEFE">
+          <AssociationSet Name="FK__Proces_Te__ID_Pr__43D61337" Association="Self.FK__Proces_Te__ID_Pr__43D61337">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Proces_Za__ID_Pr__59C55456" Association="Self.FK__Proces_Za__ID_Pr__59C55456">
+          <AssociationSet Name="FK__Proces_Za__ID_Pr__5AB9788F" Association="Self.FK__Proces_Za__ID_Pr__5AB9788F">
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
             <End Role="Proces_Zamowienie" EntitySet="Proces_Zamowienie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Proces_Za__ID_Za__5AB9788F" Association="Self.FK__Proces_Za__ID_Za__5AB9788F">
+          <AssociationSet Name="FK__Proces_Za__ID_Za__5BAD9CC8" Association="Self.FK__Proces_Za__ID_Za__5BAD9CC8">
             <End Role="Zamowienie_Element" EntitySet="Zamowienie_Element" />
             <End Role="Proces_Zamowienie" EntitySet="Proces_Zamowienie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Przydzial__ID_Ma__76619304" Association="Self.FK__Przydzial__ID_Ma__76619304">
+          <AssociationSet Name="FK__Przydzial__ID_Ma__7755B73D" Association="Self.FK__Przydzial__ID_Ma__7755B73D">
             <End Role="Maszyny" EntitySet="Maszyny" />
             <End Role="Przydzial_Zasobow" EntitySet="Przydzial_Zasobow" />
           </AssociationSet>
-          <AssociationSet Name="FK__Przydzial__ID_Pr__756D6ECB" Association="Self.FK__Przydzial__ID_Pr__756D6ECB">
+          <AssociationSet Name="FK__Przydzial__ID_Pr__76619304" Association="Self.FK__Przydzial__ID_Pr__76619304">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Przydzial_Zasobow" EntitySet="Przydzial_Zasobow" />
           </AssociationSet>
-          <AssociationSet Name="FK__Przydzial__ID_Re__74794A92" Association="Self.FK__Przydzial__ID_Re__74794A92">
+          <AssociationSet Name="FK__Przydzial__ID_Re__756D6ECB" Association="Self.FK__Przydzial__ID_Re__756D6ECB">
             <End Role="Realizacja_Procesu" EntitySet="Realizacja_Procesu" />
             <End Role="Przydzial_Zasobow" EntitySet="Przydzial_Zasobow" />
           </AssociationSet>
-          <AssociationSet Name="FK__Realizacj__ID_Et__719CDDE7" Association="Self.FK__Realizacj__ID_Et__719CDDE7">
+          <AssociationSet Name="FK__Realizacj__ID_Et__72910220" Association="Self.FK__Realizacj__ID_Et__72910220">
             <End Role="Rodzaj_Etapu" EntitySet="Rodzaj_Etapu" />
             <End Role="Realizacja_Procesu" EntitySet="Realizacja_Procesu" />
           </AssociationSet>
-          <AssociationSet Name="FK__Realizacj__ID_Pr__70A8B9AE" Association="Self.FK__Realizacj__ID_Pr__70A8B9AE">
+          <AssociationSet Name="FK__Realizacj__ID_Pr__719CDDE7" Association="Self.FK__Realizacj__ID_Pr__719CDDE7">
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
             <End Role="Realizacja_Procesu" EntitySet="Realizacja_Procesu" />
           </AssociationSet>
@@ -4375,7 +4505,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Wymiar_Urlopu" EntitySet="Wymiar_Urlopu" />
             <End Role="Urlop" EntitySet="Urlop" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_El__2DE6D218" Association="Self.FK__Zamowieni__ID_El__2DE6D218">
+          <AssociationSet Name="FK__Zamowieni__ID_El__2EDAF651" Association="Self.FK__Zamowieni__ID_El__2EDAF651">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Zamowienie_Element" EntitySet="Zamowienie_Element" />
           </AssociationSet>
@@ -4383,7 +4513,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Klienci" EntitySet="Klienci" />
             <End Role="Zamowienia" EntitySet="Zamowienia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_mi__31B762FC" Association="Self.FK__Zamowieni__ID_mi__31B762FC">
+          <AssociationSet Name="FK__Zamowieni__ID_mi__32AB8735" Association="Self.FK__Zamowieni__ID_mi__32AB8735">
             <End Role="Miejsca" EntitySet="Miejsca" />
             <End Role="Zamowienia_Dostawy_Wlasne" EntitySet="Zamowienia_Dostawy_Wlasne" />
           </AssociationSet>
@@ -4411,11 +4541,11 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Zamowienia" EntitySet="Zamowienia" />
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Za__2CF2ADDF" Association="Self.FK__Zamowieni__ID_Za__2CF2ADDF">
+          <AssociationSet Name="FK__Zamowieni__ID_Za__2DE6D218" Association="Self.FK__Zamowieni__ID_Za__2DE6D218">
             <End Role="Zamowienia" EntitySet="Zamowienia" />
             <End Role="Zamowienie_Element" EntitySet="Zamowienie_Element" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Za__30C33EC3" Association="Self.FK__Zamowieni__ID_Za__30C33EC3">
+          <AssociationSet Name="FK__Zamowieni__ID_Za__31B762FC" Association="Self.FK__Zamowieni__ID_Za__31B762FC">
             <End Role="Zamowienia" EntitySet="Zamowienia" />
             <End Role="Zamowienia_Dostawy_Wlasne" EntitySet="Zamowienia_Dostawy_Wlasne" />
           </AssociationSet>
@@ -4429,6 +4559,10 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           </AssociationSet>
           <AssociationSet Name="FK__Zawartosc__ID_Po__17F790F9" Association="Self.FK__Zawartosc__ID_Po__17F790F9">
             <End Role="Polki" EntitySet="Polki" />
+            <End Role="Zawartosc" EntitySet="Zawartosc" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zawartosc__ID_Za__1AD3FDA4" Association="Self.FK__Zawartosc__ID_Za__1AD3FDA4">
+            <End Role="Zamowienia" EntitySet="Zamowienia" />
             <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
           <AssociationSet Name="FK__Znajomosc__ID_Je__534D60F1" Association="Self.FK__Znajomosc__ID_Je__534D60F1">
@@ -4453,8 +4587,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="ID_Obsluga_Techniczna" Type="Int32" Nullable="false" />
           <Property Name="ID_Element" Type="Int32" Nullable="false" />
           <Property Name="Liczba" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Elementy" Relationship="Self.FK__Czesci_Ob__ID_El__56E8E7AB" FromRole="Czesci_Obsluga" ToRole="Elementy" />
-          <NavigationProperty Name="Obsluga_Techniczna" Relationship="Self.FK__Czesci_Ob__ID_Ob__55F4C372" FromRole="Czesci_Obsluga" ToRole="Obsluga_Techniczna" />
+          <NavigationProperty Name="Elementy" Relationship="Self.FK__Czesci_Ob__ID_El__57DD0BE4" FromRole="Czesci_Obsluga" ToRole="Elementy" />
+          <NavigationProperty Name="Obsluga_Techniczna" Relationship="Self.FK__Czesci_Ob__ID_Ob__56E8E7AB" FromRole="Czesci_Obsluga" ToRole="Obsluga_Techniczna" />
         </EntityType>
         <EntityType Name="Dokumentacja_Proces">
           <Key>
@@ -4463,8 +4597,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="ID_Dokumentacja_Proces" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Dokumentacji" Type="Int32" Nullable="false" />
           <Property Name="ID_Proces_Technologiczny" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Dokumentacje" Relationship="Self.FK__Dokumenta__ID_Do__45BE5BA9" FromRole="Dokumentacja_Proces" ToRole="Dokumentacje" />
-          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Dokumenta__ID_Pr__46B27FE2" FromRole="Dokumentacja_Proces" ToRole="Proces_Technologiczny" />
+          <NavigationProperty Name="Dokumentacje" Relationship="Self.FK__Dokumenta__ID_Do__46B27FE2" FromRole="Dokumentacja_Proces" ToRole="Dokumentacje" />
+          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Dokumenta__ID_Pr__47A6A41B" FromRole="Dokumentacja_Proces" ToRole="Proces_Technologiczny" />
         </EntityType>
         <EntityType Name="Dokumentacje">
           <Key>
@@ -4475,9 +4609,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="ID_Pracownika" Type="Int32" Nullable="false" />
           <Property Name="Data_Wykonania" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Plik" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Dokumentacja_Proces" Relationship="Self.FK__Dokumenta__ID_Do__45BE5BA9" FromRole="Dokumentacje" ToRole="Dokumentacja_Proces" />
-          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Dokumenta__ID_Pr__40058253" FromRole="Dokumentacje" ToRole="Pracownicy" />
-          <NavigationProperty Name="Rodzaj_Dokumentacji" Relationship="Self.FK__Dokumenta__ID_Ro__3F115E1A" FromRole="Dokumentacje" ToRole="Rodzaj_Dokumentacji" />
+          <NavigationProperty Name="Dokumentacja_Proces" Relationship="Self.FK__Dokumenta__ID_Do__46B27FE2" FromRole="Dokumentacje" ToRole="Dokumentacja_Proces" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Dokumenta__ID_Pr__40F9A68C" FromRole="Dokumentacje" ToRole="Pracownicy" />
+          <NavigationProperty Name="Rodzaj_Dokumentacji" Relationship="Self.FK__Dokumenta__ID_Ro__40058253" FromRole="Dokumentacje" ToRole="Rodzaj_Dokumentacji" />
         </EntityType>
         <EntityType Name="Dostarczenia_Wewn">
           <Key>
@@ -4491,11 +4625,11 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Ilosc_Dostarczona" Type="Double" />
           <Property Name="ID_Miejsca" Type="Int32" />
           <Property Name="Data_Dostarczenia" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Zamowienia_Dostawy" Relationship="Self.FK__Dostarcze__ID_Do__22751F6C" FromRole="Dostarczenia_Wewn" ToRole="Zamowienia_Dostawy" />
-          <NavigationProperty Name="Elementy" Relationship="Self.FK__Dostarcze__ID_el__236943A5" FromRole="Dostarczenia_Wewn" ToRole="Elementy" />
-          <NavigationProperty Name="Miejsca" Relationship="Self.FK__Dostarcze__ID_Mi__245D67DE" FromRole="Dostarczenia_Wewn" ToRole="Miejsca" />
-          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Dostarcze__ID_Pr__2180FB33" FromRole="Dostarczenia_Wewn" ToRole="Pracownicy" />
-          <NavigationProperty Name="Odbior_Dostarczenia" Relationship="Self.FK__Odbior_Do__ID_Do__69FBBC1F" FromRole="Dostarczenia_Wewn" ToRole="Odbior_Dostarczenia" />
+          <NavigationProperty Name="Zamowienia_Dostawy" Relationship="Self.FK__Dostarcze__ID_Do__236943A5" FromRole="Dostarczenia_Wewn" ToRole="Zamowienia_Dostawy" />
+          <NavigationProperty Name="Elementy" Relationship="Self.FK__Dostarcze__ID_el__245D67DE" FromRole="Dostarczenia_Wewn" ToRole="Elementy" />
+          <NavigationProperty Name="Miejsca" Relationship="Self.FK__Dostarcze__ID_Mi__25518C17" FromRole="Dostarczenia_Wewn" ToRole="Miejsca" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Dostarcze__ID_Pr__22751F6C" FromRole="Dostarczenia_Wewn" ToRole="Pracownicy" />
+          <NavigationProperty Name="Odbior_Dostarczenia" Relationship="Self.FK__Odbior_Do__ID_Do__6AEFE058" FromRole="Dostarczenia_Wewn" ToRole="Odbior_Dostarczenia" />
         </EntityType>
         <EntityType Name="Dostarczenia_Zewn">
           <Key>
@@ -4508,10 +4642,10 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Ilosc_Dostarczona" Type="Double" />
           <Property Name="ID_Miejsca" Type="Int32" />
           <Property Name="Data_Dostarczenia" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Elementy" Relationship="Self.FK__Dostarcze__ID_el__29221CFB" FromRole="Dostarczenia_Zewn" ToRole="Elementy" />
-          <NavigationProperty Name="Miejsca" Relationship="Self.FK__Dostarcze__ID_Mi__2A164134" FromRole="Dostarczenia_Zewn" ToRole="Miejsca" />
-          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Dostarcze__ID_Pr__2739D489" FromRole="Dostarczenia_Zewn" ToRole="Pracownicy" />
-          <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Dostarcze__ID_Za__282DF8C2" FromRole="Dostarczenia_Zewn" ToRole="Zamowienia" />
+          <NavigationProperty Name="Elementy" Relationship="Self.FK__Dostarcze__ID_el__2A164134" FromRole="Dostarczenia_Zewn" ToRole="Elementy" />
+          <NavigationProperty Name="Miejsca" Relationship="Self.FK__Dostarcze__ID_Mi__2B0A656D" FromRole="Dostarczenia_Zewn" ToRole="Miejsca" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Dostarcze__ID_Pr__282DF8C2" FromRole="Dostarczenia_Zewn" ToRole="Pracownicy" />
+          <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Dostarcze__ID_Za__29221CFB" FromRole="Dostarczenia_Zewn" ToRole="Zamowienia" />
         </EntityType>
         <EntityType Name="Dostawcy_Zaopatrzenie">
           <Key>
@@ -4533,9 +4667,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="ID_Dostawy" Type="Int32" />
           <Property Name="ID_Element" Type="Int32" />
           <Property Name="Ilosc" Type="Int32" />
-          <NavigationProperty Name="Zamowienia_Dostawy" Relationship="Self.FK__Dostawy_W__ID_Do__3587F3E0" FromRole="Dostawy_Wlasne_Zawartosc" ToRole="Zamowienia_Dostawy" />
-          <NavigationProperty Name="Elementy" Relationship="Self.FK__Dostawy_W__ID_El__367C1819" FromRole="Dostawy_Wlasne_Zawartosc" ToRole="Elementy" />
-          <NavigationProperty Name="Zamowienia_Dostawy_Wlasne" Relationship="Self.FK__Dostawy_W__ID_Za__3493CFA7" FromRole="Dostawy_Wlasne_Zawartosc" ToRole="Zamowienia_Dostawy_Wlasne" />
+          <NavigationProperty Name="Zamowienia_Dostawy" Relationship="Self.FK__Dostawy_W__ID_Do__367C1819" FromRole="Dostawy_Wlasne_Zawartosc" ToRole="Zamowienia_Dostawy" />
+          <NavigationProperty Name="Elementy" Relationship="Self.FK__Dostawy_W__ID_El__37703C52" FromRole="Dostawy_Wlasne_Zawartosc" ToRole="Elementy" />
+          <NavigationProperty Name="Zamowienia_Dostawy_Wlasne" Relationship="Self.FK__Dostawy_W__ID_Za__3587F3E0" FromRole="Dostawy_Wlasne_Zawartosc" ToRole="Zamowienia_Dostawy_Wlasne" />
         </EntityType>
         <EntityType Name="Dostawy_Zawartosc">
           <Key>
@@ -4546,9 +4680,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="ID_Element" Type="Int32" />
           <Property Name="ID_oferta" Type="Int32" />
           <Property Name="Ilosc_Dostarczona" Type="Int32" />
-          <NavigationProperty Name="Zamowienia_Dostawy" Relationship="Self.FK__Dostawy_Z__ID_Do__1CBC4616" FromRole="Dostawy_Zawartosc" ToRole="Zamowienia_Dostawy" />
-          <NavigationProperty Name="Elementy" Relationship="Self.FK__Dostawy_Z__ID_El__1DB06A4F" FromRole="Dostawy_Zawartosc" ToRole="Elementy" />
-          <NavigationProperty Name="Oferta" Relationship="Self.FK__Dostawy_Z__ID_of__1EA48E88" FromRole="Dostawy_Zawartosc" ToRole="Oferta" />
+          <NavigationProperty Name="Zamowienia_Dostawy" Relationship="Self.FK__Dostawy_Z__ID_Do__1DB06A4F" FromRole="Dostawy_Zawartosc" ToRole="Zamowienia_Dostawy" />
+          <NavigationProperty Name="Elementy" Relationship="Self.FK__Dostawy_Z__ID_El__1EA48E88" FromRole="Dostawy_Zawartosc" ToRole="Elementy" />
+          <NavigationProperty Name="Oferta" Relationship="Self.FK__Dostawy_Z__ID_of__1F98B2C1" FromRole="Dostawy_Zawartosc" ToRole="Oferta" />
         </EntityType>
         <EntityType Name="Dzialy">
           <Key>
@@ -4567,16 +4701,16 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="ID_Element_Typ" Type="Int32" />
           <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
           <Property Name="Okres_Przydatnosci_Miesiace" Type="Int32" />
-          <NavigationProperty Name="Czesci_Obsluga" Relationship="Self.FK__Czesci_Ob__ID_El__56E8E7AB" FromRole="Elementy" ToRole="Czesci_Obsluga" />
-          <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Dostarcze__ID_el__236943A5" FromRole="Elementy" ToRole="Dostarczenia_Wewn" />
-          <NavigationProperty Name="Dostarczenia_Zewn" Relationship="Self.FK__Dostarcze__ID_el__29221CFB" FromRole="Elementy" ToRole="Dostarczenia_Zewn" />
-          <NavigationProperty Name="Dostawy_Wlasne_Zawartosc" Relationship="Self.FK__Dostawy_W__ID_El__367C1819" FromRole="Elementy" ToRole="Dostawy_Wlasne_Zawartosc" />
-          <NavigationProperty Name="Dostawy_Zawartosc" Relationship="Self.FK__Dostawy_Z__ID_El__1DB06A4F" FromRole="Elementy" ToRole="Dostawy_Zawartosc" />
+          <NavigationProperty Name="Czesci_Obsluga" Relationship="Self.FK__Czesci_Ob__ID_El__57DD0BE4" FromRole="Elementy" ToRole="Czesci_Obsluga" />
+          <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Dostarcze__ID_el__245D67DE" FromRole="Elementy" ToRole="Dostarczenia_Wewn" />
+          <NavigationProperty Name="Dostarczenia_Zewn" Relationship="Self.FK__Dostarcze__ID_el__2A164134" FromRole="Elementy" ToRole="Dostarczenia_Zewn" />
+          <NavigationProperty Name="Dostawy_Wlasne_Zawartosc" Relationship="Self.FK__Dostawy_W__ID_El__37703C52" FromRole="Elementy" ToRole="Dostawy_Wlasne_Zawartosc" />
+          <NavigationProperty Name="Dostawy_Zawartosc" Relationship="Self.FK__Dostawy_Z__ID_El__1EA48E88" FromRole="Elementy" ToRole="Dostawy_Zawartosc" />
           <NavigationProperty Name="Elementy_Cechy" Relationship="Self.FK__Elementy___ID_El__02084FDA" FromRole="Elementy" ToRole="Elementy_Cechy" />
-          <NavigationProperty Name="Elementy_Proces" Relationship="Self.FK__Elementy___ID_El__5E8A0973" FromRole="Elementy" ToRole="Elementy_Proces" />
+          <NavigationProperty Name="Elementy_Proces" Relationship="Self.FK__Elementy___ID_El__5F7E2DAC" FromRole="Elementy" ToRole="Elementy_Proces" />
           <NavigationProperty Name="Elementy_Typy" Relationship="Self.FK__Elementy__ID_Ele__7F2BE32F" FromRole="Elementy" ToRole="Elementy_Typy" />
           <NavigationProperty Name="Oferta" Relationship="Self.FK__Oferta__ID_Eleme__09A971A2" FromRole="Elementy" ToRole="Oferta" />
-          <NavigationProperty Name="Zamowienie_Element" Relationship="Self.FK__Zamowieni__ID_El__2DE6D218" FromRole="Elementy" ToRole="Zamowienie_Element" />
+          <NavigationProperty Name="Zamowienie_Element" Relationship="Self.FK__Zamowieni__ID_El__2EDAF651" FromRole="Elementy" ToRole="Zamowienie_Element" />
           <NavigationProperty Name="Zawartosc" Relationship="Self.FK__Zawartosc__ID_El__18EBB532" FromRole="Elementy" ToRole="Zawartosc" />
         </EntityType>
         <EntityType Name="Elementy_Cechy">
@@ -4609,7 +4743,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="ID_jednostka" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Elementy_Cechy" Relationship="Self.FK__Elementy___ID_Je__03F0984C" FromRole="Elementy_Jednostki" ToRole="Elementy_Cechy" />
-          <NavigationProperty Name="Elementy_Proces" Relationship="Self.FK__Elementy___ID_je__5F7E2DAC" FromRole="Elementy_Jednostki" ToRole="Elementy_Proces" />
+          <NavigationProperty Name="Elementy_Proces" Relationship="Self.FK__Elementy___ID_je__607251E5" FromRole="Elementy_Jednostki" ToRole="Elementy_Proces" />
           <NavigationProperty Name="Oferta" Relationship="Self.FK__Oferta__ID_Jedno__0B91BA14" FromRole="Elementy_Jednostki" ToRole="Oferta" />
         </EntityType>
         <EntityType Name="Elementy_Proces">
@@ -4621,10 +4755,10 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="ID_Element" Type="Int32" Nullable="false" />
           <Property Name="Liczba" Type="Int32" Nullable="false" />
           <Property Name="ID_jednostka" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Elementy" Relationship="Self.FK__Elementy___ID_El__5E8A0973" FromRole="Elementy_Proces" ToRole="Elementy" />
-          <NavigationProperty Name="Elementy_Jednostki" Relationship="Self.FK__Elementy___ID_je__5F7E2DAC" FromRole="Elementy_Proces" ToRole="Elementy_Jednostki" />
-          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Elementy___ID_Pr__5D95E53A" FromRole="Elementy_Proces" ToRole="Proces_Technologiczny" />
-          <NavigationProperty Name="Material_Na_Produkcji" Relationship="Self.FK__Material___ID_El__6DCC4D03" FromRole="Elementy_Proces" ToRole="Material_Na_Produkcji" />
+          <NavigationProperty Name="Elementy" Relationship="Self.FK__Elementy___ID_El__5F7E2DAC" FromRole="Elementy_Proces" ToRole="Elementy" />
+          <NavigationProperty Name="Elementy_Jednostki" Relationship="Self.FK__Elementy___ID_je__607251E5" FromRole="Elementy_Proces" ToRole="Elementy_Jednostki" />
+          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Elementy___ID_Pr__5E8A0973" FromRole="Elementy_Proces" ToRole="Proces_Technologiczny" />
+          <NavigationProperty Name="Material_Na_Produkcji" Relationship="Self.FK__Material___ID_El__6EC0713C" FromRole="Elementy_Proces" ToRole="Material_Na_Produkcji" />
         </EntityType>
         <EntityType Name="Elementy_Typy">
           <Key>
@@ -4644,8 +4778,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="ID_Proces_Technologiczny" Type="Int32" Nullable="false" />
           <Property Name="ID_Etapu" Type="Int32" Nullable="false" />
           <Property Name="Czas" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Rodzaj_Etapu" Relationship="Self.FK__Etapy_W_P__ID_Et__634EBE90" FromRole="Etapy_W_Procesie" ToRole="Rodzaj_Etapu" />
-          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Etapy_W_P__ID_Pr__625A9A57" FromRole="Etapy_W_Procesie" ToRole="Proces_Technologiczny" />
+          <NavigationProperty Name="Rodzaj_Etapu" Relationship="Self.FK__Etapy_W_P__ID_Et__6442E2C9" FromRole="Etapy_W_Procesie" ToRole="Rodzaj_Etapu" />
+          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Etapy_W_P__ID_Pr__634EBE90" FromRole="Etapy_W_Procesie" ToRole="Proces_Technologiczny" />
         </EntityType>
         <EntityType Name="Etat">
           <Key>
@@ -4710,7 +4844,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Data_Kontroli" Type="DateTime" Precision="0" />
           <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="Liczba_Poprawnych" Type="Int32" />
-          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Kontrola___ID_Pr__793DFFAF" FromRole="Kontrola_Efektywnosci" ToRole="Proces_Produkcyjny" />
+          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Kontrola___ID_Pr__7A3223E8" FromRole="Kontrola_Efektywnosci" ToRole="Proces_Produkcyjny" />
         </EntityType>
         <EntityType Name="Kurierzy">
           <Key>
@@ -4732,10 +4866,10 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="ID_Rodzaj_Maszyny" Type="Int32" Nullable="false" />
           <Property Name="Resurs_Rbh" Type="Int32" Nullable="false" />
           <Property Name="Serwis_Co_Ile" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Rodzaj_Maszyny" Relationship="Self.FK__Maszyny__ID_Rodz__4E53A1AA" FromRole="Maszyny" ToRole="Rodzaj_Maszyny" />
-          <NavigationProperty Name="Srodki_Trwale" Relationship="Self.FK__Maszyny__ID_Srod__4D5F7D71" FromRole="Maszyny" ToRole="Srodki_Trwale" />
-          <NavigationProperty Name="Obsluga_Techniczna" Relationship="Self.FK__Obsluga_T__ID_Ma__51300E55" FromRole="Maszyny" ToRole="Obsluga_Techniczna" />
-          <NavigationProperty Name="Przydzial_Zasobow" Relationship="Self.FK__Przydzial__ID_Ma__76619304" FromRole="Maszyny" ToRole="Przydzial_Zasobow" />
+          <NavigationProperty Name="Rodzaj_Maszyny" Relationship="Self.FK__Maszyny__ID_Rodz__4F47C5E3" FromRole="Maszyny" ToRole="Rodzaj_Maszyny" />
+          <NavigationProperty Name="Srodki_Trwale" Relationship="Self.FK__Maszyny__ID_Srod__4E53A1AA" FromRole="Maszyny" ToRole="Srodki_Trwale" />
+          <NavigationProperty Name="Obsluga_Techniczna" Relationship="Self.FK__Obsluga_T__ID_Ma__5224328E" FromRole="Maszyny" ToRole="Obsluga_Techniczna" />
+          <NavigationProperty Name="Przydzial_Zasobow" Relationship="Self.FK__Przydzial__ID_Ma__7755B73D" FromRole="Maszyny" ToRole="Przydzial_Zasobow" />
         </EntityType>
         <EntityType Name="Maszyny_Proces">
           <Key>
@@ -4746,8 +4880,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="ID_Rodzaj_Maszyny" Type="Int32" Nullable="false" />
           <Property Name="Liczba_Maszyn" Type="Int32" Nullable="false" />
           <Property Name="Liczba_Rbh_Maszyna" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Maszyny_P__ID_Pr__498EEC8D" FromRole="Maszyny_Proces" ToRole="Proces_Technologiczny" />
-          <NavigationProperty Name="Rodzaj_Maszyny" Relationship="Self.FK__Maszyny_P__ID_Ro__4A8310C6" FromRole="Maszyny_Proces" ToRole="Rodzaj_Maszyny" />
+          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Maszyny_P__ID_Pr__4A8310C6" FromRole="Maszyny_Proces" ToRole="Proces_Technologiczny" />
+          <NavigationProperty Name="Rodzaj_Maszyny" Relationship="Self.FK__Maszyny_P__ID_Ro__4B7734FF" FromRole="Maszyny_Proces" ToRole="Rodzaj_Maszyny" />
         </EntityType>
         <EntityType Name="Material_Na_Produkcji">
           <Key>
@@ -4759,8 +4893,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Odpad" Type="Double" />
           <Property Name="Niezuzyty_material" Type="Double" />
           <Property Name="Magazyn_odebral_material" Type="Boolean" />
-          <NavigationProperty Name="Elementy_Proces" Relationship="Self.FK__Material___ID_El__6DCC4D03" FromRole="Material_Na_Produkcji" ToRole="Elementy_Proces" />
-          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Material___ID_Pr__6CD828CA" FromRole="Material_Na_Produkcji" ToRole="Proces_Produkcyjny" />
+          <NavigationProperty Name="Elementy_Proces" Relationship="Self.FK__Material___ID_El__6EC0713C" FromRole="Material_Na_Produkcji" ToRole="Elementy_Proces" />
+          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Material___ID_Pr__6DCC4D03" FromRole="Material_Na_Produkcji" ToRole="Proces_Produkcyjny" />
         </EntityType>
         <EntityType Name="Miejsca">
           <Key>
@@ -4768,9 +4902,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           </Key>
           <Property Name="ID_Miejsca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Dostarcze__ID_Mi__245D67DE" FromRole="Miejsca" ToRole="Dostarczenia_Wewn" />
-          <NavigationProperty Name="Dostarczenia_Zewn" Relationship="Self.FK__Dostarcze__ID_Mi__2A164134" FromRole="Miejsca" ToRole="Dostarczenia_Zewn" />
-          <NavigationProperty Name="Zamowienia_Dostawy_Wlasne" Relationship="Self.FK__Zamowieni__ID_mi__31B762FC" FromRole="Miejsca" ToRole="Zamowienia_Dostawy_Wlasne" />
+          <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Dostarcze__ID_Mi__25518C17" FromRole="Miejsca" ToRole="Dostarczenia_Wewn" />
+          <NavigationProperty Name="Dostarczenia_Zewn" Relationship="Self.FK__Dostarcze__ID_Mi__2B0A656D" FromRole="Miejsca" ToRole="Dostarczenia_Zewn" />
+          <NavigationProperty Name="Zamowienia_Dostawy_Wlasne" Relationship="Self.FK__Zamowieni__ID_mi__32AB8735" FromRole="Miejsca" ToRole="Zamowienia_Dostawy_Wlasne" />
         </EntityType>
         <EntityType Name="Obsluga_Techniczna">
           <Key>
@@ -4782,10 +4916,10 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Data_Rozpoczecia" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Data_Zakonczenia" Type="DateTime" Precision="0" />
           <Property Name="ID_Pracownika" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Czesci_Obsluga" Relationship="Self.FK__Czesci_Ob__ID_Ob__55F4C372" FromRole="Obsluga_Techniczna" ToRole="Czesci_Obsluga" />
-          <NavigationProperty Name="Maszyny" Relationship="Self.FK__Obsluga_T__ID_Ma__51300E55" FromRole="Obsluga_Techniczna" ToRole="Maszyny" />
-          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Obsluga_T__ID_Pr__531856C7" FromRole="Obsluga_Techniczna" ToRole="Pracownicy" />
-          <NavigationProperty Name="Rodzaj_Obslugi" Relationship="Self.FK__Obsluga_T__ID_Ro__5224328E" FromRole="Obsluga_Techniczna" ToRole="Rodzaj_Obslugi" />
+          <NavigationProperty Name="Czesci_Obsluga" Relationship="Self.FK__Czesci_Ob__ID_Ob__56E8E7AB" FromRole="Obsluga_Techniczna" ToRole="Czesci_Obsluga" />
+          <NavigationProperty Name="Maszyny" Relationship="Self.FK__Obsluga_T__ID_Ma__5224328E" FromRole="Obsluga_Techniczna" ToRole="Maszyny" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Obsluga_T__ID_Pr__540C7B00" FromRole="Obsluga_Techniczna" ToRole="Pracownicy" />
+          <NavigationProperty Name="Rodzaj_Obslugi" Relationship="Self.FK__Obsluga_T__ID_Ro__531856C7" FromRole="Obsluga_Techniczna" ToRole="Rodzaj_Obslugi" />
         </EntityType>
         <EntityType Name="Odbior_Dostarczenia">
           <Key>
@@ -4795,8 +4929,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="ID_Procesu_Produkcyjnego" Type="Int32" Nullable="false" />
           <Property Name="ID_Dostarczenia" Type="Int32" Nullable="false" />
           <Property Name="Odebrano" Type="Boolean" />
-          <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Odbior_Do__ID_Do__69FBBC1F" FromRole="Odbior_Dostarczenia" ToRole="Dostarczenia_Wewn" />
-          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Odbior_Do__ID_Pr__690797E6" FromRole="Odbior_Dostarczenia" ToRole="Proces_Produkcyjny" />
+          <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Odbior_Do__ID_Do__6AEFE058" FromRole="Odbior_Dostarczenia" ToRole="Dostarczenia_Wewn" />
+          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Odbior_Do__ID_Pr__69FBBC1F" FromRole="Odbior_Dostarczenia" ToRole="Proces_Produkcyjny" />
         </EntityType>
         <EntityType Name="Oferta">
           <Key>
@@ -4815,7 +4949,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Ilosc_W_Opakowaniu_Zbiorczym" Type="Int32" />
           <Property Name="Deklarowany_czas_dostawy" Type="Int32" />
           <NavigationProperty Name="Dostawcy_Zaopatrzenie" Relationship="Self.FK__Oferta__ID_Dosta__0A9D95DB" FromRole="Oferta" ToRole="Dostawcy_Zaopatrzenie" />
-          <NavigationProperty Name="Dostawy_Zawartosc" Relationship="Self.FK__Dostawy_Z__ID_of__1EA48E88" FromRole="Oferta" ToRole="Dostawy_Zawartosc" />
+          <NavigationProperty Name="Dostawy_Zawartosc" Relationship="Self.FK__Dostawy_Z__ID_of__1F98B2C1" FromRole="Oferta" ToRole="Dostawy_Zawartosc" />
           <NavigationProperty Name="Elementy" Relationship="Self.FK__Oferta__ID_Eleme__09A971A2" FromRole="Oferta" ToRole="Elementy" />
           <NavigationProperty Name="Elementy_Jednostki" Relationship="Self.FK__Oferta__ID_Jedno__0B91BA14" FromRole="Oferta" ToRole="Elementy_Jednostki" />
         </EntityType>
@@ -4868,13 +5002,13 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Pesel" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Adres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Telefon" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Dokumentacje" Relationship="Self.FK__Dokumenta__ID_Pr__40058253" FromRole="Pracownicy" ToRole="Dokumentacje" />
-          <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Dostarcze__ID_Pr__2180FB33" FromRole="Pracownicy" ToRole="Dostarczenia_Wewn" />
-          <NavigationProperty Name="Dostarczenia_Zewn" Relationship="Self.FK__Dostarcze__ID_Pr__2739D489" FromRole="Pracownicy" ToRole="Dostarczenia_Zewn" />
-          <NavigationProperty Name="Obsluga_Techniczna" Relationship="Self.FK__Obsluga_T__ID_Pr__531856C7" FromRole="Pracownicy" ToRole="Obsluga_Techniczna" />
+          <NavigationProperty Name="Dokumentacje" Relationship="Self.FK__Dokumenta__ID_Pr__40F9A68C" FromRole="Pracownicy" ToRole="Dokumentacje" />
+          <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Dostarcze__ID_Pr__22751F6C" FromRole="Pracownicy" ToRole="Dostarczenia_Wewn" />
+          <NavigationProperty Name="Dostarczenia_Zewn" Relationship="Self.FK__Dostarcze__ID_Pr__282DF8C2" FromRole="Pracownicy" ToRole="Dostarczenia_Zewn" />
+          <NavigationProperty Name="Obsluga_Techniczna" Relationship="Self.FK__Obsluga_T__ID_Pr__540C7B00" FromRole="Pracownicy" ToRole="Obsluga_Techniczna" />
           <NavigationProperty Name="Pracownicy_Zatrudnienie" Relationship="Self.FK__Pracownic__ID_Pr__48CFD27E" FromRole="Pracownicy" ToRole="Pracownicy_Zatrudnienie" />
-          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Proces_Te__ID_Pr__42E1EEFE" FromRole="Pracownicy" ToRole="Proces_Technologiczny" />
-          <NavigationProperty Name="Przydzial_Zasobow" Relationship="Self.FK__Przydzial__ID_Pr__756D6ECB" FromRole="Pracownicy" ToRole="Przydzial_Zasobow" />
+          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Proces_Te__ID_Pr__43D61337" FromRole="Pracownicy" ToRole="Proces_Technologiczny" />
+          <NavigationProperty Name="Przydzial_Zasobow" Relationship="Self.FK__Przydzial__ID_Pr__76619304" FromRole="Pracownicy" ToRole="Przydzial_Zasobow" />
           <NavigationProperty Name="Urlop" Relationship="Self.FK__Urlop__ID_Pracow__4222D4EF" FromRole="Pracownicy" ToRole="Urlop" />
           <NavigationProperty Name="Zamowienia_Przydzial" Relationship="Self.FK__Zamowieni__ID_Pr__0F624AF8" FromRole="Pracownicy" ToRole="Zamowienia_Przydzial" />
           <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Zamowieni__ID_Pr__5812160E" FromRole="Pracownicy" ToRole="Zamowienia" />
@@ -4908,11 +5042,11 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Data_Rozpoczecia" Type="DateTime" Precision="0" />
           <Property Name="Data_Zakonczenia" Type="DateTime" Precision="0" />
           <Property Name="Uwagi" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Kontrola_Efektywnosci" Relationship="Self.FK__Kontrola___ID_Pr__793DFFAF" FromRole="Proces_Produkcyjny" ToRole="Kontrola_Efektywnosci" />
-          <NavigationProperty Name="Material_Na_Produkcji" Relationship="Self.FK__Material___ID_Pr__6CD828CA" FromRole="Proces_Produkcyjny" ToRole="Material_Na_Produkcji" />
-          <NavigationProperty Name="Odbior_Dostarczenia" Relationship="Self.FK__Odbior_Do__ID_Pr__690797E6" FromRole="Proces_Produkcyjny" ToRole="Odbior_Dostarczenia" />
-          <NavigationProperty Name="Zamowienie_Element" Relationship="Self.FK__Proces_Pr__ID_Za__662B2B3B" FromRole="Proces_Produkcyjny" ToRole="Zamowienie_Element" />
-          <NavigationProperty Name="Realizacja_Procesu" Relationship="Self.FK__Realizacj__ID_Pr__70A8B9AE" FromRole="Proces_Produkcyjny" ToRole="Realizacja_Procesu" />
+          <NavigationProperty Name="Kontrola_Efektywnosci" Relationship="Self.FK__Kontrola___ID_Pr__7A3223E8" FromRole="Proces_Produkcyjny" ToRole="Kontrola_Efektywnosci" />
+          <NavigationProperty Name="Material_Na_Produkcji" Relationship="Self.FK__Material___ID_Pr__6DCC4D03" FromRole="Proces_Produkcyjny" ToRole="Material_Na_Produkcji" />
+          <NavigationProperty Name="Odbior_Dostarczenia" Relationship="Self.FK__Odbior_Do__ID_Pr__69FBBC1F" FromRole="Proces_Produkcyjny" ToRole="Odbior_Dostarczenia" />
+          <NavigationProperty Name="Zamowienie_Element" Relationship="Self.FK__Proces_Pr__ID_Za__671F4F74" FromRole="Proces_Produkcyjny" ToRole="Zamowienie_Element" />
+          <NavigationProperty Name="Realizacja_Procesu" Relationship="Self.FK__Realizacj__ID_Pr__719CDDE7" FromRole="Proces_Produkcyjny" ToRole="Realizacja_Procesu" />
         </EntityType>
         <EntityType Name="Proces_Technologiczny">
           <Key>
@@ -4920,12 +5054,12 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           </Key>
           <Property Name="ID_Proces_Technologiczny" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Pracownika" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Dokumentacja_Proces" Relationship="Self.FK__Dokumenta__ID_Pr__46B27FE2" FromRole="Proces_Technologiczny" ToRole="Dokumentacja_Proces" />
-          <NavigationProperty Name="Elementy_Proces" Relationship="Self.FK__Elementy___ID_Pr__5D95E53A" FromRole="Proces_Technologiczny" ToRole="Elementy_Proces" />
-          <NavigationProperty Name="Etapy_W_Procesie" Relationship="Self.FK__Etapy_W_P__ID_Pr__625A9A57" FromRole="Proces_Technologiczny" ToRole="Etapy_W_Procesie" />
-          <NavigationProperty Name="Maszyny_Proces" Relationship="Self.FK__Maszyny_P__ID_Pr__498EEC8D" FromRole="Proces_Technologiczny" ToRole="Maszyny_Proces" />
-          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Proces_Te__ID_Pr__42E1EEFE" FromRole="Proces_Technologiczny" ToRole="Pracownicy" />
-          <NavigationProperty Name="Proces_Zamowienie" Relationship="Self.FK__Proces_Za__ID_Pr__59C55456" FromRole="Proces_Technologiczny" ToRole="Proces_Zamowienie" />
+          <NavigationProperty Name="Dokumentacja_Proces" Relationship="Self.FK__Dokumenta__ID_Pr__47A6A41B" FromRole="Proces_Technologiczny" ToRole="Dokumentacja_Proces" />
+          <NavigationProperty Name="Elementy_Proces" Relationship="Self.FK__Elementy___ID_Pr__5E8A0973" FromRole="Proces_Technologiczny" ToRole="Elementy_Proces" />
+          <NavigationProperty Name="Etapy_W_Procesie" Relationship="Self.FK__Etapy_W_P__ID_Pr__634EBE90" FromRole="Proces_Technologiczny" ToRole="Etapy_W_Procesie" />
+          <NavigationProperty Name="Maszyny_Proces" Relationship="Self.FK__Maszyny_P__ID_Pr__4A8310C6" FromRole="Proces_Technologiczny" ToRole="Maszyny_Proces" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Proces_Te__ID_Pr__43D61337" FromRole="Proces_Technologiczny" ToRole="Pracownicy" />
+          <NavigationProperty Name="Proces_Zamowienie" Relationship="Self.FK__Proces_Za__ID_Pr__5AB9788F" FromRole="Proces_Technologiczny" ToRole="Proces_Zamowienie" />
         </EntityType>
         <EntityType Name="Proces_Zamowienie">
           <Key>
@@ -4935,8 +5069,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="ID_Proces_Technologiczny" Type="Int32" Nullable="false" />
           <Property Name="ID_Zamowienie_Element" Type="Int32" Nullable="false" />
           <Property Name="Kompletny_Proces" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Proces_Za__ID_Pr__59C55456" FromRole="Proces_Zamowienie" ToRole="Proces_Technologiczny" />
-          <NavigationProperty Name="Zamowienie_Element" Relationship="Self.FK__Proces_Za__ID_Za__5AB9788F" FromRole="Proces_Zamowienie" ToRole="Zamowienie_Element" />
+          <NavigationProperty Name="Proces_Technologiczny" Relationship="Self.FK__Proces_Za__ID_Pr__5AB9788F" FromRole="Proces_Zamowienie" ToRole="Proces_Technologiczny" />
+          <NavigationProperty Name="Zamowienie_Element" Relationship="Self.FK__Proces_Za__ID_Za__5BAD9CC8" FromRole="Proces_Zamowienie" ToRole="Zamowienie_Element" />
         </EntityType>
         <EntityType Name="Przydzial_Zasobow">
           <Key>
@@ -4948,9 +5082,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="ID_Maszyny" Type="Int32" Nullable="false" />
           <Property Name="Data_Rozpoczecia" Type="DateTime" Precision="0" />
           <Property Name="Data_Zakonczenia" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Maszyny" Relationship="Self.FK__Przydzial__ID_Ma__76619304" FromRole="Przydzial_Zasobow" ToRole="Maszyny" />
-          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Przydzial__ID_Pr__756D6ECB" FromRole="Przydzial_Zasobow" ToRole="Pracownicy" />
-          <NavigationProperty Name="Realizacja_Procesu" Relationship="Self.FK__Przydzial__ID_Re__74794A92" FromRole="Przydzial_Zasobow" ToRole="Realizacja_Procesu" />
+          <NavigationProperty Name="Maszyny" Relationship="Self.FK__Przydzial__ID_Ma__7755B73D" FromRole="Przydzial_Zasobow" ToRole="Maszyny" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Przydzial__ID_Pr__76619304" FromRole="Przydzial_Zasobow" ToRole="Pracownicy" />
+          <NavigationProperty Name="Realizacja_Procesu" Relationship="Self.FK__Przydzial__ID_Re__756D6ECB" FromRole="Przydzial_Zasobow" ToRole="Realizacja_Procesu" />
         </EntityType>
         <EntityType Name="Realizacja_Procesu">
           <Key>
@@ -4963,9 +5097,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Data_Zakonczenia_Procesu" Type="DateTime" Precision="0" />
           <Property Name="Data_Kontroli" Type="DateTime" Precision="0" />
           <Property Name="Uwagi_Kontroli" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Realizacj__ID_Pr__70A8B9AE" FromRole="Realizacja_Procesu" ToRole="Proces_Produkcyjny" />
-          <NavigationProperty Name="Przydzial_Zasobow" Relationship="Self.FK__Przydzial__ID_Re__74794A92" FromRole="Realizacja_Procesu" ToRole="Przydzial_Zasobow" />
-          <NavigationProperty Name="Rodzaj_Etapu" Relationship="Self.FK__Realizacj__ID_Et__719CDDE7" FromRole="Realizacja_Procesu" ToRole="Rodzaj_Etapu" />
+          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Realizacj__ID_Pr__719CDDE7" FromRole="Realizacja_Procesu" ToRole="Proces_Produkcyjny" />
+          <NavigationProperty Name="Przydzial_Zasobow" Relationship="Self.FK__Przydzial__ID_Re__756D6ECB" FromRole="Realizacja_Procesu" ToRole="Przydzial_Zasobow" />
+          <NavigationProperty Name="Rodzaj_Etapu" Relationship="Self.FK__Realizacj__ID_Et__72910220" FromRole="Realizacja_Procesu" ToRole="Rodzaj_Etapu" />
         </EntityType>
         <EntityType Name="Regaly">
           <Key>
@@ -4981,7 +5115,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           </Key>
           <Property Name="ID_Rodzaj_Dokumentacji" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Dokumentacje" Relationship="Self.FK__Dokumenta__ID_Ro__3F115E1A" FromRole="Rodzaj_Dokumentacji" ToRole="Dokumentacje" />
+          <NavigationProperty Name="Dokumentacje" Relationship="Self.FK__Dokumenta__ID_Ro__40058253" FromRole="Rodzaj_Dokumentacji" ToRole="Dokumentacje" />
         </EntityType>
         <EntityType Name="Rodzaj_Etapu">
           <Key>
@@ -4989,8 +5123,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           </Key>
           <Property Name="ID_Etapu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Etapy_W_Procesie" Relationship="Self.FK__Etapy_W_P__ID_Et__634EBE90" FromRole="Rodzaj_Etapu" ToRole="Etapy_W_Procesie" />
-          <NavigationProperty Name="Realizacja_Procesu" Relationship="Self.FK__Realizacj__ID_Et__719CDDE7" FromRole="Rodzaj_Etapu" ToRole="Realizacja_Procesu" />
+          <NavigationProperty Name="Etapy_W_Procesie" Relationship="Self.FK__Etapy_W_P__ID_Et__6442E2C9" FromRole="Rodzaj_Etapu" ToRole="Etapy_W_Procesie" />
+          <NavigationProperty Name="Realizacja_Procesu" Relationship="Self.FK__Realizacj__ID_Et__72910220" FromRole="Rodzaj_Etapu" ToRole="Realizacja_Procesu" />
         </EntityType>
         <EntityType Name="Rodzaj_Maszyny">
           <Key>
@@ -4999,8 +5133,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="ID_Rodzaj_Maszyny" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Rodzaj_Maszyny1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Koszt_Rbh" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Maszyny" Relationship="Self.FK__Maszyny__ID_Rodz__4E53A1AA" FromRole="Rodzaj_Maszyny" ToRole="Maszyny" />
-          <NavigationProperty Name="Maszyny_Proces" Relationship="Self.FK__Maszyny_P__ID_Ro__4A8310C6" FromRole="Rodzaj_Maszyny" ToRole="Maszyny_Proces" />
+          <NavigationProperty Name="Maszyny" Relationship="Self.FK__Maszyny__ID_Rodz__4F47C5E3" FromRole="Rodzaj_Maszyny" ToRole="Maszyny" />
+          <NavigationProperty Name="Maszyny_Proces" Relationship="Self.FK__Maszyny_P__ID_Ro__4B7734FF" FromRole="Rodzaj_Maszyny" ToRole="Maszyny_Proces" />
         </EntityType>
         <EntityType Name="Rodzaj_Obslugi">
           <Key>
@@ -5008,7 +5142,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           </Key>
           <Property Name="ID_Rodzaj_Obslugi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Obsluga_Techniczna" Relationship="Self.FK__Obsluga_T__ID_Ro__5224328E" FromRole="Rodzaj_Obslugi" ToRole="Obsluga_Techniczna" />
+          <NavigationProperty Name="Obsluga_Techniczna" Relationship="Self.FK__Obsluga_T__ID_Ro__531856C7" FromRole="Rodzaj_Obslugi" ToRole="Obsluga_Techniczna" />
         </EntityType>
         <EntityType Name="Rodzaj_Umowy">
           <Key>
@@ -5041,7 +5175,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Gwarancja" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Zamortyzowane" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Dzialy" Relationship="Self.FK__Srodki_Tr__ID_Dz__2E1BDC42" FromRole="Srodki_Trwale" ToRole="Dzialy" />
-          <NavigationProperty Name="Maszyny" Relationship="Self.FK__Maszyny__ID_Srod__4D5F7D71" FromRole="Srodki_Trwale" ToRole="Maszyny" />
+          <NavigationProperty Name="Maszyny" Relationship="Self.FK__Maszyny__ID_Srod__4E53A1AA" FromRole="Srodki_Trwale" ToRole="Maszyny" />
         </EntityType>
         <EntityType Name="Stanowisko">
           <Key>
@@ -5117,13 +5251,14 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Data_Zakonczenia" Type="DateTime" Precision="3" />
           <Property Name="Umowa" Type="Boolean" />
           <Property Name="ID_Pracownika" Type="Int32" />
-          <NavigationProperty Name="Dostarczenia_Zewn" Relationship="Self.FK__Dostarcze__ID_Za__282DF8C2" FromRole="Zamowienia" ToRole="Dostarczenia_Zewn" />
+          <NavigationProperty Name="Dostarczenia_Zewn" Relationship="Self.FK__Dostarcze__ID_Za__29221CFB" FromRole="Zamowienia" ToRole="Dostarczenia_Zewn" />
           <NavigationProperty Name="Klienci" Relationship="Self.FK__Zamowieni__ID_Kl__571DF1D5" FromRole="Zamowienia" ToRole="Klienci" />
           <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Zamowieni__ID_Pr__5812160E" FromRole="Zamowienia" ToRole="Pracownicy" />
           <NavigationProperty Name="Zamowienia_Przydzial" Relationship="Self.FK__Zamowieni__ID_Za__0E6E26BF" FromRole="Zamowienia" ToRole="Zamowienia_Przydzial" />
           <NavigationProperty Name="Zamowienia_Dostawy" Relationship="Self.FK__Zamowieni__ID_Za__1332DBDC" FromRole="Zamowienia" ToRole="Zamowienia_Dostawy" />
-          <NavigationProperty Name="Zamowienie_Element" Relationship="Self.FK__Zamowieni__ID_Za__2CF2ADDF" FromRole="Zamowienia" ToRole="Zamowienie_Element" />
-          <NavigationProperty Name="Zamowienia_Dostawy_Wlasne" Relationship="Self.FK__Zamowieni__ID_Za__30C33EC3" FromRole="Zamowienia" ToRole="Zamowienia_Dostawy_Wlasne" />
+          <NavigationProperty Name="Zamowienie_Element" Relationship="Self.FK__Zamowieni__ID_Za__2DE6D218" FromRole="Zamowienia" ToRole="Zamowienie_Element" />
+          <NavigationProperty Name="Zamowienia_Dostawy_Wlasne" Relationship="Self.FK__Zamowieni__ID_Za__31B762FC" FromRole="Zamowienia" ToRole="Zamowienia_Dostawy_Wlasne" />
+          <NavigationProperty Name="Zawartosc" Relationship="Self.FK__Zawartosc__ID_Za__1AD3FDA4" FromRole="Zamowienia" ToRole="Zawartosc" />
         </EntityType>
         <EntityType Name="Zamowienia_Dostawy">
           <Key>
@@ -5134,9 +5269,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Data_Dostawy_Planowana" Type="DateTime" Precision="0" />
           <Property Name="Data_Dostawy_Rzeczywista" Type="DateTime" Precision="0" />
           <Property Name="ID_statusu" Type="Int32" />
-          <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Dostarcze__ID_Do__22751F6C" FromRole="Zamowienia_Dostawy" ToRole="Dostarczenia_Wewn" />
-          <NavigationProperty Name="Dostawy_Wlasne_Zawartosc" Relationship="Self.FK__Dostawy_W__ID_Do__3587F3E0" FromRole="Zamowienia_Dostawy" ToRole="Dostawy_Wlasne_Zawartosc" />
-          <NavigationProperty Name="Dostawy_Zawartosc" Relationship="Self.FK__Dostawy_Z__ID_Do__1CBC4616" FromRole="Zamowienia_Dostawy" ToRole="Dostawy_Zawartosc" />
+          <NavigationProperty Name="Dostarczenia_Wewn" Relationship="Self.FK__Dostarcze__ID_Do__236943A5" FromRole="Zamowienia_Dostawy" ToRole="Dostarczenia_Wewn" />
+          <NavigationProperty Name="Dostawy_Wlasne_Zawartosc" Relationship="Self.FK__Dostawy_W__ID_Do__367C1819" FromRole="Zamowienia_Dostawy" ToRole="Dostawy_Wlasne_Zawartosc" />
+          <NavigationProperty Name="Dostawy_Zawartosc" Relationship="Self.FK__Dostawy_Z__ID_Do__1DB06A4F" FromRole="Zamowienia_Dostawy" ToRole="Dostawy_Zawartosc" />
           <NavigationProperty Name="Statusy" Relationship="Self.FK__Zamowieni__ID_st__14270015" FromRole="Zamowienia_Dostawy" ToRole="Statusy" />
           <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Zamowieni__ID_Za__1332DBDC" FromRole="Zamowienia_Dostawy" ToRole="Zamowienia" />
           <NavigationProperty Name="Zawartosc" Relationship="Self.FK__Zawartosc__ID_Do__19DFD96B" FromRole="Zamowienia_Dostawy" ToRole="Zawartosc" />
@@ -5148,9 +5283,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="ID_Zamowienia_dostawy_wlasne" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Zamowienia" Type="Int32" />
           <Property Name="ID_miejsca" Type="Int32" />
-          <NavigationProperty Name="Dostawy_Wlasne_Zawartosc" Relationship="Self.FK__Dostawy_W__ID_Za__3493CFA7" FromRole="Zamowienia_Dostawy_Wlasne" ToRole="Dostawy_Wlasne_Zawartosc" />
-          <NavigationProperty Name="Miejsca" Relationship="Self.FK__Zamowieni__ID_mi__31B762FC" FromRole="Zamowienia_Dostawy_Wlasne" ToRole="Miejsca" />
-          <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Zamowieni__ID_Za__30C33EC3" FromRole="Zamowienia_Dostawy_Wlasne" ToRole="Zamowienia" />
+          <NavigationProperty Name="Dostawy_Wlasne_Zawartosc" Relationship="Self.FK__Dostawy_W__ID_Za__3587F3E0" FromRole="Zamowienia_Dostawy_Wlasne" ToRole="Dostawy_Wlasne_Zawartosc" />
+          <NavigationProperty Name="Miejsca" Relationship="Self.FK__Zamowieni__ID_mi__32AB8735" FromRole="Zamowienia_Dostawy_Wlasne" ToRole="Miejsca" />
+          <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Zamowieni__ID_Za__31B762FC" FromRole="Zamowienia_Dostawy_Wlasne" ToRole="Zamowienia" />
         </EntityType>
         <EntityType Name="Zamowienia_Przydzial">
           <Key>
@@ -5173,10 +5308,10 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="ID_Element" Type="Int32" />
           <Property Name="Ilosc" Type="Int32" Nullable="false" />
           <Property Name="Licz_do_zamowienia" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Elementy" Relationship="Self.FK__Zamowieni__ID_El__2DE6D218" FromRole="Zamowienie_Element" ToRole="Elementy" />
-          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Proces_Pr__ID_Za__662B2B3B" FromRole="Zamowienie_Element" ToRole="Proces_Produkcyjny" />
-          <NavigationProperty Name="Proces_Zamowienie" Relationship="Self.FK__Proces_Za__ID_Za__5AB9788F" FromRole="Zamowienie_Element" ToRole="Proces_Zamowienie" />
-          <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Zamowieni__ID_Za__2CF2ADDF" FromRole="Zamowienie_Element" ToRole="Zamowienia" />
+          <NavigationProperty Name="Elementy" Relationship="Self.FK__Zamowieni__ID_El__2EDAF651" FromRole="Zamowienie_Element" ToRole="Elementy" />
+          <NavigationProperty Name="Proces_Produkcyjny" Relationship="Self.FK__Proces_Pr__ID_Za__671F4F74" FromRole="Zamowienie_Element" ToRole="Proces_Produkcyjny" />
+          <NavigationProperty Name="Proces_Zamowienie" Relationship="Self.FK__Proces_Za__ID_Za__5BAD9CC8" FromRole="Zamowienie_Element" ToRole="Proces_Zamowienie" />
+          <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Zamowieni__ID_Za__2DE6D218" FromRole="Zamowienie_Element" ToRole="Zamowienia" />
         </EntityType>
         <EntityType Name="Zawartosc">
           <Key>
@@ -5187,8 +5322,10 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="ID_Element" Type="Int32" />
           <Property Name="ID_Dostawy" Type="Int32" />
           <Property Name="Ilosc_Paczek" Type="Single" />
+          <Property Name="ID_Zamowienia" Type="Int32" />
           <NavigationProperty Name="Elementy" Relationship="Self.FK__Zawartosc__ID_El__18EBB532" FromRole="Zawartosc" ToRole="Elementy" />
           <NavigationProperty Name="Polki" Relationship="Self.FK__Zawartosc__ID_Po__17F790F9" FromRole="Zawartosc" ToRole="Polki" />
+          <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Zawartosc__ID_Za__1AD3FDA4" FromRole="Zawartosc" ToRole="Zamowienia" />
           <NavigationProperty Name="Zamowienia_Dostawy" Relationship="Self.FK__Zawartosc__ID_Do__19DFD96B" FromRole="Zawartosc" ToRole="Zamowienia_Dostawy" />
         </EntityType>
         <EntityType Name="Znajomosc_Jezykow">
@@ -5437,6 +5574,37 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Numer_procesu" Type="Int32" Nullable="false" />
           <Property Name="Nazwa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Czas__h_" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vEwidencja_dostaw_wewnetrznych">
+          <Key>
+            <PropertyRef Name="ID_Dostarczenia" />
+            <PropertyRef Name="Pracownik" />
+          </Key>
+          <Property Name="ID_Dostarczenia" Type="Int32" Nullable="false" />
+          <Property Name="Data_Dostarczenia" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Pracownik" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="ID_element" Type="Int32" />
+          <Property Name="Miejsce" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Akcja" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Zamowienia" Type="Int32" />
+          <Property Name="ID_Zamowienie_element" Type="Int32" />
+          <Property Name="ID_Dostawy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vEwidencja_dostaw_zewnetrznych">
+          <Key>
+            <PropertyRef Name="ID_Dostarczenia" />
+            <PropertyRef Name="Pracownik" />
+            <PropertyRef Name="ID_Element" />
+          </Key>
+          <Property Name="ID_Dostarczenia" Type="Int32" Nullable="false" />
+          <Property Name="Data_Dostarczenia" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Pracownik" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Element" Type="Int32" Nullable="false" />
+          <Property Name="Miejsce" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Akcja" Type="String" MaxLength="44" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Zamowienia" Type="Int32" />
         </EntityType>
         <EntityType Name="vFaktury">
           <Key>
@@ -5776,6 +5944,17 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Numer_seryjny" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Rodzaj_obsługi" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Imię_i_nazwisko" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vOdbior_Gotowych_Produktow">
+          <Key>
+            <PropertyRef Name="ID_Zamowienie_Element" />
+            <PropertyRef Name="Ilosc" />
+          </Key>
+          <Property Name="ID_Zamowienia" Type="Int32" />
+          <Property Name="ID_Zamowienie_Element" Type="Int32" Nullable="false" />
+          <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Element" Type="Int32" />
+          <Property Name="Ilosc" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="vOdebranyMaterialMagazyn">
           <Key>
@@ -6328,6 +6507,16 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="ID_Maszyny" Type="Int32" Nullable="false" />
           <Property Name="Maszyna" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="vWydawanie_Zamowien_Kurierowi">
+          <Key>
+            <PropertyRef Name="ID_Zamowienie_Element" />
+          </Key>
+          <Property Name="ID_Zamowienia" Type="Int32" />
+          <Property Name="ID_Zamowienie_Element" Type="Int32" Nullable="false" />
+          <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="ID_element" Type="Int32" />
+          <Property Name="Ilosc" Type="Double" />
+        </EntityType>
         <EntityType Name="vWynagrodzenia">
           <Key>
             <PropertyRef Name="Imie" />
@@ -6344,6 +6533,12 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Pensja" Type="Single" Nullable="false" />
           <Property Name="Wymiar_Etatu" Type="Single" Nullable="false" />
           <Property Name="Wynagrodzenie" Type="Double" />
+        </EntityType>
+        <EntityType Name="vZamowienia_Do_Wydania">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia" />
+          </Key>
+          <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="vZamowieniaDoWykonaniaUDostawcy">
           <Key>
@@ -6428,7 +6623,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Ilosc" Type="Single" />
           <Property Name="Cena" Type="Decimal" Precision="18" Scale="2" />
         </EntityType>
-        <Association Name="FK__Czesci_Ob__ID_El__56E8E7AB">
+        <Association Name="FK__Czesci_Ob__ID_El__57DD0BE4">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
           <End Role="Czesci_Obsluga" Type="Self.Czesci_Obsluga" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6440,7 +6635,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Czesci_Ob__ID_Ob__55F4C372">
+        <Association Name="FK__Czesci_Ob__ID_Ob__56E8E7AB">
           <End Role="Obsluga_Techniczna" Type="Self.Obsluga_Techniczna" Multiplicity="1" />
           <End Role="Czesci_Obsluga" Type="Self.Czesci_Obsluga" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6452,7 +6647,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dokumenta__ID_Do__45BE5BA9">
+        <Association Name="FK__Dokumenta__ID_Do__46B27FE2">
           <End Role="Dokumentacje" Type="Self.Dokumentacje" Multiplicity="1" />
           <End Role="Dokumentacja_Proces" Type="Self.Dokumentacja_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6464,7 +6659,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dokumenta__ID_Pr__46B27FE2">
+        <Association Name="FK__Dokumenta__ID_Pr__47A6A41B">
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
           <End Role="Dokumentacja_Proces" Type="Self.Dokumentacja_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6476,7 +6671,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dokumenta__ID_Pr__40058253">
+        <Association Name="FK__Dokumenta__ID_Pr__40F9A68C">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
           <End Role="Dokumentacje" Type="Self.Dokumentacje" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6488,7 +6683,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dokumenta__ID_Ro__3F115E1A">
+        <Association Name="FK__Dokumenta__ID_Ro__40058253">
           <End Role="Rodzaj_Dokumentacji" Type="Self.Rodzaj_Dokumentacji" Multiplicity="1" />
           <End Role="Dokumentacje" Type="Self.Dokumentacje" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6500,7 +6695,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostarcze__ID_Do__22751F6C">
+        <Association Name="FK__Dostarcze__ID_Do__236943A5">
           <End Role="Zamowienia_Dostawy" Type="Self.Zamowienia_Dostawy" Multiplicity="0..1" />
           <End Role="Dostarczenia_Wewn" Type="Self.Dostarczenia_Wewn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6512,7 +6707,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostarcze__ID_el__236943A5">
+        <Association Name="FK__Dostarcze__ID_el__245D67DE">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="0..1" />
           <End Role="Dostarczenia_Wewn" Type="Self.Dostarczenia_Wewn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6524,7 +6719,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostarcze__ID_Mi__245D67DE">
+        <Association Name="FK__Dostarcze__ID_Mi__25518C17">
           <End Role="Miejsca" Type="Self.Miejsca" Multiplicity="0..1" />
           <End Role="Dostarczenia_Wewn" Type="Self.Dostarczenia_Wewn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6536,7 +6731,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostarcze__ID_Pr__2180FB33">
+        <Association Name="FK__Dostarcze__ID_Pr__22751F6C">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
           <End Role="Dostarczenia_Wewn" Type="Self.Dostarczenia_Wewn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6548,7 +6743,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Odbior_Do__ID_Do__69FBBC1F">
+        <Association Name="FK__Odbior_Do__ID_Do__6AEFE058">
           <End Role="Dostarczenia_Wewn" Type="Self.Dostarczenia_Wewn" Multiplicity="1" />
           <End Role="Odbior_Dostarczenia" Type="Self.Odbior_Dostarczenia" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6560,7 +6755,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostarcze__ID_el__29221CFB">
+        <Association Name="FK__Dostarcze__ID_el__2A164134">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="0..1" />
           <End Role="Dostarczenia_Zewn" Type="Self.Dostarczenia_Zewn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6572,7 +6767,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostarcze__ID_Mi__2A164134">
+        <Association Name="FK__Dostarcze__ID_Mi__2B0A656D">
           <End Role="Miejsca" Type="Self.Miejsca" Multiplicity="0..1" />
           <End Role="Dostarczenia_Zewn" Type="Self.Dostarczenia_Zewn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6584,7 +6779,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostarcze__ID_Pr__2739D489">
+        <Association Name="FK__Dostarcze__ID_Pr__282DF8C2">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
           <End Role="Dostarczenia_Zewn" Type="Self.Dostarczenia_Zewn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6596,7 +6791,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostarcze__ID_Za__282DF8C2">
+        <Association Name="FK__Dostarcze__ID_Za__29221CFB">
           <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
           <End Role="Dostarczenia_Zewn" Type="Self.Dostarczenia_Zewn" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6620,7 +6815,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostawy_W__ID_Do__3587F3E0">
+        <Association Name="FK__Dostawy_W__ID_Do__367C1819">
           <End Role="Zamowienia_Dostawy" Type="Self.Zamowienia_Dostawy" Multiplicity="0..1" />
           <End Role="Dostawy_Wlasne_Zawartosc" Type="Self.Dostawy_Wlasne_Zawartosc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6632,7 +6827,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostawy_W__ID_El__367C1819">
+        <Association Name="FK__Dostawy_W__ID_El__37703C52">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="0..1" />
           <End Role="Dostawy_Wlasne_Zawartosc" Type="Self.Dostawy_Wlasne_Zawartosc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6644,7 +6839,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostawy_W__ID_Za__3493CFA7">
+        <Association Name="FK__Dostawy_W__ID_Za__3587F3E0">
           <End Role="Zamowienia_Dostawy_Wlasne" Type="Self.Zamowienia_Dostawy_Wlasne" Multiplicity="0..1" />
           <End Role="Dostawy_Wlasne_Zawartosc" Type="Self.Dostawy_Wlasne_Zawartosc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6656,7 +6851,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostawy_Z__ID_Do__1CBC4616">
+        <Association Name="FK__Dostawy_Z__ID_Do__1DB06A4F">
           <End Role="Zamowienia_Dostawy" Type="Self.Zamowienia_Dostawy" Multiplicity="0..1" />
           <End Role="Dostawy_Zawartosc" Type="Self.Dostawy_Zawartosc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6668,7 +6863,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostawy_Z__ID_El__1DB06A4F">
+        <Association Name="FK__Dostawy_Z__ID_El__1EA48E88">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="0..1" />
           <End Role="Dostawy_Zawartosc" Type="Self.Dostawy_Zawartosc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6680,7 +6875,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Dostawy_Z__ID_of__1EA48E88">
+        <Association Name="FK__Dostawy_Z__ID_of__1F98B2C1">
           <End Role="Oferta" Type="Self.Oferta" Multiplicity="0..1" />
           <End Role="Dostawy_Zawartosc" Type="Self.Dostawy_Zawartosc" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6728,7 +6923,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Elementy___ID_El__5E8A0973">
+        <Association Name="FK__Elementy___ID_El__5F7E2DAC">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
           <End Role="Elementy_Proces" Type="Self.Elementy_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6764,7 +6959,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zamowieni__ID_El__2DE6D218">
+        <Association Name="FK__Zamowieni__ID_El__2EDAF651">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="0..1" />
           <End Role="Zamowienie_Element" Type="Self.Zamowienie_Element" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6824,7 +7019,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Elementy___ID_je__5F7E2DAC">
+        <Association Name="FK__Elementy___ID_je__607251E5">
           <End Role="Elementy_Jednostki" Type="Self.Elementy_Jednostki" Multiplicity="1" />
           <End Role="Elementy_Proces" Type="Self.Elementy_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6848,7 +7043,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Elementy___ID_Pr__5D95E53A">
+        <Association Name="FK__Elementy___ID_Pr__5E8A0973">
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
           <End Role="Elementy_Proces" Type="Self.Elementy_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6860,7 +7055,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Material___ID_El__6DCC4D03">
+        <Association Name="FK__Material___ID_El__6EC0713C">
           <End Role="Elementy_Proces" Type="Self.Elementy_Proces" Multiplicity="1" />
           <End Role="Material_Na_Produkcji" Type="Self.Material_Na_Produkcji" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6884,7 +7079,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Etapy_W_P__ID_Et__634EBE90">
+        <Association Name="FK__Etapy_W_P__ID_Et__6442E2C9">
           <End Role="Rodzaj_Etapu" Type="Self.Rodzaj_Etapu" Multiplicity="1" />
           <End Role="Etapy_W_Procesie" Type="Self.Etapy_W_Procesie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6896,7 +7091,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Etapy_W_P__ID_Pr__625A9A57">
+        <Association Name="FK__Etapy_W_P__ID_Pr__634EBE90">
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
           <End Role="Etapy_W_Procesie" Type="Self.Etapy_W_Procesie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6956,7 +7151,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Kontrola___ID_Pr__793DFFAF">
+        <Association Name="FK__Kontrola___ID_Pr__7A3223E8">
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="1" />
           <End Role="Kontrola_Efektywnosci" Type="Self.Kontrola_Efektywnosci" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6980,7 +7175,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Maszyny__ID_Rodz__4E53A1AA">
+        <Association Name="FK__Maszyny__ID_Rodz__4F47C5E3">
           <End Role="Rodzaj_Maszyny" Type="Self.Rodzaj_Maszyny" Multiplicity="1" />
           <End Role="Maszyny" Type="Self.Maszyny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -6992,7 +7187,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Maszyny__ID_Srod__4D5F7D71">
+        <Association Name="FK__Maszyny__ID_Srod__4E53A1AA">
           <End Role="Srodki_Trwale" Type="Self.Srodki_Trwale" Multiplicity="1" />
           <End Role="Maszyny" Type="Self.Maszyny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7004,7 +7199,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Obsluga_T__ID_Ma__51300E55">
+        <Association Name="FK__Obsluga_T__ID_Ma__5224328E">
           <End Role="Maszyny" Type="Self.Maszyny" Multiplicity="1" />
           <End Role="Obsluga_Techniczna" Type="Self.Obsluga_Techniczna" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7016,7 +7211,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Przydzial__ID_Ma__76619304">
+        <Association Name="FK__Przydzial__ID_Ma__7755B73D">
           <End Role="Maszyny" Type="Self.Maszyny" Multiplicity="1" />
           <End Role="Przydzial_Zasobow" Type="Self.Przydzial_Zasobow" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7028,7 +7223,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Maszyny_P__ID_Pr__498EEC8D">
+        <Association Name="FK__Maszyny_P__ID_Pr__4A8310C6">
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
           <End Role="Maszyny_Proces" Type="Self.Maszyny_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7040,7 +7235,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Maszyny_P__ID_Ro__4A8310C6">
+        <Association Name="FK__Maszyny_P__ID_Ro__4B7734FF">
           <End Role="Rodzaj_Maszyny" Type="Self.Rodzaj_Maszyny" Multiplicity="1" />
           <End Role="Maszyny_Proces" Type="Self.Maszyny_Proces" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7052,7 +7247,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Material___ID_Pr__6CD828CA">
+        <Association Name="FK__Material___ID_Pr__6DCC4D03">
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="1" />
           <End Role="Material_Na_Produkcji" Type="Self.Material_Na_Produkcji" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7064,7 +7259,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zamowieni__ID_mi__31B762FC">
+        <Association Name="FK__Zamowieni__ID_mi__32AB8735">
           <End Role="Miejsca" Type="Self.Miejsca" Multiplicity="0..1" />
           <End Role="Zamowienia_Dostawy_Wlasne" Type="Self.Zamowienia_Dostawy_Wlasne" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7076,7 +7271,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Obsluga_T__ID_Pr__531856C7">
+        <Association Name="FK__Obsluga_T__ID_Pr__540C7B00">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
           <End Role="Obsluga_Techniczna" Type="Self.Obsluga_Techniczna" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7088,7 +7283,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Obsluga_T__ID_Ro__5224328E">
+        <Association Name="FK__Obsluga_T__ID_Ro__531856C7">
           <End Role="Rodzaj_Obslugi" Type="Self.Rodzaj_Obslugi" Multiplicity="1" />
           <End Role="Obsluga_Techniczna" Type="Self.Obsluga_Techniczna" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7100,7 +7295,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Odbior_Do__ID_Pr__690797E6">
+        <Association Name="FK__Odbior_Do__ID_Pr__69FBBC1F">
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="1" />
           <End Role="Odbior_Dostarczenia" Type="Self.Odbior_Dostarczenia" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7184,7 +7379,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Proces_Te__ID_Pr__42E1EEFE">
+        <Association Name="FK__Proces_Te__ID_Pr__43D61337">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7196,7 +7391,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Przydzial__ID_Pr__756D6ECB">
+        <Association Name="FK__Przydzial__ID_Pr__76619304">
           <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
           <End Role="Przydzial_Zasobow" Type="Self.Przydzial_Zasobow" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7280,7 +7475,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Proces_Pr__ID_Za__662B2B3B">
+        <Association Name="FK__Proces_Pr__ID_Za__671F4F74">
           <End Role="Zamowienie_Element" Type="Self.Zamowienie_Element" Multiplicity="1" />
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7292,7 +7487,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Realizacj__ID_Pr__70A8B9AE">
+        <Association Name="FK__Realizacj__ID_Pr__719CDDE7">
           <End Role="Proces_Produkcyjny" Type="Self.Proces_Produkcyjny" Multiplicity="1" />
           <End Role="Realizacja_Procesu" Type="Self.Realizacja_Procesu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7304,7 +7499,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Proces_Za__ID_Pr__59C55456">
+        <Association Name="FK__Proces_Za__ID_Pr__5AB9788F">
           <End Role="Proces_Technologiczny" Type="Self.Proces_Technologiczny" Multiplicity="1" />
           <End Role="Proces_Zamowienie" Type="Self.Proces_Zamowienie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7316,7 +7511,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Proces_Za__ID_Za__5AB9788F">
+        <Association Name="FK__Proces_Za__ID_Za__5BAD9CC8">
           <End Role="Zamowienie_Element" Type="Self.Zamowienie_Element" Multiplicity="1" />
           <End Role="Proces_Zamowienie" Type="Self.Proces_Zamowienie" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7328,7 +7523,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Przydzial__ID_Re__74794A92">
+        <Association Name="FK__Przydzial__ID_Re__756D6ECB">
           <End Role="Realizacja_Procesu" Type="Self.Realizacja_Procesu" Multiplicity="1" />
           <End Role="Przydzial_Zasobow" Type="Self.Przydzial_Zasobow" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7340,7 +7535,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Realizacj__ID_Et__719CDDE7">
+        <Association Name="FK__Realizacj__ID_Et__72910220">
           <End Role="Rodzaj_Etapu" Type="Self.Rodzaj_Etapu" Multiplicity="1" />
           <End Role="Realizacja_Procesu" Type="Self.Realizacja_Procesu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7424,7 +7619,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zamowieni__ID_Za__2CF2ADDF">
+        <Association Name="FK__Zamowieni__ID_Za__2DE6D218">
           <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
           <End Role="Zamowienie_Element" Type="Self.Zamowienie_Element" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7436,7 +7631,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Zamowieni__ID_Za__30C33EC3">
+        <Association Name="FK__Zamowieni__ID_Za__31B762FC">
           <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
           <End Role="Zamowienia_Dostawy_Wlasne" Type="Self.Zamowienia_Dostawy_Wlasne" Multiplicity="*" />
           <ReferentialConstraint>
@@ -7444,6 +7639,18 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
               <PropertyRef Name="ID_Zamowienia" />
             </Principal>
             <Dependent Role="Zamowienia_Dostawy_Wlasne">
+              <PropertyRef Name="ID_Zamowienia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Zawartosc__ID_Za__1AD3FDA4">
+          <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
+          <End Role="Zawartosc" Type="Self.Zawartosc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zamowienia">
+              <PropertyRef Name="ID_Zamowienia" />
+            </Principal>
+            <Dependent Role="Zawartosc">
               <PropertyRef Name="ID_Zamowienia" />
             </Dependent>
           </ReferentialConstraint>
@@ -7543,6 +7750,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <EntitySet Name="vElementy_proces" EntityType="Self.vElementy_proces" />
           <EntitySet Name="vElementyProcesProdukcyjny" EntityType="Self.vElementyProcesProdukcyjny" />
           <EntitySet Name="vEtapy_proces" EntityType="Self.vEtapy_proces" />
+          <EntitySet Name="vEwidencja_dostaw_wewnetrznych" EntityType="Self.vEwidencja_dostaw_wewnetrznych" />
+          <EntitySet Name="vEwidencja_dostaw_zewnetrznych" EntityType="Self.vEwidencja_dostaw_zewnetrznych" />
           <EntitySet Name="vFaktury" EntityType="Self.vFaktury" />
           <EntitySet Name="vFakturyZewnetrzne" EntityType="Self.vFakturyZewnetrzne" />
           <EntitySet Name="vImieNazwiskoPracownika" EntityType="Self.vImieNazwiskoPracownika" />
@@ -7572,6 +7781,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <EntitySet Name="vNieuzytyMaterialOdpad" EntityType="Self.vNieuzytyMaterialOdpad" />
           <EntitySet Name="vNiezuzytyMaterialNaProdukcji" EntityType="Self.vNiezuzytyMaterialNaProdukcji" />
           <EntitySet Name="vObsluga" EntityType="Self.vObsluga" />
+          <EntitySet Name="vOdbior_Gotowych_Produktow" EntityType="Self.vOdbior_Gotowych_Produktow" />
           <EntitySet Name="vOdebranyMaterialMagazyn" EntityType="Self.vOdebranyMaterialMagazyn" />
           <EntitySet Name="vOdebranyMaterialProdukcja" EntityType="Self.vOdebranyMaterialProdukcja" />
           <EntitySet Name="vOferta" EntityType="Self.vOferta" />
@@ -7623,7 +7833,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <EntitySet Name="vWszystkie_Elementy" EntityType="Self.vWszystkie_Elementy" />
           <EntitySet Name="vWszystkie_Maszyny" EntityType="Self.vWszystkie_Maszyny" />
           <EntitySet Name="vWszystkieMaszyny" EntityType="Self.vWszystkieMaszyny" />
+          <EntitySet Name="vWydawanie_Zamowien_Kurierowi" EntityType="Self.vWydawanie_Zamowien_Kurierowi" />
           <EntitySet Name="vWynagrodzenia" EntityType="Self.vWynagrodzenia" />
+          <EntitySet Name="vZamowienia_Do_Wydania" EntityType="Self.vZamowienia_Do_Wydania" />
           <EntitySet Name="vZamowieniaDoWykonaniaUDostawcy" EntityType="Self.vZamowieniaDoWykonaniaUDostawcy" />
           <EntitySet Name="vZamowieniaDystans" EntityType="Self.vZamowieniaDystans" />
           <EntitySet Name="vZamowieniaNieprzypisaneDoPracownikaIKuriera" EntityType="Self.vZamowieniaNieprzypisaneDoPracownikaIKuriera" />
@@ -7631,63 +7843,63 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <EntitySet Name="vZamowienieProcesyProdukcyjne" EntityType="Self.vZamowienieProcesyProdukcyjne" />
           <EntitySet Name="vZatrudnieniePracownika" EntityType="Self.vZatrudnieniePracownika" />
           <EntitySet Name="vZawartoscMagazynuDoPrzydzialu" EntityType="Self.vZawartoscMagazynuDoPrzydzialu" />
-          <AssociationSet Name="FK__Czesci_Ob__ID_El__56E8E7AB" Association="Self.FK__Czesci_Ob__ID_El__56E8E7AB">
+          <AssociationSet Name="FK__Czesci_Ob__ID_El__57DD0BE4" Association="Self.FK__Czesci_Ob__ID_El__57DD0BE4">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Czesci_Obsluga" EntitySet="Czesci_Obsluga" />
           </AssociationSet>
-          <AssociationSet Name="FK__Czesci_Ob__ID_Ob__55F4C372" Association="Self.FK__Czesci_Ob__ID_Ob__55F4C372">
+          <AssociationSet Name="FK__Czesci_Ob__ID_Ob__56E8E7AB" Association="Self.FK__Czesci_Ob__ID_Ob__56E8E7AB">
             <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
             <End Role="Czesci_Obsluga" EntitySet="Czesci_Obsluga" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dokumenta__ID_Do__45BE5BA9" Association="Self.FK__Dokumenta__ID_Do__45BE5BA9">
+          <AssociationSet Name="FK__Dokumenta__ID_Do__46B27FE2" Association="Self.FK__Dokumenta__ID_Do__46B27FE2">
             <End Role="Dokumentacje" EntitySet="Dokumentacje" />
             <End Role="Dokumentacja_Proces" EntitySet="Dokumentacja_Proces" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dokumenta__ID_Pr__46B27FE2" Association="Self.FK__Dokumenta__ID_Pr__46B27FE2">
+          <AssociationSet Name="FK__Dokumenta__ID_Pr__47A6A41B" Association="Self.FK__Dokumenta__ID_Pr__47A6A41B">
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
             <End Role="Dokumentacja_Proces" EntitySet="Dokumentacja_Proces" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dokumenta__ID_Pr__40058253" Association="Self.FK__Dokumenta__ID_Pr__40058253">
+          <AssociationSet Name="FK__Dokumenta__ID_Pr__40F9A68C" Association="Self.FK__Dokumenta__ID_Pr__40F9A68C">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Dokumentacje" EntitySet="Dokumentacje" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dokumenta__ID_Ro__3F115E1A" Association="Self.FK__Dokumenta__ID_Ro__3F115E1A">
+          <AssociationSet Name="FK__Dokumenta__ID_Ro__40058253" Association="Self.FK__Dokumenta__ID_Ro__40058253">
             <End Role="Rodzaj_Dokumentacji" EntitySet="Rodzaj_Dokumentacji" />
             <End Role="Dokumentacje" EntitySet="Dokumentacje" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Do__22751F6C" Association="Self.FK__Dostarcze__ID_Do__22751F6C">
+          <AssociationSet Name="FK__Dostarcze__ID_Do__236943A5" Association="Self.FK__Dostarcze__ID_Do__236943A5">
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_el__236943A5" Association="Self.FK__Dostarcze__ID_el__236943A5">
+          <AssociationSet Name="FK__Dostarcze__ID_el__245D67DE" Association="Self.FK__Dostarcze__ID_el__245D67DE">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Mi__245D67DE" Association="Self.FK__Dostarcze__ID_Mi__245D67DE">
+          <AssociationSet Name="FK__Dostarcze__ID_Mi__25518C17" Association="Self.FK__Dostarcze__ID_Mi__25518C17">
             <End Role="Miejsca" EntitySet="Miejsca" />
             <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Pr__2180FB33" Association="Self.FK__Dostarcze__ID_Pr__2180FB33">
+          <AssociationSet Name="FK__Dostarcze__ID_Pr__22751F6C" Association="Self.FK__Dostarcze__ID_Pr__22751F6C">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
           </AssociationSet>
-          <AssociationSet Name="FK__Odbior_Do__ID_Do__69FBBC1F" Association="Self.FK__Odbior_Do__ID_Do__69FBBC1F">
+          <AssociationSet Name="FK__Odbior_Do__ID_Do__6AEFE058" Association="Self.FK__Odbior_Do__ID_Do__6AEFE058">
             <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
             <End Role="Odbior_Dostarczenia" EntitySet="Odbior_Dostarczenia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_el__29221CFB" Association="Self.FK__Dostarcze__ID_el__29221CFB">
+          <AssociationSet Name="FK__Dostarcze__ID_el__2A164134" Association="Self.FK__Dostarcze__ID_el__2A164134">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Dostarczenia_Zewn" EntitySet="Dostarczenia_Zewn" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Mi__2A164134" Association="Self.FK__Dostarcze__ID_Mi__2A164134">
+          <AssociationSet Name="FK__Dostarcze__ID_Mi__2B0A656D" Association="Self.FK__Dostarcze__ID_Mi__2B0A656D">
             <End Role="Miejsca" EntitySet="Miejsca" />
             <End Role="Dostarczenia_Zewn" EntitySet="Dostarczenia_Zewn" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Pr__2739D489" Association="Self.FK__Dostarcze__ID_Pr__2739D489">
+          <AssociationSet Name="FK__Dostarcze__ID_Pr__282DF8C2" Association="Self.FK__Dostarcze__ID_Pr__282DF8C2">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Dostarczenia_Zewn" EntitySet="Dostarczenia_Zewn" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Za__282DF8C2" Association="Self.FK__Dostarcze__ID_Za__282DF8C2">
+          <AssociationSet Name="FK__Dostarcze__ID_Za__29221CFB" Association="Self.FK__Dostarcze__ID_Za__29221CFB">
             <End Role="Zamowienia" EntitySet="Zamowienia" />
             <End Role="Dostarczenia_Zewn" EntitySet="Dostarczenia_Zewn" />
           </AssociationSet>
@@ -7695,27 +7907,27 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Dostawcy_Zaopatrzenie" EntitySet="Dostawcy_Zaopatrzenie" />
             <End Role="Oferta" EntitySet="Oferta" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostawy_W__ID_Do__3587F3E0" Association="Self.FK__Dostawy_W__ID_Do__3587F3E0">
+          <AssociationSet Name="FK__Dostawy_W__ID_Do__367C1819" Association="Self.FK__Dostawy_W__ID_Do__367C1819">
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Dostawy_Wlasne_Zawartosc" EntitySet="Dostawy_Wlasne_Zawartosc" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostawy_W__ID_El__367C1819" Association="Self.FK__Dostawy_W__ID_El__367C1819">
+          <AssociationSet Name="FK__Dostawy_W__ID_El__37703C52" Association="Self.FK__Dostawy_W__ID_El__37703C52">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Dostawy_Wlasne_Zawartosc" EntitySet="Dostawy_Wlasne_Zawartosc" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostawy_W__ID_Za__3493CFA7" Association="Self.FK__Dostawy_W__ID_Za__3493CFA7">
+          <AssociationSet Name="FK__Dostawy_W__ID_Za__3587F3E0" Association="Self.FK__Dostawy_W__ID_Za__3587F3E0">
             <End Role="Zamowienia_Dostawy_Wlasne" EntitySet="Zamowienia_Dostawy_Wlasne" />
             <End Role="Dostawy_Wlasne_Zawartosc" EntitySet="Dostawy_Wlasne_Zawartosc" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostawy_Z__ID_Do__1CBC4616" Association="Self.FK__Dostawy_Z__ID_Do__1CBC4616">
+          <AssociationSet Name="FK__Dostawy_Z__ID_Do__1DB06A4F" Association="Self.FK__Dostawy_Z__ID_Do__1DB06A4F">
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Dostawy_Zawartosc" EntitySet="Dostawy_Zawartosc" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostawy_Z__ID_El__1DB06A4F" Association="Self.FK__Dostawy_Z__ID_El__1DB06A4F">
+          <AssociationSet Name="FK__Dostawy_Z__ID_El__1EA48E88" Association="Self.FK__Dostawy_Z__ID_El__1EA48E88">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Dostawy_Zawartosc" EntitySet="Dostawy_Zawartosc" />
           </AssociationSet>
-          <AssociationSet Name="FK__Dostawy_Z__ID_of__1EA48E88" Association="Self.FK__Dostawy_Z__ID_of__1EA48E88">
+          <AssociationSet Name="FK__Dostawy_Z__ID_of__1F98B2C1" Association="Self.FK__Dostawy_Z__ID_of__1F98B2C1">
             <End Role="Oferta" EntitySet="Oferta" />
             <End Role="Dostawy_Zawartosc" EntitySet="Dostawy_Zawartosc" />
           </AssociationSet>
@@ -7731,7 +7943,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Elementy_Cechy" EntitySet="Elementy_Cechy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Elementy___ID_El__5E8A0973" Association="Self.FK__Elementy___ID_El__5E8A0973">
+          <AssociationSet Name="FK__Elementy___ID_El__5F7E2DAC" Association="Self.FK__Elementy___ID_El__5F7E2DAC">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Elementy_Proces" EntitySet="Elementy_Proces" />
           </AssociationSet>
@@ -7743,7 +7955,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Oferta" EntitySet="Oferta" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_El__2DE6D218" Association="Self.FK__Zamowieni__ID_El__2DE6D218">
+          <AssociationSet Name="FK__Zamowieni__ID_El__2EDAF651" Association="Self.FK__Zamowieni__ID_El__2EDAF651">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Zamowienie_Element" EntitySet="Zamowienie_Element" />
           </AssociationSet>
@@ -7763,7 +7975,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Elementy_Cechy_Slownik" EntitySet="Elementy_Cechy_Slownik" />
             <End Role="Typy_cechy_rejestr" EntitySet="Typy_cechy_rejestr" />
           </AssociationSet>
-          <AssociationSet Name="FK__Elementy___ID_je__5F7E2DAC" Association="Self.FK__Elementy___ID_je__5F7E2DAC">
+          <AssociationSet Name="FK__Elementy___ID_je__607251E5" Association="Self.FK__Elementy___ID_je__607251E5">
             <End Role="Elementy_Jednostki" EntitySet="Elementy_Jednostki" />
             <End Role="Elementy_Proces" EntitySet="Elementy_Proces" />
           </AssociationSet>
@@ -7771,11 +7983,11 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Elementy_Jednostki" EntitySet="Elementy_Jednostki" />
             <End Role="Oferta" EntitySet="Oferta" />
           </AssociationSet>
-          <AssociationSet Name="FK__Elementy___ID_Pr__5D95E53A" Association="Self.FK__Elementy___ID_Pr__5D95E53A">
+          <AssociationSet Name="FK__Elementy___ID_Pr__5E8A0973" Association="Self.FK__Elementy___ID_Pr__5E8A0973">
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
             <End Role="Elementy_Proces" EntitySet="Elementy_Proces" />
           </AssociationSet>
-          <AssociationSet Name="FK__Material___ID_El__6DCC4D03" Association="Self.FK__Material___ID_El__6DCC4D03">
+          <AssociationSet Name="FK__Material___ID_El__6EC0713C" Association="Self.FK__Material___ID_El__6EC0713C">
             <End Role="Elementy_Proces" EntitySet="Elementy_Proces" />
             <End Role="Material_Na_Produkcji" EntitySet="Material_Na_Produkcji" />
           </AssociationSet>
@@ -7783,11 +7995,11 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Elementy_Typy" EntitySet="Elementy_Typy" />
             <End Role="Typy_cechy_rejestr" EntitySet="Typy_cechy_rejestr" />
           </AssociationSet>
-          <AssociationSet Name="FK__Etapy_W_P__ID_Et__634EBE90" Association="Self.FK__Etapy_W_P__ID_Et__634EBE90">
+          <AssociationSet Name="FK__Etapy_W_P__ID_Et__6442E2C9" Association="Self.FK__Etapy_W_P__ID_Et__6442E2C9">
             <End Role="Rodzaj_Etapu" EntitySet="Rodzaj_Etapu" />
             <End Role="Etapy_W_Procesie" EntitySet="Etapy_W_Procesie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Etapy_W_P__ID_Pr__625A9A57" Association="Self.FK__Etapy_W_P__ID_Pr__625A9A57">
+          <AssociationSet Name="FK__Etapy_W_P__ID_Pr__634EBE90" Association="Self.FK__Etapy_W_P__ID_Pr__634EBE90">
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
             <End Role="Etapy_W_Procesie" EntitySet="Etapy_W_Procesie" />
           </AssociationSet>
@@ -7807,7 +8019,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Klienci" EntitySet="Klienci" />
             <End Role="Zamowienia" EntitySet="Zamowienia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Kontrola___ID_Pr__793DFFAF" Association="Self.FK__Kontrola___ID_Pr__793DFFAF">
+          <AssociationSet Name="FK__Kontrola___ID_Pr__7A3223E8" Association="Self.FK__Kontrola___ID_Pr__7A3223E8">
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
             <End Role="Kontrola_Efektywnosci" EntitySet="Kontrola_Efektywnosci" />
           </AssociationSet>
@@ -7815,47 +8027,47 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Kurierzy" EntitySet="Kurierzy" />
             <End Role="Umowy_Kurierzy" EntitySet="Umowy_Kurierzy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Maszyny__ID_Rodz__4E53A1AA" Association="Self.FK__Maszyny__ID_Rodz__4E53A1AA">
+          <AssociationSet Name="FK__Maszyny__ID_Rodz__4F47C5E3" Association="Self.FK__Maszyny__ID_Rodz__4F47C5E3">
             <End Role="Rodzaj_Maszyny" EntitySet="Rodzaj_Maszyny" />
             <End Role="Maszyny" EntitySet="Maszyny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Maszyny__ID_Srod__4D5F7D71" Association="Self.FK__Maszyny__ID_Srod__4D5F7D71">
+          <AssociationSet Name="FK__Maszyny__ID_Srod__4E53A1AA" Association="Self.FK__Maszyny__ID_Srod__4E53A1AA">
             <End Role="Srodki_Trwale" EntitySet="Srodki_Trwale" />
             <End Role="Maszyny" EntitySet="Maszyny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Obsluga_T__ID_Ma__51300E55" Association="Self.FK__Obsluga_T__ID_Ma__51300E55">
+          <AssociationSet Name="FK__Obsluga_T__ID_Ma__5224328E" Association="Self.FK__Obsluga_T__ID_Ma__5224328E">
             <End Role="Maszyny" EntitySet="Maszyny" />
             <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
           </AssociationSet>
-          <AssociationSet Name="FK__Przydzial__ID_Ma__76619304" Association="Self.FK__Przydzial__ID_Ma__76619304">
+          <AssociationSet Name="FK__Przydzial__ID_Ma__7755B73D" Association="Self.FK__Przydzial__ID_Ma__7755B73D">
             <End Role="Maszyny" EntitySet="Maszyny" />
             <End Role="Przydzial_Zasobow" EntitySet="Przydzial_Zasobow" />
           </AssociationSet>
-          <AssociationSet Name="FK__Maszyny_P__ID_Pr__498EEC8D" Association="Self.FK__Maszyny_P__ID_Pr__498EEC8D">
+          <AssociationSet Name="FK__Maszyny_P__ID_Pr__4A8310C6" Association="Self.FK__Maszyny_P__ID_Pr__4A8310C6">
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
             <End Role="Maszyny_Proces" EntitySet="Maszyny_Proces" />
           </AssociationSet>
-          <AssociationSet Name="FK__Maszyny_P__ID_Ro__4A8310C6" Association="Self.FK__Maszyny_P__ID_Ro__4A8310C6">
+          <AssociationSet Name="FK__Maszyny_P__ID_Ro__4B7734FF" Association="Self.FK__Maszyny_P__ID_Ro__4B7734FF">
             <End Role="Rodzaj_Maszyny" EntitySet="Rodzaj_Maszyny" />
             <End Role="Maszyny_Proces" EntitySet="Maszyny_Proces" />
           </AssociationSet>
-          <AssociationSet Name="FK__Material___ID_Pr__6CD828CA" Association="Self.FK__Material___ID_Pr__6CD828CA">
+          <AssociationSet Name="FK__Material___ID_Pr__6DCC4D03" Association="Self.FK__Material___ID_Pr__6DCC4D03">
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
             <End Role="Material_Na_Produkcji" EntitySet="Material_Na_Produkcji" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_mi__31B762FC" Association="Self.FK__Zamowieni__ID_mi__31B762FC">
+          <AssociationSet Name="FK__Zamowieni__ID_mi__32AB8735" Association="Self.FK__Zamowieni__ID_mi__32AB8735">
             <End Role="Miejsca" EntitySet="Miejsca" />
             <End Role="Zamowienia_Dostawy_Wlasne" EntitySet="Zamowienia_Dostawy_Wlasne" />
           </AssociationSet>
-          <AssociationSet Name="FK__Obsluga_T__ID_Pr__531856C7" Association="Self.FK__Obsluga_T__ID_Pr__531856C7">
+          <AssociationSet Name="FK__Obsluga_T__ID_Pr__540C7B00" Association="Self.FK__Obsluga_T__ID_Pr__540C7B00">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
           </AssociationSet>
-          <AssociationSet Name="FK__Obsluga_T__ID_Ro__5224328E" Association="Self.FK__Obsluga_T__ID_Ro__5224328E">
+          <AssociationSet Name="FK__Obsluga_T__ID_Ro__531856C7" Association="Self.FK__Obsluga_T__ID_Ro__531856C7">
             <End Role="Rodzaj_Obslugi" EntitySet="Rodzaj_Obslugi" />
             <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
           </AssociationSet>
-          <AssociationSet Name="FK__Odbior_Do__ID_Pr__690797E6" Association="Self.FK__Odbior_Do__ID_Pr__690797E6">
+          <AssociationSet Name="FK__Odbior_Do__ID_Pr__69FBBC1F" Association="Self.FK__Odbior_Do__ID_Pr__69FBBC1F">
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
             <End Role="Odbior_Dostarczenia" EntitySet="Odbior_Dostarczenia" />
           </AssociationSet>
@@ -7883,11 +8095,11 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Pracownicy_Zatrudnienie" EntitySet="Pracownicy_Zatrudnienie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Proces_Te__ID_Pr__42E1EEFE" Association="Self.FK__Proces_Te__ID_Pr__42E1EEFE">
+          <AssociationSet Name="FK__Proces_Te__ID_Pr__43D61337" Association="Self.FK__Proces_Te__ID_Pr__43D61337">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Przydzial__ID_Pr__756D6ECB" Association="Self.FK__Przydzial__ID_Pr__756D6ECB">
+          <AssociationSet Name="FK__Przydzial__ID_Pr__76619304" Association="Self.FK__Przydzial__ID_Pr__76619304">
             <End Role="Pracownicy" EntitySet="Pracownicy" />
             <End Role="Przydzial_Zasobow" EntitySet="Przydzial_Zasobow" />
           </AssociationSet>
@@ -7915,27 +8127,27 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Stanowisko" EntitySet="Stanowisko" />
             <End Role="Pracownicy_Zatrudnienie" EntitySet="Pracownicy_Zatrudnienie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Proces_Pr__ID_Za__662B2B3B" Association="Self.FK__Proces_Pr__ID_Za__662B2B3B">
+          <AssociationSet Name="FK__Proces_Pr__ID_Za__671F4F74" Association="Self.FK__Proces_Pr__ID_Za__671F4F74">
             <End Role="Zamowienie_Element" EntitySet="Zamowienie_Element" />
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
           </AssociationSet>
-          <AssociationSet Name="FK__Realizacj__ID_Pr__70A8B9AE" Association="Self.FK__Realizacj__ID_Pr__70A8B9AE">
+          <AssociationSet Name="FK__Realizacj__ID_Pr__719CDDE7" Association="Self.FK__Realizacj__ID_Pr__719CDDE7">
             <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
             <End Role="Realizacja_Procesu" EntitySet="Realizacja_Procesu" />
           </AssociationSet>
-          <AssociationSet Name="FK__Proces_Za__ID_Pr__59C55456" Association="Self.FK__Proces_Za__ID_Pr__59C55456">
+          <AssociationSet Name="FK__Proces_Za__ID_Pr__5AB9788F" Association="Self.FK__Proces_Za__ID_Pr__5AB9788F">
             <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
             <End Role="Proces_Zamowienie" EntitySet="Proces_Zamowienie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Proces_Za__ID_Za__5AB9788F" Association="Self.FK__Proces_Za__ID_Za__5AB9788F">
+          <AssociationSet Name="FK__Proces_Za__ID_Za__5BAD9CC8" Association="Self.FK__Proces_Za__ID_Za__5BAD9CC8">
             <End Role="Zamowienie_Element" EntitySet="Zamowienie_Element" />
             <End Role="Proces_Zamowienie" EntitySet="Proces_Zamowienie" />
           </AssociationSet>
-          <AssociationSet Name="FK__Przydzial__ID_Re__74794A92" Association="Self.FK__Przydzial__ID_Re__74794A92">
+          <AssociationSet Name="FK__Przydzial__ID_Re__756D6ECB" Association="Self.FK__Przydzial__ID_Re__756D6ECB">
             <End Role="Realizacja_Procesu" EntitySet="Realizacja_Procesu" />
             <End Role="Przydzial_Zasobow" EntitySet="Przydzial_Zasobow" />
           </AssociationSet>
-          <AssociationSet Name="FK__Realizacj__ID_Et__719CDDE7" Association="Self.FK__Realizacj__ID_Et__719CDDE7">
+          <AssociationSet Name="FK__Realizacj__ID_Et__72910220" Association="Self.FK__Realizacj__ID_Et__72910220">
             <End Role="Rodzaj_Etapu" EntitySet="Rodzaj_Etapu" />
             <End Role="Realizacja_Procesu" EntitySet="Realizacja_Procesu" />
           </AssociationSet>
@@ -7963,13 +8175,17 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Zamowienia" EntitySet="Zamowienia" />
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Za__2CF2ADDF" Association="Self.FK__Zamowieni__ID_Za__2CF2ADDF">
+          <AssociationSet Name="FK__Zamowieni__ID_Za__2DE6D218" Association="Self.FK__Zamowieni__ID_Za__2DE6D218">
             <End Role="Zamowienia" EntitySet="Zamowienia" />
             <End Role="Zamowienie_Element" EntitySet="Zamowienie_Element" />
           </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Za__30C33EC3" Association="Self.FK__Zamowieni__ID_Za__30C33EC3">
+          <AssociationSet Name="FK__Zamowieni__ID_Za__31B762FC" Association="Self.FK__Zamowieni__ID_Za__31B762FC">
             <End Role="Zamowienia" EntitySet="Zamowienia" />
             <End Role="Zamowienia_Dostawy_Wlasne" EntitySet="Zamowienia_Dostawy_Wlasne" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zawartosc__ID_Za__1AD3FDA4" Association="Self.FK__Zawartosc__ID_Za__1AD3FDA4">
+            <End Role="Zamowienia" EntitySet="Zamowienia" />
+            <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
           <AssociationSet Name="FK__Zawartosc__ID_Do__19DFD96B" Association="Self.FK__Zawartosc__ID_Do__19DFD96B">
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
@@ -8616,6 +8832,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
                 <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
                 <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
                 <ScalarProperty Name="Ilosc_Paczek" ColumnName="Ilosc_Paczek" />
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -8851,6 +9068,36 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
                 <ScalarProperty Name="Numer_procesu" ColumnName="Numer procesu" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
                 <ScalarProperty Name="Czas__h_" ColumnName="Czas (h)" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vEwidencja_dostaw_wewnetrznych">
+            <EntityTypeMapping TypeName="SzwalniaModel.vEwidencja_dostaw_wewnetrznych">
+              <MappingFragment StoreEntitySet="vEwidencja_dostaw_wewnetrznych">
+                <ScalarProperty Name="ID_Dostarczenia" ColumnName="ID_Dostarczenia" />
+                <ScalarProperty Name="Data_Dostarczenia" ColumnName="Data_Dostarczenia" />
+                <ScalarProperty Name="Pracownik" ColumnName="Pracownik" />
+                <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
+                <ScalarProperty Name="ID_element" ColumnName="ID_element" />
+                <ScalarProperty Name="Miejsce" ColumnName="Miejsce" />
+                <ScalarProperty Name="Akcja" ColumnName="Akcja" />
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
+                <ScalarProperty Name="ID_Zamowienie_element" ColumnName="ID_Zamowienie_element" />
+                <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vEwidencja_dostaw_zewnetrznych">
+            <EntityTypeMapping TypeName="SzwalniaModel.vEwidencja_dostaw_zewnetrznych">
+              <MappingFragment StoreEntitySet="vEwidencja_dostaw_zewnetrznych">
+                <ScalarProperty Name="ID_Dostarczenia" ColumnName="ID_Dostarczenia" />
+                <ScalarProperty Name="Data_Dostarczenia" ColumnName="Data_Dostarczenia" />
+                <ScalarProperty Name="Pracownik" ColumnName="Pracownik" />
+                <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="Miejsce" ColumnName="Miejsce" />
+                <ScalarProperty Name="Akcja" ColumnName="Akcja" />
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -9162,6 +9409,17 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
                 <ScalarProperty Name="Numer_seryjny" ColumnName="Numer seryjny" />
                 <ScalarProperty Name="Rodzaj_obsługi" ColumnName="Rodzaj obsługi" />
                 <ScalarProperty Name="Imię_i_nazwisko" ColumnName="Imię i nazwisko" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vOdbior_Gotowych_Produktow">
+            <EntityTypeMapping TypeName="SzwalniaModel.vOdbior_Gotowych_Produktow">
+              <MappingFragment StoreEntitySet="vOdbior_Gotowych_Produktow">
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
+                <ScalarProperty Name="ID_Zamowienie_Element" ColumnName="ID_Zamowienie_Element" />
+                <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -9698,6 +9956,17 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="vWydawanie_Zamowien_Kurierowi">
+            <EntityTypeMapping TypeName="SzwalniaModel.vWydawanie_Zamowien_Kurierowi">
+              <MappingFragment StoreEntitySet="vWydawanie_Zamowien_Kurierowi">
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
+                <ScalarProperty Name="ID_Zamowienie_Element" ColumnName="ID_Zamowienie_Element" />
+                <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
+                <ScalarProperty Name="ID_element" ColumnName="ID_element" />
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="vWynagrodzenia">
             <EntityTypeMapping TypeName="SzwalniaModel.vWynagrodzenia">
               <MappingFragment StoreEntitySet="vWynagrodzenia">
@@ -9708,6 +9977,13 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
                 <ScalarProperty Name="Pensja" ColumnName="Pensja" />
                 <ScalarProperty Name="Wymiar_Etatu" ColumnName="Wymiar_Etatu" />
                 <ScalarProperty Name="Wynagrodzenie" ColumnName="Wynagrodzenie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vZamowienia_Do_Wydania">
+            <EntityTypeMapping TypeName="SzwalniaModel.vZamowienia_Do_Wydania">
+              <MappingFragment StoreEntitySet="vZamowienia_Do_Wydania">
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

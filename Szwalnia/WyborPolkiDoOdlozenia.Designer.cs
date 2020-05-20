@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WyborPolkiDoOdlozenia));
             this.cmbPracownicy = new System.Windows.Forms.ComboBox();
             this.dgvWolnePolki = new System.Windows.Forms.DataGridView();
             this.lblInfoWybierzPracownika = new System.Windows.Forms.Label();
@@ -41,7 +42,7 @@
             this.cmbPracownicy.FormattingEnabled = true;
             this.cmbPracownicy.Location = new System.Drawing.Point(15, 35);
             this.cmbPracownicy.Name = "cmbPracownicy";
-            this.cmbPracownicy.Size = new System.Drawing.Size(773, 21);
+            this.cmbPracownicy.Size = new System.Drawing.Size(621, 21);
             this.cmbPracownicy.TabIndex = 0;
             // 
             // dgvWolnePolki
@@ -50,7 +51,7 @@
             this.dgvWolnePolki.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvWolnePolki.Location = new System.Drawing.Point(12, 108);
             this.dgvWolnePolki.Name = "dgvWolnePolki";
-            this.dgvWolnePolki.Size = new System.Drawing.Size(776, 257);
+            this.dgvWolnePolki.Size = new System.Drawing.Size(624, 257);
             this.dgvWolnePolki.TabIndex = 1;
             this.dgvWolnePolki.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWolnePolki_CellContentDoubleClick);
             // 
@@ -58,7 +59,7 @@
             // 
             this.lblInfoWybierzPracownika.Location = new System.Drawing.Point(9, 9);
             this.lblInfoWybierzPracownika.Name = "lblInfoWybierzPracownika";
-            this.lblInfoWybierzPracownika.Size = new System.Drawing.Size(779, 23);
+            this.lblInfoWybierzPracownika.Size = new System.Drawing.Size(627, 23);
             this.lblInfoWybierzPracownika.TabIndex = 2;
             this.lblInfoWybierzPracownika.Text = "Wybierz pracownika przyjmującego dostawę";
             this.lblInfoWybierzPracownika.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -67,7 +68,7 @@
             // 
             this.lblInfoWybierzPolke.Location = new System.Drawing.Point(12, 82);
             this.lblInfoWybierzPolke.Name = "lblInfoWybierzPolke";
-            this.lblInfoWybierzPolke.Size = new System.Drawing.Size(776, 23);
+            this.lblInfoWybierzPolke.Size = new System.Drawing.Size(624, 23);
             this.lblInfoWybierzPolke.TabIndex = 3;
             this.lblInfoWybierzPolke.Text = "Wybierz półkę na którą odłożony zostanie element";
             this.lblInfoWybierzPolke.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -86,14 +87,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(648, 377);
             this.Controls.Add(this.btnApply);
             this.Controls.Add(this.lblInfoWybierzPolke);
             this.Controls.Add(this.lblInfoWybierzPracownika);
             this.Controls.Add(this.dgvWolnePolki);
             this.Controls.Add(this.cmbPracownicy);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "WyborPolkiDoOdlozenia";
-            this.Text = "WyborPolkiDoOdlozenia";
+            this.Text = "Wybór półki do odłożenia";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.WyborPolkiDoOdlozenia_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgvWolnePolki)).EndInit();
             this.ResumeLayout(false);
