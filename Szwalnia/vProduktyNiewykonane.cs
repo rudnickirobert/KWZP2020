@@ -15,6 +15,5 @@ namespace Szwalnia
     public partial class vProduktyNiewykonane
     {
         public int ID_Zamowienia { get; set; }
-        public Nullable<int> ID_Element { get; set; }
     }
 }

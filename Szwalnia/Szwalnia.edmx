@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SzwalniaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SzwalniaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Czesci_Obsluga">
           <Key>
             <PropertyRef Name="ID_Czesci_Obsluga" />
@@ -1598,7 +1598,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vProduktyNiewykonane' does not have a
             <PropertyRef Name="ID_Zamowienia" />
           </Key>
           <Property Name="ID_Zamowienia" Type="int" Nullable="false" />
-          <Property Name="ID_Element" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vProduktyWykonane' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -3944,8 +3943,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           </EntitySet>
           <EntitySet Name="vProduktyNiewykonane" EntityType="Self.vProduktyNiewykonane" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [vProduktyNiewykonane].[ID_Zamowienia] AS [ID_Zamowienia], 
-    [vProduktyNiewykonane].[ID_Element] AS [ID_Element]
+    [vProduktyNiewykonane].[ID_Zamowienia] AS [ID_Zamowienia]
     FROM [dbo].[vProduktyNiewykonane] AS [vProduktyNiewykonane]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vProduktyWykonane" EntityType="Self.vProduktyWykonane" store:Type="Views" store:Schema="dbo">
@@ -4677,7 +4675,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Znajomosc_Jezykow" EntitySet="Znajomosc_Jezykow" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SzwalniaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -6277,6 +6276,27 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Nazwa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Czas__h_" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="vProduktyDoWykonania">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia" />
+          </Key>
+          <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
+          <Property Name="ID_Element" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vProduktyNiewykonane">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia" />
+          </Key>
+          <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vProduktyWykonane">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia" />
+          </Key>
+          <Property Name="Data_Zakonczenia" Type="DateTime" Precision="0" />
+          <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
+          <Property Name="ID_Element" Type="Int32" />
+        </EntityType>
         <EntityType Name="vPrzydzialZasobow">
           <Key>
             <PropertyRef Name="ID_Realizacji_Procesu" />
@@ -6659,6 +6679,12 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Wynagrodzenie" Type="Double" />
         </EntityType>
         <EntityType Name="vZamowienia_Do_Wydania">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia" />
+          </Key>
+          <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vZamowienia_Do_Wydania_Kompletne">
           <Key>
             <PropertyRef Name="ID_Zamowienia" />
           </Key>
@@ -7925,6 +7951,9 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <EntitySet Name="vProces_Maszyna" EntityType="Self.vProces_Maszyna" />
           <EntitySet Name="vProces_technologiczny" EntityType="Self.vProces_technologiczny" />
           <EntitySet Name="vProcesy" EntityType="Self.vProcesy" />
+          <EntitySet Name="vProduktyDoWykonania" EntityType="Self.vProduktyDoWykonania" />
+          <EntitySet Name="vProduktyNiewykonane" EntityType="Self.vProduktyNiewykonane" />
+          <EntitySet Name="vProduktyWykonane" EntityType="Self.vProduktyWykonane" />
           <EntitySet Name="vPrzydzialZasobow" EntityType="Self.vPrzydzialZasobow" />
           <EntitySet Name="vPrzydzialZasobowEtap" EntityType="Self.vPrzydzialZasobowEtap" />
           <EntitySet Name="vRealizacjaProcesuProdukcyjnego" EntityType="Self.vRealizacjaProcesuProdukcyjnego" />
@@ -7962,6 +7991,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <EntitySet Name="vWydawanie_Zamowien_Kurierowi" EntityType="Self.vWydawanie_Zamowien_Kurierowi" />
           <EntitySet Name="vWynagrodzenia" EntityType="Self.vWynagrodzenia" />
           <EntitySet Name="vZamowienia_Do_Wydania" EntityType="Self.vZamowienia_Do_Wydania" />
+          <EntitySet Name="vZamowienia_Do_Wydania_Kompletne" EntityType="Self.vZamowienia_Do_Wydania_Kompletne" />
           <EntitySet Name="vZamowieniaDoWykonaniaUDostawcy" EntityType="Self.vZamowieniaDoWykonaniaUDostawcy" />
           <EntitySet Name="vZamowieniaDystans" EntityType="Self.vZamowieniaDystans" />
           <EntitySet Name="vZamowieniaNieprzypisaneDoPracownikaIKuriera" EntityType="Self.vZamowieniaNieprzypisaneDoPracownikaIKuriera" />
@@ -8317,39 +8347,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
-          <EntitySet Name="vProduktyDoWykonania" EntityType="SzwalniaModel.vProduktyDoWykonania" />
-          <EntitySet Name="vProduktyNiewykonane" EntityType="SzwalniaModel.vProduktyNiewykonane" />
-          <EntitySet Name="vProduktyWykonane" EntityType="SzwalniaModel.vProduktyWykonane" />
-          <EntitySet Name="vZamowienia_Do_Wydania_Kompletne" EntityType="SzwalniaModel.vZamowienia_Do_Wydania_Kompletne" />
         </EntityContainer>
-        <EntityType Name="vProduktyDoWykonania">
-          <Key>
-            <PropertyRef Name="ID_Zamowienia" />
-          </Key>
-          <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
-          <Property Name="ID_Element" Type="Int32" />
-        </EntityType>
-        <EntityType Name="vProduktyNiewykonane">
-          <Key>
-            <PropertyRef Name="ID_Zamowienia" />
-          </Key>
-          <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
-          <Property Name="ID_Element" Type="Int32" />
-        </EntityType>
-        <EntityType Name="vProduktyWykonane">
-          <Key>
-            <PropertyRef Name="ID_Zamowienia" />
-          </Key>
-          <Property Name="Data_Zakonczenia" Type="DateTime" Precision="0" />
-          <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
-          <Property Name="ID_Element" Type="Int32" />
-        </EntityType>
-        <EntityType Name="vZamowienia_Do_Wydania_Kompletne">
-          <Key>
-            <PropertyRef Name="ID_Zamowienia" />
-          </Key>
-          <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -9787,6 +9785,30 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="vProduktyDoWykonania">
+            <EntityTypeMapping TypeName="SzwalniaModel.vProduktyDoWykonania">
+              <MappingFragment StoreEntitySet="vProduktyDoWykonania">
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vProduktyNiewykonane">
+            <EntityTypeMapping TypeName="SzwalniaModel.vProduktyNiewykonane">
+              <MappingFragment StoreEntitySet="vProduktyNiewykonane">
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vProduktyWykonane">
+            <EntityTypeMapping TypeName="SzwalniaModel.vProduktyWykonane">
+              <MappingFragment StoreEntitySet="vProduktyWykonane">
+                <ScalarProperty Name="Data_Zakonczenia" ColumnName="Data_Zakonczenia" />
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="vPrzydzialZasobow">
             <EntityTypeMapping TypeName="SzwalniaModel.vPrzydzialZasobow">
               <MappingFragment StoreEntitySet="vPrzydzialZasobow">
@@ -10166,6 +10188,13 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="vZamowienia_Do_Wydania_Kompletne">
+            <EntityTypeMapping TypeName="SzwalniaModel.vZamowienia_Do_Wydania_Kompletne">
+              <MappingFragment StoreEntitySet="vZamowienia_Do_Wydania_Kompletne">
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="vZamowieniaDoWykonaniaUDostawcy">
             <EntityTypeMapping TypeName="SzwalniaModel.vZamowieniaDoWykonaniaUDostawcy">
               <MappingFragment StoreEntitySet="vZamowieniaDoWykonaniaUDostawcy">
@@ -10240,38 +10269,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
                 <ScalarProperty Name="Element_Oznaczenie" ColumnName="Element_Oznaczenie" />
                 <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
                 <ScalarProperty Name="Cena" ColumnName="Cena" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vProduktyDoWykonania">
-            <EntityTypeMapping TypeName="SzwalniaModel.vProduktyDoWykonania">
-              <MappingFragment StoreEntitySet="vProduktyDoWykonania">
-                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
-                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vProduktyNiewykonane">
-            <EntityTypeMapping TypeName="SzwalniaModel.vProduktyNiewykonane">
-              <MappingFragment StoreEntitySet="vProduktyNiewykonane">
-                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
-                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vProduktyWykonane">
-            <EntityTypeMapping TypeName="SzwalniaModel.vProduktyWykonane">
-              <MappingFragment StoreEntitySet="vProduktyWykonane">
-                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
-                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
-                <ScalarProperty Name="Data_Zakonczenia" ColumnName="Data_Zakonczenia" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vZamowienia_Do_Wydania_Kompletne">
-            <EntityTypeMapping TypeName="SzwalniaModel.vZamowienia_Do_Wydania_Kompletne">
-              <MappingFragment StoreEntitySet="vZamowienia_Do_Wydania_Kompletne">
-                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
