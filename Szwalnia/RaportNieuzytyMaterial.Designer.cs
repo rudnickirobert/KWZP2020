@@ -46,22 +46,22 @@
             // 
             // dgvNieuzytyMaterialOdpad
             // 
-            this.dgvNieuzytyMaterialOdpad.AllowUserToOrderColumns = true;
+            this.dgvNieuzytyMaterialOdpad.AllowUserToAddRows = false;
+            this.dgvNieuzytyMaterialOdpad.AllowUserToDeleteRows = false;
             this.dgvNieuzytyMaterialOdpad.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNieuzytyMaterialOdpad.Location = new System.Drawing.Point(32, 378);
-            this.dgvNieuzytyMaterialOdpad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvNieuzytyMaterialOdpad.Location = new System.Drawing.Point(24, 307);
             this.dgvNieuzytyMaterialOdpad.Name = "dgvNieuzytyMaterialOdpad";
+            this.dgvNieuzytyMaterialOdpad.ReadOnly = true;
             this.dgvNieuzytyMaterialOdpad.RowHeadersWidth = 51;
-            this.dgvNieuzytyMaterialOdpad.Size = new System.Drawing.Size(1231, 256);
+            this.dgvNieuzytyMaterialOdpad.Size = new System.Drawing.Size(976, 264);
             this.dgvNieuzytyMaterialOdpad.TabIndex = 0;
             // 
             // btnMaterialWyswietlWszystko
             // 
             this.btnMaterialWyswietlWszystko.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnMaterialWyswietlWszystko.Location = new System.Drawing.Point(21, 184);
-            this.btnMaterialWyswietlWszystko.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMaterialWyswietlWszystko.Location = new System.Drawing.Point(16, 150);
             this.btnMaterialWyswietlWszystko.Name = "btnMaterialWyswietlWszystko";
-            this.btnMaterialWyswietlWszystko.Size = new System.Drawing.Size(211, 37);
+            this.btnMaterialWyswietlWszystko.Size = new System.Drawing.Size(158, 30);
             this.btnMaterialWyswietlWszystko.TabIndex = 31;
             this.btnMaterialWyswietlWszystko.Text = "Wszystko";
             this.btnMaterialWyswietlWszystko.UseVisualStyleBackColor = true;
@@ -73,21 +73,19 @@
             this.dtpDataZakonczenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dtpDataZakonczenia.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDataZakonczenia.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dtpDataZakonczenia.Location = new System.Drawing.Point(360, 81);
-            this.dtpDataZakonczenia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpDataZakonczenia.Location = new System.Drawing.Point(270, 66);
             this.dtpDataZakonczenia.Name = "dtpDataZakonczenia";
             this.dtpDataZakonczenia.ShowUpDown = true;
-            this.dtpDataZakonczenia.Size = new System.Drawing.Size(155, 30);
+            this.dtpDataZakonczenia.Size = new System.Drawing.Size(117, 26);
             this.dtpDataZakonczenia.TabIndex = 30;
             this.dtpDataZakonczenia.Value = new System.DateTime(2020, 5, 1, 0, 0, 0, 0);
             // 
             // btnSzukajDataZakonczenia
             // 
             this.btnSzukajDataZakonczenia.Image = global::Szwalnia.Properties.Resources.lupa28x28;
-            this.btnSzukajDataZakonczenia.Location = new System.Drawing.Point(577, 83);
-            this.btnSzukajDataZakonczenia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSzukajDataZakonczenia.Location = new System.Drawing.Point(433, 67);
             this.btnSzukajDataZakonczenia.Name = "btnSzukajDataZakonczenia";
-            this.btnSzukajDataZakonczenia.Size = new System.Drawing.Size(39, 34);
+            this.btnSzukajDataZakonczenia.Size = new System.Drawing.Size(29, 28);
             this.btnSzukajDataZakonczenia.TabIndex = 29;
             this.btnSzukajDataZakonczenia.UseVisualStyleBackColor = true;
             this.btnSzukajDataZakonczenia.Click += new System.EventHandler(this.btnSzukajDataZakonczenia_Click);
@@ -96,10 +94,9 @@
             // 
             this.lblData.AutoSize = true;
             this.lblData.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblData.Location = new System.Drawing.Point(20, 88);
-            this.lblData.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblData.Location = new System.Drawing.Point(15, 72);
             this.lblData.Name = "lblData";
-            this.lblData.Size = new System.Drawing.Size(115, 24);
+            this.lblData.Size = new System.Drawing.Size(93, 18);
             this.lblData.TabIndex = 26;
             this.lblData.Text = "Miesiąc / rok";
             // 
@@ -107,29 +104,26 @@
             // 
             this.lblProces.AutoSize = true;
             this.lblProces.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblProces.Location = new System.Drawing.Point(20, 27);
-            this.lblProces.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblProces.Location = new System.Drawing.Point(15, 22);
             this.lblProces.Name = "lblProces";
-            this.lblProces.Size = new System.Drawing.Size(232, 24);
+            this.lblProces.Size = new System.Drawing.Size(181, 18);
             this.lblProces.TabIndex = 21;
             this.lblProces.Text = "ID procesu produkcyjnego";
             // 
             // nudProces
             // 
             this.nudProces.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nudProces.Location = new System.Drawing.Point(360, 23);
-            this.nudProces.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nudProces.Location = new System.Drawing.Point(270, 19);
             this.nudProces.Name = "nudProces";
-            this.nudProces.Size = new System.Drawing.Size(156, 30);
+            this.nudProces.Size = new System.Drawing.Size(117, 26);
             this.nudProces.TabIndex = 20;
             // 
             // btnSzukajIDPrcoesu
             // 
             this.btnSzukajIDPrcoesu.Image = global::Szwalnia.Properties.Resources.lupa28x28;
-            this.btnSzukajIDPrcoesu.Location = new System.Drawing.Point(577, 21);
-            this.btnSzukajIDPrcoesu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSzukajIDPrcoesu.Location = new System.Drawing.Point(433, 17);
             this.btnSzukajIDPrcoesu.Name = "btnSzukajIDPrcoesu";
-            this.btnSzukajIDPrcoesu.Size = new System.Drawing.Size(39, 34);
+            this.btnSzukajIDPrcoesu.Size = new System.Drawing.Size(29, 28);
             this.btnSzukajIDPrcoesu.TabIndex = 19;
             this.btnSzukajIDPrcoesu.UseVisualStyleBackColor = true;
             this.btnSzukajIDPrcoesu.Click += new System.EventHandler(this.btnSzukajIDPrcoesu_Click);
@@ -138,20 +132,18 @@
             // 
             this.lblRaportKontrola.AutoSize = true;
             this.lblRaportKontrola.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblRaportKontrola.Location = new System.Drawing.Point(419, 55);
-            this.lblRaportKontrola.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRaportKontrola.Location = new System.Drawing.Point(349, 44);
             this.lblRaportKontrola.Name = "lblRaportKontrola";
-            this.lblRaportKontrola.Size = new System.Drawing.Size(401, 25);
+            this.lblRaportKontrola.Size = new System.Drawing.Size(322, 20);
             this.lblRaportKontrola.TabIndex = 32;
             this.lblRaportKontrola.Text = "Niewykorzystany materiał / odpad z produkcji";
             // 
             // btnMagazynNieOdebral
             // 
             this.btnMagazynNieOdebral.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnMagazynNieOdebral.Location = new System.Drawing.Point(21, 130);
-            this.btnMagazynNieOdebral.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMagazynNieOdebral.Location = new System.Drawing.Point(16, 106);
             this.btnMagazynNieOdebral.Name = "btnMagazynNieOdebral";
-            this.btnMagazynNieOdebral.Size = new System.Drawing.Size(240, 37);
+            this.btnMagazynNieOdebral.Size = new System.Drawing.Size(180, 30);
             this.btnMagazynNieOdebral.TabIndex = 33;
             this.btnMagazynNieOdebral.Text = "Magazyn nie odebrał";
             this.btnMagazynNieOdebral.UseVisualStyleBackColor = true;
@@ -168,23 +160,24 @@
             this.groupBox1.Controls.Add(this.nudProces);
             this.groupBox1.Controls.Add(this.btnSzukajIDPrcoesu);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBox1.Location = new System.Drawing.Point(317, 105);
+            this.groupBox1.Location = new System.Drawing.Point(273, 84);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(657, 240);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(493, 195);
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Wyszukiwanie";
             // 
             // RaportNieuzytyMaterial
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1312, 649);
+            this.ClientSize = new System.Drawing.Size(1016, 583);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblRaportKontrola);
             this.Controls.Add(this.dgvNieuzytyMaterialOdpad);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "RaportNieuzytyMaterial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Raport niewykorzystany materiał / odpad";
