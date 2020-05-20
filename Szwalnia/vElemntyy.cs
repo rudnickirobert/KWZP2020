@@ -12,9 +12,11 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vKompletnyProces
+    public partial class vElemntyy
     {
-        public int ID_Procesu_Produkcyjnego { get; set; }
-        public Nullable<bool> Kompletny_Proces { get; set; }
+        public int Numer_procesu { get; set; }
+        public string Nazwa_elementu { get; set; }
+        public int Liczba { get; set; }
+        public string Jednostka { get; set; }
     }
 }

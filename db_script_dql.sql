@@ -97,7 +97,6 @@ FROM            dbo.Elementy INNER JOIN
                          dbo.Dostawcy_Zaopatrzenie ON dbo.Oferta.ID_Dostawcy = dbo.Dostawcy_Zaopatrzenie.ID_Dostawcy
 ORDER BY dbo.Elementy.Element_Nazwa
 GO
-
 --widok ofert
 CREATE VIEW [dbo].[vOferta]
 AS
@@ -903,13 +902,21 @@ GROUP BY ID_Proces_Technologiczny
 GO
 
 CREATE VIEW vProces_technologiczny AS
-SELECT        dbo.Zamowienia.ID_Zamowienia AS [Numer zamówienia], dbo.Elementy.Element_Nazwa AS [Nazwa elementu], dbo.Zamowienie_Element.Ilosc AS [Liczba sztuk],
-                         dbo.Proces_Technologiczny.ID_Proces_Technologiczny AS [Numer procesu], dbo.Proces_Zamowienie.Kompletny_Proces AS [Kompletny proces]
+SELECT        dbo.Zamowienia.ID_Zamowienia AS [Numer zamówienia], dbo.Zamowienie_Element.ID_Zamowienie_Element AS [Numer zamówienie element], dbo.Elementy.Element_Nazwa AS [Nazwa elementu], 
+                         dbo.Zamowienie_Element.Ilosc AS [Liczba sztuk], dbo.Proces_Technologiczny.ID_Proces_Technologiczny AS [Numer procesu], dbo.Proces_Zamowienie.Kompletny_Proces AS [Kompletny proces]
 FROM            dbo.Zamowienia INNER JOIN
                          dbo.Zamowienie_Element ON dbo.Zamowienia.ID_Zamowienia = dbo.Zamowienie_Element.ID_Zamowienia INNER JOIN
                          dbo.Elementy ON dbo.Zamowienie_Element.ID_Element = dbo.Elementy.ID_Element INNER JOIN
                          dbo.Proces_Zamowienie ON dbo.Zamowienie_Element.ID_Zamowienie_Element = dbo.Proces_Zamowienie.ID_Zamowienie_Element INNER JOIN
                          dbo.Proces_Technologiczny ON dbo.Proces_Zamowienie.ID_Proces_Technologiczny = dbo.Proces_Technologiczny.ID_Proces_Technologiczny
+GO
+
+CREATE VIEW vMechanicy AS
+SELECT        dbo.Pracownicy.Imie + ' ' + dbo.Pracownicy.Nazwisko AS [Imiê i nazwisko], dbo.Stanowisko.Stanowisko, dbo.Pracownicy.ID_Pracownika
+FROM            dbo.Stanowisko INNER JOIN
+                         dbo.Pracownicy_Zatrudnienie ON dbo.Stanowisko.ID_Stanowiska = dbo.Pracownicy_Zatrudnienie.ID_Stanowiska INNER JOIN
+                         dbo.Pracownicy ON dbo.Pracownicy_Zatrudnienie.ID_Pracownika = dbo.Pracownicy.ID_Pracownika
+WHERE        (dbo.Stanowisko.Stanowisko = 'Technik utrzymania ruchu')
 GO
 
 CREATE VIEW vProcesy AS
@@ -978,23 +985,24 @@ GROUP BY dbo.Rodzaj_Dokumentacji.Nazwa
 GO
 
 CREATE VIEW vResurs AS
-SELECT        TOP (100) PERCENT dbo.Przydzial_Zasobow.ID_Maszyny, dbo.Srodki_Trwale.Producent, dbo.Srodki_Trwale.Nazwa, dbo.Srodki_Trwale.Numer_seryjny, dbo.Maszyny.Resurs_Rbh - DATEDIFF(HH,
-                         dbo.Przydzial_Zasobow.Data_Rozpoczecia, dbo.Przydzial_Zasobow.Data_Zakonczenia) AS Pozostaly_Resurs
+SELECT        TOP (100) PERCENT dbo.Przydzial_Zasobow.ID_Maszyny AS [Numer maszyny], dbo.Srodki_Trwale.Producent, dbo.Srodki_Trwale.Nazwa, dbo.Srodki_Trwale.Numer_seryjny, dbo.Maszyny.Resurs_Rbh - DATEDIFF(HH, 
+                         dbo.Przydzial_Zasobow.Data_Rozpoczecia, dbo.Przydzial_Zasobow.Data_Zakonczenia) AS [Resurs maszyny]
 FROM            dbo.Przydzial_Zasobow INNER JOIN
                          dbo.Maszyny ON dbo.Przydzial_Zasobow.ID_Maszyny = dbo.Maszyny.ID_Maszyny INNER JOIN
                          dbo.Rodzaj_Maszyny ON dbo.Maszyny.ID_Rodzaj_Maszyny = dbo.Rodzaj_Maszyny.ID_Rodzaj_Maszyny INNER JOIN
                          dbo.Srodki_Trwale ON dbo.Maszyny.ID_Srodki_Trwale = dbo.Srodki_Trwale.ID_Srodki_trwale
-ORDER BY dbo.Przydzial_Zasobow.ID_Maszyny
+ORDER BY [Numer maszyny]
 GO
 
 CREATE VIEW vCzas_do_serwisu AS
-SELECT dbo.Srodki_Trwale.Producent, dbo.Srodki_Trwale.Nazwa, dbo.Srodki_Trwale.Numer_seryjny, CONVERT (date ,DATEADD(DD, dbo.Maszyny.Serwis_Co_Ile, dbo.Obsluga_Techniczna.Data_Zakonczenia),120) AS Kiedy_Serwis
-FROM     dbo.Maszyny INNER JOIN
-                  dbo.Rodzaj_Maszyny ON dbo.Maszyny.ID_Rodzaj_Maszyny = dbo.Rodzaj_Maszyny.ID_Rodzaj_Maszyny INNER JOIN
-                  dbo.Srodki_Trwale ON dbo.Maszyny.ID_Srodki_Trwale = dbo.Srodki_Trwale.ID_Srodki_trwale INNER JOIN
-                  dbo.Obsluga_Techniczna ON dbo.Maszyny.ID_Maszyny = dbo.Obsluga_Techniczna.ID_Maszyny INNER JOIN
-                  dbo.Rodzaj_Obslugi ON dbo.Obsluga_Techniczna.ID_Rodzaj_Obslugi = dbo.Rodzaj_Obslugi.ID_Rodzaj_Obslugi
-WHERE  (dbo.Rodzaj_Obslugi.Nazwa = 'Serwis')
+SELECT        dbo.Srodki_Trwale.Producent, dbo.Srodki_Trwale.Nazwa, dbo.Srodki_Trwale.Numer_seryjny, CONVERT(date, DATEADD(DD, dbo.Maszyny.Serwis_Co_Ile, dbo.Obsluga_Techniczna.Data_Zakonczenia), 120) 
+                         AS [Nastêpny serwis]
+FROM            dbo.Maszyny INNER JOIN
+                         dbo.Rodzaj_Maszyny ON dbo.Maszyny.ID_Rodzaj_Maszyny = dbo.Rodzaj_Maszyny.ID_Rodzaj_Maszyny INNER JOIN
+                         dbo.Srodki_Trwale ON dbo.Maszyny.ID_Srodki_Trwale = dbo.Srodki_Trwale.ID_Srodki_trwale INNER JOIN
+                         dbo.Obsluga_Techniczna ON dbo.Maszyny.ID_Maszyny = dbo.Obsluga_Techniczna.ID_Maszyny INNER JOIN
+                         dbo.Rodzaj_Obslugi ON dbo.Obsluga_Techniczna.ID_Rodzaj_Obslugi = dbo.Rodzaj_Obslugi.ID_Rodzaj_Obslugi
+WHERE        (dbo.Rodzaj_Obslugi.Nazwa = 'Serwis')
 GO
 
 CREATE VIEW vProces_Etapy AS
@@ -1039,14 +1047,22 @@ GROUP BY dbo.Maszyny.ID_Maszyny, dbo.Srodki_Trwale.Nazwa, dbo.Srodki_Trwale.Nume
 GO
 
 CREATE VIEW vDokumentacja_info AS
-SELECT        dbo.Proces_Technologiczny.ID_Proces_Technologiczny AS [Numer procesu], dbo.Rodzaj_Dokumentacji.Nazwa AS Rodzaj, dbo.Pracownicy.Imie + ' ' + dbo.Pracownicy.Nazwisko AS [Imiê i nazwisko], 
-                         dbo.Dokumentacje.Data_Wykonania AS [Data wykonania]
-FROM            dbo.Proces_Technologiczny INNER JOIN
-                         dbo.Dokumentacja_Proces ON dbo.Proces_Technologiczny.ID_Proces_Technologiczny = dbo.Dokumentacja_Proces.ID_Proces_Technologiczny INNER JOIN
+SELECT        dbo.Dokumentacje.ID_Dokumentacji AS [Numer dokumetacji], dbo.Rodzaj_Dokumentacji.Nazwa AS Rodzaj, dbo.Pracownicy.Imie + ' ' + dbo.Pracownicy.Nazwisko AS [Imiê i nazwisko], 
+                         dbo.Dokumentacje.Data_Wykonania AS [Data wykonania], dbo.Dokumentacje.Plik AS Lokalizacja
+FROM            dbo.Dokumentacja_Proces INNER JOIN
                          dbo.Dokumentacje ON dbo.Dokumentacja_Proces.ID_Dokumentacji = dbo.Dokumentacje.ID_Dokumentacji INNER JOIN
                          dbo.Pracownicy ON dbo.Dokumentacje.ID_Pracownika = dbo.Pracownicy.ID_Pracownika INNER JOIN
                          dbo.Rodzaj_Dokumentacji ON dbo.Dokumentacje.ID_Rodzaj_Dokumentacji = dbo.Rodzaj_Dokumentacji.ID_Rodzaj_Dokumentacji
-GROUP BY dbo.Proces_Technologiczny.ID_Proces_Technologiczny, dbo.Rodzaj_Dokumentacji.Nazwa, dbo.Dokumentacje.Data_Wykonania, dbo.Pracownicy.Imie, dbo.Pracownicy.Nazwisko
+GROUP BY dbo.Rodzaj_Dokumentacji.Nazwa, dbo.Dokumentacje.Data_Wykonania, dbo.Pracownicy.Imie, dbo.Pracownicy.Nazwisko, dbo.Dokumentacje.ID_Dokumentacji, dbo.Dokumentacje.Plik
+GO
+
+CREATE VIEW vElemntyy AS
+SELECT        dbo.Proces_Technologiczny.ID_Proces_Technologiczny AS [Numer procesu], dbo.Elementy.Element_Nazwa AS [Nazwa elementu], dbo.Elementy_Proces.Liczba, dbo.Elementy_Jednostki.Jednostka
+FROM            dbo.Elementy INNER JOIN
+                         dbo.Elementy_Proces ON dbo.Elementy.ID_Element = dbo.Elementy_Proces.ID_Element INNER JOIN
+                         dbo.Elementy_Jednostki ON dbo.Elementy_Proces.ID_jednostka = dbo.Elementy_Jednostki.ID_jednostka INNER JOIN
+                         dbo.Proces_Technologiczny ON dbo.Elementy_Proces.ID_Proces_Technologiczny = dbo.Proces_Technologiczny.ID_Proces_Technologiczny
+GROUP BY dbo.Proces_Technologiczny.ID_Proces_Technologiczny, dbo.Elementy.Element_Nazwa, dbo.Elementy_Proces.Liczba, dbo.Elementy_Jednostki.Jednostka
 GO
 
 CREATE VIEW vProces_elementy AS
