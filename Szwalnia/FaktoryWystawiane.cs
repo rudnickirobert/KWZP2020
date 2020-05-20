@@ -15,7 +15,10 @@ namespace Szwalnia
         public FaktoryWystawiane(SzwalniaEntities db)
         {
             InitializeComponent();
-         
+
+            dgvFakturyWystawione.DataSource = db.vFaktury.ToList();
+            dgvFakturyWystawione.Columns[0].Visible = false;
+
         }
     }
 }
