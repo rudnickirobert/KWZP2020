@@ -14,22 +14,11 @@ namespace Szwalnia
     {
         public SzwalniaEntities db;
         public int ostatniNumerZamowienia;
+        Proces_Produkcyjny proces = new Proces_Produkcyjny();
         public PrzegladProcesowProdukcyjnych(SzwalniaEntities db)
         {
             InitializeComponent();
             this.db = db; 
-            dgvProcesyProdukcyjne.DataSource = db.vZamowienieProcesyProdukcyjne.ToList();
-            dgvProcesyProdukcyjne.Columns.OfType<DataGridViewColumn>().ToList().ForEach(kolumna => kolumna.Visible = true);
-            int ostatniNumer = dgvProcesyProdukcyjne.Rows.Cast<DataGridViewRow>().Max(wartosc => Convert.ToInt32(wartosc.Cells["ID_Zamowienia"].Value));
-            ostatniNumerZamowienia = ostatniNumer;
-            dgvProcesyProdukcyjne.Columns[0].HeaderText = "ID procesu produkcyjnego";
-            dgvProcesyProdukcyjne.Columns[1].HeaderText = "ID zamówienia";
-            dgvProcesyProdukcyjne.Columns[2].HeaderText = "ID zamówienia element";
-            dgvProcesyProdukcyjne.Columns[4].HeaderText = "Proponowana data dostawy materiału";
-            dgvProcesyProdukcyjne.Columns[5].HeaderText = "Data rozpoczęcia";
-            dgvProcesyProdukcyjne.Columns[6].HeaderText = "Data zakończenia";
-            dgvProcesyProdukcyjne.Columns[0].Width = 95;
-            dgvProcesyProdukcyjne.Columns[7].Width = 130;
         }
 
         private void btnWszystkieProcesy_Click(object sender, EventArgs e)
@@ -71,7 +60,8 @@ namespace Szwalnia
         private void dgvProcesyProdukcyjne_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int numerProcesu = Convert.ToInt32(dgvProcesyProdukcyjne.CurrentRow.Cells[0].Value);
-            SzczegolyProcesu szczegolyProcesu = new SzczegolyProcesu(db, Decimal.ToInt32(numerProcesu));
+            int nummerZamowienieElement = Convert.ToInt32(dgvProcesyProdukcyjne.CurrentRow.Cells[2].Value);
+            SzczegolyProcesu szczegolyProcesu = new SzczegolyProcesu(db, Decimal.ToInt32(numerProcesu), Decimal.ToInt32(nummerZamowienieElement));
             this.Close();
             szczegolyProcesu.Show();
         }
@@ -82,8 +72,6 @@ namespace Szwalnia
             dgvProcesyProdukcyjne.DataSource = this.db.vZamowienieProcesyProdukcyjne.Where(numer => numer.ID_Zamowienie_Element == nudNumerZamowienieElement.Value).ToList();
             dgvProcesyProdukcyjne.Columns.OfType<DataGridViewColumn>().ToList().ForEach(kolumna => kolumna.Visible = true);
             dgvProcesyProdukcyjne.Columns[2].Visible = false;
-
-
         }
 
         private void btnDataRozpoczecia_Click(object sender, EventArgs e)
@@ -105,6 +93,22 @@ namespace Szwalnia
             ProcesProdukcyjny procesProdukcyjny = new ProcesProdukcyjny(db);
             procesProdukcyjny.Show();
             this.Close();
+        }
+
+        private void PrzegladProcesowProdukcyjnych_Load(object sender, EventArgs e)
+        {
+            dgvProcesyProdukcyjne.DataSource = db.vZamowienieProcesyProdukcyjne.ToList();
+            dgvProcesyProdukcyjne.Columns.OfType<DataGridViewColumn>().ToList().ForEach(kolumna => kolumna.Visible = true);
+            int ostatniNumer = dgvProcesyProdukcyjne.Rows.Cast<DataGridViewRow>().Max(wartosc => Convert.ToInt32(wartosc.Cells["ID_Zamowienia"].Value));
+            ostatniNumerZamowienia = ostatniNumer;
+            dgvProcesyProdukcyjne.Columns[0].HeaderText = "ID procesu produkcyjnego";
+            dgvProcesyProdukcyjne.Columns[1].HeaderText = "ID zamówienia";
+            dgvProcesyProdukcyjne.Columns[2].HeaderText = "ID zamówienia element";
+            dgvProcesyProdukcyjne.Columns[4].HeaderText = "Proponowana data dostawy materiału";
+            dgvProcesyProdukcyjne.Columns[5].HeaderText = "Data rozpoczęcia";
+            dgvProcesyProdukcyjne.Columns[6].HeaderText = "Data zakończenia";
+            dgvProcesyProdukcyjne.Columns[0].Width = 95;
+            dgvProcesyProdukcyjne.Columns[7].Width = 130;
         }
     }
 }

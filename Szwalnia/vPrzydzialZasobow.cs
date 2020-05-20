@@ -14,6 +14,7 @@ namespace Szwalnia
     
     public partial class vPrzydzialZasobow
     {
+        public int ID_Przydzial_Zasobow { get; set; }
         public int ID_procesu_produkcyjnego { get; set; }
         public int ID_realizacji_procesu { get; set; }
         public string Nazwa_etapu { get; set; }
