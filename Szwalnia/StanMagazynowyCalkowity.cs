@@ -19,7 +19,7 @@ namespace Szwalnia
             db = Start.szwalnia;
             dgvStanMagazynowyCalosciowy.DataSource = db.vStan_magazynowy_polki.ToList();
             dgvStanMagazynowyCalosciowy.Columns[0].Visible = false;
-            dgvStanMagazynowyCalosciowy.Columns[7].Visible = false;
+            dgvStanMagazynowyCalosciowy.ReadOnly = true;
         }
 
         private void StanMagazynowyCalkowity_FormClosed(object sender, FormClosedEventArgs e)

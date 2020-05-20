@@ -18,24 +18,12 @@ namespace Szwalnia
             InitializeComponent();
             db = Start.szwalnia;
 
-            vStan_magazynowy_polki content = db.vStan_magazynowy_polki.Where(zawartosc => zawartosc.ID_Polka == idPolki).FirstOrDefault();
+            vStan_magazynowy_polki content = db.vStan_magazynowy_polki.Where(zawartosc => zawartosc.Nr_polki == idPolki).FirstOrDefault();
 
-            lblTitle.Text = "Półka nr " + content.ID_Polka.ToString() + ", regał: " +content.Oznaczenie;
-            lblNazwaElementu.Text = content.Element_Nazwa;
-            lblIdElementu.Text = content.ID_Element.ToString();
-            lblIloscJednostka.Text = content.Ile.ToString() + ' ' + content.Jednostka;
-
-            if (content.Okres_Przydatnosci_Miesiace != 0)
-            {
-                DateTime data = Convert.ToDateTime(content.Przydatnosc);
-                lblPrzydatnosc.Text = data.ToString("dd.MM.yyyy") + "r.";
-            }
-            else
-            {
-                lblPrzydatnosc.Font = new Font(lblPrzydatnosc.Font.FontFamily, 8);
-                lblPrzydatnosc.Location = new Point(158,199);
-                lblPrzydatnosc.Text = "Nie dotyczy";
-            }
+            lblTitle.Text = "Półka nr " + content.Nr_polki.ToString() + ", regał: " + content.Regal;
+            lblNazwaElementu.Text = content.Nazwa_elementu;
+            lblIdElementu.Text = content.Nr_elementu.ToString();
+            lblIloscJednostka.Text = content.Ile.ToString();           
         }
     }
 }

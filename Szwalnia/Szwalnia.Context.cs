@@ -177,7 +177,6 @@ namespace Szwalnia
         public virtual DbSet<vSredniCzasWedlugElementu> vSredniCzasWedlugElementu { get; set; }
         public virtual DbSet<vSrodkiZamortyzowane> vSrodkiZamortyzowane { get; set; }
         public virtual DbSet<vStan_magazynowy_elementy> vStan_magazynowy_elementy { get; set; }
-        public virtual DbSet<vStan_magazynowy_polki> vStan_magazynowy_polki { get; set; }
         public virtual DbSet<vStanowisko> vStanowisko { get; set; }
         public virtual DbSet<vSuma_czasu_procesu> vSuma_czasu_procesu { get; set; }
         public virtual DbSet<vSumaKosztowProdukcji> vSumaKosztowProdukcji { get; set; }
@@ -206,5 +205,6 @@ namespace Szwalnia
         public virtual DbSet<vZamowienieProcesyProdukcyjne> vZamowienieProcesyProdukcyjne { get; set; }
         public virtual DbSet<vZatrudnieniePracownika> vZatrudnieniePracownika { get; set; }
         public virtual DbSet<vZawartoscMagazynuDoPrzydzialu> vZawartoscMagazynuDoPrzydzialu { get; set; }
+        public virtual DbSet<vStan_magazynowy_polki> vStan_magazynowy_polki { get; set; }
     }
 }
