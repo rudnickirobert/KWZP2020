@@ -4828,6 +4828,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <EntitySet Name="vSredniCzasWedlugElementu" EntityType="SzwalniaModel.vSredniCzasWedlugElementu" />
           <EntitySet Name="vSrodkiZamortyzowane" EntityType="SzwalniaModel.vSrodkiZamortyzowane" />
           <EntitySet Name="vStan_magazynowy_elementy" EntityType="SzwalniaModel.vStan_magazynowy_elementy" />
+          <EntitySet Name="vStan_magazynowy_polki" EntityType="SzwalniaModel.vStan_magazynowy_polki" />
           <EntitySet Name="vStanowisko" EntityType="SzwalniaModel.vStanowisko" />
           <EntitySet Name="vSuma_czasu_procesu" EntityType="SzwalniaModel.vSuma_czasu_procesu" />
           <EntitySet Name="vSumaKosztowProdukcji" EntityType="SzwalniaModel.vSumaKosztowProdukcji" />
@@ -5204,7 +5205,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
-          <EntitySet Name="vStan_magazynowy_polki" EntityType="SzwalniaModel.vStan_magazynowy_polki" />
         </EntityContainer>
         <EntityType Name="Czesci_Obsluga">
           <Key>
@@ -6996,6 +6996,19 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Ile" Type="Double" />
           <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="vStan_magazynowy_polki">
+          <Key>
+            <PropertyRef Name="ID_Zawartosc" />
+          </Key>
+          <Property Name="ID_Zawartosc" Type="Int32" Nullable="false" />
+          <Property Name="Nr_polki" Type="Int32" />
+          <Property Name="Regal" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Nazwa_elementu" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="Nr_elementu" Type="Int32" />
+          <Property Name="Nr_dostawy" Type="Int32" />
+          <Property Name="Przydatnosc" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Ile" Type="String" MaxLength="61" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="vStanowisko">
           <Key>
             <PropertyRef Name="ID_Stanowiska" />
@@ -8328,20 +8341,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="vStan_magazynowy_polki">
-          <Key>
-            <PropertyRef Name="ID_Zawartosc" />
-          </Key>
-          <Property Name="ID_Zawartosc" Type="Int32" Nullable="false" />
-          <Property Name="Nr_polki" Type="Int32" />
-          <Property Name="Regal" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
-          <Property Name="Nazwa_elementu" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
-          <Property Name="Nr_elementu" Type="Int32" />
-          <Property Name="Nr_dostawy" Type="Int32" />
-          <Property Name="Przydatnosc" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Ile" Type="String" MaxLength="61" FixedLength="false" Unicode="true" />
-        </EntityType>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -9967,6 +9967,20 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="vStan_magazynowy_polki">
+            <EntityTypeMapping TypeName="SzwalniaModel.vStan_magazynowy_polki">
+              <MappingFragment StoreEntitySet="vStan_magazynowy_polki">
+                <ScalarProperty Name="Ile" ColumnName="Ile" />
+                <ScalarProperty Name="Przydatnosc" ColumnName="Przydatnosc" />
+                <ScalarProperty Name="Nr_dostawy" ColumnName="Nr dostawy" />
+                <ScalarProperty Name="Nr_elementu" ColumnName="Nr elementu" />
+                <ScalarProperty Name="Nazwa_elementu" ColumnName="Nazwa elementu" />
+                <ScalarProperty Name="Regal" ColumnName="Regal" />
+                <ScalarProperty Name="Nr_polki" ColumnName="Nr polki" />
+                <ScalarProperty Name="ID_Zawartosc" ColumnName="ID_Zawartosc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="vStanowisko">
             <EntityTypeMapping TypeName="SzwalniaModel.vStanowisko">
               <MappingFragment StoreEntitySet="vStanowisko">
@@ -10246,20 +10260,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
                 <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
                 <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
                 <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vStan_magazynowy_polki">
-            <EntityTypeMapping TypeName="SzwalniaModel.vStan_magazynowy_polki">
-              <MappingFragment StoreEntitySet="vStan_magazynowy_polki">
-                <ScalarProperty Name="Ile" ColumnName="Ile" />
-                <ScalarProperty Name="Przydatnosc" ColumnName="Przydatnosc" />
-                <ScalarProperty Name="Nr_dostawy" ColumnName="Nr dostawy" />
-                <ScalarProperty Name="Nr_elementu" ColumnName="Nr elementu" />
-                <ScalarProperty Name="Nazwa_elementu" ColumnName="Nazwa elementu" />
-                <ScalarProperty Name="Regal" ColumnName="Regal" />
-                <ScalarProperty Name="Nr_polki" ColumnName="Nr polki" />
-                <ScalarProperty Name="ID_Zawartosc" ColumnName="ID_Zawartosc" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

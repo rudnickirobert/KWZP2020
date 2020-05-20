@@ -110,7 +110,6 @@ namespace Szwalnia
             this.intZamowienieID = intZamowienieID;
             this.intElementID = intElementID;
             this.intIloscSztuk = intIloscSztuk;
-            dgvWolnePolki.ReadOnly = true;
 
             lblInfoWybierzPracownika.Text = "Wybierz pracownika odbierającego produkty";
 
@@ -140,7 +139,7 @@ namespace Szwalnia
                 cmbPracownicy.DisplayMember = "Informacja";
                 cmbPracownicy.ValueMember = "Informacja";
             }
-
+            dgvWolnePolki.ReadOnly = true;
         }
 
             private void WyborPolkiDoOdlozenia_FormClosed(object sender, FormClosedEventArgs e)

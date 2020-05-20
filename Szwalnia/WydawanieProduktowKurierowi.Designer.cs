@@ -36,7 +36,9 @@
             this.dgvGotoweProdukty = new System.Windows.Forms.DataGridView();
             this.cmbZamowienie = new System.Windows.Forms.ComboBox();
             this.lblZamowienieInfo = new System.Windows.Forms.Label();
+            this.dgvTest = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGotoweProdukty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTest)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbPracownik
@@ -103,11 +105,20 @@
             this.lblZamowienieInfo.TabIndex = 25;
             this.lblZamowienieInfo.Text = "Wybierz zamówienie do wydania";
             // 
+            // dgvTest
+            // 
+            this.dgvTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTest.Location = new System.Drawing.Point(554, 50);
+            this.dgvTest.Name = "dgvTest";
+            this.dgvTest.Size = new System.Drawing.Size(323, 84);
+            this.dgvTest.TabIndex = 27;
+            // 
             // WydawanieProduktowKurierowi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 319);
+            this.ClientSize = new System.Drawing.Size(906, 319);
+            this.Controls.Add(this.dgvTest);
             this.Controls.Add(this.cmbZamowienie);
             this.Controls.Add(this.lblZamowienieInfo);
             this.Controls.Add(this.cmbPracownik);
@@ -120,6 +131,7 @@
             this.Text = "Wydawanie zamówień kurierowi";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.WydawanieProduktowKurierowi_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGotoweProdukty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTest)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,5 +146,6 @@
         private System.Windows.Forms.DataGridView dgvGotoweProdukty;
         private System.Windows.Forms.ComboBox cmbZamowienie;
         private System.Windows.Forms.Label lblZamowienieInfo;
+        private System.Windows.Forms.DataGridView dgvTest;
     }
 }
