@@ -21,5 +21,10 @@ namespace Szwalnia
             dgvStanMagazynowyCalosciowy.Columns[0].Visible = false;
             dgvStanMagazynowyCalosciowy.Columns[7].Visible = false;
         }
+
+        private void StanMagazynowyCalkowity_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Start.GetForm.Show();
+        }
     }
 }

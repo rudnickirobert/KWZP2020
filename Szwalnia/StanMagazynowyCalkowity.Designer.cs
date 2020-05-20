@@ -63,6 +63,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StanMagazynowyCalkowity";
             this.Text = "Stan magazynowy całkowity";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StanMagazynowyCalkowity_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStanMagazynowyCalosciowy)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

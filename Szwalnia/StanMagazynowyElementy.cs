@@ -26,5 +26,12 @@ namespace Szwalnia
             GdzieLezaElementy gdzie = new GdzieLezaElementy(Convert.ToInt32(dgvStanMagazynowyElementy.CurrentRow.Cells[1].Value));
             gdzie.Show();
         }
+
+        private void StanMagazynowyElementy_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (Application.OpenForms[typeof(StanMagazynowy).Name] != null)
+                Application.OpenForms[typeof(StanMagazynowy).Name].Close();
+            Start.GetForm.Show();
+        }
     }
 }
