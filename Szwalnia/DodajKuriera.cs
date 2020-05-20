@@ -14,6 +14,27 @@ namespace Szwalnia
     {
         public SzwalniaEntities db;
         public Kurierzy kurierNowy = new Kurierzy();
+        private bool isDelivererValid()
+        {
+            if (db.Kurierzy.Where(kurierNowy => kurierNowy.Nazwa == txtNazwa.Text).Any())
+            {
+                MessageBox.Show("Dostawca o takiej nazwie już istnieje");
+                return false;
+            }
+
+            if (db.Kurierzy.Where(kurierNowy => kurierNowy.Telefon_1 == this.kurierNowy.Telefon_1).Any())
+            {
+                MessageBox.Show("Dostawca z takim numerem telefonu już istnieje.");
+                return false;
+            }
+
+            if (db.Kurierzy.Where(kurierNowy => kurierNowy.Email == txtEmail.Text).Any())
+            {
+                MessageBox.Show("Dostawca z takim adresem e-mail już istnieje.");
+                return false;
+            }
+            return true;
+        }
         public DodajKuriera()
         {
             db = Start.szwalnia;
@@ -43,25 +64,11 @@ namespace Szwalnia
                     kurierNowy.Telefon_2 = Convert.ToInt32(mtxtTel2.Text);
                 }
                 kurierNowy.Email = txtEmail.Text;
-
-                if (!db.Kurierzy.Where(kurierNowy => kurierNowy.Nazwa == txtNazwa.Text).Any())
-                {
-                    if (!db.Kurierzy.Where(kurierNowy => kurierNowy.Telefon_1 == this.kurierNowy.Telefon_1).Any())
-                    {
-                        if (!db.Kurierzy.Where(kurierNowy => kurierNowy.Email == txtEmail.Text).Any())
-                        {
-                            db.Kurierzy.Add(kurierNowy);
-                            db.SaveChanges();
-                            MessageBox.Show("Dodano nowego kuriera.");
-                        }
-                        else
-                            MessageBox.Show("Kurier z takim adresem e-mail już istnieje.");
-                    }
-                    else
-                        MessageBox.Show("Kurier z takim numerem telefonu już istnieje.");
-                }
-                else
-                    MessageBox.Show("Kurier o takiej nazwie już istnieje");
+                if (!this.isDelivererValid())
+                    return;
+                db.Kurierzy.Add(kurierNowy);
+                db.SaveChanges();
+                MessageBox.Show("Dodano nowego kuriera.");
             }
         }
 
@@ -82,6 +89,5 @@ namespace Szwalnia
         {
             Start.GetForm.Show();
         }
-
     }
 }

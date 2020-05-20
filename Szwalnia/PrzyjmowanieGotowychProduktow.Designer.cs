@@ -37,7 +37,9 @@
             // 
             // dgvGotoweProdukty
             // 
+            this.dgvGotoweProdukty.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvGotoweProdukty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGotoweProdukty.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvGotoweProdukty.Location = new System.Drawing.Point(18, 111);
             this.dgvGotoweProdukty.Name = "dgvGotoweProdukty";
             this.dgvGotoweProdukty.Size = new System.Drawing.Size(570, 191);

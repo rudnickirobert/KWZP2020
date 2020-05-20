@@ -19,7 +19,7 @@ namespace Szwalnia
             InitializeComponent();
             db = Start.szwalnia;
 
-            cmbZamowienie.DataSource = db.vZamowienia_Do_Wydania.ToList();
+            cmbZamowienie.DataSource = db.vZamowienia_Do_Wydania_Kompletne.ToList();
             cmbZamowienie.DisplayMember = "ID_Zamowienia";
             cmbZamowienie.ValueMember = "ID_Zamowienia";
 
