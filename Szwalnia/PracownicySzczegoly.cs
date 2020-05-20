@@ -16,10 +16,18 @@ namespace Szwalnia
         {
             InitializeComponent();
             Pracownicy pracownicy = db.Pracownicy.Where(wybrane => wybrane.ID_Pracownika == ID).First();
-            lblTitle.Text = "Dane pracownika o ID: " + pracownicy.ID_Pracownika;
             txtImie.Text = pracownicy.Imie;
             txtNazwisko.Text = pracownicy.Nazwisko;
             txtTelefonPracownika.Text = pracownicy.Telefon;
+
+            dgvZatrudnienie.DataSource = db.vZatrudnieniePracownika.Where(zatrudnienie => zatrudnienie.ID_Pracownika == pracownicy.ID_Pracownika).ToList();
+            dgvZatrudnienie.Columns[0].Visible = false;
+
+            dgvJezyk.DataSource = db.vJezykiPracownika.Where(jezyk => jezyk.ID_Pracownika == pracownicy.ID_Pracownika).ToList();
+            dgvJezyk.Columns[0].Visible = false;
+
+            dgvUrlop.DataSource = db.vUrlopPracownika.Where(urlop => urlop.ID_Pracownika == pracownicy.ID_Pracownika).ToList();
+            dgvUrlop.Columns[0].Visible = false;
         }
 
         private void btnZamknij_Click(object sender, EventArgs e)

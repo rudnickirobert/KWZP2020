@@ -13,7 +13,7 @@ namespace Szwalnia
     public partial class NowyProces : Form
     {
         public SzwalniaEntities db;
-        public int ostatniNumerProcesu;
+        public int nowyProces;
         public const string pustePole = "  .  .       :  :";
         public NowyProces(SzwalniaEntities db)
         {
@@ -25,6 +25,9 @@ namespace Szwalnia
             cbxZamowienieElement.DataSource = db.Zamowienie_Element.ToList();
             cbxZamowienieElement.DisplayMember = "ID_Zamowienie_Element";
             cbxZamowienieElement.ValueMember = "ID_Zamowienie_Element";
+            this.nowyProces = numerOstatniegoProcesu + 1;
+
+
         }
 
         private void btnWyzeruj_Click(object sender, EventArgs e)
@@ -39,8 +42,6 @@ namespace Szwalnia
         private void btnAnuluj_Click(object sender, EventArgs e)
         {
             this.Close();
-            ProcesProdukcyjny proces = new ProcesProdukcyjny(db);
-            proces.Show();
         }
 
         private void btnZapisz_Click(object sender, EventArgs e)
@@ -77,6 +78,13 @@ namespace Szwalnia
             db.Proces_Produkcyjny.Add(proces);
             db.SaveChanges();
             MessageBox.Show("Dodano nowy proces produkcyjny");
+
+            Kontrola_Efektywnosci kontrola = new Kontrola_Efektywnosci();
+            kontrola.ID_Procesu_Produkcyjnego = nowyProces;
+            db.Kontrola_Efektywnosci.Add(kontrola);
+            db.SaveChanges();
+            this.Close();
+
         }
 
         private void btnDzisProponowana_Click(object sender, EventArgs e)

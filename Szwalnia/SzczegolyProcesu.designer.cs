@@ -35,15 +35,15 @@
             this.lblProces = new System.Windows.Forms.Label();
             this.btnWstecz = new System.Windows.Forms.Button();
             this.btnOdbiorMaterialu = new System.Windows.Forms.Button();
+            this.btnEdycja = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnTechnologia
             // 
             this.btnTechnologia.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnTechnologia.Location = new System.Drawing.Point(91, 135);
-            this.btnTechnologia.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTechnologia.Location = new System.Drawing.Point(66, 182);
             this.btnTechnologia.Name = "btnTechnologia";
-            this.btnTechnologia.Size = new System.Drawing.Size(400, 98);
+            this.btnTechnologia.Size = new System.Drawing.Size(300, 80);
             this.btnTechnologia.TabIndex = 0;
             this.btnTechnologia.Text = "Technologia";
             this.btnTechnologia.UseVisualStyleBackColor = true;
@@ -52,10 +52,9 @@
             // btnRealizacjaProcesu
             // 
             this.btnRealizacjaProcesu.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnRealizacjaProcesu.Location = new System.Drawing.Point(91, 347);
-            this.btnRealizacjaProcesu.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRealizacjaProcesu.Location = new System.Drawing.Point(66, 354);
             this.btnRealizacjaProcesu.Name = "btnRealizacjaProcesu";
-            this.btnRealizacjaProcesu.Size = new System.Drawing.Size(400, 98);
+            this.btnRealizacjaProcesu.Size = new System.Drawing.Size(300, 80);
             this.btnRealizacjaProcesu.TabIndex = 0;
             this.btnRealizacjaProcesu.Text = "Realizacja procesu";
             this.btnRealizacjaProcesu.UseVisualStyleBackColor = true;
@@ -64,10 +63,9 @@
             // btnKontrolaEfektywnosci
             // 
             this.btnKontrolaEfektywnosci.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnKontrolaEfektywnosci.Location = new System.Drawing.Point(91, 453);
-            this.btnKontrolaEfektywnosci.Margin = new System.Windows.Forms.Padding(4);
+            this.btnKontrolaEfektywnosci.Location = new System.Drawing.Point(66, 440);
             this.btnKontrolaEfektywnosci.Name = "btnKontrolaEfektywnosci";
-            this.btnKontrolaEfektywnosci.Size = new System.Drawing.Size(400, 98);
+            this.btnKontrolaEfektywnosci.Size = new System.Drawing.Size(300, 80);
             this.btnKontrolaEfektywnosci.TabIndex = 0;
             this.btnKontrolaEfektywnosci.Text = "Kontrola efektywności";
             this.btnKontrolaEfektywnosci.UseVisualStyleBackColor = true;
@@ -76,10 +74,9 @@
             // btnMaterialProdukcja
             // 
             this.btnMaterialProdukcja.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnMaterialProdukcja.Location = new System.Drawing.Point(91, 559);
-            this.btnMaterialProdukcja.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMaterialProdukcja.Location = new System.Drawing.Point(66, 526);
             this.btnMaterialProdukcja.Name = "btnMaterialProdukcja";
-            this.btnMaterialProdukcja.Size = new System.Drawing.Size(400, 98);
+            this.btnMaterialProdukcja.Size = new System.Drawing.Size(300, 80);
             this.btnMaterialProdukcja.TabIndex = 0;
             this.btnMaterialProdukcja.Text = "Niewykorzystany materiał / odpad";
             this.btnMaterialProdukcja.UseVisualStyleBackColor = true;
@@ -89,20 +86,18 @@
             // 
             this.lblProces.AutoSize = true;
             this.lblProces.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblProces.Location = new System.Drawing.Point(99, 71);
-            this.lblProces.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblProces.Location = new System.Drawing.Point(74, 58);
             this.lblProces.Name = "lblProces";
-            this.lblProces.Size = new System.Drawing.Size(64, 25);
+            this.lblProces.Size = new System.Drawing.Size(51, 20);
             this.lblProces.TabIndex = 2;
             this.lblProces.Text = "label1";
             // 
             // btnWstecz
             // 
             this.btnWstecz.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnWstecz.Location = new System.Drawing.Point(4, 11);
-            this.btnWstecz.Margin = new System.Windows.Forms.Padding(4);
+            this.btnWstecz.Location = new System.Drawing.Point(3, 9);
             this.btnWstecz.Name = "btnWstecz";
-            this.btnWstecz.Size = new System.Drawing.Size(100, 37);
+            this.btnWstecz.Size = new System.Drawing.Size(75, 30);
             this.btnWstecz.TabIndex = 8;
             this.btnWstecz.Text = "wstecz";
             this.btnWstecz.UseVisualStyleBackColor = true;
@@ -111,21 +106,32 @@
             // btnOdbiorMaterialu
             // 
             this.btnOdbiorMaterialu.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnOdbiorMaterialu.Location = new System.Drawing.Point(91, 241);
-            this.btnOdbiorMaterialu.Margin = new System.Windows.Forms.Padding(4);
+            this.btnOdbiorMaterialu.Location = new System.Drawing.Point(66, 268);
             this.btnOdbiorMaterialu.Name = "btnOdbiorMaterialu";
-            this.btnOdbiorMaterialu.Size = new System.Drawing.Size(400, 98);
+            this.btnOdbiorMaterialu.Size = new System.Drawing.Size(300, 80);
             this.btnOdbiorMaterialu.TabIndex = 9;
             this.btnOdbiorMaterialu.Text = "Odbiór materiału";
             this.btnOdbiorMaterialu.UseVisualStyleBackColor = true;
             this.btnOdbiorMaterialu.Click += new System.EventHandler(this.btnOdbiorMaterialu_Click);
             // 
+            // btnEdycja
+            // 
+            this.btnEdycja.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnEdycja.Location = new System.Drawing.Point(66, 96);
+            this.btnEdycja.Name = "btnEdycja";
+            this.btnEdycja.Size = new System.Drawing.Size(300, 80);
+            this.btnEdycja.TabIndex = 10;
+            this.btnEdycja.Text = "Edycja procesu";
+            this.btnEdycja.UseVisualStyleBackColor = true;
+            this.btnEdycja.Click += new System.EventHandler(this.btnEdycja_Click);
+            // 
             // SzczegolyProcesu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(579, 709);
+            this.ClientSize = new System.Drawing.Size(434, 643);
+            this.Controls.Add(this.btnEdycja);
             this.Controls.Add(this.btnOdbiorMaterialu);
             this.Controls.Add(this.btnWstecz);
             this.Controls.Add(this.lblProces);
@@ -133,7 +139,6 @@
             this.Controls.Add(this.btnKontrolaEfektywnosci);
             this.Controls.Add(this.btnRealizacjaProcesu);
             this.Controls.Add(this.btnTechnologia);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SzczegolyProcesu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Szczegóły procesu";
@@ -151,5 +156,6 @@
         private System.Windows.Forms.Label lblProces;
         private System.Windows.Forms.Button btnWstecz;
         private System.Windows.Forms.Button btnOdbiorMaterialu;
+        private System.Windows.Forms.Button btnEdycja;
     }
 }

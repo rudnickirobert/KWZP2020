@@ -28,7 +28,7 @@ namespace Szwalnia
             
             dgvOdebranyMaterialMagazyn.DataSource = this.db.vOdebranyMaterialMagazyn.Where(num => num.ID_Procesu_Produkcyjnego == idProcesu).ToList();
             dgvOdebranyMaterialMagazyn.Columns[0].Visible = false;
-            dgvOdebranyMaterialMagazyn.Columns[1].HeaderText = "ID Dostarczenia";
+            dgvOdebranyMaterialMagazyn.Columns[1].HeaderText = "ID dostarczenia";
             dgvOdebranyMaterialMagazyn.Columns[2].HeaderText = "Nazwa elementu";
             dgvOdebranyMaterialMagazyn.Columns[3].HeaderText = "ID elementu";
             dgvOdebranyMaterialMagazyn.Columns[4].HeaderText = "Ilość";
@@ -36,7 +36,7 @@ namespace Szwalnia
 
             dgvOdebranyMaterialProdukcja.DataSource = this.db.vOdebranyMaterialProdukcja.Where(nun => nun.ID_Procesu_Produkcyjnego == idProcesu).ToList();
             dgvOdebranyMaterialProdukcja.Columns[0].Visible = false;
-            dgvOdebranyMaterialProdukcja.Columns[1].HeaderText = "ID Dostarczenia";
+            dgvOdebranyMaterialProdukcja.Columns[1].HeaderText = "ID dostarczenia";
             dgvOdebranyMaterialProdukcja.Columns[2].HeaderText = "Nazwa elementu";
             dgvOdebranyMaterialProdukcja.Columns[3].HeaderText = "ID elementu";
             dgvOdebranyMaterialProdukcja.Columns[4].HeaderText = "Ilość";
@@ -59,7 +59,7 @@ namespace Szwalnia
                 MessageBox.Show("Odebrano materiał z magazynu");
                 dgvOdebranyMaterialProdukcja.DataSource = this.db.vOdebranyMaterialProdukcja.Where(nun => nun.ID_Procesu_Produkcyjnego == nrProcesu).ToList();
                 dgvOdebranyMaterialProdukcja.Columns[0].Visible = false;
-                dgvOdebranyMaterialProdukcja.Columns[1].HeaderText = "ID Dostarczenia";
+                dgvOdebranyMaterialProdukcja.Columns[1].HeaderText = "ID dostarczenia";
                 dgvOdebranyMaterialProdukcja.Columns[2].HeaderText = "Nazwa elementu";
                 dgvOdebranyMaterialProdukcja.Columns[3].HeaderText = "ID elementu";
                 dgvOdebranyMaterialProdukcja.Columns[4].HeaderText = "Ilość";

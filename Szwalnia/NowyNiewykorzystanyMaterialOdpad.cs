@@ -14,7 +14,6 @@ namespace Szwalnia
     {
         public SzwalniaEntities db;
         public int idProcesu;
-        public const string pustePoleMagazyn = "";
         public NowyNiewykorzystanyMaterialOdpad(SzwalniaEntities db, int idProcesu)
         {
             InitializeComponent();
@@ -40,22 +39,23 @@ namespace Szwalnia
                 materialProdukcja.ID_Elementy_Proces = Convert.ToInt32(cbxElement.SelectedValue);
                 materialProdukcja.ID_Procesu_Produkcyjnego = idProcesu;
 
-                if (tbNiewykorzystanyMaterial.Text != pustePoleMagazyn)
-                {
-                    materialProdukcja.Niezuzyty_material = Convert.ToUInt64(tbNiewykorzystanyMaterial.Text);
-                }
-
-                if (tbOdpad.Text != pustePoleMagazyn)
+                if (!string.IsNullOrEmpty(tbOdpad.Text))
                 {
                     materialProdukcja.Odpad = Convert.ToUInt64(tbOdpad.Text);
                 }
 
+                if (!string.IsNullOrEmpty(tbNiewykorzystanyMaterial.Text))
+                {
+                    materialProdukcja.Niezuzyty_material = Convert.ToUInt64(tbNiewykorzystanyMaterial.Text);
+                }
                 materialProdukcja.Magazyn_odebral_material = chbOdbior.Checked;
 
             }
             db.Material_Na_Produkcji.Add(materialProdukcja);
             db.SaveChanges();
             MessageBox.Show("Dodano nowy niewykorzystany materiał / odpad");
+            NiewykorzystanyMaterialProces.ActiveForm.Refresh();
+            this.Close();
         }
         private void btnAnuluj_Click(object sender, EventArgs e)
         {

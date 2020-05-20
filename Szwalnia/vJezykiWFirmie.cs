@@ -12,12 +12,10 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vRealizacjaProcesuProdukcyjnegoDetails
+    public partial class vJezykiWFirmie
     {
-        public int ID_Procesu_Produkcyjnego { get; set; }
-        public int ID_Realizacji_Procesu { get; set; }
-        public string Nazwa_etapu { get; set; }
-        public Nullable<System.DateTime> Data_Rozpoczecia_Procesu { get; set; }
-        public Nullable<System.DateTime> Data_Zakonczenia_Procesu { get; set; }
+        public int ID_Pracownika { get; set; }
+        public string Imie_i_nazwisko_pracownika { get; set; }
+        public string Jezyk { get; set; }
     }
 }
