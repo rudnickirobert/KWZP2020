@@ -43,6 +43,18 @@ namespace Szwalnia
             dgvPotrzebnaDokumentacjaDoProcesuProdukcyjnego.Columns[0].Visible = false;
             dgvPotrzebnaDokumentacjaDoProcesuProdukcyjnego.Columns[1].HeaderText = "ID Dokumentacji";
             dgvPotrzebnaDokumentacjaDoProcesuProdukcyjnego.Columns[2].HeaderText = "Rodzaj";
+
+            string gotowe = this.db.vKompletnyProces.Where(proces => proces.ID_Procesu_Produkcyjnego == idProcesu).ToString();
+
+            if (gotowe == "false")
+            {
+                lblGotowe.Text = "Status: Technologia nie jest kompletna";
+            }
+            else
+            {
+                lblGotowe.Text = "Status: Technologia jest kompletna";
+            }
+
         }
 
         

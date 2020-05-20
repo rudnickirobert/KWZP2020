@@ -97,14 +97,7 @@ FROM            dbo.Elementy INNER JOIN
                          dbo.Dostawcy_Zaopatrzenie ON dbo.Oferta.ID_Dostawcy = dbo.Dostawcy_Zaopatrzenie.ID_Dostawcy
 ORDER BY dbo.Elementy.Element_Nazwa
 GO
-----Widok umow z kurierami
-CREATE VIEW vUmowyKurierzy
-AS
-SELECT        TOP (100) PERCENT dbo.Umowy_Kurierzy.ID_Umowy, dbo.Kurierzy.Nazwa, dbo.Umowy_Kurierzy.Data_Zawarcia, dbo.Umowy_Kurierzy.Czas_Dostawy, dbo.Umowy_Kurierzy.Koszt_Km, dbo.Umowy_Kurierzy.Koszt_Staly
-FROM            dbo.Kurierzy INNER JOIN
-                         dbo.Umowy_Kurierzy ON dbo.Kurierzy.ID_Kurier = dbo.Umowy_Kurierzy.ID_Kurier
-ORDER BY dbo.Umowy_Kurierzy.Data_Zawarcia DESC
-GO
+
 --widok ofert
 CREATE VIEW [dbo].[vOferta]
 AS
@@ -474,7 +467,7 @@ GO
 
 CREATE VIEW vPrzydzialZasobow
 AS
-SELECT dbo.Przydzial_Zasobow.ID_Przydzial_Zasobow, dbo.Realizacja_Procesu.ID_Procesu_Produkcyjnego AS 'ID procesu produkcyjnego', dbo.Przydzial_Zasobow.ID_Realizacji_Procesu AS 'ID realizacji procesu', dbo.Rodzaj_Etapu.Nazwa AS 'Nazwa etapu',
+SELECT dbo.Przydzial_Zasobow.ID_Realizacji_Procesu, Przydzial_Zasobow.ID_Przydzial_Zasobow, dbo.Realizacja_Procesu.ID_Procesu_Produkcyjnego AS 'ID procesu produkcyjnego', dbo.Przydzial_Zasobow.ID_Realizacji_Procesu AS 'ID realizacji procesu', dbo.Rodzaj_Etapu.Nazwa AS 'Nazwa etapu',
       dbo.Przydzial_Zasobow.ID_Pracownika AS 'ID pracownika', dbo.Pracownicy.Imie AS 'Imiê', dbo.Pracownicy.Nazwisko, 
       dbo.Przydzial_Zasobow.ID_Maszyny AS 'ID maszyna', dbo.Srodki_Trwale.Nazwa AS 'Nazwa maszyny', 
       dbo.Przydzial_Zasobow.Data_Rozpoczecia AS 'Data rozpoczêcia',
@@ -708,6 +701,13 @@ FROM     dbo.Odbior_Dostarczenia INNER JOIN
                   dbo.Elementy ON dbo.Dostarczenia_Wewn.ID_element = dbo.Elementy.ID_Element
 GO
 
+CREATE VIEW vKompletnyProces
+AS
+SELECT        dbo.Proces_Produkcyjny.ID_Procesu_Produkcyjnego, dbo.Proces_Zamowienie.Kompletny_Proces
+FROM            dbo.Proces_Produkcyjny INNER JOIN
+                         dbo.Zamowienie_Element ON dbo.Proces_Produkcyjny.ID_Zamowienie_Element = dbo.Zamowienie_Element.ID_Zamowienie_Element INNER JOIN
+                         dbo.Proces_Zamowienie ON dbo.Zamowienie_Element.ID_Zamowienie_Element = dbo.Proces_Zamowienie.ID_Zamowienie_Element
+GO
 
 
 
