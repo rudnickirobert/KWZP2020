@@ -187,9 +187,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvProcesy2 = new System.Windows.Forms.DataGridView();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
-            this.szwalniaDataSet = new Szwalnia.SzwalniaDataSet();
             this.vObslugaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vObslugaTableAdapter = new Szwalnia.SzwalniaDataSetTableAdapters.vObslugaTableAdapter();
             this.tab_Proces_technologiczny.SuspendLayout();
             this.tabpProcesTechnologiczny.SuspendLayout();
             this.tabcWyszukajObsluge.SuspendLayout();
@@ -227,7 +225,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesy3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumerProcesu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesy2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vObslugaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -2190,18 +2187,6 @@
             // 
             // szwalniaDataSet
             // 
-            this.szwalniaDataSet.DataSetName = "SzwalniaDataSet";
-            this.szwalniaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // vObslugaBindingSource
-            // 
-            this.vObslugaBindingSource.DataMember = "vObsluga";
-            this.vObslugaBindingSource.DataSource = this.szwalniaDataSet;
-            // 
-            // vObslugaTableAdapter
-            // 
-            this.vObslugaTableAdapter.ClearBeforeFill = true;
-            // 
             // PrzygotowanieProdukcji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2258,7 +2243,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesy3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumerProcesu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesy2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.szwalniaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vObslugaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -2322,9 +2306,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label15;
-        private SzwalniaDataSet szwalniaDataSet;
         private System.Windows.Forms.BindingSource vObslugaBindingSource;
-        private SzwalniaDataSetTableAdapters.vObslugaTableAdapter vObslugaTableAdapter;
         private System.Windows.Forms.Button btnPrzypisz_Dokumentacja;
         private System.Windows.Forms.Button btnDodaj_Dokumentacja;
         private System.Windows.Forms.Label label17;
