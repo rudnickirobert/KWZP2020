@@ -38,11 +38,18 @@ namespace Szwalnia
 
         private void btnAkceptuj_Click(object sender, EventArgs e)
         {
-            int intDostawaID = Convert.ToInt32(cmbListaZamowien.SelectedValue);
-            ZamowDostawe zamowDostawe = new ZamowDostawe(intDostawaID);
-            czyOtworzycPoprzedni = false;
-            zamowDostawe.Show();
-            this.Close();
+            if (db.vZamowieniaDoWykonaniaUDostawcy.Any())
+            {
+                int intDostawaID = Convert.ToInt32(cmbListaZamowien.SelectedValue);
+                ZamowDostawe zamowDostawe = new ZamowDostawe(intDostawaID);
+                czyOtworzycPoprzedni = false;
+                zamowDostawe.Show();
+                this.Close();
+            }
+            else
+            {
+                this.Close();
+            }
         }
 
         private void WybierzZamowienie_FormClosed(object sender, FormClosedEventArgs e)

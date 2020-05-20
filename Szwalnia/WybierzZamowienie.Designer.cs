@@ -38,12 +38,12 @@
             this.cmbListaZamowien.FormattingEnabled = true;
             this.cmbListaZamowien.Location = new System.Drawing.Point(29, 79);
             this.cmbListaZamowien.Name = "cmbListaZamowien";
-            this.cmbListaZamowien.Size = new System.Drawing.Size(174, 21);
+            this.cmbListaZamowien.Size = new System.Drawing.Size(244, 21);
             this.cmbListaZamowien.TabIndex = 0;
             // 
             // btnAkceptuj
             // 
-            this.btnAkceptuj.Location = new System.Drawing.Point(229, 79);
+            this.btnAkceptuj.Location = new System.Drawing.Point(279, 79);
             this.btnAkceptuj.Name = "btnAkceptuj";
             this.btnAkceptuj.Size = new System.Drawing.Size(75, 23);
             this.btnAkceptuj.TabIndex = 1;
@@ -55,7 +55,7 @@
             // 
             this.lblInfo.Location = new System.Drawing.Point(29, 29);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(275, 30);
+            this.lblInfo.Size = new System.Drawing.Size(325, 30);
             this.lblInfo.TabIndex = 2;
             this.lblInfo.Text = "Wybierz dostawę którą chcesz zamówić";
             this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -64,7 +64,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(342, 124);
+            this.ClientSize = new System.Drawing.Size(383, 124);
             this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.btnAkceptuj);
             this.Controls.Add(this.cmbListaZamowien);

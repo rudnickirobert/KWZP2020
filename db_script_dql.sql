@@ -151,11 +151,12 @@ GO
 --lista dostaw do przyjecia
 CREATE VIEW [dbo].[vDostawyDoOdbioru]
 AS
-SELECT        dbo.Zamowienia_Dostawy.ID_Dostawy, dbo.Dostawy_Zawartosc.ID_Element, dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym AS Ilosc_w_paczce, 
+SELECT        dbo.Zamowienia_Dostawy.ID_Dostawy, dbo.Dostawy_Zawartosc.ID_Element, dbo.Elementy.Element_Nazwa, dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym AS Ilosc_w_paczce, 
                          dbo.Dostawy_Zawartosc.Ilosc_Dostarczona * dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym AS Ilosc
 FROM            dbo.Zamowienia_Dostawy INNER JOIN
                          dbo.Dostawy_Zawartosc ON dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Dostawy_Zawartosc.ID_Dostawy INNER JOIN
-                         dbo.Oferta ON dbo.Dostawy_Zawartosc.ID_oferta = dbo.Oferta.ID_Oferta LEFT OUTER JOIN
+                         dbo.Oferta ON dbo.Dostawy_Zawartosc.ID_oferta = dbo.Oferta.ID_Oferta INNER JOIN
+                         dbo.Elementy ON dbo.Dostawy_Zawartosc.ID_Element = dbo.Elementy.ID_Element LEFT OUTER JOIN
                              (SELECT        ID_Dostarczenia, ID_Pracownicy, ID_Dostawy, ID_Zamowienie_element, ID_element, Ilosc_Dostarczona, ID_Miejsca, Data_Dostarczenia
                                FROM            dbo.Dostarczenia_Wewn
                                WHERE        (Ilosc_Dostarczona > 0) AND (ID_Miejsca <> 2)) AS Dostarczenia_wewn_select ON dbo.Zamowienia_Dostawy.ID_Dostawy = Dostarczenia_wewn_select.ID_Dostawy
