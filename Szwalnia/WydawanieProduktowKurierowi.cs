@@ -17,6 +17,10 @@ namespace Szwalnia
         {
             InitializeComponent();
             db = Start.szwalnia;
+
+
+            cmbZamowienie.DataSource
+
             
             if (db.vWydawanie_Zamowien_Kurierowi.Any())
             {

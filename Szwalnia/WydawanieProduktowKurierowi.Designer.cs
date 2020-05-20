@@ -34,13 +34,15 @@
             this.lblPracownik = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.dgvGotoweProdukty = new System.Windows.Forms.DataGridView();
+            this.cmbZamowienie = new System.Windows.Forms.ComboBox();
+            this.lblZamowienieInfo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGotoweProdukty)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbPracownik
             // 
             this.cmbPracownik.FormattingEnabled = true;
-            this.cmbPracownik.Location = new System.Drawing.Point(244, 77);
+            this.cmbPracownik.Location = new System.Drawing.Point(151, 225);
             this.cmbPracownik.Name = "cmbPracownik";
             this.cmbPracownik.Size = new System.Drawing.Size(183, 21);
             this.cmbPracownik.TabIndex = 24;
@@ -48,7 +50,7 @@
             // btnWydajProdukty
             // 
             this.btnWydajProdukty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnWydajProdukty.Location = new System.Drawing.Point(225, 271);
+            this.btnWydajProdukty.Location = new System.Drawing.Point(142, 267);
             this.btnWydajProdukty.Name = "btnWydajProdukty";
             this.btnWydajProdukty.Size = new System.Drawing.Size(162, 32);
             this.btnWydajProdukty.TabIndex = 23;
@@ -59,7 +61,7 @@
             // lblPracownik
             // 
             this.lblPracownik.AutoSize = true;
-            this.lblPracownik.Location = new System.Drawing.Point(167, 80);
+            this.lblPracownik.Location = new System.Drawing.Point(74, 228);
             this.lblPracownik.Name = "lblPracownik";
             this.lblPracownik.Size = new System.Drawing.Size(60, 13);
             this.lblPracownik.TabIndex = 22;
@@ -69,7 +71,7 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.lblTitle.Location = new System.Drawing.Point(93, 21);
+            this.lblTitle.Location = new System.Drawing.Point(28, 25);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(399, 31);
             this.lblTitle.TabIndex = 21;
@@ -78,17 +80,36 @@
             // dgvGotoweProdukty
             // 
             this.dgvGotoweProdukty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGotoweProdukty.Location = new System.Drawing.Point(20, 113);
+            this.dgvGotoweProdukty.Location = new System.Drawing.Point(11, 117);
             this.dgvGotoweProdukty.Name = "dgvGotoweProdukty";
-            this.dgvGotoweProdukty.Size = new System.Drawing.Size(538, 150);
+            this.dgvGotoweProdukty.Size = new System.Drawing.Size(416, 84);
             this.dgvGotoweProdukty.TabIndex = 20;
             this.dgvGotoweProdukty.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGotoweProdukty_CellClick);
+            // 
+            // cmbZamowienie
+            // 
+            this.cmbZamowienie.FormattingEnabled = true;
+            this.cmbZamowienie.Location = new System.Drawing.Point(245, 82);
+            this.cmbZamowienie.Name = "cmbZamowienie";
+            this.cmbZamowienie.Size = new System.Drawing.Size(99, 21);
+            this.cmbZamowienie.TabIndex = 26;
+            // 
+            // lblZamowienieInfo
+            // 
+            this.lblZamowienieInfo.AutoSize = true;
+            this.lblZamowienieInfo.Location = new System.Drawing.Point(70, 85);
+            this.lblZamowienieInfo.Name = "lblZamowienieInfo";
+            this.lblZamowienieInfo.Size = new System.Drawing.Size(160, 13);
+            this.lblZamowienieInfo.TabIndex = 25;
+            this.lblZamowienieInfo.Text = "Wybierz zamówienie do wydania";
             // 
             // WydawanieProduktowKurierowi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(576, 313);
+            this.ClientSize = new System.Drawing.Size(443, 319);
+            this.Controls.Add(this.cmbZamowienie);
+            this.Controls.Add(this.lblZamowienieInfo);
             this.Controls.Add(this.cmbPracownik);
             this.Controls.Add(this.btnWydajProdukty);
             this.Controls.Add(this.lblPracownik);
@@ -111,5 +132,7 @@
         private System.Windows.Forms.Label lblPracownik;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.DataGridView dgvGotoweProdukty;
+        private System.Windows.Forms.ComboBox cmbZamowienie;
+        private System.Windows.Forms.Label lblZamowienieInfo;
     }
 }

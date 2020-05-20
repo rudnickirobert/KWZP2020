@@ -81,7 +81,6 @@
         <EntityTypeShape EntityType="SzwalniaModel.vDostawyDoOdbioru" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vDostawyDoWydania" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vDostawyMagazynuIDostawcow" Width="1.5" PointX="4.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.vDostawyNiewydaneBezDat" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vElementy_proces" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vElementyProcesProdukcyjny" Width="1.5" PointX="6.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vEtapy_proces" Width="1.5" PointX="8.75" PointY="10.75" IsExpanded="true" />
@@ -262,6 +261,10 @@
         <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_Za__31B762FC" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Zawartosc__ID_Za__1AD3FDA4" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Zawartosc__ID_Do__19DFD96B" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SzwalniaModel.vDostawyNiewydaneZPolkami" Width="2.625" PointX="33.375" PointY="3.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vDostawyZawartoscInformacjeDostawcy" Width="1.5" PointX="33.375" PointY="7.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vZamowieniaDoWykonaniaUDostawcy" Width="1.5" PointX="33.375" PointY="11.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vDostawyNiewydaneBezDat" Width="1.5" PointX="16.375" PointY="33.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
