@@ -97,14 +97,7 @@ FROM            dbo.Elementy INNER JOIN
                          dbo.Dostawcy_Zaopatrzenie ON dbo.Oferta.ID_Dostawcy = dbo.Dostawcy_Zaopatrzenie.ID_Dostawcy
 ORDER BY dbo.Elementy.Element_Nazwa
 GO
-----Widok umow z kurierami
-CREATE VIEW vUmowyKurierzy
-AS
-SELECT        TOP (100) PERCENT dbo.Umowy_Kurierzy.ID_Umowy, dbo.Kurierzy.Nazwa, dbo.Umowy_Kurierzy.Data_Zawarcia, dbo.Umowy_Kurierzy.Czas_Dostawy, dbo.Umowy_Kurierzy.Koszt_Km, dbo.Umowy_Kurierzy.Koszt_Staly
-FROM            dbo.Kurierzy INNER JOIN
-                         dbo.Umowy_Kurierzy ON dbo.Kurierzy.ID_Kurier = dbo.Umowy_Kurierzy.ID_Kurier
-ORDER BY dbo.Umowy_Kurierzy.Data_Zawarcia DESC
-GO
+
 --widok ofert
 CREATE VIEW [dbo].[vOferta]
 AS
@@ -294,7 +287,7 @@ GO
 CREATE VIEW [dbo].[vDostawyNiewydaneBezDat]
 AS
 SELECT        dbo.vDostawyDoWydania.ID_Zamowienia, dbo.Zamowienie_Element.ID_Zamowienie_Element, dbo.vDostawyDoWydania.ID_Element, dbo.vDostawyDoWydania.Element_Nazwa, dbo.vDostawyDoWydania.Ilosc, 
-                         dbo.vDostawyDoWydania.ID_Dostawy
+                         dbo.vDostawyDoWydania.ID_Dostawy, dbo.vDostawyDoWydania.Proponowana_data_dostawy_materialu
 FROM            dbo.Proces_Technologiczny INNER JOIN
                          dbo.Elementy_Proces ON dbo.Proces_Technologiczny.ID_Proces_Technologiczny = dbo.Elementy_Proces.ID_Proces_Technologiczny INNER JOIN
                          dbo.Proces_Zamowienie ON dbo.Proces_Technologiczny.ID_Proces_Technologiczny = dbo.Proces_Zamowienie.ID_Proces_Technologiczny INNER JOIN
