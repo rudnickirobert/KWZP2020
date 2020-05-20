@@ -105,7 +105,6 @@ namespace Szwalnia
         public virtual DbSet<vElementy_proces> vElementy_proces { get; set; }
         public virtual DbSet<vElementyProcesProdukcyjny> vElementyProcesProdukcyjny { get; set; }
         public virtual DbSet<vEtapy_proces> vEtapy_proces { get; set; }
-        public virtual DbSet<vKompletnyProces> vKompletnyProces { get; set; }
         public virtual DbSet<vFaktury> vFaktury { get; set; }
         public virtual DbSet<vFakturyZewnetrzne> vFakturyZewnetrzne { get; set; }
         public virtual DbSet<vImieNazwiskoPracownika> vImieNazwiskoPracownika { get; set; }
@@ -113,6 +112,7 @@ namespace Szwalnia
         public virtual DbSet<vJezykiPracownika> vJezykiPracownika { get; set; }
         public virtual DbSet<vJezykiWFirmie> vJezykiWFirmie { get; set; }
         public virtual DbSet<vKlienciZamowienie> vKlienciZamowienie { get; set; }
+        public virtual DbSet<vKompletnyProces> vKompletnyProces { get; set; }
         public virtual DbSet<vKontrolaProcesu> vKontrolaProcesu { get; set; }
         public virtual DbSet<vKoszty> vKoszty { get; set; }
         public virtual DbSet<vKosztyMaterialowe> vKosztyMaterialowe { get; set; }

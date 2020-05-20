@@ -826,9 +826,6 @@
     <Compile Include="vEtapy_proces.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vKompletnyProces.cs">
-      <DependentUpon>Szwalnia.tt</DependentUpon>
-    </Compile>
     <Compile Include="vFaktury.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -848,6 +845,9 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vKlienciZamowienie.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vKompletnyProces.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vKontrolaProcesu.cs">
