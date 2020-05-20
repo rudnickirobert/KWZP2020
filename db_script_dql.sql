@@ -350,6 +350,26 @@ FROM            dbo.Polki INNER JOIN
                          dbo.vDostawyNiewydaneBezDat ON dbo.Zawartosc.ID_Dostawy = dbo.vDostawyNiewydaneBezDat.ID_Dostawy AND dbo.Zawartosc.ID_Element = dbo.vDostawyNiewydaneBezDat.ID_Element
 GROUP BY dbo.vDostawyNiewydaneBezDat.ID_Zamowienia, dbo.vDostawyNiewydaneBezDat.ID_Element, dbo.vDostawyNiewydaneBezDat.Element_Nazwa, dbo.vDostawyNiewydaneBezDat.ID_Dostawy, dbo.Polki.ID_Polka
 GO
+--lista zamówieñ jeszcze nie zamówionych u dostawców
+CREATE VIEW [dbo].[vZamowieniaDoWykonaniaUDostawcy]
+AS
+SELECT DISTINCT ID_Dostawy
+FROM            dbo.Zamowienia_Dostawy
+WHERE        (ID_statusu = 3) AND (Data_Dostawy_Planowana IS NULL)
+GO
+--widok listuj¹cy zawartoœæ dostaw i kontakty do dostawców
+CREATE VIEW [dbo].[vDostawyZawartoscInformacjeDostawcy]
+AS
+SELECT        TOP (100) PERCENT dbo.Zamowienia_Dostawy.ID_Dostawy, dbo.Elementy.Element_Nazwa, dbo.Oferta.Element_Oznaczenie, dbo.Dostawy_Zawartosc.Ilosc_Dostarczona AS Ilosc_paczek, 
+                         dbo.Dostawy_Zawartosc.Ilosc_Dostarczona * dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym AS Ilosc_calkowita, dbo.Dostawcy_Zaopatrzenie.Nazwa, dbo.Dostawcy_Zaopatrzenie.Telefon_1, dbo.Dostawcy_Zaopatrzenie.Email, 
+                         dbo.Oferta.Deklarowany_czas_dostawy
+FROM            dbo.Zamowienia_Dostawy INNER JOIN
+                         dbo.Dostawy_Zawartosc ON dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Dostawy_Zawartosc.ID_Dostawy INNER JOIN
+                         dbo.Oferta ON dbo.Dostawy_Zawartosc.ID_oferta = dbo.Oferta.ID_Oferta INNER JOIN
+                         dbo.Dostawcy_Zaopatrzenie ON dbo.Oferta.ID_Dostawcy = dbo.Dostawcy_Zaopatrzenie.ID_Dostawcy INNER JOIN
+                         dbo.Elementy ON dbo.Dostawy_Zawartosc.ID_Element = dbo.Elementy.ID_Element AND dbo.Oferta.ID_Element = dbo.Elementy.ID_Element
+ORDER BY dbo.Oferta.Deklarowany_czas_dostawy DESC
+GO
 
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------

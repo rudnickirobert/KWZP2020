@@ -673,6 +673,9 @@
     <Compile Include="vDostawyNiewydaneZPolkami.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vDostawyZawartoscInformacjeDostawcy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vElementyProcesProdukcyjny.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -862,6 +865,9 @@
     <Compile Include="vWszystkie_Maszyny.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vZamowieniaDoWykonaniaUDostawcy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vZamowieniaDystans.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -873,6 +879,12 @@
     </Compile>
     <Compile Include="vZawartoscMagazynuDoPrzydzialu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WybierzZamowienie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WybierzZamowienie.Designer.cs">
+      <DependentUpon>WybierzZamowienie.cs</DependentUpon>
     </Compile>
     <Compile Include="WyborElementu.cs">
       <SubType>Form</SubType>
@@ -920,6 +932,12 @@
     </Compile>
     <Compile Include="Wymiar_Urlopu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ZamowDostawe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZamowDostawe.Designer.cs">
+      <DependentUpon>ZamowDostawe.cs</DependentUpon>
     </Compile>
     <Compile Include="Zamowienia.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
@@ -1162,6 +1180,9 @@
     <EmbeddedResource Include="SzczegolyProcesu.resx">
       <DependentUpon>SzczegolyProcesu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WybierzZamowienie.resx">
+      <DependentUpon>WybierzZamowienie.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WyborKlienta.resx">
       <DependentUpon>WyborKlienta.cs</DependentUpon>
     </EmbeddedResource>
@@ -1182,6 +1203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WydajMaterialProdukcji.resx">
       <DependentUpon>WydajMaterialProdukcji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZamowDostawe.resx">
+      <DependentUpon>ZamowDostawe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ZarzadzanieForm.resx">
       <DependentUpon>ZarzadzanieForm.cs</DependentUpon>

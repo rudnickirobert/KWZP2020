@@ -34,6 +34,7 @@
             this.btnPrzyjmijDostawe = new System.Windows.Forms.Button();
             this.btnWydajProdukcji = new System.Windows.Forms.Button();
             this.btnOdbierzMaterial = new System.Windows.Forms.Button();
+            this.btnZamowTowary = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAddDelivery
@@ -88,11 +89,22 @@
             this.btnOdbierzMaterial.UseVisualStyleBackColor = true;
             this.btnOdbierzMaterial.Click += new System.EventHandler(this.btnOdbierzMaterial_Click);
             // 
+            // btnZamowTowary
+            // 
+            this.btnZamowTowary.Location = new System.Drawing.Point(143, 246);
+            this.btnZamowTowary.Name = "btnZamowTowary";
+            this.btnZamowTowary.Size = new System.Drawing.Size(256, 111);
+            this.btnZamowTowary.TabIndex = 4;
+            this.btnZamowTowary.Text = "Zamów zatwierdzone dostawy";
+            this.btnZamowTowary.UseVisualStyleBackColor = true;
+            this.btnZamowTowary.Click += new System.EventHandler(this.btnZamowTowary_Click);
+            // 
             // ObslugaDostaw
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(546, 254);
+            this.ClientSize = new System.Drawing.Size(546, 363);
+            this.Controls.Add(this.btnZamowTowary);
             this.Controls.Add(this.btnOdbierzMaterial);
             this.Controls.Add(this.btnWydajProdukcji);
             this.Controls.Add(this.btnPrzyjmijDostawe);
@@ -115,5 +127,6 @@
         private System.Windows.Forms.Button btnPrzyjmijDostawe;
         private System.Windows.Forms.Button btnWydajProdukcji;
         private System.Windows.Forms.Button btnOdbierzMaterial;
+        private System.Windows.Forms.Button btnZamowTowary;
     }
 }
