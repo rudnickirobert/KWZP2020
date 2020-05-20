@@ -23,7 +23,7 @@ namespace Szwalnia
     
         public virtual Elementy Elementy { get; set; }
         public virtual Polki Polki { get; set; }
-        public virtual Zamowienia_Dostawy Zamowienia_Dostawy { get; set; }
         public virtual Zamowienia Zamowienia { get; set; }
+        public virtual Zamowienia_Dostawy Zamowienia_Dostawy { get; set; }
     }
 }
