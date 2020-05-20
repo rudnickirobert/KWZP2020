@@ -245,7 +245,6 @@
     <Compile Include="InneProdukcja.designer.cs">
       <DependentUpon>InneProdukcja.cs</DependentUpon>
     </Compile>
-
     <Compile Include="Jezyk.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -1004,16 +1003,16 @@
     <Compile Include="vStanowisko.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vSumaKosztowProdukcji.cs">
-      <DependentUpon>Szwalnia.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vSumaKosztowZamowienia.cs">
-      <DependentUpon>Szwalnia.tt</DependentUpon>
-    </Compile>
     <Compile Include="vStan_magazynowy_elementy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vStan_magazynowy_polki.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vSumaKosztowProdukcji.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vSumaKosztowZamowienia.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vSuma_czasu_procesu.cs">
@@ -1058,13 +1057,13 @@
     <Compile Include="vWszystkie_Maszyny.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vWynagrodzenia.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vZamowieniaDystans.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vZamowieniaNieprzypisaneDoPracownikaIKuriera.cs">
-      <DependentUpon>Szwalnia.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vWynagrodzenia.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vZamowienie.cs">
