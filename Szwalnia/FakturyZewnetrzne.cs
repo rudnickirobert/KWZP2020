@@ -12,19 +12,24 @@ namespace Szwalnia
 {
     public partial class FakturyZewnetrzne : Form
     {
-        public SzwalniaEntities db;
-        public FakturyZewnetrzne(SzwalniaEntities szwalnia)
+        private SzwalniaEntities db;
+        public FakturyZewnetrzne(SzwalniaEntities db)
         {
             InitializeComponent();
-            db = szwalnia;
-            dgvFakturyZewnetrzne.DataSource = db.Faktury_Zewnetrzne.ToList();
+            this.db = db;
         }
-
-        private void dgvFakturyZewnetrzne_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void btnFaktury_Click(object sender, EventArgs e)
         {
-            int numerIDFaktury = Convert.ToInt32(dgvFakturyZewnetrzne.CurrentRow.Cells[0].Value);
-            FakturyZewnetrzneSzczegoly fakturyZewnetrzneSzczegoly = new FakturyZewnetrzneSzczegoly(db, Decimal.ToInt32(numerIDFaktury));
+            FakturyZewnetrzneSzczegoly fakturyZewnetrzneSzczegoly = new FakturyZewnetrzneSzczegoly(db);
             fakturyZewnetrzneSzczegoly.Show();
+        }
+        private void btnDodaj_Click(object sender, EventArgs e)
+        {
+            NowaFakturaZewnetrzna nowaFakturaZewnetrzna = new NowaFakturaZewnetrzna(db);
+            nowaFakturaZewnetrzna.Show();
+        }
+        private void btnZamknij_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }
