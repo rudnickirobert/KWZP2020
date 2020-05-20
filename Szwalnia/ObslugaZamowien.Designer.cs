@@ -77,7 +77,7 @@
             this.Controls.Add(this.btnAddWorkersDeliverers);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ObslugaZamowien";
-            this.Text = "ObslugaZamowien";
+            this.Text = "Obsługa zamówień";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ObslugaZamowien_FormClosed);
             this.ResumeLayout(false);
 

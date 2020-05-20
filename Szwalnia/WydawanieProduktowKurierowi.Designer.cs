@@ -40,7 +40,7 @@
             // cmbPracownik
             // 
             this.cmbPracownik.FormattingEnabled = true;
-            this.cmbPracownik.Location = new System.Drawing.Point(260, 77);
+            this.cmbPracownik.Location = new System.Drawing.Point(244, 77);
             this.cmbPracownik.Name = "cmbPracownik";
             this.cmbPracownik.Size = new System.Drawing.Size(183, 21);
             this.cmbPracownik.TabIndex = 24;
@@ -59,7 +59,7 @@
             // lblPracownik
             // 
             this.lblPracownik.AutoSize = true;
-            this.lblPracownik.Location = new System.Drawing.Point(183, 80);
+            this.lblPracownik.Location = new System.Drawing.Point(167, 80);
             this.lblPracownik.Name = "lblPracownik";
             this.lblPracownik.Size = new System.Drawing.Size(60, 13);
             this.lblPracownik.TabIndex = 22;
@@ -69,7 +69,7 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.lblTitle.Location = new System.Drawing.Point(109, 21);
+            this.lblTitle.Location = new System.Drawing.Point(93, 21);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(399, 31);
             this.lblTitle.TabIndex = 21;
@@ -80,7 +80,7 @@
             this.dgvGotoweProdukty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGotoweProdukty.Location = new System.Drawing.Point(20, 113);
             this.dgvGotoweProdukty.Name = "dgvGotoweProdukty";
-            this.dgvGotoweProdukty.Size = new System.Drawing.Size(557, 150);
+            this.dgvGotoweProdukty.Size = new System.Drawing.Size(538, 150);
             this.dgvGotoweProdukty.TabIndex = 20;
             this.dgvGotoweProdukty.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGotoweProdukty_CellClick);
             // 
@@ -88,7 +88,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(592, 313);
+            this.ClientSize = new System.Drawing.Size(576, 313);
             this.Controls.Add(this.cmbPracownik);
             this.Controls.Add(this.btnWydajProdukty);
             this.Controls.Add(this.lblPracownik);

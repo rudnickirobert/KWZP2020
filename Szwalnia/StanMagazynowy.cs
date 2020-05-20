@@ -45,7 +45,7 @@ namespace Szwalnia
 
         private void btnEwidencjaProduktow_Click(object sender, EventArgs e)
         {
-            EwidencjaMaterialow ewidencjaProduktow = new EwidencjaMaterialow();
+            EwidencjaDostawWewnetrznych ewidencjaProduktow = new EwidencjaDostawWewnetrznych();
             ewidencjaProduktow.Show();
         }
 

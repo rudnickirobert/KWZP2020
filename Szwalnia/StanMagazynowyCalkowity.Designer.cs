@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StanMagazynowyCalkowity));
             this.dgvStanMagazynowyCalosciowy = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStanMagazynowyCalosciowy)).BeginInit();
@@ -59,6 +60,7 @@
             this.ClientSize = new System.Drawing.Size(879, 347);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvStanMagazynowyCalosciowy);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StanMagazynowyCalkowity";
             this.Text = "Stan magazynowy całkowity";
             ((System.ComponentModel.ISupportInitialize)(this.dgvStanMagazynowyCalosciowy)).EndInit();
