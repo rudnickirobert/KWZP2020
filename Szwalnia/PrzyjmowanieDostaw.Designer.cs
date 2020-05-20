@@ -35,6 +35,9 @@
             // 
             // dgvDostawyDoPrzyjecia
             // 
+            this.dgvDostawyDoPrzyjecia.AllowUserToAddRows = false;
+            this.dgvDostawyDoPrzyjecia.AllowUserToDeleteRows = false;
+            this.dgvDostawyDoPrzyjecia.AllowUserToOrderColumns = true;
             this.dgvDostawyDoPrzyjecia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDostawyDoPrzyjecia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDostawyDoPrzyjecia.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;

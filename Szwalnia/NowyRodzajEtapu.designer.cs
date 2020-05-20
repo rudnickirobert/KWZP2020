@@ -39,7 +39,7 @@
             // 
             this.lblNazwaEtapu.AutoSize = true;
             this.lblNazwaEtapu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblNazwaEtapu.Location = new System.Drawing.Point(73, 104);
+            this.lblNazwaEtapu.Location = new System.Drawing.Point(47, 67);
             this.lblNazwaEtapu.Name = "lblNazwaEtapu";
             this.lblNazwaEtapu.Size = new System.Drawing.Size(147, 20);
             this.lblNazwaEtapu.TabIndex = 0;
@@ -48,7 +48,7 @@
             // tbNazwaEtapu
             // 
             this.tbNazwaEtapu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbNazwaEtapu.Location = new System.Drawing.Point(293, 103);
+            this.tbNazwaEtapu.Location = new System.Drawing.Point(245, 64);
             this.tbNazwaEtapu.Name = "tbNazwaEtapu";
             this.tbNazwaEtapu.Size = new System.Drawing.Size(175, 26);
             this.tbNazwaEtapu.TabIndex = 1;
@@ -56,7 +56,7 @@
             // btnWyzerujEtap
             // 
             this.btnWyzerujEtap.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnWyzerujEtap.Location = new System.Drawing.Point(353, 183);
+            this.btnWyzerujEtap.Location = new System.Drawing.Point(303, 129);
             this.btnWyzerujEtap.Name = "btnWyzerujEtap";
             this.btnWyzerujEtap.Size = new System.Drawing.Size(80, 50);
             this.btnWyzerujEtap.TabIndex = 4;
@@ -67,7 +67,7 @@
             // btnAnulujEtap
             // 
             this.btnAnulujEtap.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAnulujEtap.Location = new System.Drawing.Point(245, 183);
+            this.btnAnulujEtap.Location = new System.Drawing.Point(195, 129);
             this.btnAnulujEtap.Name = "btnAnulujEtap";
             this.btnAnulujEtap.Size = new System.Drawing.Size(80, 50);
             this.btnAnulujEtap.TabIndex = 5;
@@ -78,7 +78,7 @@
             // btnZapiszEtap
             // 
             this.btnZapiszEtap.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnZapiszEtap.Location = new System.Drawing.Point(126, 183);
+            this.btnZapiszEtap.Location = new System.Drawing.Point(76, 129);
             this.btnZapiszEtap.Name = "btnZapiszEtap";
             this.btnZapiszEtap.Size = new System.Drawing.Size(80, 50);
             this.btnZapiszEtap.TabIndex = 6;
@@ -90,13 +90,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(558, 297);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(475, 211);
             this.Controls.Add(this.btnWyzerujEtap);
             this.Controls.Add(this.btnAnulujEtap);
             this.Controls.Add(this.btnZapiszEtap);
             this.Controls.Add(this.tbNazwaEtapu);
             this.Controls.Add(this.lblNazwaEtapu);
             this.Name = "NowyRodzajEtapu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nowy rodzaj etapu";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -53,7 +53,7 @@ namespace Szwalnia
         {
             if (!zamknieciePrzezInnyFormularz)
             {
-                Start.GetForm.Show();
+                Application.OpenForms[typeof(ObslugaDostaw).Name].Show();
             }
         }
 

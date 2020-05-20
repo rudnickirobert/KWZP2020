@@ -19,8 +19,8 @@ INSERT into Klienci (Imie, Nazwisko, Nazwa_Firmy, NIP, Adres, Odleglosc_km, Tele
 VALUES
 ('Jan','Jankowski','Firmowo','1213141516','Firmowa 2, Warszawa','100','987548362','mailfirmowy@gmail.com'),
 ('Piotr','Piotrowski','Zamaseczowo','9882351235','Kazimierza Wielkiego 44, £ódŸ', '90','675234123','Zamaseczki@gmail.com'),
-('Pawe³','Paw³owski','Ulandia','7654827346','Aleje Religijne 784, Mr¹gowo','526374583','92','Tomasz.Rogulski@gmail.com'),
-('Kamil','Kamilowski','Primaris','2845401300','Królewska 1, Warszawa','748372421','70','FirmowyMail@gmail.com'),
+('Pawe³','Paw³owski','Ulandia','7654827346','Aleje Religijne 784, Mr¹gowo','92','526374583','Tomasz.Rogulski@gmail.com'),
+('Kamil','Kamilowski','Primaris','2845401300','Królewska 1, Warszawa','70','748372421','FirmowyMail@gmail.com'),
 ('Ferrus','Manus','IOM','1113123125','Pa³acowa 1, Terra', '70','777838352','IOM.mail@gmail.com');
 
 INSERT into Pensja (Pensja)
@@ -218,10 +218,10 @@ VALUES
 ('Pralka','Whirpool','B56/678', 3, '8000', '14','2027-10-01', '0'),
 ('Pralka','Whirpool','B36/878', 3, '8000', '14','2027-10-01', '0'),
 ('Pralka','Whirpool','B56/345', 3, '8000', '14','2027-10-01', '0'),
-('¯elasko przemys³owe','Bosh','MD2/125/2019', 3, '4500', '14','2025-04-12', '0'),
-('¯elasko przemys³owe','Bosh','MD2/225/2019', 3, '4500', '14','2025-04-12', '0'),
-('¯elasko przemys³owe','Bosh','MD2/199/2019', 3, '4500', '14','2025-04-12', '0'),
-('¯elasko przemys³owe','Bosh','MD2/198/2019', 3, '4500', '14','2025-04-12', '0');
+('¯elazko przemys³owe','Bosh','MD2/125/2019', 3, '4500', '14','2025-04-12', '0'),
+('¯elazko przemys³owe','Bosh','MD2/225/2019', 3, '4500', '14','2025-04-12', '0'),
+('¯elazko przemys³owe','Bosh','MD2/199/2019', 3, '4500', '14','2025-04-12', '0'),
+('¯elazko przemys³owe','Bosh','MD2/198/2019', 3, '4500', '14','2025-04-12', '0');
 
 ---------------------INSERTY MAGAZYN---------------------------------------------------------
 INSERT INTO
@@ -535,11 +535,11 @@ VALUES
 
 INSERT INTO Zamowienia_Przydzial(ID_Zamowienia, ID_pracownicy, ID_umowy) 
 VALUES 
-	(1,2,3),
-	(2,4,5),
-	(5,4,3),
-	(3,3,2),
-	(4,2,1)
+	(1,11,3),
+	(2,11,5),
+	(5,11,3),
+	(3,11,2),
+	(4,11,1)
 
 INSERT INTO 
 	Zamowienia_Dostawy(ID_zamowienia,Data_dostawy_planowana,Data_dostawy_rzeczywista,ID_statusu) 
@@ -584,12 +584,12 @@ VALUES --ID_miejsca 2 to produkcja
 	(11,4,3,3,-80,2,'2020-04-17'),
 	(11,5,6,2,-50,2,'2020-04-17'),	
 	(11,5,5,2,-400,2,'2020-04-17'),
-	(12,6,4,4,-1000,2,'2020-04-17'),
-	(11,7,6,3,-20000,2,'2020-04-23'),
+	(12,6,6,4,-1000,2,'2020-04-17'),
+	(11,7,4,3,-20000,2,'2020-04-23'),
 	(12,8,4,4,-5000,2,'2020-04-23'),
 	(11,2,8,3,-4,2,'2020-04-24'), -- 10 by³o nadmiaru, 4 niezu¿yte (ale u Angeliki jest 4, wiêc tak zostawiamy)
 	(11,4,8,3,-3,2,'2020-04-24'), --tez pozostalosc
-	(11,9,8,3,-168,2,'2020-04-24'), -- wydana ca³a dostawa ( z tymi resztkami jest juz 175)
+	(11,9,7,3,-168,2,'2020-04-24'), -- wydana ca³a dostawa ( z tymi resztkami jest juz 175)
 	(12,3,1,2,4,2,'2020-04-17'),  -- wraca z produkcji
 	(12,3,1,4,8,2,'2020-04-17'),
 	(11,2,2,3,4,2,'2020-04-17'),
@@ -976,6 +976,18 @@ VALUES
 (4, 6, 3, 4, 1), 
 (5, 8, 0, 4, 1); 
 
+INSERT INTO Odbior_Dostarczenia (ID_Procesu_Produkcyjnego, ID_Dostarczenia, Odebrano)
+VALUES
+(1, 1, 1),
+(2, 2, 1),
+(1, 3, 1),
+(2, 4, 1),
+(3, 5, 1),
+(5, 6, 1),
+(4, 7, 1),
+(5, 8, 1),
+(6, 9, 1),
+(6, 10, 1);
 
 
 INSERT INTO Realizacja_Procesu (ID_Procesu_Produkcyjnego, ID_Etapu, Data_Rozpoczecia_Procesu, Data_Zakonczenia_Procesu, Data_Kontroli, Uwagi_Kontroli)
@@ -1062,16 +1074,16 @@ VALUES
 (5, 3, 12, '2020-04-16 14:45:15', '2020-04-16 20:50:00'),
 (6, 6, 11, '2020-04-16 21:06:15', '2020-04-17 08:00:00');
 
-INSERT INTO Kontrola_Efektywnosci (ID_Procesu_Produkcyjnego, Data_Kontroli, Dokument, Uwagi, Zgodnosc_Zamowienia , Liczba_Poprawnych)
+INSERT INTO Kontrola_Efektywnosci (ID_Procesu_Produkcyjnego, Data_Kontroli, Uwagi, Liczba_Poprawnych)
 VALUES
-(1, '2020-04-17 10:50:00', 'dok_1.img', 'brak uwag', 1, 100),
-(2, '2020-04-17 07:30:00', 'dok_2.img', 'brak uwag', 1, 105),
-(3, '2020-04-20 19:40:01', 'dok_3.img', 'brak uwag', 1, 500),
-(4, '2020-04-20 09:30:00', 'dok_4.img', 'brak uwag', 1, 100),
-(5, '2020-04-20 10:50:00', 'dok_4.img', 'brak uwag', 1, 103),
-(6, '2020-04-29 20:50:01', 'dok_3.img', 'brak uwag', 1, 5010),
-(7, '2020-04-28 11:00:00', 'dok_4.img', 'brak uwag', 1, 51),
-(8, '2020-04-30 12:40:00', 'dok_4.img', 'brak uwag', 1, 50);
+(1, '2020-04-17 10:50:00', 'brak uwag', 100),
+(2, '2020-04-17 07:30:00', 'brak uwag', 105),
+(3, '2020-04-20 19:40:01', 'brak uwag', 500),
+(4, '2020-04-20 09:30:00', 'brak uwag', 100),
+(5, '2020-04-20 10:50:00', 'brak uwag', 103),
+(6, '2020-04-29 20:50:01', 'brak uwag', 5010),
+(7, '2020-04-28 11:00:00', 'brak uwag', 51),
+(8, '2020-04-30 12:40:00', 'brak uwag', 50);
 use master
 
 

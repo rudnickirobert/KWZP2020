@@ -72,6 +72,7 @@
             this.Controls.Add(this.lblInfo);
             this.Name = "PopupAcceptDeny";
             this.Text = "PopupAcceptDeny";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PopupAcceptDeny_FormClosed);
             this.ResumeLayout(false);
 
         }
