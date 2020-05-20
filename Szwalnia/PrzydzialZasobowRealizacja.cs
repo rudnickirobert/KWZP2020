@@ -32,12 +32,13 @@ namespace Szwalnia
             dgvPrzydzialZasobowRealizacja.Columns[1].Visible = false;
             dgvPrzydzialZasobowRealizacja.Columns[2].Visible = false;
             dgvPrzydzialZasobowRealizacja.Columns[3].Visible = false;
-            dgvPrzydzialZasobowRealizacja.Columns[4].HeaderText = "ID pracownika";
-            dgvPrzydzialZasobowRealizacja.Columns[5].HeaderText = "Imię";
-            dgvPrzydzialZasobowRealizacja.Columns[7].HeaderText = "ID maszyny";
-            dgvPrzydzialZasobowRealizacja.Columns[8].HeaderText = "Nazwa maszyny";
-            dgvPrzydzialZasobowRealizacja.Columns[9].HeaderText = "Data rozpoczęcia";
-            dgvPrzydzialZasobowRealizacja.Columns[10].HeaderText = "Data zakończenia";
+            dgvPrzydzialZasobowRealizacja.Columns[4].Visible = false;
+            dgvPrzydzialZasobowRealizacja.Columns[5].HeaderText = "ID pracownika";
+            dgvPrzydzialZasobowRealizacja.Columns[6].HeaderText = "Imię";
+            dgvPrzydzialZasobowRealizacja.Columns[8].HeaderText = "ID maszyny";
+            dgvPrzydzialZasobowRealizacja.Columns[9].HeaderText = "Nazwa maszyny";
+            dgvPrzydzialZasobowRealizacja.Columns[10].HeaderText = "Data rozpoczęcia";
+            dgvPrzydzialZasobowRealizacja.Columns[11].HeaderText = "Data zakończenia";
 
         }
 
@@ -100,8 +101,8 @@ namespace Szwalnia
 
         private void dgvPrzydzialZasobowRealizacja_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            przydzial.ID_Przydzial_Zasobow = Convert.ToInt32(dgvPrzydzialZasobowRealizacja.CurrentRow.Cells[0].Value);
-            przydzial.ID_Realizacji_Procesu = Convert.ToInt32(dgvPrzydzialZasobowRealizacja.CurrentRow.Cells[2].Value);
+            przydzial.ID_Przydzial_Zasobow = Convert.ToInt32(dgvPrzydzialZasobowRealizacja.CurrentRow.Cells[1].Value);
+            przydzial.ID_Realizacji_Procesu = Convert.ToInt32(dgvPrzydzialZasobowRealizacja.CurrentRow.Cells[3].Value);
             przydzial = this.db.Przydzial_Zasobow.Where(numer => numer.ID_Przydzial_Zasobow == przydzial.ID_Przydzial_Zasobow).First();
             tbPracownik.Text = przydzial.ID_Pracownika.ToString();
             tbMaszyna.Text = przydzial.ID_Maszyny.ToString();
