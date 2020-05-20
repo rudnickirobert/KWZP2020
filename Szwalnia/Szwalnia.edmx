@@ -1540,7 +1540,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vUmowyKurierzy' does not have a prima
           <Property Name="Czas_Dostawy" Type="int" />
           <Property Name="Koszt_Km" Type="int" />
           <Property Name="Koszt_Staly" Type="int" />
-          <Property Name="Koszt_calkowity" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vUmowyKurierzyNazwyKurierow' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -3389,6 +3388,13 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
     [vTechnolodzy].[Autor] AS [Autor]
     FROM [dbo].[vTechnolodzy] AS [vTechnolodzy]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vTechnologowie" EntityType="Self.vTechnologowie" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vTechnologowie].[Imię i nazwisko] AS [Imię i nazwisko], 
+    [vTechnologowie].[Stanowisko] AS [Stanowisko], 
+    [vTechnologowie].[ID_Pracownika] AS [ID_Pracownika]
+    FROM [dbo].[vTechnologowie] AS [vTechnologowie]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vUmowyKurierzy" EntityType="Self.vUmowyKurierzy" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vUmowyKurierzy].[ID_Umowy] AS [ID_Umowy], 
@@ -3396,8 +3402,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
     [vUmowyKurierzy].[Data_Zawarcia] AS [Data_Zawarcia], 
     [vUmowyKurierzy].[Czas_Dostawy] AS [Czas_Dostawy], 
     [vUmowyKurierzy].[Koszt_Km] AS [Koszt_Km], 
-    [vUmowyKurierzy].[Koszt_Staly] AS [Koszt_Staly], 
-    [vUmowyKurierzy].[Koszt_calkowity] AS [Koszt_calkowity]
+    [vUmowyKurierzy].[Koszt_Staly] AS [Koszt_Staly]
     FROM [dbo].[vUmowyKurierzy] AS [vUmowyKurierzy]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vUmowyKurierzyNazwyKurierow" EntityType="Self.vUmowyKurierzyNazwyKurierow" store:Type="Views" store:Schema="dbo">
@@ -3416,13 +3421,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
     [vWolneMaszyny].[Data Rozpoczęcia Naprawy/Serwisu] AS [Data Rozpoczęcia Naprawy/Serwisu], 
     [vWolneMaszyny].[Data Zakończenia Naprawy/Serwisu] AS [Data Zakończenia Naprawy/Serwisu]
     FROM [dbo].[vWolneMaszyny] AS [vWolneMaszyny]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="vTechnologowie" EntityType="Self.vTechnologowie" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [vTechnologowie].[Imię i nazwisko] AS [Imię i nazwisko], 
-    [vTechnologowie].[Stanowisko] AS [Stanowisko], 
-    [vTechnologowie].[ID_Pracownika] AS [ID_Pracownika]
-    FROM [dbo].[vTechnologowie] AS [vTechnologowie]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vWolnePolki" EntityType="Self.vWolnePolki" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -3858,463 +3856,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SzwalniaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="SzwalniaEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Czesci_Obsluga" EntityType="SzwalniaModel.Czesci_Obsluga" />
-          <EntitySet Name="Dokumentacja_Proces" EntityType="SzwalniaModel.Dokumentacja_Proces" />
-          <EntitySet Name="Dokumentacje" EntityType="SzwalniaModel.Dokumentacje" />
-          <EntitySet Name="Dostarczenia_Wewn" EntityType="SzwalniaModel.Dostarczenia_Wewn" />
-          <EntitySet Name="Dostarczenia_Zewn" EntityType="SzwalniaModel.Dostarczenia_Zewn" />
-          <EntitySet Name="Dostawcy_Zaopatrzenie" EntityType="SzwalniaModel.Dostawcy_Zaopatrzenie" />
-          <EntitySet Name="Dostawy_Wlasne_Zawartosc" EntityType="SzwalniaModel.Dostawy_Wlasne_Zawartosc" />
-          <EntitySet Name="Dostawy_Zawartosc" EntityType="SzwalniaModel.Dostawy_Zawartosc" />
-          <EntitySet Name="Dzialy" EntityType="SzwalniaModel.Dzialy" />
-          <EntitySet Name="Elementy" EntityType="SzwalniaModel.Elementy" />
-          <EntitySet Name="Elementy_Cechy" EntityType="SzwalniaModel.Elementy_Cechy" />
-          <EntitySet Name="Elementy_Cechy_Slownik" EntityType="SzwalniaModel.Elementy_Cechy_Slownik" />
-          <EntitySet Name="Elementy_Jednostki" EntityType="SzwalniaModel.Elementy_Jednostki" />
-          <EntitySet Name="Elementy_Proces" EntityType="SzwalniaModel.Elementy_Proces" />
-          <EntitySet Name="Elementy_Typy" EntityType="SzwalniaModel.Elementy_Typy" />
-          <EntitySet Name="Etapy_W_Procesie" EntityType="SzwalniaModel.Etapy_W_Procesie" />
-          <EntitySet Name="Etat" EntityType="SzwalniaModel.Etat" />
-          <EntitySet Name="Faktury_Zewnetrzne" EntityType="SzwalniaModel.Faktury_Zewnetrzne" />
-          <EntitySet Name="Grupa" EntityType="SzwalniaModel.Grupa" />
-          <EntitySet Name="Jezyk" EntityType="SzwalniaModel.Jezyk" />
-          <EntitySet Name="Klienci" EntityType="SzwalniaModel.Klienci" />
-          <EntitySet Name="Kontrola_Efektywnosci" EntityType="SzwalniaModel.Kontrola_Efektywnosci" />
-          <EntitySet Name="Kurierzy" EntityType="SzwalniaModel.Kurierzy" />
-          <EntitySet Name="Maszyny" EntityType="SzwalniaModel.Maszyny" />
-          <EntitySet Name="Maszyny_Proces" EntityType="SzwalniaModel.Maszyny_Proces" />
-          <EntitySet Name="Material_Na_Produkcji" EntityType="SzwalniaModel.Material_Na_Produkcji" />
-          <EntitySet Name="Miejsca" EntityType="SzwalniaModel.Miejsca" />
-          <EntitySet Name="Obsluga_Techniczna" EntityType="SzwalniaModel.Obsluga_Techniczna" />
-          <EntitySet Name="Odbior_Dostarczenia" EntityType="SzwalniaModel.Odbior_Dostarczenia" />
-          <EntitySet Name="Oferta" EntityType="SzwalniaModel.Oferta" />
-          <EntitySet Name="Pensja" EntityType="SzwalniaModel.Pensja" />
-          <EntitySet Name="Polki" EntityType="SzwalniaModel.Polki" />
-          <EntitySet Name="Polki_regaly" EntityType="SzwalniaModel.Polki_regaly" />
-          <EntitySet Name="Polki_Rozmiary" EntityType="SzwalniaModel.Polki_Rozmiary" />
-          <EntitySet Name="Pracownicy" EntityType="SzwalniaModel.Pracownicy" />
-          <EntitySet Name="Pracownicy_Zatrudnienie" EntityType="SzwalniaModel.Pracownicy_Zatrudnienie" />
-          <EntitySet Name="Proces_Produkcyjny" EntityType="SzwalniaModel.Proces_Produkcyjny" />
-          <EntitySet Name="Proces_Technologiczny" EntityType="SzwalniaModel.Proces_Technologiczny" />
-          <EntitySet Name="Proces_Zamowienie" EntityType="SzwalniaModel.Proces_Zamowienie" />
-          <EntitySet Name="Przydzial_Zasobow" EntityType="SzwalniaModel.Przydzial_Zasobow" />
-          <EntitySet Name="Realizacja_Procesu" EntityType="SzwalniaModel.Realizacja_Procesu" />
-          <EntitySet Name="Regaly" EntityType="SzwalniaModel.Regaly" />
-          <EntitySet Name="Rodzaj_Dokumentacji" EntityType="SzwalniaModel.Rodzaj_Dokumentacji" />
-          <EntitySet Name="Rodzaj_Etapu" EntityType="SzwalniaModel.Rodzaj_Etapu" />
-          <EntitySet Name="Rodzaj_Maszyny" EntityType="SzwalniaModel.Rodzaj_Maszyny" />
-          <EntitySet Name="Rodzaj_Obslugi" EntityType="SzwalniaModel.Rodzaj_Obslugi" />
-          <EntitySet Name="Rodzaj_Umowy" EntityType="SzwalniaModel.Rodzaj_Umowy" />
-          <EntitySet Name="Rodzaj_Urlopu" EntityType="SzwalniaModel.Rodzaj_Urlopu" />
-          <EntitySet Name="Srodki_Trwale" EntityType="SzwalniaModel.Srodki_Trwale" />
-          <EntitySet Name="Stanowisko" EntityType="SzwalniaModel.Stanowisko" />
-          <EntitySet Name="Statusy" EntityType="SzwalniaModel.Statusy" />
-          <EntitySet Name="Typy_cechy_rejestr" EntityType="SzwalniaModel.Typy_cechy_rejestr" />
-          <EntitySet Name="Umowy_Kurierzy" EntityType="SzwalniaModel.Umowy_Kurierzy" />
-          <EntitySet Name="Urlop" EntityType="SzwalniaModel.Urlop" />
-          <EntitySet Name="Wymiar_Urlopu" EntityType="SzwalniaModel.Wymiar_Urlopu" />
-          <EntitySet Name="Zamowienia" EntityType="SzwalniaModel.Zamowienia" />
-          <EntitySet Name="Zamowienia_Dostawy" EntityType="SzwalniaModel.Zamowienia_Dostawy" />
-          <EntitySet Name="Zamowienia_Dostawy_Wlasne" EntityType="SzwalniaModel.Zamowienia_Dostawy_Wlasne" />
-          <EntitySet Name="Zamowienia_Przydzial" EntityType="SzwalniaModel.Zamowienia_Przydzial" />
-          <EntitySet Name="Zamowienie_Element" EntityType="SzwalniaModel.Zamowienie_Element" />
-          <EntitySet Name="Zawartosc" EntityType="SzwalniaModel.Zawartosc" />
-          <EntitySet Name="Znajomosc_Jezykow" EntityType="SzwalniaModel.Znajomosc_Jezykow" />
-          <EntitySet Name="vCechyElementu" EntityType="SzwalniaModel.vCechyElementu" />
-          <EntitySet Name="vCzas_do_serwisu" EntityType="SzwalniaModel.vCzas_do_serwisu" />
-          <EntitySet Name="vDokumentacja_info" EntityType="SzwalniaModel.vDokumentacja_info" />
-          <EntitySet Name="vDokumentacja_proces" EntityType="SzwalniaModel.vDokumentacja_proces" />
-          <EntitySet Name="vDokumentacja_technologiczna" EntityType="SzwalniaModel.vDokumentacja_technologiczna" />
-          <EntitySet Name="vDostawcyDostawDoZamowien" EntityType="SzwalniaModel.vDostawcyDostawDoZamowien" />
-          <EntitySet Name="vDostawyDoOdbioru" EntityType="SzwalniaModel.vDostawyDoOdbioru" />
-          <EntitySet Name="vElementy_proces" EntityType="SzwalniaModel.vElementy_proces" />
-          <EntitySet Name="vEtapy_proces" EntityType="SzwalniaModel.vEtapy_proces" />
-          <EntitySet Name="vIdZamowienieElementProcesProdukcyjny" EntityType="SzwalniaModel.vIdZamowienieElementProcesProdukcyjny" />
-          <EntitySet Name="vMaszyny_numer_seryjny" EntityType="SzwalniaModel.vMaszyny_numer_seryjny" />
-          <EntitySet Name="vMaszyny_proces" EntityType="SzwalniaModel.vMaszyny_proces" />
-          <EntitySet Name="vMaszyny_rodzaj_liczba" EntityType="SzwalniaModel.vMaszyny_rodzaj_liczba" />
-          <EntitySet Name="vMaszyny_serwis" EntityType="SzwalniaModel.vMaszyny_serwis" />
-          <EntitySet Name="vMaterialyDoZamowienia" EntityType="SzwalniaModel.vMaterialyDoZamowienia" />
-          <EntitySet Name="vMaterialyDoZamowieniaBrak" EntityType="SzwalniaModel.vMaterialyDoZamowieniaBrak" />
-          <EntitySet Name="vNiezuzyteWMiesiacu" EntityType="SzwalniaModel.vNiezuzyteWMiesiacu" />
-          <EntitySet Name="vObsluga" EntityType="SzwalniaModel.vObsluga" />
-          <EntitySet Name="vOferta" EntityType="SzwalniaModel.vOferta" />
-          <EntitySet Name="vPolki_na_regalach" EntityType="SzwalniaModel.vPolki_na_regalach" />
-          <EntitySet Name="vPolki_Rozmiary" EntityType="SzwalniaModel.vPolki_Rozmiary" />
-          <EntitySet Name="vPracownicyMagazynu" EntityType="SzwalniaModel.vPracownicyMagazynu" />
-          <EntitySet Name="vProces_elementy" EntityType="SzwalniaModel.vProces_elementy" />
-          <EntitySet Name="vProces_Etapy" EntityType="SzwalniaModel.vProces_Etapy" />
-          <EntitySet Name="vProces_Maszyna" EntityType="SzwalniaModel.vProces_Maszyna" />
-          <EntitySet Name="vProces_technologiczny" EntityType="SzwalniaModel.vProces_technologiczny" />
-          <EntitySet Name="vProcesMaxOdpadMiesiac" EntityType="SzwalniaModel.vProcesMaxOdpadMiesiac" />
-          <EntitySet Name="vProcesy" EntityType="SzwalniaModel.vProcesy" />
-          <EntitySet Name="vRealizacjaProcesuProdukcyjnegoDetails" EntityType="SzwalniaModel.vRealizacjaProcesuProdukcyjnegoDetails" />
-          <EntitySet Name="vRegaly_alfabetycznie" EntityType="SzwalniaModel.vRegaly_alfabetycznie" />
-          <EntitySet Name="vResurs" EntityType="SzwalniaModel.vResurs" />
-          <EntitySet Name="vRodzaj_Maszyny" EntityType="SzwalniaModel.vRodzaj_Maszyny" />
-          <EntitySet Name="vRoznicaDatDni" EntityType="SzwalniaModel.vRoznicaDatDni" />
-          <EntitySet Name="vRoznicaDniBezWeekend" EntityType="SzwalniaModel.vRoznicaDniBezWeekend" />
-          <EntitySet Name="vRoznicaGodzin" EntityType="SzwalniaModel.vRoznicaGodzin" />
-          <EntitySet Name="vSrednia_ilosc_maszyn" EntityType="SzwalniaModel.vSrednia_ilosc_maszyn" />
-          <EntitySet Name="vSredniCzasWgElementu" EntityType="SzwalniaModel.vSredniCzasWgElementu" />
-          <EntitySet Name="vSuma_czasu_procesu" EntityType="SzwalniaModel.vSuma_czasu_procesu" />
-          <EntitySet Name="vSzacowanyCzasWykonania" EntityType="SzwalniaModel.vSzacowanyCzasWykonania" />
-          <EntitySet Name="vTechnolodzy" EntityType="SzwalniaModel.vTechnolodzy" />
-          <EntitySet Name="vWolnePolki" EntityType="SzwalniaModel.vWolnePolki" />
-          <EntitySet Name="vWszystkie_Elementy" EntityType="SzwalniaModel.vWszystkie_Elementy" />
-          <EntitySet Name="vZamowienieProcesyProdukcyjne" EntityType="SzwalniaModel.vZamowienieProcesyProdukcyjne" />
-          <EntitySet Name="vZawartosc_polki" EntityType="SzwalniaModel.vZawartosc_polki" />
-          <EntitySet Name="vZawartoscMagazynuDoPrzydzialu" EntityType="SzwalniaModel.vZawartoscMagazynuDoPrzydzialu" />
-          <AssociationSet Name="FK__Czesci_Ob__ID_El__56E8E7AB" Association="SzwalniaModel.FK__Czesci_Ob__ID_El__56E8E7AB">
-            <End Role="Elementy" EntitySet="Elementy" />
-            <End Role="Czesci_Obsluga" EntitySet="Czesci_Obsluga" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Czesci_Ob__ID_Ob__55F4C372" Association="SzwalniaModel.FK__Czesci_Ob__ID_Ob__55F4C372">
-            <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
-            <End Role="Czesci_Obsluga" EntitySet="Czesci_Obsluga" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Dokumenta__ID_Do__45BE5BA9" Association="SzwalniaModel.FK__Dokumenta__ID_Do__45BE5BA9">
-            <End Role="Dokumentacje" EntitySet="Dokumentacje" />
-            <End Role="Dokumentacja_Proces" EntitySet="Dokumentacja_Proces" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Dokumenta__ID_Pr__46B27FE2" Association="SzwalniaModel.FK__Dokumenta__ID_Pr__46B27FE2">
-            <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
-            <End Role="Dokumentacja_Proces" EntitySet="Dokumentacja_Proces" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Dokumenta__ID_Pr__40058253" Association="SzwalniaModel.FK__Dokumenta__ID_Pr__40058253">
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
-            <End Role="Dokumentacje" EntitySet="Dokumentacje" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Dokumenta__ID_Ro__3F115E1A" Association="SzwalniaModel.FK__Dokumenta__ID_Ro__3F115E1A">
-            <End Role="Rodzaj_Dokumentacji" EntitySet="Rodzaj_Dokumentacji" />
-            <End Role="Dokumentacje" EntitySet="Dokumentacje" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Do__22751F6C" Association="SzwalniaModel.FK__Dostarcze__ID_Do__22751F6C">
-            <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
-            <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_el__236943A5" Association="SzwalniaModel.FK__Dostarcze__ID_el__236943A5">
-            <End Role="Elementy" EntitySet="Elementy" />
-            <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Mi__245D67DE" Association="SzwalniaModel.FK__Dostarcze__ID_Mi__245D67DE">
-            <End Role="Miejsca" EntitySet="Miejsca" />
-            <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Pr__2180FB33" Association="SzwalniaModel.FK__Dostarcze__ID_Pr__2180FB33">
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
-            <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Odbior_Do__ID_Do__69FBBC1F" Association="SzwalniaModel.FK__Odbior_Do__ID_Do__69FBBC1F">
-            <End Role="Dostarczenia_Wewn" EntitySet="Dostarczenia_Wewn" />
-            <End Role="Odbior_Dostarczenia" EntitySet="Odbior_Dostarczenia" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_el__29221CFB" Association="SzwalniaModel.FK__Dostarcze__ID_el__29221CFB">
-            <End Role="Elementy" EntitySet="Elementy" />
-            <End Role="Dostarczenia_Zewn" EntitySet="Dostarczenia_Zewn" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Mi__2A164134" Association="SzwalniaModel.FK__Dostarcze__ID_Mi__2A164134">
-            <End Role="Miejsca" EntitySet="Miejsca" />
-            <End Role="Dostarczenia_Zewn" EntitySet="Dostarczenia_Zewn" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Pr__2739D489" Association="SzwalniaModel.FK__Dostarcze__ID_Pr__2739D489">
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
-            <End Role="Dostarczenia_Zewn" EntitySet="Dostarczenia_Zewn" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Dostarcze__ID_Za__282DF8C2" Association="SzwalniaModel.FK__Dostarcze__ID_Za__282DF8C2">
-            <End Role="Zamowienia" EntitySet="Zamowienia" />
-            <End Role="Dostarczenia_Zewn" EntitySet="Dostarczenia_Zewn" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Oferta__ID_Dosta__0A9D95DB" Association="SzwalniaModel.FK__Oferta__ID_Dosta__0A9D95DB">
-            <End Role="Dostawcy_Zaopatrzenie" EntitySet="Dostawcy_Zaopatrzenie" />
-            <End Role="Oferta" EntitySet="Oferta" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Dostawy_W__ID_Do__3587F3E0" Association="SzwalniaModel.FK__Dostawy_W__ID_Do__3587F3E0">
-            <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
-            <End Role="Dostawy_Wlasne_Zawartosc" EntitySet="Dostawy_Wlasne_Zawartosc" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Dostawy_W__ID_El__367C1819" Association="SzwalniaModel.FK__Dostawy_W__ID_El__367C1819">
-            <End Role="Elementy" EntitySet="Elementy" />
-            <End Role="Dostawy_Wlasne_Zawartosc" EntitySet="Dostawy_Wlasne_Zawartosc" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Dostawy_W__ID_Za__3493CFA7" Association="SzwalniaModel.FK__Dostawy_W__ID_Za__3493CFA7">
-            <End Role="Zamowienia_Dostawy_Wlasne" EntitySet="Zamowienia_Dostawy_Wlasne" />
-            <End Role="Dostawy_Wlasne_Zawartosc" EntitySet="Dostawy_Wlasne_Zawartosc" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Dostawy_Z__ID_Do__1CBC4616" Association="SzwalniaModel.FK__Dostawy_Z__ID_Do__1CBC4616">
-            <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
-            <End Role="Dostawy_Zawartosc" EntitySet="Dostawy_Zawartosc" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Dostawy_Z__ID_El__1DB06A4F" Association="SzwalniaModel.FK__Dostawy_Z__ID_El__1DB06A4F">
-            <End Role="Elementy" EntitySet="Elementy" />
-            <End Role="Dostawy_Zawartosc" EntitySet="Dostawy_Zawartosc" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Dostawy_Z__ID_of__1EA48E88" Association="SzwalniaModel.FK__Dostawy_Z__ID_of__1EA48E88">
-            <End Role="Oferta" EntitySet="Oferta" />
-            <End Role="Dostawy_Zawartosc" EntitySet="Dostawy_Zawartosc" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Pracownic__ID_Dz__4CA06362" Association="SzwalniaModel.FK__Pracownic__ID_Dz__4CA06362">
-            <End Role="Dzialy" EntitySet="Dzialy" />
-            <End Role="Pracownicy_Zatrudnienie" EntitySet="Pracownicy_Zatrudnienie" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Srodki_Tr__ID_Dz__2E1BDC42" Association="SzwalniaModel.FK__Srodki_Tr__ID_Dz__2E1BDC42">
-            <End Role="Dzialy" EntitySet="Dzialy" />
-            <End Role="Srodki_Trwale" EntitySet="Srodki_Trwale" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Elementy___ID_El__02084FDA" Association="SzwalniaModel.FK__Elementy___ID_El__02084FDA">
-            <End Role="Elementy" EntitySet="Elementy" />
-            <End Role="Elementy_Cechy" EntitySet="Elementy_Cechy" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Elementy___ID_El__5E8A0973" Association="SzwalniaModel.FK__Elementy___ID_El__5E8A0973">
-            <End Role="Elementy" EntitySet="Elementy" />
-            <End Role="Elementy_Proces" EntitySet="Elementy_Proces" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Elementy__ID_Ele__7F2BE32F" Association="SzwalniaModel.FK__Elementy__ID_Ele__7F2BE32F">
-            <End Role="Elementy_Typy" EntitySet="Elementy_Typy" />
-            <End Role="Elementy" EntitySet="Elementy" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Oferta__ID_Eleme__09A971A2" Association="SzwalniaModel.FK__Oferta__ID_Eleme__09A971A2">
-            <End Role="Elementy" EntitySet="Elementy" />
-            <End Role="Oferta" EntitySet="Oferta" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_El__2DE6D218" Association="SzwalniaModel.FK__Zamowieni__ID_El__2DE6D218">
-            <End Role="Elementy" EntitySet="Elementy" />
-            <End Role="Zamowienie_Element" EntitySet="Zamowienie_Element" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Zawartosc__ID_El__18EBB532" Association="SzwalniaModel.FK__Zawartosc__ID_El__18EBB532">
-            <End Role="Elementy" EntitySet="Elementy" />
-            <End Role="Zawartosc" EntitySet="Zawartosc" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Elementy___ID_Ce__02FC7413" Association="SzwalniaModel.FK__Elementy___ID_Ce__02FC7413">
-            <End Role="Elementy_Cechy_Slownik" EntitySet="Elementy_Cechy_Slownik" />
-            <End Role="Elementy_Cechy" EntitySet="Elementy_Cechy" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Elementy___ID_Je__03F0984C" Association="SzwalniaModel.FK__Elementy___ID_Je__03F0984C">
-            <End Role="Elementy_Jednostki" EntitySet="Elementy_Jednostki" />
-            <End Role="Elementy_Cechy" EntitySet="Elementy_Cechy" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Typy_cech__ID_ce__778AC167" Association="SzwalniaModel.FK__Typy_cech__ID_ce__778AC167">
-            <End Role="Elementy_Cechy_Slownik" EntitySet="Elementy_Cechy_Slownik" />
-            <End Role="Typy_cechy_rejestr" EntitySet="Typy_cechy_rejestr" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Elementy___ID_je__5F7E2DAC" Association="SzwalniaModel.FK__Elementy___ID_je__5F7E2DAC">
-            <End Role="Elementy_Jednostki" EntitySet="Elementy_Jednostki" />
-            <End Role="Elementy_Proces" EntitySet="Elementy_Proces" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Oferta__ID_Jedno__0B91BA14" Association="SzwalniaModel.FK__Oferta__ID_Jedno__0B91BA14">
-            <End Role="Elementy_Jednostki" EntitySet="Elementy_Jednostki" />
-            <End Role="Oferta" EntitySet="Oferta" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Elementy___ID_Pr__5D95E53A" Association="SzwalniaModel.FK__Elementy___ID_Pr__5D95E53A">
-            <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
-            <End Role="Elementy_Proces" EntitySet="Elementy_Proces" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Material___ID_El__6DCC4D03" Association="SzwalniaModel.FK__Material___ID_El__6DCC4D03">
-            <End Role="Elementy_Proces" EntitySet="Elementy_Proces" />
-            <End Role="Material_Na_Produkcji" EntitySet="Material_Na_Produkcji" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Typy_cech__ID_ty__76969D2E" Association="SzwalniaModel.FK__Typy_cech__ID_ty__76969D2E">
-            <End Role="Elementy_Typy" EntitySet="Elementy_Typy" />
-            <End Role="Typy_cechy_rejestr" EntitySet="Typy_cechy_rejestr" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Etapy_W_P__ID_Et__634EBE90" Association="SzwalniaModel.FK__Etapy_W_P__ID_Et__634EBE90">
-            <End Role="Rodzaj_Etapu" EntitySet="Rodzaj_Etapu" />
-            <End Role="Etapy_W_Procesie" EntitySet="Etapy_W_Procesie" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Etapy_W_P__ID_Pr__625A9A57" Association="SzwalniaModel.FK__Etapy_W_P__ID_Pr__625A9A57">
-            <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
-            <End Role="Etapy_W_Procesie" EntitySet="Etapy_W_Procesie" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Pracownic__ID_Et__4AB81AF0" Association="SzwalniaModel.FK__Pracownic__ID_Et__4AB81AF0">
-            <End Role="Etat" EntitySet="Etat" />
-            <End Role="Pracownicy_Zatrudnienie" EntitySet="Pracownicy_Zatrudnienie" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Faktury_Z__ID_Gr__5DCAEF64" Association="SzwalniaModel.FK__Faktury_Z__ID_Gr__5DCAEF64">
-            <End Role="Grupa" EntitySet="Grupa" />
-            <End Role="Faktury_Zewnetrzne" EntitySet="Faktury_Zewnetrzne" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Znajomosc__ID_Je__534D60F1" Association="SzwalniaModel.FK__Znajomosc__ID_Je__534D60F1">
-            <End Role="Jezyk" EntitySet="Jezyk" />
-            <End Role="Znajomosc_Jezykow" EntitySet="Znajomosc_Jezykow" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Kl__571DF1D5" Association="SzwalniaModel.FK__Zamowieni__ID_Kl__571DF1D5">
-            <End Role="Klienci" EntitySet="Klienci" />
-            <End Role="Zamowienia" EntitySet="Zamowienia" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Kontrola___ID_Pr__793DFFAF" Association="SzwalniaModel.FK__Kontrola___ID_Pr__793DFFAF">
-            <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
-            <End Role="Kontrola_Efektywnosci" EntitySet="Kontrola_Efektywnosci" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Umowy_Kur__ID_Ku__06CD04F7" Association="SzwalniaModel.FK__Umowy_Kur__ID_Ku__06CD04F7">
-            <End Role="Kurierzy" EntitySet="Kurierzy" />
-            <End Role="Umowy_Kurierzy" EntitySet="Umowy_Kurierzy" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Maszyny__ID_Rodz__4E53A1AA" Association="SzwalniaModel.FK__Maszyny__ID_Rodz__4E53A1AA">
-            <End Role="Rodzaj_Maszyny" EntitySet="Rodzaj_Maszyny" />
-            <End Role="Maszyny" EntitySet="Maszyny" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Maszyny__ID_Srod__4D5F7D71" Association="SzwalniaModel.FK__Maszyny__ID_Srod__4D5F7D71">
-            <End Role="Srodki_Trwale" EntitySet="Srodki_Trwale" />
-            <End Role="Maszyny" EntitySet="Maszyny" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Obsluga_T__ID_Ma__51300E55" Association="SzwalniaModel.FK__Obsluga_T__ID_Ma__51300E55">
-            <End Role="Maszyny" EntitySet="Maszyny" />
-            <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Przydzial__ID_Ma__76619304" Association="SzwalniaModel.FK__Przydzial__ID_Ma__76619304">
-            <End Role="Maszyny" EntitySet="Maszyny" />
-            <End Role="Przydzial_Zasobow" EntitySet="Przydzial_Zasobow" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Maszyny_P__ID_Pr__498EEC8D" Association="SzwalniaModel.FK__Maszyny_P__ID_Pr__498EEC8D">
-            <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
-            <End Role="Maszyny_Proces" EntitySet="Maszyny_Proces" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Maszyny_P__ID_Ro__4A8310C6" Association="SzwalniaModel.FK__Maszyny_P__ID_Ro__4A8310C6">
-            <End Role="Rodzaj_Maszyny" EntitySet="Rodzaj_Maszyny" />
-            <End Role="Maszyny_Proces" EntitySet="Maszyny_Proces" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Material___ID_Pr__6CD828CA" Association="SzwalniaModel.FK__Material___ID_Pr__6CD828CA">
-            <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
-            <End Role="Material_Na_Produkcji" EntitySet="Material_Na_Produkcji" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_mi__31B762FC" Association="SzwalniaModel.FK__Zamowieni__ID_mi__31B762FC">
-            <End Role="Miejsca" EntitySet="Miejsca" />
-            <End Role="Zamowienia_Dostawy_Wlasne" EntitySet="Zamowienia_Dostawy_Wlasne" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Obsluga_T__ID_Pr__531856C7" Association="SzwalniaModel.FK__Obsluga_T__ID_Pr__531856C7">
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
-            <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Obsluga_T__ID_Ro__5224328E" Association="SzwalniaModel.FK__Obsluga_T__ID_Ro__5224328E">
-            <End Role="Rodzaj_Obslugi" EntitySet="Rodzaj_Obslugi" />
-            <End Role="Obsluga_Techniczna" EntitySet="Obsluga_Techniczna" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Odbior_Do__ID_Pr__690797E6" Association="SzwalniaModel.FK__Odbior_Do__ID_Pr__690797E6">
-            <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
-            <End Role="Odbior_Dostarczenia" EntitySet="Odbior_Dostarczenia" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Stanowisk__ID_Pe__33D4B598" Association="SzwalniaModel.FK__Stanowisk__ID_Pe__33D4B598">
-            <End Role="Pensja" EntitySet="Pensja" />
-            <End Role="Stanowisko" EntitySet="Stanowisko" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Polki__ID_Rozmia__6B24EA82" Association="SzwalniaModel.FK__Polki__ID_Rozmia__6B24EA82">
-            <End Role="Polki_Rozmiary" EntitySet="Polki_Rozmiary" />
-            <End Role="Polki" EntitySet="Polki" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Polki_reg__ID_Po__7C4F7684" Association="SzwalniaModel.FK__Polki_reg__ID_Po__7C4F7684">
-            <End Role="Polki" EntitySet="Polki" />
-            <End Role="Polki_regaly" EntitySet="Polki_regaly" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Zawartosc__ID_Po__17F790F9" Association="SzwalniaModel.FK__Zawartosc__ID_Po__17F790F9">
-            <End Role="Polki" EntitySet="Polki" />
-            <End Role="Zawartosc" EntitySet="Zawartosc" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Polki_reg__ID_re__7B5B524B" Association="SzwalniaModel.FK__Polki_reg__ID_re__7B5B524B">
-            <End Role="Regaly" EntitySet="Regaly" />
-            <End Role="Polki_regaly" EntitySet="Polki_regaly" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Pracownic__ID_Pr__48CFD27E" Association="SzwalniaModel.FK__Pracownic__ID_Pr__48CFD27E">
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
-            <End Role="Pracownicy_Zatrudnienie" EntitySet="Pracownicy_Zatrudnienie" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Proces_Te__ID_Pr__42E1EEFE" Association="SzwalniaModel.FK__Proces_Te__ID_Pr__42E1EEFE">
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
-            <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Przydzial__ID_Pr__756D6ECB" Association="SzwalniaModel.FK__Przydzial__ID_Pr__756D6ECB">
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
-            <End Role="Przydzial_Zasobow" EntitySet="Przydzial_Zasobow" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Urlop__ID_Pracow__4222D4EF" Association="SzwalniaModel.FK__Urlop__ID_Pracow__4222D4EF">
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
-            <End Role="Urlop" EntitySet="Urlop" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Pr__0F624AF8" Association="SzwalniaModel.FK__Zamowieni__ID_Pr__0F624AF8">
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
-            <End Role="Zamowienia_Przydzial" EntitySet="Zamowienia_Przydzial" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Pr__5812160E" Association="SzwalniaModel.FK__Zamowieni__ID_Pr__5812160E">
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
-            <End Role="Zamowienia" EntitySet="Zamowienia" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Znajomosc__ID_Pr__5441852A" Association="SzwalniaModel.FK__Znajomosc__ID_Pr__5441852A">
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
-            <End Role="Znajomosc_Jezykow" EntitySet="Znajomosc_Jezykow" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Pracownic__ID_Ro__4BAC3F29" Association="SzwalniaModel.FK__Pracownic__ID_Ro__4BAC3F29">
-            <End Role="Rodzaj_Umowy" EntitySet="Rodzaj_Umowy" />
-            <End Role="Pracownicy_Zatrudnienie" EntitySet="Pracownicy_Zatrudnienie" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Pracownic__ID_St__49C3F6B7" Association="SzwalniaModel.FK__Pracownic__ID_St__49C3F6B7">
-            <End Role="Stanowisko" EntitySet="Stanowisko" />
-            <End Role="Pracownicy_Zatrudnienie" EntitySet="Pracownicy_Zatrudnienie" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Proces_Pr__ID_Za__662B2B3B" Association="SzwalniaModel.FK__Proces_Pr__ID_Za__662B2B3B">
-            <End Role="Zamowienie_Element" EntitySet="Zamowienie_Element" />
-            <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Realizacj__ID_Pr__70A8B9AE" Association="SzwalniaModel.FK__Realizacj__ID_Pr__70A8B9AE">
-            <End Role="Proces_Produkcyjny" EntitySet="Proces_Produkcyjny" />
-            <End Role="Realizacja_Procesu" EntitySet="Realizacja_Procesu" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Proces_Za__ID_Pr__59C55456" Association="SzwalniaModel.FK__Proces_Za__ID_Pr__59C55456">
-            <End Role="Proces_Technologiczny" EntitySet="Proces_Technologiczny" />
-            <End Role="Proces_Zamowienie" EntitySet="Proces_Zamowienie" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Proces_Za__ID_Za__5AB9788F" Association="SzwalniaModel.FK__Proces_Za__ID_Za__5AB9788F">
-            <End Role="Zamowienie_Element" EntitySet="Zamowienie_Element" />
-            <End Role="Proces_Zamowienie" EntitySet="Proces_Zamowienie" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Przydzial__ID_Re__74794A92" Association="SzwalniaModel.FK__Przydzial__ID_Re__74794A92">
-            <End Role="Realizacja_Procesu" EntitySet="Realizacja_Procesu" />
-            <End Role="Przydzial_Zasobow" EntitySet="Przydzial_Zasobow" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Realizacj__ID_Et__719CDDE7" Association="SzwalniaModel.FK__Realizacj__ID_Et__719CDDE7">
-            <End Role="Rodzaj_Etapu" EntitySet="Rodzaj_Etapu" />
-            <End Role="Realizacja_Procesu" EntitySet="Realizacja_Procesu" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Urlop__ID_Rodzaj__44FF419A" Association="SzwalniaModel.FK__Urlop__ID_Rodzaj__44FF419A">
-            <End Role="Rodzaj_Urlopu" EntitySet="Rodzaj_Urlopu" />
-            <End Role="Urlop" EntitySet="Urlop" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_st__14270015" Association="SzwalniaModel.FK__Zamowieni__ID_st__14270015">
-            <End Role="Statusy" EntitySet="Statusy" />
-            <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Um__10566F31" Association="SzwalniaModel.FK__Zamowieni__ID_Um__10566F31">
-            <End Role="Umowy_Kurierzy" EntitySet="Umowy_Kurierzy" />
-            <End Role="Zamowienia_Przydzial" EntitySet="Zamowienia_Przydzial" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Urlop__ID_Wymiar__45F365D3" Association="SzwalniaModel.FK__Urlop__ID_Wymiar__45F365D3">
-            <End Role="Wymiar_Urlopu" EntitySet="Wymiar_Urlopu" />
-            <End Role="Urlop" EntitySet="Urlop" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Za__0E6E26BF" Association="SzwalniaModel.FK__Zamowieni__ID_Za__0E6E26BF">
-            <End Role="Zamowienia" EntitySet="Zamowienia" />
-            <End Role="Zamowienia_Przydzial" EntitySet="Zamowienia_Przydzial" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Za__1332DBDC" Association="SzwalniaModel.FK__Zamowieni__ID_Za__1332DBDC">
-            <End Role="Zamowienia" EntitySet="Zamowienia" />
-            <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Za__2CF2ADDF" Association="SzwalniaModel.FK__Zamowieni__ID_Za__2CF2ADDF">
-            <End Role="Zamowienia" EntitySet="Zamowienia" />
-            <End Role="Zamowienie_Element" EntitySet="Zamowienie_Element" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Zamowieni__ID_Za__30C33EC3" Association="SzwalniaModel.FK__Zamowieni__ID_Za__30C33EC3">
-            <End Role="Zamowienia" EntitySet="Zamowienia" />
-            <End Role="Zamowienia_Dostawy_Wlasne" EntitySet="Zamowienia_Dostawy_Wlasne" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Zawartosc__ID_Do__19DFD96B" Association="SzwalniaModel.FK__Zawartosc__ID_Do__19DFD96B">
-            <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
-            <End Role="Zawartosc" EntitySet="Zawartosc" />
-          </AssociationSet>
-          <EntitySet Name="vMaszynownia" EntityType="SzwalniaModel.vMaszynownia" />
-          <EntitySet Name="vMaterialy" EntityType="SzwalniaModel.vMaterialy" />
-          <EntitySet Name="vWszystkie_Maszyny" EntityType="SzwalniaModel.vWszystkie_Maszyny" />
-          <EntitySet Name="vTechnologowie" EntityType="SzwalniaModel.vTechnologowie" />
-        </EntityContainer>
         <EntityType Name="Czesci_Obsluga">
           <Key>
             <PropertyRef Name="ID_Czesci_Obsluga" />
@@ -5257,6 +4798,18 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Bilans_produktów" Type="Int32" />
           <Property Name="Data_kontroli" Type="DateTime" Precision="0" />
         </EntityType>
+        <EntityType Name="vMaszynownia">
+          <Key>
+            <PropertyRef Name="Numer_procesu_technologicznego" />
+            <PropertyRef Name="Rodzaj_maszyny" />
+            <PropertyRef Name="Liczba_maszyn" />
+            <PropertyRef Name="Liczba_roboczogodzin_maszyny" />
+          </Key>
+          <Property Name="Numer_procesu_technologicznego" Type="Int32" Nullable="false" />
+          <Property Name="Rodzaj_maszyny" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Liczba_maszyn" Type="Int32" Nullable="false" />
+          <Property Name="Liczba_roboczogodzin_maszyny" Type="Int32" Nullable="false" />
+        </EntityType>
         <EntityType Name="vMaszyny_numer_seryjny">
           <Key>
             <PropertyRef Name="ID_Maszyny" />
@@ -5306,6 +4859,14 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Producent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Numer_seryjny" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vMaterialy">
+          <Key>
+            <PropertyRef Name="Numer_elementu" />
+          </Key>
+          <Property Name="Numer_elementu" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_elementu" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="Typ" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="vMaterialyDoZamowienia">
           <Key>
@@ -5832,6 +5393,16 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="ID_Pracownika" Type="Int32" Nullable="false" />
           <Property Name="Autor" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
+        <EntityType Name="vTechnologowie">
+          <Key>
+            <PropertyRef Name="Imię_i_nazwisko" />
+            <PropertyRef Name="Stanowisko" />
+            <PropertyRef Name="ID_Pracownika" />
+          </Key>
+          <Property Name="Imię_i_nazwisko" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Stanowisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_Pracownika" Type="Int32" Nullable="false" />
+        </EntityType>
         <EntityType Name="vUmowyKurierzy">
           <Key>
             <PropertyRef Name="ID_Umowy" />
@@ -5842,7 +5413,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Czas_Dostawy" Type="Int32" />
           <Property Name="Koszt_Km" Type="Int32" />
           <Property Name="Koszt_Staly" Type="Int32" />
-          <Property Name="Koszt_calkowity" Type="Int32" />
         </EntityType>
         <EntityType Name="vUmowyKurierzyNazwyKurierow">
           <Key>
@@ -5850,17 +5420,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           </Key>
           <Property Name="ID_Umowy" Type="Int32" Nullable="false" />
           <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="vUmowyKurierzy">
-          <Key>
-            <PropertyRef Name="ID_Umowy" />
-          </Key>
-          <Property Name="ID_Umowy" Type="Int32" Nullable="false" />
-          <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Data_Zawarcia" Type="DateTime" Precision="0" />
-          <Property Name="Czas_Dostawy" Type="Int32" />
-          <Property Name="Koszt_Km" Type="Int32" />
-          <Property Name="Koszt_Staly" Type="Int32" />
         </EntityType>
         <EntityType Name="vWolneMaszyny">
           <Key>
@@ -5917,22 +5476,20 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Key>
             <PropertyRef Name="ID_Element" />
           </Key>
-          <Property Name="ID_Element" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
-          <Property Name="Element_Nazwa" MaxLength="35" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="ID_Element" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="vWszystkie_Maszyny">
           <Key>
-            <PropertyRef Name="ID_Maszyny" />
+            <PropertyRef Name="Numer_maszyny" />
             <PropertyRef Name="Producent" />
             <PropertyRef Name="Nazwa" />
             <PropertyRef Name="Numer_seryjny" />
-            <PropertyRef Name="Rodzaj_Maszyny" />
           </Key>
-          <Property Name="ID_Maszyny" Type="Int32" Nullable="false" />
+          <Property Name="Numer_maszyny" Type="Int32" Nullable="false" />
           <Property Name="Producent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Numer_seryjny" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Rodzaj_Maszyny" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="vWszystkieMaszyny">
           <Key>
@@ -7091,10 +6648,12 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <EntitySet Name="vElementyProcesProdukcyjny" EntityType="Self.vElementyProcesProdukcyjny" />
           <EntitySet Name="vEtapy_proces" EntityType="Self.vEtapy_proces" />
           <EntitySet Name="vKontrolaProcesu" EntityType="Self.vKontrolaProcesu" />
+          <EntitySet Name="vMaszynownia" EntityType="Self.vMaszynownia" />
           <EntitySet Name="vMaszyny_numer_seryjny" EntityType="Self.vMaszyny_numer_seryjny" />
           <EntitySet Name="vMaszyny_proces" EntityType="Self.vMaszyny_proces" />
           <EntitySet Name="vMaszyny_rodzaj_liczba" EntityType="Self.vMaszyny_rodzaj_liczba" />
           <EntitySet Name="vMaszyny_serwis" EntityType="Self.vMaszyny_serwis" />
+          <EntitySet Name="vMaterialy" EntityType="Self.vMaterialy" />
           <EntitySet Name="vMaterialyDoZamowienia" EntityType="Self.vMaterialyDoZamowienia" />
           <EntitySet Name="vMaterialyDoZamowieniaBrak" EntityType="Self.vMaterialyDoZamowieniaBrak" />
           <EntitySet Name="vMaterialyNiewydaneZDatami" EntityType="Self.vMaterialyNiewydaneZDatami" />
@@ -7110,6 +6669,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <EntitySet Name="vOdebranyMaterialMagazyn" EntityType="Self.vOdebranyMaterialMagazyn" />
           <EntitySet Name="vOdebranyMaterialProdukcja" EntityType="Self.vOdebranyMaterialProdukcja" />
           <EntitySet Name="vOferta" EntityType="Self.vOferta" />
+          <EntitySet Name="vOferty_Zebrane" EntityType="Self.vOferty_Zebrane" />
           <EntitySet Name="vPolki_na_regalach" EntityType="Self.vPolki_na_regalach" />
           <EntitySet Name="vPolki_Rozmiary" EntityType="Self.vPolki_Rozmiary" />
           <EntitySet Name="vPotrzebnaDokumentacjaDoProcesuProdukcyjnego" EntityType="Self.vPotrzebnaDokumentacjaDoProcesuProdukcyjnego" />
@@ -7141,6 +6701,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <EntitySet Name="vSuma_czasu_procesu" EntityType="Self.vSuma_czasu_procesu" />
           <EntitySet Name="vSzacowanaDataZamowieniaTechnologow" EntityType="Self.vSzacowanaDataZamowieniaTechnologow" />
           <EntitySet Name="vTechnolodzy" EntityType="Self.vTechnolodzy" />
+          <EntitySet Name="vTechnologowie" EntityType="Self.vTechnologowie" />
           <EntitySet Name="vUmowyKurierzy" EntityType="Self.vUmowyKurierzy" />
           <EntitySet Name="vUmowyKurierzyNazwyKurierow" EntityType="Self.vUmowyKurierzyNazwyKurierow" />
           <EntitySet Name="vWolneMaszyny" EntityType="Self.vWolneMaszyny" />
@@ -7500,49 +7061,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           </AssociationSet>
         </EntityContainer>
       </Schema>
-        <EntityType Name="vMaszynownia">
-          <Key>
-            <PropertyRef Name="Numer_procesu_technologicznego" />
-            <PropertyRef Name="Rodzaj_maszyny" />
-            <PropertyRef Name="Liczba_maszyn" />
-            <PropertyRef Name="Liczba_roboczogodzin_maszyny" />
-          </Key>
-          <Property Name="Numer_procesu_technologicznego" Type="Int32" Nullable="false" />
-          <Property Name="Rodzaj_maszyny" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Liczba_maszyn" Type="Int32" Nullable="false" />
-          <Property Name="Liczba_roboczogodzin_maszyny" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="vMaterialy">
-          <Key>
-            <PropertyRef Name="Numer_elementu" />
-          </Key>
-          <Property Name="Numer_elementu" Type="Int32" Nullable="false" />
-          <Property Name="Nazwa_elementu" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
-          <Property Name="Typ" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="vWszystkie_Maszyny">
-          <Key>
-            <PropertyRef Name="Numer_maszyny" />
-            <PropertyRef Name="Producent" />
-            <PropertyRef Name="Nazwa" />
-            <PropertyRef Name="Numer_seryjny" />
-          </Key>
-          <Property Name="Numer_maszyny" Type="Int32" Nullable="false" />
-          <Property Name="Producent" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Nazwa" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Numer_seryjny" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="vTechnologowie">
-          <Key>
-            <PropertyRef Name="Imię_i_nazwisko" />
-            <PropertyRef Name="Stanowisko" />
-            <PropertyRef Name="ID_Pracownika" />
-          </Key>
-          <Property Name="Imię_i_nazwisko" Type="String" Nullable="false" MaxLength="101" FixedLength="false" Unicode="false" />
-          <Property Name="Stanowisko" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ID_Pracownika" Type="Int32" Nullable="false" />
-        </EntityType>
-        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -8371,6 +7889,16 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="vMaszynownia">
+            <EntityTypeMapping TypeName="SzwalniaModel.vMaszynownia">
+              <MappingFragment StoreEntitySet="vMaszynownia">
+                <ScalarProperty Name="Numer_procesu_technologicznego" ColumnName="Numer procesu technologicznego" />
+                <ScalarProperty Name="Rodzaj_maszyny" ColumnName="Rodzaj maszyny" />
+                <ScalarProperty Name="Liczba_maszyn" ColumnName="Liczba maszyn" />
+                <ScalarProperty Name="Liczba_roboczogodzin_maszyny" ColumnName="Liczba roboczogodzin maszyny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="vMaszyny_numer_seryjny">
             <EntityTypeMapping TypeName="SzwalniaModel.vMaszyny_numer_seryjny">
               <MappingFragment StoreEntitySet="vMaszyny_numer_seryjny">
@@ -8409,6 +7937,15 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
                 <ScalarProperty Name="Producent" ColumnName="Producent" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
                 <ScalarProperty Name="Numer_seryjny" ColumnName="Numer_seryjny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vMaterialy">
+            <EntityTypeMapping TypeName="SzwalniaModel.vMaterialy">
+              <MappingFragment StoreEntitySet="vMaterialy">
+                <ScalarProperty Name="Numer_elementu" ColumnName="Numer elementu" />
+                <ScalarProperty Name="Nazwa_elementu" ColumnName="Nazwa elementu" />
+                <ScalarProperty Name="Typ" ColumnName="Typ" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -8918,6 +8455,15 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="vTechnologowie">
+            <EntityTypeMapping TypeName="SzwalniaModel.vTechnologowie">
+              <MappingFragment StoreEntitySet="vTechnologowie">
+                <ScalarProperty Name="Imię_i_nazwisko" ColumnName="Imię i nazwisko" />
+                <ScalarProperty Name="Stanowisko" ColumnName="Stanowisko" />
+                <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="vUmowyKurierzy">
             <EntityTypeMapping TypeName="SzwalniaModel.vUmowyKurierzy">
               <MappingFragment StoreEntitySet="vUmowyKurierzy">
@@ -8927,7 +8473,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
                 <ScalarProperty Name="Czas_Dostawy" ColumnName="Czas_Dostawy" />
                 <ScalarProperty Name="Koszt_Km" ColumnName="Koszt_Km" />
                 <ScalarProperty Name="Koszt_Staly" ColumnName="Koszt_Staly" />
-                <ScalarProperty Name="Koszt_calkowity" ColumnName="Koszt_calkowity" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -8936,18 +8481,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
               <MappingFragment StoreEntitySet="vUmowyKurierzyNazwyKurierow">
                 <ScalarProperty Name="ID_Umowy" ColumnName="ID_Umowy" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vUmowyKurierzy">
-            <EntityTypeMapping TypeName="SzwalniaModel.vUmowyKurierzy">
-              <MappingFragment StoreEntitySet="vUmowyKurierzy">
-                <ScalarProperty Name="ID_Umowy" ColumnName="ID_Umowy" />
-                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
-                <ScalarProperty Name="Data_Zawarcia" ColumnName="Data_Zawarcia" />
-                <ScalarProperty Name="Czas_Dostawy" ColumnName="Czas_Dostawy" />
-                <ScalarProperty Name="Koszt_Km" ColumnName="Koszt_Km" />
-                <ScalarProperty Name="Koszt_Staly" ColumnName="Koszt_Staly" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -9012,11 +8545,10 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <EntitySetMapping Name="vWszystkie_Maszyny">
             <EntityTypeMapping TypeName="SzwalniaModel.vWszystkie_Maszyny">
               <MappingFragment StoreEntitySet="vWszystkie_Maszyny">
-                <ScalarProperty Name="ID_Maszyny" ColumnName="ID_Maszyny" />
+                <ScalarProperty Name="Numer_maszyny" ColumnName="Numer maszyny" />
                 <ScalarProperty Name="Producent" ColumnName="Producent" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
-                <ScalarProperty Name="Numer_seryjny" ColumnName="Numer_seryjny" />
-                <ScalarProperty Name="Rodzaj_Maszyny" ColumnName="Rodzaj_Maszyny" />
+                <ScalarProperty Name="Numer_seryjny" ColumnName="Numer seryjny" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -9066,44 +8598,6 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
                 <ScalarProperty Name="Element_Oznaczenie" ColumnName="Element_Oznaczenie" />
                 <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
                 <ScalarProperty Name="Cena" ColumnName="Cena" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vMaszynownia">
-            <EntityTypeMapping TypeName="SzwalniaModel.vMaszynownia">
-              <MappingFragment StoreEntitySet="vMaszynownia">
-                <ScalarProperty Name="Liczba_roboczogodzin_maszyny" ColumnName="Liczba roboczogodzin maszyny" />
-                <ScalarProperty Name="Liczba_maszyn" ColumnName="Liczba maszyn" />
-                <ScalarProperty Name="Rodzaj_maszyny" ColumnName="Rodzaj maszyny" />
-                <ScalarProperty Name="Numer_procesu_technologicznego" ColumnName="Numer procesu technologicznego" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vMaterialy">
-            <EntityTypeMapping TypeName="SzwalniaModel.vMaterialy">
-              <MappingFragment StoreEntitySet="vMaterialy">
-                <ScalarProperty Name="Typ" ColumnName="Typ" />
-                <ScalarProperty Name="Nazwa_elementu" ColumnName="Nazwa elementu" />
-                <ScalarProperty Name="Numer_elementu" ColumnName="Numer elementu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vWszystkie_Maszyny">
-            <EntityTypeMapping TypeName="SzwalniaModel.vWszystkie_Maszyny">
-              <MappingFragment StoreEntitySet="vWszystkie_Maszyny">
-                <ScalarProperty Name="Numer_seryjny" ColumnName="Numer seryjny" />
-                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
-                <ScalarProperty Name="Producent" ColumnName="Producent" />
-                <ScalarProperty Name="Numer_maszyny" ColumnName="Numer maszyny" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vTechnologowie">
-            <EntityTypeMapping TypeName="SzwalniaModel.vTechnologowie">
-              <MappingFragment StoreEntitySet="vTechnologowie">
-                <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
-                <ScalarProperty Name="Stanowisko" ColumnName="Stanowisko" />
-                <ScalarProperty Name="Imię_i_nazwisko" ColumnName="Imię i nazwisko" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
