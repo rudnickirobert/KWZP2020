@@ -22,6 +22,28 @@ namespace Szwalnia
             mtxtTel2.Enabled = false;
         }
 
+        private bool isSupplierValid()
+        {
+            if (db.Dostawcy_Zaopatrzenie.Where(dostawca => dostawca.Nazwa == txtNazwa.Text).Any())
+            {
+                MessageBox.Show("Dostawca o takiej nazwie już istnieje");
+                return false;
+            }
+
+            if (db.Dostawcy_Zaopatrzenie.Where(dostawca => dostawca.Telefon_1 == dostawcaNowy.Telefon_1).Any())
+            {
+                MessageBox.Show("Dostawca z takim numerem telefonu już istnieje.");
+                return false;
+            }
+
+            if (db.Dostawcy_Zaopatrzenie.Where(dostawca => dostawca.Email == txtEmail.Text).Any())
+            {
+                MessageBox.Show("Dostawca z takim adresem e-mail już istnieje.");
+                return false;
+            }
+            return true;
+        }
+
         private void DodajDostawce_FormClosed(object sender, FormClosedEventArgs e)
         {
             Start.GetForm.Show();
@@ -49,31 +71,12 @@ namespace Szwalnia
                 }
                 dostawcaNowy.Email = txtEmail.Text;
 
-                if(!db.Dostawcy_Zaopatrzenie.Where(dostawca => dostawca.Nazwa == txtNazwa.Text).Any())
-                {
-                    if (!db.Dostawcy_Zaopatrzenie.Where(dostawca => dostawca.Telefon_1 == dostawcaNowy.Telefon_1).Any())
-                    {
-                        if (!db.Dostawcy_Zaopatrzenie.Where(dostawca => dostawca.Email == txtEmail.Text).Any())
-                        {
-                            db.Dostawcy_Zaopatrzenie.Add(dostawcaNowy);
-                            db.SaveChanges();
-                            MessageBox.Show("Dodano nowego dostawcę.");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Dostawca z takim adresem e-mail już istnieje.");
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Dostawca z takim numerem telefonu już istnieje.");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Dostawca o takiej nazwie już istnieje");
-                }
+                if (!this.isSupplierValid())
+                    return;
 
+                db.Dostawcy_Zaopatrzenie.Add(dostawcaNowy);
+                db.SaveChanges();
+                MessageBox.Show("Dodano nowego dostawcę.");
             }
         }
 
