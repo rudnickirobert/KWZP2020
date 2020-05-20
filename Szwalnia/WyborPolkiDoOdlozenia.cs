@@ -138,10 +138,6 @@ namespace Szwalnia
 
         }
 
-
-
-
-
             private void WyborPolkiDoOdlozenia_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (czyWyswietlicStart)
@@ -243,7 +239,47 @@ namespace Szwalnia
                 odbierzKolejnyMaterial.Show();
                 this.Close();
                 
-            }    
+            }
+            else if (rodzajFormularza == "przyjecieGotowychProduktow")
+            {
+                /*Dostarczenia_Zewn noweDostarczenie = new Dostarczenia_Zewn();
+
+                noweDostarczenie.ID_Pracownicy = Convert.ToInt32(cmbPracownicy.SelectedValue);
+
+
+         
+                
+                int intIDPolki = Convert.ToInt32(dgvWolnePolki.CurrentRow.Cells[0].Value);
+                int intMiejsceDostawy = 2;
+                Dostarczenia_Wewn nowaDostawaRejestr = new Dostarczenia_Wewn();
+                string dataDzis = Convert.ToString(DateTime.Now).Substring(0, 10);
+                
+                nowaDostawaRejestr.ID_Dostawy = intDostawaID;
+                nowaDostawaRejestr.ID_element = intElementID;
+                nowaDostawaRejestr.Ilosc_Dostarczona = intIlosc;
+                nowaDostawaRejestr.ID_Miejsca = intMiejsceDostawy;
+                nowaDostawaRejestr.Data_Dostarczenia = dataDzis;
+                nowaDostawaRejestr.ID_Zamowienie_element = intZamowienieElementID;
+                db.Dostarczenia_Wewn.Add(nowaDostawaRejestr);
+                db.SaveChanges();
+                Start.DataBaseRefresh();
+                Zawartosc nowaZawartoscPolki = new Zawartosc();
+                nowaZawartoscPolki.ID_Polka = intIDPolki;
+                nowaZawartoscPolki.Ilosc_Paczek = Convert.ToSingle(dblIloscDlaPolki);
+                nowaZawartoscPolki.ID_Element = intElementID;
+                nowaZawartoscPolki.ID_Dostawy = intDostawaID;
+                db.Zawartosc.Add(nowaZawartoscPolki);
+                db.SaveChanges();
+                Start.DataBaseRefresh();
+                czyWyswietlicStart = false;
+                OdbierzMaterialZProdukcji.czyZamknietyPrzezInny = true;
+                Application.OpenForms[typeof(OdbierzMaterialZProdukcji).Name].Close();
+                OdbierzMaterialZProdukcji odbierzKolejnyMaterial = new OdbierzMaterialZProdukcji();
+                OdbierzMaterialZProdukcji.czyZamknietyPrzezInny = false;
+                odbierzKolejnyMaterial.Show();
+                this.Close();*/
+
+            }
         }
 
     }
