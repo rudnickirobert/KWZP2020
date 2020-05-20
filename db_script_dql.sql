@@ -159,8 +159,9 @@ FROM            dbo.Zamowienia_Dostawy INNER JOIN
                          dbo.Elementy ON dbo.Dostawy_Zawartosc.ID_Element = dbo.Elementy.ID_Element LEFT OUTER JOIN
                              (SELECT        ID_Dostarczenia, ID_Pracownicy, ID_Dostawy, ID_Zamowienie_element, ID_element, Ilosc_Dostarczona, ID_Miejsca, Data_Dostarczenia
                                FROM            dbo.Dostarczenia_Wewn
-                               WHERE        (Ilosc_Dostarczona > 0) AND (ID_Miejsca <> 2)) AS Dostarczenia_wewn_select ON dbo.Zamowienia_Dostawy.ID_Dostawy = Dostarczenia_wewn_select.ID_Dostawy
-WHERE        (Dostarczenia_wewn_select.ID_Dostawy IS NULL)
+                               WHERE        (Ilosc_Dostarczona > 0) AND (ID_Miejsca <> 2)) AS Dostarczenia_wewn_select ON dbo.Dostawy_Zawartosc.ID_Dostawy = Dostarczenia_wewn_select.ID_Dostawy AND 
+                         dbo.Dostawy_Zawartosc.ID_Element = Dostarczenia_wewn_select.ID_element
+WHERE        (Dostarczenia_wewn_select.ID_Dostawy IS NULL) AND (Dostarczenia_wewn_select.ID_element IS NULL)
 GO
 --lista wolnych polek
 CREATE VIEW [dbo].[vWolnePolki]
