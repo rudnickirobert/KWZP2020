@@ -14,10 +14,10 @@ namespace Szwalnia
     
     public partial class vResurs
     {
-        public int ID_Maszyny { get; set; }
+        public int Numer_maszyny { get; set; }
         public string Producent { get; set; }
         public string Nazwa { get; set; }
         public string Numer_seryjny { get; set; }
-        public Nullable<int> Pozostaly_Resurs { get; set; }
+        public Nullable<int> Resurs_maszyny { get; set; }
     }
 }

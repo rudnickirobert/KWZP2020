@@ -17,6 +17,6 @@ namespace Szwalnia
         public string Producent { get; set; }
         public string Nazwa { get; set; }
         public string Numer_seryjny { get; set; }
-        public Nullable<System.DateTime> Kiedy_Serwis { get; set; }
+        public Nullable<System.DateTime> Następny_serwis { get; set; }
     }
 }

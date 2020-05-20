@@ -15,9 +15,10 @@ namespace Szwalnia
     public partial class vProces_technologiczny
     {
         public int Numer_zamówienia { get; set; }
+        public int Numer_zamówienie_element { get; set; }
         public string Nazwa_elementu { get; set; }
         public int Liczba_sztuk { get; set; }
         public int Numer_procesu { get; set; }
-        public bool Kompletny_proces { get; set; }
+        public Nullable<bool> Kompletny_proces { get; set; }
     }
 }

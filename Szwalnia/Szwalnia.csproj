@@ -233,7 +233,6 @@
     <Compile Include="InneProdukcja.designer.cs">
       <DependentUpon>InneProdukcja.cs</DependentUpon>
     </Compile>
-
     <Compile Include="Jezyk.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -749,6 +748,9 @@
     <Compile Include="vElementy_proces.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vElemntyy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vEtapy_proces.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -786,6 +788,9 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vMaterialyZamowione.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vMechanicy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vNieodebraneMaterialyWgDostawcyZNazwaIOferta.cs">

@@ -12,12 +12,11 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vDokumentacja_info
+    public partial class vElemntyy
     {
-        public int Numer_dokumetacji { get; set; }
-        public string Rodzaj { get; set; }
-        public string Imię_i_nazwisko { get; set; }
-        public System.DateTime Data_wykonania { get; set; }
-        public string Lokalizacja { get; set; }
+        public int Numer_procesu { get; set; }
+        public string Nazwa_elementu { get; set; }
+        public int Liczba { get; set; }
+        public string Jednostka { get; set; }
     }
 }

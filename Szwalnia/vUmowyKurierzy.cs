@@ -20,5 +20,6 @@ namespace Szwalnia
         public Nullable<int> Czas_Dostawy { get; set; }
         public Nullable<int> Koszt_Km { get; set; }
         public Nullable<int> Koszt_Staly { get; set; }
+        public Nullable<int> Koszt_calkowity { get; set; }
     }
 }

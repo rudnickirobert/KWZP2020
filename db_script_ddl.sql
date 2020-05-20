@@ -477,7 +477,7 @@ create table Proces_Zamowienie (
    ID_Proces_Zamowienie int IDENTITY(1,1) not null PRIMARY KEY,
    ID_Proces_Technologiczny int not null FOREIGN KEY REFERENCES Proces_Technologiczny(ID_Proces_Technologiczny),  
    ID_Zamowienie_Element int not null FOREIGN KEY REFERENCES Zamowienie_Element (ID_Zamowienie_Element), 
-   Kompletny_Proces bit not null
+   Kompletny_Proces bit null
 ); 
   
 create table Elementy_Proces ( 
