@@ -53,7 +53,7 @@
             this.dgvNieuzytyMaterialOdpad.Name = "dgvNieuzytyMaterialOdpad";
             this.dgvNieuzytyMaterialOdpad.ReadOnly = true;
             this.dgvNieuzytyMaterialOdpad.RowHeadersWidth = 51;
-            this.dgvNieuzytyMaterialOdpad.Size = new System.Drawing.Size(923, 208);
+            this.dgvNieuzytyMaterialOdpad.Size = new System.Drawing.Size(976, 264);
             this.dgvNieuzytyMaterialOdpad.TabIndex = 0;
             // 
             // btnMaterialWyswietlWszystko
@@ -132,7 +132,7 @@
             // 
             this.lblRaportKontrola.AutoSize = true;
             this.lblRaportKontrola.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblRaportKontrola.Location = new System.Drawing.Point(314, 45);
+            this.lblRaportKontrola.Location = new System.Drawing.Point(349, 44);
             this.lblRaportKontrola.Name = "lblRaportKontrola";
             this.lblRaportKontrola.Size = new System.Drawing.Size(322, 20);
             this.lblRaportKontrola.TabIndex = 32;
@@ -160,10 +160,10 @@
             this.groupBox1.Controls.Add(this.nudProces);
             this.groupBox1.Controls.Add(this.btnSzukajIDPrcoesu);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBox1.Location = new System.Drawing.Point(238, 85);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(273, 84);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(493, 195);
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
@@ -174,7 +174,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(984, 527);
+            this.ClientSize = new System.Drawing.Size(1016, 583);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblRaportKontrola);
             this.Controls.Add(this.dgvNieuzytyMaterialOdpad);

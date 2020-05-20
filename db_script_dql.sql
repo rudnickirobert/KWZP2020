@@ -360,10 +360,10 @@ GO
 
 --realizacja procesu produkcyjnego
 
-CREATE VIEW vRealizacjaProcesuProdukcyjnegoDetails 
+CREATE VIEW vRealizacjaProcesuProdukcyjnego
 AS
 SELECT dbo.Proces_Produkcyjny.ID_Procesu_Produkcyjnego, dbo.Realizacja_Procesu.ID_Realizacji_Procesu, dbo.Rodzaj_Etapu.Nazwa as 'Nazwa etapu', dbo.Realizacja_Procesu.Data_Rozpoczecia_Procesu, 
-                  dbo.Realizacja_Procesu.Data_Zakonczenia_Procesu
+                  dbo.Realizacja_Procesu.Data_Zakonczenia_Procesu, dbo.Realizacja_Procesu.Data_Kontroli, dbo.Realizacja_Procesu.Uwagi_Kontroli
 FROM     dbo.Realizacja_Procesu INNER JOIN
                   dbo.Rodzaj_Etapu ON dbo.Realizacja_Procesu.ID_Etapu = dbo.Rodzaj_Etapu.ID_Etapu INNER JOIN
                   dbo.Proces_Produkcyjny ON dbo.Realizacja_Procesu.ID_Procesu_Produkcyjnego = dbo.Proces_Produkcyjny.ID_Procesu_Produkcyjnego

@@ -25,7 +25,7 @@ namespace Szwalnia
             Proces_Produkcyjny proces = db.Proces_Produkcyjny.Where(wybrany => wybrany.ID_Procesu_Produkcyjnego == idProcesu).First();
             lblProces.Text = "Realizacja procesu dla procesu produkcyjnego o ID " + proces.ID_Procesu_Produkcyjnego;
             dgvRealizacjaProcesu.DataSource = null;
-            dgvRealizacjaProcesu.DataSource = db.vRealizacjaProcesuProdukcyjnegoDetails.Where(realizacja => realizacja.ID_Procesu_Produkcyjnego == proces.ID_Procesu_Produkcyjnego).ToList();
+            dgvRealizacjaProcesu.DataSource = db.vRealizacjaProcesuProdukcyjnego.Where(realizacja => realizacja.ID_Procesu_Produkcyjnego == proces.ID_Procesu_Produkcyjnego).ToList();
             dgvRealizacjaProcesu.Columns[0].Visible = false;
             dgvRealizacjaProcesu.Columns[1].Visible = false;
             dgvRealizacjaProcesu.Columns[2].HeaderText = "Etap";
@@ -34,6 +34,8 @@ namespace Szwalnia
             dgvRealizacjaProcesu.Columns[2].Width = 120;
             dgvRealizacjaProcesu.Columns[3].Width = 130;
             dgvRealizacjaProcesu.Columns[4].Width = 130;
+            dgvRealizacjaProcesu.Columns[5].HeaderText = "Data kontroli";
+            dgvRealizacjaProcesu.Columns[6].HeaderText = "Uwagi do kontroli";
 
 
             cbxEtapNowa.DataSource = db.Rodzaj_Etapu.ToList();
@@ -67,11 +69,18 @@ namespace Szwalnia
                     realizacjaProcesu.Data_Zakonczenia_Procesu = Convert.ToDateTime(mtbDataZakonczeniaEdycja.Text);
                 }
 
+                if (mtbDataKontroliEdycja.Text != pustePole)
+                {
+                    realizacjaProcesu.Data_Kontroli = Convert.ToDateTime(mtbDataKontroliEdycja.Text);
+                }
+
+                realizacjaProcesu.Uwagi_Kontroli = tbUwagiKontrolaEdycja.Text;
+
                 this.db.Entry(realizacjaProcesu).State = EntityState.Modified;
                 db.SaveChanges();
                 MessageBox.Show("Zaktualizowano realizację procesu");
             }
-            dgvRealizacjaProcesu.DataSource = db.vRealizacjaProcesuProdukcyjnegoDetails.Where(realizacja => realizacja.ID_Procesu_Produkcyjnego == idProcesu).ToList();
+            dgvRealizacjaProcesu.DataSource = db.vRealizacjaProcesuProdukcyjnego.Where(realizacja => realizacja.ID_Procesu_Produkcyjnego == idProcesu).ToList();
 
         }
 
@@ -126,10 +135,17 @@ namespace Szwalnia
                     realizacjaProcesu.Data_Zakonczenia_Procesu = Convert.ToDateTime(mtbDataZakonczeniaNowa.Text);
                 }
 
+                if (mtbDataKontroliNowa.Text != pustePole)
+                {
+                    realizacjaProcesu.Data_Kontroli = Convert.ToDateTime(mtbDataKontroliNowa.Text);
+                }
+
+                realizacjaProcesu.Uwagi_Kontroli = tbUwagiKontrolaNowa.Text;
+
                 db.Realizacja_Procesu.Add(realizacjaProcesu);
                 db.SaveChanges();
                 MessageBox.Show("Dodano nową realizację");
-                dgvRealizacjaProcesu.DataSource = db.vRealizacjaProcesuProdukcyjnegoDetails.Where(realizacja => realizacja.ID_Procesu_Produkcyjnego ==idProcesu).ToList();
+                dgvRealizacjaProcesu.DataSource = db.vRealizacjaProcesuProdukcyjnego.Where(realizacja => realizacja.ID_Procesu_Produkcyjnego ==idProcesu).ToList();
             }
         }
 
@@ -140,6 +156,18 @@ namespace Szwalnia
             cbxEtapEdycja.SelectedValue = realizacjaProcesu.ID_Etapu;
             mtbDataRozpoczeciaEdycja.Text = realizacjaProcesu.Data_Rozpoczecia_Procesu.ToString();
             mtbDataZakonczeniaEdycja.Text = realizacjaProcesu.Data_Zakonczenia_Procesu.ToString();
+            mtbDataKontroliEdycja.Text = realizacjaProcesu.Data_Kontroli.ToString();
+            tbUwagiKontrolaEdycja.Text = realizacjaProcesu.Uwagi_Kontroli;
+        }
+
+        private void btnDzisKontrolaNowa_Click(object sender, EventArgs e)
+        {
+            mtbDataKontroliNowa.Text = DateTime.Now.ToString();
+        }
+
+        private void btnDzisKontrolaEdycja_Click(object sender, EventArgs e)
+        {
+            mtbDataKontroliEdycja.Text = DateTime.Now.ToString();
         }
     }
 }

@@ -1353,8 +1353,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobowEtap' does not have 
           <Property Name="Data zakończenia" Type="smalldatetime" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'Szwalnia.dbo.vRealizacjaProcesuProdukcyjnegoDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="vRealizacjaProcesuProdukcyjnegoDetails">
+warning 6002: The table/view 'Szwalnia.dbo.vRealizacjaProcesuProdukcyjnego' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vRealizacjaProcesuProdukcyjnego">
           <Key>
             <PropertyRef Name="ID_Procesu_Produkcyjnego" />
             <PropertyRef Name="ID_Realizacji_Procesu" />
@@ -1365,6 +1365,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vRealizacjaProcesuProdukcyjnegoDetail
           <Property Name="Nazwa etapu" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="Data_Rozpoczecia_Procesu" Type="smalldatetime" />
           <Property Name="Data_Zakonczenia_Procesu" Type="smalldatetime" />
+          <Property Name="Data_Kontroli" Type="smalldatetime" />
+          <Property Name="Uwagi_Kontroli" Type="varchar" MaxLength="300" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vRegaly_alfabetycznie' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -3289,14 +3291,16 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
     [vPrzydzialZasobowEtap].[Data zakończenia] AS [Data zakończenia]
     FROM [dbo].[vPrzydzialZasobowEtap] AS [vPrzydzialZasobowEtap]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vRealizacjaProcesuProdukcyjnegoDetails" EntityType="Self.vRealizacjaProcesuProdukcyjnegoDetails" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="vRealizacjaProcesuProdukcyjnego" EntityType="Self.vRealizacjaProcesuProdukcyjnego" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [vRealizacjaProcesuProdukcyjnegoDetails].[ID_Procesu_Produkcyjnego] AS [ID_Procesu_Produkcyjnego], 
-    [vRealizacjaProcesuProdukcyjnegoDetails].[ID_Realizacji_Procesu] AS [ID_Realizacji_Procesu], 
-    [vRealizacjaProcesuProdukcyjnegoDetails].[Nazwa etapu] AS [Nazwa etapu], 
-    [vRealizacjaProcesuProdukcyjnegoDetails].[Data_Rozpoczecia_Procesu] AS [Data_Rozpoczecia_Procesu], 
-    [vRealizacjaProcesuProdukcyjnegoDetails].[Data_Zakonczenia_Procesu] AS [Data_Zakonczenia_Procesu]
-    FROM [dbo].[vRealizacjaProcesuProdukcyjnegoDetails] AS [vRealizacjaProcesuProdukcyjnegoDetails]</DefiningQuery>
+    [vRealizacjaProcesuProdukcyjnego].[ID_Procesu_Produkcyjnego] AS [ID_Procesu_Produkcyjnego], 
+    [vRealizacjaProcesuProdukcyjnego].[ID_Realizacji_Procesu] AS [ID_Realizacji_Procesu], 
+    [vRealizacjaProcesuProdukcyjnego].[Nazwa etapu] AS [Nazwa etapu], 
+    [vRealizacjaProcesuProdukcyjnego].[Data_Rozpoczecia_Procesu] AS [Data_Rozpoczecia_Procesu], 
+    [vRealizacjaProcesuProdukcyjnego].[Data_Zakonczenia_Procesu] AS [Data_Zakonczenia_Procesu], 
+    [vRealizacjaProcesuProdukcyjnego].[Data_Kontroli] AS [Data_Kontroli], 
+    [vRealizacjaProcesuProdukcyjnego].[Uwagi_Kontroli] AS [Uwagi_Kontroli]
+    FROM [dbo].[vRealizacjaProcesuProdukcyjnego] AS [vRealizacjaProcesuProdukcyjnego]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vRegaly_alfabetycznie" EntityType="Self.vRegaly_alfabetycznie" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -3996,7 +4000,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <EntitySet Name="vProcesy" EntityType="SzwalniaModel.vProcesy" />
           <EntitySet Name="vPrzydzialZasobow" EntityType="SzwalniaModel.vPrzydzialZasobow" />
           <EntitySet Name="vPrzydzialZasobowEtap" EntityType="SzwalniaModel.vPrzydzialZasobowEtap" />
-          <EntitySet Name="vRealizacjaProcesuProdukcyjnegoDetails" EntityType="SzwalniaModel.vRealizacjaProcesuProdukcyjnegoDetails" />
+          <EntitySet Name="vRealizacjaProcesuProdukcyjnego" EntityType="SzwalniaModel.vRealizacjaProcesuProdukcyjnego" />
           <EntitySet Name="vRegaly_alfabetycznie" EntityType="SzwalniaModel.vRegaly_alfabetycznie" />
           <EntitySet Name="vResurs" EntityType="SzwalniaModel.vResurs" />
           <EntitySet Name="vRodzaj_Maszyny" EntityType="SzwalniaModel.vRodzaj_Maszyny" />
@@ -5774,7 +5778,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Data_rozpoczęcia" Type="DateTime" Precision="0" />
           <Property Name="Data_zakończenia" Type="DateTime" Precision="0" />
         </EntityType>
-        <EntityType Name="vRealizacjaProcesuProdukcyjnegoDetails">
+        <EntityType Name="vRealizacjaProcesuProdukcyjnego">
           <Key>
             <PropertyRef Name="ID_Procesu_Produkcyjnego" />
             <PropertyRef Name="ID_Realizacji_Procesu" />
@@ -5785,6 +5789,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Nazwa_etapu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Data_Rozpoczecia_Procesu" Type="DateTime" Precision="0" />
           <Property Name="Data_Zakonczenia_Procesu" Type="DateTime" Precision="0" />
+          <Property Name="Data_Kontroli" Type="DateTime" Precision="0" />
+          <Property Name="Uwagi_Kontroli" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="vRegaly_alfabetycznie">
           <Key>
@@ -7097,7 +7103,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -8348,9 +8354,11 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vRealizacjaProcesuProdukcyjnegoDetails">
-            <EntityTypeMapping TypeName="SzwalniaModel.vRealizacjaProcesuProdukcyjnegoDetails">
-              <MappingFragment StoreEntitySet="vRealizacjaProcesuProdukcyjnegoDetails">
+          <EntitySetMapping Name="vRealizacjaProcesuProdukcyjnego">
+            <EntityTypeMapping TypeName="SzwalniaModel.vRealizacjaProcesuProdukcyjnego">
+              <MappingFragment StoreEntitySet="vRealizacjaProcesuProdukcyjnego">
+                <ScalarProperty Name="Uwagi_Kontroli" ColumnName="Uwagi_Kontroli" />
+                <ScalarProperty Name="Data_Kontroli" ColumnName="Data_Kontroli" />
                 <ScalarProperty Name="Data_Zakonczenia_Procesu" ColumnName="Data_Zakonczenia_Procesu" />
                 <ScalarProperty Name="Data_Rozpoczecia_Procesu" ColumnName="Data_Rozpoczecia_Procesu" />
                 <ScalarProperty Name="Nazwa_etapu" ColumnName="Nazwa etapu" />

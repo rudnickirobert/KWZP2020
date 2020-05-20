@@ -33,7 +33,6 @@
             this.btnZapisz = new System.Windows.Forms.Button();
             this.btnNowa = new System.Windows.Forms.Button();
             this.lblOpis = new System.Windows.Forms.Label();
-            this.lblOpisGwiazdkiEdycja = new System.Windows.Forms.Label();
             this.lblGwiazdkaEdycja = new System.Windows.Forms.Label();
             this.mtbDataZakonczeniaEdycja = new System.Windows.Forms.MaskedTextBox();
             this.btnDzisZakonczenieEdycja = new System.Windows.Forms.Button();
@@ -56,6 +55,17 @@
             this.cbxEtapNowa = new System.Windows.Forms.ComboBox();
             this.lblEtapNowa = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.mtbDataKontroliNowa = new System.Windows.Forms.MaskedTextBox();
+            this.btnDzisKontrolaNowa = new System.Windows.Forms.Button();
+            this.lblDataKontroliNowa = new System.Windows.Forms.Label();
+            this.tbUwagiKontrolaNowa = new System.Windows.Forms.TextBox();
+            this.lblUwagiNowa = new System.Windows.Forms.Label();
+            this.lblKontrolaEdycja = new System.Windows.Forms.Label();
+            this.tbUwagiKontrolaEdycja = new System.Windows.Forms.TextBox();
+            this.mtbDataKontroliEdycja = new System.Windows.Forms.MaskedTextBox();
+            this.btnDzisKontrolaEdycja = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblOpisGwiazdkiEdycja = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRealizacjaProcesu)).BeginInit();
             this.gbxEdycja.SuspendLayout();
             this.gbxNowa.SuspendLayout();
@@ -64,10 +74,10 @@
             // dgvRealizacjaProcesu
             // 
             this.dgvRealizacjaProcesu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRealizacjaProcesu.Location = new System.Drawing.Point(30, 178);
+            this.dgvRealizacjaProcesu.Location = new System.Drawing.Point(30, 123);
             this.dgvRealizacjaProcesu.Name = "dgvRealizacjaProcesu";
             this.dgvRealizacjaProcesu.RowHeadersWidth = 51;
-            this.dgvRealizacjaProcesu.Size = new System.Drawing.Size(479, 216);
+            this.dgvRealizacjaProcesu.Size = new System.Drawing.Size(737, 274);
             this.dgvRealizacjaProcesu.TabIndex = 0;
             this.dgvRealizacjaProcesu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRealizacjaProcesu_CellClick);
             this.dgvRealizacjaProcesu.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRealizacjaProcesu_CellDoubleClick);
@@ -85,18 +95,18 @@
             // btnZapisz
             // 
             this.btnZapisz.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnZapisz.Location = new System.Drawing.Point(717, 511);
+            this.btnZapisz.Location = new System.Drawing.Point(977, 645);
             this.btnZapisz.Name = "btnZapisz";
             this.btnZapisz.Size = new System.Drawing.Size(102, 50);
             this.btnZapisz.TabIndex = 5;
-            this.btnZapisz.Text = "Zapisz";
+            this.btnZapisz.Text = "Edytuj";
             this.btnZapisz.UseVisualStyleBackColor = true;
             this.btnZapisz.Click += new System.EventHandler(this.btnZapisz_Click);
             // 
             // btnNowa
             // 
             this.btnNowa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnNowa.Location = new System.Drawing.Point(707, 260);
+            this.btnNowa.Location = new System.Drawing.Point(967, 317);
             this.btnNowa.Name = "btnNowa";
             this.btnNowa.Size = new System.Drawing.Size(112, 50);
             this.btnNowa.TabIndex = 6;
@@ -113,17 +123,6 @@
             this.lblOpis.Size = new System.Drawing.Size(466, 18);
             this.lblOpis.TabIndex = 9;
             this.lblOpis.Text = "Kliknij dwukrotnie na realizację, aby zmodyfikować przydział zasobów";
-            // 
-            // lblOpisGwiazdkiEdycja
-            // 
-            this.lblOpisGwiazdkiEdycja.AutoSize = true;
-            this.lblOpisGwiazdkiEdycja.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblOpisGwiazdkiEdycja.Location = new System.Drawing.Point(23, 140);
-            this.lblOpisGwiazdkiEdycja.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblOpisGwiazdkiEdycja.Name = "lblOpisGwiazdkiEdycja";
-            this.lblOpisGwiazdkiEdycja.Size = new System.Drawing.Size(116, 17);
-            this.lblOpisGwiazdkiEdycja.TabIndex = 48;
-            this.lblOpisGwiazdkiEdycja.Text = "* Pole wymagane";
             // 
             // lblGwiazdkaEdycja
             // 
@@ -217,6 +216,11 @@
             // 
             // gbxEdycja
             // 
+            this.gbxEdycja.Controls.Add(this.lblKontrolaEdycja);
+            this.gbxEdycja.Controls.Add(this.tbUwagiKontrolaEdycja);
+            this.gbxEdycja.Controls.Add(this.mtbDataKontroliEdycja);
+            this.gbxEdycja.Controls.Add(this.btnDzisKontrolaEdycja);
+            this.gbxEdycja.Controls.Add(this.label3);
             this.gbxEdycja.Controls.Add(this.lblOpisGwiazdkiEdycja);
             this.gbxEdycja.Controls.Add(this.lblGwiazdkaEdycja);
             this.gbxEdycja.Controls.Add(this.mtbDataZakonczeniaEdycja);
@@ -228,15 +232,20 @@
             this.gbxEdycja.Controls.Add(this.cbxEtapEdycja);
             this.gbxEdycja.Controls.Add(this.lblEtapEdycja);
             this.gbxEdycja.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.gbxEdycja.Location = new System.Drawing.Point(550, 316);
+            this.gbxEdycja.Location = new System.Drawing.Point(810, 373);
             this.gbxEdycja.Name = "gbxEdycja";
-            this.gbxEdycja.Size = new System.Drawing.Size(419, 178);
+            this.gbxEdycja.Size = new System.Drawing.Size(419, 255);
             this.gbxEdycja.TabIndex = 49;
             this.gbxEdycja.TabStop = false;
             this.gbxEdycja.Text = "Edycja realizacji";
             // 
             // gbxNowa
             // 
+            this.gbxNowa.Controls.Add(this.lblUwagiNowa);
+            this.gbxNowa.Controls.Add(this.tbUwagiKontrolaNowa);
+            this.gbxNowa.Controls.Add(this.mtbDataKontroliNowa);
+            this.gbxNowa.Controls.Add(this.btnDzisKontrolaNowa);
+            this.gbxNowa.Controls.Add(this.lblDataKontroliNowa);
             this.gbxNowa.Controls.Add(this.lblOpisGwiazdkiNowa);
             this.gbxNowa.Controls.Add(this.lblGwiazdkaNowa);
             this.gbxNowa.Controls.Add(this.mtbDataZakonczeniaNowa);
@@ -248,9 +257,9 @@
             this.gbxNowa.Controls.Add(this.cbxEtapNowa);
             this.gbxNowa.Controls.Add(this.lblEtapNowa);
             this.gbxNowa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.gbxNowa.Location = new System.Drawing.Point(550, 61);
+            this.gbxNowa.Location = new System.Drawing.Point(810, 55);
             this.gbxNowa.Name = "gbxNowa";
-            this.gbxNowa.Size = new System.Drawing.Size(419, 178);
+            this.gbxNowa.Size = new System.Drawing.Size(419, 256);
             this.gbxNowa.TabIndex = 50;
             this.gbxNowa.TabStop = false;
             this.gbxNowa.Text = "Nowa realizacja";
@@ -259,7 +268,7 @@
             // 
             this.lblOpisGwiazdkiNowa.AutoSize = true;
             this.lblOpisGwiazdkiNowa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblOpisGwiazdkiNowa.Location = new System.Drawing.Point(23, 140);
+            this.lblOpisGwiazdkiNowa.Location = new System.Drawing.Point(23, 226);
             this.lblOpisGwiazdkiNowa.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblOpisGwiazdkiNowa.Name = "lblOpisGwiazdkiNowa";
             this.lblOpisGwiazdkiNowa.Size = new System.Drawing.Size(116, 17);
@@ -366,12 +375,121 @@
             this.label1.TabIndex = 51;
             this.label1.Text = "Kliknij na realizację, aby ją edytować";
             // 
+            // mtbDataKontroliNowa
+            // 
+            this.mtbDataKontroliNowa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.mtbDataKontroliNowa.Location = new System.Drawing.Point(167, 134);
+            this.mtbDataKontroliNowa.Mask = "00/00/0000 00:00:00";
+            this.mtbDataKontroliNowa.Name = "mtbDataKontroliNowa";
+            this.mtbDataKontroliNowa.Size = new System.Drawing.Size(158, 24);
+            this.mtbDataKontroliNowa.TabIndex = 51;
+            // 
+            // btnDzisKontrolaNowa
+            // 
+            this.btnDzisKontrolaNowa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnDzisKontrolaNowa.Location = new System.Drawing.Point(342, 136);
+            this.btnDzisKontrolaNowa.Name = "btnDzisKontrolaNowa";
+            this.btnDzisKontrolaNowa.Size = new System.Drawing.Size(43, 23);
+            this.btnDzisKontrolaNowa.TabIndex = 50;
+            this.btnDzisKontrolaNowa.Text = "Dziś";
+            this.btnDzisKontrolaNowa.UseVisualStyleBackColor = true;
+            this.btnDzisKontrolaNowa.Click += new System.EventHandler(this.btnDzisKontrolaNowa_Click);
+            // 
+            // lblDataKontroliNowa
+            // 
+            this.lblDataKontroliNowa.AutoSize = true;
+            this.lblDataKontroliNowa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblDataKontroliNowa.Location = new System.Drawing.Point(23, 137);
+            this.lblDataKontroliNowa.Name = "lblDataKontroliNowa";
+            this.lblDataKontroliNowa.Size = new System.Drawing.Size(92, 18);
+            this.lblDataKontroliNowa.TabIndex = 49;
+            this.lblDataKontroliNowa.Text = "Data kontroli";
+            // 
+            // tbUwagiKontrolaNowa
+            // 
+            this.tbUwagiKontrolaNowa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbUwagiKontrolaNowa.Location = new System.Drawing.Point(167, 171);
+            this.tbUwagiKontrolaNowa.Multiline = true;
+            this.tbUwagiKontrolaNowa.Name = "tbUwagiKontrolaNowa";
+            this.tbUwagiKontrolaNowa.Size = new System.Drawing.Size(216, 50);
+            this.tbUwagiKontrolaNowa.TabIndex = 52;
+            // 
+            // lblUwagiNowa
+            // 
+            this.lblUwagiNowa.AutoSize = true;
+            this.lblUwagiNowa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblUwagiNowa.Location = new System.Drawing.Point(23, 171);
+            this.lblUwagiNowa.Name = "lblUwagiNowa";
+            this.lblUwagiNowa.Size = new System.Drawing.Size(123, 18);
+            this.lblUwagiNowa.TabIndex = 53;
+            this.lblUwagiNowa.Text = "Uwagi do kontroli";
+            // 
+            // lblKontrolaEdycja
+            // 
+            this.lblKontrolaEdycja.AutoSize = true;
+            this.lblKontrolaEdycja.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblKontrolaEdycja.Location = new System.Drawing.Point(23, 172);
+            this.lblKontrolaEdycja.Name = "lblKontrolaEdycja";
+            this.lblKontrolaEdycja.Size = new System.Drawing.Size(123, 18);
+            this.lblKontrolaEdycja.TabIndex = 59;
+            this.lblKontrolaEdycja.Text = "Uwagi do kontroli";
+            // 
+            // tbUwagiKontrolaEdycja
+            // 
+            this.tbUwagiKontrolaEdycja.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbUwagiKontrolaEdycja.Location = new System.Drawing.Point(167, 172);
+            this.tbUwagiKontrolaEdycja.Multiline = true;
+            this.tbUwagiKontrolaEdycja.Name = "tbUwagiKontrolaEdycja";
+            this.tbUwagiKontrolaEdycja.Size = new System.Drawing.Size(216, 50);
+            this.tbUwagiKontrolaEdycja.TabIndex = 58;
+            // 
+            // mtbDataKontroliEdycja
+            // 
+            this.mtbDataKontroliEdycja.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.mtbDataKontroliEdycja.Location = new System.Drawing.Point(167, 135);
+            this.mtbDataKontroliEdycja.Mask = "00/00/0000 00:00:00";
+            this.mtbDataKontroliEdycja.Name = "mtbDataKontroliEdycja";
+            this.mtbDataKontroliEdycja.Size = new System.Drawing.Size(158, 24);
+            this.mtbDataKontroliEdycja.TabIndex = 57;
+            // 
+            // btnDzisKontrolaEdycja
+            // 
+            this.btnDzisKontrolaEdycja.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnDzisKontrolaEdycja.Location = new System.Drawing.Point(342, 137);
+            this.btnDzisKontrolaEdycja.Name = "btnDzisKontrolaEdycja";
+            this.btnDzisKontrolaEdycja.Size = new System.Drawing.Size(43, 23);
+            this.btnDzisKontrolaEdycja.TabIndex = 56;
+            this.btnDzisKontrolaEdycja.Text = "Dziś";
+            this.btnDzisKontrolaEdycja.UseVisualStyleBackColor = true;
+            this.btnDzisKontrolaEdycja.Click += new System.EventHandler(this.btnDzisKontrolaEdycja_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(23, 138);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(92, 18);
+            this.label3.TabIndex = 55;
+            this.label3.Text = "Data kontroli";
+            // 
+            // lblOpisGwiazdkiEdycja
+            // 
+            this.lblOpisGwiazdkiEdycja.AutoSize = true;
+            this.lblOpisGwiazdkiEdycja.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblOpisGwiazdkiEdycja.Location = new System.Drawing.Point(23, 227);
+            this.lblOpisGwiazdkiEdycja.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblOpisGwiazdkiEdycja.Name = "lblOpisGwiazdkiEdycja";
+            this.lblOpisGwiazdkiEdycja.Size = new System.Drawing.Size(116, 17);
+            this.lblOpisGwiazdkiEdycja.TabIndex = 54;
+            this.lblOpisGwiazdkiEdycja.Text = "* Pole wymagane";
+            // 
             // RealizacjaProcesu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(997, 573);
+            this.ClientSize = new System.Drawing.Size(1255, 700);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gbxNowa);
             this.Controls.Add(this.gbxEdycja);
@@ -400,7 +518,6 @@
         private System.Windows.Forms.Button btnZapisz;
         private System.Windows.Forms.Button btnNowa;
         private System.Windows.Forms.Label lblOpis;
-        private System.Windows.Forms.Label lblOpisGwiazdkiEdycja;
         private System.Windows.Forms.Label lblGwiazdkaEdycja;
         private System.Windows.Forms.MaskedTextBox mtbDataZakonczeniaEdycja;
         private System.Windows.Forms.Button btnDzisZakonczenieEdycja;
@@ -423,5 +540,16 @@
         private System.Windows.Forms.ComboBox cbxEtapNowa;
         private System.Windows.Forms.Label lblEtapNowa;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblKontrolaEdycja;
+        private System.Windows.Forms.TextBox tbUwagiKontrolaEdycja;
+        private System.Windows.Forms.MaskedTextBox mtbDataKontroliEdycja;
+        private System.Windows.Forms.Button btnDzisKontrolaEdycja;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblOpisGwiazdkiEdycja;
+        private System.Windows.Forms.Label lblUwagiNowa;
+        private System.Windows.Forms.TextBox tbUwagiKontrolaNowa;
+        private System.Windows.Forms.MaskedTextBox mtbDataKontroliNowa;
+        private System.Windows.Forms.Button btnDzisKontrolaNowa;
+        private System.Windows.Forms.Label lblDataKontroliNowa;
     }
 }

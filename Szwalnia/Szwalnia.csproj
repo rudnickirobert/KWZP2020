@@ -874,7 +874,7 @@
     <Compile Include="vPrzydzialZasobowEtap.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vRealizacjaProcesuProdukcyjnegoDetails.cs">
+    <Compile Include="vRealizacjaProcesuProdukcyjnego.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vRegaly_alfabetycznie.cs">

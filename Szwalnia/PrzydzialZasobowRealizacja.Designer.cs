@@ -57,11 +57,11 @@
             this.dgvPrzydzialZasobowRealizacja.AllowUserToAddRows = false;
             this.dgvPrzydzialZasobowRealizacja.AllowUserToDeleteRows = false;
             this.dgvPrzydzialZasobowRealizacja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPrzydzialZasobowRealizacja.Location = new System.Drawing.Point(45, 76);
+            this.dgvPrzydzialZasobowRealizacja.Location = new System.Drawing.Point(12, 76);
             this.dgvPrzydzialZasobowRealizacja.Name = "dgvPrzydzialZasobowRealizacja";
             this.dgvPrzydzialZasobowRealizacja.ReadOnly = true;
             this.dgvPrzydzialZasobowRealizacja.RowHeadersWidth = 51;
-            this.dgvPrzydzialZasobowRealizacja.Size = new System.Drawing.Size(775, 334);
+            this.dgvPrzydzialZasobowRealizacja.Size = new System.Drawing.Size(903, 334);
             this.dgvPrzydzialZasobowRealizacja.TabIndex = 0;
             this.dgvPrzydzialZasobowRealizacja.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrzydzialZasobowRealizacja_CellClick);
             // 
@@ -100,7 +100,7 @@
             // btnEdycja
             // 
             this.btnEdycja.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnEdycja.Location = new System.Drawing.Point(1027, 316);
+            this.btnEdycja.Location = new System.Drawing.Point(1117, 314);
             this.btnEdycja.Name = "btnEdycja";
             this.btnEdycja.Size = new System.Drawing.Size(80, 50);
             this.btnEdycja.TabIndex = 8;
@@ -250,7 +250,7 @@
             this.gbxEdycja.Controls.Add(this.lblDataZakonczenia);
             this.gbxEdycja.Controls.Add(this.lblDataRozpoczecia);
             this.gbxEdycja.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.gbxEdycja.Location = new System.Drawing.Point(845, 99);
+            this.gbxEdycja.Location = new System.Drawing.Point(935, 97);
             this.gbxEdycja.Name = "gbxEdycja";
             this.gbxEdycja.Size = new System.Drawing.Size(426, 195);
             this.gbxEdycja.TabIndex = 60;
@@ -261,7 +261,7 @@
             // 
             this.lblOpis.AutoSize = true;
             this.lblOpis.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblOpis.Location = new System.Drawing.Point(42, 422);
+            this.lblOpis.Location = new System.Drawing.Point(9, 426);
             this.lblOpis.Name = "lblOpis";
             this.lblOpis.Size = new System.Drawing.Size(288, 18);
             this.lblOpis.TabIndex = 61;
@@ -272,7 +272,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1324, 546);
+            this.ClientSize = new System.Drawing.Size(1391, 546);
             this.Controls.Add(this.lblOpis);
             this.Controls.Add(this.gbxEdycja);
             this.Controls.Add(this.btnNowy);
