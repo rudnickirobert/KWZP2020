@@ -353,6 +353,63 @@ FROM            dbo.Zawartosc INNER JOIN
 GROUP BY dbo.Elementy_Jednostki.Jednostka, dbo.Elementy.Element_Nazwa, dbo.Elementy.ID_Element
 ORDER BY dbo.Elementy.ID_Element
 GO
+
+---- Widok ewidencji dostaw wewnetrznych
+CREATE VIEW [dbo].[vEwidencja_dostaw_wewnetrznych]
+AS
+SELECT        dbo.Dostarczenia_Wewn.ID_Dostarczenia, dbo.Dostarczenia_Wewn.Data_Dostarczenia, dbo.Pracownicy.Nazwisko + ' ' + dbo.Pracownicy.Imie AS Pracownik, dbo.Elementy.Element_Nazwa, 
+                         dbo.Dostarczenia_Wewn.ID_element, dbo.Miejsca.Nazwa AS Miejsce, CASE WHEN dbo.Dostarczenia_Wewn.Ilosc_Dostarczona < 0 THEN 'Wydano ' + CAST(- dbo.Dostarczenia_Wewn.Ilosc_Dostarczona AS NVARCHAR) 
+                         + ' ' + CAST(dbo.Elementy_Jednostki.Jednostka AS NVARCHAR) ELSE 'Odebrano ' + CAST(dbo.Dostarczenia_Wewn.Ilosc_Dostarczona AS NVARCHAR) + ' ' + CAST(dbo.Elementy_Jednostki.Jednostka AS NVARCHAR) 
+                         END AS Akcja, dbo.Zamowienie_Element.ID_Zamowienia, dbo.Dostarczenia_Wewn.ID_Zamowienie_element, dbo.Dostarczenia_Wewn.ID_Dostawy
+FROM            dbo.Oferta INNER JOIN
+                         dbo.Dostarczenia_Wewn INNER JOIN
+                         dbo.Pracownicy ON dbo.Dostarczenia_Wewn.ID_Pracownicy = dbo.Pracownicy.ID_Pracownika INNER JOIN
+                         dbo.Elementy ON dbo.Dostarczenia_Wewn.ID_element = dbo.Elementy.ID_Element INNER JOIN
+                         dbo.Miejsca ON dbo.Dostarczenia_Wewn.ID_Miejsca = dbo.Miejsca.ID_Miejsca ON dbo.Oferta.ID_Element = dbo.Elementy.ID_Element INNER JOIN
+                         dbo.Zamowienia_Dostawy ON dbo.Dostarczenia_Wewn.ID_Dostawy = dbo.Zamowienia_Dostawy.ID_Dostawy INNER JOIN
+                         dbo.Dostawy_Zawartosc ON dbo.Oferta.ID_Oferta = dbo.Dostawy_Zawartosc.ID_oferta AND dbo.Elementy.ID_Element = dbo.Dostawy_Zawartosc.ID_Element AND 
+                         dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Dostawy_Zawartosc.ID_Dostawy INNER JOIN
+                         dbo.Elementy_Jednostki ON dbo.Oferta.ID_Jednostka = dbo.Elementy_Jednostki.ID_jednostka INNER JOIN
+                         dbo.Zamowienie_Element ON dbo.Dostarczenia_Wewn.ID_Zamowienie_element = dbo.Zamowienie_Element.ID_Zamowienie_Element
+GO
+
+---- Widok ewidencji dostaw zewnetrznych
+CREATE VIEW [dbo].[vEwidencja_dostaw_zewnetrznych]
+AS
+SELECT        dbo.Dostarczenia_Zewn.ID_Dostarczenia, dbo.Dostarczenia_Zewn.Data_Dostarczenia, dbo.Pracownicy.Nazwisko + ' ' + dbo.Pracownicy.Imie AS Pracownik, dbo.Elementy.Element_Nazwa, dbo.Elementy.ID_Element, 
+                         dbo.Miejsca.Nazwa AS Miejsce, CASE WHEN dbo.Dostarczenia_Zewn.Ilosc_Dostarczona < 0 THEN 'Wydano ' + CAST(- dbo.Dostarczenia_Zewn.Ilosc_Dostarczona AS NVARCHAR) 
+                         + ' szt.' ELSE 'Odebrano ' + CAST(dbo.Dostarczenia_Zewn.Ilosc_Dostarczona AS NVARCHAR) + ' szt.' END AS Akcja, dbo.Dostarczenia_Zewn.ID_Zamowienia
+FROM            dbo.Dostarczenia_Zewn INNER JOIN
+                         dbo.Elementy ON dbo.Dostarczenia_Zewn.ID_element = dbo.Elementy.ID_Element INNER JOIN
+                         dbo.Miejsca ON dbo.Dostarczenia_Zewn.ID_Miejsca = dbo.Miejsca.ID_Miejsca INNER JOIN
+                         dbo.Pracownicy ON dbo.Dostarczenia_Zewn.ID_Pracownicy = dbo.Pracownicy.ID_Pracownika
+GO
+
+---- Widok produktow do odebrania z produkcji 
+CREATE VIEW [dbo].[vOdbior_Gotowych_Produktow]
+AS
+SELECT        dbo.Zamowienie_Element.ID_Zamowienia, dbo.Zamowienie_Element.ID_Zamowienie_Element, dbo.Elementy.Element_Nazwa, dbo.Zamowienie_Element.ID_Element, dbo.Zamowienie_Element.Ilosc
+FROM            dbo.Zamowienie_Element INNER JOIN
+                         dbo.Proces_Produkcyjny ON dbo.Zamowienie_Element.ID_Zamowienie_Element = dbo.Proces_Produkcyjny.ID_Zamowienie_Element INNER JOIN
+                         dbo.Elementy ON dbo.Zamowienie_Element.ID_Element = dbo.Elementy.ID_Element LEFT OUTER JOIN
+                             (SELECT        ID_Dostarczenia, ID_Pracownicy, ID_Zamowienia, ID_element, Ilosc_Dostarczona, ID_Miejsca, Data_Dostarczenia
+                               FROM            dbo.Dostarczenia_Zewn
+                               WHERE        (Ilosc_Dostarczona > 0)) AS Wybor ON dbo.Zamowienie_Element.ID_Element = Wybor.ID_element AND dbo.Zamowienie_Element.ID_Zamowienia = Wybor.ID_Zamowienia
+WHERE        (Wybor.ID_Zamowienia IS NULL) AND (Wybor.ID_element IS NULL) AND (dbo.Proces_Produkcyjny.Data_Zakonczenia IS NOT NULL)
+GO
+
+---- Widok produktow do wydania kurierowi 
+CREATE VIEW [dbo].[vWydawanie_Zamowien_Kurierowi]
+AS
+SELECT        dbo.Dostarczenia_Zewn.ID_Zamowienia, dbo.Zamowienie_Element.ID_Zamowienie_Element, dbo.Elementy.Element_Nazwa, dbo.Dostarczenia_Zewn.ID_element, SUM(dbo.Dostarczenia_Zewn.Ilosc_Dostarczona) 
+                         AS Ilosc
+FROM            dbo.Dostarczenia_Zewn INNER JOIN
+                         dbo.Elementy ON dbo.Dostarczenia_Zewn.ID_element = dbo.Elementy.ID_Element INNER JOIN
+                         dbo.Zamowienie_Element ON dbo.Elementy.ID_Element = dbo.Zamowienie_Element.ID_Element INNER JOIN
+                         dbo.Zamowienia ON dbo.Dostarczenia_Zewn.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia AND dbo.Zamowienie_Element.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia
+GROUP BY dbo.Dostarczenia_Zewn.ID_element, dbo.Dostarczenia_Zewn.ID_Zamowienia, dbo.Elementy.Element_Nazwa, dbo.Zamowienie_Element.ID_Zamowienie_Element
+HAVING        (SUM(dbo.Dostarczenia_Zewn.Ilosc_Dostarczona) > 0)
+GO
 --widok dostaw niewydanych i polek na ktorych sa
 CREATE VIEW [dbo].[vDostawyNiewydaneZPolkami]
 AS
@@ -383,6 +440,20 @@ FROM            dbo.Zamowienia_Dostawy INNER JOIN
                          dbo.Elementy ON dbo.Dostawy_Zawartosc.ID_Element = dbo.Elementy.ID_Element AND dbo.Oferta.ID_Element = dbo.Elementy.ID_Element INNER JOIN
                          dbo.Elementy_Jednostki ON dbo.Oferta.ID_Jednostka = dbo.Elementy_Jednostki.ID_jednostka
 ORDER BY dbo.Oferta.Deklarowany_czas_dostawy DESC
+GO
+
+--widok listuj¹cy zamówienia gotowe do wydania kurierowi
+CREATE VIEW [dbo].[vZamowienia_Do_Wydania]
+AS
+SELECT DISTINCT dbo.Zamowienia.ID_Zamowienia
+FROM            dbo.Zamowienia INNER JOIN
+                         dbo.Zamowienie_Element ON dbo.Zamowienia.ID_Zamowienia = dbo.Zamowienie_Element.ID_Zamowienia INNER JOIN
+                         dbo.Proces_Produkcyjny ON dbo.Zamowienie_Element.ID_Zamowienie_Element = dbo.Proces_Produkcyjny.ID_Zamowienie_Element LEFT OUTER JOIN
+                             (SELECT        ID_Zamowienia, ID_element
+                               FROM            dbo.Dostarczenia_Zewn
+                               WHERE        (Ilosc_Dostarczona > 0)) AS Dostarczenia_zewn_filtrowane ON dbo.Zamowienie_Element.ID_Zamowienia = Dostarczenia_zewn_filtrowane.ID_Zamowienia AND 
+                         dbo.Zamowienie_Element.ID_Element = Dostarczenia_zewn_filtrowane.ID_element
+WHERE        (dbo.Proces_Produkcyjny.Data_Zakonczenia IS NOT NULL) AND (Dostarczenia_zewn_filtrowane.ID_Zamowienia IS NOT NULL) AND (Dostarczenia_zewn_filtrowane.ID_element IS NOT NULL)
 GO
 
 ---------------------------------------------------------------------------------------------------------------------------

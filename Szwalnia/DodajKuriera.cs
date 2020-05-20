@@ -28,11 +28,6 @@ namespace Szwalnia
             this.Hide();
         }
 
-        private void DodajKuriera_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Start.GetForm.Show();
-        }
-
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             if (txtNazwa.TextLength == 0)
@@ -49,10 +44,24 @@ namespace Szwalnia
                 }
                 kurierNowy.Email = txtEmail.Text;
 
-                db.Kurierzy.Add(kurierNowy);
-                db.SaveChanges();
-                MessageBox.Show("Dodano nowego kuriera.");
-
+                if (!db.Kurierzy.Where(kurierNowy => kurierNowy.Nazwa == txtNazwa.Text).Any())
+                {
+                    if (!db.Kurierzy.Where(kurierNowy => kurierNowy.Telefon_1 == this.kurierNowy.Telefon_1).Any())
+                    {
+                        if (!db.Kurierzy.Where(kurierNowy => kurierNowy.Email == txtEmail.Text).Any())
+                        {
+                            db.Kurierzy.Add(kurierNowy);
+                            db.SaveChanges();
+                            MessageBox.Show("Dodano nowego kuriera.");
+                        }
+                        else
+                            MessageBox.Show("Kurier z takim adresem e-mail już istnieje.");
+                    }
+                    else
+                        MessageBox.Show("Kurier z takim numerem telefonu już istnieje.");
+                }
+                else
+                    MessageBox.Show("Kurier o takiej nazwie już istnieje");
             }
         }
 
@@ -69,5 +78,10 @@ namespace Szwalnia
                 mtxtTel2.Enabled = true;
             }
         }
+        private void DodajKuriera_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Start.GetForm.Show();
+        }
+
     }
 }

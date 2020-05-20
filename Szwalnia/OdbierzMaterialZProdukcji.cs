@@ -49,7 +49,6 @@ namespace Szwalnia
             }
         }
 
-
         private void dgvMaterialDoOdebrania_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (db.vNieodebraneMaterialyWgDostawcyZNazwaIOferta.Any())

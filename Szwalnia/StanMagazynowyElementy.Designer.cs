@@ -64,6 +64,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StanMagazynowyElementy";
             this.Text = "Stan magazynowy według elementów";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StanMagazynowyElementy_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStanMagazynowyElementy)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

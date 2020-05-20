@@ -17,7 +17,9 @@ namespace Szwalnia
         public int intIlosc;
         public double dblIloscDlaPolki;
         public int intIloscPaczek;
+        public int intIloscSztuk;
         public int intZamowienieElementID;
+        public int intZamowienieID;
         public string rodzajFormularza;
         public bool czyWyswietlicStart=true;
         public SzwalniaEntities db;
@@ -95,7 +97,48 @@ namespace Szwalnia
                 cmbPracownicy.ValueMember = "Informacja";
             }
         }
-        private void WyborPolkiDoOdlozenia_FormClosed(object sender, FormClosedEventArgs e)
+
+        public WyborPolkiDoOdlozenia(string rodzajFormularza, int intZamowienieID, int intElementID, int intIloscSztuk)
+        {
+            InitializeComponent();
+            db = Start.szwalnia;
+            this.rodzajFormularza = rodzajFormularza;
+            this.intZamowienieID = intZamowienieID;
+            this.intElementID = intElementID;
+            this.intIloscSztuk = intIloscSztuk;
+
+            lblInfoWybierzPracownika.Text = "Wybierz pracownika odbierającego produkty";
+
+            if (db.vWolnePolki.Where(polka => polka.ID_Polka > 0).Any())
+            {
+                dgvWolnePolki.DataSource = db.vWolnePolki.ToList();
+            }
+            else
+            {
+                DataTable brakPolek = new DataTable();
+                brakPolek.Columns.Add("Informacja");
+                brakPolek.Rows.Add("Nie ma wolnych polek");
+                dgvWolnePolki.DataSource = brakPolek;
+            }
+            if (db.vPracownicyMagazynu.Where(pracownik => pracownik.ID_Pracownika > 0).Any())
+            {
+                cmbPracownicy.DataSource = db.vPracownicyMagazynu.ToList();
+                cmbPracownicy.DisplayMember = "Dane_osobowe";
+                cmbPracownicy.ValueMember = "ID_Pracownika";
+            }
+            else
+            {
+                DataTable brakPracownikow = new DataTable();
+                brakPracownikow.Columns.Add("Informacja");
+                brakPracownikow.Rows.Add("Nie ma takich pracownikow");
+                cmbPracownicy.DataSource = brakPracownikow;
+                cmbPracownicy.DisplayMember = "Informacja";
+                cmbPracownicy.ValueMember = "Informacja";
+            }
+
+        }
+
+            private void WyborPolkiDoOdlozenia_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (czyWyswietlicStart)
             {
@@ -196,8 +239,43 @@ namespace Szwalnia
                 odbierzKolejnyMaterial.Show();
                 this.Close();
                 
-            }    
-        }
+            }
+            else if (rodzajFormularza == "przyjecieGotowychProduktow")
+            {
+                Dostarczenia_Zewn noweDostarczenie = new Dostarczenia_Zewn();
 
+                noweDostarczenie.ID_Pracownicy = Convert.ToInt32(cmbPracownicy.SelectedValue);
+                noweDostarczenie.ID_Zamowienia = intZamowienieID;
+                noweDostarczenie.ID_element = intElementID;
+                noweDostarczenie.Ilosc_Dostarczona = intIloscSztuk;
+
+                Miejsca produkcja = db.Miejsca.Where(miejsce => miejsce.Nazwa == "Produkcja").FirstOrDefault();
+                noweDostarczenie.ID_Miejsca = produkcja.ID_Miejsca;
+
+                string dataDzis = Convert.ToString(DateTime.Now).Substring(0, 10);
+                noweDostarczenie.Data_Dostarczenia = dataDzis;
+                db.Dostarczenia_Zewn.Add(noweDostarczenie);
+                db.SaveChanges();
+                Start.DataBaseRefresh();
+
+                Zawartosc nowaZawartoscPolki = new Zawartosc();
+                nowaZawartoscPolki.ID_Polka = Convert.ToInt32(dgvWolnePolki.CurrentRow.Cells[0].Value);
+                nowaZawartoscPolki.ID_Element = intElementID;
+                nowaZawartoscPolki.Ilosc_Paczek = intIloscSztuk;
+                nowaZawartoscPolki.ID_Zamowienia = intZamowienieID;
+                db.Zawartosc.Add(nowaZawartoscPolki);
+                db.SaveChanges();
+                Start.DataBaseRefresh();
+                MessageBox.Show("Pomyślnie przyjęto produkty z działu produkcji.");
+
+                czyWyswietlicStart = false;
+                PrzyjmowanieGotowychProduktow.czyZamknietyPrzezInny = true;
+                Application.OpenForms[typeof(PrzyjmowanieGotowychProduktow).Name].Close();
+                PrzyjmowanieGotowychProduktow przyjmijKolejnyProdukt = new PrzyjmowanieGotowychProduktow();
+                PrzyjmowanieGotowychProduktow.czyZamknietyPrzezInny = false;
+                przyjmijKolejnyProdukt.Show();
+                this.Close();
+            }
+        }
     }
 }

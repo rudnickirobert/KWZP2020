@@ -39,5 +39,19 @@ namespace Szwalnia
             nowePrzyporzadkowanie.Show();
             this.Hide();
         }
+
+        private void btnPrzyjmijProdukty_Click(object sender, EventArgs e)
+        {
+            PrzyjmowanieGotowychProduktow przyjmowanie = new PrzyjmowanieGotowychProduktow();
+            przyjmowanie.Show();
+            this.Hide();
+        }
+
+        private void btnWydajKurierowi_Click(object sender, EventArgs e)
+        {
+            WydawanieProduktowKurierowi wydawanieKurierowi = new WydawanieProduktowKurierowi(); ;
+            wydawanieKurierowi.Show();
+            this.Hide();
+        }
     }
 }
