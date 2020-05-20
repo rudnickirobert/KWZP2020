@@ -384,6 +384,19 @@ FROM            dbo.Zamowienie_Element INNER JOIN
                                WHERE        (Ilosc_Dostarczona > 0)) AS Wybor ON dbo.Zamowienie_Element.ID_Element = Wybor.ID_element AND dbo.Zamowienie_Element.ID_Zamowienia = Wybor.ID_Zamowienia
 WHERE        (Wybor.ID_Zamowienia IS NULL) AND (Wybor.ID_element IS NULL) AND (dbo.Proces_Produkcyjny.Data_Zakonczenia IS NOT NULL)
 GO
+
+---- Widok produktow do wydania kurierowi 
+CREATE VIEW [dbo].[vWydawanie_Zamowien_Kurierowi]
+AS
+SELECT        dbo.Dostarczenia_Zewn.ID_Zamowienia, dbo.Zamowienie_Element.ID_Zamowienie_Element, dbo.Elementy.Element_Nazwa, dbo.Dostarczenia_Zewn.ID_element, SUM(dbo.Dostarczenia_Zewn.Ilosc_Dostarczona) 
+                         AS Ilosc
+FROM            dbo.Dostarczenia_Zewn INNER JOIN
+                         dbo.Elementy ON dbo.Dostarczenia_Zewn.ID_element = dbo.Elementy.ID_Element INNER JOIN
+                         dbo.Zamowienie_Element ON dbo.Elementy.ID_Element = dbo.Zamowienie_Element.ID_Element INNER JOIN
+                         dbo.Zamowienia ON dbo.Dostarczenia_Zewn.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia AND dbo.Zamowienie_Element.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia
+GROUP BY dbo.Dostarczenia_Zewn.ID_element, dbo.Dostarczenia_Zewn.ID_Zamowienia, dbo.Elementy.Element_Nazwa, dbo.Zamowienie_Element.ID_Zamowienie_Element
+HAVING        (SUM(dbo.Dostarczenia_Zewn.Ilosc_Dostarczona) > 0)
+GO
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------WIDOKI PRODUKCJA----------------------------------------------------
