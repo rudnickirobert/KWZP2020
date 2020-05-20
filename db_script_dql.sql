@@ -14,8 +14,8 @@ GO
 ---- Widok polek na regalach (z wymiarami)
 CREATE VIEW [dbo].[vPolki_na_regalach]
 AS
-SELECT        TOP (100) PERCENT dbo.Regaly.Oznaczenie, dbo.Polki.ID_Polka, dbo.Polki_Rozmiary.Wysokosc, dbo.Polki_Rozmiary.Szerokosc, dbo.Polki_Rozmiary.Glebokosc, CAST(dbo.Polki_Rozmiary.Wysokosc AS NVARCHAR) 
-                         + ' x ' + CAST(dbo.Polki_Rozmiary.Szerokosc AS NVARCHAR) + ' x ' + CAST(dbo.Polki_Rozmiary.Glebokosc AS NVARCHAR) + ' cm' AS Wymiar, '      ' AS [Stan]
+SELECT        TOP (100) PERCENT dbo.Regaly.Oznaczenie, dbo.Polki.ID_Polka, CAST(dbo.Polki_Rozmiary.Wysokosc AS NVARCHAR) 
+                         + ' x ' + CAST(dbo.Polki_Rozmiary.Szerokosc AS NVARCHAR) + ' x ' + CAST(dbo.Polki_Rozmiary.Glebokosc AS NVARCHAR) + ' cm' AS Wymiar
 FROM            dbo.Regaly INNER JOIN
                          dbo.Polki_regaly ON dbo.Regaly.ID_regal = dbo.Polki_regaly.ID_regal INNER JOIN
                          dbo.Polki ON dbo.Polki_regaly.ID_Polka = dbo.Polki.ID_Polka INNER JOIN
@@ -27,22 +27,9 @@ GO
 CREATE VIEW [dbo].[vPolki_Rozmiary]
 AS
 SELECT        TOP (100) PERCENT ID_Rozmiar_Polki, Wysokosc, Szerokosc, Glebokosc, CAST(dbo.Polki_Rozmiary.Wysokosc AS NVARCHAR) 
-                         + ' x ' + CAST(dbo.Polki_Rozmiary.Szerokosc AS NVARCHAR) + ' x ' + CAST(dbo.Polki_Rozmiary.Glebokosc AS NVARCHAR) AS Wymiar
+                         + ' x ' + CAST(dbo.Polki_Rozmiary.Szerokosc AS NVARCHAR) + ' x ' + CAST(dbo.Polki_Rozmiary.Glebokosc AS NVARCHAR) + ' cm' AS Wymiar
 FROM            dbo.Polki_Rozmiary
 ORDER BY Wysokosc, Szerokosc, Glebokosc
-GO
-
----- Widok zawartosci polek
-CREATE VIEW [dbo].[vZawartosc_polki]
-AS
-SELECT         dbo.Zawartosc.ID_Zawartosc, dbo.Zawartosc.ID_Polka, dbo.Elementy.Element_Nazwa, dbo.Oferta.ID_Element, dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym * dbo.Zawartosc.Ilosc_Paczek AS Ile, dbo.Elementy_Jednostki.Jednostka, 
-                         dbo.Zamowienia_Dostawy.Data_Dostawy_Rzeczywista, dbo.Elementy.Okres_Przydatnosci_Miesiace
-FROM            dbo.Zawartosc INNER JOIN
-                         dbo.Elementy ON dbo.Zawartosc.ID_Element = dbo.Elementy.ID_Element INNER JOIN
-                         dbo.Oferta ON dbo.Elementy.ID_Element = dbo.Oferta.ID_Element INNER JOIN
-                         dbo.Dostawy_Zawartosc ON dbo.Elementy.ID_Element = dbo.Dostawy_Zawartosc.ID_Element AND dbo.Oferta.ID_Oferta = dbo.Dostawy_Zawartosc.ID_oferta INNER JOIN
-                         dbo.Zamowienia_Dostawy ON dbo.Zawartosc.ID_Dostawy = dbo.Zamowienia_Dostawy.ID_Dostawy AND dbo.Dostawy_Zawartosc.ID_Dostawy = dbo.Zamowienia_Dostawy.ID_Dostawy INNER JOIN
-                         dbo.Elementy_Jednostki ON dbo.Oferta.ID_Jednostka = dbo.Elementy_Jednostki.ID_jednostka
 GO
 
 -- Widok oznaczeñ rega³ów alfabetycznie
@@ -55,10 +42,10 @@ GO
 -- Widok podsumowujacy materialy z magazynu ktore zostaly przypisane do zamowien
 CREATE VIEW [dbo].[vMaterialyZMagazynu]
 AS
-SELECT        dbo.Zamowienia_Dostawy_Wlasne.ID_Zamowienia, dbo.Dostawy_Wlasne_Zawartosc.ID_Element, SUM(dbo.Dostawy_Wlasne_Zawartosc.Ilosc) * - 1 AS Ilosc
+SELECT        dbo.Dostawy_Wlasne_Zawartosc.ID_Dostawy, dbo.Zamowienia_Dostawy_Wlasne.ID_Zamowienia, dbo.Dostawy_Wlasne_Zawartosc.ID_Element, SUM(dbo.Dostawy_Wlasne_Zawartosc.Ilosc) * - 1 AS Ilosc
 FROM            dbo.Dostawy_Wlasne_Zawartosc INNER JOIN
                          dbo.Zamowienia_Dostawy_Wlasne ON dbo.Dostawy_Wlasne_Zawartosc.ID_Zamowienia_dostawy_wlasne = dbo.Zamowienia_Dostawy_Wlasne.ID_Zamowienia_dostawy_wlasne
-GROUP BY dbo.Zamowienia_Dostawy_Wlasne.ID_Zamowienia, dbo.Dostawy_Wlasne_Zawartosc.ID_Element
+GROUP BY dbo.Zamowienia_Dostawy_Wlasne.ID_Zamowienia, dbo.Dostawy_Wlasne_Zawartosc.ID_Element, dbo.Dostawy_Wlasne_Zawartosc.ID_Dostawy
 GO
 --Widok podsumowujacy materialy potrzebne do wykonania zamowienia
 CREATE VIEW [dbo].[vMaterialyDoZamowienia]
@@ -75,7 +62,8 @@ GO
 --Widok podsumowujacy juz zamowione materialy
 CREATE VIEW [dbo].[vMaterialyZamowione]
 AS
-SELECT        dbo.Zamowienia_Dostawy.ID_Zamowienia, dbo.Dostawy_Zawartosc.ID_Element, dbo.Dostawy_Zawartosc.Ilosc_Dostarczona * dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym * - 1 AS Ilosc
+SELECT        dbo.Zamowienia_Dostawy.ID_Dostawy, dbo.Zamowienia_Dostawy.ID_Zamowienia, dbo.Dostawy_Zawartosc.ID_Element, 
+                         dbo.Dostawy_Zawartosc.Ilosc_Dostarczona * dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym * - 1 AS Ilosc
 FROM            dbo.Zamowienia_Dostawy INNER JOIN
                          dbo.Dostawy_Zawartosc ON dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Dostawy_Zawartosc.ID_Dostawy INNER JOIN
                          dbo.Oferta ON dbo.Dostawy_Zawartosc.ID_oferta = dbo.Oferta.ID_Oferta
@@ -98,15 +86,52 @@ GROUP BY Wszystko.ID_Zamowienia, dbo.Elementy.Element_Nazwa, dbo.Elementy.ID_Ele
 HAVING        (SUM(Wszystko.Ilosc) > 0)
 GO
 
+---Widok ofert
+CREATE VIEW vOferty_Zebrane
+AS
+SELECT        TOP (100) PERCENT dbo.Oferta.ID_Oferta, dbo.Elementy.Element_Nazwa, dbo.Oferta.Element_Oznaczenie, dbo.Dostawcy_Zaopatrzenie.Nazwa, dbo.Oferta.Cena_Jedn, dbo.Oferta.Data_Oferty, dbo.Oferta.Ilosc_Minimalna, 
+                         dbo.Oferta.Ilosc_Maksymalna, dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym, dbo.Elementy_Jednostki.Jednostka, dbo.Oferta.Ilosc_W_Opakowaniu_Zbiorczym, dbo.Oferta.Deklarowany_czas_dostawy
+FROM            dbo.Elementy INNER JOIN
+                         dbo.Oferta ON dbo.Elementy.ID_Element = dbo.Oferta.ID_Element INNER JOIN
+                         dbo.Elementy_Jednostki ON dbo.Oferta.ID_Jednostka = dbo.Elementy_Jednostki.ID_jednostka INNER JOIN
+                         dbo.Dostawcy_Zaopatrzenie ON dbo.Oferta.ID_Dostawcy = dbo.Dostawcy_Zaopatrzenie.ID_Dostawcy
+ORDER BY dbo.Elementy.Element_Nazwa
+GO
+----Widok umow z kurierami
+CREATE VIEW vUmowyKurierzy
+AS
+SELECT        TOP (100) PERCENT dbo.Umowy_Kurierzy.ID_Umowy, dbo.Kurierzy.Nazwa, dbo.Umowy_Kurierzy.Data_Zawarcia, dbo.Umowy_Kurierzy.Czas_Dostawy, dbo.Umowy_Kurierzy.Koszt_Km, dbo.Umowy_Kurierzy.Koszt_Staly
+FROM            dbo.Kurierzy INNER JOIN
+                         dbo.Umowy_Kurierzy ON dbo.Kurierzy.ID_Kurier = dbo.Umowy_Kurierzy.ID_Kurier
+ORDER BY dbo.Umowy_Kurierzy.Data_Zawarcia DESC
+GO
 --widok ofert
 CREATE VIEW [dbo].[vOferta]
 AS
-SELECT        dbo.Oferta.ID_Element, dbo.Oferta.ID_Oferta, dbo.Dostawcy_Zaopatrzenie.ID_Dostawcy, dbo.Oferta.Element_Oznaczenie, dbo.Oferta.Cena_Jedn, dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym, 
-                         dbo.Oferta.Deklarowany_czas_dostawy, dbo.Dostawcy_Zaopatrzenie.Nazwa, dbo.Oferta.Ilosc_Minimalna, dbo.Oferta.Ilosc_Maksymalna, dbo.Dostawcy_Zaopatrzenie.Telefon_1
+SELECT        dbo.Oferta.ID_Element, dbo.Oferta.ID_Oferta, dbo.Dostawcy_Zaopatrzenie.ID_Dostawcy, dbo.Oferta.Element_Oznaczenie, CAST(dbo.Oferta.Cena_Jedn AS DECIMAL(18, 2)) AS Cena_Jedn, 
+                         dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym, dbo.Oferta.Deklarowany_czas_dostawy, dbo.Dostawcy_Zaopatrzenie.Nazwa, dbo.Oferta.Ilosc_Minimalna, dbo.Oferta.Ilosc_Maksymalna, 
+                         dbo.Dostawcy_Zaopatrzenie.Telefon_1
 FROM            dbo.Oferta INNER JOIN
                          dbo.Dostawcy_Zaopatrzenie ON dbo.Oferta.ID_Dostawcy = dbo.Dostawcy_Zaopatrzenie.ID_Dostawcy
 GROUP BY dbo.Oferta.ID_Element, dbo.Oferta.ID_Oferta, dbo.Oferta.Element_Oznaczenie, dbo.Oferta.Cena_Jedn, dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym, dbo.Dostawcy_Zaopatrzenie.ID_Dostawcy, 
                          dbo.Dostawcy_Zaopatrzenie.Nazwa, dbo.Dostawcy_Zaopatrzenie.Telefon_1, dbo.Oferta.Ilosc_Minimalna, dbo.Oferta.Ilosc_Maksymalna, dbo.Oferta.Deklarowany_czas_dostawy
+GO
+---- Widok stanu magazynowego wg pó³ek
+CREATE VIEW [dbo].[vStan_magazynowy_polki]
+AS
+SELECT         dbo.Zawartosc.ID_Zawartosc, dbo.Zawartosc.ID_Polka, dbo.Regaly.Oznaczenie, dbo.Elementy.Element_Nazwa, dbo.Zawartosc.ID_Element, dbo.Zawartosc.ID_Dostawy, CASE WHEN dbo.Elementy.Okres_Przydatnosci_Miesiace = 0 THEN DATEADD(YEAR, 
+                         50, dbo.Zamowienia_Dostawy.Data_Dostawy_Rzeczywista) ELSE DATEADD(MONTH, dbo.Elementy.Okres_Przydatnosci_Miesiace, dbo.Zamowienia_Dostawy.Data_Dostawy_Rzeczywista) END AS Przydatnosc, dbo.Elementy.Okres_Przydatnosci_Miesiace,
+                         dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym * dbo.Zawartosc.Ilosc_Paczek AS Ile, dbo.Elementy_Jednostki.Jednostka
+FROM            dbo.Polki_regaly INNER JOIN
+                         dbo.Regaly ON dbo.Polki_regaly.ID_regal = dbo.Regaly.ID_regal INNER JOIN
+                         dbo.Polki ON dbo.Polki_regaly.ID_Polka = dbo.Polki.ID_Polka INNER JOIN
+                         dbo.Zawartosc INNER JOIN
+                         dbo.Zamowienia_Dostawy ON dbo.Zawartosc.ID_Dostawy = dbo.Zamowienia_Dostawy.ID_Dostawy INNER JOIN
+                         dbo.Elementy ON dbo.Zawartosc.ID_Element = dbo.Elementy.ID_Element ON dbo.Polki.ID_Polka = dbo.Zawartosc.ID_Polka INNER JOIN
+                         dbo.Oferta ON dbo.Elementy.ID_Element = dbo.Oferta.ID_Element INNER JOIN
+                         dbo.Dostawy_Zawartosc ON dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Dostawy_Zawartosc.ID_Dostawy AND dbo.Elementy.ID_Element = dbo.Dostawy_Zawartosc.ID_Element AND 
+                         dbo.Oferta.ID_Oferta = dbo.Dostawy_Zawartosc.ID_oferta INNER JOIN
+                         dbo.Elementy_Jednostki ON dbo.Oferta.ID_Jednostka = dbo.Elementy_Jednostki.ID_jednostka
 GO
 
 --widok zawartosci magazynu do przydzia³u do zamowien
@@ -138,15 +163,21 @@ SELECT        dbo.Zamowienia_Dostawy.ID_Dostawy, dbo.Dostawy_Zawartosc.ID_Elemen
 FROM            dbo.Zamowienia_Dostawy INNER JOIN
                          dbo.Dostawy_Zawartosc ON dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Dostawy_Zawartosc.ID_Dostawy INNER JOIN
                          dbo.Oferta ON dbo.Dostawy_Zawartosc.ID_oferta = dbo.Oferta.ID_Oferta LEFT OUTER JOIN
-                         dbo.Dostarczenia_Wewn ON dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Dostarczenia_Wewn.ID_Dostawy
-WHERE        (dbo.Dostarczenia_Wewn.ID_Dostawy IS NULL)
+                             (SELECT        ID_Dostarczenia, ID_Pracownicy, ID_Dostawy, ID_Zamowienie_element, ID_element, Ilosc_Dostarczona, ID_Miejsca, Data_Dostarczenia
+                               FROM            dbo.Dostarczenia_Wewn
+                               WHERE        (Ilosc_Dostarczona > 0) AND (ID_Miejsca <> 2)) AS Dostarczenia_wewn_select ON dbo.Zamowienia_Dostawy.ID_Dostawy = Dostarczenia_wewn_select.ID_Dostawy
+WHERE        (Dostarczenia_wewn_select.ID_Dostawy IS NULL)
 GO
 --lista wolnych polek
 CREATE VIEW [dbo].[vWolnePolki]
 AS
-SELECT        dbo.Polki.ID_Polka
-FROM            dbo.Zawartosc RIGHT OUTER JOIN
-                         dbo.Polki ON dbo.Zawartosc.ID_Polka = dbo.Polki.ID_Polka
+SELECT        dbo.Polki.ID_Polka, dbo.Regaly.Oznaczenie, CAST(dbo.Polki_Rozmiary.Wysokosc AS NVARCHAR) + ' x ' + CAST(dbo.Polki_Rozmiary.Szerokosc AS NVARCHAR) + ' x ' + CAST(dbo.Polki_Rozmiary.Glebokosc AS NVARCHAR) 
+                         + ' cm' AS Wymiar
+FROM            dbo.Polki_Rozmiary INNER JOIN
+                         dbo.Polki ON dbo.Polki_Rozmiary.ID_Rozmiar_Polki = dbo.Polki.ID_Rozmiar_Polki INNER JOIN
+                         dbo.Polki_regaly ON dbo.Polki.ID_Polka = dbo.Polki_regaly.ID_Polka INNER JOIN
+                         dbo.Regaly ON dbo.Polki_regaly.ID_regal = dbo.Regaly.ID_regal LEFT OUTER JOIN
+                         dbo.Zawartosc ON dbo.Polki.ID_Polka = dbo.Zawartosc.ID_Polka
 WHERE        (dbo.Zawartosc.ID_Polka IS NULL)
 GO
 --lista pracownikow magazynu 
@@ -156,6 +187,177 @@ SELECT        dbo.Pracownicy.ID_Pracownika, dbo.Pracownicy.Imie + ' ' + dbo.Prac
 FROM            dbo.Pracownicy INNER JOIN
                          dbo.Pracownicy_Zatrudnienie ON dbo.Pracownicy.ID_Pracownika = dbo.Pracownicy_Zatrudnienie.ID_Pracownika
 WHERE        (dbo.Pracownicy_Zatrudnienie.ID_Dzialu = 2)
+GO
+--widok materia³ów dostarczonych na produkcje
+CREATE VIEW [dbo].[vDostarczeniaNaProdukcje]
+AS
+SELECT        ID_Dostarczenia, ID_Pracownicy, ID_Dostawy, ID_Zamowienie_element, ID_element, Ilosc_Dostarczona, ID_Miejsca, Data_Dostarczenia
+FROM            dbo.Dostarczenia_Wewn
+WHERE        (Ilosc_Dostarczona < 0)
+GO
+--widok materia³ów potrzebnych produkcji
+CREATE VIEW [dbo].[vPotrzebyProdukcjiZDatami]
+AS
+SELECT DISTINCT dbo.Proces_Produkcyjny.ID_Zamowienie_Element, dbo.Elementy_Proces.ID_Element, dbo.Elementy_Proces.Liczba, dbo.Proces_Produkcyjny.Proponowana_data_dostawy_materialu
+FROM            dbo.Zamowienie_Element INNER JOIN
+                         dbo.Proces_Produkcyjny ON dbo.Zamowienie_Element.ID_Zamowienie_Element = dbo.Proces_Produkcyjny.ID_Zamowienie_Element INNER JOIN
+                         dbo.Elementy_Proces INNER JOIN
+                         dbo.Proces_Technologiczny ON dbo.Elementy_Proces.ID_Proces_Technologiczny = dbo.Proces_Technologiczny.ID_Proces_Technologiczny INNER JOIN
+                         dbo.Proces_Zamowienie ON dbo.Proces_Technologiczny.ID_Proces_Technologiczny = dbo.Proces_Zamowienie.ID_Proces_Technologiczny ON 
+                         dbo.Zamowienie_Element.ID_Zamowienie_Element = dbo.Proces_Zamowienie.ID_Zamowienie_Element
+GO
+--widok materia³ów jeszcz nie wydanych a potrzebnych
+CREATE VIEW [dbo].[vDostawyDoWydania]
+AS
+SELECT DISTINCT 
+                         dbo.vPotrzebyProdukcjiZDatami.ID_Zamowienie_Element, dbo.vPotrzebyProdukcjiZDatami.ID_Element, dbo.vPotrzebyProdukcjiZDatami.Liczba AS Ilosc, dbo.vPotrzebyProdukcjiZDatami.Proponowana_data_dostawy_materialu, 
+                         dbo.Elementy.Element_Nazwa, dbo.Zamowienie_Element.ID_Zamowienia, dbo.vMaterialyZamowione.ID_Dostawy
+FROM            dbo.Elementy INNER JOIN
+                         dbo.vPotrzebyProdukcjiZDatami INNER JOIN
+                         dbo.Zamowienie_Element ON dbo.vPotrzebyProdukcjiZDatami.ID_Zamowienie_Element = dbo.Zamowienie_Element.ID_Zamowienie_Element ON 
+                         dbo.Elementy.ID_Element = dbo.vPotrzebyProdukcjiZDatami.ID_Element INNER JOIN
+                         dbo.Zamowienia ON dbo.Zamowienie_Element.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia INNER JOIN
+                         dbo.vMaterialyZamowione ON dbo.Zamowienia.ID_Zamowienia = dbo.vMaterialyZamowione.ID_Zamowienia AND dbo.vPotrzebyProdukcjiZDatami.ID_Element = dbo.vMaterialyZamowione.ID_Element LEFT OUTER JOIN
+                         dbo.vDostarczeniaNaProdukcje ON dbo.vPotrzebyProdukcjiZDatami.ID_Element = dbo.vDostarczeniaNaProdukcje.ID_element AND 
+                         dbo.vPotrzebyProdukcjiZDatami.ID_Zamowienie_Element = dbo.vDostarczeniaNaProdukcje.ID_Zamowienie_element
+WHERE        (dbo.vDostarczeniaNaProdukcje.ID_Zamowienie_element IS NULL) AND (dbo.vDostarczeniaNaProdukcje.ID_element IS NULL)
+GO
+--widok materia³ów pozosta³ych po wyprodukowaniu
+CREATE VIEW [dbo].[vNiezuzytyMaterialNaProdukcji]
+AS
+SELECT        dbo.Proces_Produkcyjny.ID_Zamowienie_Element, dbo.Elementy_Proces.ID_Element, SUM(dbo.Material_Na_Produkcji.Niezuzyty_material) AS Niezuzyty_material
+FROM            dbo.Material_Na_Produkcji INNER JOIN
+                         dbo.Proces_Produkcyjny ON dbo.Material_Na_Produkcji.ID_Procesu_Produkcyjnego = dbo.Proces_Produkcyjny.ID_Procesu_Produkcyjnego INNER JOIN
+                         dbo.Elementy_Proces ON dbo.Material_Na_Produkcji.ID_Elementy_Proces = dbo.Elementy_Proces.ID_Elementy_Proces
+GROUP BY dbo.Proces_Produkcyjny.ID_Zamowienie_Element, dbo.Elementy_Proces.ID_Element
+GO
+--widok materia³ów ju¿ odebranych po wyprodukowaniu
+CREATE VIEW [dbo].[vMaterialyOdebraneZProdukcji]
+AS
+SELECT        ID_Dostarczenia, ID_Pracownicy, ID_Dostawy, ID_Zamowienie_element, ID_element, Ilosc_Dostarczona, ID_Miejsca, Data_Dostarczenia
+FROM            dbo.Dostarczenia_Wewn
+WHERE        (Ilosc_Dostarczona > 0) AND (ID_Miejsca = 2)
+GO
+--widok materia³ów oczekuj¹cych na odebranie wg ID_zamowienie_element
+CREATE VIEW [dbo].[vNieodebraneMaterialyWgZamowienieElement]
+AS
+SELECT        dbo.vNiezuzytyMaterialNaProdukcji.ID_Zamowienie_Element, dbo.vNiezuzytyMaterialNaProdukcji.ID_Element, dbo.vNiezuzytyMaterialNaProdukcji.Niezuzyty_material
+FROM            dbo.vMaterialyOdebraneZProdukcji RIGHT OUTER JOIN
+                         dbo.vNiezuzytyMaterialNaProdukcji ON dbo.vMaterialyOdebraneZProdukcji.ID_Zamowienie_element = dbo.vNiezuzytyMaterialNaProdukcji.ID_Zamowienie_Element AND 
+                         dbo.vMaterialyOdebraneZProdukcji.ID_element = dbo.vNiezuzytyMaterialNaProdukcji.ID_Element
+WHERE        (dbo.vMaterialyOdebraneZProdukcji.ID_element IS NULL) AND (dbo.vMaterialyOdebraneZProdukcji.ID_Zamowienie_element IS NULL)
+GO
+--widok materia³ów oczekuj¹cych na odebranie zawierajacy wszystkie dane
+CREATE VIEW [dbo].[vNieodebraneMaterialyWgDostawy]
+AS
+SELECT        dbo.vNieodebraneMaterialyWgZamowienieElement.ID_Zamowienie_Element, dbo.Zamowienia_Dostawy.ID_Dostawy, dbo.vNieodebraneMaterialyWgZamowienieElement.ID_Element, 
+                         dbo.vNieodebraneMaterialyWgZamowienieElement.Niezuzyty_material
+FROM            dbo.vNieodebraneMaterialyWgZamowienieElement INNER JOIN
+                         dbo.Zamowienie_Element ON dbo.vNieodebraneMaterialyWgZamowienieElement.ID_Zamowienie_Element = dbo.Zamowienie_Element.ID_Zamowienie_Element INNER JOIN
+                         dbo.Zamowienia ON dbo.Zamowienie_Element.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia INNER JOIN
+                         dbo.Zamowienia_Dostawy ON dbo.Zamowienia.ID_Zamowienia = dbo.Zamowienia_Dostawy.ID_Zamowienia INNER JOIN
+                         dbo.Dostawy_Zawartosc ON dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Dostawy_Zawartosc.ID_Dostawy 
+						 AND dbo.vNieodebraneMaterialyWgZamowienieElement.ID_Element = dbo.Dostawy_Zawartosc.ID_Element
+GO
+--widok materia³ów oczekuj¹cych na odebranie zawierajacy wszystkie dane plus nazwe do wyswietlania
+CREATE VIEW [dbo].[vNieodebraneMaterialyWgDostawyZNazwa]
+AS
+SELECT        dbo.vNieodebraneMaterialyWgDostawy.ID_Zamowienie_Element, dbo.vNieodebraneMaterialyWgDostawy.ID_Dostawy, dbo.vNieodebraneMaterialyWgDostawy.ID_Element, dbo.Elementy.Element_Nazwa, 
+                         dbo.vNieodebraneMaterialyWgDostawy.Niezuzyty_material
+FROM            dbo.Elementy INNER JOIN
+                         dbo.vNieodebraneMaterialyWgDostawy ON dbo.Elementy.ID_Element = dbo.vNieodebraneMaterialyWgDostawy.ID_Element
+GO
+--do [vNieodebraneMaterialyWgDostawyZNazwa] dodano ilosc_w_paczce z Oferta aby liczyæ iloœæ paczek
+CREATE VIEW [dbo].[vNieodebraneMaterialyWgDostawcyZNazwaIOferta]
+AS
+SELECT        dbo.vNieodebraneMaterialyWgDostawyZNazwa.ID_Zamowienie_Element, dbo.vNieodebraneMaterialyWgDostawyZNazwa.ID_Dostawy, dbo.vNieodebraneMaterialyWgDostawyZNazwa.ID_Element, 
+                         dbo.vNieodebraneMaterialyWgDostawyZNazwa.Element_Nazwa, dbo.vNieodebraneMaterialyWgDostawyZNazwa.Niezuzyty_material, dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym
+FROM            dbo.Oferta INNER JOIN
+                         dbo.Dostawy_Zawartosc ON dbo.Oferta.ID_Oferta = dbo.Dostawy_Zawartosc.ID_oferta INNER JOIN
+                         dbo.vNieodebraneMaterialyWgDostawyZNazwa ON dbo.Dostawy_Zawartosc.ID_Dostawy = dbo.vNieodebraneMaterialyWgDostawyZNazwa.ID_Dostawy AND 
+                         dbo.Dostawy_Zawartosc.ID_Element = dbo.vNieodebraneMaterialyWgDostawyZNazwa.ID_Element
+GO
+-- zawiera informacje do sprawdzenia ktore dostawy nie zostaly wydane /zawiera wszystkie przypisane dostawy/
+CREATE VIEW [dbo].[vDostawyMagazynuIDostawcow]
+AS
+SELECT        Wszystko.ID_Zamowienia, Wszystko.ID_Dostawy, dbo.Elementy.ID_Element, dbo.Elementy.Element_Nazwa, SUM(Wszystko.Ilosc) * - 1 AS Ilosc
+FROM            (SELECT        ID_Dostawy, ID_Zamowienia, ID_Element, Ilosc
+                          FROM            dbo.vMaterialyZamowione
+                          UNION ALL
+                          SELECT        ID_Dostawy, ID_Zamowienia, ID_Element, Ilosc
+                          FROM            dbo.vMaterialyZMagazynu) AS Wszystko INNER JOIN
+                         dbo.Elementy ON Wszystko.ID_Element = dbo.Elementy.ID_Element
+GROUP BY Wszystko.ID_Zamowienia, Wszystko.ID_Dostawy, dbo.Elementy.Element_Nazwa, dbo.Elementy.ID_Element
+HAVING        (SUM(Wszystko.Ilosc) * - 1 > 0)
+GO
+-- lista niewydanych dostaw, potrzebuje dodania tabeli w osobnym widoku aby miec daty
+CREATE VIEW [dbo].[vDostawyNiewydaneBezDat]
+AS
+SELECT        dbo.vDostawyDoWydania.ID_Zamowienia, dbo.Zamowienie_Element.ID_Zamowienie_Element, dbo.vDostawyDoWydania.ID_Element, dbo.vDostawyDoWydania.Element_Nazwa, dbo.vDostawyDoWydania.Ilosc, 
+                         dbo.vDostawyDoWydania.ID_Dostawy
+FROM            dbo.Proces_Technologiczny INNER JOIN
+                         dbo.Elementy_Proces ON dbo.Proces_Technologiczny.ID_Proces_Technologiczny = dbo.Elementy_Proces.ID_Proces_Technologiczny INNER JOIN
+                         dbo.Proces_Zamowienie ON dbo.Proces_Technologiczny.ID_Proces_Technologiczny = dbo.Proces_Zamowienie.ID_Proces_Technologiczny INNER JOIN
+                         dbo.vDostawyDoWydania INNER JOIN
+                         dbo.Zamowienia ON dbo.vDostawyDoWydania.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia INNER JOIN
+                         dbo.Zamowienie_Element ON dbo.Zamowienia.ID_Zamowienia = dbo.Zamowienie_Element.ID_Zamowienia ON dbo.Proces_Zamowienie.ID_Zamowienie_Element = dbo.Zamowienie_Element.ID_Zamowienie_Element AND 
+                         dbo.Elementy_Proces.ID_Element = dbo.vDostawyDoWydania.ID_Element
+GO
+-- lista niewydanych dostaw, tym razem z datami, uwzglednia czy te rzeczy sa na polce
+CREATE VIEW [dbo].[vMaterialyNiewydaneZDatami]
+AS
+SELECT DISTINCT 
+                         dbo.vDostawyNiewydaneBezDat.ID_Zamowienia, dbo.vDostawyNiewydaneBezDat.ID_Zamowienie_Element, dbo.vDostawyNiewydaneBezDat.ID_Element, dbo.vDostawyNiewydaneBezDat.Element_Nazwa, 
+                         dbo.vDostawyNiewydaneBezDat.Ilosc, dbo.vDostawyNiewydaneBezDat.ID_Dostawy, dbo.vPotrzebyProdukcjiZDatami.Proponowana_data_dostawy_materialu, dbo.Zawartosc.ID_Polka
+FROM            dbo.vDostawyNiewydaneBezDat INNER JOIN
+                         dbo.vPotrzebyProdukcjiZDatami ON dbo.vDostawyNiewydaneBezDat.ID_Zamowienie_Element = dbo.vPotrzebyProdukcjiZDatami.ID_Zamowienie_Element INNER JOIN
+                         dbo.Zawartosc ON dbo.vDostawyNiewydaneBezDat.ID_Element = dbo.Zawartosc.ID_Element AND dbo.vDostawyNiewydaneBezDat.ID_Dostawy = dbo.Zawartosc.ID_Dostawy
+GO
+--lista zamówieñ bez przypisanych pracowników i kurierów
+CREATE VIEW [dbo].[vZamowieniaNieprzypisaneDoPracownikaIKuriera]
+AS
+SELECT        dbo.Zamowienia.ID_Zamowienia
+FROM            dbo.Zamowienia_Przydzial RIGHT OUTER JOIN
+                         dbo.Zamowienia ON dbo.Zamowienia_Przydzial.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia INNER JOIN
+                         dbo.Klienci ON dbo.Zamowienia.ID_Klienta = dbo.Klienci.ID_Klienta
+WHERE        (dbo.Zamowienia_Przydzial.ID_Zamowienia IS NULL)
+GO
+--dystans na który trzeba dostarczyæ zamówienie
+CREATE VIEW [dbo].[vZamowieniaDystans]
+AS
+SELECT        dbo.Zamowienia.ID_Zamowienia, dbo.Klienci.Odleglosc_km
+FROM            dbo.Zamowienia INNER JOIN
+                         dbo.Klienci ON dbo.Zamowienia.ID_Klienta = dbo.Klienci.ID_Klienta
+GO
+--widok umow z kurierami
+CREATE VIEW [dbo].[vUmowyKurierzy]
+AS
+SELECT        dbo.Umowy_Kurierzy.ID_Umowy, dbo.Kurierzy.Nazwa, dbo.Umowy_Kurierzy.Data_Zawarcia, dbo.Umowy_Kurierzy.Czas_Dostawy, dbo.Umowy_Kurierzy.Koszt_Km, dbo.Umowy_Kurierzy.Koszt_Staly, NULL 
+                         AS Koszt_calkowity
+FROM            dbo.Umowy_Kurierzy INNER JOIN
+                         dbo.Kurierzy ON dbo.Umowy_Kurierzy.ID_Kurier = dbo.Kurierzy.ID_Kurier
+GO
+--widok nazw kurierów
+CREATE VIEW [dbo].[vUmowyKurierzyNazwyKurierow]
+AS
+SELECT        dbo.Umowy_Kurierzy.ID_Umowy, dbo.Kurierzy.Nazwa
+FROM            dbo.Kurierzy INNER JOIN
+                         dbo.Umowy_Kurierzy ON dbo.Kurierzy.ID_Kurier = dbo.Umowy_Kurierzy.ID_Kurier
+GO
+
+---- Widok stanu magazynowego wg elementów
+CREATE VIEW [dbo].[vStan_magazynowy_elementy]
+AS
+SELECT        TOP (100) PERCENT dbo.Elementy.Element_Nazwa, dbo.Elementy.ID_Element, SUM(dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym * dbo.Zawartosc.Ilosc_Paczek) AS Ile, dbo.Elementy_Jednostki.Jednostka
+FROM            dbo.Zawartosc INNER JOIN
+                         dbo.Zamowienia_Dostawy ON dbo.Zawartosc.ID_Dostawy = dbo.Zamowienia_Dostawy.ID_Dostawy INNER JOIN
+                         dbo.Elementy ON dbo.Zawartosc.ID_Element = dbo.Elementy.ID_Element INNER JOIN
+                         dbo.Oferta ON dbo.Elementy.ID_Element = dbo.Oferta.ID_Element INNER JOIN
+                         dbo.Dostawy_Zawartosc ON dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Dostawy_Zawartosc.ID_Dostawy AND dbo.Elementy.ID_Element = dbo.Dostawy_Zawartosc.ID_Element AND 
+                         dbo.Oferta.ID_Oferta = dbo.Dostawy_Zawartosc.ID_oferta INNER JOIN
+                         dbo.Elementy_Jednostki ON dbo.Oferta.ID_Jednostka = dbo.Elementy_Jednostki.ID_jednostka
+GROUP BY dbo.Elementy_Jednostki.Jednostka, dbo.Elementy.Element_Nazwa, dbo.Elementy.ID_Element
+ORDER BY dbo.Elementy.ID_Element
 GO
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
@@ -677,7 +879,7 @@ FROM            dbo.Elementy
 GO
 
 CREATE VIEW vWszystkie_Maszyny AS
-SELECT        dbo.Maszyny.ID_Maszyny, dbo.Srodki_Trwale.Producent, dbo.Srodki_Trwale.Nazwa, dbo.Srodki_Trwale.Numer_seryjny, dbo.Rodzaj_Maszyny.Rodzaj_Maszyny
+SELECT        dbo.Maszyny.ID_Maszyny AS [Numer maszyny], dbo.Srodki_Trwale.Producent, dbo.Srodki_Trwale.Nazwa, dbo.Srodki_Trwale.Numer_seryjny AS [Numer seryjny]
 FROM            dbo.Srodki_Trwale INNER JOIN
                          dbo.Maszyny ON dbo.Srodki_Trwale.ID_Srodki_trwale = dbo.Maszyny.ID_Srodki_Trwale INNER JOIN
                          dbo.Rodzaj_Maszyny ON dbo.Maszyny.ID_Rodzaj_Maszyny = dbo.Rodzaj_Maszyny.ID_Rodzaj_Maszyny
@@ -712,6 +914,31 @@ FROM            dbo.Proces_Technologiczny INNER JOIN
                          dbo.Etapy_W_Procesie ON dbo.Proces_Technologiczny.ID_Proces_Technologiczny = dbo.Etapy_W_Procesie.ID_Proces_Technologiczny INNER JOIN
                          dbo.Rodzaj_Etapu ON dbo.Etapy_W_Procesie.ID_Etapu = dbo.Rodzaj_Etapu.ID_Etapu
 GROUP BY dbo.Proces_Technologiczny.ID_Proces_Technologiczny, dbo.Rodzaj_Etapu.Nazwa, dbo.Etapy_W_Procesie.Czas
+GO
+
+CREATE VIEW vMaterialy AS
+SELECT        dbo.Elementy.ID_Element AS [Numer elementu], dbo.Elementy.Element_Nazwa AS [Nazwa elementu], dbo.Elementy_Typy.Typ
+FROM            dbo.Elementy INNER JOIN
+                         dbo.Elementy_Typy ON dbo.Elementy.ID_Element_Typ = dbo.Elementy_Typy.ID_Element_Typ
+WHERE        (dbo.Elementy_Typy.Typ = 'Tkanina') OR
+                         (dbo.Elementy_Typy.Typ = 'Guziki') OR
+                         (dbo.Elementy_Typy.Typ = 'Suwak')
+GO 
+
+CREATE VIEW vTechnologowie AS
+SELECT        dbo.Pracownicy.Imie + ' ' + dbo.Pracownicy.Nazwisko AS [Imiê i nazwisko], dbo.Stanowisko.Stanowisko, dbo.Pracownicy.ID_Pracownika
+FROM            dbo.Stanowisko INNER JOIN
+                         dbo.Pracownicy_Zatrudnienie ON dbo.Stanowisko.ID_Stanowiska = dbo.Pracownicy_Zatrudnienie.ID_Stanowiska INNER JOIN
+                         dbo.Pracownicy ON dbo.Pracownicy_Zatrudnienie.ID_Pracownika = dbo.Pracownicy.ID_Pracownika
+WHERE        (dbo.Stanowisko.Stanowisko = 'Technik utrzymania ruchu')
+GO
+
+CREATE VIEW vMaszynownia AS
+SELECT        dbo.Proces_Technologiczny.ID_Proces_Technologiczny AS [Numer procesu technologicznego], dbo.Rodzaj_Maszyny.Rodzaj_Maszyny AS [Rodzaj maszyny], dbo.Maszyny_Proces.Liczba_Maszyn AS [Liczba maszyn], 
+                         dbo.Maszyny_Proces.Liczba_Rbh_Maszyna AS [Liczba roboczogodzin maszyny]
+FROM            dbo.Proces_Technologiczny INNER JOIN
+                         dbo.Maszyny_Proces ON dbo.Proces_Technologiczny.ID_Proces_Technologiczny = dbo.Maszyny_Proces.ID_Proces_Technologiczny INNER JOIN
+                         dbo.Rodzaj_Maszyny ON dbo.Maszyny_Proces.ID_Rodzaj_Maszyny = dbo.Rodzaj_Maszyny.ID_Rodzaj_Maszyny
 GO
 
 ---------------------------------------------------------------------------------------------------------------------------

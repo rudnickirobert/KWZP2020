@@ -14,10 +14,9 @@ namespace Szwalnia
     
     public partial class vWszystkie_Maszyny
     {
-        public int ID_Maszyny { get; set; }
+        public int Numer_maszyny { get; set; }
         public string Producent { get; set; }
         public string Nazwa { get; set; }
         public string Numer_seryjny { get; set; }
-        public string Rodzaj_Maszyny { get; set; }
     }
 }

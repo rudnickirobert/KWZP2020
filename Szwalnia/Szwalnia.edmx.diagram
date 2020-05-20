@@ -76,6 +76,7 @@
         <EntityTypeShape EntityType="SzwalniaModel.vDokumentacja_info" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vDokumentacja_proces" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vDokumentacja_technologiczna" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vMaszynownia" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vDostawcyDostawDoZamowien" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vDostawyDoOdbioru" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vElementy_proces" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
@@ -91,13 +92,19 @@
         <EntityTypeShape EntityType="SzwalniaModel.vKontrolaProcesu" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vKoszty" Width="1.5" PointX="8.75" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vKosztyMaterialowe" Width="1.5" PointX="12.75" PointY="10.75" IsExpanded="true" />
+         <EntityTypeShape EntityType="SzwalniaModel.vMaszynownia" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vMaszyny_numer_seryjny" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vMaszyny_proces" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vMaszyny_rodzaj_liczba" Width="1.5" PointX="2.75" PointY="13.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vMaszyny_serwis" Width="1.5" PointX="4.75" PointY="13.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vMaterialyDoZamowienia" Width="1.5" PointX="10.75" PointY="13.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vMaterialyDoZamowieniaBrak" Width="1.5" PointX="12.75" PointY="13.75" IsExpanded="true" />
+         <EntityTypeShape EntityType="SzwalniaModel.vNieodebraneMaterialyWgDostawcyZNazwaIOferta" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vNieodebraneMaterialyWgDostawy" Width="1.5" PointX="2.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vNieodebraneMaterialyWgDostawyZNazwa" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vNieodebraneMaterialyWgZamowienieElement" Width="1.5" PointX="4.75" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vNieuzytyMaterialOdpad" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
+         <EntityTypeShape EntityType="SzwalniaModel.vNiezuzytyMaterialNaProdukcji" Width="1.5" PointX="6.75" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vObsluga" Width="1.5" PointX="14.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vOdebranyMaterialMagazyn" Width="1.5" PointX="14.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vOdebranyMaterialProdukcja" Width="1.5" PointX="14.75" PointY="14.75" IsExpanded="true" />
@@ -134,6 +141,9 @@
         <EntityTypeShape EntityType="SzwalniaModel.vSumaKosztowZamowienia" Width="1.5" PointX="24.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vSzacowanaDataZamowieniaTechnologow" Width="1.5" PointX="24.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vTechnolodzy" Width="1.5" PointX="24.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vTechnologowie" Width="1.5" PointX="24.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vUmowyKurierzy" Width="1.5" PointX="23.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vUmowyKurierzyNazwyKurierow" Width="1.5" PointX="25.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vUrlopPracownika" Width="1.5" PointX="24.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vWolneMaszyny" Width="1.5" PointX="24.75" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vWolnePolki" Width="1.5" PointX="2.75" PointY="16.75" IsExpanded="true" />
@@ -142,6 +152,8 @@
         <EntityTypeShape EntityType="SzwalniaModel.vWszystkie_Elementy" Width="1.5" PointX="24.75" PointY="23.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vWszystkie_Maszyny" Width="1.5" PointX="26.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vWszystkieMaszyny" Width="1.5" PointX="26.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vZamowieniaDystans" Width="1.5" PointX="25.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vZamowieniaNieprzypisaneDoPracownikaIKuriera" Width="1.5" PointX="5.75" PointY="20.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vZamowienie" Width="1.5" PointX="26.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vZamowienieProcesyProdukcyjne" Width="1.5" PointX="26.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vZatrudnieniePracownika" Width="1.5" PointX="26.75" PointY="14.75" IsExpanded="true" />
