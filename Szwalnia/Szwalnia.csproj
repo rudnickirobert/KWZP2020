@@ -155,6 +155,12 @@
     <Compile Include="Dzialy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="EdycjaProcesu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EdycjaProcesu.Designer.cs">
+      <DependentUpon>EdycjaProcesu.cs</DependentUpon>
+    </Compile>
     <Compile Include="ElementSzczegoly.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -871,6 +877,9 @@
     <Compile Include="vKlienciZamowienie.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vKompletnyProces.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vKontrolaProcesu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -994,7 +1003,7 @@
     <Compile Include="vPrzydzialZasobowEtap.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vRealizacjaProcesuProdukcyjnegoDetails.cs">
+    <Compile Include="vRealizacjaProcesuProdukcyjnego.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vRegaly_alfabetycznie.cs">
@@ -1298,6 +1307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DodoawanieCechElementowi.resx">
       <DependentUpon>DodoawanieCechElementowi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EdycjaProcesu.resx">
+      <DependentUpon>EdycjaProcesu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dostawcy.resx">
       <DependentUpon>Dostawcy.cs</DependentUpon>
