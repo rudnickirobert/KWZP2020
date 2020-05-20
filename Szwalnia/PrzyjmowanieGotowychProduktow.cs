@@ -73,5 +73,18 @@ namespace Szwalnia
         {
             Start.GetForm.Show();
         }
+
+        private void dgvGotoweProdukty_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (db.vOdbior_Gotowych_Produktow.Where(doOdebrania => doOdebrania.Ilosc > 0).Any())
+            {
+                int intZamowienieID = Convert.ToInt32(dgvGotoweProdukty.CurrentRow.Cells[0].Value);
+                int intElementID = Convert.ToInt32(dgvGotoweProdukty.CurrentRow.Cells[3].Value);
+                int intIloscSztuk = Convert.ToInt32(dgvGotoweProdukty.CurrentRow.Cells[4].Value);
+                WyborPolkiDoOdlozenia wybieraniePolkiDoOdlozeniaElementu = new WyborPolkiDoOdlozenia("przyjecieGotowychProduktow", intZamowienieID, intElementID, intIloscSztuk);
+                wybieraniePolkiDoOdlozeniaElementu.Show();
+                this.Hide();
+            }
+        }
     }
 }

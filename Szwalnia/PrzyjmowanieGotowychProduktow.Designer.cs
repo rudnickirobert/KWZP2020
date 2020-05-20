@@ -45,6 +45,7 @@
             this.dgvGotoweProdukty.Size = new System.Drawing.Size(570, 150);
             this.dgvGotoweProdukty.TabIndex = 0;
             this.dgvGotoweProdukty.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGotoweProdukty_CellClick);
+            this.dgvGotoweProdukty.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGotoweProdukty_CellDoubleClick);
             // 
             // lblTitle
             // 
