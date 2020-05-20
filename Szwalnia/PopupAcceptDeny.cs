@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
@@ -58,13 +59,12 @@ namespace Szwalnia
             this.intIlosc = intIlosc;
             lblInfo.Text = "Czy na pewno chcesz wybrac materiał z półki nr " + Convert.ToString(intPolka)+"?";
         }
-        public PopupAcceptDeny(bool czyWydanie,int intIDZamowienia, int intIDZamowieniaElement, int intIDElement, int intIDDostawy, int intIDPolka, int intIlosc, int intPracownikID)
+        public PopupAcceptDeny(bool czyWydanie,int intIDZamowienia, int intIDElement, int intIDDostawy, int intIDPolka, int intIlosc, int intPracownikID)
         {
             InitializeComponent();
             db = Start.szwalnia;
             this.czyWydanie = czyWydanie;
             this.intIDZamowienie = intIDZamowienia;
-            this.intIDZamowienieElement = intIDZamowieniaElement;
             this.intElementID = intIDElement;
             this.intIDDostawy = intIDDostawy;
             this.intPolka = intIDPolka;
@@ -184,16 +184,21 @@ namespace Szwalnia
                 }
                 else
                 {
+                    List<vDostawyNiewydaneBezDat> listaDoWstawienia = db.vDostawyNiewydaneBezDat.Where(wybraneRekordy => wybraneRekordy.ID_Zamowienia == intIDZamowienie).Where(wybraneRekordy => wybraneRekordy.ID_Dostawy == intIDDostawy).ToList();
                     Dostarczenia_Wewn noweWydanie = new Dostarczenia_Wewn();
-                    noweWydanie.ID_Pracownicy = intPracownikID;
-                    noweWydanie.ID_Dostawy = intIDDostawy;
-                    noweWydanie.ID_Zamowienie_element = intIDZamowienieElement;
-                    noweWydanie.ID_element = intElementID;
-                    noweWydanie.Ilosc_Dostarczona = (-1) * intIlosc;
-                    noweWydanie.ID_Miejsca = 2;
-                    noweWydanie.Data_Dostarczenia = (Convert.ToString(DateTime.Now)).Substring(0, 10);
-                    db.Dostarczenia_Wewn.Add(noweWydanie);
-                    db.SaveChanges();
+                    foreach (vDostawyNiewydaneBezDat wierszWybrany in listaDoWstawienia)
+                    {                        
+                        noweWydanie.ID_Pracownicy = intPracownikID;
+                        noweWydanie.ID_Dostawy = wierszWybrany.ID_Dostawy;
+                        noweWydanie.ID_Zamowienie_element = wierszWybrany.ID_Zamowienie_Element;
+                        noweWydanie.ID_element = wierszWybrany.ID_Element;
+                        noweWydanie.Ilosc_Dostarczona = (-1) * wierszWybrany.Ilosc;
+                        noweWydanie.ID_Miejsca = 2;
+                        noweWydanie.Data_Dostarczenia = (Convert.ToString(DateTime.Now)).Substring(0, 10);
+                        db.Dostarczenia_Wewn.Add(noweWydanie);
+                        db.SaveChanges();
+                        Start.DataBaseRefresh();
+                    }
                     Zawartosc polkaDoWyczyszczenia = db.Zawartosc.Where(polka => polka.ID_Polka == intPolka).First();
                     db.Zawartosc.Remove(polkaDoWyczyszczenia);
                     db.SaveChanges();

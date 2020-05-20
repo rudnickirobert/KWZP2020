@@ -371,7 +371,8 @@ VALUES
 	('Utrzymanie ruchu'),
 	('Biuro'),
 	('Dzial finansow'),
-	('Wysylka')
+	('Wysylka'),
+	('Dostawa')
 
 INSERT INTO 
 	Regaly(Oznaczenie)
@@ -569,14 +570,25 @@ VALUES
 	(3,4,12,60), --1200, 1 paczka = 20 sztuk
 	(4,3,9,2), --70, 1 paczka = 40 mb NADMIAR 10!
 	(5,2,4,9), --450, 1 paczka = 50 mb
-	(7,4,12,50), --1000, 1 paczka = 20 sztuk
-	(6,3,9,500), --20000, 1 paczka = 40 mb
+	(6,3,9,500), --1000, 1 paczka = 20 sztuk
+	(7,4,12,50), --20000, 1 paczka = 40 mb
 	(8,4,12,250), --5000, 1 paczka = 50 mb
 	(9,3,7,14) --175, 1 paczka = 12 mb ZA MA£O O 7 WEZMIEMY TO Z NADMIARU Z DOSTAWY 4 ZOSTANIE 3 SZT 
 
 INSERT INTO		
 	Dostarczenia_Wewn(ID_pracownicy,ID_dostawy,ID_Zamowienie_element,ID_element,Ilosc_dostarczona,ID_miejsca,Data_dostarczenia) 
 VALUES --ID_miejsca 2 to produkcja
+	(12,1,1,2,50,7,'2020-04-13'), --dostawy
+	(12,2,2,3,120,7,'2020-04-13'),
+	(12,3,1,4,1000,7,'2020-04-13'),
+	(12,3,2,4,200,7,'2020-04-13'),---MARK
+	(11,4,3,3,80,7,'2020-04-16'),
+	(11,5,6,2,50,7,'2020-04-16'),	
+	(11,5,5,2,400,7,'2020-04-16'),
+	(12,6,4,3,1000,7,'2020-04-16'),
+	(11,7,6,4,20000,7,'2020-04-22'),
+	(12,8,4,4,5000,7,'2020-04-22'),
+	(11,9,7,3,168,7,'2020-04-24'),
 	(12,1,1,2,-50,2,'2020-04-14'), --wydania na produkcje
 	(12,2,2,3,-120,2,'2020-04-14'),
 	(12,3,1,4,-1000,2,'2020-04-14'),
@@ -584,8 +596,8 @@ VALUES --ID_miejsca 2 to produkcja
 	(11,4,3,3,-80,2,'2020-04-17'),
 	(11,5,6,2,-50,2,'2020-04-17'),	
 	(11,5,5,2,-400,2,'2020-04-17'),
-	(12,6,6,4,-1000,2,'2020-04-17'),
-	(11,7,4,3,-20000,2,'2020-04-23'),
+	(12,6,4,3,-1000,2,'2020-04-17'),
+	(11,7,6,4,-20000,2,'2020-04-23'),
 	(12,8,4,4,-5000,2,'2020-04-23'),
 	(11,2,8,3,-4,2,'2020-04-24'), -- 10 by³o nadmiaru, 4 niezu¿yte (ale u Angeliki jest 4, wiêc tak zostawiamy)
 	(11,4,8,3,-3,2,'2020-04-24'), --tez pozostalosc

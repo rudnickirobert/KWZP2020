@@ -124,7 +124,7 @@ namespace Szwalnia
                 vPracownicyMagazynu pracownikWybrany = db.vPracownicyMagazynu.Where(danePracownika => danePracownika.ID_Pracownika == idPracownikaZCombobox).First();
                 int intIDPracownikaWybranego = pracownikWybrany.ID_Pracownika;
                 int intIDPolki = Convert.ToInt32(dgvWolnePolki.CurrentRow.Cells[0].Value);
-                int intMiejsceDostawy = 1;
+                int intMiejsceDostawy = 7;
                 Dostarczenia_Wewn nowaDostawaRejestr = new Dostarczenia_Wewn();
                 string dataDzis = Convert.ToString(DateTime.Now).Substring(0, 10);
                 nowaDostawaRejestr.ID_Pracownicy = intIDPracownikaWybranego;

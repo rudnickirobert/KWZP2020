@@ -30,17 +30,16 @@ namespace Szwalnia
         {
             InitializeComponent();
             db = Start.szwalnia;
-            if (db.vMaterialyNiewydaneZDatami.Any())
+            if (db.vDostawyNiewydaneZPolkami.Any())
             {
-                dgvMaterialyDoWydania.DataSource = db.vMaterialyNiewydaneZDatami.Where(dostawa => dostawa.ID_Zamowienie_Element > 0).ToList();
-                dgvMaterialyDoWydania.Columns[0].Visible = false;
-                dgvMaterialyDoWydania.Columns[1].Visible = false;
+                dgvMaterialyDoWydania.DataSource = db.vDostawyNiewydaneZPolkami.Where(dostawa => dostawa.ID_Zamowienia > 0).ToList();
+                dgvMaterialyDoWydania.Columns[0].HeaderText = "Numer zamówienia";
+                dgvMaterialyDoWydania.Columns[1].HeaderText = "Numer dostawy";
                 dgvMaterialyDoWydania.Columns[2].Visible = false;
-                dgvMaterialyDoWydania.Columns[5].Visible = false;
                 dgvMaterialyDoWydania.Columns[3].HeaderText = "Nazwa materiału";
                 dgvMaterialyDoWydania.Columns[4].HeaderText = "Ilość";
-                dgvMaterialyDoWydania.Columns[6].HeaderText = "Sugerowana data wydania";
-                dgvMaterialyDoWydania.Columns[7].HeaderText = "Numer półki";
+                dgvMaterialyDoWydania.Columns[5].HeaderText = "Sugerowana data wydania";
+                dgvMaterialyDoWydania.Columns[6].HeaderText = "Numer półki";
             }
             else
             {
@@ -71,13 +70,12 @@ namespace Szwalnia
             if (db.vMaterialyNiewydaneZDatami.Any())
             {
                 int intIDZamowienie = Convert.ToInt32(dgvMaterialyDoWydania.CurrentRow.Cells[0].Value);
-                int intIDZamowienieElement = Convert.ToInt32(dgvMaterialyDoWydania.CurrentRow.Cells[1].Value);
                 int intElementID = Convert.ToInt32(dgvMaterialyDoWydania.CurrentRow.Cells[2].Value);
-                int intIDDostawy = Convert.ToInt32(dgvMaterialyDoWydania.CurrentRow.Cells[5].Value);
-                int intPolka = Convert.ToInt32(dgvMaterialyDoWydania.CurrentRow.Cells[7].Value);
+                int intIDDostawy = Convert.ToInt32(dgvMaterialyDoWydania.CurrentRow.Cells[1].Value);
+                int intPolka = Convert.ToInt32(dgvMaterialyDoWydania.CurrentRow.Cells[6].Value);
                 int intIlosc = Convert.ToInt32(dgvMaterialyDoWydania.CurrentRow.Cells[4].Value);
                 int intPracownikID = Convert.ToInt32(cmbPracownik.SelectedValue);
-                PopupAcceptDeny akceptujWydanie = new PopupAcceptDeny(true, intIDZamowienie, intIDZamowienieElement, intElementID, intIDDostawy, intPolka, intIlosc, intPracownikID);
+                PopupAcceptDeny akceptujWydanie = new PopupAcceptDeny(true, intIDZamowienie, intElementID, intIDDostawy, intPolka, intIlosc, intPracownikID);
                 akceptujWydanie.Show();
             }
         }
