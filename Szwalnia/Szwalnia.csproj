@@ -1105,6 +1105,9 @@
     <Compile Include="vZamowieniaNieprzypisaneDoPracownikaIKuriera.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vZamowienia_Do_Wydania.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vZamowienie.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>

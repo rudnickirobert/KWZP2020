@@ -101,6 +101,9 @@ namespace Szwalnia
         public virtual DbSet<vDostawyDoOdbioru> vDostawyDoOdbioru { get; set; }
         public virtual DbSet<vDostawyDoWydania> vDostawyDoWydania { get; set; }
         public virtual DbSet<vDostawyMagazynuIDostawcow> vDostawyMagazynuIDostawcow { get; set; }
+        public virtual DbSet<vDostawyNiewydaneBezDat> vDostawyNiewydaneBezDat { get; set; }
+        public virtual DbSet<vDostawyNiewydaneZPolkami> vDostawyNiewydaneZPolkami { get; set; }
+        public virtual DbSet<vDostawyZawartoscInformacjeDostawcy> vDostawyZawartoscInformacjeDostawcy { get; set; }
         public virtual DbSet<vElementy_proces> vElementy_proces { get; set; }
         public virtual DbSet<vElementyProcesProdukcyjny> vElementyProcesProdukcyjny { get; set; }
         public virtual DbSet<vEtapy_proces> vEtapy_proces { get; set; }
@@ -188,15 +191,13 @@ namespace Szwalnia
         public virtual DbSet<vWszystkieMaszyny> vWszystkieMaszyny { get; set; }
         public virtual DbSet<vWydawanie_Zamowien_Kurierowi> vWydawanie_Zamowien_Kurierowi { get; set; }
         public virtual DbSet<vWynagrodzenia> vWynagrodzenia { get; set; }
+        public virtual DbSet<vZamowienia_Do_Wydania> vZamowienia_Do_Wydania { get; set; }
+        public virtual DbSet<vZamowieniaDoWykonaniaUDostawcy> vZamowieniaDoWykonaniaUDostawcy { get; set; }
         public virtual DbSet<vZamowieniaDystans> vZamowieniaDystans { get; set; }
         public virtual DbSet<vZamowieniaNieprzypisaneDoPracownikaIKuriera> vZamowieniaNieprzypisaneDoPracownikaIKuriera { get; set; }
         public virtual DbSet<vZamowienie> vZamowienie { get; set; }
         public virtual DbSet<vZamowienieProcesyProdukcyjne> vZamowienieProcesyProdukcyjne { get; set; }
         public virtual DbSet<vZatrudnieniePracownika> vZatrudnieniePracownika { get; set; }
         public virtual DbSet<vZawartoscMagazynuDoPrzydzialu> vZawartoscMagazynuDoPrzydzialu { get; set; }
-        public virtual DbSet<vDostawyNiewydaneZPolkami> vDostawyNiewydaneZPolkami { get; set; }
-        public virtual DbSet<vDostawyZawartoscInformacjeDostawcy> vDostawyZawartoscInformacjeDostawcy { get; set; }
-        public virtual DbSet<vZamowieniaDoWykonaniaUDostawcy> vZamowieniaDoWykonaniaUDostawcy { get; set; }
-        public virtual DbSet<vDostawyNiewydaneBezDat> vDostawyNiewydaneBezDat { get; set; }
     }
 }

@@ -443,6 +443,20 @@ FROM            dbo.Zamowienia_Dostawy INNER JOIN
 ORDER BY dbo.Oferta.Deklarowany_czas_dostawy DESC
 GO
 
+--widok listuj¹cy zamówienia gotowe do wydania kurierowi
+CREATE VIEW [dbo].[vZamowienia_Do_Wydania]
+AS
+SELECT DISTINCT dbo.Zamowienia.ID_Zamowienia
+FROM            dbo.Zamowienia INNER JOIN
+                         dbo.Zamowienie_Element ON dbo.Zamowienia.ID_Zamowienia = dbo.Zamowienie_Element.ID_Zamowienia INNER JOIN
+                         dbo.Proces_Produkcyjny ON dbo.Zamowienie_Element.ID_Zamowienie_Element = dbo.Proces_Produkcyjny.ID_Zamowienie_Element LEFT OUTER JOIN
+                             (SELECT        ID_Zamowienia, ID_element
+                               FROM            dbo.Dostarczenia_Zewn
+                               WHERE        (Ilosc_Dostarczona > 0)) AS Dostarczenia_zewn_filtrowane ON dbo.Zamowienie_Element.ID_Zamowienia = Dostarczenia_zewn_filtrowane.ID_Zamowienia AND 
+                         dbo.Zamowienie_Element.ID_Element = Dostarczenia_zewn_filtrowane.ID_element
+WHERE        (dbo.Proces_Produkcyjny.Data_Zakonczenia IS NOT NULL) AND (Dostarczenia_zewn_filtrowane.ID_Zamowienia IS NOT NULL) AND (Dostarczenia_zewn_filtrowane.ID_element IS NOT NULL)
+GO
+
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------WIDOKI PRODUKCJA----------------------------------------------------
