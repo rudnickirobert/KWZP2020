@@ -62,7 +62,7 @@ namespace Szwalnia
             if (db.vDostawyDoOdbioru.Where(doOdebrania => doOdebrania.Ilosc > 0).Any())
             {
                 int intDostawaID = Convert.ToInt32(dgvDostawyDoPrzyjecia.CurrentRow.Cells[0].Value);
-                int intElementID = Convert.ToInt32(dgvDostawyDoPrzyjecia.CurrentRow.Cells[2].Value);
+                int intElementID = Convert.ToInt32(dgvDostawyDoPrzyjecia.CurrentRow.Cells[1].Value);
                 int intIlosc = Convert.ToInt32(dgvDostawyDoPrzyjecia.CurrentRow.Cells[3].Value);
                 int intIloscPaczek = Convert.ToInt32(dgvDostawyDoPrzyjecia.CurrentRow.Cells[4].Value);
                 WyborPolkiDoOdlozenia wybieraniePolkiDoOdlozeniaElementu = new WyborPolkiDoOdlozenia("dostawa", intDostawaID, intElementID, intIlosc, intIloscPaczek);
