@@ -28,49 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvFakturyZewnetrzne = new System.Windows.Forms.DataGridView();
-            this.labelTitle = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFakturyZewnetrzne)).BeginInit();
+            this.btnFaktury = new System.Windows.Forms.Button();
+            this.btnDodaj = new System.Windows.Forms.Button();
+            this.btnZamknij = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // dgvFakturyZewnetrzne
+            // btnFaktury
             // 
-            this.dgvFakturyZewnetrzne.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFakturyZewnetrzne.Location = new System.Drawing.Point(12, 92);
-            this.dgvFakturyZewnetrzne.Name = "dgvFakturyZewnetrzne";
-            this.dgvFakturyZewnetrzne.RowHeadersWidth = 51;
-            this.dgvFakturyZewnetrzne.RowTemplate.Height = 24;
-            this.dgvFakturyZewnetrzne.Size = new System.Drawing.Size(782, 293);
-            this.dgvFakturyZewnetrzne.TabIndex = 0;
-            this.dgvFakturyZewnetrzne.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvFakturyZewnetrzne_CellMouseDoubleClick);
+            this.btnFaktury.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnFaktury.Location = new System.Drawing.Point(12, 45);
+            this.btnFaktury.Name = "btnFaktury";
+            this.btnFaktury.Size = new System.Drawing.Size(201, 81);
+            this.btnFaktury.TabIndex = 3;
+            this.btnFaktury.Text = "Faktury  zewnętrzne";
+            this.btnFaktury.UseVisualStyleBackColor = true;
+            this.btnFaktury.Click += new System.EventHandler(this.btnFaktury_Click);
             // 
-            // labelTitle
+            // btnDodaj
             // 
-            this.labelTitle.AutoSize = true;
-            this.labelTitle.Location = new System.Drawing.Point(363, 34);
-            this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(129, 17);
-            this.labelTitle.TabIndex = 1;
-            this.labelTitle.Text = "FakturyZewnetrzne";
+            this.btnDodaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnDodaj.Location = new System.Drawing.Point(240, 45);
+            this.btnDodaj.Name = "btnDodaj";
+            this.btnDodaj.Size = new System.Drawing.Size(201, 81);
+            this.btnDodaj.TabIndex = 4;
+            this.btnDodaj.Text = "Dodaj nową fakturę ";
+            this.btnDodaj.UseVisualStyleBackColor = true;
+            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
+            // 
+            // btnZamknij
+            // 
+            this.btnZamknij.Location = new System.Drawing.Point(343, 158);
+            this.btnZamknij.Name = "btnZamknij";
+            this.btnZamknij.Size = new System.Drawing.Size(98, 33);
+            this.btnZamknij.TabIndex = 5;
+            this.btnZamknij.Text = "Zamknij";
+            this.btnZamknij.UseVisualStyleBackColor = true;
+            this.btnZamknij.Click += new System.EventHandler(this.btnZamknij_Click);
             // 
             // FakturyZewnetrzne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.labelTitle);
-            this.Controls.Add(this.dgvFakturyZewnetrzne);
+            this.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.ClientSize = new System.Drawing.Size(454, 209);
+            this.Controls.Add(this.btnZamknij);
+            this.Controls.Add(this.btnDodaj);
+            this.Controls.Add(this.btnFaktury);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FakturyZewnetrzne";
-            this.Text = "FakturyZewnetrzne";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFakturyZewnetrzne)).EndInit();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Faktury Zewnetrzne";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvFakturyZewnetrzne;
-        private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.Button btnFaktury;
+        private System.Windows.Forms.Button btnDodaj;
+        private System.Windows.Forms.Button btnZamknij;
     }
 }
