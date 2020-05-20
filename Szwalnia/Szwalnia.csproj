@@ -239,7 +239,6 @@
     <Compile Include="InneProdukcja.designer.cs">
       <DependentUpon>InneProdukcja.cs</DependentUpon>
     </Compile>
-
     <Compile Include="Jezyk.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>

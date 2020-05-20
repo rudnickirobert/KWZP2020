@@ -27,7 +27,7 @@ namespace Szwalnia
 
             vRealizacjaProcesuProdukcyjnegoDetails realizacja = db.vRealizacjaProcesuProdukcyjnegoDetails.Where(wybrany => wybrany.Nazwa_etapu == nazwaEtapu).First();
             lblRealizacja.Text = "Przydział zasobów dla etapu " + realizacja.Nazwa_etapu;
-            dgvPrzydzialZasobowRealizacja.DataSource = db.vPrzydzialZasobow.Where(przydzial => przydzial.ID_realizacji_procesu == idEtapu).ToList();
+            dgvPrzydzialZasobowRealizacja.DataSource = db.vPrzydzialZasobow.Where(przydzial => przydzial.ID_Realizacji_Procesu == idEtapu).ToList();
             dgvPrzydzialZasobowRealizacja.Columns[0].Visible = false;
             dgvPrzydzialZasobowRealizacja.Columns[1].Visible = false;
             dgvPrzydzialZasobowRealizacja.Columns[2].Visible = false;

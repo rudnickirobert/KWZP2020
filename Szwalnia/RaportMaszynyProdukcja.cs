@@ -48,7 +48,7 @@ namespace Szwalnia
 
         private void btnIdRealizacji_Click(object sender, EventArgs e)
         {
-            dgvMaszyny.DataSource = this.db.vPrzydzialZasobow.Where(proces => proces.ID_realizacji_procesu == nudRealizacja.Value).ToList();
+            dgvMaszyny.DataSource = this.db.vPrzydzialZasobow.Where(proces => proces.ID_Realizacji_Procesu == nudRealizacja.Value).ToList();
             dgvMaszyny.Columns.OfType<DataGridViewColumn>().ToList().ForEach(kolumna => kolumna.Visible = true);
             dgvMaszyny.Columns[1].Visible = false;
             dgvMaszyny.Columns[3].Visible = false;

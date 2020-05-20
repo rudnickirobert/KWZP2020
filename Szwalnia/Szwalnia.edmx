@@ -1302,6 +1302,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vProcesy' does not have a primary key
 warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vPrzydzialZasobow">
           <Key>
+            <PropertyRef Name="ID_Realizacji_Procesu" />
+            <PropertyRef Name="ID_Przydzial_Zasobow" />
             <PropertyRef Name="ID procesu produkcyjnego" />
             <PropertyRef Name="ID realizacji procesu" />
             <PropertyRef Name="Nazwa etapu" />
@@ -1311,6 +1313,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vPrzydzialZasobow' does not have a pr
             <PropertyRef Name="ID maszyna" />
             <PropertyRef Name="Nazwa maszyny" />
           </Key>
+          <Property Name="ID_Realizacji_Procesu" Type="int" Nullable="false" />
+          <Property Name="ID_Przydzial_Zasobow" Type="int" Nullable="false" />
           <Property Name="ID procesu produkcyjnego" Type="int" Nullable="false" />
           <Property Name="ID realizacji procesu" Type="int" Nullable="false" />
           <Property Name="Nazwa etapu" Type="varchar" MaxLength="30" Nullable="false" />
@@ -1540,6 +1544,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vUmowyKurierzy' does not have a prima
           <Property Name="Czas_Dostawy" Type="int" />
           <Property Name="Koszt_Km" Type="int" />
           <Property Name="Koszt_Staly" Type="int" />
+          <Property Name="Koszt_calkowity" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vUmowyKurierzyNazwyKurierow' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -3243,6 +3248,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           </EntitySet>
           <EntitySet Name="vPrzydzialZasobow" EntityType="Self.vPrzydzialZasobow" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [vPrzydzialZasobow].[ID_Realizacji_Procesu] AS [ID_Realizacji_Procesu], 
+    [vPrzydzialZasobow].[ID_Przydzial_Zasobow] AS [ID_Przydzial_Zasobow], 
     [vPrzydzialZasobow].[ID procesu produkcyjnego] AS [ID procesu produkcyjnego], 
     [vPrzydzialZasobow].[ID realizacji procesu] AS [ID realizacji procesu], 
     [vPrzydzialZasobow].[Nazwa etapu] AS [Nazwa etapu], 
@@ -3402,7 +3409,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
     [vUmowyKurierzy].[Data_Zawarcia] AS [Data_Zawarcia], 
     [vUmowyKurierzy].[Czas_Dostawy] AS [Czas_Dostawy], 
     [vUmowyKurierzy].[Koszt_Km] AS [Koszt_Km], 
-    [vUmowyKurierzy].[Koszt_Staly] AS [Koszt_Staly]
+    [vUmowyKurierzy].[Koszt_Staly] AS [Koszt_Staly], 
+    [vUmowyKurierzy].[Koszt_calkowity] AS [Koszt_calkowity]
     FROM [dbo].[vUmowyKurierzy] AS [vUmowyKurierzy]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vUmowyKurierzyNazwyKurierow" EntityType="Self.vUmowyKurierzyNazwyKurierow" store:Type="Views" store:Schema="dbo">
@@ -5213,8 +5221,10 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
         </EntityType>
         <EntityType Name="vPrzydzialZasobow">
           <Key>
+            <PropertyRef Name="ID_Realizacji_Procesu" />
+            <PropertyRef Name="ID_Przydzial_Zasobow" />
             <PropertyRef Name="ID_procesu_produkcyjnego" />
-            <PropertyRef Name="ID_realizacji_procesu" />
+            <PropertyRef Name="ID_realizacji_procesu1" />
             <PropertyRef Name="Nazwa_etapu" />
             <PropertyRef Name="ID_pracownika" />
             <PropertyRef Name="Imię" />
@@ -5222,8 +5232,10 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <PropertyRef Name="ID_maszyna" />
             <PropertyRef Name="Nazwa_maszyny" />
           </Key>
+          <Property Name="ID_Realizacji_Procesu" Type="Int32" Nullable="false" />
+          <Property Name="ID_Przydzial_Zasobow" Type="Int32" Nullable="false" />
           <Property Name="ID_procesu_produkcyjnego" Type="Int32" Nullable="false" />
-          <Property Name="ID_realizacji_procesu" Type="Int32" Nullable="false" />
+          <Property Name="ID_realizacji_procesu1" Type="Int32" Nullable="false" />
           <Property Name="Nazwa_etapu" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ID_pracownika" Type="Int32" Nullable="false" />
           <Property Name="Imię" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -5413,6 +5425,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Czas_Dostawy" Type="Int32" />
           <Property Name="Koszt_Km" Type="Int32" />
           <Property Name="Koszt_Staly" Type="Int32" />
+          <Property Name="Koszt_calkowity" Type="Int32" />
         </EntityType>
         <EntityType Name="vUmowyKurierzyNazwyKurierow">
           <Key>
@@ -8275,8 +8288,10 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <EntitySetMapping Name="vPrzydzialZasobow">
             <EntityTypeMapping TypeName="SzwalniaModel.vPrzydzialZasobow">
               <MappingFragment StoreEntitySet="vPrzydzialZasobow">
+                <ScalarProperty Name="ID_Realizacji_Procesu" ColumnName="ID_Realizacji_Procesu" />
+                <ScalarProperty Name="ID_Przydzial_Zasobow" ColumnName="ID_Przydzial_Zasobow" />
                 <ScalarProperty Name="ID_procesu_produkcyjnego" ColumnName="ID procesu produkcyjnego" />
-                <ScalarProperty Name="ID_realizacji_procesu" ColumnName="ID realizacji procesu" />
+                <ScalarProperty Name="ID_realizacji_procesu1" ColumnName="ID realizacji procesu" />
                 <ScalarProperty Name="Nazwa_etapu" ColumnName="Nazwa etapu" />
                 <ScalarProperty Name="ID_pracownika" ColumnName="ID pracownika" />
                 <ScalarProperty Name="Imię" ColumnName="Imię" />
@@ -8473,6 +8488,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
                 <ScalarProperty Name="Czas_Dostawy" ColumnName="Czas_Dostawy" />
                 <ScalarProperty Name="Koszt_Km" ColumnName="Koszt_Km" />
                 <ScalarProperty Name="Koszt_Staly" ColumnName="Koszt_Staly" />
+                <ScalarProperty Name="Koszt_calkowity" ColumnName="Koszt_calkowity" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
