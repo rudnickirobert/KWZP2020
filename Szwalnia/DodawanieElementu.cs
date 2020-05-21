@@ -102,7 +102,9 @@ namespace Szwalnia
             if (czyMagazynUzywa)
             {
                 Start.GetForm.Show();
-            }            
+            }   
+            else
+            { this.Hide(); }
         }
 
         private void btnWstecz_Click(object sender, EventArgs e)
