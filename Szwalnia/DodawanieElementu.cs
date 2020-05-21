@@ -104,7 +104,7 @@ namespace Szwalnia
                 Start.GetForm.Show();
             }   
             else
-            { this.Close(); }
+            { this.Hide(); }
         }
 
         private void btnWstecz_Click(object sender, EventArgs e)
