@@ -998,6 +998,9 @@
     <Compile Include="vProces_technologiczny.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vProces_technologicznyy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vProduktyDoWykonania.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>

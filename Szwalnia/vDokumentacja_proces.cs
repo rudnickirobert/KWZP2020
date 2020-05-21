@@ -17,7 +17,7 @@ namespace Szwalnia
         public int Numer_procesu { get; set; }
         public string Rodzaj_dokumentacji { get; set; }
         public string Autor { get; set; }
-        public string Lokalizacja { get; set; }
         public System.DateTime Data_wykonania { get; set; }
+        public string Lokalizacja { get; set; }
     }
 }
