@@ -298,6 +298,7 @@
         <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_Za__31B762FC" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Zawartosc__ID_Za__1AD3FDA4" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Zawartosc__ID_Do__19DFD96B" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SzwalniaModel.vUrlopyWszyskie" Width="1.5" PointX="16.375" PointY="36.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
