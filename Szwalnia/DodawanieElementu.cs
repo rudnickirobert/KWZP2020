@@ -44,7 +44,7 @@ namespace Szwalnia
             else
             {
                 elementNew.Element_Nazwa = txtNazwa.Text;
-                elementNew.ID_Element_Typ = cmbTyp.SelectedIndex;
+                elementNew.ID_Element_Typ =cmbTyp.SelectedIndex+1;
                 if (chbOkres.Checked == false)
                 {                    
                     elementNew.Okres_Przydatnosci_Miesiace = Decimal.ToInt32(numOkres.Value);
