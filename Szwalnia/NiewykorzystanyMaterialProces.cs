@@ -18,6 +18,7 @@ namespace Szwalnia
         Material_Na_Produkcji material = new Material_Na_Produkcji();
         public NiewykorzystanyMaterialProces(SzwalniaEntities db, int idProcesu )
         {
+            db = Start.szwalnia;
             InitializeComponent();
             this.db = db;
             this.idProcesu = idProcesu;
@@ -54,7 +55,6 @@ namespace Szwalnia
 
         private void btnEdycja_Click(object sender, EventArgs e)
         {
-
             material.ID_Procesu_Produkcyjnego = idProcesu;
 
             if (!string.IsNullOrEmpty(tbOdpad.Text))
@@ -65,8 +65,9 @@ namespace Szwalnia
             if (!string.IsNullOrEmpty(tbNiewykorzystanyMaterial.Text))
             {
                 material.Niezuzyty_material = Convert.ToUInt64(tbNiewykorzystanyMaterial.Text);
-            }
-
+            }            
+            material.Magazyn_odebral_material = ckbOdbior.Checked;
+           
             this.db.Entry(material).State = EntityState.Modified;
             db.SaveChanges();
             MessageBox.Show("Zaktualizowano niewykorzystany materiał / odpad");
@@ -79,7 +80,7 @@ namespace Szwalnia
             material.Magazyn_odebral_material = Convert.ToBoolean(dgvNiewykorzystanyMaterial.CurrentRow.Cells[10].Value);
             material = this.db.Material_Na_Produkcji.Where(numer => numer.ID_Material_Na_Produkcji== material.ID_Material_Na_Produkcji).First();
             tbOdpad.Text = material.Odpad.ToString();
-            tbNiewykorzystanyMaterial.Text = material.Niezuzyty_material.ToString(); 
+            tbNiewykorzystanyMaterial.Text = material.Niezuzyty_material.ToString();
         }
     }
 }

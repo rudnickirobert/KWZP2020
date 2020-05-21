@@ -14,9 +14,10 @@ namespace Szwalnia
     {
         public SzwalniaEntities db;
         public int nowyProces;
-        public const string pustePole = "  .  .       :  :";
+        public const string pustePole = "  .  .       :  :";        
         public NowyProces(SzwalniaEntities db)
         {
+            
             InitializeComponent();
             this.db = db;
             dgvUkryty.DataSource = db.Proces_Produkcyjny.ToList();
