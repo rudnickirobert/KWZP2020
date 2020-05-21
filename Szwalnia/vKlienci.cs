@@ -12,15 +12,16 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vFaktury
+    public partial class vKlienci
     {
-        public int ID_Zamowienia { get; set; }
+        public int Numer_klienta { get; set; }
         public string Imie { get; set; }
         public string Nazwisko { get; set; }
+        public string Nazwa_firmy { get; set; }
         public string NIP { get; set; }
-        public Nullable<double> Cena_netto { get; set; }
-        public string Podatek { get; set; }
-        public Nullable<double> Cena_brutto { get; set; }
-        public Nullable<System.DateTime> Data_wystawienia { get; set; }
+        public string Adres { get; set; }
+        public string Odleglosc_w_km { get; set; }
+        public string Telefon { get; set; }
+        public string e_mail { get; set; }
     }
 }

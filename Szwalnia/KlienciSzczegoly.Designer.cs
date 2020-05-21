@@ -40,6 +40,7 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.btnZamknij = new System.Windows.Forms.Button();
             this.dgvKlienciSzczegoly = new System.Windows.Forms.DataGridView();
+            this.btnDodaj = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlienciSzczegoly)).BeginInit();
             this.SuspendLayout();
             // 
@@ -153,12 +154,23 @@
             this.dgvKlienciSzczegoly.Size = new System.Drawing.Size(961, 216);
             this.dgvKlienciSzczegoly.TabIndex = 12;
             // 
+            // btnDodaj
+            // 
+            this.btnDodaj.Location = new System.Drawing.Point(862, 187);
+            this.btnDodaj.Name = "btnDodaj";
+            this.btnDodaj.Size = new System.Drawing.Size(111, 54);
+            this.btnDodaj.TabIndex = 13;
+            this.btnDodaj.Text = "Dodaj nowe zamówienie";
+            this.btnDodaj.UseVisualStyleBackColor = true;
+            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
+            // 
             // KlienciSzczegoly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(985, 531);
+            this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.dgvKlienciSzczegoly);
             this.Controls.Add(this.btnZamknij);
             this.Controls.Add(this.txtEmail);
@@ -193,5 +205,6 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Button btnZamknij;
         private System.Windows.Forms.DataGridView dgvKlienciSzczegoly;
+        private System.Windows.Forms.Button btnDodaj;
     }
 }

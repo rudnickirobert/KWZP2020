@@ -88,6 +88,7 @@ namespace Szwalnia
         public virtual DbSet<Zawartosc> Zawartosc { get; set; }
         public virtual DbSet<Znajomosc_Jezykow> Znajomosc_Jezykow { get; set; }
         public virtual DbSet<vAktywnoscPracownikaTeraz> vAktywnoscPracownikaTeraz { get; set; }
+        public virtual DbSet<vBilans> vBilans { get; set; }
         public virtual DbSet<vCalkowityKosztZamowienia> vCalkowityKosztZamowienia { get; set; }
         public virtual DbSet<vCechyElementu> vCechyElementu { get; set; }
         public virtual DbSet<vCenaZaMaterial> vCenaZaMaterial { get; set; }
@@ -106,6 +107,7 @@ namespace Szwalnia
         public virtual DbSet<vDostawyNiewydaneZPolkami> vDostawyNiewydaneZPolkami { get; set; }
         public virtual DbSet<vDostawyZawartoscInformacjeDostawcy> vDostawyZawartoscInformacjeDostawcy { get; set; }
         public virtual DbSet<vElementy_proces> vElementy_proces { get; set; }
+        public virtual DbSet<vElementyDlaZamowien> vElementyDlaZamowien { get; set; }
         public virtual DbSet<vElementyProcesProdukcyjny> vElementyProcesProdukcyjny { get; set; }
         public virtual DbSet<vElemntyy> vElemntyy { get; set; }
         public virtual DbSet<vEtapy_proces> vEtapy_proces { get; set; }
@@ -117,6 +119,7 @@ namespace Szwalnia
         public virtual DbSet<vJezyk> vJezyk { get; set; }
         public virtual DbSet<vJezykiPracownika> vJezykiPracownika { get; set; }
         public virtual DbSet<vJezykiWFirmie> vJezykiWFirmie { get; set; }
+        public virtual DbSet<vKlienci> vKlienci { get; set; }
         public virtual DbSet<vKlienciZamowienie> vKlienciZamowienie { get; set; }
         public virtual DbSet<vKompletnyProces> vKompletnyProces { get; set; }
         public virtual DbSet<vKontrolaProcesu> vKontrolaProcesu { get; set; }
@@ -164,6 +167,7 @@ namespace Szwalnia
         public virtual DbSet<vProduktyDoWykonania> vProduktyDoWykonania { get; set; }
         public virtual DbSet<vProduktyNiewykonane> vProduktyNiewykonane { get; set; }
         public virtual DbSet<vProduktyWykonane> vProduktyWykonane { get; set; }
+        public virtual DbSet<vPrzychody> vPrzychody { get; set; }
         public virtual DbSet<vPrzydzialZasobow> vPrzydzialZasobow { get; set; }
         public virtual DbSet<vPrzydzialZasobowEtap> vPrzydzialZasobowEtap { get; set; }
         public virtual DbSet<vRealizacjaProcesuProdukcyjnego> vRealizacjaProcesuProdukcyjnego { get; set; }
@@ -172,6 +176,7 @@ namespace Szwalnia
         public virtual DbSet<vResurs> vResurs { get; set; }
         public virtual DbSet<vRodzaj_Maszyny> vRodzaj_Maszyny { get; set; }
         public virtual DbSet<vRodzajUmowy> vRodzajUmowy { get; set; }
+        public virtual DbSet<vRozchody> vRozchody { get; set; }
         public virtual DbSet<vRoznicaDatDni> vRoznicaDatDni { get; set; }
         public virtual DbSet<vRoznicaDniBezWeekend> vRoznicaDniBezWeekend { get; set; }
         public virtual DbSet<vRoznicaGodzin> vRoznicaGodzin { get; set; }
@@ -179,6 +184,7 @@ namespace Szwalnia
         public virtual DbSet<vSredniaLiczbaSztuk> vSredniaLiczbaSztuk { get; set; }
         public virtual DbSet<vSredniCzasSztuki> vSredniCzasSztuki { get; set; }
         public virtual DbSet<vSredniCzasWedlugElementu> vSredniCzasWedlugElementu { get; set; }
+        public virtual DbSet<vSrodkiWszystkie> vSrodkiWszystkie { get; set; }
         public virtual DbSet<vSrodkiZamortyzowane> vSrodkiZamortyzowane { get; set; }
         public virtual DbSet<vStan_magazynowy_elementy> vStan_magazynowy_elementy { get; set; }
         public virtual DbSet<vStan_magazynowy_polki> vStan_magazynowy_polki { get; set; }
@@ -195,6 +201,7 @@ namespace Szwalnia
         public virtual DbSet<vWolneMaszynyProdukcja> vWolneMaszynyProdukcja { get; set; }
         public virtual DbSet<vWolnePolki> vWolnePolki { get; set; }
         public virtual DbSet<vWolniPracownicyProdukcji> vWolniPracownicyProdukcji { get; set; }
+        public virtual DbSet<vWolniPracownicyZarzadzanie> vWolniPracownicyZarzadzanie { get; set; }
         public virtual DbSet<vWszyscyPracownicyProdukcji> vWszyscyPracownicyProdukcji { get; set; }
         public virtual DbSet<vWszystkie_Elementy> vWszystkie_Elementy { get; set; }
         public virtual DbSet<vWszystkie_Maszyny> vWszystkie_Maszyny { get; set; }
@@ -215,5 +222,6 @@ namespace Szwalnia
         public virtual DbSet<vZamowienieProcesyProdukcyjne> vZamowienieProcesyProdukcyjne { get; set; }
         public virtual DbSet<vZatrudnieniePracownika> vZatrudnieniePracownika { get; set; }
         public virtual DbSet<vZawartoscMagazynuDoPrzydzialu> vZawartoscMagazynuDoPrzydzialu { get; set; }
+        public virtual DbSet<vZyskZZamowienia> vZyskZZamowienia { get; set; }
     }
 }

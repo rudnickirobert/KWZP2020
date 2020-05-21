@@ -10,12 +10,16 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class Bilans : Form
+    public partial class Zyski : Form
     {
-        public Bilans(SzwalniaEntities db)
+        public SzwalniaEntities db;
+        public Zyski(SzwalniaEntities db)
         {
             InitializeComponent();
-         //dgvBilans.DataSource = db.
+            this.db = db;
+
+            dgvZyski.DataSource = db.vZyskZZamowienia.ToList();
+            dgvZyski.Columns[0].Visible = false;
         }
     }
 }

@@ -225,7 +225,7 @@ CREATE TABLE Elementy (
 ID_Element int IDENTITY(1,1) PRIMARY KEY,
 ID_Element_Typ int
 	FOREIGN KEY REFERENCES
-	Elementy_Typy (ID_Element_Typ),
+Elementy_Typy (ID_Element_Typ),
 Element_Nazwa varchar(35),
 Okres_Przydatnosci_Miesiace int
 )

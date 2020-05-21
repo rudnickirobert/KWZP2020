@@ -49,5 +49,11 @@ namespace Szwalnia
             PanelJezykow panelJezykow = new PanelJezykow(db);
             panelJezykow.Show();
         }
+
+        private void btnUrlop_Click(object sender, EventArgs e)
+        {
+            UrlopyPracownikow urlopyPracownikow = new UrlopyPracownikow(db);
+            urlopyPracownikow.Show();
+        }
     }
 }
