@@ -108,18 +108,6 @@ FROM            dbo.Oferta INNER JOIN
 GROUP BY dbo.Oferta.ID_Element, dbo.Oferta.ID_Oferta, dbo.Oferta.Element_Oznaczenie, dbo.Oferta.Cena_Jedn, dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym, dbo.Dostawcy_Zaopatrzenie.ID_Dostawcy, 
                          dbo.Dostawcy_Zaopatrzenie.Nazwa, dbo.Dostawcy_Zaopatrzenie.Telefon_1, dbo.Oferta.Ilosc_Minimalna, dbo.Oferta.Ilosc_Maksymalna, dbo.Oferta.Deklarowany_czas_dostawy
 GO
----- Widok stanu magazynowego wg pó³ek
-CREATE VIEW [dbo].[vStan_magazynowy_polki]
-AS
-SELECT        dbo.Zawartosc.ID_Zawartosc, dbo.Zawartosc.ID_Polka, dbo.Regaly.Oznaczenie, dbo.Elementy.Element_Nazwa, dbo.Zawartosc.ID_Element, CASE WHEN dbo.vIleElementowNaPolce.Ile IS NULL 
-                         THEN CAST(dbo.Zawartosc.Ilosc_Paczek AS NVARCHAR) + ' szt' ELSE dbo.vIleElementowNaPolce.Ile END AS Ile, CASE WHEN dbo.Elementy.Okres_Przydatnosci_Miesiace = 0 THEN 'Nie dotyczy' ELSE CONVERT(varchar, 
-                         (DATEADD(MONTH, dbo.Elementy.Okres_Przydatnosci_Miesiace, dbo.vIleElementowNaPolce.Data_Dostawy_Rzeczywista)), 23) END AS Przydatnosc
-FROM            dbo.Regaly INNER JOIN
-                         dbo.Polki_regaly ON dbo.Regaly.ID_regal = dbo.Polki_regaly.ID_regal INNER JOIN
-                         dbo.Zawartosc LEFT OUTER JOIN
-                         dbo.Elementy ON dbo.Zawartosc.ID_Element = dbo.Elementy.ID_Element ON dbo.Polki_regaly.ID_Polka = dbo.Zawartosc.ID_Polka LEFT OUTER JOIN
-                         dbo.vIleElementowNaPolce ON dbo.Zawartosc.ID_Polka = dbo.vIleElementowNaPolce.ID_Polka
-GO
 
 --widok zawartosci magazynu do przydzia³u do zamowien
 CREATE VIEW [dbo].[vZawartoscMagazynuDoPrzydzialu]
@@ -538,13 +526,27 @@ GO
 CREATE VIEW [dbo].[vIleElementowNaPolce]
 AS
 SELECT        dbo.Zawartosc.ID_Polka, dbo.Oferta.ID_Element, CAST(dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym * dbo.Zawartosc.Ilosc_Paczek AS Nvarchar) + ' ' + CAST(dbo.Elementy_Jednostki.Jednostka AS nvarchar) AS Ile, 
-                         dbo.Zamowienia_Dostawy.Data_Dostawy_Rzeczywista
+                         dbo.Zamowienia_Dostawy.Data_Dostawy_Rzeczywista, dbo.Elementy.Okres_Przydatnosci_Miesiace, CASE WHEN dbo.Elementy.Okres_Przydatnosci_Miesiace = 0 THEN 'Nie dotyczy' ELSE CONVERT(varchar, 
+                         (DATEADD(MONTH, dbo.Elementy.Okres_Przydatnosci_Miesiace, dbo.Zamowienia_Dostawy.Data_Dostawy_Rzeczywista)), 23) END AS Expr1
 FROM            dbo.Dostawy_Zawartosc INNER JOIN
                          dbo.Elementy ON dbo.Dostawy_Zawartosc.ID_Element = dbo.Elementy.ID_Element INNER JOIN
                          dbo.Oferta ON dbo.Dostawy_Zawartosc.ID_oferta = dbo.Oferta.ID_Oferta AND dbo.Elementy.ID_Element = dbo.Oferta.ID_Element INNER JOIN
                          dbo.Zamowienia_Dostawy ON dbo.Dostawy_Zawartosc.ID_Dostawy = dbo.Zamowienia_Dostawy.ID_Dostawy INNER JOIN
                          dbo.Elementy_Jednostki ON dbo.Oferta.ID_Jednostka = dbo.Elementy_Jednostki.ID_jednostka INNER JOIN
                          dbo.Zawartosc ON dbo.Elementy.ID_Element = dbo.Zawartosc.ID_Element AND dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Zawartosc.ID_Dostawy
+GO
+
+---- Widok stanu magazynowego wg pó³ek
+CREATE VIEW [dbo].[vStan_magazynowy_polki]
+AS
+SELECT        dbo.Zawartosc.ID_Zawartosc, dbo.Zawartosc.ID_Polka, dbo.Regaly.Oznaczenie, dbo.Elementy.Element_Nazwa, dbo.Zawartosc.ID_Element, CASE WHEN dbo.vIleElementowNaPolce.Ile IS NULL 
+                         THEN CAST(dbo.Zawartosc.Ilosc_Paczek AS NVARCHAR) + ' szt' ELSE dbo.vIleElementowNaPolce.Ile END AS Ile, CASE WHEN dbo.Elementy.Okres_Przydatnosci_Miesiace = 0 THEN 'Nie dotyczy' ELSE CONVERT(varchar, 
+                         (DATEADD(MONTH, dbo.Elementy.Okres_Przydatnosci_Miesiace, dbo.vIleElementowNaPolce.Data_Dostawy_Rzeczywista)), 23) END AS Przydatnosc
+FROM            dbo.Regaly INNER JOIN
+                         dbo.Polki_regaly ON dbo.Regaly.ID_regal = dbo.Polki_regaly.ID_regal INNER JOIN
+                         dbo.Zawartosc LEFT OUTER JOIN
+                         dbo.Elementy ON dbo.Zawartosc.ID_Element = dbo.Elementy.ID_Element ON dbo.Polki_regaly.ID_Polka = dbo.Zawartosc.ID_Polka LEFT OUTER JOIN
+                         dbo.vIleElementowNaPolce ON dbo.Zawartosc.ID_Polka = dbo.vIleElementowNaPolce.ID_Polka
 GO
 
 ---------------------------------------------------------------------------------------------------------------------------
