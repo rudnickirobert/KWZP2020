@@ -54,5 +54,10 @@ namespace Szwalnia
             MessageBox.Show("Dodano nowy urlop pracownikowi");
             this.Close();
         }
+
+        private void btnAnuluj_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
