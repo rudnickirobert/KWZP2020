@@ -30,6 +30,8 @@ namespace Szwalnia
         {
             InitializeComponent();
             db = Start.szwalnia;
+            dgvMaterialDoOdebrania.ReadOnly = true;
+
             if (db.vNieodebraneMaterialyWgDostawcyZNazwaIOferta.Any())
             {
                 dgvMaterialDoOdebrania.DataSource = db.vNieodebraneMaterialyWgDostawcyZNazwaIOferta.ToList();

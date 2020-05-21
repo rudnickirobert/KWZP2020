@@ -49,6 +49,7 @@
             this.dgvUkryty = new System.Windows.Forms.DataGridView();
             this.lblOpis = new System.Windows.Forms.Label();
             this.lblOpisGwiazdki = new System.Windows.Forms.Label();
+            this.btnZapiszZamknij = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUkryty)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +58,7 @@
             this.cbxElement.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbxElement.FormattingEnabled = true;
             this.cbxElement.Location = new System.Drawing.Point(501, 146);
-            this.cbxElement.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxElement.Margin = new System.Windows.Forms.Padding(4);
             this.cbxElement.Name = "cbxElement";
             this.cbxElement.Size = new System.Drawing.Size(172, 32);
             this.cbxElement.TabIndex = 4;
@@ -77,8 +78,8 @@
             // btnWyzeruj
             // 
             this.btnWyzeruj.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnWyzeruj.Location = new System.Drawing.Point(521, 409);
-            this.btnWyzeruj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnWyzeruj.Location = new System.Drawing.Point(645, 417);
+            this.btnWyzeruj.Margin = new System.Windows.Forms.Padding(4);
             this.btnWyzeruj.Name = "btnWyzeruj";
             this.btnWyzeruj.Size = new System.Drawing.Size(107, 62);
             this.btnWyzeruj.TabIndex = 7;
@@ -89,8 +90,8 @@
             // btnAnuluj
             // 
             this.btnAnuluj.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAnuluj.Location = new System.Drawing.Point(377, 409);
-            this.btnAnuluj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAnuluj.Location = new System.Drawing.Point(501, 417);
+            this.btnAnuluj.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnuluj.Name = "btnAnuluj";
             this.btnAnuluj.Size = new System.Drawing.Size(107, 62);
             this.btnAnuluj.TabIndex = 8;
@@ -101,8 +102,8 @@
             // btnZapisz
             // 
             this.btnZapisz.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnZapisz.Location = new System.Drawing.Point(219, 409);
-            this.btnZapisz.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnZapisz.Location = new System.Drawing.Point(182, 417);
+            this.btnZapisz.Margin = new System.Windows.Forms.Padding(4);
             this.btnZapisz.Name = "btnZapisz";
             this.btnZapisz.Size = new System.Drawing.Size(107, 62);
             this.btnZapisz.TabIndex = 9;
@@ -157,7 +158,7 @@
             // 
             this.tbNiewykorzystanyMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbNiewykorzystanyMaterial.Location = new System.Drawing.Point(501, 226);
-            this.tbNiewykorzystanyMaterial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbNiewykorzystanyMaterial.Margin = new System.Windows.Forms.Padding(4);
             this.tbNiewykorzystanyMaterial.Name = "tbNiewykorzystanyMaterial";
             this.tbNiewykorzystanyMaterial.Size = new System.Drawing.Size(172, 29);
             this.tbNiewykorzystanyMaterial.TabIndex = 11;
@@ -166,7 +167,7 @@
             // 
             this.tbOdpad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbOdpad.Location = new System.Drawing.Point(501, 272);
-            this.tbOdpad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbOdpad.Margin = new System.Windows.Forms.Padding(4);
             this.tbOdpad.Name = "tbOdpad";
             this.tbOdpad.Size = new System.Drawing.Size(172, 29);
             this.tbOdpad.TabIndex = 12;
@@ -186,7 +187,7 @@
             // 
             this.chbOdbior.AutoSize = true;
             this.chbOdbior.Location = new System.Drawing.Point(568, 322);
-            this.chbOdbior.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chbOdbior.Margin = new System.Windows.Forms.Padding(4);
             this.chbOdbior.Name = "chbOdbior";
             this.chbOdbior.Size = new System.Drawing.Size(18, 17);
             this.chbOdbior.TabIndex = 16;
@@ -224,6 +225,7 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvUkryty.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvUkryty.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUkryty.BackgroundColor = System.Drawing.SystemColors.ScrollBar;
             this.dgvUkryty.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -244,14 +246,14 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Desktop;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvUkryty.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvUkryty.Location = new System.Drawing.Point(501, 190);
-            this.dgvUkryty.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvUkryty.Location = new System.Drawing.Point(500, 186);
+            this.dgvUkryty.Margin = new System.Windows.Forms.Padding(4);
             this.dgvUkryty.MultiSelect = false;
             this.dgvUkryty.Name = "dgvUkryty";
             this.dgvUkryty.ReadOnly = true;
             this.dgvUkryty.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvUkryty.RowHeadersVisible = false;
-            this.dgvUkryty.RowHeadersWidth = 24;
+            this.dgvUkryty.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvUkryty.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvUkryty.Size = new System.Drawing.Size(173, 30);
             this.dgvUkryty.TabIndex = 20;
@@ -278,12 +280,25 @@
             this.lblOpisGwiazdki.TabIndex = 35;
             this.lblOpisGwiazdki.Text = "* Pole wymagane";
             // 
+            // btnZapiszZamknij
+            // 
+            this.btnZapiszZamknij.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnZapiszZamknij.Location = new System.Drawing.Point(320, 417);
+            this.btnZapiszZamknij.Margin = new System.Windows.Forms.Padding(4);
+            this.btnZapiszZamknij.Name = "btnZapiszZamknij";
+            this.btnZapiszZamknij.Size = new System.Drawing.Size(155, 62);
+            this.btnZapiszZamknij.TabIndex = 36;
+            this.btnZapiszZamknij.Text = "Zapisz i zamknij";
+            this.btnZapiszZamknij.UseVisualStyleBackColor = true;
+            this.btnZapiszZamknij.Click += new System.EventHandler(this.btnZapiszZamknij_Click);
+            // 
             // NowyNiewykorzystanyMaterialOdpad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(912, 543);
+            this.Controls.Add(this.btnZapiszZamknij);
             this.Controls.Add(this.lblOpisGwiazdki);
             this.Controls.Add(this.lblOpis);
             this.Controls.Add(this.dgvUkryty);
@@ -302,10 +317,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblOdpad);
             this.Controls.Add(this.lblElement);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "NowyNiewykorzystanyMaterialOdpad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nowy niewykorzystany materiał / odpad";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NowyNiewykorzystanyMaterialOdpad_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUkryty)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -332,5 +348,6 @@
         private System.Windows.Forms.DataGridView dgvUkryty;
         private System.Windows.Forms.Label lblOpis;
         private System.Windows.Forms.Label lblOpisGwiazdki;
+        private System.Windows.Forms.Button btnZapiszZamknij;
     }
 }

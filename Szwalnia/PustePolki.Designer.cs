@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PustePolki));
             this.dgvPustePolki = new System.Windows.Forms.DataGridView();
             this.lblPustePolki = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPustePolki)).BeginInit();
@@ -37,34 +38,35 @@
             // 
             this.dgvPustePolki.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPustePolki.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dgvPustePolki.Location = new System.Drawing.Point(19, 61);
+            this.dgvPustePolki.Location = new System.Drawing.Point(12, 61);
             this.dgvPustePolki.MultiSelect = false;
             this.dgvPustePolki.Name = "dgvPustePolki";
-            this.dgvPustePolki.Size = new System.Drawing.Size(341, 440);
+            this.dgvPustePolki.Size = new System.Drawing.Size(368, 440);
             this.dgvPustePolki.TabIndex = 13;
             // 
             // lblPustePolki
             // 
-            this.lblPustePolki.AutoSize = true;
-            this.lblPustePolki.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.lblPustePolki.Location = new System.Drawing.Point(77, 18);
+            this.lblPustePolki.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblPustePolki.Location = new System.Drawing.Point(12, 9);
             this.lblPustePolki.Name = "lblPustePolki";
-            this.lblPustePolki.Size = new System.Drawing.Size(162, 31);
-            this.lblPustePolki.TabIndex = 14;
+            this.lblPustePolki.Size = new System.Drawing.Size(368, 44);
+            this.lblPustePolki.TabIndex = 15;
             this.lblPustePolki.Text = "Puste półki: ";
+            this.lblPustePolki.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PustePolki
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(372, 516);
-            this.Controls.Add(this.dgvPustePolki);
+            this.ClientSize = new System.Drawing.Size(392, 516);
             this.Controls.Add(this.lblPustePolki);
+            this.Controls.Add(this.dgvPustePolki);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PustePolki";
-            this.Text = "PustePolki";
+            this.Text = "Lista pustych półek";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PustePolki_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPustePolki)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

@@ -24,9 +24,10 @@ namespace Szwalnia
             cbxElement.DataSource = db.vElementyProcesProdukcyjny.Where(material => material.ID_Procesu_Produkcyjnego == proces.ID_Procesu_Produkcyjnego).ToList();
             cbxElement.DisplayMember = "Element";
             cbxElement.ValueMember = "ID_Elementy_Proces";
+            
         }
 
-        private void btnZapisz_Click(object sender, EventArgs e)
+        void nowy()
         {
             Material_Na_Produkcji materialProdukcja = new Material_Na_Produkcji();
 
@@ -54,8 +55,15 @@ namespace Szwalnia
             db.Material_Na_Produkcji.Add(materialProdukcja);
             db.SaveChanges();
             MessageBox.Show("Dodano nowy niewykorzystany materiał / odpad");
-            NiewykorzystanyMaterialProces.ActiveForm.Refresh();
-            this.Close();
+        }
+        private void btnZapisz_Click(object sender, EventArgs e)
+        {
+            nowy();
+            cbxElement.Text = "";
+            tbNiewykorzystanyMaterial.Text = "";
+            tbOdpad.Text = "";
+            chbOdbior.Checked = false;
+
         }
         private void btnAnuluj_Click(object sender, EventArgs e)
         {
@@ -76,7 +84,18 @@ namespace Szwalnia
             dgvUkryty.DataSource = db.vElementyProcesProdukcyjny.Where(material => (material.ID_Elementy_Proces.ToString() == numer)).ToList();
             dgvUkryty.Columns.OfType<DataGridViewColumn>().ToList().ForEach(kolumna => kolumna.Visible = false);
             dgvUkryty.Columns[8].Visible = true;
-            dgvUkryty.Columns[8].Width = 127;
+        }
+
+        private void NowyNiewykorzystanyMaterialOdpad_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            NiewykorzystanyMaterialProces niewykorzystanyMaterialProces = new NiewykorzystanyMaterialProces(db, idProcesu);
+            niewykorzystanyMaterialProces.Show();
+        }
+
+        private void btnZapiszZamknij_Click(object sender, EventArgs e)
+        {
+            nowy();
+            this.Close();
         }
     }
 }

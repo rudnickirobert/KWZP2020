@@ -22,9 +22,9 @@ namespace Szwalnia
             dgvUkryty.DataSource = db.Proces_Produkcyjny.ToList();
             int numerOstatniegoProcesu = dgvUkryty.Rows.Count;
             lblNumerProcesu.Text = (numerOstatniegoProcesu+1).ToString();
-            cbxZamowienieElement.DataSource = db.Zamowienie_Element.ToList();
-            cbxZamowienieElement.DisplayMember = "ID_Zamowienie_Element";
-            cbxZamowienieElement.ValueMember = "ID_Zamowienie_Element";
+            cbxZamowienieElement.DataSource = db.vNierealizowaneZamowienieElement.ToList();
+            cbxZamowienieElement.DisplayMember = "Zamowienie_element";
+            cbxZamowienieElement.ValueMember = "zamowienie1";
             this.nowyProces = numerOstatniegoProcesu + 1;
 
 
@@ -55,7 +55,7 @@ namespace Szwalnia
             }
             else
             {
-                proces.ID_Zamowienie_Element = Convert.ToInt32(cbxZamowienieElement.Text);
+                proces.ID_Zamowienie_Element = Convert.ToInt32(cbxZamowienieElement.SelectedValue);
             }
 
             if (mtbProponowanaData.Text != pustePole)
