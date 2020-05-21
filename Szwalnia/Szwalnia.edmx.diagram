@@ -273,6 +273,9 @@
         <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_Za__31B762FC" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Zawartosc__ID_Za__1AD3FDA4" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Zawartosc__ID_Do__19DFD96B" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SzwalniaModel.vPrzychody" Width="1.5" PointX="21.375" PointY="34.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vRozchody" Width="1.5" PointX="34.375" PointY="22.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vBilans" Width="1.5" PointX="34.375" PointY="19.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

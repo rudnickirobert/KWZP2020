@@ -45,17 +45,16 @@ namespace Szwalnia
             FaktoryWystawiane fakturyWystawiane = new FaktoryWystawiane(db);
             fakturyWystawiane.Show();
         }
-
-        private void btnBilans_Click(object sender, EventArgs e)
-        {
-            Bilans bilans = new Bilans(db);
-            bilans.Show();
-        }
-
         private void btnZamowienie_Click(object sender, EventArgs e)
         {
            Zamowienie zamowienia = new Zamowienie(db);
             zamowienia.Show();
+        }
+
+        private void btnFinanse_Click(object sender, EventArgs e)
+        {
+            PanelFinansow panelFinansow = new PanelFinansow(db);
+            panelFinansow.Show();
         }
     }
 }
