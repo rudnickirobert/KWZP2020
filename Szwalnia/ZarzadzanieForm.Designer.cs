@@ -33,8 +33,9 @@
             this.btnFakturyZewnetrzne = new System.Windows.Forms.Button();
             this.btnZamknij = new System.Windows.Forms.Button();
             this.btnFakturyWewnetrzne = new System.Windows.Forms.Button();
-            this.btnBilans = new System.Windows.Forms.Button();
+            this.btnFinanse = new System.Windows.Forms.Button();
             this.btnZamowienie = new System.Windows.Forms.Button();
+            this.btnSrodki = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnKlienciForm
@@ -91,16 +92,16 @@
             this.btnFakturyWewnetrzne.UseVisualStyleBackColor = true;
             this.btnFakturyWewnetrzne.Click += new System.EventHandler(this.btnFakturyWewnetrzne_Click);
             // 
-            // btnBilans
+            // btnFinanse
             // 
-            this.btnBilans.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnBilans.Location = new System.Drawing.Point(304, 285);
-            this.btnBilans.Name = "btnBilans";
-            this.btnBilans.Size = new System.Drawing.Size(208, 93);
-            this.btnBilans.TabIndex = 5;
-            this.btnBilans.Text = "Bilans";
-            this.btnBilans.UseVisualStyleBackColor = true;
-            this.btnBilans.Click += new System.EventHandler(this.btnBilans_Click);
+            this.btnFinanse.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnFinanse.Location = new System.Drawing.Point(304, 285);
+            this.btnFinanse.Name = "btnFinanse";
+            this.btnFinanse.Size = new System.Drawing.Size(208, 93);
+            this.btnFinanse.TabIndex = 5;
+            this.btnFinanse.Text = "Finanse";
+            this.btnFinanse.UseVisualStyleBackColor = true;
+            this.btnFinanse.Click += new System.EventHandler(this.btnFinanse_Click);
             // 
             // btnZamowienie
             // 
@@ -113,14 +114,26 @@
             this.btnZamowienie.UseVisualStyleBackColor = true;
             this.btnZamowienie.Click += new System.EventHandler(this.btnZamowienie_Click);
             // 
+            // btnSrodki
+            // 
+            this.btnSrodki.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnSrodki.Location = new System.Drawing.Point(24, 401);
+            this.btnSrodki.Name = "btnSrodki";
+            this.btnSrodki.Size = new System.Drawing.Size(211, 93);
+            this.btnSrodki.TabIndex = 7;
+            this.btnSrodki.Text = "Środki trwałe";
+            this.btnSrodki.UseVisualStyleBackColor = true;
+            this.btnSrodki.Click += new System.EventHandler(this.btnSrodki_Click);
+            // 
             // ZarzadzanieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(522, 506);
+            this.Controls.Add(this.btnSrodki);
             this.Controls.Add(this.btnZamowienie);
-            this.Controls.Add(this.btnBilans);
+            this.Controls.Add(this.btnFinanse);
             this.Controls.Add(this.btnFakturyWewnetrzne);
             this.Controls.Add(this.btnZamknij);
             this.Controls.Add(this.btnFakturyZewnetrzne);
@@ -140,7 +153,8 @@
         private System.Windows.Forms.Button btnFakturyZewnetrzne;
         private System.Windows.Forms.Button btnZamknij;
         private System.Windows.Forms.Button btnFakturyWewnetrzne;
-        private System.Windows.Forms.Button btnBilans;
+        private System.Windows.Forms.Button btnFinanse;
         private System.Windows.Forms.Button btnZamowienie;
+        private System.Windows.Forms.Button btnSrodki;
     }
 }

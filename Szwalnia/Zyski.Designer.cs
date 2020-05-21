@@ -1,6 +1,6 @@
 ﻿namespace Szwalnia
 {
-    partial class Bilans
+    partial class Zyski
     {
         /// <summary>
         /// Required designer variable.
@@ -28,35 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvBilans = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBilans)).BeginInit();
+            this.dgvZyski = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvZyski)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvBilans
+            // dgvZyski
             // 
-            this.dgvBilans.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBilans.Location = new System.Drawing.Point(15, 35);
-            this.dgvBilans.Name = "dgvBilans";
-            this.dgvBilans.RowHeadersWidth = 51;
-            this.dgvBilans.RowTemplate.Height = 24;
-            this.dgvBilans.Size = new System.Drawing.Size(761, 386);
-            this.dgvBilans.TabIndex = 0;
+            this.dgvZyski.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvZyski.Location = new System.Drawing.Point(27, 32);
+            this.dgvZyski.Name = "dgvZyski";
+            this.dgvZyski.RowHeadersWidth = 51;
+            this.dgvZyski.RowTemplate.Height = 24;
+            this.dgvZyski.Size = new System.Drawing.Size(356, 390);
+            this.dgvZyski.TabIndex = 0;
             // 
-            // Bilans
+            // Zyski
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dgvBilans);
-            this.Name = "Bilans";
-            this.Text = "Bilans";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBilans)).EndInit();
+            this.ClientSize = new System.Drawing.Size(413, 450);
+            this.Controls.Add(this.dgvZyski);
+            this.Name = "Zyski";
+            this.Text = "Zyski";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvZyski)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvBilans;
+        private System.Windows.Forms.DataGridView dgvZyski;
     }
 }
