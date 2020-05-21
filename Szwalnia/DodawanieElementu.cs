@@ -18,25 +18,45 @@ namespace Szwalnia
         {
             InitializeComponent();
             db = Start.szwalnia;
-            dgvListaTypy.DataSource = db.Elementy_Typy.ToList();
-            
+            cmbTyp.DataSource = db.Elementy_Typy.ToList();
+            cmbTyp.ValueMember = "Typ";
+            cmbTyp.DisplayMember = "Typ";
         }
 
-        private void dgvListaTypy_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void chbOkres_CheckedChanged(object sender, EventArgs e)
         {
-            int numID = Convert.ToInt32(dgvListaTypy.CurrentRow.Cells[0].Value);
-            elementNew.ID_Element_Typ = numID;
-            Elementy_Typy typNew = db.Elementy_Typy.Where(wybrany => wybrany.ID_Element_Typ == numID).First();
-            txtTyp.Text = typNew.Typ;
+            if (chbOkres.Checked == false)
+            {
+                numOkres.Enabled = true;
+            }
+            else
+            {
+                numOkres.Enabled = false;
+            }
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            elementNew.Element_Nazwa = txtNazwa.Text;
-            elementNew.Okres_Przydatnosci_Miesiace = Decimal.ToInt32(numOkres.Value);
-            MessageBox.Show("Pomyślnie dodano nowy rekord do bazy danych.");
-            db.Elementy.Add(elementNew);
-            db.SaveChanges();
+            if (txtNazwa.TextLength == 0)
+            {
+                MessageBox.Show("Nazwa nie może być pusta");
+            }
+            else
+            {
+                elementNew.Element_Nazwa = txtNazwa.Text;
+                elementNew.ID_Element_Typ = cmbTyp.SelectedIndex;
+                if (chbOkres.Checked == false)
+                {                    
+                    elementNew.Okres_Przydatnosci_Miesiace = Decimal.ToInt32(numOkres.Value);
+                }
+                else
+                {
+                    elementNew.Okres_Przydatnosci_Miesiace = 0;
+                }
+                MessageBox.Show("Pomyślnie dodano nowy rekord do bazy danych.");
+                db.Elementy.Add(elementNew);
+                db.SaveChanges();
+            }
         }
 
         private void DodawanieElementu_FormClosed(object sender, FormClosedEventArgs e)
@@ -49,5 +69,6 @@ namespace Szwalnia
             Application.OpenForms[typeof(ElementyForm).Name].Show();
             this.Hide();
         }
+
     }
 }
