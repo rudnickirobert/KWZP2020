@@ -15,12 +15,11 @@ namespace Szwalnia
     public partial class vStan_magazynowy_polki
     {
         public int ID_Zawartosc { get; set; }
-        public Nullable<int> Nr_polki { get; set; }
-        public string Regal { get; set; }
-        public string Nazwa_elementu { get; set; }
-        public Nullable<int> Nr_elementu { get; set; }
-        public Nullable<int> Nr_dostawy { get; set; }
-        public string Przydatnosc { get; set; }
+        public Nullable<int> ID_Polka { get; set; }
+        public string Oznaczenie { get; set; }
+        public string Element_Nazwa { get; set; }
+        public Nullable<int> ID_Element { get; set; }
         public string Ile { get; set; }
+        public string Przydatnosc { get; set; }
     }
 }

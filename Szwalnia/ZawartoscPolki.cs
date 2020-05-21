@@ -18,11 +18,11 @@ namespace Szwalnia
             InitializeComponent();
             db = Start.szwalnia;
 
-            vStan_magazynowy_polki content = db.vStan_magazynowy_polki.Where(zawartosc => zawartosc.Nr_polki == idPolki).FirstOrDefault();
+            vStan_magazynowy_polki content = db.vStan_magazynowy_polki.Where(zawartosc => zawartosc.ID_Polka == idPolki).FirstOrDefault();
 
-            lblTitle.Text = "Półka nr " + content.Nr_polki.ToString() + ", regał: " + content.Regal;
-            lblNazwaElementu.Text = content.Nazwa_elementu;
-            lblIdElementu.Text = content.Nr_elementu.ToString();
+            lblTitle.Text = "Półka nr " + content.ID_Polka.ToString() + ", regał: " + content.Oznaczenie;
+            lblNazwaElementu.Text = content.Element_Nazwa;
+            lblIdElementu.Text = content.ID_Element.ToString();
             lblIloscJednostka.Text = content.Ile.ToString();
             lblPrzydatnosc.Text = content.Przydatnosc;
 

@@ -956,6 +956,14 @@ warning 6002: The table/view 'Szwalnia.dbo.vFakturyZewnetrzne' does not have a p
           <Property Name="Podatek" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6013: The table/view 'Szwalnia.dbo.vIleElementowNaPolce' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="vIleElementowNaPolce">
+          <Property Name="ID_Polka" Type="int" />
+          <Property Name="ID_Element" Type="int" />
+          <Property Name="Ile" Type="nvarchar" MaxLength="61" />
+          <Property Name="Data_Dostawy_Rzeczywista" Type="date" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vImieNazwiskoPracownika' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vImieNazwiskoPracownika">
           <Key>
@@ -1832,13 +1840,12 @@ warning 6002: The table/view 'Szwalnia.dbo.vStan_magazynowy_polki' does not have
             <PropertyRef Name="ID_Zawartosc" />
           </Key>
           <Property Name="ID_Zawartosc" Type="int" Nullable="false" />
-          <Property Name="Nr polki" Type="int" />
-          <Property Name="Regal" Type="varchar" MaxLength="2" />
-          <Property Name="Nazwa elementu" Type="varchar" MaxLength="35" />
-          <Property Name="Nr elementu" Type="int" />
-          <Property Name="Nr dostawy" Type="int" />
-          <Property Name="Przydatnosc" Type="varchar" MaxLength="30" />
+          <Property Name="ID_Polka" Type="int" />
+          <Property Name="Oznaczenie" Type="varchar" MaxLength="2" />
+          <Property Name="Element_Nazwa" Type="varchar" MaxLength="35" />
+          <Property Name="ID_Element" Type="int" />
           <Property Name="Ile" Type="nvarchar" MaxLength="61" />
+          <Property Name="Przydatnosc" Type="varchar" MaxLength="30" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vStanowisko' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -4127,13 +4134,12 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <EntitySet Name="vStan_magazynowy_polki" EntityType="Self.vStan_magazynowy_polki" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vStan_magazynowy_polki].[ID_Zawartosc] AS [ID_Zawartosc], 
-    [vStan_magazynowy_polki].[Nr polki] AS [Nr polki], 
-    [vStan_magazynowy_polki].[Regal] AS [Regal], 
-    [vStan_magazynowy_polki].[Nazwa elementu] AS [Nazwa elementu], 
-    [vStan_magazynowy_polki].[Nr elementu] AS [Nr elementu], 
-    [vStan_magazynowy_polki].[Nr dostawy] AS [Nr dostawy], 
-    [vStan_magazynowy_polki].[Przydatnosc] AS [Przydatnosc], 
-    [vStan_magazynowy_polki].[Ile] AS [Ile]
+    [vStan_magazynowy_polki].[ID_Polka] AS [ID_Polka], 
+    [vStan_magazynowy_polki].[Oznaczenie] AS [Oznaczenie], 
+    [vStan_magazynowy_polki].[Element_Nazwa] AS [Element_Nazwa], 
+    [vStan_magazynowy_polki].[ID_Element] AS [ID_Element], 
+    [vStan_magazynowy_polki].[Ile] AS [Ile], 
+    [vStan_magazynowy_polki].[Przydatnosc] AS [Przydatnosc]
     FROM [dbo].[vStan_magazynowy_polki] AS [vStan_magazynowy_polki]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vStanowisko" EntityType="Self.vStanowisko" store:Type="Views" store:Schema="dbo">
@@ -7071,13 +7077,12 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <PropertyRef Name="ID_Zawartosc" />
           </Key>
           <Property Name="ID_Zawartosc" Type="Int32" Nullable="false" />
-          <Property Name="Nr_polki" Type="Int32" />
-          <Property Name="Regal" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
-          <Property Name="Nazwa_elementu" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
-          <Property Name="Nr_elementu" Type="Int32" />
-          <Property Name="Nr_dostawy" Type="Int32" />
-          <Property Name="Przydatnosc" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Polka" Type="Int32" />
+          <Property Name="Oznaczenie" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Element" Type="Int32" />
           <Property Name="Ile" Type="String" MaxLength="61" FixedLength="false" Unicode="true" />
+          <Property Name="Przydatnosc" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="vStanowisko">
           <Key>
@@ -10072,13 +10077,12 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <EntitySetMapping Name="vStan_magazynowy_polki">
             <EntityTypeMapping TypeName="SzwalniaModel.vStan_magazynowy_polki">
               <MappingFragment StoreEntitySet="vStan_magazynowy_polki">
-                <ScalarProperty Name="Ile" ColumnName="Ile" />
                 <ScalarProperty Name="Przydatnosc" ColumnName="Przydatnosc" />
-                <ScalarProperty Name="Nr_dostawy" ColumnName="Nr dostawy" />
-                <ScalarProperty Name="Nr_elementu" ColumnName="Nr elementu" />
-                <ScalarProperty Name="Nazwa_elementu" ColumnName="Nazwa elementu" />
-                <ScalarProperty Name="Regal" ColumnName="Regal" />
-                <ScalarProperty Name="Nr_polki" ColumnName="Nr polki" />
+                <ScalarProperty Name="Ile" ColumnName="Ile" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
+                <ScalarProperty Name="Oznaczenie" ColumnName="Oznaczenie" />
+                <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
                 <ScalarProperty Name="ID_Zawartosc" ColumnName="ID_Zawartosc" />
               </MappingFragment>
             </EntityTypeMapping>

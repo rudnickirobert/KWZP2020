@@ -111,20 +111,14 @@ GO
 ---- Widok stanu magazynowego wg pó³ek
 CREATE VIEW [dbo].[vStan_magazynowy_polki]
 AS
-SELECT        dbo.Zawartosc.ID_Zawartosc, dbo.Zawartosc.ID_Polka AS [Nr polki], dbo.Regaly.Oznaczenie AS Regal, dbo.Elementy.Element_Nazwa AS [Nazwa elementu], dbo.Zawartosc.ID_Element AS [Nr elementu], 
-                         dbo.Zawartosc.ID_Dostawy AS [Nr dostawy], CASE WHEN dbo.Elementy.Okres_Przydatnosci_Miesiace = 0 THEN 'Nie dotyczy' ELSE CONVERT(varchar, (DATEADD(MONTH, dbo.Elementy.Okres_Przydatnosci_Miesiace, 
-                         dbo.Zamowienia_Dostawy.Data_Dostawy_Rzeczywista)), 23) END AS Przydatnosc, CAST(dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym * dbo.Zawartosc.Ilosc_Paczek AS Nvarchar) 
-                         + ' ' + CAST(dbo.Elementy_Jednostki.Jednostka AS nvarchar) AS Ile
-FROM            dbo.Polki_regaly INNER JOIN
-                         dbo.Regaly ON dbo.Polki_regaly.ID_regal = dbo.Regaly.ID_regal INNER JOIN
-                         dbo.Polki ON dbo.Polki_regaly.ID_Polka = dbo.Polki.ID_Polka INNER JOIN
-                         dbo.Zawartosc INNER JOIN
-                         dbo.Zamowienia_Dostawy ON dbo.Zawartosc.ID_Dostawy = dbo.Zamowienia_Dostawy.ID_Dostawy INNER JOIN
-                         dbo.Elementy ON dbo.Zawartosc.ID_Element = dbo.Elementy.ID_Element ON dbo.Polki.ID_Polka = dbo.Zawartosc.ID_Polka INNER JOIN
-                         dbo.Oferta ON dbo.Elementy.ID_Element = dbo.Oferta.ID_Element INNER JOIN
-                         dbo.Dostawy_Zawartosc ON dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Dostawy_Zawartosc.ID_Dostawy AND dbo.Elementy.ID_Element = dbo.Dostawy_Zawartosc.ID_Element AND 
-                         dbo.Oferta.ID_Oferta = dbo.Dostawy_Zawartosc.ID_oferta INNER JOIN
-                         dbo.Elementy_Jednostki ON dbo.Oferta.ID_Jednostka = dbo.Elementy_Jednostki.ID_jednostka
+SELECT        dbo.Zawartosc.ID_Zawartosc, dbo.Zawartosc.ID_Polka, dbo.Regaly.Oznaczenie, dbo.Elementy.Element_Nazwa, dbo.Zawartosc.ID_Element, CASE WHEN dbo.vIleElementowNaPolce.Ile IS NULL 
+                         THEN CAST(dbo.Zawartosc.Ilosc_Paczek AS NVARCHAR) + ' szt' ELSE dbo.vIleElementowNaPolce.Ile END AS Ile, CASE WHEN dbo.Elementy.Okres_Przydatnosci_Miesiace = 0 THEN 'Nie dotyczy' ELSE CONVERT(varchar, 
+                         (DATEADD(MONTH, dbo.Elementy.Okres_Przydatnosci_Miesiace, dbo.vIleElementowNaPolce.Data_Dostawy_Rzeczywista)), 23) END AS Przydatnosc
+FROM            dbo.Regaly INNER JOIN
+                         dbo.Polki_regaly ON dbo.Regaly.ID_regal = dbo.Polki_regaly.ID_regal INNER JOIN
+                         dbo.Zawartosc LEFT OUTER JOIN
+                         dbo.Elementy ON dbo.Zawartosc.ID_Element = dbo.Elementy.ID_Element ON dbo.Polki_regaly.ID_Polka = dbo.Zawartosc.ID_Polka LEFT OUTER JOIN
+                         dbo.vIleElementowNaPolce ON dbo.Zawartosc.ID_Polka = dbo.vIleElementowNaPolce.ID_Polka
 GO
 
 --widok zawartosci magazynu do przydzia³u do zamowien
@@ -538,6 +532,19 @@ CREATE VIEW [dbo].[vZamowieniaKompletneNiewydaneNaPolkachCaleNumery]
 AS
 SELECT DISTINCT ID_Zamowienia
 FROM            dbo.vZamowieniaKomplenteNiewydaneNaPolkach
+GO
+
+--widok pomocniczy do stanu magazynowego
+CREATE VIEW [dbo].[vIleElementowNaPolce]
+AS
+SELECT        dbo.Zawartosc.ID_Polka, dbo.Oferta.ID_Element, CAST(dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym * dbo.Zawartosc.Ilosc_Paczek AS Nvarchar) + ' ' + CAST(dbo.Elementy_Jednostki.Jednostka AS nvarchar) AS Ile, 
+                         dbo.Zamowienia_Dostawy.Data_Dostawy_Rzeczywista
+FROM            dbo.Dostawy_Zawartosc INNER JOIN
+                         dbo.Elementy ON dbo.Dostawy_Zawartosc.ID_Element = dbo.Elementy.ID_Element INNER JOIN
+                         dbo.Oferta ON dbo.Dostawy_Zawartosc.ID_oferta = dbo.Oferta.ID_Oferta AND dbo.Elementy.ID_Element = dbo.Oferta.ID_Element INNER JOIN
+                         dbo.Zamowienia_Dostawy ON dbo.Dostawy_Zawartosc.ID_Dostawy = dbo.Zamowienia_Dostawy.ID_Dostawy INNER JOIN
+                         dbo.Elementy_Jednostki ON dbo.Oferta.ID_Jednostka = dbo.Elementy_Jednostki.ID_jednostka INNER JOIN
+                         dbo.Zawartosc ON dbo.Elementy.ID_Element = dbo.Zawartosc.ID_Element AND dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Zawartosc.ID_Dostawy
 GO
 
 ---------------------------------------------------------------------------------------------------------------------------
