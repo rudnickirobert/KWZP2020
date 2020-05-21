@@ -47,6 +47,7 @@
             // 
             // dgvListaKlientow
             // 
+            this.dgvListaKlientow.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaKlientow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaKlientow.Location = new System.Drawing.Point(12, 81);
             this.dgvListaKlientow.Name = "dgvListaKlientow";

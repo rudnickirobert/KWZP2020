@@ -35,6 +35,7 @@
             // 
             // dgvFakturyWystawione
             // 
+            this.dgvFakturyWystawione.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFakturyWystawione.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFakturyWystawione.Location = new System.Drawing.Point(11, 94);
             this.dgvFakturyWystawione.Name = "dgvFakturyWystawione";

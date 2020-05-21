@@ -36,6 +36,7 @@
             // 
             // dgvZamowienia
             // 
+            this.dgvZamowienia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvZamowienia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvZamowienia.Location = new System.Drawing.Point(22, 97);
             this.dgvZamowienia.Name = "dgvZamowienia";

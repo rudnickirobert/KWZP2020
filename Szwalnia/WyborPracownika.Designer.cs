@@ -46,6 +46,7 @@
             // 
             // dgvListaPracownikow
             // 
+            this.dgvListaPracownikow.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaPracownikow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaPracownikow.Location = new System.Drawing.Point(12, 62);
             this.dgvListaPracownikow.Name = "dgvListaPracownikow";

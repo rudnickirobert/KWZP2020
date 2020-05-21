@@ -36,6 +36,7 @@
             // 
             // dgvFakturyZewnetrzne
             // 
+            this.dgvFakturyZewnetrzne.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFakturyZewnetrzne.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFakturyZewnetrzne.Location = new System.Drawing.Point(10, 79);
             this.dgvFakturyZewnetrzne.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
