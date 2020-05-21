@@ -28,6 +28,7 @@ namespace Szwalnia
         public int intPracownikID;
         public int intOferta;
         public int intUmowaID;
+        public int intIloscMaterialowZBrakiem = 0;
         public vZamowieniaDostawyWlasneZawartoscPolki przechowalnia = null;
         public bool czyOfertaWielePolek = false;
         public bool czyPrzypisaniePracownika = false;
@@ -216,6 +217,7 @@ namespace Szwalnia
                                 intArrayCzyIloscToZero[intNumerPetli, 1] = wierszWybrany.ID_Zamowienie_Element;
                                 intArrayCzyIloscToZero[intNumerPetli, 2] = intIloscCalkowita;
                                 intIloscCalkowita = 0;
+                                intIloscMaterialowZBrakiem ++;
                             }    
                             noweWydanie.ID_Miejsca = 2;
                             noweWydanie.Data_Dostarczenia = (Convert.ToString(DateTime.Now)).Substring(0, 10);
@@ -265,7 +267,7 @@ namespace Szwalnia
                                             intIloscBrakujaca = intIloscBrakujaca - Convert.ToInt32(przechowalnia.Ilosc);
                                         }
                                     }
-                                    if (intIloscBrakujaca>wybranyWiersz.Ilosc)
+                                    if (intIloscBrakujaca>wybranyWiersz.Ilosc || intIloscMaterialowZBrakiem == 0)
                                     {
                                         noweDostarczenieWewn.Ilosc_Dostarczona = wybranyWiersz.Ilosc*(-1);
                                         noweDostarczenieWewn.ID_Pracownicy = intPracownikID;
@@ -297,6 +299,8 @@ namespace Szwalnia
                                         przechowalnia.Ilosc = wybranyWiersz.Ilosc - iloscDoPrzypisania;
                                         db.SaveChanges();
                                         Start.DataBaseRefresh();
+                                        intIloscMaterialowZBrakiem--;
+                                        break;
                                     }
                                     
                                 }
