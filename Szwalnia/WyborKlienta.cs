@@ -31,7 +31,6 @@ namespace Szwalnia
             int numerIDKlienta = Convert.ToInt32(dgvListaKlientow.CurrentRow.Cells[0].Value);
             KlienciSzczegoly klienciSzczegoly = new KlienciSzczegoly(db, Decimal.ToInt32(numerIDKlienta));
             klienciSzczegoly.Show();
-            this.Close();
         }
 
         private void btnZamknij_Click(object sender, EventArgs e)

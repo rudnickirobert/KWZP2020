@@ -111,6 +111,7 @@
             this.Controls.Add(this.dgvSrodki);
             this.Name = "SrodkiTrwale";
             this.Text = "Środki_trwałe";
+            this.Activated += new System.EventHandler(this.SrodkiTrwale_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSrodki)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZamortyzowane)).EndInit();
             this.ResumeLayout(false);

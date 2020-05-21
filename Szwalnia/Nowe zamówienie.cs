@@ -55,7 +55,6 @@ namespace Szwalnia
             cbPracownik.DataSource = db.vWolniPracownicyZarzadzanie.ToList();
             cbPracownik.ValueMember = "ID_Pracownika";
             cbPracownik.DisplayMember = "Pracownik";
-            cbPracownik.Refresh();
         }
         private void btnDalej_Click(object sender, EventArgs e)
         {
