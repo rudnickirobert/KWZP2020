@@ -18,6 +18,11 @@ namespace Szwalnia
         {
             InitializeComponent();
             db = szwalnia;
+            uzuplenijdgvListaKlientow();
+        }
+
+        private void uzuplenijdgvListaKlientow()
+        {
             dgvListaKlientow.DataSource = db.vKlienci.ToList();
         }
 
@@ -38,6 +43,11 @@ namespace Szwalnia
         {
             NowyKlient nowyKlient = new NowyKlient(db);
             nowyKlient.Show();
+        }
+
+        private void WyborKlienta_Activated(object sender, EventArgs e)
+        {
+            uzuplenijdgvListaKlientow();
         }
     }
 }

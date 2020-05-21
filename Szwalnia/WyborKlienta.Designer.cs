@@ -88,6 +88,7 @@
             this.Controls.Add(this.LblWyborKlienta);
             this.Name = "WyborKlienta";
             this.Text = "Wybór klienta";
+            this.Activated += new System.EventHandler(this.WyborKlienta_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaKlientow)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
