@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -39,6 +40,8 @@ namespace Szwalnia
             Elementy element = db.Elementy.Where(wybranyElement => wybranyElement.ID_Element == numIDElementu).First();
             txtNazwa.Text = element.Element_Nazwa;            
             IDTyp = Convert.ToInt32(element.ID_Element_Typ);
+            Elementy_Typy typ = db.Elementy_Typy.Where(wybranyElement => wybranyElement.ID_Element_Typ == IDTyp).First();
+            txtTyp.Text = typ.Typ;
         }
 
         private void dgvListaCech_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -60,17 +63,17 @@ namespace Szwalnia
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            List<Elementy_Cechy> powtorzenie = db.Elementy_Cechy.Where(wybrany => wybrany.ID_Cecha == IDCechy && wybrany.ID_Element==IDElement).ToList();
-            bool blad = false;
-            if (powtorzenie.Any())
-            { blad = true; }
-
-            if (blad)
-            { MessageBox.Show("Ta cecha została już przypisana"); }           
-            else if (txtCechy.TextLength == 0)
-            { MessageBox.Show("Dodaj cechy"); }
+            List<Elementy_Cechy> listaCechy= db.Elementy_Cechy.Where(cecha => cecha.ID_Cecha == IDCechy && cecha.ID_Element==IDElement).ToList();
+            if (listaCechy.Any())
+            {
+                MessageBox.Show("Ta cecha została już przypisana");
+                return;
+            }
+     
+            if (txtCechy.TextLength == 0)
+            {MessageBox.Show("Dodaj cechy"); }
             else if (txtJednostka.TextLength == 0)
-            {MessageBox.Show("Dodaj jednostka");}
+            {MessageBox.Show("Dodaj jednostkę");}
             else
             {
                 if (txtSlowna.TextLength == 0)
@@ -82,16 +85,10 @@ namespace Szwalnia
                 { cechaElementuNew.Wartosc_Cechy_Liczbowa = null; }
                 else
                 { cechaElementuNew.Wartosc_Cechy_Liczbowa = Decimal.ToInt32(numCecha.Value); }
-
-                List<Typy_cechy_rejestr> nazwaListy = db.Typy_cechy_rejestr.Where(typ => typ.ID_typ == IDTyp).ToList();
-                foreach (Typy_cechy_rejestr wierszWybrany in nazwaListy)
-                {
-                    cechaElementuNew.ID_Cecha = wierszWybrany.ID_cecha;
-                    db.Elementy_Cechy.Add(cechaElementuNew);
-                    db.SaveChanges();
-                    Start.DataBaseRefresh();
-                }
-
+                                
+                db.Elementy_Cechy.Add(cechaElementuNew);
+                db.SaveChanges();
+                Start.DataBaseRefresh();
                 MessageBox.Show("Pomyślnie dodano nowy rekord do bazy danych.");
             }
         }
@@ -99,22 +96,20 @@ namespace Szwalnia
         private void btnRejestr_Click(object sender, EventArgs e)
         {
 
-            List<Typy_cechy_rejestr> nazwaListy = db.Typy_cechy_rejestr.Where(typ => typ.ID_typ == IDTyp).ToList();            
-            foreach (Typy_cechy_rejestr wierszWybrany in nazwaListy)
+            List<Typy_cechy_rejestr> listaTypy = db.Typy_cechy_rejestr.Where(typ => typ.ID_typ == IDTyp && typ.ID_cecha == IDCechy).ToList();
+            if (listaTypy.Any())
             {
-                if(wierszWybrany.ID_cecha == IDCechy)
-                { MessageBox.Show("Ta cecha juz jest przypisana do podanego typu elemntu"); }
-                else
-                {
-                    rejestrNew.ID_typ = IDTyp;
-                    rejestrNew.ID_cecha = IDCechy;
-                    db.Typy_cechy_rejestr.Add(rejestrNew);
-                    db.SaveChanges();
-                    Start.DataBaseRefresh();
-                }
-
+                MessageBox.Show("Takie przypianie juz istnieje");
+                return;
             }
-
+            else
+            {
+                rejestrNew.ID_typ = IDTyp;
+                rejestrNew.ID_cecha = IDCechy;
+                db.Typy_cechy_rejestr.Add(rejestrNew);
+                db.SaveChanges();
+                Start.DataBaseRefresh();
+            }
         }
         private void DodawanieCechElementowi_FormClosed(object sender, FormClosedEventArgs e)
         {
