@@ -197,9 +197,9 @@ namespace Szwalnia
                     }
                     else
                     {
-                        List<vDostawyNiewydaneBezDat> listaDoWstawienia = db.vDostawyNiewydaneBezDat.Where(wybraneRekordy => wybraneRekordy.ID_Zamowienia == intIDZamowienie).Where(wybraneRekordy => wybraneRekordy.ID_Dostawy == intIDDostawy).ToList();
+                        List<vDostawyNiewydaneBezDatBezPowtorzen> listaDoWstawienia = db.vDostawyNiewydaneBezDatBezPowtorzen.Where(wybraneRekordy => wybraneRekordy.ID_Zamowienia == intIDZamowienie).Where(wybraneRekordy => wybraneRekordy.ID_Dostawy == intIDDostawy).ToList();
                         Dostarczenia_Wewn noweWydanie = new Dostarczenia_Wewn();
-                        foreach (vDostawyNiewydaneBezDat wierszWybrany in listaDoWstawienia)
+                        foreach (vDostawyNiewydaneBezDatBezPowtorzen wierszWybrany in listaDoWstawienia)
                         {
                             noweWydanie.ID_Pracownicy = intPracownikID;
                             noweWydanie.ID_Dostawy = wierszWybrany.ID_Dostawy;
@@ -216,6 +216,9 @@ namespace Szwalnia
                         db.Zawartosc.Remove(polkaDoWyczyszczenia);
                         db.SaveChanges();
                         Start.DataBaseRefresh();
+                        //teraz wydaje pozostałe brakujące elementy tego samego typu, które miały zostać pobrane z magazynu ze starych dostaw
+
+                        //koniec wydawania pozostałych brakujących elementów
                         WydajMaterialProdukcji.czyZamknietyPrzezInny = true;
                         Application.OpenForms[typeof(WydajMaterialProdukcji).Name].Close();
                         WydajMaterialProdukcji.czyZamknietyPrzezInny = false;

@@ -287,7 +287,8 @@ GO
 -- lista niewydanych dostaw, potrzebuje dodania tabeli w osobnym widoku aby miec daty
 CREATE VIEW [dbo].[vDostawyNiewydaneBezDat]
 AS
-SELECT        dbo.vDostawyDoWydania.ID_Zamowienia, dbo.Zamowienie_Element.ID_Zamowienie_Element, dbo.vDostawyDoWydania.ID_Element, dbo.vDostawyDoWydania.Element_Nazwa, dbo.vDostawyDoWydania.Ilosc, 
+SELECT DISTINCT 
+                         dbo.vDostawyDoWydania.ID_Zamowienia, dbo.Zamowienie_Element.ID_Zamowienie_Element, dbo.vDostawyDoWydania.ID_Element, dbo.vDostawyDoWydania.Element_Nazwa, dbo.vDostawyDoWydania.Ilosc, 
                          dbo.vDostawyDoWydania.ID_Dostawy, dbo.vDostawyDoWydania.Proponowana_data_dostawy_materialu
 FROM            dbo.Proces_Technologiczny INNER JOIN
                          dbo.Elementy_Proces ON dbo.Proces_Technologiczny.ID_Proces_Technologiczny = dbo.Elementy_Proces.ID_Proces_Technologiczny INNER JOIN
@@ -410,15 +411,15 @@ FROM            dbo.Dostarczenia_Zewn INNER JOIN
 GROUP BY dbo.Dostarczenia_Zewn.ID_element, dbo.Dostarczenia_Zewn.ID_Zamowienia, dbo.Elementy.Element_Nazwa, dbo.Zamowienie_Element.ID_Zamowienie_Element
 HAVING        (SUM(dbo.Dostarczenia_Zewn.Ilosc_Dostarczona) > 0)
 GO
---widok dostaw niewydanych i polek na ktorych sa
-CREATE VIEW [dbo].[vDostawyNiewydaneZPolkami]
+
+CREATE VIEW [dbo].[vDostawyNiewydaneZPolkamiNiesumowane]
 AS
 SELECT        dbo.vDostawyNiewydaneBezDat.ID_Zamowienia, dbo.vDostawyNiewydaneBezDat.ID_Dostawy, dbo.vDostawyNiewydaneBezDat.ID_Element, dbo.vDostawyNiewydaneBezDat.Element_Nazwa, 
-                         SUM(dbo.vDostawyNiewydaneBezDat.Ilosc) AS Ilosc, MIN(dbo.vDostawyNiewydaneBezDat.Proponowana_data_dostawy_materialu) AS Proponowana_data_dostawy_materialu, dbo.Polki.ID_Polka
+                         SUM(dbo.vDostawyNiewydaneBezDat.Ilosc) AS Ilosc, MIN(dbo.vDostawyNiewydaneBezDat.Proponowana_data_dostawy_materialu) AS Proponowana_data_dostawy_materialu
 FROM            dbo.Polki INNER JOIN
                          dbo.Zawartosc ON dbo.Polki.ID_Polka = dbo.Zawartosc.ID_Polka INNER JOIN
                          dbo.vDostawyNiewydaneBezDat ON dbo.Zawartosc.ID_Dostawy = dbo.vDostawyNiewydaneBezDat.ID_Dostawy AND dbo.Zawartosc.ID_Element = dbo.vDostawyNiewydaneBezDat.ID_Element
-GROUP BY dbo.vDostawyNiewydaneBezDat.ID_Zamowienia, dbo.vDostawyNiewydaneBezDat.ID_Element, dbo.vDostawyNiewydaneBezDat.Element_Nazwa, dbo.vDostawyNiewydaneBezDat.ID_Dostawy, dbo.Polki.ID_Polka
+GROUP BY dbo.vDostawyNiewydaneBezDat.ID_Zamowienia, dbo.vDostawyNiewydaneBezDat.ID_Element, dbo.vDostawyNiewydaneBezDat.Element_Nazwa, dbo.vDostawyNiewydaneBezDat.ID_Dostawy
 GO
 --lista zamówieñ jeszcze nie zamówionych u dostawców
 CREATE VIEW [dbo].[vZamowieniaDoWykonaniaUDostawcy]
@@ -509,6 +510,39 @@ FROM            dbo.vZawartoscMagazynuDoPrzydzialu RIGHT OUTER JOIN
                          dbo.Zamowienia_Dostawy ON dbo.vZawartoscMagazynuDoPrzydzialu.ID_Dostawy = dbo.Zamowienia_Dostawy.ID_Dostawy
 GO
 
+CREATE VIEW [dbo].[vWidokPomocniczyDoNiewydaneBezDat]
+AS
+SELECT        dbo.Proces_Zamowienie.ID_Zamowienie_Element, dbo.Elementy_Proces.ID_Element, dbo.Elementy_Proces.Liczba
+FROM            dbo.Zamowienie_Element INNER JOIN
+                         dbo.Proces_Zamowienie ON dbo.Zamowienie_Element.ID_Zamowienie_Element = dbo.Proces_Zamowienie.ID_Zamowienie_Element INNER JOIN
+                         dbo.Proces_Technologiczny ON dbo.Proces_Zamowienie.ID_Proces_Technologiczny = dbo.Proces_Technologiczny.ID_Proces_Technologiczny INNER JOIN
+                         dbo.Elementy_Proces ON dbo.Proces_Technologiczny.ID_Proces_Technologiczny = dbo.Elementy_Proces.ID_Proces_Technologiczny
+GO
+
+CREATE VIEW [dbo].[vDostawyNiewydaneBezDatBezPowtorzen]
+AS
+SELECT        dbo.Zamowienia.ID_Zamowienia, dbo.vDostawyNiewydaneBezDat.ID_Zamowienie_Element, dbo.vDostawyNiewydaneBezDat.ID_Element, dbo.vDostawyNiewydaneBezDat.Element_Nazwa, 
+                         dbo.vDostawyNiewydaneBezDat.ID_Dostawy, dbo.vDostawyNiewydaneBezDat.Ilosc, dbo.vDostawyNiewydaneBezDat.Proponowana_data_dostawy_materialu
+FROM            dbo.vWidokPomocniczyDoNiewydaneBezDat INNER JOIN
+                         dbo.vDostawyNiewydaneBezDat ON dbo.vWidokPomocniczyDoNiewydaneBezDat.ID_Zamowienie_Element = dbo.vDostawyNiewydaneBezDat.ID_Zamowienie_Element AND 
+                         dbo.vWidokPomocniczyDoNiewydaneBezDat.ID_Element = dbo.vDostawyNiewydaneBezDat.ID_Element AND dbo.vWidokPomocniczyDoNiewydaneBezDat.Liczba = dbo.vDostawyNiewydaneBezDat.Ilosc INNER JOIN
+                         dbo.Zamowienia ON dbo.vDostawyNiewydaneBezDat.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia
+GO
+
+--widok dostaw niewydanych i polek na ktorych sa
+CREATE VIEW [dbo].[vDostawyNiewydaneZPolkami]
+AS
+SELECT DISTINCT 
+                         dbo.vDostawyNiewydaneBezDatBezPowtorzen.ID_Zamowienia, dbo.vDostawyNiewydaneBezDatBezPowtorzen.ID_Dostawy, dbo.vDostawyNiewydaneBezDatBezPowtorzen.ID_Element, 
+                         dbo.vDostawyNiewydaneBezDatBezPowtorzen.Element_Nazwa, SUM(dbo.vDostawyNiewydaneBezDatBezPowtorzen.Ilosc) AS Ilosc, MIN(dbo.vDostawyNiewydaneBezDatBezPowtorzen.Proponowana_data_dostawy_materialu) 
+                         AS Proponowana_data_dostawy_materialu, dbo.Polki.ID_Polka
+FROM            dbo.Polki INNER JOIN
+                         dbo.Zawartosc ON dbo.Polki.ID_Polka = dbo.Zawartosc.ID_Polka INNER JOIN
+                         dbo.vDostawyNiewydaneBezDatBezPowtorzen ON dbo.Zawartosc.ID_Dostawy = dbo.vDostawyNiewydaneBezDatBezPowtorzen.ID_Dostawy AND 
+                         dbo.Zawartosc.ID_Element = dbo.vDostawyNiewydaneBezDatBezPowtorzen.ID_Element
+GROUP BY dbo.vDostawyNiewydaneBezDatBezPowtorzen.ID_Zamowienia, dbo.vDostawyNiewydaneBezDatBezPowtorzen.ID_Element, dbo.vDostawyNiewydaneBezDatBezPowtorzen.Element_Nazwa, 
+                         dbo.vDostawyNiewydaneBezDatBezPowtorzen.ID_Dostawy, dbo.Polki.ID_Polka
+GO
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------WIDOKI PRODUKCJA----------------------------------------------------

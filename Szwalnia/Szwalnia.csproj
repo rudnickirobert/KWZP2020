@@ -662,6 +662,12 @@
     <Compile Include="Rodzaj_Urlopu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="SredniaIloscMaszyPokaz.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -706,6 +712,9 @@
     </Compile>
     <Compile Include="SumaCzasuPokaz.Designer.cs">
       <DependentUpon>SumaCzasuPokaz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="SzacowanyCzas.cs">
       <SubType>Form</SubType>
@@ -833,7 +842,13 @@
     <Compile Include="vDostawyNiewydaneBezDat.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vDostawyNiewydaneBezDatBezPowtorzen.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vDostawyNiewydaneZPolkami.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vDostawyNiewydaneZPolkamiNiesumowane.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vDostawyZawartoscInformacjeDostawcy.cs">
@@ -1089,6 +1104,9 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vUrlopPracownika.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vWidokPomocniczyDoNiewydaneBezDat.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vWolneMaszyny.cs">
