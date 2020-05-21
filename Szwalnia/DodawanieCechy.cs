@@ -22,9 +22,7 @@ namespace Szwalnia
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             List<Elementy_Cechy_Slownik> powtorzenie = db.Elementy_Cechy_Slownik.Where(nazwa => nazwa.Cecha == txtNazwa.Text).ToList();
-            bool blad = false;
-            if (powtorzenie.Any())
-            { blad = true; }
+            bool blad = powtorzenie.Any();
 
             if (blad)
             { MessageBox.Show("Już istnieje taka cecha"); }

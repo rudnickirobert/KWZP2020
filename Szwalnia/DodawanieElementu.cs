@@ -70,9 +70,7 @@ namespace Szwalnia
         private void btnDodaj_Click(object sender, EventArgs e)
         {            
             List<Elementy> powtorzenie = db.Elementy.Where(nazwa => nazwa.Element_Nazwa.ToLower() == txtNazwa.Text).ToList();
-            bool blad=false;
-            if(powtorzenie.Any())
-            { blad = true; }
+            bool blad=powtorzenie.Any();
 
             if (txtNazwa.TextLength == 0)
             {

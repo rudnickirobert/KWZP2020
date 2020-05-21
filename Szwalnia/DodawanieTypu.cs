@@ -27,9 +27,7 @@ namespace Szwalnia
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             List<Elementy_Typy> powtorzenie = db.Elementy_Typy.Where(nazwa => nazwa.Typ == txtNazwa.Text).ToList();
-            bool blad = false;
-            if (powtorzenie.Any())
-            { blad = true; }
+            bool blad = powtorzenie.Any();            
 
             if (blad)
             { MessageBox.Show("Już istnieje taki typ"); }

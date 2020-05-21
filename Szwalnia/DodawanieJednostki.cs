@@ -23,9 +23,7 @@ namespace Szwalnia
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             List<Elementy_Jednostki> powtorzenie = db.Elementy_Jednostki.Where(nazwa => nazwa.Jednostka.ToLower() == txtNazwa.Text).ToList();
-            bool blad = false;
-            if (powtorzenie.Any())
-            { blad = true; }
+            bool blad = powtorzenie.Any();
 
             if (blad)
             {
