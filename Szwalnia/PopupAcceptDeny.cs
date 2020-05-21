@@ -199,26 +199,32 @@ namespace Szwalnia
                     }
                     else
                     {
-                        List<vDostawyNiewydaneBezDatBezPowtorzen> listaDoWstawienia = db.vDostawyNiewydaneBezDatBezPowtorzen.Where(wybraneRekordy => wybraneRekordy.ID_Zamowienia == intIDZamowienie).Where(wybraneRekordy => wybraneRekordy.ID_Dostawy == intIDDostawy).ToList();
+                        List<vDostawyNiewydaneBezDatBezPowtorzen> listaDoWstawienia = db.vDostawyNiewydaneBezDatBezPowtorzen.Where(wybraneRekordy => wybraneRekordy.ID_Dostawy == intIDDostawy).Where(wybraneRekordy => wybraneRekordy.ID_Dostawy == intIDDostawy).ToList();
                         Dostarczenia_Wewn noweWydanie = new Dostarczenia_Wewn();
-                        int intIloscCalkowita = intIlosc;
-                        int[,] intArrayCzyIloscToZero = new int[listaDoWstawienia.Count,2];
+                        vDostawyIloscDoWydania iloscMaterialuWDostawie = db.vDostawyIloscDoWydania.Where(zamowienie => zamowienie.ID_Dostawy == intIDDostawy).First();
+                        int intIloscCalkowita = Convert.ToInt32(iloscMaterialuWDostawie.Ilosc);
+                        int[,] intArrayCzyIloscToZero = new int[listaDoWstawienia.Count+1,2];
                         int intNumerPetli = 0;
                         foreach (vDostawyNiewydaneBezDatBezPowtorzen wierszWybrany in listaDoWstawienia)
                         {
+                            bool czyTrue = false;
                             noweWydanie.ID_Pracownicy = intPracownikID;
                             noweWydanie.ID_Dostawy = wierszWybrany.ID_Dostawy;
                             noweWydanie.ID_Zamowienie_element = wierszWybrany.ID_Zamowienie_Element;
                             noweWydanie.ID_element = wierszWybrany.ID_Element;
                             noweWydanie.Ilosc_Dostarczona = (-1) * wierszWybrany.Ilosc;
-                            intIloscCalkowita = intIloscCalkowita - Convert.ToInt32(noweWydanie.Ilosc_Dostarczona);
+                            intIloscCalkowita = intIloscCalkowita + Convert.ToInt32(noweWydanie.Ilosc_Dostarczona);
                             if (intIloscCalkowita<0)
                             {
-                                intArrayCzyIloscToZero[intNumerPetli, 1] = wierszWybrany.ID_Zamowienie_Element;
-                                intArrayCzyIloscToZero[intNumerPetli, 2] = intIloscCalkowita;
-                                intIloscCalkowita = 0;
-                                intIloscMaterialowZBrakiem ++;
+                                czyTrue = true;
+                                intIloscMaterialowZBrakiem++;
+                                intArrayCzyIloscToZero[intNumerPetli, 0] = wierszWybrany.ID_Zamowienie_Element;
+                                intArrayCzyIloscToZero[intNumerPetli, 1] = intIloscCalkowita;                                
                             }    
+                            if (czyTrue)
+                            {
+                                intIloscCalkowita = 0;
+                            }
                             noweWydanie.ID_Miejsca = 2;
                             noweWydanie.Data_Dostarczenia = (Convert.ToString(DateTime.Now)).Substring(0, 10);
                             db.Dostarczenia_Wewn.Add(noweWydanie);
@@ -238,10 +244,10 @@ namespace Szwalnia
                         {
                             int intIloscBrakujaca = 0;
                             int intElementZBrakiem = 0;
-                            if (intArrayCzyIloscToZero[i,1]!=0)
+                            if (intArrayCzyIloscToZero[i,0]!=0)
                             {
-                                intIloscBrakujaca = intArrayCzyIloscToZero[i, 2] * (-1);
-                                intElementZBrakiem = intArrayCzyIloscToZero[i, 1];
+                                intIloscBrakujaca = intArrayCzyIloscToZero[i, 1] * (-1);
+                                intElementZBrakiem = intArrayCzyIloscToZero[i, 0];
                                 foreach (vZamowieniaDostawyWlasneZawartoscPolki wybranyWiersz in zestawPolek)
                                 {
                                     if (intIloscBrakujaca==0)

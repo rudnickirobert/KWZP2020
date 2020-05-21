@@ -206,6 +206,7 @@ namespace Szwalnia
         public virtual DbSet<vWynagrodzenia> vWynagrodzenia { get; set; }
         public virtual DbSet<vZamowienia_Do_Wydania> vZamowienia_Do_Wydania { get; set; }
         public virtual DbSet<vZamowienia_Do_Wydania_Kompletne> vZamowienia_Do_Wydania_Kompletne { get; set; }
+        public virtual DbSet<vZamowieniaDostawyWlasneZawartoscPolki> vZamowieniaDostawyWlasneZawartoscPolki { get; set; }
         public virtual DbSet<vZamowieniaDoWykonaniaUDostawcy> vZamowieniaDoWykonaniaUDostawcy { get; set; }
         public virtual DbSet<vZamowieniaDystans> vZamowieniaDystans { get; set; }
         public virtual DbSet<vZamowieniaNieprzypisaneDoPracownikaIKuriera> vZamowieniaNieprzypisaneDoPracownikaIKuriera { get; set; }
@@ -214,7 +215,8 @@ namespace Szwalnia
         public virtual DbSet<vZatrudnieniePracownika> vZatrudnieniePracownika { get; set; }
         public virtual DbSet<vZawartoscMagazynuDoPrzydzialu> vZawartoscMagazynuDoPrzydzialu { get; set; }
         public virtual DbSet<vZawartoscMagazynuDoPrzydzialuZabezpieczona> vZawartoscMagazynuDoPrzydzialuZabezpieczona { get; set; }
-        public virtual DbSet<vZamowieniaDostawyWlasneZawartoscPolki> vZamowieniaDostawyWlasneZawartoscPolki { get; set; }
+        public virtual DbSet<vZawartoscZIloscia> vZawartoscZIloscia { get; set; }
+        public virtual DbSet<vDostawyIloscDoWydania> vDostawyIloscDoWydania { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

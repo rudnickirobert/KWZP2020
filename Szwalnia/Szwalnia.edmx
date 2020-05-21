@@ -778,6 +778,18 @@ warning 6002: The table/view 'Szwalnia.dbo.vDostawyDoWydania' does not have a pr
           <Property Name="ID_Dostawy" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vDostawyIloscDoWydania' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vDostawyIloscDoWydania">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia" />
+            <PropertyRef Name="ID_Dostawy" />
+          </Key>
+          <Property Name="ID_Zamowienia" Type="int" Nullable="false" />
+          <Property Name="ID_Dostawy" Type="int" Nullable="false" />
+          <Property Name="ID_Element" Type="int" />
+          <Property Name="Ilosc" Type="real" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vDostawyKtoreMoznaPonowniePrzypisac' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vDostawyKtoreMoznaPonowniePrzypisac">
           <Key>
@@ -836,7 +848,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vDostawyNiewydaneBezDatBezPowtorzen' 
 warning 6002: The table/view 'Szwalnia.dbo.vDostawyNiewydaneZPolkami' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vDostawyNiewydaneZPolkami">
           <Key>
-            
+            <PropertyRef Name="ID_Zamowienia" />
             <PropertyRef Name="ID_Dostawy" />
             <PropertyRef Name="ID_Element" />
             <PropertyRef Name="ID_Polka" />
@@ -2274,6 +2286,19 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialuZabezpi
           <Property Name="Ilosc" Type="real" />
           <Property Name="Cena" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vZawartoscZIloscia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vZawartoscZIloscia">
+          <Key>
+            <PropertyRef Name="ID_Zawartosc" />
+          </Key>
+          <Property Name="ID_Zawartosc" Type="int" Nullable="false" />
+          <Property Name="ID_Polka" Type="int" />
+          <Property Name="ID_Element" Type="int" />
+          <Property Name="ID_Dostawy" Type="int" />
+          <Property Name="ID_Zamowienia" Type="int" />
+          <Property Name="Ilosc" Type="float" />
+        </EntityType>
         <Association Name="FK__Czesci_Ob__ID_El__57DD0BE4">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
           <End Role="Czesci_Obsluga" Type="Self.Czesci_Obsluga" Multiplicity="*" />
@@ -3527,6 +3552,14 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialuZabezpi
     [vDostawyDoWydania].[ID_Dostawy] AS [ID_Dostawy]
     FROM [dbo].[vDostawyDoWydania] AS [vDostawyDoWydania]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vDostawyIloscDoWydania" EntityType="Self.vDostawyIloscDoWydania" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vDostawyIloscDoWydania].[ID_Zamowienia] AS [ID_Zamowienia], 
+    [vDostawyIloscDoWydania].[ID_Dostawy] AS [ID_Dostawy], 
+    [vDostawyIloscDoWydania].[ID_Element] AS [ID_Element], 
+    [vDostawyIloscDoWydania].[Ilosc] AS [Ilosc]
+    FROM [dbo].[vDostawyIloscDoWydania] AS [vDostawyIloscDoWydania]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vDostawyKtoreMoznaPonowniePrzypisac" EntityType="Self.vDostawyKtoreMoznaPonowniePrzypisac" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vDostawyKtoreMoznaPonowniePrzypisac].[ID_Dostawy] AS [ID_Dostawy]
@@ -4497,6 +4530,16 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialuZabezpi
     [vZawartoscMagazynuDoPrzydzialuZabezpieczona].[Ilosc] AS [Ilosc], 
     [vZawartoscMagazynuDoPrzydzialuZabezpieczona].[Cena] AS [Cena]
     FROM [dbo].[vZawartoscMagazynuDoPrzydzialuZabezpieczona] AS [vZawartoscMagazynuDoPrzydzialuZabezpieczona]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vZawartoscZIloscia" EntityType="Self.vZawartoscZIloscia" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vZawartoscZIloscia].[ID_Zawartosc] AS [ID_Zawartosc], 
+    [vZawartoscZIloscia].[ID_Polka] AS [ID_Polka], 
+    [vZawartoscZIloscia].[ID_Element] AS [ID_Element], 
+    [vZawartoscZIloscia].[ID_Dostawy] AS [ID_Dostawy], 
+    [vZawartoscZIloscia].[ID_Zamowienia] AS [ID_Zamowienia], 
+    [vZawartoscZIloscia].[Ilosc] AS [Ilosc]
+    FROM [dbo].[vZawartoscZIloscia] AS [vZawartoscZIloscia]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__Czesci_Ob__ID_El__57DD0BE4" Association="Self.FK__Czesci_Ob__ID_El__57DD0BE4">
             <End Role="Elementy" EntitySet="Elementy" />
@@ -5815,6 +5858,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialuZabezpi
         </EntityType>
         <EntityType Name="vDostawyNiewydaneZPolkami">
           <Key>
+            <PropertyRef Name="ID_Zamowienia" />
             <PropertyRef Name="ID_Dostawy" />
             <PropertyRef Name="ID_Element" />
             <PropertyRef Name="ID_Polka" />
@@ -6915,6 +6959,16 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialuZabezpi
           </Key>
           <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="vZamowieniaDostawyWlasneZawartoscPolki">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia" />
+          </Key>
+          <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
+          <Property Name="ID_Element" Type="Int32" />
+          <Property Name="Ilosc" Type="Int32" />
+          <Property Name="ID_Dostawy" Type="Int32" />
+          <Property Name="ID_Polka" Type="Int32" />
+        </EntityType>
         <EntityType Name="vZamowieniaDoWykonaniaUDostawcy">
           <Key>
             <PropertyRef Name="ID_Dostawy" />
@@ -7008,6 +7062,17 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialuZabezpi
           <Property Name="Element_Oznaczenie" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Ilosc" Type="Single" />
           <Property Name="Cena" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="vZawartoscZIloscia">
+          <Key>
+            <PropertyRef Name="ID_Zawartosc" />
+          </Key>
+          <Property Name="ID_Zawartosc" Type="Int32" Nullable="false" />
+          <Property Name="ID_Polka" Type="Int32" />
+          <Property Name="ID_Element" Type="Int32" />
+          <Property Name="ID_Dostawy" Type="Int32" />
+          <Property Name="ID_Zamowienia" Type="Int32" />
+          <Property Name="Ilosc" Type="Double" />
         </EntityType>
         <Association Name="FK__Czesci_Ob__ID_El__57DD0BE4">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
@@ -8233,6 +8298,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialuZabezpi
           <EntitySet Name="vWynagrodzenia" EntityType="Self.vWynagrodzenia" />
           <EntitySet Name="vZamowienia_Do_Wydania" EntityType="Self.vZamowienia_Do_Wydania" />
           <EntitySet Name="vZamowienia_Do_Wydania_Kompletne" EntityType="Self.vZamowienia_Do_Wydania_Kompletne" />
+          <EntitySet Name="vZamowieniaDostawyWlasneZawartoscPolki" EntityType="Self.vZamowieniaDostawyWlasneZawartoscPolki" />
           <EntitySet Name="vZamowieniaDoWykonaniaUDostawcy" EntityType="Self.vZamowieniaDoWykonaniaUDostawcy" />
           <EntitySet Name="vZamowieniaDystans" EntityType="Self.vZamowieniaDystans" />
           <EntitySet Name="vZamowieniaNieprzypisaneDoPracownikaIKuriera" EntityType="Self.vZamowieniaNieprzypisaneDoPracownikaIKuriera" />
@@ -8241,6 +8307,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialuZabezpi
           <EntitySet Name="vZatrudnieniePracownika" EntityType="Self.vZatrudnieniePracownika" />
           <EntitySet Name="vZawartoscMagazynuDoPrzydzialu" EntityType="Self.vZawartoscMagazynuDoPrzydzialu" />
           <EntitySet Name="vZawartoscMagazynuDoPrzydzialuZabezpieczona" EntityType="Self.vZawartoscMagazynuDoPrzydzialuZabezpieczona" />
+          <EntitySet Name="vZawartoscZIloscia" EntityType="Self.vZawartoscZIloscia" />
           <AssociationSet Name="FK__Czesci_Ob__ID_El__57DD0BE4" Association="Self.FK__Czesci_Ob__ID_El__57DD0BE4">
             <End Role="Elementy" EntitySet="Elementy" />
             <End Role="Czesci_Obsluga" EntitySet="Czesci_Obsluga" />
@@ -8619,7 +8686,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialuZabezpi
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
-          <EntitySet Name="vZamowieniaDostawyWlasneZawartoscPolki" EntityType="SzwalniaModel.vZamowieniaDostawyWlasneZawartoscPolki" />
+          <EntitySet Name="vDostawyIloscDoWydania" EntityType="SzwalniaModel.vDostawyIloscDoWydania" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -8632,15 +8699,15 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialuZabezpi
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
-        <EntityType Name="vZamowieniaDostawyWlasneZawartoscPolki">
+        <EntityType Name="vDostawyIloscDoWydania">
           <Key>
+            <PropertyRef Name="ID_Dostawy" />
             <PropertyRef Name="ID_Zamowienia" />
           </Key>
-          <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
+          <Property Name="ID_Dostawy" Type="Int32" Nullable="false" />
           <Property Name="ID_Element" Type="Int32" />
-          <Property Name="Ilosc" Type="Int32" />
-          <Property Name="ID_Dostawy" Type="Int32" />
-          <Property Name="ID_Polka" Type="Int32" />
+          <Property Name="Ilosc" Type="Single" />
+          <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -10541,6 +10608,17 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialuZabezpi
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="vZamowieniaDostawyWlasneZawartoscPolki">
+            <EntityTypeMapping TypeName="SzwalniaModel.vZamowieniaDostawyWlasneZawartoscPolki">
+              <MappingFragment StoreEntitySet="vZamowieniaDostawyWlasneZawartoscPolki">
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+                <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
+                <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="vZamowieniaDoWykonaniaUDostawcy">
             <EntityTypeMapping TypeName="SzwalniaModel.vZamowieniaDoWykonaniaUDostawcy">
               <MappingFragment StoreEntitySet="vZamowieniaDoWykonaniaUDostawcy">
@@ -10630,6 +10708,18 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialuZabezpi
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="vZawartoscZIloscia">
+            <EntityTypeMapping TypeName="SzwalniaModel.vZawartoscZIloscia">
+              <MappingFragment StoreEntitySet="vZawartoscZIloscia">
+                <ScalarProperty Name="ID_Zawartosc" ColumnName="ID_Zawartosc" />
+                <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="SzwalniaModel.Store.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="SzwalniaModel.Store.sp_creatediagram" />
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="SzwalniaModel.Store.sp_dropdiagram" />
@@ -10654,14 +10744,13 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialuZabezpi
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="SzwalniaModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="SzwalniaModel.Store.sp_upgraddiagrams" />
-          <EntitySetMapping Name="vZamowieniaDostawyWlasneZawartoscPolki">
-            <EntityTypeMapping TypeName="SzwalniaModel.vZamowieniaDostawyWlasneZawartoscPolki">
-              <MappingFragment StoreEntitySet="vZamowieniaDostawyWlasneZawartoscPolki">
-                <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
-                <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
+          <EntitySetMapping Name="vDostawyIloscDoWydania">
+            <EntityTypeMapping TypeName="SzwalniaModel.vDostawyIloscDoWydania">
+              <MappingFragment StoreEntitySet="vDostawyIloscDoWydania">
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
                 <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
                 <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
-                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
+                <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

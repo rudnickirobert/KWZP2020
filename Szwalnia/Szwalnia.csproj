@@ -833,6 +833,9 @@
     <Compile Include="vDostawyDoWydania.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vDostawyIloscDoWydania.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vDostawyKtoreMoznaPonowniePrzypisac.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -1167,6 +1170,9 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vZawartoscMagazynuDoPrzydzialuZabezpieczona.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vZawartoscZIloscia.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="WybierzZamowienie.cs">

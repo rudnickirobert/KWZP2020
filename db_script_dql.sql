@@ -79,8 +79,9 @@ FROM            (SELECT        ID_Zamowienia, ID_Element, Ilosc
                           SELECT        ID_Zamowienia, ID_Element, Ilosc
                           FROM            dbo.vMaterialyZamowione
                           UNION ALL
-                          SELECT        ID_Zamowienia, ID_Element, Ilosc
-                          FROM            dbo.vMaterialyZMagazynu) AS Wszystko INNER JOIN
+                          SELECT        dbo.Zamowienia_Dostawy_Wlasne.ID_Zamowienia, dbo.Dostawy_Wlasne_Zawartosc.ID_Element, dbo.Dostawy_Wlasne_Zawartosc.Ilosc * - 1 AS Ilosc
+                          FROM            dbo.Zamowienia_Dostawy_Wlasne INNER JOIN
+                                                   dbo.Dostawy_Wlasne_Zawartosc ON dbo.Zamowienia_Dostawy_Wlasne.ID_Zamowienia_dostawy_wlasne = dbo.Dostawy_Wlasne_Zawartosc.ID_Zamowienia_dostawy_wlasne) AS Wszystko INNER JOIN
                          dbo.Elementy ON Wszystko.ID_Element = dbo.Elementy.ID_Element
 GROUP BY Wszystko.ID_Zamowienia, dbo.Elementy.Element_Nazwa, dbo.Elementy.ID_Element
 HAVING        (SUM(Wszystko.Ilosc) > 0)
@@ -544,16 +545,33 @@ GROUP BY dbo.vDostawyNiewydaneBezDatBezPowtorzen.ID_Zamowienia, dbo.vDostawyNiew
                          dbo.vDostawyNiewydaneBezDatBezPowtorzen.ID_Dostawy, dbo.Polki.ID_Polka
 GO
 
-CREATE VIEW [dbo].[vZamowieniaDostawyWlasneZawartoscPolki]
+CREATE VIEW [dbo].[vZawartoscZIloscia]
 AS
-SELECT        dbo.Zamowienia.ID_Zamowienia, dbo.Dostawy_Wlasne_Zawartosc.ID_Element, dbo.Dostawy_Wlasne_Zawartosc.Ilosc, dbo.Dostawy_Wlasne_Zawartosc.ID_Dostawy, dbo.Zawartosc.ID_Polka
-FROM            dbo.Zamowienia_Dostawy_Wlasne INNER JOIN
-                         dbo.Dostawy_Wlasne_Zawartosc ON dbo.Zamowienia_Dostawy_Wlasne.ID_Zamowienia_dostawy_wlasne = dbo.Dostawy_Wlasne_Zawartosc.ID_Zamowienia_dostawy_wlasne INNER JOIN
-                         dbo.Zawartosc ON dbo.Dostawy_Wlasne_Zawartosc.ID_Dostawy = dbo.Zawartosc.ID_Dostawy AND dbo.Dostawy_Wlasne_Zawartosc.ID_Element = dbo.Zawartosc.ID_Element INNER JOIN
-                         dbo.Zamowienia ON dbo.Zamowienia_Dostawy_Wlasne.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia
+SELECT        dbo.Zawartosc.ID_Zawartosc, dbo.Zawartosc.ID_Polka, dbo.Zawartosc.ID_Element, dbo.Zawartosc.ID_Dostawy, dbo.Zawartosc.ID_Zamowienia, 
+                         ROUND(dbo.Zawartosc.Ilosc_Paczek * dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym, 0) AS Ilosc
+FROM            dbo.Zawartosc INNER JOIN
+                         dbo.Zamowienia_Dostawy ON dbo.Zawartosc.ID_Dostawy = dbo.Zamowienia_Dostawy.ID_Dostawy INNER JOIN
+                         dbo.Dostawy_Zawartosc ON dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Dostawy_Zawartosc.ID_Dostawy INNER JOIN
+                         dbo.Oferta ON dbo.Dostawy_Zawartosc.ID_oferta = dbo.Oferta.ID_Oferta
 GO
 
+CREATE VIEW [dbo].[vZamowieniaDostawyWlasneZawartoscPolki]
+AS
+SELECT        dbo.Zamowienia.ID_Zamowienia, dbo.Dostawy_Wlasne_Zawartosc.ID_Element, dbo.Dostawy_Wlasne_Zawartosc.Ilosc, dbo.Dostawy_Wlasne_Zawartosc.ID_Dostawy, dbo.vZawartoscZIloscia.ID_Polka
+FROM            dbo.Zamowienia_Dostawy_Wlasne INNER JOIN
+                         dbo.Dostawy_Wlasne_Zawartosc ON dbo.Zamowienia_Dostawy_Wlasne.ID_Zamowienia_dostawy_wlasne = dbo.Dostawy_Wlasne_Zawartosc.ID_Zamowienia_dostawy_wlasne INNER JOIN
+                         dbo.Zamowienia ON dbo.Zamowienia_Dostawy_Wlasne.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia INNER JOIN
+                         dbo.vZawartoscZIloscia ON dbo.Dostawy_Wlasne_Zawartosc.ID_Dostawy = dbo.vZawartoscZIloscia.ID_Dostawy AND dbo.Dostawy_Wlasne_Zawartosc.ID_Element = dbo.vZawartoscZIloscia.ID_Element
+GO
 
+CREATE VIEW [dbo].[vDostawyIloscDoWydania]
+AS
+SELECT        dbo.Zamowienia.ID_Zamowienia, dbo.Zamowienia_Dostawy.ID_Dostawy, dbo.Dostawy_Zawartosc.ID_Element, dbo.Dostawy_Zawartosc.Ilosc_Dostarczona * dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym AS Ilosc
+FROM            dbo.Zamowienia INNER JOIN
+                         dbo.Zamowienia_Dostawy ON dbo.Zamowienia.ID_Zamowienia = dbo.Zamowienia_Dostawy.ID_Zamowienia INNER JOIN
+                         dbo.Dostawy_Zawartosc ON dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Dostawy_Zawartosc.ID_Dostawy INNER JOIN
+                         dbo.Oferta ON dbo.Dostawy_Zawartosc.ID_oferta = dbo.Oferta.ID_Oferta
+GO
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------WIDOKI PRODUKCJA----------------------------------------------------

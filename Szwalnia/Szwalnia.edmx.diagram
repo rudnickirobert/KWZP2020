@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e2768bd7be994b719933342d97675fe4" Name="Diagram1">
+      <Diagram DiagramId="df5d780b578f4acdadbaafb1a16ac51e" Name="Diagram1">
         <EntityTypeShape EntityType="SzwalniaModel.Czesci_Obsluga" Width="1.5" PointX="8.25" PointY="41.875" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Dokumentacja_Proces" Width="1.5" PointX="5.25" PointY="44.625" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.Dokumentacje" Width="1.5" PointX="3" PointY="34.625" IsExpanded="true" />
@@ -184,14 +184,16 @@
         <EntityTypeShape EntityType="SzwalniaModel.vWynagrodzenia" Width="1.5" PointX="18.75" PointY="33.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vZamowienia_Do_Wydania" Width="1.5" PointX="8.75" PointY="15.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vZamowienia_Do_Wydania_Kompletne" Width="1.5" PointX="0.75" PointY="21.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.vZamowieniaDoWykonaniaUDostawcy" Width="1.5" PointX="33.75" PointY="20.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.vZamowieniaDystans" Width="1.5" PointX="33.75" PointY="22.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.vZamowieniaNieprzypisaneDoPracownikaIKuriera" Width="1.5" PointX="24.75" PointY="33.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.vZamowienie" Width="1.5" PointX="33.75" PointY="25.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.vZamowienieProcesyProdukcyjne" Width="1.5" PointX="33.75" PointY="29.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.vZatrudnieniePracownika" Width="1.5" PointX="31.75" PointY="33.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.vZawartoscMagazynuDoPrzydzialu" Width="1.5" PointX="33.75" PointY="33.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.vZawartoscMagazynuDoPrzydzialuZabezpieczona" Width="1.5" PointX="34.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vZamowieniaDostawyWlasneZawartoscPolki" Width="1.5" PointX="33.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vZamowieniaDoWykonaniaUDostawcy" Width="1.5" PointX="33.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vZamowieniaDystans" Width="1.5" PointX="24.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vZamowieniaNieprzypisaneDoPracownikaIKuriera" Width="1.5" PointX="33.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vZamowienie" Width="1.5" PointX="33.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vZamowienieProcesyProdukcyjne" Width="1.5" PointX="33.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vZatrudnieniePracownika" Width="1.5" PointX="34.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vZawartoscMagazynuDoPrzydzialu" Width="1.5" PointX="34.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vZawartoscMagazynuDoPrzydzialuZabezpieczona" Width="1.5" PointX="34.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vZawartoscZIloscia" Width="1.5" PointX="34.75" PointY="10.75" IsExpanded="true" />
         <AssociationConnector Association="SzwalniaModel.FK__Czesci_Ob__ID_El__57DD0BE4" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Czesci_Ob__ID_Ob__56E8E7AB" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Dokumenta__ID_Do__46B27FE2" ManuallyRouted="false" />
@@ -279,7 +281,7 @@
         <AssociationConnector Association="SzwalniaModel.FK__Zamowieni__ID_Za__31B762FC" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Zawartosc__ID_Za__1AD3FDA4" ManuallyRouted="false" />
         <AssociationConnector Association="SzwalniaModel.FK__Zawartosc__ID_Do__19DFD96B" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="SzwalniaModel.vZamowieniaDostawyWlasneZawartoscPolki" Width="1.5" PointX="27.375" PointY="34.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vDostawyIloscDoWydania" Width="1.5" PointX="27.375" PointY="34.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
