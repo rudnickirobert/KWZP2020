@@ -493,6 +493,44 @@ FROM            dbo.vProduktyNiewykonane RIGHT OUTER JOIN
 WHERE        (dbo.vProduktyNiewykonane.ID_Zamowienia IS NULL)
 GO
 
+CREATE VIEW [dbo].[vZamowienia_Do_Wydania_Kompletne_Niewydane]
+AS
+SELECT        dbo.vZamowienia_Do_Wydania_Kompletne.ID_Zamowienia
+FROM            dbo.vZamowienia_Do_Wydania_Kompletne LEFT OUTER JOIN
+                             (SELECT        ID_Zamowienia
+                               FROM            dbo.Dostarczenia_Zewn
+                               WHERE        (Ilosc_Dostarczona < 0)) AS Dostarczenia_zewn_wydane ON dbo.vZamowienia_Do_Wydania_Kompletne.ID_Zamowienia = Dostarczenia_zewn_wydane.ID_Zamowienia
+WHERE        (Dostarczenia_zewn_wydane.ID_Zamowienia IS NULL)
+GO
+
+CREATE VIEW [dbo].[vZamowieniaKomplenteNiewydaneNaPolkach]
+AS
+SELECT        dbo.vZamowienia_Do_Wydania_Kompletne_Niewydane.ID_Zamowienia, dbo.Polki.ID_Polka, dbo.Zawartosc.ID_Element
+FROM            dbo.Zawartosc INNER JOIN
+                         dbo.Polki ON dbo.Zawartosc.ID_Polka = dbo.Polki.ID_Polka INNER JOIN
+                         dbo.vZamowienia_Do_Wydania_Kompletne_Niewydane ON dbo.Zawartosc.ID_Zamowienia = dbo.vZamowienia_Do_Wydania_Kompletne_Niewydane.ID_Zamowienia
+GO
+
+CREATE VIEW [dbo].[vZamowieniaKompletneNiewydaneNaPolkachCale]
+AS
+SELECT DISTINCT dbo.vZamowieniaKomplenteNiewydaneNaPolkach.ID_Zamowienia, dbo.vZamowieniaKomplenteNiewydaneNaPolkach.ID_Polka, dbo.vZamowieniaKomplenteNiewydaneNaPolkach.ID_Element
+FROM            dbo.vZamowieniaKomplenteNiewydaneNaPolkach LEFT OUTER JOIN
+                             (SELECT DISTINCT dbo.Zamowienie_Element.ID_Zamowienia
+                               FROM            dbo.Zamowienie_Element LEFT OUTER JOIN
+                                                         dbo.vZamowieniaKomplenteNiewydaneNaPolkach AS vZamowieniaKomplenteNiewydaneNaPolkach_1 ON dbo.Zamowienie_Element.ID_Element = vZamowieniaKomplenteNiewydaneNaPolkach_1.ID_Element AND
+                                                          dbo.Zamowienie_Element.ID_Zamowienia = vZamowieniaKomplenteNiewydaneNaPolkach_1.ID_Zamowienia
+                               WHERE        (vZamowieniaKomplenteNiewydaneNaPolkach_1.ID_Element IS NULL)) AS Zamowienia_niebedace_kompletne_na_polce ON 
+                         dbo.vZamowieniaKomplenteNiewydaneNaPolkach.ID_Zamowienia = Zamowienia_niebedace_kompletne_na_polce.ID_Zamowienia
+WHERE        (Zamowienia_niebedace_kompletne_na_polce.ID_Zamowienia IS NULL)
+GO
+
+
+
+
+
+
+
+
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------WIDOKI PRODUKCJA----------------------------------------------------

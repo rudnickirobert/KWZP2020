@@ -20,26 +20,49 @@ namespace Szwalnia
             InitializeComponent();
             db = Start.szwalnia;
             dgvGotoweProdukty.ReadOnly = true;
+            if (db.vZamowieniaKompletneNiewydaneNaPolkachCale.Any())
+            {
+                cmbZamowienie.DataSource = db.vZamowieniaKompletneNiewydaneNaPolkachCale.ToList();
+                cmbZamowienie.DisplayMember = "ID_Zamowienia";
+                cmbZamowienie.ValueMember = "ID_Zamowienia";
+                int numerZamowienia = Convert.ToInt32(cmbZamowienie.SelectedValue);
+                dgvGotoweProdukty.DataSource = db.vZamowieniaKompletneNiewydaneNaPolkachCale.Where(zamowienie => zamowienie.ID_Zamowienia == numerZamowienia).ToList();
+                dgvGotoweProdukty.ReadOnly = true;
+            }
+            else
+            {
+                DataTable brakProduktow = new DataTable();
+                brakProduktow.Columns.Add("Informacja");
+                brakProduktow.Rows.Add("Brak produktów do przyjęcia");
+                dgvGotoweProdukty.DataSource = brakProduktow;
+                dgvGotoweProdukty.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvGotoweProdukty.ReadOnly = true;
+                cmbZamowienie.DataSource = brakProduktow;
+                cmbZamowienie.DisplayMember = "Informacja";
+                cmbZamowienie.ValueMember = "Informacja";
+            }
+            if (db.vPracownicyMagazynu.Any())
+            {
+                cmbPracownik.DataSource = db.vPracownicyMagazynu.ToList();
+                cmbPracownik.DisplayMember = "Dane_osobowe";
+                cmbPracownik.ValueMember = "ID_Pracownika";
+            }
+            else
+            {
 
-            cmbZamowienie.DataSource = db.vZamowienia_Do_Wydania_Kompletne.ToList();
-            cmbZamowienie.DisplayMember = "ID_Zamowienia";
-            cmbZamowienie.ValueMember = "ID_Zamowienia";
-
-            cmbPracownik.DataSource = db.vPracownicyMagazynu.ToList();
-            cmbPracownik.DisplayMember = "Dane_osobowe";
-            cmbPracownik.ValueMember = "ID_Pracownika";
+            }
             czyZainicjowane = true;
-            btnWydajProdukty.Enabled = false;
+            btnWydajProdukty.Enabled = true;
         } 
 
         private void cmbZamowienie_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (czyZainicjowane)
             {
-                if (db.vWydawanie_Zamowien_Kurierowi.Any())
+                if (db.vZamowieniaKompletneNiewydaneNaPolkachCale.Any())
                 {
                     int numerZamowienia = Convert.ToInt32(cmbZamowienie.SelectedValue);
-                    dgvGotoweProdukty.DataSource = db.vWydawanie_Zamowien_Kurierowi.Where(zamowienie => zamowienie.ID_Zamowienia == numerZamowienia).ToList();
+                    dgvGotoweProdukty.DataSource = db.vZamowieniaKompletneNiewydaneNaPolkachCale.Where(zamowienie => zamowienie.ID_Zamowienia == numerZamowienia).ToList();
                     dgvGotoweProdukty.ReadOnly = true;
                 }
                 else
@@ -57,66 +80,36 @@ namespace Szwalnia
         }
         private void btnWydajProdukty_Click(object sender, EventArgs e)
         {
-            /*
-            int numerZamowienia = Convert.ToInt32(cmbZamowienie.SelectedValue);
-            List<vZamowienia_Do_Wydania_Kompletne> listaDoWydania = db.vZamowienia_Do_Wydania_Kompletne.Where(wybraneRekordy => wybraneRekordy.ID_Zamowienia == numerZamowienia).ToList();
-            dgvTest.DataSource = listaDoWydania;
-            Dostarczenia_Zewn noweDostarczenie = new Dostarczenia_Zewn();
-            foreach (vZamowienia_Do_Wydania_Kompletne wierszWybrany in listaDoWydania)
+            if (db.vZamowieniaKompletneNiewydaneNaPolkachCale.Any())
             {
-                noweDostarczenie.ID_Pracownicy = Convert.ToInt32(cmbPracownik.SelectedValue);
-                noweDostarczenie.ID_Zamowienia = Convert.ToInt32(dgvGotoweProdukty.CurrentRow.Cells[0].Value);
-                noweDostarczenie.ID_element = Convert.ToInt32(dgvGotoweProdukty.CurrentRow.Cells[3].Value);
-                noweDostarczenie.Ilosc_Dostarczona = -Convert.ToInt32(dgvGotoweProdukty.CurrentRow.Cells[4].Value);
-
+                int numerZamowienia = Convert.ToInt32(cmbZamowienie.SelectedValue);
+                List<vZamowieniaKompletneNiewydaneNaPolkachCale> listaDoWydania = db.vZamowieniaKompletneNiewydaneNaPolkachCale.Where(wybraneDoWydania => wybraneDoWydania.ID_Zamowienia == numerZamowienia).ToList();
+                Dostarczenia_Zewn noweWydanie = new Dostarczenia_Zewn();
                 Miejsca wysylka = db.Miejsca.Where(miejsce => miejsce.Nazwa == "Wysylka").FirstOrDefault();
-                noweDostarczenie.ID_Miejsca = wysylka.ID_Miejsca;
-                string dataDzis = Convert.ToString(DateTime.Now).Substring(0, 10);
-                noweDostarczenie.Data_Dostarczenia = dataDzis;
+                int intIDMiejsca = wysylka.ID_Miejsca;
 
-                noweDostarczenie.Data_Dostarczenia = (Convert.ToString(DateTime.Now)).Substring(0, 10);
-                db.Dostarczenia_Zewn.Add(noweDostarczenie);
-                db.SaveChanges();
-                Start.DataBaseRefresh();
-
-                Zawartosc polkaDoWyczyszczenia = db.Zawartosc.Where(polka => polka.ID_Zamowienia == numerZamowienia).FirstOrDefault();
-                db.Zawartosc.Remove(polkaDoWyczyszczenia);
-                db.SaveChanges();
-                Start.DataBaseRefresh();
-
-                MessageBox.Show("Pomyślnie wydano produkty kurierowi.");
+                foreach (vZamowieniaKompletneNiewydaneNaPolkachCale wierszWybrany in listaDoWydania)
+                {
+                    noweWydanie.ID_Pracownicy = Convert.ToInt32(cmbPracownik.SelectedValue);
+                    noweWydanie.ID_Zamowienia = wierszWybrany.ID_Zamowienia;
+                    noweWydanie.ID_element = wierszWybrany.ID_Element;
+                    noweWydanie.ID_Miejsca = intIDMiejsca;
+                    int intIDPolka = wierszWybrany.ID_Polka;
+                    Zawartosc wybranaPolka = db.Zawartosc.Where(polkaWybrana => polkaWybrana.ID_Polka == intIDPolka).First();
+                    noweWydanie.Ilosc_Dostarczona = wybranaPolka.Ilosc_Paczek;
+                    noweWydanie.Data_Dostarczenia = Convert.ToString(DateTime.Now).Substring(0, 10);
+                    db.Dostarczenia_Zewn.Add(noweWydanie);
+                    db.Zawartosc.Remove(wybranaPolka);
+                    db.SaveChanges();
+                    Start.DataBaseRefresh();                    
+                }
+                MessageBox.Show("Pomyślnie wydano produkty kurierowi i usnięto z magazynu.");
+                this.Close();
             }
-            
-            this.Close();
-            */
-            
-            int numerZamowienia = Convert.ToInt32(cmbZamowienie.SelectedValue);
-            lblTitle.Text = db.vWydawanie_Zamowien_Kurierowi.Where(zamowienie => zamowienie.ID_Zamowienia == numerZamowienia).Count().ToString();
-            while (db.vWydawanie_Zamowien_Kurierowi.Where(zamowienie => zamowienie.ID_Zamowienia == numerZamowienia).Any()) 
+            else
             {
-                Dostarczenia_Zewn dostarczenia = new Dostarczenia_Zewn();
-
-                dostarczenia.ID_Pracownicy = Convert.ToInt32(cmbPracownik.SelectedValue);
-                dostarczenia.ID_Zamowienia = Convert.ToInt32(dgvGotoweProdukty.CurrentRow.Cells[0].Value);
-                dostarczenia.ID_element = Convert.ToInt32(dgvGotoweProdukty.CurrentRow.Cells[3].Value);
-                dostarczenia.Ilosc_Dostarczona = -Convert.ToInt32(dgvGotoweProdukty.CurrentRow.Cells[4].Value);
-
-                Miejsca wysylka = db.Miejsca.Where(miejsce => miejsce.Nazwa == "Wysylka").FirstOrDefault();
-                dostarczenia.ID_Miejsca = wysylka.ID_Miejsca;
-                string dataDzis = Convert.ToString(DateTime.Now).Substring(0, 10);
-                dostarczenia.Data_Dostarczenia = dataDzis;
-                db.Dostarczenia_Zewn.Add(dostarczenia);
-                db.SaveChanges();
-                Start.DataBaseRefresh();
-
-                Zawartosc polkaDoWyczyszczenia = db.Zawartosc.Where(polka => polka.ID_Zamowienia == dostarczenia.ID_Zamowienia).First();
-                db.Zawartosc.Remove(polkaDoWyczyszczenia);
-                db.SaveChanges();
-                Start.DataBaseRefresh();
-
-                MessageBox.Show("Pomyślnie wydano produkty kurierowi.");
-            }
-            this.Close();            
+                MessageBox.Show("Brak produktów do wydania.");
+            }   
         }
 
         private void WydawanieProduktowKurierowi_FormClosed(object sender, FormClosedEventArgs e)

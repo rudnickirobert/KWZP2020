@@ -199,8 +199,11 @@ namespace Szwalnia
         public virtual DbSet<vWynagrodzenia> vWynagrodzenia { get; set; }
         public virtual DbSet<vZamowienia_Do_Wydania> vZamowienia_Do_Wydania { get; set; }
         public virtual DbSet<vZamowienia_Do_Wydania_Kompletne> vZamowienia_Do_Wydania_Kompletne { get; set; }
+        public virtual DbSet<vZamowienia_Do_Wydania_Kompletne_Niewydane> vZamowienia_Do_Wydania_Kompletne_Niewydane { get; set; }
         public virtual DbSet<vZamowieniaDoWykonaniaUDostawcy> vZamowieniaDoWykonaniaUDostawcy { get; set; }
         public virtual DbSet<vZamowieniaDystans> vZamowieniaDystans { get; set; }
+        public virtual DbSet<vZamowieniaKomplenteNiewydaneNaPolkach> vZamowieniaKomplenteNiewydaneNaPolkach { get; set; }
+        public virtual DbSet<vZamowieniaKompletneNiewydaneNaPolkachCale> vZamowieniaKompletneNiewydaneNaPolkachCale { get; set; }
         public virtual DbSet<vZamowieniaNieprzypisaneDoPracownikaIKuriera> vZamowieniaNieprzypisaneDoPracownikaIKuriera { get; set; }
         public virtual DbSet<vZamowienie> vZamowienie { get; set; }
         public virtual DbSet<vZamowienieProcesyProdukcyjne> vZamowienieProcesyProdukcyjne { get; set; }
