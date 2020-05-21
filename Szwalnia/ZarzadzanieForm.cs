@@ -20,8 +20,8 @@ namespace Szwalnia
         }
         private void btnKlienciForm_Click(object sender, EventArgs e)
         {
-            PanelKlienta panelKlienta = new PanelKlienta(db);
-            panelKlienta.Show();
+           WyborKlienta wyborKlienta = new WyborKlienta(db);
+            wyborKlienta.Show();
         }
         private void btnPracownicy_Click(object sender, EventArgs e)
         {

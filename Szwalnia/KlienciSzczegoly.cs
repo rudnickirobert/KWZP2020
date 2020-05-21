@@ -12,9 +12,11 @@ namespace Szwalnia
 {
     public partial class KlienciSzczegoly : Form
     {
+        public SzwalniaEntities db;
         public KlienciSzczegoly(SzwalniaEntities db, int ID)
         {
             InitializeComponent();
+            this.db = db;
             Klienci customer = db.Klienci.Where(wybrane => wybrane.ID_Klienta == ID).First();
             txtNazwa.Text = customer.Nazwa_Firmy;
             txtNIP.Text = customer.NIP;
@@ -23,12 +25,18 @@ namespace Szwalnia
             txtEmail.Text = customer.E_Mail;
 
             dgvKlienciSzczegoly.DataSource = db.vKlienciZamowienie.Where(zamowienie => zamowienie.ID_Klienta == customer.ID_Klienta).ToList();
-            dgvKlienciSzczegoly.Columns[0].Visible = false;
+            
         }
 
         private void btnZamknij_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnDodaj_Click(object sender, EventArgs e)
+        {
+            NoweZamowienieZPaneluKlienta noweZamowienieZPaneluKlienta = new NoweZamowienieZPaneluKlienta(db);
+            noweZamowienieZPaneluKlienta.Show();
         }
     }
 }

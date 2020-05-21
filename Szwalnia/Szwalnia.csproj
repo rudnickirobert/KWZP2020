@@ -332,6 +332,12 @@
     <Compile Include="NowaPolka.Designer.cs">
       <DependentUpon>NowaPolka.cs</DependentUpon>
     </Compile>
+    <Compile Include="Nowe zamówienie z panelu klienta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nowe zamówienie z panelu klienta.Designer.cs">
+      <DependentUpon>Nowe zamówienie z panelu klienta.cs</DependentUpon>
+    </Compile>
     <Compile Include="NowyNiewykorzystanyMaterialOdpad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -457,12 +463,6 @@
     </Compile>
     <Compile Include="Panel Języków.Designer.cs">
       <DependentUpon>Panel Języków.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PanelKlienta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PanelKlienta.designer.cs">
-      <DependentUpon>PanelKlienta.cs</DependentUpon>
     </Compile>
     <Compile Include="Panel Pracownika.cs">
       <SubType>Form</SubType>
@@ -839,6 +839,9 @@
     <Compile Include="vDostawyZawartoscInformacjeDostawcy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vElementyDlaZamowien.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vElementyProcesProdukcyjny.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -873,6 +876,9 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vJezykiWFirmie.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vKlienci.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vKlienciZamowienie.cs">
@@ -1104,6 +1110,9 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vWolniPracownicyProdukcji.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vWolniPracownicyZarzadzanie.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vWszyscyPracownicyProdukcji.cs">
@@ -1384,6 +1393,9 @@
     <EmbeddedResource Include="NowaRealizacjaProcesu.resx">
       <DependentUpon>NowaRealizacjaProcesu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Nowe zamówienie z panelu klienta.resx">
+      <DependentUpon>Nowe zamówienie z panelu klienta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Nowe zamówienie.resx">
       <DependentUpon>Nowe zamówienie.cs</DependentUpon>
     </EmbeddedResource>
@@ -1437,9 +1449,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OfertySzczegoly.resx">
       <DependentUpon>OfertySzczegoly.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PanelKlienta.resx">
-      <DependentUpon>PanelKlienta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panel Pracownika.resx">
       <DependentUpon>Panel Pracownika.cs</DependentUpon>

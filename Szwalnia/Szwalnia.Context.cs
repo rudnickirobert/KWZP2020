@@ -209,5 +209,8 @@ namespace Szwalnia
         public virtual DbSet<vPrzychody> vPrzychody { get; set; }
         public virtual DbSet<vRozchody> vRozchody { get; set; }
         public virtual DbSet<vBilans> vBilans { get; set; }
+        public virtual DbSet<vKlienci> vKlienci { get; set; }
+        public virtual DbSet<vWolniPracownicyZarzadzanie> vWolniPracownicyZarzadzanie { get; set; }
+        public virtual DbSet<vElementyDlaZamowien> vElementyDlaZamowien { get; set; }
     }
 }

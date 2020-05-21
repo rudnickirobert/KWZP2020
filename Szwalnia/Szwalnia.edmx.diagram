@@ -180,10 +180,10 @@
         <EntityTypeShape EntityType="SzwalniaModel.vZamowienia_Do_Wydania" Width="1.5" PointX="32.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vZamowienia_Do_Wydania_Kompletne" Width="1.5" PointX="32.75" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vZamowieniaDoWykonaniaUDostawcy" Width="1.5" PointX="32.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.vZamowieniaDystans" Width="1.5" PointX="32.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vZamowieniaDystans" Width="3" PointX="32.75" PointY="16.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vZamowieniaNieprzypisaneDoPracownikaIKuriera" Width="1.5" PointX="24.75" PointY="32.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.vZamowienie" Width="1.5" PointX="29.75" PointY="32.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SzwalniaModel.vZamowienieProcesyProdukcyjne" Width="1.5" PointX="31.75" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vZamowienie" Width="1.375" PointX="29.75" PointY="32.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SzwalniaModel.vZamowienieProcesyProdukcyjne" Width="2.375" PointX="31.75" PointY="32.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vZatrudnieniePracownika" Width="1.5" PointX="16.75" PointY="33.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SzwalniaModel.vZawartoscMagazynuDoPrzydzialu" Width="1.5" PointX="18.75" PointY="33.75" IsExpanded="true" />
         <AssociationConnector Association="SzwalniaModel.FK__Czesci_Ob__ID_El__57DD0BE4" ManuallyRouted="false" />
@@ -276,6 +276,9 @@
         <EntityTypeShape EntityType="SzwalniaModel.vPrzychody" Width="1.5" PointX="21.375" PointY="34.75" />
         <EntityTypeShape EntityType="SzwalniaModel.vRozchody" Width="1.5" PointX="34.375" PointY="22.75" />
         <EntityTypeShape EntityType="SzwalniaModel.vBilans" Width="1.5" PointX="34.375" PointY="19.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vKlienci" Width="1.5" PointX="23.375" PointY="34.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vWolniPracownicyZarzadzanie" Width="1.5" PointX="34.375" PointY="25.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vElementyDlaZamowien" Width="1.5" PointX="25.375" PointY="34.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
