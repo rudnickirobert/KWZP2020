@@ -17,10 +17,11 @@ namespace Szwalnia
         {
             InitializeComponent();
             this.db = db;
-
+            
             cbPracownik.DataSource = db.vImieNazwiskoPracownika.ToList();
             cbPracownik.ValueMember = "ID_Pracownika";
             cbPracownik.DisplayMember = "Imie i nazwisko pracownika";
+            cbRodzaj.Refresh();
 
             cbRodzaj.DataSource = db.Rodzaj_Urlopu.ToList();
             cbRodzaj.ValueMember = "ID_Rodzaj_Urlopu";
@@ -31,13 +32,26 @@ namespace Szwalnia
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             Urlop urlop = new Urlop();
-            urlop.ID_Pracownika = Convert.ToInt32(cbPracownik.SelectedValue);
-            urlop.ID_Rodzaj_Urlopu = Convert.ToInt32(cbRodzaj.SelectedValue);
             urlop.Data_rozpoczecia = Convert.ToDateTime(dtpRozpoczecie.Value);
             urlop.Data_zakonczenia = Convert.ToDateTime(dtpZakonczenie.Value);
+            urlop.ID_Pracownika = Convert.ToInt32(cbPracownik.SelectedValue);
+            urlop.ID_Rodzaj_Urlopu = Convert.ToInt32(cbRodzaj.SelectedValue);
             db.Urlop.Add(urlop);
             db.SaveChanges();
-            MessageBox.Show("Dodano nowe urlop pracownikowi");
+            MessageBox.Show("Dodano nowy urlop pracownikowi");
+            
+        }
+
+        private void btnZamknij_Click(object sender, EventArgs e)
+        {
+            Urlop urlop = new Urlop();
+            urlop.Data_rozpoczecia = Convert.ToDateTime(dtpRozpoczecie.Value);
+            urlop.Data_zakonczenia = Convert.ToDateTime(dtpZakonczenie.Value);
+            urlop.ID_Pracownika = Convert.ToInt32(cbPracownik.SelectedValue);
+            urlop.ID_Rodzaj_Urlopu = Convert.ToInt32(cbRodzaj.SelectedValue);
+            db.Urlop.Add(urlop);
+            db.SaveChanges();
+            MessageBox.Show("Dodano nowy urlop pracownikowi");
             this.Close();
         }
     }

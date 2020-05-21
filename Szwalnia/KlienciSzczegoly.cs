@@ -35,8 +35,8 @@ namespace Szwalnia
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            NoweZamowienieZPaneluKlienta noweZamowienieZPaneluKlienta = new NoweZamowienieZPaneluKlienta(db);
-            noweZamowienieZPaneluKlienta.Show();
+            NoweZamowienie noweZamowienie = new NoweZamowienie(db);
+            noweZamowienie.Show();
         }
     }
 }

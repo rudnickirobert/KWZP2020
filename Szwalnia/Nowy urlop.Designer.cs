@@ -125,6 +125,7 @@
             this.btnZamknij.TabIndex = 10;
             this.btnZamknij.Text = "Zapisz i zamknij";
             this.btnZamknij.UseVisualStyleBackColor = true;
+            this.btnZamknij.Click += new System.EventHandler(this.btnZamknij_Click);
             // 
             // btnDodaj
             // 

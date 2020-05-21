@@ -16,6 +16,7 @@ namespace Szwalnia
         public UrlopyPracownikow(SzwalniaEntities db)
         {
             InitializeComponent();
+            this.db = db;
 
             dgvUrlopy.DataSource = db.vUrlopPracownika.ToList();
         }

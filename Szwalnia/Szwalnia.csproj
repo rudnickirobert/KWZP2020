@@ -332,11 +332,11 @@
     <Compile Include="NowaPolka.Designer.cs">
       <DependentUpon>NowaPolka.cs</DependentUpon>
     </Compile>
-    <Compile Include="Nowe zamówienie z panelu klienta.cs">
+    <Compile Include="Nowy urlop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Nowe zamówienie z panelu klienta.Designer.cs">
-      <DependentUpon>Nowe zamówienie z panelu klienta.cs</DependentUpon>
+    <Compile Include="Nowy urlop.Designer.cs">
+      <DependentUpon>Nowy urlop.cs</DependentUpon>
     </Compile>
     <Compile Include="NowyNiewykorzystanyMaterialOdpad.cs">
       <SubType>Form</SubType>
@@ -784,6 +784,12 @@
     </Compile>
     <Compile Include="Urlop.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Urlopy pracowników.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Urlopy pracowników.Designer.cs">
+      <DependentUpon>Urlopy pracowników.cs</DependentUpon>
     </Compile>
     <Compile Include="vBilans.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
@@ -1393,11 +1399,11 @@
     <EmbeddedResource Include="NowaRealizacjaProcesu.resx">
       <DependentUpon>NowaRealizacjaProcesu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Nowe zamówienie z panelu klienta.resx">
-      <DependentUpon>Nowe zamówienie z panelu klienta.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Nowe zamówienie.resx">
       <DependentUpon>Nowe zamówienie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nowy urlop.resx">
+      <DependentUpon>Nowy urlop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NowyKlient.resx">
       <DependentUpon>NowyKlient.cs</DependentUpon>
@@ -1582,6 +1588,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SzczegolyProcesu.resx">
       <DependentUpon>SzczegolyProcesu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Urlopy pracowników.resx">
+      <DependentUpon>Urlopy pracowników.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WybierzZamowienie.resx">
       <DependentUpon>WybierzZamowienie.cs</DependentUpon>
