@@ -485,6 +485,7 @@ FROM            dbo.vProduktyWykonane INNER JOIN
 WHERE        (Posrednia_Zamowienia_zewn.ID_Zamowienia IS NULL) AND (Posrednia_Zamowienia_zewn.ID_element IS NULL)
 GO
 
+--widok pomocniczy
 CREATE VIEW [dbo].[vZamowienia_Do_Wydania_Kompletne]
 AS
 SELECT        dbo.Zamowienia.ID_Zamowienia
@@ -493,6 +494,7 @@ FROM            dbo.vProduktyNiewykonane RIGHT OUTER JOIN
 WHERE        (dbo.vProduktyNiewykonane.ID_Zamowienia IS NULL)
 GO
 
+--widok pomocniczy
 CREATE VIEW [dbo].[vZamowienia_Do_Wydania_Kompletne_Niewydane]
 AS
 SELECT        dbo.vZamowienia_Do_Wydania_Kompletne.ID_Zamowienia
@@ -503,6 +505,7 @@ FROM            dbo.vZamowienia_Do_Wydania_Kompletne LEFT OUTER JOIN
 WHERE        (Dostarczenia_zewn_wydane.ID_Zamowienia IS NULL)
 GO
 
+--widok pomocniczy
 CREATE VIEW [dbo].[vZamowieniaKomplenteNiewydaneNaPolkach]
 AS
 SELECT        dbo.vZamowienia_Do_Wydania_Kompletne_Niewydane.ID_Zamowienia, dbo.Polki.ID_Polka, dbo.Zawartosc.ID_Element
@@ -511,6 +514,7 @@ FROM            dbo.Zawartosc INNER JOIN
                          dbo.vZamowienia_Do_Wydania_Kompletne_Niewydane ON dbo.Zawartosc.ID_Zamowienia = dbo.vZamowienia_Do_Wydania_Kompletne_Niewydane.ID_Zamowienia
 GO
 
+-- pokazuje zamowienia, ktore sa juz na magazynie, ktory element wraz z jego nazwa  + polka (i regal) na ktorej leza
 CREATE VIEW [dbo].[vZamowieniaKompletneNiewydaneNaPolkachCale]
 AS
 SELECT DISTINCT 
@@ -529,19 +533,12 @@ FROM            (SELECT DISTINCT dbo.Zamowienie_Element.ID_Zamowienia
 WHERE        (Zamowienia_niebedace_kompletne_na_polce.ID_Zamowienia IS NULL)
 GO
 
-
+-- pokazuje numery zamówieñ, ktore sa juz na magazynie w calosci (wszystkie elementy)
 CREATE VIEW [dbo].[vZamowieniaKompletneNiewydaneNaPolkachCaleNumery]
 AS
 SELECT DISTINCT ID_Zamowienia
 FROM            dbo.vZamowieniaKomplenteNiewydaneNaPolkach
 GO
-
-
-
-
-
-
-
 
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------

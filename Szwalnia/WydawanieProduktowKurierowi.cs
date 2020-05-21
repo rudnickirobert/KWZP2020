@@ -19,7 +19,7 @@ namespace Szwalnia
         {
             InitializeComponent();
             db = Start.szwalnia;
-            dgvGotoweProdukty.ReadOnly = true;
+
             if (db.vZamowieniaKompletneNiewydaneNaPolkachCaleNumery.Any())
             {
                 cmbZamowienie.DataSource = db.vZamowieniaKompletneNiewydaneNaPolkachCaleNumery.ToList();
@@ -42,6 +42,7 @@ namespace Szwalnia
                 cmbZamowienie.DisplayMember = "Informacja";
                 cmbZamowienie.ValueMember = "Informacja";
             }
+
             if (db.vPracownicyMagazynu.Any())
             {
                 cmbPracownik.DataSource = db.vPracownicyMagazynu.ToList();
@@ -50,7 +51,12 @@ namespace Szwalnia
             }
             else
             {
-
+                DataTable brakPracownikow = new DataTable();
+                brakPracownikow.Columns.Add("Informacja");
+                brakPracownikow.Rows.Add("Brak dostępnego pracownika");
+                cmbPracownik.DataSource = brakPracownikow;
+                cmbPracownik.DisplayMember = "Informacja";
+                cmbPracownik.ValueMember = "Informacja";
             }
             czyZainicjowane = true;
             btnWydajProdukty.Enabled = true;
@@ -77,8 +83,7 @@ namespace Szwalnia
                     dgvGotoweProdukty.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     dgvGotoweProdukty.ReadOnly = true;
                 }
-            }
-            
+            } 
         }
         private void btnWydajProdukty_Click(object sender, EventArgs e)
         {
