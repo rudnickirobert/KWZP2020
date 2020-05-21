@@ -895,7 +895,7 @@ FROM     dbo.Zamowienie_Element LEFT JOIN
                   dbo.Proces_Zamowienie ON dbo.Zamowienie_Element.ID_Zamowienie_Element = dbo.Proces_Zamowienie.ID_Zamowienie_Element LEFT JOIN
                   dbo.Proces_Produkcyjny ON dbo.Zamowienie_Element.ID_Zamowienie_Element = dbo.Proces_Produkcyjny.ID_Zamowienie_Element
 GO
-
+---elementy niedodane do nowego procesu produkcyjnego (3 widoki)
 CREATE VIEW vWszystkieZamowienieElement
 AS
 SELECT dbo.Zamowienie_Element.ID_Zamowienie_Element AS 'zamowienie1', CAST(dbo.Zamowienie_Element.ID_Zamowienie_Element as varchar(10)) + '  ' + dbo.Elementy.Element_Nazwa AS 'Zamowienie_element'
