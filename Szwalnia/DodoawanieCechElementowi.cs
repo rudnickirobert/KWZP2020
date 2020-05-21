@@ -58,20 +58,30 @@ namespace Szwalnia
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            Elementy element = db.Elementy.Where(wybrany => wybrany.ID_Element == IDElement).First();
-            rejestrNew.ID_typ = element.ID_Element_Typ;
-            rejestrNew.ID_cecha = IDCechy;
-            db.Typy_cechy_rejestr.Add(rejestrNew);
-
-            cechaElementuNew.Wartosc_Cechy_Slowna = txtSlowna.Text;
-            if (numCecha.Value == 0)
-            { cechaElementuNew.Wartosc_Cechy_Liczbowa = Decimal.ToInt32(numCecha.Value); }
+            if (txtCechy.TextLength == 0)
+            { MessageBox.Show("Dodaj cechy"); }
+            else if (txtJednostka.TextLength == 0)
+            {MessageBox.Show("Dodaj jednostka");}
             else
-            { cechaElementuNew.Wartosc_Cechy_Liczbowa = null; }
+            {
+                Elementy element = db.Elementy.Where(wybrany => wybrany.ID_Element == IDElement).First();
+                rejestrNew.ID_typ = element.ID_Element_Typ;
+                rejestrNew.ID_cecha = IDCechy;
+                db.Typy_cechy_rejestr.Add(rejestrNew);
 
-            MessageBox.Show("Pomyślnie dodano nowy rekord do bazy danych.");
-            db.Elementy_Cechy.Add(cechaElementuNew);
-            db.SaveChanges();
+                if (txtSlowna.TextLength == 0)
+                { cechaElementuNew.Wartosc_Cechy_Slowna = null; }
+                else
+                { cechaElementuNew.Wartosc_Cechy_Slowna = txtSlowna.Text; }
+                if (numCecha.Value == 0)
+                { cechaElementuNew.Wartosc_Cechy_Liczbowa = null; }
+                else
+                { cechaElementuNew.Wartosc_Cechy_Liczbowa = Decimal.ToInt32(numCecha.Value); }
+
+                MessageBox.Show("Pomyślnie dodano nowy rekord do bazy danych.");
+                db.Elementy_Cechy.Add(cechaElementuNew);
+                db.SaveChanges();
+            }
 
         }
         private void DodawanieCechElementowi_FormClosed(object sender, FormClosedEventArgs e)

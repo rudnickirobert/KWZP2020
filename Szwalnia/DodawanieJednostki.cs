@@ -22,6 +22,8 @@ namespace Szwalnia
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
+           // for(i=1,i=,i++)
+           //    txtNazwa.Text.ToLower==)
             jednostkaNew.Jednostka = txtNazwa.Text;
             MessageBox.Show("Pomyślnie dodano nowy rekord do bazy danych.");
             db.Elementy_Jednostki.Add(jednostkaNew);
