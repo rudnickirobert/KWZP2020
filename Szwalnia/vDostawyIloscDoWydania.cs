@@ -14,9 +14,9 @@ namespace Szwalnia
     
     public partial class vDostawyIloscDoWydania
     {
+        public int ID_Zamowienia { get; set; }
         public int ID_Dostawy { get; set; }
         public Nullable<int> ID_Element { get; set; }
         public Nullable<float> Ilosc { get; set; }
-        public int ID_Zamowienia { get; set; }
     }
 }
