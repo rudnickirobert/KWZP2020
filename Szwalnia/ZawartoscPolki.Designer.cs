@@ -112,11 +112,11 @@
             this.lblPrzydatnosc.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblPrzydatnosc.AutoSize = true;
             this.lblPrzydatnosc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblPrzydatnosc.Location = new System.Drawing.Point(158, 195);
+            this.lblPrzydatnosc.Location = new System.Drawing.Point(158, 191);
             this.lblPrzydatnosc.Name = "lblPrzydatnosc";
-            this.lblPrzydatnosc.Size = new System.Drawing.Size(99, 20);
+            this.lblPrzydatnosc.Size = new System.Drawing.Size(101, 20);
             this.lblPrzydatnosc.TabIndex = 48;
-            this.lblPrzydatnosc.Text = "dd/mm/yyyy";
+            this.lblPrzydatnosc.Text = "yyyy-mm-dd";
             this.lblPrzydatnosc.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // lblIloscJednostka
@@ -143,7 +143,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(372, 287);
+            this.ClientSize = new System.Drawing.Size(372, 278);
             this.Controls.Add(this.lblIdElementu);
             this.Controls.Add(this.lblIloscJednostka);
             this.Controls.Add(this.lblPrzydatnosc);

@@ -17,6 +17,7 @@ namespace Szwalnia
         {
             InitializeComponent();
             db = Start.szwalnia;
+            dgvStanMagazynowyElementy.ReadOnly = true;
             dgvStanMagazynowyElementy.DataSource = db.vStan_magazynowy_elementy.ToList();
             dgvStanMagazynowyElementy.Columns[0].Visible = false;
         }

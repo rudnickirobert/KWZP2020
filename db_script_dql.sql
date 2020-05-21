@@ -109,23 +109,6 @@ FROM            dbo.Oferta INNER JOIN
 GROUP BY dbo.Oferta.ID_Element, dbo.Oferta.ID_Oferta, dbo.Oferta.Element_Oznaczenie, dbo.Oferta.Cena_Jedn, dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym, dbo.Dostawcy_Zaopatrzenie.ID_Dostawcy, 
                          dbo.Dostawcy_Zaopatrzenie.Nazwa, dbo.Dostawcy_Zaopatrzenie.Telefon_1, dbo.Oferta.Ilosc_Minimalna, dbo.Oferta.Ilosc_Maksymalna, dbo.Oferta.Deklarowany_czas_dostawy
 GO
----- Widok stanu magazynowego wg pó³ek
-CREATE VIEW [dbo].[vStan_magazynowy_polki]
-AS
-SELECT         dbo.Zawartosc.ID_Zawartosc, dbo.Zawartosc.ID_Polka, dbo.Regaly.Oznaczenie, dbo.Elementy.Element_Nazwa, dbo.Zawartosc.ID_Element, dbo.Zawartosc.ID_Dostawy, CASE WHEN dbo.Elementy.Okres_Przydatnosci_Miesiace = 0 THEN DATEADD(YEAR, 
-                         50, dbo.Zamowienia_Dostawy.Data_Dostawy_Rzeczywista) ELSE DATEADD(MONTH, dbo.Elementy.Okres_Przydatnosci_Miesiace, dbo.Zamowienia_Dostawy.Data_Dostawy_Rzeczywista) END AS Przydatnosc, dbo.Elementy.Okres_Przydatnosci_Miesiace,
-                         dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym * dbo.Zawartosc.Ilosc_Paczek AS Ile, dbo.Elementy_Jednostki.Jednostka
-FROM            dbo.Polki_regaly INNER JOIN
-                         dbo.Regaly ON dbo.Polki_regaly.ID_regal = dbo.Regaly.ID_regal INNER JOIN
-                         dbo.Polki ON dbo.Polki_regaly.ID_Polka = dbo.Polki.ID_Polka INNER JOIN
-                         dbo.Zawartosc INNER JOIN
-                         dbo.Zamowienia_Dostawy ON dbo.Zawartosc.ID_Dostawy = dbo.Zamowienia_Dostawy.ID_Dostawy INNER JOIN
-                         dbo.Elementy ON dbo.Zawartosc.ID_Element = dbo.Elementy.ID_Element ON dbo.Polki.ID_Polka = dbo.Zawartosc.ID_Polka INNER JOIN
-                         dbo.Oferta ON dbo.Elementy.ID_Element = dbo.Oferta.ID_Element INNER JOIN
-                         dbo.Dostawy_Zawartosc ON dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Dostawy_Zawartosc.ID_Dostawy AND dbo.Elementy.ID_Element = dbo.Dostawy_Zawartosc.ID_Element AND 
-                         dbo.Oferta.ID_Oferta = dbo.Dostawy_Zawartosc.ID_oferta INNER JOIN
-                         dbo.Elementy_Jednostki ON dbo.Oferta.ID_Jednostka = dbo.Elementy_Jednostki.ID_jednostka
-GO
 
 --widok zawartosci magazynu do przydzia³u do zamowien
 CREATE VIEW [dbo].[vZawartoscMagazynuDoPrzydzialu]
@@ -486,6 +469,7 @@ FROM            dbo.vProduktyWykonane INNER JOIN
 WHERE        (Posrednia_Zamowienia_zewn.ID_Zamowienia IS NULL) AND (Posrednia_Zamowienia_zewn.ID_element IS NULL)
 GO
 
+--widok pomocniczy
 CREATE VIEW [dbo].[vZamowienia_Do_Wydania_Kompletne]
 AS
 SELECT        dbo.Zamowienia.ID_Zamowienia
@@ -572,6 +556,79 @@ FROM            dbo.Zamowienia INNER JOIN
                          dbo.Dostawy_Zawartosc ON dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Dostawy_Zawartosc.ID_Dostawy INNER JOIN
                          dbo.Oferta ON dbo.Dostawy_Zawartosc.ID_oferta = dbo.Oferta.ID_Oferta
 GO
+--widok pomocniczy
+CREATE VIEW [dbo].[vZamowienia_Do_Wydania_Kompletne_Niewydane]
+AS
+SELECT        dbo.vZamowienia_Do_Wydania_Kompletne.ID_Zamowienia
+FROM            dbo.vZamowienia_Do_Wydania_Kompletne LEFT OUTER JOIN
+                             (SELECT        ID_Zamowienia
+                               FROM            dbo.Dostarczenia_Zewn
+                               WHERE        (Ilosc_Dostarczona < 0)) AS Dostarczenia_zewn_wydane ON dbo.vZamowienia_Do_Wydania_Kompletne.ID_Zamowienia = Dostarczenia_zewn_wydane.ID_Zamowienia
+WHERE        (Dostarczenia_zewn_wydane.ID_Zamowienia IS NULL)
+GO
+
+--widok pomocniczy
+CREATE VIEW [dbo].[vZamowieniaKomplenteNiewydaneNaPolkach]
+AS
+SELECT        dbo.vZamowienia_Do_Wydania_Kompletne_Niewydane.ID_Zamowienia, dbo.Polki.ID_Polka, dbo.Zawartosc.ID_Element
+FROM            dbo.Zawartosc INNER JOIN
+                         dbo.Polki ON dbo.Zawartosc.ID_Polka = dbo.Polki.ID_Polka INNER JOIN
+                         dbo.vZamowienia_Do_Wydania_Kompletne_Niewydane ON dbo.Zawartosc.ID_Zamowienia = dbo.vZamowienia_Do_Wydania_Kompletne_Niewydane.ID_Zamowienia
+GO
+
+-- pokazuje zamowienia, ktore sa juz na magazynie, ktory element wraz z jego nazwa  + polka (i regal) na ktorej leza
+CREATE VIEW [dbo].[vZamowieniaKompletneNiewydaneNaPolkachCale]
+AS
+SELECT DISTINCT 
+                         dbo.vZamowieniaKomplenteNiewydaneNaPolkach.ID_Zamowienia, dbo.vZamowieniaKomplenteNiewydaneNaPolkach.ID_Element, dbo.Elementy.Element_Nazwa, dbo.vZamowieniaKomplenteNiewydaneNaPolkach.ID_Polka, 
+                         dbo.Regaly.Oznaczenie AS Regal
+FROM            (SELECT DISTINCT dbo.Zamowienie_Element.ID_Zamowienia
+                          FROM            dbo.Zamowienie_Element LEFT OUTER JOIN
+                                                    dbo.vZamowieniaKomplenteNiewydaneNaPolkach AS vZamowieniaKomplenteNiewydaneNaPolkach_1 ON dbo.Zamowienie_Element.ID_Element = vZamowieniaKomplenteNiewydaneNaPolkach_1.ID_Element AND 
+                                                    dbo.Zamowienie_Element.ID_Zamowienia = vZamowieniaKomplenteNiewydaneNaPolkach_1.ID_Zamowienia
+                          WHERE        (vZamowieniaKomplenteNiewydaneNaPolkach_1.ID_Element IS NULL)) AS Zamowienia_niebedace_kompletne_na_polce RIGHT OUTER JOIN
+                         dbo.vZamowieniaKomplenteNiewydaneNaPolkach INNER JOIN
+                         dbo.Elementy ON dbo.vZamowieniaKomplenteNiewydaneNaPolkach.ID_Element = dbo.Elementy.ID_Element INNER JOIN
+                         dbo.Polki_regaly INNER JOIN
+                         dbo.Regaly ON dbo.Polki_regaly.ID_regal = dbo.Regaly.ID_regal ON dbo.vZamowieniaKomplenteNiewydaneNaPolkach.ID_Polka = dbo.Polki_regaly.ID_Polka ON 
+                         Zamowienia_niebedace_kompletne_na_polce.ID_Zamowienia = dbo.vZamowieniaKomplenteNiewydaneNaPolkach.ID_Zamowienia
+WHERE        (Zamowienia_niebedace_kompletne_na_polce.ID_Zamowienia IS NULL)
+GO
+
+-- pokazuje numery zamówieñ, ktore sa juz na magazynie w calosci (wszystkie elementy)
+CREATE VIEW [dbo].[vZamowieniaKompletneNiewydaneNaPolkachCaleNumery]
+AS
+SELECT DISTINCT ID_Zamowienia
+FROM            dbo.vZamowieniaKomplenteNiewydaneNaPolkach
+GO
+
+--widok pomocniczy do stanu magazynowego
+CREATE VIEW [dbo].[vIleElementowNaPolce]
+AS
+SELECT        dbo.Zawartosc.ID_Polka, dbo.Oferta.ID_Element, CAST(dbo.Oferta.Ilosc_W_Opakowaniu_Pojedynczym * dbo.Zawartosc.Ilosc_Paczek AS Nvarchar) + ' ' + CAST(dbo.Elementy_Jednostki.Jednostka AS nvarchar) AS Ile, 
+                         dbo.Zamowienia_Dostawy.Data_Dostawy_Rzeczywista, dbo.Elementy.Okres_Przydatnosci_Miesiace, CASE WHEN dbo.Elementy.Okres_Przydatnosci_Miesiace = 0 THEN 'Nie dotyczy' ELSE CONVERT(varchar, 
+                         (DATEADD(MONTH, dbo.Elementy.Okres_Przydatnosci_Miesiace, dbo.Zamowienia_Dostawy.Data_Dostawy_Rzeczywista)), 23) END AS Expr1
+FROM            dbo.Dostawy_Zawartosc INNER JOIN
+                         dbo.Elementy ON dbo.Dostawy_Zawartosc.ID_Element = dbo.Elementy.ID_Element INNER JOIN
+                         dbo.Oferta ON dbo.Dostawy_Zawartosc.ID_oferta = dbo.Oferta.ID_Oferta AND dbo.Elementy.ID_Element = dbo.Oferta.ID_Element INNER JOIN
+                         dbo.Zamowienia_Dostawy ON dbo.Dostawy_Zawartosc.ID_Dostawy = dbo.Zamowienia_Dostawy.ID_Dostawy INNER JOIN
+                         dbo.Elementy_Jednostki ON dbo.Oferta.ID_Jednostka = dbo.Elementy_Jednostki.ID_jednostka INNER JOIN
+                         dbo.Zawartosc ON dbo.Elementy.ID_Element = dbo.Zawartosc.ID_Element AND dbo.Zamowienia_Dostawy.ID_Dostawy = dbo.Zawartosc.ID_Dostawy
+GO
+
+---- Widok stanu magazynowego wg pó³ek
+CREATE VIEW [dbo].[vStan_magazynowy_polki]
+AS
+SELECT        dbo.Zawartosc.ID_Zawartosc, dbo.Zawartosc.ID_Polka, dbo.Regaly.Oznaczenie, dbo.Elementy.Element_Nazwa, dbo.Zawartosc.ID_Element, CASE WHEN dbo.vIleElementowNaPolce.Ile IS NULL 
+                         THEN CAST(dbo.Zawartosc.Ilosc_Paczek AS NVARCHAR) + ' szt' ELSE dbo.vIleElementowNaPolce.Ile END AS Ile, CASE WHEN dbo.Elementy.Okres_Przydatnosci_Miesiace = 0 THEN 'Nie dotyczy' ELSE CONVERT(varchar, 
+                         (DATEADD(MONTH, dbo.Elementy.Okres_Przydatnosci_Miesiace, dbo.vIleElementowNaPolce.Data_Dostawy_Rzeczywista)), 23) END AS Przydatnosc
+FROM            dbo.Regaly INNER JOIN
+                         dbo.Polki_regaly ON dbo.Regaly.ID_regal = dbo.Polki_regaly.ID_regal INNER JOIN
+                         dbo.Zawartosc LEFT OUTER JOIN
+                         dbo.Elementy ON dbo.Zawartosc.ID_Element = dbo.Elementy.ID_Element ON dbo.Polki_regaly.ID_Polka = dbo.Zawartosc.ID_Polka LEFT OUTER JOIN
+                         dbo.vIleElementowNaPolce ON dbo.Zawartosc.ID_Polka = dbo.vIleElementowNaPolce.ID_Polka
+GO
+
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------WIDOKI PRODUKCJA----------------------------------------------------
@@ -739,7 +796,8 @@ GO
 
 CREATE VIEW vWszyscyPracownicyProdukcji
 AS
-SELECT        dbo.Pracownicy.ID_Pracownika, (CAST(dbo.Pracownicy.ID_Pracownika AS varchar(10)) + ('    ') + dbo.Pracownicy.Imie + (' ')  +  dbo.Pracownicy.Nazwisko + (' - ') + dbo.Stanowisko.Stanowisko) AS 'Pracownik', dbo.Dzialy.ID_Dzialu, dbo.Dzialy.Nazwa_dzialu, dbo.Pracownicy_Zatrudnienie.Data_Zatrudnienia, dbo.Pracownicy_Zatrudnienie.Koniec_umowy
+SELECT        dbo.Pracownicy.ID_Pracownika, (CAST(dbo.Pracownicy.ID_Pracownika AS varchar(10)) + (' ') + dbo.Pracownicy.Imie + (' ')  +  dbo.Pracownicy.Nazwisko + (' - ') + dbo.Stanowisko.Stanowisko) AS 'Pracownik',
+dbo.Pracownicy.Imie, dbo.Pracownicy.Nazwisko, dbo.Stanowisko.Stanowisko, dbo.Dzialy.ID_Dzialu, dbo.Dzialy.Nazwa_dzialu, dbo.Pracownicy_Zatrudnienie.Data_Zatrudnienia, dbo.Pracownicy_Zatrudnienie.Koniec_umowy
 FROM            dbo.Pracownicy INNER JOIN
                          dbo.Pracownicy_Zatrudnienie ON dbo.Pracownicy.ID_Pracownika = dbo.Pracownicy_Zatrudnienie.ID_Pracownika INNER JOIN
                          dbo.Dzialy ON dbo.Pracownicy_Zatrudnienie.ID_Dzialu = dbo.Dzialy.ID_Dzialu INNER JOIN
@@ -752,70 +810,59 @@ GO
 
 -- wolni pracownicy produkcji
 
+CREATE VIEW vAktywnoscPracownikaTeraz
+AS
+SELECT   dbo.Przydzial_Zasobow.ID_Pracownika, dbo.Przydzial_Zasobow.Data_Rozpoczecia, dbo.Przydzial_Zasobow.Data_Zakonczenia, dbo.Urlop.Data_rozpoczecia AS Data_rozpoczecia_urlop, 
+                  dbo.Urlop.Data_zakonczenia AS Data_zakonczenia_urlop
+FROM     dbo.Przydzial_Zasobow LEFT JOIN
+                  dbo.vWszyscyPracownicyProdukcji ON dbo.Przydzial_Zasobow.ID_Pracownika = dbo.vWszyscyPracownicyProdukcji.ID_Pracownika LEFT JOIN
+                  dbo.Urlop ON dbo.Przydzial_Zasobow.ID_Pracownika = dbo.Urlop.ID_Pracownika
+WHERE 	  (dbo.Przydzial_Zasobow.Data_Zakonczenia IS NULL AND dbo.Przydzial_Zasobow.Data_Rozpoczecia IS NOT NULL) 
+OR (dbo.Przydzial_Zasobow.Data_Zakonczenia IS NULL AND dbo.Przydzial_Zasobow.Data_Rozpoczecia IS NULL)
+OR (dbo.Przydzial_Zasobow.Data_Zakonczenia >= GETDATE() AND dbo.Przydzial_Zasobow.Data_Rozpoczecia <= GETDATE()) 
+OR (dbo.Urlop.Data_zakonczenia > GETDATE() AND dbo.Urlop.Data_rozpoczecia < GETDATE())	  
+GO
+
 CREATE VIEW vWolniPracownicyProdukcji
-AS 
-SELECT dbo.Pracownicy.ID_Pracownika, (CAST(dbo.Pracownicy.ID_Pracownika AS varchar(10)) + ('    ') + dbo.Pracownicy.Imie + (' ')  +  dbo.Pracownicy.Nazwisko + (' - ') + dbo.Stanowisko.Stanowisko) AS 'Pracownik',
-       (CAST (dbo.Dzialy.ID_Dzialu AS varchar (10)) + (' Dzia³ ') + dbo.Dzialy.Nazwa_dzialu) AS 'ID Dzia³u, Nazwa',
-	   dbo.Urlop.Data_rozpoczecia AS 'Data Rozpoczêcia Urlopu', dbo.Urlop.Data_zakonczenia AS 'Data Zakoñczenia Urlopu', 
-       dbo.Przydzial_Zasobow.Data_Rozpoczecia AS 'Data Rozpoczêcia' , dbo.Przydzial_Zasobow.Data_Zakonczenia AS 'Data Zakoñczenia',
-	   (CAST(dbo.Stanowisko.ID_Stanowiska AS varchar(10)) + ('    ') +  dbo.Stanowisko.Stanowisko) AS 'ID Stanowiska, Nazwa Stanowiska', dbo.Pracownicy_Zatrudnienie.Data_Zatrudnienia, dbo.Pracownicy_Zatrudnienie.Koniec_umowy
-FROM   
-
-	   dbo.Pracownicy_Zatrudnienie LEFT JOIN
-
-       dbo.Pracownicy ON dbo.Pracownicy_Zatrudnienie.ID_Pracownika = dbo.Pracownicy.ID_Pracownika LEFT JOIN
-
-	   dbo.Dzialy ON dbo.Pracownicy_Zatrudnienie.ID_Dzialu = dbo.Dzialy.ID_Dzialu LEFT JOIN
-
-       dbo.Stanowisko ON dbo.Pracownicy_Zatrudnienie.ID_Stanowiska = dbo.Stanowisko.ID_Stanowiska LEFT JOIN
-	   
-	   dbo.Urlop ON dbo.Pracownicy.ID_Pracownika = dbo.Urlop.ID_Pracownika 
-			AND (dbo.Urlop.Data_zakonczenia > GETDATE() AND dbo.Urlop.Data_rozpoczecia < GETDATE())
-			
-	   LEFT JOIN dbo.Przydzial_Zasobow ON dbo.Pracownicy.ID_Pracownika = dbo.Przydzial_Zasobow.ID_Pracownika 
-			AND (dbo.Przydzial_Zasobow.Data_Zakonczenia > GETDATE() AND dbo.Przydzial_Zasobow.Data_Rozpoczecia < GETDATE())
-
-WHERE ((dbo.Urlop.Data_zakonczenia < GETDATE() OR dbo.Urlop.Data_rozpoczecia > GETDATE()) 
-	  OR dbo.Urlop.Data_zakonczenia IS NULL OR dbo.Urlop.Data_rozpoczecia IS NULL) 
-	  AND
-	  ((dbo.Przydzial_Zasobow.Data_Zakonczenia < GETDATE() OR dbo.Przydzial_Zasobow.Data_Rozpoczecia > GETDATE()) 
-	  OR dbo.Przydzial_Zasobow.Data_Zakonczenia IS NULL OR dbo.Przydzial_Zasobow.Data_Rozpoczecia IS NULL)
-	 AND
-	 (dbo.Pracownicy_Zatrudnienie.Koniec_umowy > GETDATE() AND dbo.Pracownicy_Zatrudnienie.Data_Zatrudnienia < GETDATE())
-	 AND
-	 dbo.Dzialy.ID_Dzialu = 3
+AS
+SELECT dbo.vWszyscyPracownicyProdukcji.ID_Pracownika, (CAST(dbo.vWszyscyPracownicyProdukcji.ID_Pracownika AS varchar(10)) + ('  ') + dbo.vWszyscyPracownicyProdukcji.Imie + (' ')  +  dbo.vWszyscyPracownicyProdukcji.Nazwisko + (' - ') + dbo.vWszyscyPracownicyProdukcji.Stanowisko) AS 'Pracownik', 
+                  dbo.vAktywnoscPracownikaTeraz.ID_Pracownika AS ID_PracownikaAk
+FROM     dbo.vWszyscyPracownicyProdukcji LEFT JOIN
+                  dbo.vAktywnoscPracownikaTeraz ON dbo.vWszyscyPracownicyProdukcji.ID_Pracownika = dbo.vAktywnoscPracownikaTeraz.ID_Pracownika
+WHERE dbo.vAktywnoscPracownikaTeraz.ID_Pracownika is NULL
 GO
 
 
 -- wszystkie maszyny
 
-CREATE VIEW vWszystkieMaszyny
+CREATE VIEW vWszystkieMaszynyProdukcja
 AS
-SELECT dbo.Maszyny.ID_Maszyny, (CAST(dbo.Maszyny.ID_Maszyny AS varchar(10)) + ('    ') + dbo.Srodki_Trwale.Nazwa) AS 'Maszyna'
+SELECT dbo.Maszyny.ID_Maszyny, (CAST(dbo.Maszyny.ID_Maszyny AS varchar(10)) + ('    ') + dbo.Srodki_Trwale.Nazwa) AS 'Maszyna', dbo.Srodki_Trwale.Nazwa
 FROM   dbo.Maszyny INNER JOIN
        dbo.Srodki_Trwale ON dbo.Maszyny.ID_Srodki_Trwale = dbo.Srodki_Trwale.ID_Srodki_trwale
 GO
 
 -- wolne maszyny
 
-CREATE VIEW vWolneMaszyny
+CREATE VIEW vAktywnoscMaszynyTeraz
 AS
-SELECT dbo.Maszyny.ID_Maszyny, (CAST(dbo.Maszyny.ID_Maszyny AS varchar(10)) + ('    ') + dbo.Srodki_Trwale.Nazwa) AS 'Maszyna', dbo.Srodki_Trwale.ID_Srodki_Trwale AS 'ID Œrodki Trwa³e', dbo.Przydzial_Zasobow.Data_Zakonczenia AS 'Data Zakoñczenia', 
-       dbo.Przydzial_Zasobow.Data_Rozpoczecia AS 'Data Rozpoczêcia ', dbo.Obsluga_Techniczna.Data_Rozpoczecia AS 'Data Rozpoczêcia Naprawy/Serwisu', dbo.Obsluga_Techniczna.Data_Zakonczenia AS 'Data Zakoñczenia Naprawy/Serwisu'
-FROM   dbo.Maszyny LEFT JOIN
-       dbo.Srodki_Trwale ON dbo.Maszyny.ID_Srodki_Trwale = dbo.Srodki_Trwale.ID_Srodki_trwale LEFT JOIN
-       dbo.Przydzial_Zasobow ON dbo.Maszyny.ID_Maszyny = dbo.Przydzial_Zasobow.ID_Maszyny 
-	AND (dbo.Przydzial_Zasobow.Data_Zakonczenia > GETDATE() 
-	AND dbo.Przydzial_Zasobow.Data_Rozpoczecia < GETDATE()) LEFT JOIN
-       dbo.Obsluga_Techniczna ON dbo.Maszyny.ID_Maszyny = dbo.Obsluga_Techniczna.ID_Maszyny 
-	AND (dbo.Obsluga_Techniczna.Data_Zakonczenia < GETDATE() 
-	AND dbo.Obsluga_Techniczna.Data_Rozpoczecia > GETDATE()) 
+SELECT dbo.vWszystkieMaszynyProdukcja.ID_Maszyny, dbo.Przydzial_Zasobow.Data_Rozpoczecia, dbo.Przydzial_Zasobow.Data_Zakonczenia, dbo.Obsluga_Techniczna.Data_Rozpoczecia AS Data_Rozpoczecia_Obsluga, 
+                  dbo.Obsluga_Techniczna.Data_Zakonczenia AS Data_Zakonczenia_Obsluga
+FROM     dbo.Przydzial_Zasobow LEFT JOIN
+                  dbo.Obsluga_Techniczna ON dbo.Przydzial_Zasobow.ID_Maszyny = dbo.Obsluga_Techniczna.ID_Maszyny LEFT JOIN
+                  dbo.vWszystkieMaszynyProdukcja ON dbo.Przydzial_Zasobow.ID_Maszyny = dbo.vWszystkieMaszynyProdukcja.ID_Maszyny
+WHERE ((dbo.Przydzial_Zasobow.Data_Zakonczenia IS NULL AND dbo.Przydzial_Zasobow.Data_Rozpoczecia IS NOT NULL) 
+OR (dbo.Przydzial_Zasobow.Data_Zakonczenia IS NULL AND dbo.Przydzial_Zasobow.Data_Rozpoczecia IS NULL)
+OR (dbo.Przydzial_Zasobow.Data_Zakonczenia >= GETDATE() AND dbo.Przydzial_Zasobow.Data_Rozpoczecia <= GETDATE()) 
+OR (dbo.Obsluga_Techniczna.Data_Zakonczenia > GETDATE() AND dbo.Obsluga_Techniczna.Data_Rozpoczecia < GETDATE()))
+GO
 
-WHERE ((dbo.Przydzial_Zasobow.Data_Zakonczenia < GETDATE() OR dbo.Przydzial_Zasobow.Data_Rozpoczecia > GETDATE())
-      OR dbo.Przydzial_Zasobow.Data_Zakonczenia IS NULL OR dbo.Przydzial_Zasobow.Data_Rozpoczecia IS NULL)
-      AND 
-     ((dbo.Obsluga_Techniczna.Data_Zakonczenia < GETDATE() OR dbo.Obsluga_Techniczna.Data_Rozpoczecia > GETDATE()) 
-     OR dbo.Obsluga_Techniczna.Data_Zakonczenia IS NULL OR dbo.Obsluga_Techniczna.Data_Rozpoczecia IS NULL)
+CREATE VIEW vWolneMaszynyProdukcja
+AS
+SELECT dbo.vWszystkieMaszynyProdukcja.ID_Maszyny, (CAST(dbo.vWszystkieMaszynyProdukcja.ID_Maszyny AS varchar(10)) + ('    ') + dbo.vWszystkieMaszynyProdukcja.Nazwa) AS 'Maszyna', dbo.vWszystkieMaszynyProdukcja.Nazwa, dbo.vAktywnoscMaszynyTeraz.ID_Maszyny AS ID_Maszyny_Ak
+FROM     dbo.vWszystkieMaszynyProdukcja LEFT JOIN
+                  dbo.vAktywnoscMaszynyTeraz ON dbo.vWszystkieMaszynyProdukcja.ID_Maszyny = dbo.vAktywnoscMaszynyTeraz.ID_Maszyny
+WHERE dbo.vAktywnoscMaszynyTeraz.ID_Maszyny is NULL
 GO
 
 --elementy w procesie produkcyjnym
@@ -923,13 +970,33 @@ GO
 
 CREATE VIEW vKompletnyProces
 AS
-SELECT        dbo.Proces_Produkcyjny.ID_Procesu_Produkcyjnego, dbo.Proces_Zamowienie.Kompletny_Proces
-FROM            dbo.Proces_Produkcyjny INNER JOIN
-                         dbo.Zamowienie_Element ON dbo.Proces_Produkcyjny.ID_Zamowienie_Element = dbo.Zamowienie_Element.ID_Zamowienie_Element INNER JOIN
-                         dbo.Proces_Zamowienie ON dbo.Zamowienie_Element.ID_Zamowienie_Element = dbo.Proces_Zamowienie.ID_Zamowienie_Element
+SELECT dbo.Zamowienie_Element.ID_Zamowienie_Element, dbo.Proces_Produkcyjny.ID_Procesu_Produkcyjnego, dbo.Proces_Zamowienie.Kompletny_Proces
+FROM     dbo.Zamowienie_Element LEFT JOIN
+                  dbo.Proces_Zamowienie ON dbo.Zamowienie_Element.ID_Zamowienie_Element = dbo.Proces_Zamowienie.ID_Zamowienie_Element LEFT JOIN
+                  dbo.Proces_Produkcyjny ON dbo.Zamowienie_Element.ID_Zamowienie_Element = dbo.Proces_Produkcyjny.ID_Zamowienie_Element
 GO
+---elementy niedodane do nowego procesu produkcyjnego (3 widoki)
+CREATE VIEW vWszystkieZamowienieElement
+AS
+SELECT dbo.Zamowienie_Element.ID_Zamowienie_Element AS 'zamowienie1', CAST(dbo.Zamowienie_Element.ID_Zamowienie_Element as varchar(10)) + '  ' + dbo.Elementy.Element_Nazwa AS 'Zamowienie_element'
+FROM     dbo.Zamowienie_Element INNER JOIN
+                  dbo.Elementy ON dbo.Zamowienie_Element.ID_Element = dbo.Elementy.ID_Element INNER JOIN
+                  dbo.Zamowienia ON dbo.Zamowienie_Element.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia
 
-
+GO
+CREATE VIEW vRealizowaneZamowienieElement
+AS
+SELECT dbo.Zamowienie_Element.ID_Zamowienie_Element AS 'zamowienie2', dbo.Proces_Produkcyjny.ID_Procesu_Produkcyjnego
+FROM     dbo.Proces_Produkcyjny INNER JOIN
+                  dbo.Zamowienie_Element ON dbo.Proces_Produkcyjny.ID_Zamowienie_Element = dbo.Zamowienie_Element.ID_Zamowienie_Element
+GO
+CREATE VIEW vNierealizowaneZamowienieElement
+AS
+SELECT dbo.vWszystkieZamowienieElement.zamowienie1, dbo.vRealizowaneZamowienieElement.zamowienie2, dbo.vWszystkieZamowienieElement.Zamowienie_element
+FROM     dbo.vWszystkieZamowienieElement LEFT JOIN
+                  dbo.vRealizowaneZamowienieElement ON dbo.vWszystkieZamowienieElement.zamowienie1 = dbo.vRealizowaneZamowienieElement.zamowienie2
+WHERE dbo.vRealizowaneZamowienieElement.zamowienie2 is NULL
+GO
 
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
@@ -982,13 +1049,19 @@ GROUP BY ID_Proces_Technologiczny
 GO
 
 CREATE VIEW vProces_technologiczny AS
-SELECT        dbo.Zamowienia.ID_Zamowienia AS [Numer zamówienia], dbo.Zamowienie_Element.ID_Zamowienie_Element AS [Numer zamówienie element], dbo.Elementy.Element_Nazwa AS [Nazwa elementu], 
-                         dbo.Zamowienie_Element.Ilosc AS [Liczba sztuk], dbo.Proces_Technologiczny.ID_Proces_Technologiczny AS [Numer procesu], dbo.Proces_Zamowienie.Kompletny_Proces AS [Kompletny proces]
+SELECT        TOP (100) PERCENT dbo.Zamowienia.ID_Zamowienia AS Numer_zamówienia, dbo.Zamowienie_Element.ID_Zamowienie_Element AS Numer_elementu, dbo.Elementy.Element_Nazwa, dbo.Zamowienie_Element.Ilosc
 FROM            dbo.Zamowienia INNER JOIN
                          dbo.Zamowienie_Element ON dbo.Zamowienia.ID_Zamowienia = dbo.Zamowienie_Element.ID_Zamowienia INNER JOIN
-                         dbo.Elementy ON dbo.Zamowienie_Element.ID_Element = dbo.Elementy.ID_Element INNER JOIN
-                         dbo.Proces_Zamowienie ON dbo.Zamowienie_Element.ID_Zamowienie_Element = dbo.Proces_Zamowienie.ID_Zamowienie_Element INNER JOIN
-                         dbo.Proces_Technologiczny ON dbo.Proces_Zamowienie.ID_Proces_Technologiczny = dbo.Proces_Technologiczny.ID_Proces_Technologiczny
+                         dbo.Elementy ON dbo.Zamowienie_Element.ID_Element = dbo.Elementy.ID_Element
+GROUP BY dbo.Zamowienia.ID_Zamowienia, dbo.Zamowienie_Element.ID_Zamowienie_Element, dbo.Elementy.Element_Nazwa, dbo.Zamowienie_Element.Ilosc
+ORDER BY Numer_zamówienia
+GO
+
+CREATE VIEW vProces_technologicznyy AS
+SELECT        dbo.Zamowienie_Element.ID_Zamowienia, dbo.Zamowienie_Element.ID_Zamowienie_Element AS [Numer elementu], dbo.Proces_Zamowienie.ID_Proces_Technologiczny AS [Numer procesu], 
+                         dbo.Proces_Zamowienie.Kompletny_Proces AS Kompletny_proces
+FROM            dbo.Zamowienie_Element INNER JOIN
+                         dbo.Proces_Zamowienie ON dbo.Zamowienie_Element.ID_Zamowienie_Element = dbo.Proces_Zamowienie.ID_Zamowienie_Element
 GO
 
 CREATE VIEW vMechanicy AS
@@ -1008,16 +1081,17 @@ GROUP BY dbo.Proces_Technologiczny.ID_Proces_Technologiczny, dbo.Rodzaj_Etapu.Na
 GO
 
 CREATE VIEW vElementy_proces AS
-SELECT        dbo.Proces_Technologiczny.ID_Proces_Technologiczny AS [Numer procesu], dbo.Elementy.Element_Nazwa AS [Nazwa elementu], dbo.Elementy_Proces.Liczba, dbo.Elementy_Jednostki.Jednostka
+SELECT        dbo.Elementy_Proces.ID_Proces_Technologiczny AS Numer_procesu, dbo.Elementy.Element_Nazwa AS [Nazwa elementu], dbo.Elementy_Proces.Liczba, dbo.Elementy_Jednostki.Jednostka
 FROM            dbo.Proces_Technologiczny INNER JOIN
                          dbo.Elementy_Proces ON dbo.Proces_Technologiczny.ID_Proces_Technologiczny = dbo.Elementy_Proces.ID_Proces_Technologiczny INNER JOIN
                          dbo.Elementy ON dbo.Elementy_Proces.ID_Element = dbo.Elementy.ID_Element INNER JOIN
                          dbo.Elementy_Jednostki ON dbo.Elementy_Proces.ID_jednostka = dbo.Elementy_Jednostki.ID_jednostka
+GROUP BY dbo.Elementy_Proces.ID_Proces_Technologiczny, dbo.Elementy.Element_Nazwa, dbo.Elementy_Proces.Liczba, dbo.Elementy_Jednostki.Jednostka
 GO
 
 CREATE VIEW vDokumentacja_proces AS
-SELECT        dbo.Proces_Technologiczny.ID_Proces_Technologiczny AS [Numer procesu], dbo.Rodzaj_Dokumentacji.Nazwa AS [Rodzaj dokumentacji], dbo.Pracownicy.Imie + ' ' + dbo.Pracownicy.Nazwisko AS Autor, 
-                         dbo.Dokumentacje.Plik AS Lokalizacja, dbo.Dokumentacje.Data_Wykonania AS [Data wykonania]
+SELECT        dbo.Proces_Technologiczny.ID_Proces_Technologiczny AS Numer_procesu, dbo.Rodzaj_Dokumentacji.Nazwa AS [Rodzaj dokumentacji], dbo.Pracownicy.Imie + ' ' + dbo.Pracownicy.Nazwisko AS Autor, 
+                         dbo.Dokumentacje.Data_Wykonania AS [Data wykonania], dbo.Dokumentacje.Plik AS Lokalizacja
 FROM            dbo.Proces_Technologiczny INNER JOIN
                          dbo.Dokumentacja_Proces ON dbo.Proces_Technologiczny.ID_Proces_Technologiczny = dbo.Dokumentacja_Proces.ID_Proces_Technologiczny INNER JOIN
                          dbo.Dokumentacje ON dbo.Dokumentacja_Proces.ID_Dokumentacji = dbo.Dokumentacje.ID_Dokumentacji INNER JOIN
@@ -1026,11 +1100,11 @@ FROM            dbo.Proces_Technologiczny INNER JOIN
 GO
 
 CREATE VIEW vEtapy_proces AS
-SELECT        dbo.Proces_Technologiczny.ID_Proces_Technologiczny AS [Numer procesu], dbo.Rodzaj_Etapu.Nazwa, dbo.Etapy_W_Procesie.Czas AS [Czas (h)]
+SELECT        dbo.Proces_Technologiczny.ID_Proces_Technologiczny AS Numer_procesu, dbo.Rodzaj_Etapu.Nazwa, dbo.Etapy_W_Procesie.Czas AS [Czas (h)]
 FROM            dbo.Proces_Technologiczny INNER JOIN
                          dbo.Etapy_W_Procesie ON dbo.Proces_Technologiczny.ID_Proces_Technologiczny = dbo.Etapy_W_Procesie.ID_Proces_Technologiczny INNER JOIN
                          dbo.Rodzaj_Etapu ON dbo.Etapy_W_Procesie.ID_Etapu = dbo.Rodzaj_Etapu.ID_Etapu
-GROUP BY dbo.Proces_Technologiczny.ID_Proces_Technologiczny, dbo.Rodzaj_Etapu.Nazwa, dbo.Etapy_W_Procesie.Czas
+GROUP BY dbo.Proces_Technologiczny.ID_Proces_Technologiczny, dbo.Rodzaj_Etapu.Nazwa, dbo.Etapy_W_Procesie.Czas, dbo.Etapy_W_Procesie.ID_Etapy_W_Procesie
 GO
 
 CREATE VIEW vTechnolodzy AS
@@ -1043,8 +1117,8 @@ HAVING        (dbo.Stanowisko.Stanowisko = 'Technolog')
 GO
 
 CREATE VIEW vMaszyny_proces AS
-SELECT        dbo.Proces_Technologiczny.ID_Proces_Technologiczny AS [Numer procesu], dbo.Rodzaj_Maszyny.Rodzaj_Maszyny AS [Rodzaj maszyny], dbo.Maszyny_Proces.Liczba_Maszyn AS [Liczba maszyn], 
-                         dbo.Maszyny_Proces.Liczba_Rbh_Maszyna AS [Liczba roboczogodzin maszyny], dbo.Rodzaj_Maszyny.Koszt_Rbh AS [Koszt roboczogodziny maszyny]
+SELECT        dbo.Proces_Technologiczny.ID_Proces_Technologiczny AS Numer_procesu, dbo.Rodzaj_Maszyny.Rodzaj_Maszyny AS [Rodzaj maszyny], dbo.Maszyny_Proces.Liczba_Maszyn AS [Liczba maszyn], 
+                         dbo.Maszyny_Proces.Liczba_Rbh_Maszyna AS [Liczba roboczogodzin maszyny]
 FROM            dbo.Srodki_Trwale INNER JOIN
                          dbo.Maszyny ON dbo.Srodki_Trwale.ID_Srodki_trwale = dbo.Maszyny.ID_Srodki_Trwale INNER JOIN
                          dbo.Rodzaj_Maszyny ON dbo.Maszyny.ID_Rodzaj_Maszyny = dbo.Rodzaj_Maszyny.ID_Rodzaj_Maszyny INNER JOIN
@@ -1090,7 +1164,7 @@ SELECT        dbo.Proces_Technologiczny.ID_Proces_Technologiczny, dbo.Rodzaj_Eta
 FROM            dbo.Proces_Technologiczny INNER JOIN
                          dbo.Etapy_W_Procesie ON dbo.Proces_Technologiczny.ID_Proces_Technologiczny = dbo.Etapy_W_Procesie.ID_Proces_Technologiczny INNER JOIN
                          dbo.Rodzaj_Etapu ON dbo.Etapy_W_Procesie.ID_Etapu = dbo.Rodzaj_Etapu.ID_Etapu
-GROUP BY dbo.Proces_Technologiczny.ID_Proces_Technologiczny, dbo.Rodzaj_Etapu.Nazwa, dbo.Etapy_W_Procesie.Czas
+GROUP BY dbo.Proces_Technologiczny.ID_Proces_Technologiczny, dbo.Etapy_W_Procesie.ID_Etapy_W_Procesie, dbo.Rodzaj_Etapu.Nazwa, dbo.Etapy_W_Procesie.Czas
 GO
 
 CREATE VIEW vProces_Maszyna AS
@@ -1108,7 +1182,7 @@ FROM            dbo.Elementy
 GO
 
 CREATE VIEW vWszystkie_Maszyny AS
-SELECT        dbo.Maszyny.ID_Maszyny AS [Numer maszyny], dbo.Srodki_Trwale.Producent, dbo.Srodki_Trwale.Nazwa, dbo.Srodki_Trwale.Numer_seryjny AS [Numer seryjny]
+SELECT        dbo.Maszyny.ID_Maszyny AS [Numer maszyny], dbo.Rodzaj_Maszyny.Rodzaj_Maszyny AS [Rodzaj maszyny], dbo.Srodki_Trwale.Producent, dbo.Srodki_Trwale.Numer_seryjny AS [Numer seryjny]
 FROM            dbo.Srodki_Trwale INNER JOIN
                          dbo.Maszyny ON dbo.Srodki_Trwale.ID_Srodki_trwale = dbo.Maszyny.ID_Srodki_Trwale INNER JOIN
                          dbo.Rodzaj_Maszyny ON dbo.Maszyny.ID_Rodzaj_Maszyny = dbo.Rodzaj_Maszyny.ID_Rodzaj_Maszyny
@@ -1129,8 +1203,7 @@ GO
 CREATE VIEW vDokumentacja_info AS
 SELECT        dbo.Dokumentacje.ID_Dokumentacji AS [Numer dokumetacji], dbo.Rodzaj_Dokumentacji.Nazwa AS Rodzaj, dbo.Pracownicy.Imie + ' ' + dbo.Pracownicy.Nazwisko AS [Imiê i nazwisko], 
                          dbo.Dokumentacje.Data_Wykonania AS [Data wykonania], dbo.Dokumentacje.Plik AS Lokalizacja
-FROM            dbo.Dokumentacja_Proces INNER JOIN
-                         dbo.Dokumentacje ON dbo.Dokumentacja_Proces.ID_Dokumentacji = dbo.Dokumentacje.ID_Dokumentacji INNER JOIN
+FROM            dbo.Dokumentacje INNER JOIN
                          dbo.Pracownicy ON dbo.Dokumentacje.ID_Pracownika = dbo.Pracownicy.ID_Pracownika INNER JOIN
                          dbo.Rodzaj_Dokumentacji ON dbo.Dokumentacje.ID_Rodzaj_Dokumentacji = dbo.Rodzaj_Dokumentacji.ID_Rodzaj_Dokumentacji
 GROUP BY dbo.Rodzaj_Dokumentacji.Nazwa, dbo.Dokumentacje.Data_Wykonania, dbo.Pracownicy.Imie, dbo.Pracownicy.Nazwisko, dbo.Dokumentacje.ID_Dokumentacji, dbo.Dokumentacje.Plik

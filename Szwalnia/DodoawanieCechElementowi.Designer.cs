@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DodoawanieCechElementowi));
             this.dgvListaCech = new System.Windows.Forms.DataGridView();
             this.dgvListaJednostek = new System.Windows.Forms.DataGridView();
             this.btnDodaj = new System.Windows.Forms.Button();
@@ -52,11 +53,12 @@
             // 
             this.dgvListaCech.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaCech.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaCech.Location = new System.Drawing.Point(399, 208);
+            this.dgvListaCech.Location = new System.Drawing.Point(299, 169);
+            this.dgvListaCech.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvListaCech.Name = "dgvListaCech";
             this.dgvListaCech.RowHeadersWidth = 51;
             this.dgvListaCech.RowTemplate.Height = 24;
-            this.dgvListaCech.Size = new System.Drawing.Size(330, 190);
+            this.dgvListaCech.Size = new System.Drawing.Size(248, 154);
             this.dgvListaCech.TabIndex = 1;
             this.dgvListaCech.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaCech_CellContentDoubleClick);
             // 
@@ -64,20 +66,21 @@
             // 
             this.dgvListaJednostek.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaJednostek.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaJednostek.Location = new System.Drawing.Point(399, 12);
+            this.dgvListaJednostek.Location = new System.Drawing.Point(299, 10);
+            this.dgvListaJednostek.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvListaJednostek.Name = "dgvListaJednostek";
             this.dgvListaJednostek.RowHeadersWidth = 51;
             this.dgvListaJednostek.RowTemplate.Height = 24;
-            this.dgvListaJednostek.Size = new System.Drawing.Size(330, 190);
+            this.dgvListaJednostek.Size = new System.Drawing.Size(248, 154);
             this.dgvListaJednostek.TabIndex = 2;
             this.dgvListaJednostek.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaJednostek_CellContentDoubleClick);
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(19, 250);
-            this.btnDodaj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDodaj.Location = new System.Drawing.Point(220, 203);
+            this.btnDodaj.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(85, 30);
+            this.btnDodaj.Size = new System.Drawing.Size(64, 24);
             this.btnDodaj.TabIndex = 14;
             this.btnDodaj.Text = "Dodaj";
             this.btnDodaj.UseVisualStyleBackColor = true;
@@ -85,108 +88,117 @@
             // 
             // txtSlowna
             // 
-            this.txtSlowna.Location = new System.Drawing.Point(170, 143);
-            this.txtSlowna.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSlowna.Location = new System.Drawing.Point(128, 116);
+            this.txtSlowna.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSlowna.Name = "txtSlowna";
-            this.txtSlowna.Size = new System.Drawing.Size(151, 22);
+            this.txtSlowna.Size = new System.Drawing.Size(114, 20);
             this.txtSlowna.TabIndex = 13;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 146);
+            this.label1.Location = new System.Drawing.Point(12, 119);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(148, 17);
+            this.label1.Size = new System.Drawing.Size(117, 13);
             this.label1.TabIndex = 12;
             this.label1.Text = "Wartość słowna cechy";
             // 
             // lblMain
             // 
             this.lblMain.AutoSize = true;
-            this.lblMain.Location = new System.Drawing.Point(105, 35);
+            this.lblMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblMain.Location = new System.Drawing.Point(7, 20);
+            this.lblMain.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMain.Name = "lblMain";
-            this.lblMain.Size = new System.Drawing.Size(185, 17);
+            this.lblMain.Size = new System.Drawing.Size(288, 26);
             this.lblMain.TabIndex = 11;
             this.lblMain.Text = "Dodawanie cech elementom";
             // 
             // numCecha
             // 
-            this.numCecha.Location = new System.Drawing.Point(170, 171);
+            this.numCecha.Location = new System.Drawing.Point(128, 139);
+            this.numCecha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.numCecha.Name = "numCecha";
-            this.numCecha.Size = new System.Drawing.Size(120, 22);
+            this.numCecha.Size = new System.Drawing.Size(90, 20);
             this.numCecha.TabIndex = 15;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(63, 173);
+            this.label2.Location = new System.Drawing.Point(47, 141);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 17);
+            this.label2.Size = new System.Drawing.Size(79, 13);
             this.label2.TabIndex = 16;
             this.label2.Text = "Wartość cechy";
             // 
             // txtNazwa
             // 
             this.txtNazwa.Enabled = false;
-            this.txtNazwa.Location = new System.Drawing.Point(170, 91);
-            this.txtNazwa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNazwa.Location = new System.Drawing.Point(128, 74);
+            this.txtNazwa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNazwa.Name = "txtNazwa";
             this.txtNazwa.ReadOnly = true;
-            this.txtNazwa.Size = new System.Drawing.Size(151, 22);
+            this.txtNazwa.Size = new System.Drawing.Size(114, 20);
             this.txtNazwa.TabIndex = 18;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(51, 94);
+            this.label3.Location = new System.Drawing.Point(38, 76);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 17);
+            this.label3.Size = new System.Drawing.Size(87, 13);
             this.label3.TabIndex = 17;
             this.label3.Text = "Nazwa Elementu";
             // 
             // txtCechy
             // 
             this.txtCechy.Enabled = false;
-            this.txtCechy.Location = new System.Drawing.Point(170, 117);
-            this.txtCechy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCechy.Location = new System.Drawing.Point(128, 95);
+            this.txtCechy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCechy.Name = "txtCechy";
             this.txtCechy.ReadOnly = true;
-            this.txtCechy.Size = new System.Drawing.Size(151, 22);
+            this.txtCechy.Size = new System.Drawing.Size(114, 20);
             this.txtCechy.TabIndex = 20;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(73, 120);
+            this.label4.Location = new System.Drawing.Point(55, 98);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 17);
+            this.label4.Size = new System.Drawing.Size(72, 13);
             this.label4.TabIndex = 19;
             this.label4.Text = "Nazwa cechy";
             // 
             // txtJednostka
             // 
             this.txtJednostka.Enabled = false;
-            this.txtJednostka.Location = new System.Drawing.Point(170, 198);
-            this.txtJednostka.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtJednostka.Location = new System.Drawing.Point(128, 161);
+            this.txtJednostka.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtJednostka.Name = "txtJednostka";
             this.txtJednostka.ReadOnly = true;
-            this.txtJednostka.Size = new System.Drawing.Size(151, 22);
+            this.txtJednostka.Size = new System.Drawing.Size(114, 20);
             this.txtJednostka.TabIndex = 22;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(91, 201);
+            this.label5.Location = new System.Drawing.Point(68, 163);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(73, 17);
+            this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 21;
             this.label5.Text = "Jednostka";
             // 
             // btnWstecz
             // 
-            this.btnWstecz.Location = new System.Drawing.Point(280, 250);
+            this.btnWstecz.Location = new System.Drawing.Point(15, 203);
+            this.btnWstecz.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnWstecz.Name = "btnWstecz";
-            this.btnWstecz.Size = new System.Drawing.Size(77, 30);
+            this.btnWstecz.Size = new System.Drawing.Size(58, 24);
             this.btnWstecz.TabIndex = 23;
             this.btnWstecz.Text = "Wstecz";
             this.btnWstecz.UseVisualStyleBackColor = true;
@@ -194,9 +206,9 @@
             // 
             // DodoawanieCechElementowi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 417);
+            this.ClientSize = new System.Drawing.Size(559, 339);
             this.Controls.Add(this.btnWstecz);
             this.Controls.Add(this.txtJednostka);
             this.Controls.Add(this.label5);
@@ -212,8 +224,10 @@
             this.Controls.Add(this.lblMain);
             this.Controls.Add(this.dgvListaJednostek);
             this.Controls.Add(this.dgvListaCech);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "DodoawanieCechElementowi";
-            this.Text = "DodoawanieCechElementowi";
+            this.Text = "Dodawanie cech elementowi";
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaCech)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaJednostek)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCecha)).EndInit();

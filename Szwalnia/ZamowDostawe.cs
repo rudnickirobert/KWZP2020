@@ -20,6 +20,8 @@ namespace Szwalnia
             InitializeComponent();
             db = Start.szwalnia;
             this.intDostawaID = intDostawaID;
+            dgvZawartoscDostawy.ReadOnly = true;
+
             lblInfo.Text = "Lista materiałów do zamówienia w dostawie nr " + Convert.ToString(intDostawaID) + ".";
             if (db.vDostawyZawartoscInformacjeDostawcy.Any())
             {
@@ -49,7 +51,6 @@ namespace Szwalnia
                 txtNumerTelefonu.Text = "Brak informacji";
                 txtEmail.Text = "Brak informacji";
             }
-
         }
 
         private void btnAkceptuj_Click(object sender, EventArgs e)

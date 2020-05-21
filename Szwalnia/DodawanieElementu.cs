@@ -18,6 +18,7 @@ namespace Szwalnia
         {
             InitializeComponent();
             db = Start.szwalnia;
+            dgvListaTypy.ReadOnly = true;
             dgvListaTypy.DataSource = db.Elementy_Typy.ToList();
             
         }

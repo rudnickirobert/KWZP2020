@@ -19,6 +19,8 @@ namespace Szwalnia
             InitializeComponent();
             db = Start.szwalnia;
             numID = ID;
+            dgvSzczegol.ReadOnly = true;
+
             Elementy element = db.Elementy.Where(wybrany => wybrany.ID_Element == ID).First();
             txtNazwa.Text = element.Element_Nazwa;
             lblElement.Text = "Elementu: " + element.Element_Nazwa + " (ID = " + element.ID_Element + ")";

@@ -17,8 +17,14 @@ namespace Szwalnia
         {
             InitializeComponent();
             db = Start.szwalnia;
+            dgvPustePolki.ReadOnly = true;
             dgvPustePolki.DataSource = db.vWolnePolki.ToList();
             lblPustePolki.Text = "Puste półki: " + db.vWolnePolki.Count();
+        }
+
+        private void PustePolki_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Start.GetForm.Show();
         }
     }
 }

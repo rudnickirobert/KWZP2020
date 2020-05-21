@@ -32,6 +32,8 @@ namespace Szwalnia
             this.intIlosc = intIlosc;
             this.intIloscPaczek = intIloscPaczek;
             this.rodzajFormularza = rodzajFormularza;
+            dgvWolnePolki.ReadOnly = true;
+
             if (db.vWolnePolki.Where(polka => polka.ID_Polka>0).Any())
             {
                 dgvWolnePolki.DataSource = db.vWolnePolki.ToList();
@@ -70,6 +72,8 @@ namespace Szwalnia
             this.intIlosc = intIlosc;
             this.dblIloscDlaPolki = dblIloscDlaPolki;
             this.rodzajFormularza = rodzajFormularza;
+            dgvWolnePolki.ReadOnly = true;
+
             if (db.vWolnePolki.Where(polka => polka.ID_Polka > 0).Any())
             {
                 dgvWolnePolki.DataSource = db.vWolnePolki.ToList();
@@ -135,7 +139,7 @@ namespace Szwalnia
                 cmbPracownicy.DisplayMember = "Informacja";
                 cmbPracownicy.ValueMember = "Informacja";
             }
-
+            dgvWolnePolki.ReadOnly = true;
         }
 
             private void WyborPolkiDoOdlozenia_FormClosed(object sender, FormClosedEventArgs e)

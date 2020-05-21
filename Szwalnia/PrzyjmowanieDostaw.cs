@@ -30,7 +30,9 @@ namespace Szwalnia
         {
             InitializeComponent();
             db = Start.szwalnia;
+            dgvDostawyDoPrzyjecia.ReadOnly = true;
             zamknieciePrzezInnyFormularz = false;
+
             if (czyPuste)
             {
                 DataTable informacjaOBrakuDostaw = new DataTable();

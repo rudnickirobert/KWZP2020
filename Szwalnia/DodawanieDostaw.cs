@@ -30,6 +30,8 @@ namespace Szwalnia
         {
             InitializeComponent();
             db = Start.szwalnia;
+            dgvListaMaterialow.ReadOnly = true;
+
             zamknieciePrzezInnyFormularz = false;
             if (czyPuste) 
             {
