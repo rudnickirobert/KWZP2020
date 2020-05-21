@@ -64,10 +64,17 @@ namespace Szwalnia
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
+            List<Elementy> powtorzenie = db.Elementy.Where(nazwa => nazwa.Element_Nazwa.ToLower() == txtNazwa.Text).ToList();
+            bool blad=false;
+            if(powtorzenie.Any())
+            { blad = true; }
+
             if (txtNazwa.TextLength == 0)
             {
                 MessageBox.Show("Nazwa nie może być pusta");
             }
+            else if(blad)
+            { MessageBox.Show("Już istnieje taki element"); }
             else
             {
                 List<Typy_cechy_rejestr> nazwa = db.Typy_cechy_rejestr.Where(typ => typ.ID_typ == cmbTyp.SelectedIndex).ToList();

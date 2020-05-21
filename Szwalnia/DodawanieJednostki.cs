@@ -22,12 +22,23 @@ namespace Szwalnia
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-           // for(i=1,i=,i++)
-           //    txtNazwa.Text.ToLower==)
-            jednostkaNew.Jednostka = txtNazwa.Text;
-            MessageBox.Show("Pomyślnie dodano nowy rekord do bazy danych.");
-            db.Elementy_Jednostki.Add(jednostkaNew);
-            db.SaveChanges();
+            List<Elementy_Jednostki> powtorzenie = db.Elementy_Jednostki.Where(nazwa => nazwa.Jednostka.ToLower() == txtNazwa.Text).ToList();
+            bool blad = false;
+            if (powtorzenie.Any())
+            { blad = true; }
+
+            if (blad)
+            {
+                MessageBox.Show("Już istnieje taka jednostka");
+            }
+            else
+            {
+                jednostkaNew.Jednostka = txtNazwa.Text;
+                MessageBox.Show("Pomyślnie dodano nowy rekord do bazy danych.");
+                db.Elementy_Jednostki.Add(jednostkaNew);
+                db.SaveChanges();
+                Start.DataBaseRefresh();
+            }
         }
 
         private void DodawanieJednostki_FormClosed(object sender, FormClosedEventArgs e)
