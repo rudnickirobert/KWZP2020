@@ -492,6 +492,23 @@ FROM            dbo.vProduktyNiewykonane RIGHT OUTER JOIN
 WHERE        (dbo.vProduktyNiewykonane.ID_Zamowienia IS NULL)
 GO
 
+CREATE VIEW [dbo].[vDostawyKtoreMoznaPonowniePrzypisac]
+AS
+SELECT        dbo.Zamowienia_Dostawy.ID_Dostawy
+FROM            dbo.Zamowienia INNER JOIN
+                         dbo.Zamowienia_Dostawy ON dbo.Zamowienia.ID_Zamowienia = dbo.Zamowienia_Dostawy.ID_Zamowienia
+WHERE        (dbo.Zamowienia.Data_Zakonczenia IS NOT NULL)
+GO
+
+CREATE VIEW [dbo].[vZawartoscMagazynuDoPrzydzialuZabezpieczona]
+AS
+SELECT        dbo.vZawartoscMagazynuDoPrzydzialu.ID_Polka, dbo.vZawartoscMagazynuDoPrzydzialu.ID_Element, dbo.Zamowienia_Dostawy.ID_Dostawy, dbo.vZawartoscMagazynuDoPrzydzialu.Element_Oznaczenie, 
+                         dbo.vZawartoscMagazynuDoPrzydzialu.Ilosc, dbo.vZawartoscMagazynuDoPrzydzialu.Cena
+FROM            dbo.vZawartoscMagazynuDoPrzydzialu RIGHT OUTER JOIN
+                         dbo.vDostawyKtoreMoznaPonowniePrzypisac ON dbo.vZawartoscMagazynuDoPrzydzialu.ID_Dostawy = dbo.vDostawyKtoreMoznaPonowniePrzypisac.ID_Dostawy INNER JOIN
+                         dbo.Zamowienia_Dostawy ON dbo.vZawartoscMagazynuDoPrzydzialu.ID_Dostawy = dbo.Zamowienia_Dostawy.ID_Dostawy
+GO
+
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------WIDOKI PRODUKCJA----------------------------------------------------

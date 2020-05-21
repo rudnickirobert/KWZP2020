@@ -28,6 +28,7 @@ namespace Szwalnia
         public int intPracownikID;
         public int intOferta;
         public int intUmowaID;
+        public bool czyOfertaWielePolek = false;
         public bool czyPrzypisaniePracownika = false;
         public bool boolCzyCancel = false;
         public bool czyOferta;
@@ -90,145 +91,194 @@ namespace Szwalnia
             string strNazwaKuriera = wybranyKurier.Nazwa;
             lblInfo.Text = "Czy na pewno chcesz przypisać "+ strDaneOsobowe +" oraz firmę "+strNazwaKuriera +" do zamówienia nr " + Convert.ToString(intIDZamowienie)+"?";
         }
+        public PopupAcceptDeny(int intElementID, int intIDZamowienie)
+        {
+            InitializeComponent();
+            db = Start.szwalnia;
+            this.intElementID = intElementID;
+            this.intIDZamowienie = intIDZamowienie;
+            czyOfertaWielePolek = true;
+            lblInfo.Text = "Czy na pewno chcesz wybrać cały dostępny materiał na magazynie?";
+
+        }
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            if (!czyPrzypisanieDoDostawy)
+            if (!czyOfertaWielePolek)
             {
-                if (!czyWydanie)
+                if (!czyPrzypisanieDoDostawy)
                 {
-                    //akcja zapisz dostawce/polke
-                    if (czyOferta)
+                    if (!czyWydanie)
                     {
-                        //wstawianie do tabel
-                        if (db.vDostawcyDostawDoZamowien.Where(poszukiwanyDostawca => poszukiwanyDostawca.ID_Dostawcy == intIDDostawcy).Where(poszukiwanyDostawca => poszukiwanyDostawca.ID_Zamowienia == intIDZamowienie).Any())
+                        //akcja zapisz dostawce/polke
+                        if (czyOferta)
                         {
-                            vDostawcyDostawDoZamowien poszukiwanyZestawDanych = db.vDostawcyDostawDoZamowien.Where(poszukiwanyDostawca => poszukiwanyDostawca.ID_Dostawcy == intIDDostawcy).Where(poszukiwanyDostawca => poszukiwanyDostawca.ID_Zamowienia == intIDZamowienie).First();
-                            int intIDDostawy = poszukiwanyZestawDanych.ID_Dostawy;
-                            Dostawy_Zawartosc nowaZawartoscDoDostawy = new Dostawy_Zawartosc();
-                            nowaZawartoscDoDostawy.ID_Dostawy = intIDDostawy;
-                            nowaZawartoscDoDostawy.ID_Element = intElementID;
-                            nowaZawartoscDoDostawy.ID_oferta = intOferta;
-                            nowaZawartoscDoDostawy.Ilosc_Dostarczona = intIlosc;
-                            db.Dostawy_Zawartosc.Add(nowaZawartoscDoDostawy);
-                            db.SaveChanges();
-                            Start.DataBaseRefresh();
+                            //wstawianie do tabel
+                            if (db.vDostawcyDostawDoZamowien.Where(poszukiwanyDostawca => poszukiwanyDostawca.ID_Dostawcy == intIDDostawcy).Where(poszukiwanyDostawca => poszukiwanyDostawca.ID_Zamowienia == intIDZamowienie).Any())
+                            {
+                                vDostawcyDostawDoZamowien poszukiwanyZestawDanych = db.vDostawcyDostawDoZamowien.Where(poszukiwanyDostawca => poszukiwanyDostawca.ID_Dostawcy == intIDDostawcy).Where(poszukiwanyDostawca => poszukiwanyDostawca.ID_Zamowienia == intIDZamowienie).First();
+                                int intIDDostawy = poszukiwanyZestawDanych.ID_Dostawy;
+                                Dostawy_Zawartosc nowaZawartoscDoDostawy = new Dostawy_Zawartosc();
+                                nowaZawartoscDoDostawy.ID_Dostawy = intIDDostawy;
+                                nowaZawartoscDoDostawy.ID_Element = intElementID;
+                                nowaZawartoscDoDostawy.ID_oferta = intOferta;
+                                nowaZawartoscDoDostawy.Ilosc_Dostarczona = intIlosc;
+                                db.Dostawy_Zawartosc.Add(nowaZawartoscDoDostawy);
+                                db.SaveChanges();
+                                Start.DataBaseRefresh();
+                            }
+                            else
+                            {
+                                //nowa dostawa
+                                Zamowienia_Dostawy nowaDostawa = new Zamowienia_Dostawy();
+                                nowaDostawa.ID_statusu = 1;
+                                nowaDostawa.ID_Zamowienia = intIDZamowienie;
+                                db.Zamowienia_Dostawy.Add(nowaDostawa);
+                                db.SaveChanges();
+                                Start.DataBaseRefresh();
+                                //nowa zawartosc
+                                int intIDDostawy = db.Zamowienia_Dostawy.Count();
+                                Dostawy_Zawartosc nowaZawartosc = new Dostawy_Zawartosc();
+                                nowaZawartosc.ID_Dostawy = intIDDostawy;
+                                nowaZawartosc.ID_Element = intElementID;
+                                nowaZawartosc.ID_oferta = intOferta;
+                                nowaZawartosc.Ilosc_Dostarczona = intIlosc;
+                                db.Dostawy_Zawartosc.Add(nowaZawartosc);
+                                db.SaveChanges();
+                                Start.DataBaseRefresh();
+                            }
+                            //zamykanie formularzy
+                            //zamykanie formularzy
+                            WyborOferty.czyZamknietyPrzezInny = true;
+                            Application.OpenForms["WyborOferty"].Close();
+                            if (Application.OpenForms.OfType<DodawanieDostaw>().Count() > 0)
+                            {
+                                DodawanieDostaw.czyZamknietyPrzezInny = true;
+                                Application.OpenForms["DodawanieDostaw"].Close();
+                            }
+                            WyborOferty.czyZamknietyPrzezInny = false;
+                            DodawanieDostaw formularzDodawanieDostaw = new DodawanieDostaw(!db.vMaterialyDoZamowieniaBrak.Where(elementDoZamowienia => elementDoZamowienia.ID_Element > 0).Any());
+                            formularzDodawanieDostaw.Show();
+                            boolCzyCancel = true;
+                            this.Close();
                         }
                         else
                         {
-                            //nowa dostawa
-                            Zamowienia_Dostawy nowaDostawa = new Zamowienia_Dostawy();
-                            nowaDostawa.ID_statusu = 1;
-                            nowaDostawa.ID_Zamowienia = intIDZamowienie;
-                            db.Zamowienia_Dostawy.Add(nowaDostawa);
+                            //wstawianie do tabel
+                            Zamowienia_Dostawy_Wlasne nowePrzypisanieDostawyZasobow = new Zamowienia_Dostawy_Wlasne();
+                            nowePrzypisanieDostawyZasobow.ID_miejsca = 2;
+                            nowePrzypisanieDostawyZasobow.ID_Zamowienia = intIDZamowienie;
+                            db.Zamowienia_Dostawy_Wlasne.Add(nowePrzypisanieDostawyZasobow);
+                            db.SaveChanges();
+                            int IDDostawyWlasne = db.Zamowienia_Dostawy_Wlasne.Count();
+                            Dostawy_Wlasne_Zawartosc nowePrzypisanieZawartosciDostawyZasobow = new Dostawy_Wlasne_Zawartosc();
+                            nowePrzypisanieZawartosciDostawyZasobow.ID_Zamowienia_dostawy_wlasne = IDDostawyWlasne;
+                            nowePrzypisanieZawartosciDostawyZasobow.ID_Element = intElementID;
+                            nowePrzypisanieZawartosciDostawyZasobow.ID_Dostawy = intDostawa;
+                            nowePrzypisanieZawartosciDostawyZasobow.Ilosc = intIlosc;
+                            db.Dostawy_Wlasne_Zawartosc.Add(nowePrzypisanieZawartosciDostawyZasobow);
+                            db.SaveChanges();
+                            Zawartosc polkaZKtorejWzieto = db.Zawartosc.Where(polkaWybrana => polkaWybrana.ID_Polka == intPolka).First();
+                            db.Zawartosc.Remove(polkaZKtorejWzieto);
                             db.SaveChanges();
                             Start.DataBaseRefresh();
-                            //nowa zawartosc
-                            int intIDDostawy = db.Zamowienia_Dostawy.Count();
-                            Dostawy_Zawartosc nowaZawartosc = new Dostawy_Zawartosc();
-                            nowaZawartosc.ID_Dostawy = intIDDostawy;
-                            nowaZawartosc.ID_Element = intElementID;
-                            nowaZawartosc.ID_oferta = intOferta;
-                            nowaZawartosc.Ilosc_Dostarczona = intIlosc;
-                            db.Dostawy_Zawartosc.Add(nowaZawartosc);
-                            db.SaveChanges();
-                            Start.DataBaseRefresh();
+                            //zamykanie formularzy
+                            WyborOferty.czyZamknietyPrzezInny = true;
+                            Application.OpenForms["WyborOferty"].Close();
+                            if (Application.OpenForms.OfType<DodawanieDostaw>().Count() > 0)
+                            {
+                                DodawanieDostaw.czyZamknietyPrzezInny = true;
+                                Application.OpenForms["DodawanieDostaw"].Close();
+                            }
+                            DodawanieDostaw formularzDodawanieDostaw = new DodawanieDostaw(!db.vMaterialyDoZamowieniaBrak.Where(elementDoZamowienia => elementDoZamowienia.ID_Element > 0).Any());
+                            formularzDodawanieDostaw.Show();
+                            boolCzyCancel = true;
+                            this.Close();
                         }
-                        //zamykanie formularzy
-                        //zamykanie formularzy
-                        WyborOferty.czyZamknietyPrzezInny = true;
-                        Application.OpenForms["WyborOferty"].Close();
-                        if (Application.OpenForms.OfType<DodawanieDostaw>().Count() > 0)
-                        {
-                            DodawanieDostaw.czyZamknietyPrzezInny = true;
-                            Application.OpenForms["DodawanieDostaw"].Close();
-                        }
-                        WyborOferty.czyZamknietyPrzezInny = false;
-                        DodawanieDostaw formularzDodawanieDostaw = new DodawanieDostaw(!db.vMaterialyDoZamowieniaBrak.Where(elementDoZamowienia => elementDoZamowienia.ID_Element > 0).Any());
-                        formularzDodawanieDostaw.Show();
-                        boolCzyCancel = true;
-                        this.Close();
                     }
                     else
                     {
-                        //wstawianie do tabel
-                        Zamowienia_Dostawy_Wlasne nowePrzypisanieDostawyZasobow = new Zamowienia_Dostawy_Wlasne();
-                        nowePrzypisanieDostawyZasobow.ID_miejsca = 2;
-                        nowePrzypisanieDostawyZasobow.ID_Zamowienia = intIDZamowienie;
-                        db.Zamowienia_Dostawy_Wlasne.Add(nowePrzypisanieDostawyZasobow);
-                        db.SaveChanges();
-                        int IDDostawyWlasne = db.Zamowienia_Dostawy_Wlasne.Count();
-                        Dostawy_Wlasne_Zawartosc nowePrzypisanieZawartosciDostawyZasobow = new Dostawy_Wlasne_Zawartosc();
-                        nowePrzypisanieZawartosciDostawyZasobow.ID_Zamowienia_dostawy_wlasne = IDDostawyWlasne;
-                        nowePrzypisanieZawartosciDostawyZasobow.ID_Element = intElementID;
-                        nowePrzypisanieZawartosciDostawyZasobow.ID_Dostawy = intDostawa;
-                        nowePrzypisanieZawartosciDostawyZasobow.Ilosc = intIlosc;
-                        db.Dostawy_Wlasne_Zawartosc.Add(nowePrzypisanieZawartosciDostawyZasobow);
-                        db.SaveChanges();
-                        Zawartosc polkaZKtorejWzieto = db.Zawartosc.Where(polkaWybrana => polkaWybrana.ID_Polka == intPolka).First();
-                        db.Zawartosc.Remove(polkaZKtorejWzieto);
+                        List<vDostawyNiewydaneBezDat> listaDoWstawienia = db.vDostawyNiewydaneBezDat.Where(wybraneRekordy => wybraneRekordy.ID_Zamowienia == intIDZamowienie).Where(wybraneRekordy => wybraneRekordy.ID_Dostawy == intIDDostawy).ToList();
+                        Dostarczenia_Wewn noweWydanie = new Dostarczenia_Wewn();
+                        foreach (vDostawyNiewydaneBezDat wierszWybrany in listaDoWstawienia)
+                        {
+                            noweWydanie.ID_Pracownicy = intPracownikID;
+                            noweWydanie.ID_Dostawy = wierszWybrany.ID_Dostawy;
+                            noweWydanie.ID_Zamowienie_element = wierszWybrany.ID_Zamowienie_Element;
+                            noweWydanie.ID_element = wierszWybrany.ID_Element;
+                            noweWydanie.Ilosc_Dostarczona = (-1) * wierszWybrany.Ilosc;
+                            noweWydanie.ID_Miejsca = 2;
+                            noweWydanie.Data_Dostarczenia = (Convert.ToString(DateTime.Now)).Substring(0, 10);
+                            db.Dostarczenia_Wewn.Add(noweWydanie);
+                            db.SaveChanges();
+                            Start.DataBaseRefresh();
+                        }
+                        Zawartosc polkaDoWyczyszczenia = db.Zawartosc.Where(polka => polka.ID_Polka == intPolka).First();
+                        db.Zawartosc.Remove(polkaDoWyczyszczenia);
                         db.SaveChanges();
                         Start.DataBaseRefresh();
-                        //zamykanie formularzy
-                        WyborOferty.czyZamknietyPrzezInny = true;
-                        Application.OpenForms["WyborOferty"].Close();
-                        if (Application.OpenForms.OfType<DodawanieDostaw>().Count() > 0)
-                        {
-                            DodawanieDostaw.czyZamknietyPrzezInny = true;
-                            Application.OpenForms["DodawanieDostaw"].Close();
-                        }
-                        DodawanieDostaw formularzDodawanieDostaw = new DodawanieDostaw(!db.vMaterialyDoZamowieniaBrak.Where(elementDoZamowienia => elementDoZamowienia.ID_Element > 0).Any());
-                        formularzDodawanieDostaw.Show();
+                        WydajMaterialProdukcji.czyZamknietyPrzezInny = true;
+                        Application.OpenForms[typeof(WydajMaterialProdukcji).Name].Close();
+                        WydajMaterialProdukcji.czyZamknietyPrzezInny = false;
+                        WydajMaterialProdukcji wydajKolejny = new WydajMaterialProdukcji();
+                        wydajKolejny.Show();
                         boolCzyCancel = true;
                         this.Close();
                     }
                 }
                 else
                 {
-                    List<vDostawyNiewydaneBezDat> listaDoWstawienia = db.vDostawyNiewydaneBezDat.Where(wybraneRekordy => wybraneRekordy.ID_Zamowienia == intIDZamowienie).Where(wybraneRekordy => wybraneRekordy.ID_Dostawy == intIDDostawy).ToList();
-                    Dostarczenia_Wewn noweWydanie = new Dostarczenia_Wewn();
-                    foreach (vDostawyNiewydaneBezDat wierszWybrany in listaDoWstawienia)
-                    {                        
-                        noweWydanie.ID_Pracownicy = intPracownikID;
-                        noweWydanie.ID_Dostawy = wierszWybrany.ID_Dostawy;
-                        noweWydanie.ID_Zamowienie_element = wierszWybrany.ID_Zamowienie_Element;
-                        noweWydanie.ID_element = wierszWybrany.ID_Element;
-                        noweWydanie.Ilosc_Dostarczona = (-1) * wierszWybrany.Ilosc;
-                        noweWydanie.ID_Miejsca = 2;
-                        noweWydanie.Data_Dostarczenia = (Convert.ToString(DateTime.Now)).Substring(0, 10);
-                        db.Dostarczenia_Wewn.Add(noweWydanie);
-                        db.SaveChanges();
-                        Start.DataBaseRefresh();
+                    Zamowienia_Przydzial nowyPrzydzialZamowienia = new Zamowienia_Przydzial();
+                    nowyPrzydzialZamowienia.ID_Pracownicy = intPracownikID;
+                    nowyPrzydzialZamowienia.ID_Zamowienia = intIDZamowienie;
+                    nowyPrzydzialZamowienia.ID_Umowy = intUmowaID;
+                    db.Zamowienia_Przydzial.Add(nowyPrzydzialZamowienia);
+                    if (Application.OpenForms.OfType<PrzypiszPracownikaKuriera>().Count() > 0)
+                    {
+                        PrzypiszPracownikaKuriera.czyZamknietyPrzezInny = true;
+                        Application.OpenForms[typeof(PrzypiszPracownikaKuriera).Name].Close();
+                        PrzypiszPracownikaKuriera.czyZamknietyPrzezInny = false;
                     }
-                    Zawartosc polkaDoWyczyszczenia = db.Zawartosc.Where(polka => polka.ID_Polka == intPolka).First();
-                    db.Zawartosc.Remove(polkaDoWyczyszczenia);
                     db.SaveChanges();
                     Start.DataBaseRefresh();
-                    WydajMaterialProdukcji.czyZamknietyPrzezInny = true;
-                    Application.OpenForms[typeof(WydajMaterialProdukcji).Name].Close();
-                    WydajMaterialProdukcji.czyZamknietyPrzezInny = false;
-                    WydajMaterialProdukcji wydajKolejny = new WydajMaterialProdukcji();
-                    wydajKolejny.Show();
+                    PrzypiszPracownikaKuriera nowePrzypisanie = new PrzypiszPracownikaKuriera();
+                    nowePrzypisanie.Show();
                     boolCzyCancel = true;
                     this.Close();
                 }
             }
             else
             {
-                Zamowienia_Przydzial nowyPrzydzialZamowienia = new Zamowienia_Przydzial();
-                nowyPrzydzialZamowienia.ID_Pracownicy = intPracownikID;
-                nowyPrzydzialZamowienia.ID_Zamowienia = intIDZamowienie;
-                nowyPrzydzialZamowienia.ID_Umowy = intUmowaID;
-                db.Zamowienia_Przydzial.Add(nowyPrzydzialZamowienia);
-                if (Application.OpenForms.OfType<PrzypiszPracownikaKuriera>().Count() > 0)
-                {
-                    PrzypiszPracownikaKuriera.czyZamknietyPrzezInny = true;
-                    Application.OpenForms[typeof(PrzypiszPracownikaKuriera).Name].Close();
-                    PrzypiszPracownikaKuriera.czyZamknietyPrzezInny = false;
-                }
+                List<vZawartoscMagazynuDoPrzydzialuZabezpieczona> listaPozycjiMagazynowych = db.vZawartoscMagazynuDoPrzydzialuZabezpieczona.Where(element => element.ID_Element == intElementID).ToList();
+                Zamowienia_Dostawy_Wlasne nowaWlasnaDostawa = new Zamowienia_Dostawy_Wlasne();
+                nowaWlasnaDostawa.ID_Zamowienia = intIDZamowienie;
+                nowaWlasnaDostawa.ID_miejsca = 1;
+                db.Zamowienia_Dostawy_Wlasne.Add(nowaWlasnaDostawa);
                 db.SaveChanges();
-                Start.DataBaseRefresh();
-                PrzypiszPracownikaKuriera nowePrzypisanie = new PrzypiszPracownikaKuriera();
-                nowePrzypisanie.Show();
+                int IDDostawyWlasne = db.Zamowienia_Dostawy_Wlasne.Count();
+                Dostawy_Wlasne_Zawartosc noweZasobyDlaZamowieniaWlasnego = new Dostawy_Wlasne_Zawartosc();
+                foreach (vZawartoscMagazynuDoPrzydzialuZabezpieczona wierszWybrany in listaPozycjiMagazynowych)
+                {
+                    noweZasobyDlaZamowieniaWlasnego.ID_Zamowienia_dostawy_wlasne = IDDostawyWlasne;
+                    noweZasobyDlaZamowieniaWlasnego.ID_Element = wierszWybrany.ID_Element;
+                    noweZasobyDlaZamowieniaWlasnego.ID_Dostawy = wierszWybrany.ID_Dostawy;
+                    noweZasobyDlaZamowieniaWlasnego.Ilosc = Convert.ToInt32(wierszWybrany.Ilosc);
+                    db.Dostawy_Wlasne_Zawartosc.Add(noweZasobyDlaZamowieniaWlasnego);
+                    db.SaveChanges();
+                    intPolka = Convert.ToInt32(wierszWybrany.ID_Polka);
+                    Zawartosc polkaZKtorejWzieto = db.Zawartosc.Where(polkaWybrana => polkaWybrana.ID_Polka == intPolka).First();
+                    db.Zawartosc.Remove(polkaZKtorejWzieto);
+                    db.SaveChanges();
+                    Start.DataBaseRefresh();
+                }
+                WyborOferty.czyZamknietyPrzezInny = true;
+                Application.OpenForms["WyborOferty"].Close();
+                if (Application.OpenForms.OfType<DodawanieDostaw>().Count() > 0)
+                {
+                    DodawanieDostaw.czyZamknietyPrzezInny = true;
+                    Application.OpenForms["DodawanieDostaw"].Close();
+                }
+                DodawanieDostaw formularzDodawanieDostaw = new DodawanieDostaw(!db.vMaterialyDoZamowieniaBrak.Where(elementDoZamowienia => elementDoZamowienia.ID_Element > 0).Any());
+                formularzDodawanieDostaw.Show();
                 boolCzyCancel = true;
                 this.Close();
             }
