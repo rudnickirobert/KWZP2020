@@ -659,7 +659,8 @@ GO
 
 CREATE VIEW vWszyscyPracownicyProdukcji
 AS
-SELECT        dbo.Pracownicy.ID_Pracownika, (CAST(dbo.Pracownicy.ID_Pracownika AS varchar(10)) + ('    ') + dbo.Pracownicy.Imie + (' ')  +  dbo.Pracownicy.Nazwisko + (' - ') + dbo.Stanowisko.Stanowisko) AS 'Pracownik', dbo.Dzialy.ID_Dzialu, dbo.Dzialy.Nazwa_dzialu, dbo.Pracownicy_Zatrudnienie.Data_Zatrudnienia, dbo.Pracownicy_Zatrudnienie.Koniec_umowy
+SELECT        dbo.Pracownicy.ID_Pracownika, (CAST(dbo.Pracownicy.ID_Pracownika AS varchar(10)) + (' ') + dbo.Pracownicy.Imie + (' ')  +  dbo.Pracownicy.Nazwisko + (' - ') + dbo.Stanowisko.Stanowisko) AS 'Pracownik',
+dbo.Pracownicy.Imie, dbo.Pracownicy.Nazwisko, dbo.Stanowisko.Stanowisko, dbo.Dzialy.ID_Dzialu, dbo.Dzialy.Nazwa_dzialu, dbo.Pracownicy_Zatrudnienie.Data_Zatrudnienia, dbo.Pracownicy_Zatrudnienie.Koniec_umowy
 FROM            dbo.Pracownicy INNER JOIN
                          dbo.Pracownicy_Zatrudnienie ON dbo.Pracownicy.ID_Pracownika = dbo.Pracownicy_Zatrudnienie.ID_Pracownika INNER JOIN
                          dbo.Dzialy ON dbo.Pracownicy_Zatrudnienie.ID_Dzialu = dbo.Dzialy.ID_Dzialu INNER JOIN
@@ -672,70 +673,59 @@ GO
 
 -- wolni pracownicy produkcji
 
+CREATE VIEW vAktywnoscPracownikaTeraz
+AS
+SELECT   dbo.Przydzial_Zasobow.ID_Pracownika, dbo.Przydzial_Zasobow.Data_Rozpoczecia, dbo.Przydzial_Zasobow.Data_Zakonczenia, dbo.Urlop.Data_rozpoczecia AS Data_rozpoczecia_urlop, 
+                  dbo.Urlop.Data_zakonczenia AS Data_zakonczenia_urlop
+FROM     dbo.Przydzial_Zasobow LEFT JOIN
+                  dbo.vWszyscyPracownicyProdukcji ON dbo.Przydzial_Zasobow.ID_Pracownika = dbo.vWszyscyPracownicyProdukcji.ID_Pracownika LEFT JOIN
+                  dbo.Urlop ON dbo.Przydzial_Zasobow.ID_Pracownika = dbo.Urlop.ID_Pracownika
+WHERE 	  (dbo.Przydzial_Zasobow.Data_Zakonczenia IS NULL AND dbo.Przydzial_Zasobow.Data_Rozpoczecia IS NOT NULL) 
+OR (dbo.Przydzial_Zasobow.Data_Zakonczenia IS NULL AND dbo.Przydzial_Zasobow.Data_Rozpoczecia IS NULL)
+OR (dbo.Przydzial_Zasobow.Data_Zakonczenia >= GETDATE() AND dbo.Przydzial_Zasobow.Data_Rozpoczecia <= GETDATE()) 
+OR (dbo.Urlop.Data_zakonczenia > GETDATE() AND dbo.Urlop.Data_rozpoczecia < GETDATE())	  
+GO
+
 CREATE VIEW vWolniPracownicyProdukcji
-AS 
-SELECT dbo.Pracownicy.ID_Pracownika, (CAST(dbo.Pracownicy.ID_Pracownika AS varchar(10)) + ('    ') + dbo.Pracownicy.Imie + (' ')  +  dbo.Pracownicy.Nazwisko + (' - ') + dbo.Stanowisko.Stanowisko) AS 'Pracownik',
-       (CAST (dbo.Dzialy.ID_Dzialu AS varchar (10)) + (' Dzia³ ') + dbo.Dzialy.Nazwa_dzialu) AS 'ID Dzia³u, Nazwa',
-	   dbo.Urlop.Data_rozpoczecia AS 'Data Rozpoczêcia Urlopu', dbo.Urlop.Data_zakonczenia AS 'Data Zakoñczenia Urlopu', 
-       dbo.Przydzial_Zasobow.Data_Rozpoczecia AS 'Data Rozpoczêcia' , dbo.Przydzial_Zasobow.Data_Zakonczenia AS 'Data Zakoñczenia',
-	   (CAST(dbo.Stanowisko.ID_Stanowiska AS varchar(10)) + ('    ') +  dbo.Stanowisko.Stanowisko) AS 'ID Stanowiska, Nazwa Stanowiska', dbo.Pracownicy_Zatrudnienie.Data_Zatrudnienia, dbo.Pracownicy_Zatrudnienie.Koniec_umowy
-FROM   
-
-	   dbo.Pracownicy_Zatrudnienie LEFT JOIN
-
-       dbo.Pracownicy ON dbo.Pracownicy_Zatrudnienie.ID_Pracownika = dbo.Pracownicy.ID_Pracownika LEFT JOIN
-
-	   dbo.Dzialy ON dbo.Pracownicy_Zatrudnienie.ID_Dzialu = dbo.Dzialy.ID_Dzialu LEFT JOIN
-
-       dbo.Stanowisko ON dbo.Pracownicy_Zatrudnienie.ID_Stanowiska = dbo.Stanowisko.ID_Stanowiska LEFT JOIN
-	   
-	   dbo.Urlop ON dbo.Pracownicy.ID_Pracownika = dbo.Urlop.ID_Pracownika 
-			AND (dbo.Urlop.Data_zakonczenia > GETDATE() AND dbo.Urlop.Data_rozpoczecia < GETDATE())
-			
-	   LEFT JOIN dbo.Przydzial_Zasobow ON dbo.Pracownicy.ID_Pracownika = dbo.Przydzial_Zasobow.ID_Pracownika 
-			AND (dbo.Przydzial_Zasobow.Data_Zakonczenia > GETDATE() AND dbo.Przydzial_Zasobow.Data_Rozpoczecia < GETDATE())
-
-WHERE ((dbo.Urlop.Data_zakonczenia < GETDATE() OR dbo.Urlop.Data_rozpoczecia > GETDATE()) 
-	  OR dbo.Urlop.Data_zakonczenia IS NULL OR dbo.Urlop.Data_rozpoczecia IS NULL) 
-	  AND
-	  ((dbo.Przydzial_Zasobow.Data_Zakonczenia < GETDATE() OR dbo.Przydzial_Zasobow.Data_Rozpoczecia > GETDATE()) 
-	  OR dbo.Przydzial_Zasobow.Data_Zakonczenia IS NULL OR dbo.Przydzial_Zasobow.Data_Rozpoczecia IS NULL)
-	 AND
-	 (dbo.Pracownicy_Zatrudnienie.Koniec_umowy > GETDATE() AND dbo.Pracownicy_Zatrudnienie.Data_Zatrudnienia < GETDATE())
-	 AND
-	 dbo.Dzialy.ID_Dzialu = 3
+AS
+SELECT dbo.vWszyscyPracownicyProdukcji.ID_Pracownika, (CAST(dbo.vWszyscyPracownicyProdukcji.ID_Pracownika AS varchar(10)) + ('  ') + dbo.vWszyscyPracownicyProdukcji.Imie + (' ')  +  dbo.vWszyscyPracownicyProdukcji.Nazwisko + (' - ') + dbo.vWszyscyPracownicyProdukcji.Stanowisko) AS 'Pracownik', 
+                  dbo.vAktywnoscPracownikaTeraz.ID_Pracownika AS ID_PracownikaAk
+FROM     dbo.vWszyscyPracownicyProdukcji LEFT JOIN
+                  dbo.vAktywnoscPracownikaTeraz ON dbo.vWszyscyPracownicyProdukcji.ID_Pracownika = dbo.vAktywnoscPracownikaTeraz.ID_Pracownika
+WHERE dbo.vAktywnoscPracownikaTeraz.ID_Pracownika is NULL
 GO
 
 
 -- wszystkie maszyny
 
-CREATE VIEW vWszystkieMaszyny
+CREATE VIEW vWszystkieMaszynyProdukcja
 AS
-SELECT dbo.Maszyny.ID_Maszyny, (CAST(dbo.Maszyny.ID_Maszyny AS varchar(10)) + ('    ') + dbo.Srodki_Trwale.Nazwa) AS 'Maszyna'
+SELECT dbo.Maszyny.ID_Maszyny, (CAST(dbo.Maszyny.ID_Maszyny AS varchar(10)) + ('    ') + dbo.Srodki_Trwale.Nazwa) AS 'Maszyna', dbo.Srodki_Trwale.Nazwa
 FROM   dbo.Maszyny INNER JOIN
        dbo.Srodki_Trwale ON dbo.Maszyny.ID_Srodki_Trwale = dbo.Srodki_Trwale.ID_Srodki_trwale
 GO
 
 -- wolne maszyny
 
-CREATE VIEW vWolneMaszyny
+CREATE VIEW vAktywnoscMaszynyTeraz
 AS
-SELECT dbo.Maszyny.ID_Maszyny, (CAST(dbo.Maszyny.ID_Maszyny AS varchar(10)) + ('    ') + dbo.Srodki_Trwale.Nazwa) AS 'Maszyna', dbo.Srodki_Trwale.ID_Srodki_Trwale AS 'ID Œrodki Trwa³e', dbo.Przydzial_Zasobow.Data_Zakonczenia AS 'Data Zakoñczenia', 
-       dbo.Przydzial_Zasobow.Data_Rozpoczecia AS 'Data Rozpoczêcia ', dbo.Obsluga_Techniczna.Data_Rozpoczecia AS 'Data Rozpoczêcia Naprawy/Serwisu', dbo.Obsluga_Techniczna.Data_Zakonczenia AS 'Data Zakoñczenia Naprawy/Serwisu'
-FROM   dbo.Maszyny LEFT JOIN
-       dbo.Srodki_Trwale ON dbo.Maszyny.ID_Srodki_Trwale = dbo.Srodki_Trwale.ID_Srodki_trwale LEFT JOIN
-       dbo.Przydzial_Zasobow ON dbo.Maszyny.ID_Maszyny = dbo.Przydzial_Zasobow.ID_Maszyny 
-	AND (dbo.Przydzial_Zasobow.Data_Zakonczenia > GETDATE() 
-	AND dbo.Przydzial_Zasobow.Data_Rozpoczecia < GETDATE()) LEFT JOIN
-       dbo.Obsluga_Techniczna ON dbo.Maszyny.ID_Maszyny = dbo.Obsluga_Techniczna.ID_Maszyny 
-	AND (dbo.Obsluga_Techniczna.Data_Zakonczenia < GETDATE() 
-	AND dbo.Obsluga_Techniczna.Data_Rozpoczecia > GETDATE()) 
+SELECT dbo.vWszystkieMaszynyProdukcja.ID_Maszyny, dbo.Przydzial_Zasobow.Data_Rozpoczecia, dbo.Przydzial_Zasobow.Data_Zakonczenia, dbo.Obsluga_Techniczna.Data_Rozpoczecia AS Data_Rozpoczecia_Obsluga, 
+                  dbo.Obsluga_Techniczna.Data_Zakonczenia AS Data_Zakonczenia_Obsluga
+FROM     dbo.Przydzial_Zasobow LEFT JOIN
+                  dbo.Obsluga_Techniczna ON dbo.Przydzial_Zasobow.ID_Maszyny = dbo.Obsluga_Techniczna.ID_Maszyny LEFT JOIN
+                  dbo.vWszystkieMaszynyProdukcja ON dbo.Przydzial_Zasobow.ID_Maszyny = dbo.vWszystkieMaszynyProdukcja.ID_Maszyny
+WHERE ((dbo.Przydzial_Zasobow.Data_Zakonczenia IS NULL AND dbo.Przydzial_Zasobow.Data_Rozpoczecia IS NOT NULL) 
+OR (dbo.Przydzial_Zasobow.Data_Zakonczenia IS NULL AND dbo.Przydzial_Zasobow.Data_Rozpoczecia IS NULL)
+OR (dbo.Przydzial_Zasobow.Data_Zakonczenia >= GETDATE() AND dbo.Przydzial_Zasobow.Data_Rozpoczecia <= GETDATE()) 
+OR (dbo.Obsluga_Techniczna.Data_Zakonczenia > GETDATE() AND dbo.Obsluga_Techniczna.Data_Rozpoczecia < GETDATE()))
+GO
 
-WHERE ((dbo.Przydzial_Zasobow.Data_Zakonczenia < GETDATE() OR dbo.Przydzial_Zasobow.Data_Rozpoczecia > GETDATE())
-      OR dbo.Przydzial_Zasobow.Data_Zakonczenia IS NULL OR dbo.Przydzial_Zasobow.Data_Rozpoczecia IS NULL)
-      AND 
-     ((dbo.Obsluga_Techniczna.Data_Zakonczenia < GETDATE() OR dbo.Obsluga_Techniczna.Data_Rozpoczecia > GETDATE()) 
-     OR dbo.Obsluga_Techniczna.Data_Zakonczenia IS NULL OR dbo.Obsluga_Techniczna.Data_Rozpoczecia IS NULL)
+CREATE VIEW vWolneMaszynyProdukcja
+AS
+SELECT dbo.vWszystkieMaszynyProdukcja.ID_Maszyny, (CAST(dbo.vWszystkieMaszynyProdukcja.ID_Maszyny AS varchar(10)) + ('    ') + dbo.vWszystkieMaszynyProdukcja.Nazwa) AS 'Maszyna', dbo.vWszystkieMaszynyProdukcja.Nazwa, dbo.vAktywnoscMaszynyTeraz.ID_Maszyny AS ID_Maszyny_Ak
+FROM     dbo.vWszystkieMaszynyProdukcja LEFT JOIN
+                  dbo.vAktywnoscMaszynyTeraz ON dbo.vWszystkieMaszynyProdukcja.ID_Maszyny = dbo.vAktywnoscMaszynyTeraz.ID_Maszyny
+WHERE dbo.vAktywnoscMaszynyTeraz.ID_Maszyny is NULL
 GO
 
 --elementy w procesie produkcyjnym

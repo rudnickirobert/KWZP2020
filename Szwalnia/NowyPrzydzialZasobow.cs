@@ -98,7 +98,7 @@ namespace Szwalnia
         private void btnWszyscyPracownicy_Click(object sender, EventArgs e)
         {
             cbxPracownik.Enabled = true;
-            cbxPracownik.DataSource = db.vWolniPracownicyProdukcji.ToList();
+            cbxPracownik.DataSource = db.vWszyscyPracownicyProdukcji.ToList();
             cbxPracownik.DisplayMember = "Pracownik";
             cbxPracownik.ValueMember = "ID_Pracownika";
         }
@@ -114,7 +114,7 @@ namespace Szwalnia
         private void btnWszystkieMaszyny_Click(object sender, EventArgs e)
         {
             cbxMaszyna.Enabled = true;
-            cbxMaszyna.DataSource = db.vWszystkieMaszyny.ToList();
+            cbxMaszyna.DataSource = db.vWszystkieMaszynyProdukcja.ToList();
             cbxMaszyna.DisplayMember = "Maszyna";
             cbxMaszyna.ValueMember = "ID_Maszyny";
 
@@ -123,7 +123,7 @@ namespace Szwalnia
         private void btnWolneMaszyny_Click(object sender, EventArgs e)
         {
             cbxMaszyna.Enabled = true;
-            cbxMaszyna.DataSource = db.vWolneMaszyny.ToList();
+            cbxMaszyna.DataSource = db.vWolneMaszynyProdukcja.ToList();
             cbxMaszyna.DisplayMember = "Maszyna";
             cbxMaszyna.ValueMember = "ID_Maszyny";
 
