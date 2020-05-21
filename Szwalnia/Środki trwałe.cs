@@ -10,18 +10,16 @@ using System.Windows.Forms;
 
 namespace Szwalnia
 {
-    public partial class PanelKlienta : Form
+    public partial class SrodkiTrwale : Form
     {
         public SzwalniaEntities db;
-        public PanelKlienta (SzwalniaEntities szwalnia)
+        public SrodkiTrwale(SzwalniaEntities db)
         {
             InitializeComponent();
-            db = szwalnia;
-        }
-       private void btnKlient_Click(object sender, EventArgs e)
-        {
-            WyborKlienta wyborKlienta = new WyborKlienta(db);
-            wyborKlienta.Show();
+            this.db = db;
+
+            dgvSrodki.DataSource = db.vSrodkiWszystkie.ToList();
+            dgvZamortyzowane.DataSource = db.vSrodkiZamortyzowane.ToList();
         }
 
         private void btnZamknij_Click(object sender, EventArgs e)
@@ -29,10 +27,10 @@ namespace Szwalnia
             this.Close();
         }
 
-        private void btnNowyKlient_Click(object sender, EventArgs e)
+        private void btnDodaj_Click(object sender, EventArgs e)
         {
-            NowyKlient nowyKlient = new NowyKlient(db);
-            nowyKlient.Show();
+            NowySrodekTrwaly nowySrodekTrwaly = new NowySrodekTrwaly(db);
+            nowySrodekTrwaly.Show();
         }
     }
 }

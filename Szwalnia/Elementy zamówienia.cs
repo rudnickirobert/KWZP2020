@@ -18,17 +18,14 @@ namespace Szwalnia
             InitializeComponent();
             this.db = db;
 
-            cbElement.DataSource = db.Elementy.ToList();
+            cbElement.DataSource = db.vElementyDlaZamowien.ToList();
             cbElement.ValueMember = "ID_Element";
             cbElement.DisplayMember = "Element_Nazwa";
-            cbElement.Invalidate();
-
+            cbElement.Refresh();
 
             cbIDZamowienia.DataSource = db.Zamowienia.ToList();
             cbIDZamowienia.ValueMember = "ID_Zamowienia";
             cbIDZamowienia.DisplayMember = "ID_Zamowienia";
-            cbIDZamowienia.Invalidate();
-
         }
 
         private void btnNowy_Click(object sender, EventArgs e)

@@ -47,5 +47,17 @@ namespace Szwalnia
             ElementyZamowienia elementyZamowienia = new ElementyZamowienia(db);
             elementyZamowienia.Show();
         }
+
+        private void btnCzasTyp_Click(object sender, EventArgs e)
+        {
+            SzacowanyCzas szacowanyCzas = new SzacowanyCzas(db);
+            szacowanyCzas.Show();
+        }
+
+        private void btnCzasTechnologia_Click(object sender, EventArgs e)
+        {
+            SzacowanyCzasTechnologia szacowanyCzasTechnologia = new SzacowanyCzasTechnologia(db);
+            szacowanyCzasTechnologia.Show();
+        }
     }
 }

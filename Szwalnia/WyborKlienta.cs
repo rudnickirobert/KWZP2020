@@ -18,7 +18,7 @@ namespace Szwalnia
         {
             InitializeComponent();
             db = szwalnia;
-            dgvListaKlientow.DataSource = db.Klienci.ToList();
+            dgvListaKlientow.DataSource = db.vKlienci.ToList();
         }
 
         private void dgvListaKlientow_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -32,6 +32,12 @@ namespace Szwalnia
         private void btnZamknij_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnDodaj_Click(object sender, EventArgs e)
+        {
+            NowyKlient nowyKlient = new NowyKlient(db);
+            nowyKlient.Show();
         }
     }
 }
