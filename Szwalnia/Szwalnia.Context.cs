@@ -102,9 +102,13 @@ namespace Szwalnia
         public virtual DbSet<vDostawcyDostawDoZamowien> vDostawcyDostawDoZamowien { get; set; }
         public virtual DbSet<vDostawyDoOdbioru> vDostawyDoOdbioru { get; set; }
         public virtual DbSet<vDostawyDoWydania> vDostawyDoWydania { get; set; }
+        public virtual DbSet<vDostawyIloscDoWydania> vDostawyIloscDoWydania { get; set; }
+        public virtual DbSet<vDostawyKtoreMoznaPonowniePrzypisac> vDostawyKtoreMoznaPonowniePrzypisac { get; set; }
         public virtual DbSet<vDostawyMagazynuIDostawcow> vDostawyMagazynuIDostawcow { get; set; }
         public virtual DbSet<vDostawyNiewydaneBezDat> vDostawyNiewydaneBezDat { get; set; }
+        public virtual DbSet<vDostawyNiewydaneBezDatBezPowtorzen> vDostawyNiewydaneBezDatBezPowtorzen { get; set; }
         public virtual DbSet<vDostawyNiewydaneZPolkami> vDostawyNiewydaneZPolkami { get; set; }
+        public virtual DbSet<vDostawyNiewydaneZPolkamiNiesumowane> vDostawyNiewydaneZPolkamiNiesumowane { get; set; }
         public virtual DbSet<vDostawyZawartoscInformacjeDostawcy> vDostawyZawartoscInformacjeDostawcy { get; set; }
         public virtual DbSet<vElementy_proces> vElementy_proces { get; set; }
         public virtual DbSet<vElementyDlaZamowien> vElementyDlaZamowien { get; set; }
@@ -198,6 +202,7 @@ namespace Szwalnia
         public virtual DbSet<vUmowyKurierzy> vUmowyKurierzy { get; set; }
         public virtual DbSet<vUmowyKurierzyNazwyKurierow> vUmowyKurierzyNazwyKurierow { get; set; }
         public virtual DbSet<vUrlopPracownika> vUrlopPracownika { get; set; }
+        public virtual DbSet<vWidokPomocniczyDoNiewydaneBezDat> vWidokPomocniczyDoNiewydaneBezDat { get; set; }
         public virtual DbSet<vWolneMaszynyProdukcja> vWolneMaszynyProdukcja { get; set; }
         public virtual DbSet<vWolnePolki> vWolnePolki { get; set; }
         public virtual DbSet<vWolniPracownicyProdukcji> vWolniPracownicyProdukcji { get; set; }
@@ -212,6 +217,7 @@ namespace Szwalnia
         public virtual DbSet<vZamowienia_Do_Wydania> vZamowienia_Do_Wydania { get; set; }
         public virtual DbSet<vZamowienia_Do_Wydania_Kompletne> vZamowienia_Do_Wydania_Kompletne { get; set; }
         public virtual DbSet<vZamowienia_Do_Wydania_Kompletne_Niewydane> vZamowienia_Do_Wydania_Kompletne_Niewydane { get; set; }
+        public virtual DbSet<vZamowieniaDostawyWlasneZawartoscPolki> vZamowieniaDostawyWlasneZawartoscPolki { get; set; }
         public virtual DbSet<vZamowieniaDoWykonaniaUDostawcy> vZamowieniaDoWykonaniaUDostawcy { get; set; }
         public virtual DbSet<vZamowieniaDystans> vZamowieniaDystans { get; set; }
         public virtual DbSet<vZamowieniaKomplenteNiewydaneNaPolkach> vZamowieniaKomplenteNiewydaneNaPolkach { get; set; }
@@ -222,6 +228,8 @@ namespace Szwalnia
         public virtual DbSet<vZamowienieProcesyProdukcyjne> vZamowienieProcesyProdukcyjne { get; set; }
         public virtual DbSet<vZatrudnieniePracownika> vZatrudnieniePracownika { get; set; }
         public virtual DbSet<vZawartoscMagazynuDoPrzydzialu> vZawartoscMagazynuDoPrzydzialu { get; set; }
+        public virtual DbSet<vZawartoscMagazynuDoPrzydzialuZabezpieczona> vZawartoscMagazynuDoPrzydzialuZabezpieczona { get; set; }
+        public virtual DbSet<vZawartoscZIloscia> vZawartoscZIloscia { get; set; }
         public virtual DbSet<vZyskZZamowienia> vZyskZZamowienia { get; set; }
     }
 }

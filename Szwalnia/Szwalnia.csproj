@@ -842,13 +842,25 @@
     <Compile Include="vDostawyDoWydania.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vDostawyIloscDoWydania.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vDostawyKtoreMoznaPonowniePrzypisac.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vDostawyMagazynuIDostawcow.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vDostawyNiewydaneBezDat.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vDostawyNiewydaneBezDatBezPowtorzen.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vDostawyNiewydaneZPolkami.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vDostawyNiewydaneZPolkamiNiesumowane.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vDostawyZawartoscInformacjeDostawcy.cs">
@@ -1130,6 +1142,9 @@
     <Compile Include="vUrlopPracownika.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vWidokPomocniczyDoNiewydaneBezDat.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vWolneMaszynyProdukcja.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -1161,6 +1176,9 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vWynagrodzenia.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vZamowieniaDostawyWlasneZawartoscPolki.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vZamowieniaDoWykonaniaUDostawcy.cs">
@@ -1200,6 +1218,12 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vZawartoscMagazynuDoPrzydzialu.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vZawartoscMagazynuDoPrzydzialuZabezpieczona.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vZawartoscZIloscia.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vZyskZZamowienia.cs">
