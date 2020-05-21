@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tab_Proces_technologiczny = new System.Windows.Forms.TabControl();
             this.tabpProcesTechnologiczny = new System.Windows.Forms.TabPage();
@@ -38,7 +39,6 @@
             this.tabResurs_Maszyn = new System.Windows.Forms.TabPage();
             this.dgvResursMaszyny = new System.Windows.Forms.DataGridView();
             this.tabZnajdz_dodaj_obsluge = new System.Windows.Forms.TabPage();
-            this.btnOdswiez_Obsluge = new System.Windows.Forms.Button();
             this.btnDodaj_Obsluge = new System.Windows.Forms.Button();
             this.dtpData_Zakonczenia = new System.Windows.Forms.DateTimePicker();
             this.dtpData_Rozpoczecia = new System.Windows.Forms.DateTimePicker();
@@ -81,6 +81,7 @@
             this.label34 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.tabpZarzadzanieParkiemMaszynowym = new System.Windows.Forms.TabPage();
+            this.dgvProcesy66 = new System.Windows.Forms.DataGridView();
             this.btnOdswiez_Ogolny = new System.Windows.Forms.Button();
             this.dgvProcesy = new System.Windows.Forms.DataGridView();
             this.btnSzukajZamowienie = new System.Windows.Forms.Button();
@@ -90,48 +91,53 @@
             this.tabZamowienia = new System.Windows.Forms.TabPage();
             this.dgvZamowienia = new System.Windows.Forms.DataGridView();
             this.tabPrzypisz_proces_do_zamowienia = new System.Windows.Forms.TabPage();
-            this.btnOdswiez_Proces_Zamowienie = new System.Windows.Forms.Button();
-            this.label47 = new System.Windows.Forms.Label();
-            this.cmbTechnolodzy = new System.Windows.Forms.ComboBox();
-            this.lblNumer_Procesu = new System.Windows.Forms.Label();
-            this.btnUtworz_Proces = new System.Windows.Forms.Button();
-            this.label42 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.cmbID_Proces_Technologiczny3 = new System.Windows.Forms.ComboBox();
-            this.cmbID_Zamowienie_Element = new System.Windows.Forms.ComboBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.btnPrzypisz_Proces_Zamowienie = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblNumerZamowieniaElement = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
+            this.cmbID_Proces_Technologiczny3 = new System.Windows.Forms.ComboBox();
+            this.btnPrzypisz_Proces_Zamowienie = new System.Windows.Forms.Button();
+            this.label32 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.cmbTechnolodzy = new System.Windows.Forms.ComboBox();
+            this.btnUtworz_Proces = new System.Windows.Forms.Button();
+            this.lblNumer_Procesu = new System.Windows.Forms.Label();
             this.tabZnajdz_dodaj_dokumentacje = new System.Windows.Forms.TabPage();
-            this.btnOdswiez_Dokumentacja = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.btnPrzypisz_Dokumentacja = new System.Windows.Forms.Button();
             this.cmbID_Proces_Technologiczny = new System.Windows.Forms.ComboBox();
+            this.nud_Numer_Dokumentacji = new System.Windows.Forms.NumericUpDown();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblNumerDokumentacji = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.btnDodaj_Dokumentacja = new System.Windows.Forms.Button();
             this.txtLokalizacja = new System.Windows.Forms.TextBox();
+            this.cmbTechnolodzy2 = new System.Windows.Forms.ComboBox();
             this.dtpData_Wykonania_Dokumentacja = new System.Windows.Forms.DateTimePicker();
             this.cmbRodzaj_Dokumentacji = new System.Windows.Forms.ComboBox();
-            this.cmbTechnolodzy2 = new System.Windows.Forms.ComboBox();
             this.btn_Szukaj_Dokumentacja = new System.Windows.Forms.Button();
             this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.nud_Numer_Dokumentacji = new System.Windows.Forms.NumericUpDown();
-            this.btnPrzypisz_Dokumentacja = new System.Windows.Forms.Button();
-            this.btnDodaj_Dokumentacja = new System.Windows.Forms.Button();
             this.dgvDokumentacja = new System.Windows.Forms.DataGridView();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tabDodaj_etap = new System.Windows.Forms.TabPage();
-            this.btnOdswiez_Dodaj_Maszyne = new System.Windows.Forms.Button();
-            this.btnPokazEtapyWProcesie = new System.Windows.Forms.Button();
-            this.dgvMaszyny_Proces = new System.Windows.Forms.DataGridView();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.lblNumerProcesu = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.dgvEtapy_proces = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtCzas_Etapu = new System.Windows.Forms.TextBox();
+            this.btnDodaj_Etap = new System.Windows.Forms.Button();
+            this.nudDodaj_Etap = new System.Windows.Forms.NumericUpDown();
+            this.cmbNazwa_Etapu = new System.Windows.Forms.ComboBox();
+            this.dgvMaszyny_Proces = new System.Windows.Forms.DataGridView();
             this.cmbRodzaj_Maszyny2 = new System.Windows.Forms.ComboBox();
             this.label44 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -142,18 +148,9 @@
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.cmbNazwa_Etapu = new System.Windows.Forms.ComboBox();
-            this.nudDodaj_Etap = new System.Windows.Forms.NumericUpDown();
-            this.btnDodaj_Etap = new System.Windows.Forms.Button();
-            this.txtCzas_Etapu = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblNumerProcesu = new System.Windows.Forms.Label();
             this.tabDodaj_utworz_element = new System.Windows.Forms.TabPage();
             this.nudNumerProcesu2 = new System.Windows.Forms.NumericUpDown();
             this.btnOdswiez_Element2 = new System.Windows.Forms.Button();
-            this.btnOdswiez_Element = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
             this.cmbTyp_Elementu2 = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -174,6 +171,11 @@
             this.label28 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.tabZnajdz_dodaj_proces_technologiczny = new System.Windows.Forms.TabPage();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dgvUkryty2 = new System.Windows.Forms.DataGridView();
             this.btnKompletny_Proces = new System.Windows.Forms.Button();
             this.btnOdswiez_Znajdz = new System.Windows.Forms.Button();
             this.dgvUkryty = new System.Windows.Forms.DataGridView();
@@ -200,26 +202,33 @@
             this.tabDodaj_nowa_maszyne.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWszystkie_Maszyny)).BeginInit();
             this.tabpZarzadzanieParkiemMaszynowym.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProcesy66)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumerZamowienia)).BeginInit();
             this.tabcZamowienia.SuspendLayout();
             this.tabZamowienia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienia)).BeginInit();
             this.tabPrzypisz_proces_do_zamowienia.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.tabZnajdz_dodaj_dokumentacje.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_Numer_Dokumentacji)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDokumentacja)).BeginInit();
             this.tabDodaj_etap.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMaszyny_Proces)).BeginInit();
+            this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtapy_proces)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDodaj_Maszyne)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDodaj_Etap)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMaszyny_Proces)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDodaj_Maszyne)).BeginInit();
             this.tabDodaj_utworz_element.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumerProcesu2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvElement_Proces)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWszystkie_Elementy)).BeginInit();
             this.tabZnajdz_dodaj_proces_technologiczny.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUkryty2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUkryty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesy5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesy4)).BeginInit();
@@ -321,7 +330,6 @@
             // 
             // tabZnajdz_dodaj_obsluge
             // 
-            this.tabZnajdz_dodaj_obsluge.Controls.Add(this.btnOdswiez_Obsluge);
             this.tabZnajdz_dodaj_obsluge.Controls.Add(this.btnDodaj_Obsluge);
             this.tabZnajdz_dodaj_obsluge.Controls.Add(this.dtpData_Zakonczenia);
             this.tabZnajdz_dodaj_obsluge.Controls.Add(this.dtpData_Rozpoczecia);
@@ -345,22 +353,6 @@
             this.tabZnajdz_dodaj_obsluge.TabIndex = 0;
             this.tabZnajdz_dodaj_obsluge.Text = "Znajdź / dodaj obsługę techniczą";
             this.tabZnajdz_dodaj_obsluge.UseVisualStyleBackColor = true;
-            // 
-            // btnOdswiez_Obsluge
-            // 
-            this.btnOdswiez_Obsluge.BackColor = System.Drawing.Color.Yellow;
-            this.btnOdswiez_Obsluge.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnOdswiez_Obsluge.FlatAppearance.BorderSize = 2;
-            this.btnOdswiez_Obsluge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOdswiez_Obsluge.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnOdswiez_Obsluge.Location = new System.Drawing.Point(814, 472);
-            this.btnOdswiez_Obsluge.Margin = new System.Windows.Forms.Padding(2);
-            this.btnOdswiez_Obsluge.Name = "btnOdswiez_Obsluge";
-            this.btnOdswiez_Obsluge.Size = new System.Drawing.Size(232, 33);
-            this.btnOdswiez_Obsluge.TabIndex = 56;
-            this.btnOdswiez_Obsluge.Text = "Odśwież";
-            this.btnOdswiez_Obsluge.UseVisualStyleBackColor = false;
-            this.btnOdswiez_Obsluge.Click += new System.EventHandler(this.btnOdswiez_Obsluge_Click);
             // 
             // btnDodaj_Obsluge
             // 
@@ -494,7 +486,7 @@
             // 
             this.cmbRodzajObslugi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbRodzajObslugi.FormattingEnabled = true;
-            this.cmbRodzajObslugi.Location = new System.Drawing.Point(378, 34);
+            this.cmbRodzajObslugi.Location = new System.Drawing.Point(364, 34);
             this.cmbRodzajObslugi.Name = "cmbRodzajObslugi";
             this.cmbRodzajObslugi.Size = new System.Drawing.Size(147, 28);
             this.cmbRodzajObslugi.TabIndex = 22;
@@ -504,7 +496,7 @@
             this.lblOpis.AutoSize = true;
             this.lblOpis.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblOpis.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblOpis.Location = new System.Drawing.Point(16, 34);
+            this.lblOpis.Location = new System.Drawing.Point(5, 34);
             this.lblOpis.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblOpis.Name = "lblOpis";
             this.lblOpis.Size = new System.Drawing.Size(354, 24);
@@ -800,6 +792,7 @@
             // 
             // tabpZarzadzanieParkiemMaszynowym
             // 
+            this.tabpZarzadzanieParkiemMaszynowym.Controls.Add(this.dgvProcesy66);
             this.tabpZarzadzanieParkiemMaszynowym.Controls.Add(this.btnOdswiez_Ogolny);
             this.tabpZarzadzanieParkiemMaszynowym.Controls.Add(this.dgvProcesy);
             this.tabpZarzadzanieParkiemMaszynowym.Controls.Add(this.btnSzukajZamowienie);
@@ -815,6 +808,28 @@
             this.tabpZarzadzanieParkiemMaszynowym.Text = "Proces technologiczny";
             this.tabpZarzadzanieParkiemMaszynowym.UseVisualStyleBackColor = true;
             // 
+            // dgvProcesy66
+            // 
+            this.dgvProcesy66.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvProcesy66.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvProcesy66.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(1);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProcesy66.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvProcesy66.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProcesy66.Location = new System.Drawing.Point(658, 47);
+            this.dgvProcesy66.Name = "dgvProcesy66";
+            this.dgvProcesy66.RowHeadersWidth = 51;
+            this.dgvProcesy66.RowTemplate.Height = 60;
+            this.dgvProcesy66.Size = new System.Drawing.Size(569, 95);
+            this.dgvProcesy66.TabIndex = 9;
+            // 
             // btnOdswiez_Ogolny
             // 
             this.btnOdswiez_Ogolny.BackColor = System.Drawing.Color.Yellow;
@@ -822,7 +837,7 @@
             this.btnOdswiez_Ogolny.FlatAppearance.BorderSize = 2;
             this.btnOdswiez_Ogolny.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOdswiez_Ogolny.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnOdswiez_Ogolny.Location = new System.Drawing.Point(535, 5);
+            this.btnOdswiez_Ogolny.Location = new System.Drawing.Point(646, 5);
             this.btnOdswiez_Ogolny.Name = "btnOdswiez_Ogolny";
             this.btnOdswiez_Ogolny.Size = new System.Drawing.Size(118, 40);
             this.btnOdswiez_Ogolny.TabIndex = 8;
@@ -849,8 +864,9 @@
             this.dgvProcesy.Name = "dgvProcesy";
             this.dgvProcesy.RowHeadersWidth = 51;
             this.dgvProcesy.RowTemplate.Height = 60;
-            this.dgvProcesy.Size = new System.Drawing.Size(1379, 95);
+            this.dgvProcesy.Size = new System.Drawing.Size(643, 95);
             this.dgvProcesy.TabIndex = 7;
+            this.dgvProcesy.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProcesy_CellDoubleClick);
             // 
             // btnSzukajZamowienie
             // 
@@ -859,7 +875,7 @@
             this.btnSzukajZamowienie.FlatAppearance.BorderSize = 2;
             this.btnSzukajZamowienie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSzukajZamowienie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnSzukajZamowienie.Location = new System.Drawing.Point(411, 5);
+            this.btnSzukajZamowienie.Location = new System.Drawing.Point(522, 5);
             this.btnSzukajZamowienie.Name = "btnSzukajZamowienie";
             this.btnSzukajZamowienie.Size = new System.Drawing.Size(118, 40);
             this.btnSzukajZamowienie.TabIndex = 6;
@@ -870,7 +886,7 @@
             // nudNumerZamowienia
             // 
             this.nudNumerZamowienia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nudNumerZamowienia.Location = new System.Drawing.Point(305, 12);
+            this.nudNumerZamowienia.Location = new System.Drawing.Point(417, 13);
             this.nudNumerZamowienia.Name = "nudNumerZamowienia";
             this.nudNumerZamowienia.Size = new System.Drawing.Size(99, 26);
             this.nudNumerZamowienia.TabIndex = 5;
@@ -882,9 +898,9 @@
             this.lblNapis.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lblNapis.Location = new System.Drawing.Point(6, 12);
             this.lblNapis.Name = "lblNapis";
-            this.lblNapis.Size = new System.Drawing.Size(302, 24);
+            this.lblNapis.Size = new System.Drawing.Size(407, 24);
             this.lblNapis.TabIndex = 4;
-            this.lblNapis.Text = "Wprowadź numer zamówienia :";
+            this.lblNapis.Text = "Wyświetl informacje o zamówieniu numer :";
             // 
             // tabcZamowienia
             // 
@@ -901,7 +917,7 @@
             this.tabcZamowienia.Padding = new System.Drawing.Point(8, 8);
             this.tabcZamowienia.RightToLeftLayout = true;
             this.tabcZamowienia.SelectedIndex = 0;
-            this.tabcZamowienia.Size = new System.Drawing.Size(1439, 524);
+            this.tabcZamowienia.Size = new System.Drawing.Size(1439, 562);
             this.tabcZamowienia.TabIndex = 0;
             // 
             // tabZamowienia
@@ -909,7 +925,7 @@
             this.tabZamowienia.Controls.Add(this.dgvZamowienia);
             this.tabZamowienia.Location = new System.Drawing.Point(4, 39);
             this.tabZamowienia.Name = "tabZamowienia";
-            this.tabZamowienia.Size = new System.Drawing.Size(1431, 481);
+            this.tabZamowienia.Size = new System.Drawing.Size(1431, 519);
             this.tabZamowienia.TabIndex = 8;
             this.tabZamowienia.Text = "Zamówienia";
             this.tabZamowienia.UseVisualStyleBackColor = true;
@@ -932,66 +948,129 @@
             // 
             // tabPrzypisz_proces_do_zamowienia
             // 
-            this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.btnOdswiez_Proces_Zamowienie);
-            this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.label47);
-            this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.cmbTechnolodzy);
-            this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.lblNumer_Procesu);
-            this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.btnUtworz_Proces);
-            this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.label42);
-            this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.label45);
-            this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.label46);
-            this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.cmbID_Proces_Technologiczny3);
-            this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.cmbID_Zamowienie_Element);
-            this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.label32);
-            this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.btnPrzypisz_Proces_Zamowienie);
-            this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.label26);
+            this.tabPrzypisz_proces_do_zamowienia.BackColor = System.Drawing.Color.White;
+            this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.groupBox2);
+            this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.groupBox1);
             this.tabPrzypisz_proces_do_zamowienia.Location = new System.Drawing.Point(4, 39);
             this.tabPrzypisz_proces_do_zamowienia.Name = "tabPrzypisz_proces_do_zamowienia";
-            this.tabPrzypisz_proces_do_zamowienia.Size = new System.Drawing.Size(1431, 481);
+            this.tabPrzypisz_proces_do_zamowienia.Size = new System.Drawing.Size(1431, 519);
             this.tabPrzypisz_proces_do_zamowienia.TabIndex = 6;
             this.tabPrzypisz_proces_do_zamowienia.Text = "Proces / Zamówienie";
-            this.tabPrzypisz_proces_do_zamowienia.UseVisualStyleBackColor = true;
             // 
-            // btnOdswiez_Proces_Zamowienie
+            // groupBox2
             // 
-            this.btnOdswiez_Proces_Zamowienie.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnOdswiez_Proces_Zamowienie.Location = new System.Drawing.Point(945, 144);
-            this.btnOdswiez_Proces_Zamowienie.Name = "btnOdswiez_Proces_Zamowienie";
-            this.btnOdswiez_Proces_Zamowienie.Size = new System.Drawing.Size(104, 24);
-            this.btnOdswiez_Proces_Zamowienie.TabIndex = 76;
-            this.btnOdswiez_Proces_Zamowienie.Text = "Odśwież";
-            this.btnOdswiez_Proces_Zamowienie.UseVisualStyleBackColor = true;
-            this.btnOdswiez_Proces_Zamowienie.Click += new System.EventHandler(this.btnOdswiez_Proces_Zamowienie_Click);
+            this.groupBox2.Controls.Add(this.lblNumerZamowieniaElement);
+            this.groupBox2.Controls.Add(this.label26);
+            this.groupBox2.Controls.Add(this.cmbID_Proces_Technologiczny3);
+            this.groupBox2.Controls.Add(this.btnPrzypisz_Proces_Zamowienie);
+            this.groupBox2.Controls.Add(this.label32);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.groupBox2.Location = new System.Drawing.Point(574, 42);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(498, 240);
+            this.groupBox2.TabIndex = 78;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Przypisz proces do numeru elementu :";
             // 
-            // label47
+            // lblNumerZamowieniaElement
             // 
-            this.label47.AutoSize = true;
-            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label47.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label47.Location = new System.Drawing.Point(629, 83);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(327, 24);
-            this.label47.TabIndex = 75;
-            this.label47.Text = "Przypisz proces do zamównienia :";
+            this.lblNumerZamowieniaElement.AutoSize = true;
+            this.lblNumerZamowieniaElement.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblNumerZamowieniaElement.Location = new System.Drawing.Point(261, 66);
+            this.lblNumerZamowieniaElement.Name = "lblNumerZamowieniaElement";
+            this.lblNumerZamowieniaElement.Size = new System.Drawing.Size(15, 24);
+            this.lblNumerZamowieniaElement.TabIndex = 74;
+            this.lblNumerZamowieniaElement.Text = " ";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label26.Location = new System.Drawing.Point(102, 114);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(152, 24);
+            this.label26.TabIndex = 56;
+            this.label26.Text = "Numer procesu :";
+            // 
+            // cmbID_Proces_Technologiczny3
+            // 
+            this.cmbID_Proces_Technologiczny3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cmbID_Proces_Technologiczny3.FormattingEnabled = true;
+            this.cmbID_Proces_Technologiczny3.Location = new System.Drawing.Point(265, 110);
+            this.cmbID_Proces_Technologiczny3.Name = "cmbID_Proces_Technologiczny3";
+            this.cmbID_Proces_Technologiczny3.Size = new System.Drawing.Size(144, 32);
+            this.cmbID_Proces_Technologiczny3.TabIndex = 68;
+            // 
+            // btnPrzypisz_Proces_Zamowienie
+            // 
+            this.btnPrzypisz_Proces_Zamowienie.BackColor = System.Drawing.Color.Yellow;
+            this.btnPrzypisz_Proces_Zamowienie.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnPrzypisz_Proces_Zamowienie.FlatAppearance.BorderSize = 2;
+            this.btnPrzypisz_Proces_Zamowienie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrzypisz_Proces_Zamowienie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnPrzypisz_Proces_Zamowienie.Location = new System.Drawing.Point(172, 158);
+            this.btnPrzypisz_Proces_Zamowienie.Name = "btnPrzypisz_Proces_Zamowienie";
+            this.btnPrzypisz_Proces_Zamowienie.Size = new System.Drawing.Size(167, 38);
+            this.btnPrzypisz_Proces_Zamowienie.TabIndex = 60;
+            this.btnPrzypisz_Proces_Zamowienie.Text = "Przypisz";
+            this.btnPrzypisz_Proces_Zamowienie.UseVisualStyleBackColor = false;
+            this.btnPrzypisz_Proces_Zamowienie.Click += new System.EventHandler(this.btnPrzypisz_Proces_Zamowienie_Click);
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label32.Location = new System.Drawing.Point(102, 66);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(162, 24);
+            this.label32.TabIndex = 65;
+            this.label32.Text = "Numer elementu :";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label45);
+            this.groupBox1.Controls.Add(this.label42);
+            this.groupBox1.Controls.Add(this.cmbTechnolodzy);
+            this.groupBox1.Controls.Add(this.btnUtworz_Proces);
+            this.groupBox1.Controls.Add(this.lblNumer_Procesu);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.groupBox1.Location = new System.Drawing.Point(33, 42);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(509, 240);
+            this.groupBox1.TabIndex = 77;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Nowy proces technologiczny :";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label45.Location = new System.Drawing.Point(64, 71);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(152, 24);
+            this.label45.TabIndex = 71;
+            this.label45.Text = "Numer procesu :";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label42.Location = new System.Drawing.Point(64, 110);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(139, 24);
+            this.label42.TabIndex = 70;
+            this.label42.Text = "Autor procesu :";
+            this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cmbTechnolodzy
             // 
-            this.cmbTechnolodzy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cmbTechnolodzy.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbTechnolodzy.FormattingEnabled = true;
-            this.cmbTechnolodzy.Location = new System.Drawing.Point(202, 204);
+            this.cmbTechnolodzy.Location = new System.Drawing.Point(216, 110);
             this.cmbTechnolodzy.Name = "cmbTechnolodzy";
-            this.cmbTechnolodzy.Size = new System.Drawing.Size(255, 28);
+            this.cmbTechnolodzy.Size = new System.Drawing.Size(255, 32);
             this.cmbTechnolodzy.TabIndex = 74;
-            // 
-            // lblNumer_Procesu
-            // 
-            this.lblNumer_Procesu.AutoSize = true;
-            this.lblNumer_Procesu.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblNumer_Procesu.Location = new System.Drawing.Point(208, 146);
-            this.lblNumer_Procesu.Name = "lblNumer_Procesu";
-            this.lblNumer_Procesu.Size = new System.Drawing.Size(60, 24);
-            this.lblNumer_Procesu.TabIndex = 73;
-            this.lblNumer_Procesu.Text = "label1";
             // 
             // btnUtworz_Proces
             // 
@@ -1000,174 +1079,225 @@
             this.btnUtworz_Proces.FlatAppearance.BorderSize = 2;
             this.btnUtworz_Proces.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUtworz_Proces.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnUtworz_Proces.Location = new System.Drawing.Point(93, 253);
+            this.btnUtworz_Proces.Location = new System.Drawing.Point(128, 159);
             this.btnUtworz_Proces.Name = "btnUtworz_Proces";
-            this.btnUtworz_Proces.Size = new System.Drawing.Size(201, 49);
+            this.btnUtworz_Proces.Size = new System.Drawing.Size(167, 37);
             this.btnUtworz_Proces.TabIndex = 72;
             this.btnUtworz_Proces.Text = "Utwórz";
             this.btnUtworz_Proces.UseVisualStyleBackColor = false;
             this.btnUtworz_Proces.Click += new System.EventHandler(this.btnUtworz_Proces_Click);
             // 
-            // label42
+            // lblNumer_Procesu
             // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label42.Location = new System.Drawing.Point(50, 204);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(139, 24);
-            this.label42.TabIndex = 70;
-            this.label42.Text = "Autor procesu :";
-            this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label45.Location = new System.Drawing.Point(50, 146);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(152, 24);
-            this.label45.TabIndex = 71;
-            this.label45.Text = "Numer procesu :";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label46.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label46.Location = new System.Drawing.Point(89, 83);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(155, 24);
-            this.label46.TabIndex = 69;
-            this.label46.Text = "Utwórz proces :";
-            // 
-            // cmbID_Proces_Technologiczny3
-            // 
-            this.cmbID_Proces_Technologiczny3.FormattingEnabled = true;
-            this.cmbID_Proces_Technologiczny3.Location = new System.Drawing.Point(795, 204);
-            this.cmbID_Proces_Technologiczny3.Name = "cmbID_Proces_Technologiczny3";
-            this.cmbID_Proces_Technologiczny3.Size = new System.Drawing.Size(144, 28);
-            this.cmbID_Proces_Technologiczny3.TabIndex = 68;
-            // 
-            // cmbID_Zamowienie_Element
-            // 
-            this.cmbID_Zamowienie_Element.FormattingEnabled = true;
-            this.cmbID_Zamowienie_Element.Location = new System.Drawing.Point(795, 142);
-            this.cmbID_Zamowienie_Element.Name = "cmbID_Zamowienie_Element";
-            this.cmbID_Zamowienie_Element.Size = new System.Drawing.Size(144, 28);
-            this.cmbID_Zamowienie_Element.TabIndex = 68;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label32.Location = new System.Drawing.Point(533, 146);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(256, 24);
-            this.label32.TabIndex = 65;
-            this.label32.Text = "Numer zamówienia element :";
-            // 
-            // btnPrzypisz_Proces_Zamowienie
-            // 
-            this.btnPrzypisz_Proces_Zamowienie.BackColor = System.Drawing.Color.Yellow;
-            this.btnPrzypisz_Proces_Zamowienie.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnPrzypisz_Proces_Zamowienie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrzypisz_Proces_Zamowienie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnPrzypisz_Proces_Zamowienie.Location = new System.Drawing.Point(694, 308);
-            this.btnPrzypisz_Proces_Zamowienie.Name = "btnPrzypisz_Proces_Zamowienie";
-            this.btnPrzypisz_Proces_Zamowienie.Size = new System.Drawing.Size(201, 50);
-            this.btnPrzypisz_Proces_Zamowienie.TabIndex = 60;
-            this.btnPrzypisz_Proces_Zamowienie.Text = "Przypisz";
-            this.btnPrzypisz_Proces_Zamowienie.UseVisualStyleBackColor = false;
-            this.btnPrzypisz_Proces_Zamowienie.Click += new System.EventHandler(this.btnPrzypisz_Proces_Zamowienie_Click);
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label26.Location = new System.Drawing.Point(617, 204);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(152, 24);
-            this.label26.TabIndex = 56;
-            this.label26.Text = "Numer procesu :";
+            this.lblNumer_Procesu.AutoSize = true;
+            this.lblNumer_Procesu.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblNumer_Procesu.Location = new System.Drawing.Point(222, 71);
+            this.lblNumer_Procesu.Name = "lblNumer_Procesu";
+            this.lblNumer_Procesu.Size = new System.Drawing.Size(15, 24);
+            this.lblNumer_Procesu.TabIndex = 73;
+            this.lblNumer_Procesu.Text = " ";
             // 
             // tabZnajdz_dodaj_dokumentacje
             // 
-            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.btnOdswiez_Dokumentacja);
-            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.button6);
-            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.cmbID_Proces_Technologiczny);
-            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.txtLokalizacja);
-            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.dtpData_Wykonania_Dokumentacja);
-            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.cmbRodzaj_Dokumentacji);
-            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.cmbTechnolodzy2);
+            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.groupBox4);
+            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.groupBox3);
             this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.btn_Szukaj_Dokumentacja);
             this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.numericUpDown4);
-            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.nud_Numer_Dokumentacji);
-            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.btnPrzypisz_Dokumentacja);
-            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.btnDodaj_Dokumentacja);
             this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.dgvDokumentacja);
-            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.label17);
-            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.label16);
-            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.label15);
-            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.label14);
-            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.label13);
-            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.label12);
-            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.label11);
             this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.label8);
-            this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.label9);
             this.tabZnajdz_dodaj_dokumentacje.Controls.Add(this.label7);
             this.tabZnajdz_dodaj_dokumentacje.Location = new System.Drawing.Point(4, 39);
             this.tabZnajdz_dodaj_dokumentacje.Name = "tabZnajdz_dodaj_dokumentacje";
             this.tabZnajdz_dodaj_dokumentacje.Padding = new System.Windows.Forms.Padding(3);
-            this.tabZnajdz_dodaj_dokumentacje.Size = new System.Drawing.Size(1431, 481);
+            this.tabZnajdz_dodaj_dokumentacje.Size = new System.Drawing.Size(1431, 519);
             this.tabZnajdz_dodaj_dokumentacje.TabIndex = 1;
             this.tabZnajdz_dodaj_dokumentacje.Text = "Dokumentacja";
             this.tabZnajdz_dodaj_dokumentacje.UseVisualStyleBackColor = true;
             // 
-            // btnOdswiez_Dokumentacja
+            // groupBox4
             // 
-            this.btnOdswiez_Dokumentacja.BackColor = System.Drawing.Color.Yellow;
-            this.btnOdswiez_Dokumentacja.FlatAppearance.BorderSize = 2;
-            this.btnOdswiez_Dokumentacja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOdswiez_Dokumentacja.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnOdswiez_Dokumentacja.Location = new System.Drawing.Point(541, 43);
-            this.btnOdswiez_Dokumentacja.Name = "btnOdswiez_Dokumentacja";
-            this.btnOdswiez_Dokumentacja.Size = new System.Drawing.Size(109, 39);
-            this.btnOdswiez_Dokumentacja.TabIndex = 78;
-            this.btnOdswiez_Dokumentacja.Text = "Odśwież";
-            this.btnOdswiez_Dokumentacja.UseVisualStyleBackColor = false;
-            this.btnOdswiez_Dokumentacja.Click += new System.EventHandler(this.btnOdswiez_Dokumentacja_Click);
+            this.groupBox4.Controls.Add(this.label16);
+            this.groupBox4.Controls.Add(this.label17);
+            this.groupBox4.Controls.Add(this.btnPrzypisz_Dokumentacja);
+            this.groupBox4.Controls.Add(this.cmbID_Proces_Technologiczny);
+            this.groupBox4.Controls.Add(this.nud_Numer_Dokumentacji);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.groupBox4.Location = new System.Drawing.Point(632, 330);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(533, 149);
+            this.groupBox4.TabIndex = 82;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Przypisz dokumentację do procesu :";
             // 
-            // button6
+            // label16
             // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button6.Location = new System.Drawing.Point(1121, 341);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(104, 24);
-            this.button6.TabIndex = 77;
-            this.button6.Text = "Odśwież";
-            this.button6.UseVisualStyleBackColor = true;
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label16.Location = new System.Drawing.Point(6, 40);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(134, 20);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "Numer procesu :";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label17.Location = new System.Drawing.Point(6, 80);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(172, 20);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "Numer dokumentacji :";
+            // 
+            // btnPrzypisz_Dokumentacja
+            // 
+            this.btnPrzypisz_Dokumentacja.BackColor = System.Drawing.Color.Yellow;
+            this.btnPrzypisz_Dokumentacja.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnPrzypisz_Dokumentacja.FlatAppearance.BorderSize = 2;
+            this.btnPrzypisz_Dokumentacja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrzypisz_Dokumentacja.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnPrzypisz_Dokumentacja.Location = new System.Drawing.Point(10, 108);
+            this.btnPrzypisz_Dokumentacja.Name = "btnPrzypisz_Dokumentacja";
+            this.btnPrzypisz_Dokumentacja.Size = new System.Drawing.Size(170, 35);
+            this.btnPrzypisz_Dokumentacja.TabIndex = 2;
+            this.btnPrzypisz_Dokumentacja.Text = "Przypisz";
+            this.btnPrzypisz_Dokumentacja.UseVisualStyleBackColor = false;
+            this.btnPrzypisz_Dokumentacja.Click += new System.EventHandler(this.btnPrzypisz_Dokumentacja_Click);
             // 
             // cmbID_Proces_Technologiczny
             // 
             this.cmbID_Proces_Technologiczny.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbID_Proces_Technologiczny.FormattingEnabled = true;
-            this.cmbID_Proces_Technologiczny.Location = new System.Drawing.Point(925, 339);
+            this.cmbID_Proces_Technologiczny.Location = new System.Drawing.Point(185, 37);
             this.cmbID_Proces_Technologiczny.Name = "cmbID_Proces_Technologiczny";
             this.cmbID_Proces_Technologiczny.Size = new System.Drawing.Size(190, 28);
             this.cmbID_Proces_Technologiczny.TabIndex = 16;
             // 
+            // nud_Numer_Dokumentacji
+            // 
+            this.nud_Numer_Dokumentacji.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nud_Numer_Dokumentacji.Location = new System.Drawing.Point(185, 75);
+            this.nud_Numer_Dokumentacji.Name = "nud_Numer_Dokumentacji";
+            this.nud_Numer_Dokumentacji.Size = new System.Drawing.Size(188, 26);
+            this.nud_Numer_Dokumentacji.TabIndex = 9;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.lblNumerDokumentacji);
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.label25);
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.label14);
+            this.groupBox3.Controls.Add(this.btnDodaj_Dokumentacja);
+            this.groupBox3.Controls.Add(this.txtLokalizacja);
+            this.groupBox3.Controls.Add(this.cmbTechnolodzy2);
+            this.groupBox3.Controls.Add(this.dtpData_Wykonania_Dokumentacja);
+            this.groupBox3.Controls.Add(this.cmbRodzaj_Dokumentacji);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.groupBox3.Location = new System.Drawing.Point(632, 60);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(533, 252);
+            this.groupBox3.TabIndex = 81;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Utwórz dokumentację :";
+            // 
+            // lblNumerDokumentacji
+            // 
+            this.lblNumerDokumentacji.AutoSize = true;
+            this.lblNumerDokumentacji.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblNumerDokumentacji.Location = new System.Drawing.Point(185, 35);
+            this.lblNumerDokumentacji.Name = "lblNumerDokumentacji";
+            this.lblNumerDokumentacji.Size = new System.Drawing.Size(62, 20);
+            this.lblNumerDokumentacji.TabIndex = 80;
+            this.lblNumerDokumentacji.Text = "label46";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label11.Location = new System.Drawing.Point(6, 103);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(59, 20);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Autor :";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label25.Location = new System.Drawing.Point(6, 33);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(172, 20);
+            this.label25.TabIndex = 79;
+            this.label25.Text = "Numer dokumentacji :";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label12.Location = new System.Drawing.Point(6, 71);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(174, 20);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Rodzaj dokumentacji :";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label13.Location = new System.Drawing.Point(6, 144);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(137, 20);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Data wykonania :";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label14.Location = new System.Drawing.Point(6, 183);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(103, 20);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Lokalizacja :";
+            // 
+            // btnDodaj_Dokumentacja
+            // 
+            this.btnDodaj_Dokumentacja.BackColor = System.Drawing.Color.Yellow;
+            this.btnDodaj_Dokumentacja.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnDodaj_Dokumentacja.FlatAppearance.BorderSize = 2;
+            this.btnDodaj_Dokumentacja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDodaj_Dokumentacja.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnDodaj_Dokumentacja.Location = new System.Drawing.Point(10, 211);
+            this.btnDodaj_Dokumentacja.Name = "btnDodaj_Dokumentacja";
+            this.btnDodaj_Dokumentacja.Size = new System.Drawing.Size(168, 35);
+            this.btnDodaj_Dokumentacja.TabIndex = 2;
+            this.btnDodaj_Dokumentacja.Text = "Dodaj";
+            this.btnDodaj_Dokumentacja.UseVisualStyleBackColor = false;
+            this.btnDodaj_Dokumentacja.Click += new System.EventHandler(this.btnDodaj_Dokumentacja_Click);
+            // 
             // txtLokalizacja
             // 
             this.txtLokalizacja.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtLokalizacja.Location = new System.Drawing.Point(928, 195);
+            this.txtLokalizacja.Location = new System.Drawing.Point(185, 179);
             this.txtLokalizacja.Name = "txtLokalizacja";
             this.txtLokalizacja.Size = new System.Drawing.Size(324, 26);
             this.txtLokalizacja.TabIndex = 15;
             // 
+            // cmbTechnolodzy2
+            // 
+            this.cmbTechnolodzy2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cmbTechnolodzy2.FormattingEnabled = true;
+            this.cmbTechnolodzy2.Location = new System.Drawing.Point(186, 63);
+            this.cmbTechnolodzy2.Name = "cmbTechnolodzy2";
+            this.cmbTechnolodzy2.Size = new System.Drawing.Size(323, 28);
+            this.cmbTechnolodzy2.TabIndex = 13;
+            // 
             // dtpData_Wykonania_Dokumentacja
             // 
             this.dtpData_Wykonania_Dokumentacja.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dtpData_Wykonania_Dokumentacja.Location = new System.Drawing.Point(929, 151);
+            this.dtpData_Wykonania_Dokumentacja.Location = new System.Drawing.Point(185, 138);
             this.dtpData_Wykonania_Dokumentacja.Name = "dtpData_Wykonania_Dokumentacja";
             this.dtpData_Wykonania_Dokumentacja.Size = new System.Drawing.Size(323, 26);
             this.dtpData_Wykonania_Dokumentacja.TabIndex = 14;
@@ -1176,19 +1306,10 @@
             // 
             this.cmbRodzaj_Dokumentacji.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbRodzaj_Dokumentacji.FormattingEnabled = true;
-            this.cmbRodzaj_Dokumentacji.Location = new System.Drawing.Point(929, 67);
+            this.cmbRodzaj_Dokumentacji.Location = new System.Drawing.Point(186, 99);
             this.cmbRodzaj_Dokumentacji.Name = "cmbRodzaj_Dokumentacji";
             this.cmbRodzaj_Dokumentacji.Size = new System.Drawing.Size(323, 28);
             this.cmbRodzaj_Dokumentacji.TabIndex = 13;
-            // 
-            // cmbTechnolodzy2
-            // 
-            this.cmbTechnolodzy2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cmbTechnolodzy2.FormattingEnabled = true;
-            this.cmbTechnolodzy2.Location = new System.Drawing.Point(929, 110);
-            this.cmbTechnolodzy2.Name = "cmbTechnolodzy2";
-            this.cmbTechnolodzy2.Size = new System.Drawing.Size(323, 28);
-            this.cmbTechnolodzy2.TabIndex = 13;
             // 
             // btn_Szukaj_Dokumentacja
             // 
@@ -1196,7 +1317,7 @@
             this.btn_Szukaj_Dokumentacja.FlatAppearance.BorderSize = 2;
             this.btn_Szukaj_Dokumentacja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Szukaj_Dokumentacja.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_Szukaj_Dokumentacja.Location = new System.Drawing.Point(426, 43);
+            this.btn_Szukaj_Dokumentacja.Location = new System.Drawing.Point(415, 21);
             this.btn_Szukaj_Dokumentacja.Name = "btn_Szukaj_Dokumentacja";
             this.btn_Szukaj_Dokumentacja.Size = new System.Drawing.Size(109, 39);
             this.btn_Szukaj_Dokumentacja.TabIndex = 12;
@@ -1207,48 +1328,10 @@
             // numericUpDown4
             // 
             this.numericUpDown4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown4.Location = new System.Drawing.Point(301, 50);
+            this.numericUpDown4.Location = new System.Drawing.Point(277, 28);
             this.numericUpDown4.Name = "numericUpDown4";
             this.numericUpDown4.Size = new System.Drawing.Size(99, 26);
             this.numericUpDown4.TabIndex = 11;
-            // 
-            // nud_Numer_Dokumentacji
-            // 
-            this.nud_Numer_Dokumentacji.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nud_Numer_Dokumentacji.Location = new System.Drawing.Point(927, 379);
-            this.nud_Numer_Dokumentacji.Name = "nud_Numer_Dokumentacji";
-            this.nud_Numer_Dokumentacji.Size = new System.Drawing.Size(188, 26);
-            this.nud_Numer_Dokumentacji.TabIndex = 9;
-            // 
-            // btnPrzypisz_Dokumentacja
-            // 
-            this.btnPrzypisz_Dokumentacja.BackColor = System.Drawing.Color.Yellow;
-            this.btnPrzypisz_Dokumentacja.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnPrzypisz_Dokumentacja.FlatAppearance.BorderSize = 2;
-            this.btnPrzypisz_Dokumentacja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrzypisz_Dokumentacja.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnPrzypisz_Dokumentacja.Location = new System.Drawing.Point(877, 425);
-            this.btnPrzypisz_Dokumentacja.Name = "btnPrzypisz_Dokumentacja";
-            this.btnPrzypisz_Dokumentacja.Size = new System.Drawing.Size(207, 35);
-            this.btnPrzypisz_Dokumentacja.TabIndex = 2;
-            this.btnPrzypisz_Dokumentacja.Text = "Przypisz";
-            this.btnPrzypisz_Dokumentacja.UseVisualStyleBackColor = false;
-            this.btnPrzypisz_Dokumentacja.Click += new System.EventHandler(this.btnPrzypisz_Dokumentacja_Click);
-            // 
-            // btnDodaj_Dokumentacja
-            // 
-            this.btnDodaj_Dokumentacja.BackColor = System.Drawing.Color.Yellow;
-            this.btnDodaj_Dokumentacja.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnDodaj_Dokumentacja.FlatAppearance.BorderSize = 2;
-            this.btnDodaj_Dokumentacja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDodaj_Dokumentacja.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDodaj_Dokumentacja.Location = new System.Drawing.Point(877, 238);
-            this.btnDodaj_Dokumentacja.Name = "btnDodaj_Dokumentacja";
-            this.btnDodaj_Dokumentacja.Size = new System.Drawing.Size(207, 35);
-            this.btnDodaj_Dokumentacja.TabIndex = 2;
-            this.btnDodaj_Dokumentacja.Text = "Dodaj";
-            this.btnDodaj_Dokumentacja.UseVisualStyleBackColor = false;
-            this.btnDodaj_Dokumentacja.Click += new System.EventHandler(this.btnDodaj_Dokumentacja_Click);
             // 
             // dgvDokumentacja
             // 
@@ -1256,114 +1339,37 @@
             this.dgvDokumentacja.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvDokumentacja.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvDokumentacja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDokumentacja.Location = new System.Drawing.Point(5, 102);
+            this.dgvDokumentacja.Location = new System.Drawing.Point(5, 71);
             this.dgvDokumentacja.Name = "dgvDokumentacja";
             this.dgvDokumentacja.RowHeadersWidth = 51;
-            this.dgvDokumentacja.Size = new System.Drawing.Size(728, 358);
+            this.dgvDokumentacja.Size = new System.Drawing.Size(621, 408);
             this.dgvDokumentacja.TabIndex = 1;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(744, 379);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(192, 20);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "Numer dokumentacji :";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(744, 339);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(149, 20);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "Numer procesu :";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label15.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label15.Location = new System.Drawing.Point(841, 299);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(348, 24);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "Przypisz dokumentacje do procesu :";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(746, 188);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(116, 20);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Lokalizacja :";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(745, 147);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(153, 20);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Data wykonania :";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(737, 70);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(195, 20);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Rodzaj dokumentacji :";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(747, 110);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(66, 20);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Autor :";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label8.Location = new System.Drawing.Point(271, 31);
+            this.label8.Location = new System.Drawing.Point(248, 9);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(149, 16);
             this.label8.TabIndex = 0;
             this.label8.Text = "Numer dokumentacji";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label9.Location = new System.Drawing.Point(873, 25);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(213, 24);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Dodaj dokumentację :";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label7.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label7.Location = new System.Drawing.Point(80, 52);
+            this.label7.Location = new System.Drawing.Point(5, 27);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(222, 20);
+            this.label7.Size = new System.Drawing.Size(246, 24);
             this.label7.TabIndex = 0;
             this.label7.Text = "Wyszukaj dokumentację :";
             // 
             // tabDodaj_etap
             // 
-            this.tabDodaj_etap.Controls.Add(this.btnOdswiez_Dodaj_Maszyne);
-            this.tabDodaj_etap.Controls.Add(this.btnPokazEtapyWProcesie);
+            this.tabDodaj_etap.Controls.Add(this.groupBox5);
             this.tabDodaj_etap.Controls.Add(this.dgvMaszyny_Proces);
-            this.tabDodaj_etap.Controls.Add(this.dgvEtapy_proces);
             this.tabDodaj_etap.Controls.Add(this.cmbRodzaj_Maszyny2);
             this.tabDodaj_etap.Controls.Add(this.label44);
             this.tabDodaj_etap.Controls.Add(this.label27);
@@ -1374,55 +1380,51 @@
             this.tabDodaj_etap.Controls.Add(this.label29);
             this.tabDodaj_etap.Controls.Add(this.label30);
             this.tabDodaj_etap.Controls.Add(this.label31);
-            this.tabDodaj_etap.Controls.Add(this.label24);
-            this.tabDodaj_etap.Controls.Add(this.cmbNazwa_Etapu);
-            this.tabDodaj_etap.Controls.Add(this.nudDodaj_Etap);
-            this.tabDodaj_etap.Controls.Add(this.btnDodaj_Etap);
-            this.tabDodaj_etap.Controls.Add(this.txtCzas_Etapu);
-            this.tabDodaj_etap.Controls.Add(this.label4);
-            this.tabDodaj_etap.Controls.Add(this.label5);
-            this.tabDodaj_etap.Controls.Add(this.lblNumerProcesu);
             this.tabDodaj_etap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tabDodaj_etap.Location = new System.Drawing.Point(4, 39);
             this.tabDodaj_etap.Name = "tabDodaj_etap";
-            this.tabDodaj_etap.Size = new System.Drawing.Size(1431, 481);
+            this.tabDodaj_etap.Size = new System.Drawing.Size(1431, 519);
             this.tabDodaj_etap.TabIndex = 3;
             this.tabDodaj_etap.Text = "Dodaj etap / maszynę";
             this.tabDodaj_etap.UseVisualStyleBackColor = true;
             // 
-            // btnOdswiez_Dodaj_Maszyne
+            // groupBox5
             // 
-            this.btnOdswiez_Dodaj_Maszyne.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnOdswiez_Dodaj_Maszyne.Location = new System.Drawing.Point(1017, 51);
-            this.btnOdswiez_Dodaj_Maszyne.Name = "btnOdswiez_Dodaj_Maszyne";
-            this.btnOdswiez_Dodaj_Maszyne.Size = new System.Drawing.Size(104, 24);
-            this.btnOdswiez_Dodaj_Maszyne.TabIndex = 57;
-            this.btnOdswiez_Dodaj_Maszyne.Text = "Odśwież";
-            this.btnOdswiez_Dodaj_Maszyne.UseVisualStyleBackColor = true;
-            this.btnOdswiez_Dodaj_Maszyne.Click += new System.EventHandler(this.btnOdswiez_Dodaj_Maszyne_Click);
+            this.groupBox5.Controls.Add(this.lblNumerProcesu);
+            this.groupBox5.Controls.Add(this.label5);
+            this.groupBox5.Controls.Add(this.dgvEtapy_proces);
+            this.groupBox5.Controls.Add(this.label4);
+            this.groupBox5.Controls.Add(this.txtCzas_Etapu);
+            this.groupBox5.Controls.Add(this.btnDodaj_Etap);
+            this.groupBox5.Controls.Add(this.nudDodaj_Etap);
+            this.groupBox5.Controls.Add(this.cmbNazwa_Etapu);
+            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.groupBox5.Location = new System.Drawing.Point(16, 12);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(527, 476);
+            this.groupBox5.TabIndex = 56;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Dodaj etap :";
             // 
-            // btnPokazEtapyWProcesie
+            // lblNumerProcesu
             // 
-            this.btnPokazEtapyWProcesie.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnPokazEtapyWProcesie.Location = new System.Drawing.Point(381, 52);
-            this.btnPokazEtapyWProcesie.Name = "btnPokazEtapyWProcesie";
-            this.btnPokazEtapyWProcesie.Size = new System.Drawing.Size(104, 24);
-            this.btnPokazEtapyWProcesie.TabIndex = 56;
-            this.btnPokazEtapyWProcesie.Text = "Odśwież";
-            this.btnPokazEtapyWProcesie.UseVisualStyleBackColor = true;
-            this.btnPokazEtapyWProcesie.Click += new System.EventHandler(this.btnPokazEtapyWProcesie_Click);
+            this.lblNumerProcesu.AutoSize = true;
+            this.lblNumerProcesu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblNumerProcesu.Location = new System.Drawing.Point(68, 33);
+            this.lblNumerProcesu.Name = "lblNumerProcesu";
+            this.lblNumerProcesu.Size = new System.Drawing.Size(125, 20);
+            this.lblNumerProcesu.TabIndex = 26;
+            this.lblNumerProcesu.Text = "Numer procesu :";
             // 
-            // dgvMaszyny_Proces
+            // label5
             // 
-            this.dgvMaszyny_Proces.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvMaszyny_Proces.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvMaszyny_Proces.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvMaszyny_Proces.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMaszyny_Proces.Location = new System.Drawing.Point(529, 220);
-            this.dgvMaszyny_Proces.Name = "dgvMaszyny_Proces";
-            this.dgvMaszyny_Proces.RowHeadersWidth = 51;
-            this.dgvMaszyny_Proces.Size = new System.Drawing.Size(706, 236);
-            this.dgvMaszyny_Proces.TabIndex = 55;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.Location = new System.Drawing.Point(87, 65);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(110, 20);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "Nazwa etapu :";
             // 
             // dgvEtapy_proces
             // 
@@ -1430,11 +1432,74 @@
             this.dgvEtapy_proces.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvEtapy_proces.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvEtapy_proces.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEtapy_proces.Location = new System.Drawing.Point(2, 220);
+            this.dgvEtapy_proces.Location = new System.Drawing.Point(152, 168);
             this.dgvEtapy_proces.Name = "dgvEtapy_proces";
             this.dgvEtapy_proces.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dgvEtapy_proces.Size = new System.Drawing.Size(523, 236);
+            this.dgvEtapy_proces.Size = new System.Drawing.Size(271, 236);
             this.dgvEtapy_proces.TabIndex = 55;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(21, 98);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(176, 20);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "Czas trwania (godziny) :";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtCzas_Etapu
+            // 
+            this.txtCzas_Etapu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtCzas_Etapu.Location = new System.Drawing.Point(197, 98);
+            this.txtCzas_Etapu.Name = "txtCzas_Etapu";
+            this.txtCzas_Etapu.Size = new System.Drawing.Size(199, 26);
+            this.txtCzas_Etapu.TabIndex = 29;
+            // 
+            // btnDodaj_Etap
+            // 
+            this.btnDodaj_Etap.BackColor = System.Drawing.Color.Yellow;
+            this.btnDodaj_Etap.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnDodaj_Etap.FlatAppearance.BorderSize = 2;
+            this.btnDodaj_Etap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDodaj_Etap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnDodaj_Etap.Location = new System.Drawing.Point(214, 130);
+            this.btnDodaj_Etap.Name = "btnDodaj_Etap";
+            this.btnDodaj_Etap.Size = new System.Drawing.Size(143, 32);
+            this.btnDodaj_Etap.TabIndex = 31;
+            this.btnDodaj_Etap.Text = "Dodaj";
+            this.btnDodaj_Etap.UseVisualStyleBackColor = false;
+            this.btnDodaj_Etap.Click += new System.EventHandler(this.btnDodaj_Etap_Click);
+            // 
+            // nudDodaj_Etap
+            // 
+            this.nudDodaj_Etap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nudDodaj_Etap.Location = new System.Drawing.Point(197, 29);
+            this.nudDodaj_Etap.Name = "nudDodaj_Etap";
+            this.nudDodaj_Etap.Size = new System.Drawing.Size(199, 26);
+            this.nudDodaj_Etap.TabIndex = 34;
+            // 
+            // cmbNazwa_Etapu
+            // 
+            this.cmbNazwa_Etapu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cmbNazwa_Etapu.FormattingEnabled = true;
+            this.cmbNazwa_Etapu.Location = new System.Drawing.Point(197, 61);
+            this.cmbNazwa_Etapu.Name = "cmbNazwa_Etapu";
+            this.cmbNazwa_Etapu.Size = new System.Drawing.Size(199, 28);
+            this.cmbNazwa_Etapu.TabIndex = 35;
+            // 
+            // dgvMaszyny_Proces
+            // 
+            this.dgvMaszyny_Proces.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvMaszyny_Proces.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvMaszyny_Proces.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvMaszyny_Proces.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMaszyny_Proces.Location = new System.Drawing.Point(579, 220);
+            this.dgvMaszyny_Proces.Name = "dgvMaszyny_Proces";
+            this.dgvMaszyny_Proces.RowHeadersWidth = 51;
+            this.dgvMaszyny_Proces.Size = new System.Drawing.Size(644, 236);
+            this.dgvMaszyny_Proces.TabIndex = 55;
             // 
             // cmbRodzaj_Maszyny2
             // 
@@ -1535,93 +1600,10 @@
             this.label31.TabIndex = 46;
             this.label31.Text = "Numer procesu :";
             // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label24.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label24.Location = new System.Drawing.Point(214, 12);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(122, 24);
-            this.label24.TabIndex = 36;
-            this.label24.Text = "Dodaj etap :";
-            // 
-            // cmbNazwa_Etapu
-            // 
-            this.cmbNazwa_Etapu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cmbNazwa_Etapu.FormattingEnabled = true;
-            this.cmbNazwa_Etapu.Location = new System.Drawing.Point(176, 84);
-            this.cmbNazwa_Etapu.Name = "cmbNazwa_Etapu";
-            this.cmbNazwa_Etapu.Size = new System.Drawing.Size(199, 28);
-            this.cmbNazwa_Etapu.TabIndex = 35;
-            // 
-            // nudDodaj_Etap
-            // 
-            this.nudDodaj_Etap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nudDodaj_Etap.Location = new System.Drawing.Point(176, 52);
-            this.nudDodaj_Etap.Name = "nudDodaj_Etap";
-            this.nudDodaj_Etap.Size = new System.Drawing.Size(199, 26);
-            this.nudDodaj_Etap.TabIndex = 34;
-            // 
-            // btnDodaj_Etap
-            // 
-            this.btnDodaj_Etap.BackColor = System.Drawing.Color.Yellow;
-            this.btnDodaj_Etap.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnDodaj_Etap.FlatAppearance.BorderSize = 2;
-            this.btnDodaj_Etap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDodaj_Etap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDodaj_Etap.Location = new System.Drawing.Point(193, 153);
-            this.btnDodaj_Etap.Name = "btnDodaj_Etap";
-            this.btnDodaj_Etap.Size = new System.Drawing.Size(143, 32);
-            this.btnDodaj_Etap.TabIndex = 31;
-            this.btnDodaj_Etap.Text = "Dodaj";
-            this.btnDodaj_Etap.UseVisualStyleBackColor = false;
-            this.btnDodaj_Etap.Click += new System.EventHandler(this.btnDodaj_Etap_Click);
-            // 
-            // txtCzas_Etapu
-            // 
-            this.txtCzas_Etapu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtCzas_Etapu.Location = new System.Drawing.Point(176, 121);
-            this.txtCzas_Etapu.Name = "txtCzas_Etapu";
-            this.txtCzas_Etapu.Size = new System.Drawing.Size(199, 26);
-            this.txtCzas_Etapu.TabIndex = 29;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(0, 121);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(176, 20);
-            this.label4.TabIndex = 27;
-            this.label4.Text = "Czas trwania (godziny) :";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(66, 88);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(110, 20);
-            this.label5.TabIndex = 28;
-            this.label5.Text = "Nazwa etapu :";
-            // 
-            // lblNumerProcesu
-            // 
-            this.lblNumerProcesu.AutoSize = true;
-            this.lblNumerProcesu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblNumerProcesu.Location = new System.Drawing.Point(47, 56);
-            this.lblNumerProcesu.Name = "lblNumerProcesu";
-            this.lblNumerProcesu.Size = new System.Drawing.Size(125, 20);
-            this.lblNumerProcesu.TabIndex = 26;
-            this.lblNumerProcesu.Text = "Numer procesu :";
-            // 
             // tabDodaj_utworz_element
             // 
             this.tabDodaj_utworz_element.Controls.Add(this.nudNumerProcesu2);
             this.tabDodaj_utworz_element.Controls.Add(this.btnOdswiez_Element2);
-            this.tabDodaj_utworz_element.Controls.Add(this.btnOdswiez_Element);
             this.tabDodaj_utworz_element.Controls.Add(this.label20);
             this.tabDodaj_utworz_element.Controls.Add(this.cmbTyp_Elementu2);
             this.tabDodaj_utworz_element.Controls.Add(this.label19);
@@ -1643,7 +1625,7 @@
             this.tabDodaj_utworz_element.Controls.Add(this.label43);
             this.tabDodaj_utworz_element.Location = new System.Drawing.Point(4, 39);
             this.tabDodaj_utworz_element.Name = "tabDodaj_utworz_element";
-            this.tabDodaj_utworz_element.Size = new System.Drawing.Size(1431, 481);
+            this.tabDodaj_utworz_element.Size = new System.Drawing.Size(1431, 519);
             this.tabDodaj_utworz_element.TabIndex = 9;
             this.tabDodaj_utworz_element.Text = "Dodaj / Utwórz element";
             this.tabDodaj_utworz_element.UseVisualStyleBackColor = true;
@@ -1665,17 +1647,6 @@
             this.btnOdswiez_Element2.Text = "Odśwież";
             this.btnOdswiez_Element2.UseVisualStyleBackColor = true;
             this.btnOdswiez_Element2.Click += new System.EventHandler(this.btnOdswiez_Element2_Click);
-            // 
-            // btnOdswiez_Element
-            // 
-            this.btnOdswiez_Element.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnOdswiez_Element.Location = new System.Drawing.Point(376, 55);
-            this.btnOdswiez_Element.Name = "btnOdswiez_Element";
-            this.btnOdswiez_Element.Size = new System.Drawing.Size(104, 24);
-            this.btnOdswiez_Element.TabIndex = 78;
-            this.btnOdswiez_Element.Text = "Odśwież";
-            this.btnOdswiez_Element.UseVisualStyleBackColor = true;
-            this.btnOdswiez_Element.Click += new System.EventHandler(this.btnOdswiez_Element_Click);
             // 
             // label20
             // 
@@ -1701,6 +1672,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label19.ForeColor = System.Drawing.Color.Red;
             this.label19.Location = new System.Drawing.Point(686, 92);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(135, 20);
@@ -1742,6 +1714,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label21.ForeColor = System.Drawing.Color.Red;
             this.label21.Location = new System.Drawing.Point(593, 126);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(228, 20);
@@ -1752,7 +1725,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label22.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label22.ForeColor = System.Drawing.Color.Red;
             this.label22.Location = new System.Drawing.Point(828, 17);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(166, 24);
@@ -1763,6 +1736,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label23.ForeColor = System.Drawing.Color.Red;
             this.label23.Location = new System.Drawing.Point(709, 58);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(112, 20);
@@ -1877,6 +1851,11 @@
             // 
             // tabZnajdz_dodaj_proces_technologiczny
             // 
+            this.tabZnajdz_dodaj_proces_technologiczny.Controls.Add(this.label47);
+            this.tabZnajdz_dodaj_proces_technologiczny.Controls.Add(this.label46);
+            this.tabZnajdz_dodaj_proces_technologiczny.Controls.Add(this.label15);
+            this.tabZnajdz_dodaj_proces_technologiczny.Controls.Add(this.label9);
+            this.tabZnajdz_dodaj_proces_technologiczny.Controls.Add(this.dgvUkryty2);
             this.tabZnajdz_dodaj_proces_technologiczny.Controls.Add(this.btnKompletny_Proces);
             this.tabZnajdz_dodaj_proces_technologiczny.Controls.Add(this.btnOdswiez_Znajdz);
             this.tabZnajdz_dodaj_proces_technologiczny.Controls.Add(this.dgvUkryty);
@@ -1892,10 +1871,57 @@
             this.tabZnajdz_dodaj_proces_technologiczny.Location = new System.Drawing.Point(4, 39);
             this.tabZnajdz_dodaj_proces_technologiczny.Name = "tabZnajdz_dodaj_proces_technologiczny";
             this.tabZnajdz_dodaj_proces_technologiczny.Padding = new System.Windows.Forms.Padding(6);
-            this.tabZnajdz_dodaj_proces_technologiczny.Size = new System.Drawing.Size(1431, 481);
+            this.tabZnajdz_dodaj_proces_technologiczny.Size = new System.Drawing.Size(1431, 519);
             this.tabZnajdz_dodaj_proces_technologiczny.TabIndex = 0;
             this.tabZnajdz_dodaj_proces_technologiczny.Text = "Znajdź / Zatwierdź ";
             this.tabZnajdz_dodaj_proces_technologiczny.UseVisualStyleBackColor = true;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(872, 209);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(294, 20);
+            this.label47.TabIndex = 37;
+            this.label47.Text = "Etapy w wyszukiwanym procesie :";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(223, 349);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(320, 20);
+            this.label46.TabIndex = 36;
+            this.label46.Text = "Maszyny w wyszukiwanym procesie :";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(215, 209);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(366, 20);
+            this.label15.TabIndex = 35;
+            this.label15.Text = "Dokumentacja w wyszukiwanym procesie :";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(219, 68);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(324, 20);
+            this.label9.TabIndex = 34;
+            this.label9.Text = "Elementy w wyszukiwanym procesie :";
+            // 
+            // dgvUkryty2
+            // 
+            this.dgvUkryty2.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvUkryty2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUkryty2.Location = new System.Drawing.Point(1287, 0);
+            this.dgvUkryty2.Name = "dgvUkryty2";
+            this.dgvUkryty2.RowHeadersWidth = 51;
+            this.dgvUkryty2.Size = new System.Drawing.Size(135, 80);
+            this.dgvUkryty2.TabIndex = 33;
+            this.dgvUkryty2.Visible = false;
             // 
             // btnKompletny_Proces
             // 
@@ -1904,7 +1930,7 @@
             this.btnKompletny_Proces.FlatAppearance.BorderSize = 2;
             this.btnKompletny_Proces.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKompletny_Proces.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnKompletny_Proces.Location = new System.Drawing.Point(1063, 152);
+            this.btnKompletny_Proces.Location = new System.Drawing.Point(969, 139);
             this.btnKompletny_Proces.Name = "btnKompletny_Proces";
             this.btnKompletny_Proces.Size = new System.Drawing.Size(92, 30);
             this.btnKompletny_Proces.TabIndex = 32;
@@ -1919,7 +1945,7 @@
             this.btnOdswiez_Znajdz.FlatAppearance.BorderSize = 2;
             this.btnOdswiez_Znajdz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOdswiez_Znajdz.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnOdswiez_Znajdz.Location = new System.Drawing.Point(462, 16);
+            this.btnOdswiez_Znajdz.Location = new System.Drawing.Point(484, 27);
             this.btnOdswiez_Znajdz.Name = "btnOdswiez_Znajdz";
             this.btnOdswiez_Znajdz.Size = new System.Drawing.Size(92, 30);
             this.btnOdswiez_Znajdz.TabIndex = 31;
@@ -1931,7 +1957,7 @@
             // 
             this.dgvUkryty.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvUkryty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUkryty.Location = new System.Drawing.Point(872, 398);
+            this.dgvUkryty.Location = new System.Drawing.Point(1287, 0);
             this.dgvUkryty.Name = "dgvUkryty";
             this.dgvUkryty.RowHeadersWidth = 51;
             this.dgvUkryty.Size = new System.Drawing.Size(135, 80);
@@ -1941,7 +1967,7 @@
             // chbKompletny_Proces
             // 
             this.chbKompletny_Proces.AutoSize = true;
-            this.chbKompletny_Proces.Location = new System.Drawing.Point(1102, 132);
+            this.chbKompletny_Proces.Location = new System.Drawing.Point(1008, 119);
             this.chbKompletny_Proces.Name = "chbKompletny_Proces";
             this.chbKompletny_Proces.Size = new System.Drawing.Size(15, 14);
             this.chbKompletny_Proces.TabIndex = 29;
@@ -1953,10 +1979,10 @@
             this.dgvProcesy5.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvProcesy5.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvProcesy5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProcesy5.Location = new System.Drawing.Point(4, 345);
+            this.dgvProcesy5.Location = new System.Drawing.Point(9, 372);
             this.dgvProcesy5.Name = "dgvProcesy5";
             this.dgvProcesy5.RowHeadersWidth = 51;
-            this.dgvProcesy5.Size = new System.Drawing.Size(862, 138);
+            this.dgvProcesy5.Size = new System.Drawing.Size(779, 116);
             this.dgvProcesy5.TabIndex = 28;
             // 
             // dgvProcesy4
@@ -1965,10 +1991,10 @@
             this.dgvProcesy4.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvProcesy4.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvProcesy4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProcesy4.Location = new System.Drawing.Point(4, 201);
+            this.dgvProcesy4.Location = new System.Drawing.Point(9, 232);
             this.dgvProcesy4.Name = "dgvProcesy4";
             this.dgvProcesy4.RowHeadersWidth = 51;
-            this.dgvProcesy4.Size = new System.Drawing.Size(862, 138);
+            this.dgvProcesy4.Size = new System.Drawing.Size(779, 114);
             this.dgvProcesy4.TabIndex = 27;
             // 
             // dgvProcesy3
@@ -1977,10 +2003,10 @@
             this.dgvProcesy3.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvProcesy3.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvProcesy3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProcesy3.Location = new System.Drawing.Point(4, 60);
+            this.dgvProcesy3.Location = new System.Drawing.Point(9, 91);
             this.dgvProcesy3.Name = "dgvProcesy3";
             this.dgvProcesy3.RowHeadersWidth = 51;
-            this.dgvProcesy3.Size = new System.Drawing.Size(862, 135);
+            this.dgvProcesy3.Size = new System.Drawing.Size(779, 115);
             this.dgvProcesy3.TabIndex = 26;
             // 
             // lblOpisNumer
@@ -1988,11 +2014,11 @@
             this.lblOpisNumer.AutoSize = true;
             this.lblOpisNumer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblOpisNumer.ForeColor = System.Drawing.Color.Red;
-            this.lblOpisNumer.Location = new System.Drawing.Point(994, 104);
+            this.lblOpisNumer.Location = new System.Drawing.Point(910, 91);
             this.lblOpisNumer.Name = "lblOpisNumer";
-            this.lblOpisNumer.Size = new System.Drawing.Size(243, 25);
+            this.lblOpisNumer.Size = new System.Drawing.Size(228, 25);
             this.lblOpisNumer.TabIndex = 10;
-            this.lblOpisNumer.Text = "PROCES KOMPLETNY ";
+            this.lblOpisNumer.Text = "ZATWIERDŹ PROCES";
             // 
             // btnSzukajProces
             // 
@@ -2001,7 +2027,7 @@
             this.btnSzukajProces.FlatAppearance.BorderSize = 2;
             this.btnSzukajProces.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSzukajProces.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnSzukajProces.Location = new System.Drawing.Point(364, 16);
+            this.btnSzukajProces.Location = new System.Drawing.Point(386, 27);
             this.btnSzukajProces.Name = "btnSzukajProces";
             this.btnSzukajProces.Size = new System.Drawing.Size(92, 30);
             this.btnSzukajProces.TabIndex = 9;
@@ -2012,7 +2038,7 @@
             // nudNumerProcesu
             // 
             this.nudNumerProcesu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nudNumerProcesu.Location = new System.Drawing.Point(257, 18);
+            this.nudNumerProcesu.Location = new System.Drawing.Point(279, 29);
             this.nudNumerProcesu.Name = "nudNumerProcesu";
             this.nudNumerProcesu.Size = new System.Drawing.Size(99, 26);
             this.nudNumerProcesu.TabIndex = 8;
@@ -2020,11 +2046,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label1.Location = new System.Drawing.Point(9, 21);
+            this.label1.Location = new System.Drawing.Point(5, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(239, 20);
+            this.label1.Size = new System.Drawing.Size(268, 24);
             this.label1.TabIndex = 7;
             this.label1.Text = "Wprowadź numer procesu :";
             // 
@@ -2034,10 +2060,10 @@
             this.dgvProcesy2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvProcesy2.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvProcesy2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProcesy2.Location = new System.Drawing.Point(872, 233);
+            this.dgvProcesy2.Location = new System.Drawing.Point(796, 232);
             this.dgvProcesy2.Name = "dgvProcesy2";
             this.dgvProcesy2.RowHeadersWidth = 51;
-            this.dgvProcesy2.Size = new System.Drawing.Size(448, 245);
+            this.dgvProcesy2.Size = new System.Drawing.Size(434, 256);
             this.dgvProcesy2.TabIndex = 0;
             // 
             // entityCommand1
@@ -2047,8 +2073,6 @@
             this.entityCommand1.Connection = null;
             this.entityCommand1.EnablePlanCaching = true;
             this.entityCommand1.Transaction = null;
-            // 
-            // szwalniaDataSet
             // 
             // PrzygotowanieProdukcji
             // 
@@ -2076,24 +2100,34 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvWszystkie_Maszyny)).EndInit();
             this.tabpZarzadzanieParkiemMaszynowym.ResumeLayout(false);
             this.tabpZarzadzanieParkiemMaszynowym.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProcesy66)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumerZamowienia)).EndInit();
             this.tabcZamowienia.ResumeLayout(false);
             this.tabZamowienia.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienia)).EndInit();
             this.tabPrzypisz_proces_do_zamowienia.ResumeLayout(false);
-            this.tabPrzypisz_proces_do_zamowienia.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.tabZnajdz_dodaj_dokumentacje.ResumeLayout(false);
             this.tabZnajdz_dodaj_dokumentacje.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_Numer_Dokumentacji)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDokumentacja)).EndInit();
             this.tabDodaj_etap.ResumeLayout(false);
             this.tabDodaj_etap.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMaszyny_Proces)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtapy_proces)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDodaj_Maszyne)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDodaj_Etap)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMaszyny_Proces)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDodaj_Maszyne)).EndInit();
             this.tabDodaj_utworz_element.ResumeLayout(false);
             this.tabDodaj_utworz_element.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumerProcesu2)).EndInit();
@@ -2101,6 +2135,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvWszystkie_Elementy)).EndInit();
             this.tabZnajdz_dodaj_proces_technologiczny.ResumeLayout(false);
             this.tabZnajdz_dodaj_proces_technologiczny.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUkryty2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUkryty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesy5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesy4)).EndInit();
@@ -2167,9 +2202,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.BindingSource vObslugaBindingSource;
         private System.Windows.Forms.Button btnPrzypisz_Dokumentacja;
         private System.Windows.Forms.Button btnDodaj_Dokumentacja;
@@ -2187,7 +2220,6 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Button btnPrzypisz_Proces_Zamowienie;
         private System.Windows.Forms.Label label26;
@@ -2244,33 +2276,37 @@
         private System.Windows.Forms.TabPage tabResurs_Maszyn;
         private System.Windows.Forms.DataGridView dgvResursMaszyny;
         private System.Windows.Forms.NumericUpDown nud_Numer_Dokumentacji;
-        private System.Windows.Forms.Button btnPokazEtapyWProcesie;
         private System.Windows.Forms.ComboBox cmbID_Proces_Technologiczny;
         private System.Windows.Forms.ComboBox cmbTyp_Elementu2;
         private System.Windows.Forms.TextBox txtNazwa_Elementu;
         private System.Windows.Forms.ComboBox cmbID_Proces_Technologiczny3;
-        private System.Windows.Forms.ComboBox cmbID_Zamowienie_Element;
-        private System.Windows.Forms.Button btnOdswiez_Dodaj_Maszyne;
-        private System.Windows.Forms.Label label47;
         private System.Windows.Forms.ComboBox cmbTechnolodzy;
         private System.Windows.Forms.Label lblNumer_Procesu;
         private System.Windows.Forms.Button btnUtworz_Proces;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Button btnOdswiez_Element2;
-        private System.Windows.Forms.Button btnOdswiez_Element;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Button btnOdswiez_Proces_Zamowienie;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.CheckBox chbKompletny_Proces;
         private System.Windows.Forms.DataGridView dgvUkryty;
-        private System.Windows.Forms.Button btnOdswiez_Obsluge;
         private System.Windows.Forms.Button btnOdswiez_Maszyny;
         private System.Windows.Forms.Button btnOdswiez_Ogolny;
-        private System.Windows.Forms.Button btnOdswiez_Dokumentacja;
         private System.Windows.Forms.Button btnOdswiez_Znajdz;
         private System.Windows.Forms.Button btnKompletny_Proces;
         private System.Windows.Forms.NumericUpDown nudNumerProcesu2;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label lblNumerDokumentacji;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.DataGridView dgvProcesy66;
+        private System.Windows.Forms.DataGridView dgvUkryty2;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label lblNumerZamowieniaElement;
     }
 }
