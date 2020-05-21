@@ -214,6 +214,7 @@ namespace Szwalnia
         public virtual DbSet<vZatrudnieniePracownika> vZatrudnieniePracownika { get; set; }
         public virtual DbSet<vZawartoscMagazynuDoPrzydzialu> vZawartoscMagazynuDoPrzydzialu { get; set; }
         public virtual DbSet<vZawartoscMagazynuDoPrzydzialuZabezpieczona> vZawartoscMagazynuDoPrzydzialuZabezpieczona { get; set; }
+        public virtual DbSet<vZamowieniaDostawyWlasneZawartoscPolki> vZamowieniaDostawyWlasneZawartoscPolki { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

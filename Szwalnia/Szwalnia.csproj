@@ -1136,6 +1136,9 @@
     <Compile Include="vWynagrodzenia.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vZamowieniaDostawyWlasneZawartoscPolki.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vZamowieniaDoWykonaniaUDostawcy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>

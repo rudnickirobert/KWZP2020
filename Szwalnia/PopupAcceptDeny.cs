@@ -28,6 +28,7 @@ namespace Szwalnia
         public int intPracownikID;
         public int intOferta;
         public int intUmowaID;
+        public vZamowieniaDostawyWlasneZawartoscPolki przechowalnia = null;
         public bool czyOfertaWielePolek = false;
         public bool czyPrzypisaniePracownika = false;
         public bool boolCzyCancel = false;
@@ -199,6 +200,9 @@ namespace Szwalnia
                     {
                         List<vDostawyNiewydaneBezDatBezPowtorzen> listaDoWstawienia = db.vDostawyNiewydaneBezDatBezPowtorzen.Where(wybraneRekordy => wybraneRekordy.ID_Zamowienia == intIDZamowienie).Where(wybraneRekordy => wybraneRekordy.ID_Dostawy == intIDDostawy).ToList();
                         Dostarczenia_Wewn noweWydanie = new Dostarczenia_Wewn();
+                        int intIloscCalkowita = intIlosc;
+                        int[,] intArrayCzyIloscToZero = new int[listaDoWstawienia.Count,2];
+                        int intNumerPetli = 0;
                         foreach (vDostawyNiewydaneBezDatBezPowtorzen wierszWybrany in listaDoWstawienia)
                         {
                             noweWydanie.ID_Pracownicy = intPracownikID;
@@ -206,18 +210,99 @@ namespace Szwalnia
                             noweWydanie.ID_Zamowienie_element = wierszWybrany.ID_Zamowienie_Element;
                             noweWydanie.ID_element = wierszWybrany.ID_Element;
                             noweWydanie.Ilosc_Dostarczona = (-1) * wierszWybrany.Ilosc;
+                            intIloscCalkowita = intIloscCalkowita - Convert.ToInt32(noweWydanie.Ilosc_Dostarczona);
+                            if (intIloscCalkowita<0)
+                            {
+                                intArrayCzyIloscToZero[intNumerPetli, 1] = wierszWybrany.ID_Zamowienie_Element;
+                                intArrayCzyIloscToZero[intNumerPetli, 2] = intIloscCalkowita;
+                                intIloscCalkowita = 0;
+                            }    
                             noweWydanie.ID_Miejsca = 2;
                             noweWydanie.Data_Dostarczenia = (Convert.ToString(DateTime.Now)).Substring(0, 10);
                             db.Dostarczenia_Wewn.Add(noweWydanie);
                             db.SaveChanges();
                             Start.DataBaseRefresh();
+                            intNumerPetli = intNumerPetli++;
                         }
                         Zawartosc polkaDoWyczyszczenia = db.Zawartosc.Where(polka => polka.ID_Polka == intPolka).First();
                         db.Zawartosc.Remove(polkaDoWyczyszczenia);
                         db.SaveChanges();
                         Start.DataBaseRefresh();
                         //teraz wydaje pozostałe brakujące elementy tego samego typu, które miały zostać pobrane z magazynu ze starych dostaw
+                        List<vZamowieniaDostawyWlasneZawartoscPolki> zestawPolek = db.vZamowieniaDostawyWlasneZawartoscPolki.Where(wybrane => wybrane.ID_Zamowienia == intIDZamowienie).ToList();
+                        Dostarczenia_Wewn noweDostarczenieWewn = new Dostarczenia_Wewn();
+                        
+                        for (int i = 0; i< listaDoWstawienia.Count; i++)
+                        {
+                            int intIloscBrakujaca = 0;
+                            int intElementZBrakiem = 0;
+                            if (intArrayCzyIloscToZero[i,1]!=0)
+                            {
+                                intIloscBrakujaca = intArrayCzyIloscToZero[i, 2] * (-1);
+                                intElementZBrakiem = intArrayCzyIloscToZero[i, 1];
+                                foreach (vZamowieniaDostawyWlasneZawartoscPolki wybranyWiersz in zestawPolek)
+                                {
+                                    if (intIloscBrakujaca==0)
+                                    {
+                                        break;
+                                    }
+                                    if (przechowalnia != null)
+                                    {
+                                        if (przechowalnia.Ilosc > 0)
+                                        {
+                                            noweDostarczenieWewn.Ilosc_Dostarczona = przechowalnia.Ilosc * (-1);
+                                            noweDostarczenieWewn.ID_Pracownicy = intPracownikID;
+                                            noweDostarczenieWewn.ID_Dostawy = przechowalnia.ID_Dostawy;
+                                            noweDostarczenieWewn.ID_Zamowienie_element = intElementZBrakiem;
+                                            noweDostarczenieWewn.ID_element = przechowalnia.ID_Element;
+                                            noweDostarczenieWewn.ID_Miejsca = 2;
+                                            noweDostarczenieWewn.Data_Dostarczenia = (Convert.ToString(DateTime.Now)).Substring(0, 10);
+                                            Zawartosc usunZPolki = db.Zawartosc.Where(doWyczyszczenia => doWyczyszczenia.ID_Polka == przechowalnia.ID_Polka).First();
+                                            db.Dostarczenia_Wewn.Add(noweWydanie);
+                                            db.Zawartosc.Remove(usunZPolki);
+                                            db.SaveChanges();
+                                            Start.DataBaseRefresh();
+                                            intIloscBrakujaca = intIloscBrakujaca - Convert.ToInt32(przechowalnia.Ilosc);
+                                        }
+                                    }
+                                    if (intIloscBrakujaca>wybranyWiersz.Ilosc)
+                                    {
+                                        noweDostarczenieWewn.Ilosc_Dostarczona = wybranyWiersz.Ilosc*(-1);
+                                        noweDostarczenieWewn.ID_Pracownicy = intPracownikID;
+                                        noweDostarczenieWewn.ID_Dostawy = wybranyWiersz.ID_Dostawy;
+                                        noweDostarczenieWewn.ID_Zamowienie_element = intElementZBrakiem;
+                                        noweDostarczenieWewn.ID_element = wybranyWiersz.ID_Element;
+                                        noweDostarczenieWewn.ID_Miejsca = 2;
+                                        noweDostarczenieWewn.Data_Dostarczenia = (Convert.ToString(DateTime.Now)).Substring(0, 10);
+                                        Zawartosc usunZPolki = db.Zawartosc.Where(doWyczyszczenia => doWyczyszczenia.ID_Polka == wybranyWiersz.ID_Polka).First();
+                                        db.Dostarczenia_Wewn.Add(noweWydanie);
+                                        db.Zawartosc.Remove(usunZPolki);
+                                        db.SaveChanges();
+                                        Start.DataBaseRefresh();
+                                        intIloscBrakujaca = intIloscBrakujaca - Convert.ToInt32(wybranyWiersz.Ilosc);
+                                    }
+                                    else
+                                    {
+                                        int iloscDoPrzypisania = Convert.ToInt32(wybranyWiersz.Ilosc) - intIloscBrakujaca;
+                                        noweDostarczenieWewn.Ilosc_Dostarczona = iloscDoPrzypisania * (-1);
+                                        noweDostarczenieWewn.ID_Pracownicy = intPracownikID;
+                                        noweDostarczenieWewn.ID_Dostawy = wybranyWiersz.ID_Dostawy;
+                                        noweDostarczenieWewn.ID_Zamowienie_element = intElementZBrakiem;
+                                        noweDostarczenieWewn.ID_element = wybranyWiersz.ID_Element;
+                                        noweDostarczenieWewn.ID_Miejsca = 2;
+                                        noweDostarczenieWewn.Data_Dostarczenia = (Convert.ToString(DateTime.Now)).Substring(0, 10);
+                                        Zawartosc usunZPolki = db.Zawartosc.Where(doWyczyszczenia => doWyczyszczenia.ID_Polka == wybranyWiersz.ID_Polka).First();
+                                        double dblIloscDoUsuniecia = Convert.ToDouble(usunZPolki.Ilosc_Paczek) - Convert.ToDouble(iloscDoPrzypisania) / Convert.ToDouble(wybranyWiersz.Ilosc);
+                                        przechowalnia = wybranyWiersz;
+                                        przechowalnia.Ilosc = wybranyWiersz.Ilosc - iloscDoPrzypisania;
+                                        db.SaveChanges();
+                                        Start.DataBaseRefresh();
+                                    }
+                                    
+                                }
 
+                            }
+                        }
                         //koniec wydawania pozostałych brakujących elementów
                         WydajMaterialProdukcji.czyZamknietyPrzezInny = true;
                         Application.OpenForms[typeof(WydajMaterialProdukcji).Name].Close();

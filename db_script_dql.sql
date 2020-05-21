@@ -543,6 +543,17 @@ FROM            dbo.Polki INNER JOIN
 GROUP BY dbo.vDostawyNiewydaneBezDatBezPowtorzen.ID_Zamowienia, dbo.vDostawyNiewydaneBezDatBezPowtorzen.ID_Element, dbo.vDostawyNiewydaneBezDatBezPowtorzen.Element_Nazwa, 
                          dbo.vDostawyNiewydaneBezDatBezPowtorzen.ID_Dostawy, dbo.Polki.ID_Polka
 GO
+
+CREATE VIEW [dbo].[vZamowieniaDostawyWlasneZawartoscPolki]
+AS
+SELECT        dbo.Zamowienia.ID_Zamowienia, dbo.Dostawy_Wlasne_Zawartosc.ID_Element, dbo.Dostawy_Wlasne_Zawartosc.Ilosc, dbo.Dostawy_Wlasne_Zawartosc.ID_Dostawy, dbo.Zawartosc.ID_Polka
+FROM            dbo.Zamowienia_Dostawy_Wlasne INNER JOIN
+                         dbo.Dostawy_Wlasne_Zawartosc ON dbo.Zamowienia_Dostawy_Wlasne.ID_Zamowienia_dostawy_wlasne = dbo.Dostawy_Wlasne_Zawartosc.ID_Zamowienia_dostawy_wlasne INNER JOIN
+                         dbo.Zawartosc ON dbo.Dostawy_Wlasne_Zawartosc.ID_Dostawy = dbo.Zawartosc.ID_Dostawy AND dbo.Dostawy_Wlasne_Zawartosc.ID_Element = dbo.Zawartosc.ID_Element INNER JOIN
+                         dbo.Zamowienia ON dbo.Zamowienia_Dostawy_Wlasne.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia
+GO
+
+
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------WIDOKI PRODUKCJA----------------------------------------------------

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SzwalniaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SzwalniaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Czesci_Obsluga">
           <Key>
             <PropertyRef Name="ID_Czesci_Obsluga" />
@@ -836,11 +836,12 @@ warning 6002: The table/view 'Szwalnia.dbo.vDostawyNiewydaneBezDatBezPowtorzen' 
 warning 6002: The table/view 'Szwalnia.dbo.vDostawyNiewydaneZPolkami' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vDostawyNiewydaneZPolkami">
           <Key>
+            
             <PropertyRef Name="ID_Dostawy" />
             <PropertyRef Name="ID_Element" />
             <PropertyRef Name="ID_Polka" />
           </Key>
-          <Property Name="ID_Zamowienia" Type="int" />
+          <Property Name="ID_Zamowienia" Type="int" Nullable="false" />
           <Property Name="ID_Dostawy" Type="int" Nullable="false" />
           <Property Name="ID_Element" Type="int" Nullable="false" />
           <Property Name="Element_Nazwa" Type="varchar" MaxLength="35" />
@@ -2150,6 +2151,18 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowienia_Do_Wydania_Kompletne' doe
             <PropertyRef Name="ID_Zamowienia" />
           </Key>
           <Property Name="ID_Zamowienia" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vZamowieniaDostawyWlasneZawartoscPolki' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vZamowieniaDostawyWlasneZawartoscPolki">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia" />
+          </Key>
+          <Property Name="ID_Zamowienia" Type="int" Nullable="false" />
+          <Property Name="ID_Element" Type="int" />
+          <Property Name="Ilosc" Type="int" />
+          <Property Name="ID_Dostawy" Type="int" />
+          <Property Name="ID_Polka" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vZamowieniaDoWykonaniaUDostawcy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -4403,6 +4416,15 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialuZabezpi
     [vZamowienia_Do_Wydania_Kompletne].[ID_Zamowienia] AS [ID_Zamowienia]
     FROM [dbo].[vZamowienia_Do_Wydania_Kompletne] AS [vZamowienia_Do_Wydania_Kompletne]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vZamowieniaDostawyWlasneZawartoscPolki" EntityType="Self.vZamowieniaDostawyWlasneZawartoscPolki" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vZamowieniaDostawyWlasneZawartoscPolki].[ID_Zamowienia] AS [ID_Zamowienia], 
+    [vZamowieniaDostawyWlasneZawartoscPolki].[ID_Element] AS [ID_Element], 
+    [vZamowieniaDostawyWlasneZawartoscPolki].[Ilosc] AS [Ilosc], 
+    [vZamowieniaDostawyWlasneZawartoscPolki].[ID_Dostawy] AS [ID_Dostawy], 
+    [vZamowieniaDostawyWlasneZawartoscPolki].[ID_Polka] AS [ID_Polka]
+    FROM [dbo].[vZamowieniaDostawyWlasneZawartoscPolki] AS [vZamowieniaDostawyWlasneZawartoscPolki]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vZamowieniaDoWykonaniaUDostawcy" EntityType="Self.vZamowieniaDoWykonaniaUDostawcy" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vZamowieniaDoWykonaniaUDostawcy].[ID_Dostawy] AS [ID_Dostawy]
@@ -4825,8 +4847,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialuZabezpi
             <End Role="Znajomosc_Jezykow" EntitySet="Znajomosc_Jezykow" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SzwalniaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -5798,7 +5819,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialuZabezpi
             <PropertyRef Name="ID_Element" />
             <PropertyRef Name="ID_Polka" />
           </Key>
-          <Property Name="ID_Zamowienia" Type="Int32" />
+          <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
           <Property Name="ID_Dostawy" Type="Int32" Nullable="false" />
           <Property Name="ID_Element" Type="Int32" Nullable="false" />
           <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
@@ -8598,6 +8619,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialuZabezpi
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="vZamowieniaDostawyWlasneZawartoscPolki" EntityType="SzwalniaModel.vZamowieniaDostawyWlasneZawartoscPolki" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -8610,6 +8632,16 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialuZabezpi
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="vZamowieniaDostawyWlasneZawartoscPolki">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia" />
+          </Key>
+          <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
+          <Property Name="ID_Element" Type="Int32" />
+          <Property Name="Ilosc" Type="Int32" />
+          <Property Name="ID_Dostawy" Type="Int32" />
+          <Property Name="ID_Polka" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -10622,6 +10654,17 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialuZabezpi
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="SzwalniaModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="SzwalniaModel.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="vZamowieniaDostawyWlasneZawartoscPolki">
+            <EntityTypeMapping TypeName="SzwalniaModel.vZamowieniaDostawyWlasneZawartoscPolki">
+              <MappingFragment StoreEntitySet="vZamowieniaDostawyWlasneZawartoscPolki">
+                <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
+                <ScalarProperty Name="ID_Dostawy" ColumnName="ID_Dostawy" />
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
