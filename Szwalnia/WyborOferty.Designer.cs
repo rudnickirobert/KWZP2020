@@ -33,6 +33,7 @@
             this.lblListaOfert = new System.Windows.Forms.Label();
             this.dgvMagazynZawartosc = new System.Windows.Forms.DataGridView();
             this.lblListaProduktowWMagazynie = new System.Windows.Forms.Label();
+            this.btnPrzypiszCalyMagazyn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaOfert)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMagazynZawartosc)).BeginInit();
             this.SuspendLayout();
@@ -83,11 +84,22 @@
             this.lblListaProduktowWMagazynie.Text = "Lista materiałów w magazynie";
             this.lblListaProduktowWMagazynie.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnPrzypiszCalyMagazyn
+            // 
+            this.btnPrzypiszCalyMagazyn.Location = new System.Drawing.Point(555, 483);
+            this.btnPrzypiszCalyMagazyn.Name = "btnPrzypiszCalyMagazyn";
+            this.btnPrzypiszCalyMagazyn.Size = new System.Drawing.Size(233, 23);
+            this.btnPrzypiszCalyMagazyn.TabIndex = 2;
+            this.btnPrzypiszCalyMagazyn.Text = "Przypisz wszystkie materiały z magazynu";
+            this.btnPrzypiszCalyMagazyn.UseVisualStyleBackColor = true;
+            this.btnPrzypiszCalyMagazyn.Click += new System.EventHandler(this.btnPrzypiszCalyMagazyn_Click);
+            // 
             // WyborOferty
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 489);
+            this.ClientSize = new System.Drawing.Size(800, 514);
+            this.Controls.Add(this.btnPrzypiszCalyMagazyn);
             this.Controls.Add(this.lblListaProduktowWMagazynie);
             this.Controls.Add(this.lblListaOfert);
             this.Controls.Add(this.dgvMagazynZawartosc);
@@ -108,5 +120,6 @@
         private System.Windows.Forms.Label lblListaOfert;
         private System.Windows.Forms.DataGridView dgvMagazynZawartosc;
         private System.Windows.Forms.Label lblListaProduktowWMagazynie;
+        private System.Windows.Forms.Button btnPrzypiszCalyMagazyn;
     }
 }

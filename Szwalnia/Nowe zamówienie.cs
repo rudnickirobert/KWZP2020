@@ -21,16 +21,18 @@ namespace Szwalnia
             dgvUkryty.DataSource = db.Zamowienia.ToList();
             int numerOstatniegoZamowienia = dgvUkryty.Rows.Count;
             lblNumerZamowienia.Text = (numerOstatniegoZamowienia + 1).ToString();
-
+            
+            
+            cbNazwa.DataSource = db.Klienci.ToList();
             cbNazwa.ValueMember = "ID_Klienta";
             cbNazwa.DisplayMember = "Nazwa_Firmy";
-            cbNazwa.DataSource = db.Klienci.ToList();
-            cbNazwa.Invalidate();
 
+            cbPracownik.DataSource = db.vWolniPracownicyZarzadzanie.ToList();
             cbPracownik.ValueMember = "ID_Pracownika";
-            cbPracownik.DisplayMember = "Imie_i_nazwisko_pracownika";
-            cbPracownik.DataSource = db.vImieNazwiskoPracownika.ToList();
-            cbPracownik.Invalidate();
+            cbPracownik.DisplayMember = "Pracownik";
+            cbPracownik.Refresh();
+           
+            
         }
         private void btnDalej_Click(object sender, EventArgs e)
         {

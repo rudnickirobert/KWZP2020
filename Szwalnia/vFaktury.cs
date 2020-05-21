@@ -21,5 +21,6 @@ namespace Szwalnia
         public Nullable<double> Cena_netto { get; set; }
         public string Podatek { get; set; }
         public Nullable<double> Cena_brutto { get; set; }
+        public Nullable<System.DateTime> Data_wystawienia { get; set; }
     }
 }

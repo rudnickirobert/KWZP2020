@@ -61,9 +61,9 @@ namespace Szwalnia
             Elementy elementUsun = db.Elementy.Where(wybrany => wybrany.ID_Element == numID).First();
             db.Elementy.Remove(elementUsun);
             db.SaveChanges();
+            Start.DataBaseRefresh();
             MessageBox.Show("Pomyślnie usunięto element");
-            DodoawanieCechElementowi cechyElementu = new DodoawanieCechElementowi(numID);
-            cechyElementu.Show();
+            Application.OpenForms[typeof(WyborElementu).Name].Show();            
             this.Hide();
         }
     }

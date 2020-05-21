@@ -23,6 +23,7 @@ namespace Szwalnia
             dgvListaJednostek.Columns[2].Visible = false;
             dgvListaJednostek.Columns[3].Visible = false;
             dgvListaJednostek.Columns[4].Visible = false;
+            dgvListaJednostek.ReadOnly = true;
         }
 
         private void dgvListaJednostek_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -45,6 +46,8 @@ namespace Szwalnia
             Elementy_Jednostki jednostkaUsun = db.Elementy_Jednostki.Where(wybrany => wybrany.ID_jednostka == ID).First();
             db.Elementy_Jednostki.Remove(jednostkaUsun);
             db.SaveChanges();
+            Start.DataBaseRefresh();
+            dgvListaJednostek.Refresh();
             MessageBox.Show("Pomyślnie usunięto element");
         }
 
