@@ -20,6 +20,7 @@ namespace Szwalnia
             InitializeComponent();
             db = Start.szwalnia;
             db.SaveChanges();
+            Start.DataBaseRefresh();
             dgvListaElementow.DataSource = db.Elementy.ToList();
             for (int i = 4; i < 14; i++)
             { dgvListaElementow.Columns[i].Visible = false;}

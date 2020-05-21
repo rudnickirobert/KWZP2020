@@ -45,6 +45,8 @@ namespace Szwalnia
             Elementy_Jednostki jednostkaUsun = db.Elementy_Jednostki.Where(wybrany => wybrany.ID_jednostka == ID).First();
             db.Elementy_Jednostki.Remove(jednostkaUsun);
             db.SaveChanges();
+            Start.DataBaseRefresh();
+            dgvListaJednostek.Refresh();
             MessageBox.Show("Pomyślnie usunięto element");
         }
 

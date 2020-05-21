@@ -42,6 +42,8 @@ namespace Szwalnia
             Elementy_Cechy_Slownik cechaUsun = db.Elementy_Cechy_Slownik.Where(wybrany => wybrany.ID_Cecha == ID).First();
             db.Elementy_Cechy_Slownik.Remove(cechaUsun);
             db.SaveChanges();
+            Start.DataBaseRefresh();
+            dgvListaCech.Refresh();
             MessageBox.Show("Pomyślnie usunięto element");
         }
 
