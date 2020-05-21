@@ -40,16 +40,6 @@ namespace Szwalnia
             }
         }
 
-        private void PolkiNaRegalach_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if (furtherForms>0)
-                for (int i = 0; i < furtherForms; i++) 
-                    if (Application.OpenForms[typeof(ZawartoscPolki).Name]!= null)
-                        Application.OpenForms[typeof(ZawartoscPolki).Name].Close();
-            
-            Start.GetForm.Show();
-        }
-
         private void cmbOznaczenie_SelectedIndexChanged(object sender, EventArgs e)
         {
             dgvPolkiNaRegale.DataSource = db.vPolki_na_regalach.Where(regal => regal.Oznaczenie.Equals(cmbOznaczenie.Text)).ToList();
@@ -65,5 +55,16 @@ namespace Szwalnia
                     dgvPolkiNaRegale.Rows[i].DefaultCellStyle.BackColor = Color.LightGreen;
             }
         }
+        
+        private void PolkiNaRegalach_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (furtherForms>0)
+                for (int i = 0; i < furtherForms; i++) 
+                    if (Application.OpenForms[typeof(ZawartoscPolki).Name]!= null)
+                        Application.OpenForms[typeof(ZawartoscPolki).Name].Close();
+            
+            Start.GetForm.Show();
+        }
+
     }
 }
