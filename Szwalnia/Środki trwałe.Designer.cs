@@ -40,22 +40,24 @@
             // 
             // dgvSrodki
             // 
+            this.dgvSrodki.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSrodki.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSrodki.Location = new System.Drawing.Point(21, 81);
             this.dgvSrodki.Name = "dgvSrodki";
             this.dgvSrodki.RowHeadersWidth = 51;
             this.dgvSrodki.RowTemplate.Height = 24;
-            this.dgvSrodki.Size = new System.Drawing.Size(746, 222);
+            this.dgvSrodki.Size = new System.Drawing.Size(1289, 222);
             this.dgvSrodki.TabIndex = 0;
             // 
             // dgvZamortyzowane
             // 
+            this.dgvZamortyzowane.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvZamortyzowane.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvZamortyzowane.Location = new System.Drawing.Point(21, 426);
             this.dgvZamortyzowane.Name = "dgvZamortyzowane";
             this.dgvZamortyzowane.RowHeadersWidth = 51;
             this.dgvZamortyzowane.RowTemplate.Height = 24;
-            this.dgvZamortyzowane.Size = new System.Drawing.Size(746, 150);
+            this.dgvZamortyzowane.Size = new System.Drawing.Size(1289, 150);
             this.dgvZamortyzowane.TabIndex = 1;
             // 
             // label1
@@ -102,7 +104,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 602);
+            this.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.ClientSize = new System.Drawing.Size(1322, 602);
             this.Controls.Add(this.btnZamknij);
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.label2);
@@ -110,7 +113,8 @@
             this.Controls.Add(this.dgvZamortyzowane);
             this.Controls.Add(this.dgvSrodki);
             this.Name = "SrodkiTrwale";
-            this.Text = "Środki_trwałe";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Środki trwałe";
             this.Activated += new System.EventHandler(this.SrodkiTrwale_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSrodki)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZamortyzowane)).EndInit();
