@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UmowyKurierzy));
             this.dgvUmowy = new System.Windows.Forms.DataGridView();
             this.btnDodaj = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -38,9 +39,9 @@
             // dgvUmowy
             // 
             this.dgvUmowy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUmowy.Location = new System.Drawing.Point(29, 105);
+            this.dgvUmowy.Location = new System.Drawing.Point(12, 105);
             this.dgvUmowy.Name = "dgvUmowy";
-            this.dgvUmowy.Size = new System.Drawing.Size(656, 320);
+            this.dgvUmowy.Size = new System.Drawing.Size(697, 333);
             this.dgvUmowy.TabIndex = 0;
             this.dgvUmowy.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUmowy_CellDoubleClick);
             // 
@@ -82,6 +83,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.dgvUmowy);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UmowyKurierzy";
             this.Text = "Umowy z kurierami";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UmowyKurierzy_FormClosed);

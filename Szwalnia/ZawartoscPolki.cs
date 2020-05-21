@@ -20,21 +20,16 @@ namespace Szwalnia
 
             vStan_magazynowy_polki content = db.vStan_magazynowy_polki.Where(zawartosc => zawartosc.ID_Polka == idPolki).FirstOrDefault();
 
-            lblTitle.Text = "Półka nr " + content.ID_Polka.ToString() + ", regał: " +content.Oznaczenie;
+            lblTitle.Text = "Półka nr " + content.ID_Polka.ToString() + ", regał: " + content.Oznaczenie;
             lblNazwaElementu.Text = content.Element_Nazwa;
             lblIdElementu.Text = content.ID_Element.ToString();
-            lblIloscJednostka.Text = content.Ile.ToString() + ' ' + content.Jednostka;
+            lblIloscJednostka.Text = content.Ile.ToString();
+            lblPrzydatnosc.Text = content.Przydatnosc;
 
-            if (content.Okres_Przydatnosci_Miesiace != 0)
-            {
-                DateTime data = Convert.ToDateTime(content.Przydatnosc);
-                lblPrzydatnosc.Text = data.ToString("dd.MM.yyyy") + "r.";
-            }
-            else
+            if (content.Przydatnosc == "Nie dotyczy")
             {
                 lblPrzydatnosc.Font = new Font(lblPrzydatnosc.Font.FontFamily, 8);
-                lblPrzydatnosc.Location = new Point(158,199);
-                lblPrzydatnosc.Text = "Nie dotyczy";
+                lblPrzydatnosc.Location = new Point(158, 199);
             }
         }
     }

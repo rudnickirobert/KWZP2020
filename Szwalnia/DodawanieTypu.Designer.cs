@@ -39,47 +39,50 @@
             // 
             // txtNazwa
             // 
-            this.txtNazwa.Location = new System.Drawing.Point(140, 79);
-            this.txtNazwa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNazwa.Location = new System.Drawing.Point(105, 64);
+            this.txtNazwa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNazwa.Name = "txtNazwa";
-            this.txtNazwa.Size = new System.Drawing.Size(151, 22);
+            this.txtNazwa.Size = new System.Drawing.Size(114, 20);
             this.txtNazwa.TabIndex = 9;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(53, 82);
+            this.label1.Location = new System.Drawing.Point(40, 67);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 17);
+            this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 6;
             this.label1.Text = "Nazwa typu";
             // 
             // lblMain
             // 
             this.lblMain.AutoSize = true;
-            this.lblMain.Location = new System.Drawing.Point(139, 33);
+            this.lblMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblMain.Location = new System.Drawing.Point(38, 20);
+            this.lblMain.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMain.Name = "lblMain";
-            this.lblMain.Size = new System.Drawing.Size(109, 17);
+            this.lblMain.Size = new System.Drawing.Size(209, 31);
             this.lblMain.TabIndex = 5;
             this.lblMain.Text = "Dodawanie typu";
             // 
             // chBoxWlasny
             // 
             this.chBoxWlasny.AutoSize = true;
-            this.chBoxWlasny.Location = new System.Drawing.Point(141, 110);
-            this.chBoxWlasny.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chBoxWlasny.Location = new System.Drawing.Point(106, 89);
+            this.chBoxWlasny.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chBoxWlasny.Name = "chBoxWlasny";
-            this.chBoxWlasny.Size = new System.Drawing.Size(151, 21);
+            this.chBoxWlasny.Size = new System.Drawing.Size(119, 17);
             this.chBoxWlasny.TabIndex = 10;
             this.chBoxWlasny.Text = "Czy własny produkt";
             this.chBoxWlasny.UseVisualStyleBackColor = true;
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(59, 174);
-            this.btnDodaj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDodaj.Location = new System.Drawing.Point(194, 138);
+            this.btnDodaj.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(75, 23);
+            this.btnDodaj.Size = new System.Drawing.Size(62, 24);
             this.btnDodaj.TabIndex = 11;
             this.btnDodaj.Text = "Dodaj";
             this.btnDodaj.UseVisualStyleBackColor = true;
@@ -87,9 +90,10 @@
             // 
             // btnWstecz
             // 
-            this.btnWstecz.Location = new System.Drawing.Point(266, 170);
+            this.btnWstecz.Location = new System.Drawing.Point(31, 138);
+            this.btnWstecz.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnWstecz.Name = "btnWstecz";
-            this.btnWstecz.Size = new System.Drawing.Size(77, 30);
+            this.btnWstecz.Size = new System.Drawing.Size(58, 24);
             this.btnWstecz.TabIndex = 25;
             this.btnWstecz.Text = "Wstecz";
             this.btnWstecz.UseVisualStyleBackColor = true;
@@ -97,9 +101,9 @@
             // 
             // DodawanieTypu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(371, 234);
+            this.ClientSize = new System.Drawing.Size(278, 182);
             this.Controls.Add(this.btnWstecz);
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.chBoxWlasny);
@@ -107,9 +111,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "DodawanieTypu";
-            this.Text = "DodawanieTypu";
+            this.Text = "Dodawanie typu elementu";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DodawanieTypu_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();

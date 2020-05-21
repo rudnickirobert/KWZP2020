@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PustePolki));
             this.dgvPustePolki = new System.Windows.Forms.DataGridView();
             this.lblPustePolki = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPustePolki)).BeginInit();
@@ -37,10 +38,10 @@
             // 
             this.dgvPustePolki.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPustePolki.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dgvPustePolki.Location = new System.Drawing.Point(19, 61);
+            this.dgvPustePolki.Location = new System.Drawing.Point(12, 61);
             this.dgvPustePolki.MultiSelect = false;
             this.dgvPustePolki.Name = "dgvPustePolki";
-            this.dgvPustePolki.Size = new System.Drawing.Size(341, 440);
+            this.dgvPustePolki.Size = new System.Drawing.Size(348, 440);
             this.dgvPustePolki.TabIndex = 13;
             // 
             // lblPustePolki
@@ -60,8 +61,9 @@
             this.ClientSize = new System.Drawing.Size(372, 516);
             this.Controls.Add(this.dgvPustePolki);
             this.Controls.Add(this.lblPustePolki);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PustePolki";
-            this.Text = "PustePolki";
+            this.Text = "Lista pustych półek";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPustePolki)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

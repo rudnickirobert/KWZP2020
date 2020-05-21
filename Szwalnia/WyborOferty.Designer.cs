@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WyborOferty));
             this.dgvListaOfert = new System.Windows.Forms.DataGridView();
             this.lblListaOfert = new System.Windows.Forms.Label();
             this.dgvMagazynZawartosc = new System.Windows.Forms.DataGridView();
@@ -91,8 +92,9 @@
             this.Controls.Add(this.lblListaOfert);
             this.Controls.Add(this.dgvMagazynZawartosc);
             this.Controls.Add(this.dgvListaOfert);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "WyborOferty";
-            this.Text = "WyborOferty";
+            this.Text = "Wybór oferty";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.WyborOferty_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaOfert)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMagazynZawartosc)).EndInit();
