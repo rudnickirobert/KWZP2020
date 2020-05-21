@@ -2245,6 +2245,17 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Ilosc" Type="real" />
           <Property Name="Cena" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vZyskZZamowienia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vZyskZZamowienia">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="ID_Zamowienia" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="ID_Zamowienia" Type="int" Nullable="false" />
+          <Property Name="Zysk z zamowienia" Type="float" />
+        </EntityType>
         <Association Name="FK__Czesci_Ob__ID_El__57DD0BE4">
           <End Role="Elementy" Type="Self.Elementy" Multiplicity="1" />
           <End Role="Czesci_Obsluga" Type="Self.Czesci_Obsluga" Multiplicity="*" />
@@ -4440,6 +4451,13 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
     [vZawartoscMagazynuDoPrzydzialu].[Ilosc] AS [Ilosc], 
     [vZawartoscMagazynuDoPrzydzialu].[Cena] AS [Cena]
     FROM [dbo].[vZawartoscMagazynuDoPrzydzialu] AS [vZawartoscMagazynuDoPrzydzialu]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vZyskZZamowienia" EntityType="Self.vZyskZZamowienia" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vZyskZZamowienia].[id] AS [id], 
+    [vZyskZZamowienia].[ID_Zamowienia] AS [ID_Zamowienia], 
+    [vZyskZZamowienia].[Zysk z zamowienia] AS [Zysk z zamowienia]
+    FROM [dbo].[vZyskZZamowienia] AS [vZyskZZamowienia]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__Czesci_Ob__ID_El__57DD0BE4" Association="Self.FK__Czesci_Ob__ID_El__57DD0BE4">
             <End Role="Elementy" EntitySet="Elementy" />
@@ -8468,6 +8486,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <EntitySet Name="vKlienci" EntityType="SzwalniaModel.vKlienci" />
           <EntitySet Name="vWolniPracownicyZarzadzanie" EntityType="SzwalniaModel.vWolniPracownicyZarzadzanie" />
           <EntitySet Name="vElementyDlaZamowien" EntityType="SzwalniaModel.vElementyDlaZamowien" />
+          <EntitySet Name="vZyskZZamowienia" EntityType="SzwalniaModel.vZyskZZamowienia" />
         </EntityContainer>
         <EntityType Name="vPrzychody">
           <Key>
@@ -8538,6 +8557,15 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <Property Name="Czy_wlasne" Type="Boolean" Nullable="false" />
           <Property Name="ID_Element" Type="Int32" Nullable="false" />
           <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vZyskZZamowienia">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="ID_Zamowienia" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
+          <Property Name="Zysk_z_zamowienia" Type="Double" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -10528,6 +10556,15 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
                 <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
                 <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
                 <ScalarProperty Name="Czy_wlasne" ColumnName="Czy_wlasne" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vZyskZZamowienia">
+            <EntityTypeMapping TypeName="SzwalniaModel.vZyskZZamowienia">
+              <MappingFragment StoreEntitySet="vZyskZZamowienia">
+                <ScalarProperty Name="Zysk_z_zamowienia" ColumnName="Zysk z zamowienia" />
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

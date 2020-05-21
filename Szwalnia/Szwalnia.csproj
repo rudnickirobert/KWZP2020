@@ -1166,6 +1166,9 @@
     <Compile Include="vZawartoscMagazynuDoPrzydzialu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vZyskZZamowienia.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="WybierzZamowienie.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1311,6 +1314,12 @@
     </Compile>
     <Compile Include="Znajomosc_Jezykow.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Zyski.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zyski.Designer.cs">
+      <DependentUpon>Zyski.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="DodajDostawce.resx">
       <DependentUpon>DodajDostawce.cs</DependentUpon>
@@ -1660,6 +1669,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dodaj nowy jezyk.resx">
       <DependentUpon>Dodaj nowy jezyk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zyski.resx">
+      <DependentUpon>Zyski.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.Config" />
     <None Include="packages.config" />

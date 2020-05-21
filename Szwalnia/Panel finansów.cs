@@ -32,5 +32,11 @@ namespace Szwalnia
         {
             this.Close();
         }
+
+        private void btnZyski_Click(object sender, EventArgs e)
+        {
+            Zyski zyski = new Zyski(db);
+            zyski.Show();
+        }
     }
 }
