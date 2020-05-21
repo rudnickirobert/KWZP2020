@@ -231,5 +231,6 @@ namespace Szwalnia
         public virtual DbSet<vZawartoscMagazynuDoPrzydzialuZabezpieczona> vZawartoscMagazynuDoPrzydzialuZabezpieczona { get; set; }
         public virtual DbSet<vZawartoscZIloscia> vZawartoscZIloscia { get; set; }
         public virtual DbSet<vZyskZZamowienia> vZyskZZamowienia { get; set; }
+        public virtual DbSet<vElementy_Nie_Wlasne> vElementy_Nie_Wlasne { get; set; }
     }
 }

@@ -18,8 +18,6 @@ namespace Szwalnia
         {
             db = Start.szwalnia;
             InitializeComponent();
-            lblTelefon2.Enabled = false;
-            mtxtTel2.Enabled = false;
         }
 
         private bool isSupplierValid()
@@ -44,17 +42,6 @@ namespace Szwalnia
             return true;
         }
 
-        private void DodajDostawce_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Start.GetForm.Show();
-        }
-
-        private void btnWstecz_Click(object sender, EventArgs e)
-        {
-            Application.OpenForms[typeof(Dostawcy).Name].Show();
-            this.Hide();
-        }
-
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             if (txtNazwa.TextLength == 0)
@@ -66,9 +53,8 @@ namespace Szwalnia
                 dostawcaNowy.Nazwa = txtNazwa.Text;
                 dostawcaNowy.Telefon_1 = Convert.ToInt32(mtxtTel1.Text);
                 if (chkTel2.Checked == true)
-                {
                     dostawcaNowy.Telefon_2 = Convert.ToInt32(mtxtTel2.Text);
-                }
+
                 dostawcaNowy.Email = txtEmail.Text;
 
                 if (!this.isSupplierValid())
@@ -82,16 +68,27 @@ namespace Szwalnia
 
         private void chkTel2_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkTel2.Checked == false)
-            {
-                lblTelefon2.Enabled = false;
-                mtxtTel2.Enabled = false;
-            }
-            else
+            if (chkTel2.Checked == true)
             {
                 lblTelefon2.Enabled = true;
                 mtxtTel2.Enabled = true;
             }
+            else
+            {
+                lblTelefon2.Enabled = false;
+                mtxtTel2.Enabled = false;
+            }
+        }
+
+        private void DodajDostawce_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Start.GetForm.Show();
+        }
+
+        private void btnWstecz_Click(object sender, EventArgs e)
+        {
+            Application.OpenForms[typeof(Dostawcy).Name].Show();
+            this.Hide();
         }
     }
 }

@@ -54,6 +54,7 @@
             this.numCzasDostawy = new System.Windows.Forms.NumericUpDown();
             this.dtpDataOferty = new System.Windows.Forms.DateTimePicker();
             this.btnWstecz = new System.Windows.Forms.Button();
+            this.lblIDElementu = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numIloscPoj)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCenaJedn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIloscMin)).BeginInit();
@@ -64,16 +65,17 @@
             // 
             // label12
             // 
-            this.label12.Location = new System.Drawing.Point(313, 176);
+            this.label12.Location = new System.Drawing.Point(12, 402);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(141, 35);
+            this.label12.Size = new System.Drawing.Size(171, 29);
             this.label12.TabIndex = 38;
-            this.label12.Text = "Deklarowany czas dostawy (w godz)";
+            this.label12.Text = "Deklarowany czas dostawy (godz.)";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(313, 142);
+            this.label11.Location = new System.Drawing.Point(64, 378);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(119, 13);
             this.label11.TabIndex = 37;
@@ -82,7 +84,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(313, 108);
+            this.label10.Location = new System.Drawing.Point(127, 345);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(56, 13);
             this.label10.TabIndex = 36;
@@ -91,16 +93,16 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(313, 75);
+            this.label9.Location = new System.Drawing.Point(18, 311);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(87, 13);
+            this.label9.Size = new System.Drawing.Size(165, 13);
             this.label9.TabIndex = 35;
-            this.label9.Text = "Ilość w opak.poj.";
+            this.label9.Text = "Ilość w opakowaniu pojedynczym";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(33, 286);
+            this.label8.Location = new System.Drawing.Point(129, 278);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(54, 13);
             this.label8.TabIndex = 34;
@@ -109,7 +111,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(33, 254);
+            this.label7.Location = new System.Drawing.Point(132, 245);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(51, 13);
             this.label7.TabIndex = 33;
@@ -118,7 +120,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(33, 219);
+            this.label6.Location = new System.Drawing.Point(124, 212);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(59, 13);
             this.label6.TabIndex = 32;
@@ -126,24 +128,24 @@
             // 
             // txtOznacz
             // 
-            this.txtOznacz.Location = new System.Drawing.Point(117, 109);
+            this.txtOznacz.Location = new System.Drawing.Point(195, 108);
             this.txtOznacz.Name = "txtOznacz";
-            this.txtOznacz.Size = new System.Drawing.Size(100, 20);
+            this.txtOznacz.Size = new System.Drawing.Size(118, 20);
             this.txtOznacz.TabIndex = 29;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(33, 180);
+            this.label5.Location = new System.Drawing.Point(88, 178);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 13);
+            this.label5.Size = new System.Drawing.Size(95, 13);
             this.label5.TabIndex = 27;
-            this.label5.Text = "Cena jedn.";
+            this.label5.Text = "Cena jednostkowa";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(33, 146);
+            this.label4.Location = new System.Drawing.Point(128, 145);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 13);
             this.label4.TabIndex = 26;
@@ -152,7 +154,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(33, 112);
+            this.label3.Location = new System.Drawing.Point(120, 111);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 13);
             this.label3.TabIndex = 25;
@@ -161,7 +163,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 79);
+            this.label2.Location = new System.Drawing.Point(78, 76);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 24;
@@ -170,18 +172,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(208, 25);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(31, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 18);
+            this.label1.Size = new System.Drawing.Size(285, 31);
             this.label1.TabIndex = 23;
-            this.label1.Text = "Wprowadź dane oferty:";
+            this.label1.Text = "Wprowadź dane oferty";
             // 
             // btnZapisz
             // 
-            this.btnZapisz.Location = new System.Drawing.Point(460, 233);
+            this.btnZapisz.Location = new System.Drawing.Point(247, 448);
             this.btnZapisz.Name = "btnZapisz";
-            this.btnZapisz.Size = new System.Drawing.Size(92, 34);
+            this.btnZapisz.Size = new System.Drawing.Size(85, 34);
             this.btnZapisz.TabIndex = 47;
             this.btnZapisz.Text = "Zapisz";
             this.btnZapisz.UseVisualStyleBackColor = true;
@@ -189,93 +191,104 @@
             // 
             // numIloscPoj
             // 
-            this.numIloscPoj.Location = new System.Drawing.Point(460, 77);
+            this.numIloscPoj.Location = new System.Drawing.Point(195, 307);
             this.numIloscPoj.Name = "numIloscPoj";
-            this.numIloscPoj.Size = new System.Drawing.Size(100, 20);
+            this.numIloscPoj.Size = new System.Drawing.Size(103, 20);
             this.numIloscPoj.TabIndex = 48;
             // 
             // cmbDostawca
             // 
             this.cmbDostawca.FormattingEnabled = true;
-            this.cmbDostawca.Location = new System.Drawing.Point(117, 143);
+            this.cmbDostawca.Location = new System.Drawing.Point(195, 141);
             this.cmbDostawca.Name = "cmbDostawca";
-            this.cmbDostawca.Size = new System.Drawing.Size(100, 21);
+            this.cmbDostawca.Size = new System.Drawing.Size(118, 21);
             this.cmbDostawca.TabIndex = 49;
             // 
             // cmbJednostka
             // 
             this.cmbJednostka.FormattingEnabled = true;
-            this.cmbJednostka.Location = new System.Drawing.Point(460, 109);
+            this.cmbJednostka.Location = new System.Drawing.Point(195, 340);
             this.cmbJednostka.Name = "cmbJednostka";
-            this.cmbJednostka.Size = new System.Drawing.Size(100, 21);
+            this.cmbJednostka.Size = new System.Drawing.Size(103, 21);
             this.cmbJednostka.TabIndex = 50;
             // 
             // numCenaJedn
             // 
-            this.numCenaJedn.Location = new System.Drawing.Point(117, 178);
+            this.numCenaJedn.Location = new System.Drawing.Point(195, 175);
             this.numCenaJedn.Name = "numCenaJedn";
-            this.numCenaJedn.Size = new System.Drawing.Size(100, 20);
+            this.numCenaJedn.Size = new System.Drawing.Size(103, 20);
             this.numCenaJedn.TabIndex = 51;
             // 
             // numIloscMin
             // 
-            this.numIloscMin.Location = new System.Drawing.Point(117, 252);
+            this.numIloscMin.Location = new System.Drawing.Point(195, 241);
             this.numIloscMin.Name = "numIloscMin";
-            this.numIloscMin.Size = new System.Drawing.Size(100, 20);
+            this.numIloscMin.Size = new System.Drawing.Size(103, 20);
             this.numIloscMin.TabIndex = 52;
             // 
             // numIloscMax
             // 
-            this.numIloscMax.Location = new System.Drawing.Point(117, 284);
+            this.numIloscMax.Location = new System.Drawing.Point(195, 274);
             this.numIloscMax.Name = "numIloscMax";
-            this.numIloscMax.Size = new System.Drawing.Size(100, 20);
+            this.numIloscMax.Size = new System.Drawing.Size(103, 20);
             this.numIloscMax.TabIndex = 53;
             // 
             // numIloscZbiorcza
             // 
-            this.numIloscZbiorcza.Location = new System.Drawing.Point(460, 144);
+            this.numIloscZbiorcza.Location = new System.Drawing.Point(195, 374);
             this.numIloscZbiorcza.Name = "numIloscZbiorcza";
-            this.numIloscZbiorcza.Size = new System.Drawing.Size(100, 20);
+            this.numIloscZbiorcza.Size = new System.Drawing.Size(103, 20);
             this.numIloscZbiorcza.TabIndex = 54;
             // 
             // cmbElement
             // 
             this.cmbElement.FormattingEnabled = true;
-            this.cmbElement.Location = new System.Drawing.Point(117, 76);
+            this.cmbElement.Location = new System.Drawing.Point(135, 72);
             this.cmbElement.Name = "cmbElement";
-            this.cmbElement.Size = new System.Drawing.Size(100, 21);
+            this.cmbElement.Size = new System.Drawing.Size(129, 21);
             this.cmbElement.TabIndex = 46;
+            this.cmbElement.SelectedIndexChanged += new System.EventHandler(this.cmbElement_SelectedIndexChanged);
             // 
             // numCzasDostawy
             // 
-            this.numCzasDostawy.Location = new System.Drawing.Point(460, 173);
+            this.numCzasDostawy.Location = new System.Drawing.Point(195, 407);
             this.numCzasDostawy.Name = "numCzasDostawy";
-            this.numCzasDostawy.Size = new System.Drawing.Size(100, 20);
+            this.numCzasDostawy.Size = new System.Drawing.Size(103, 20);
             this.numCzasDostawy.TabIndex = 55;
             // 
             // dtpDataOferty
             // 
             this.dtpDataOferty.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataOferty.Location = new System.Drawing.Point(117, 213);
+            this.dtpDataOferty.Location = new System.Drawing.Point(195, 208);
             this.dtpDataOferty.Name = "dtpDataOferty";
-            this.dtpDataOferty.Size = new System.Drawing.Size(100, 20);
+            this.dtpDataOferty.Size = new System.Drawing.Size(103, 20);
             this.dtpDataOferty.TabIndex = 56;
             // 
             // btnWstecz
             // 
-            this.btnWstecz.Location = new System.Drawing.Point(347, 238);
+            this.btnWstecz.Location = new System.Drawing.Point(21, 448);
             this.btnWstecz.Name = "btnWstecz";
-            this.btnWstecz.Size = new System.Drawing.Size(53, 34);
+            this.btnWstecz.Size = new System.Drawing.Size(85, 34);
             this.btnWstecz.TabIndex = 57;
             this.btnWstecz.Text = "Powrót";
             this.btnWstecz.UseVisualStyleBackColor = true;
             this.btnWstecz.Click += new System.EventHandler(this.btnWstecz_Click);
             // 
+            // lblIDElementu
+            // 
+            this.lblIDElementu.AutoSize = true;
+            this.lblIDElementu.Location = new System.Drawing.Point(275, 76);
+            this.lblIDElementu.Name = "lblIDElementu";
+            this.lblIDElementu.Size = new System.Drawing.Size(38, 13);
+            this.lblIDElementu.TabIndex = 58;
+            this.lblIDElementu.Text = "ID: XX";
+            // 
             // DodajOferte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(626, 329);
+            this.ClientSize = new System.Drawing.Size(373, 502);
+            this.Controls.Add(this.lblIDElementu);
             this.Controls.Add(this.btnWstecz);
             this.Controls.Add(this.dtpDataOferty);
             this.Controls.Add(this.numCzasDostawy);
@@ -342,5 +355,6 @@
         private System.Windows.Forms.NumericUpDown numCzasDostawy;
         private System.Windows.Forms.DateTimePicker dtpDataOferty;
         private System.Windows.Forms.Button btnWstecz;
+        private System.Windows.Forms.Label lblIDElementu;
     }
 }

@@ -53,16 +53,17 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(105, 22);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(26, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 13);
+            this.label1.Size = new System.Drawing.Size(302, 31);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Wprowadź dane umowy.";
+            this.label1.Text = "Wprowadź dane umowy";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 58);
+            this.label2.Location = new System.Drawing.Point(53, 71);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 13);
             this.label2.TabIndex = 1;
@@ -71,7 +72,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(45, 83);
+            this.label3.Location = new System.Drawing.Point(53, 99);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 13);
             this.label3.TabIndex = 2;
@@ -80,7 +81,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(45, 111);
+            this.label4.Location = new System.Drawing.Point(53, 122);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 13);
             this.label4.TabIndex = 3;
@@ -89,7 +90,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(45, 135);
+            this.label5.Location = new System.Drawing.Point(53, 149);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 13);
             this.label5.TabIndex = 4;
@@ -98,7 +99,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(45, 159);
+            this.label6.Location = new System.Drawing.Point(53, 175);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(59, 13);
             this.label6.TabIndex = 5;
@@ -106,21 +107,21 @@
             // 
             // numCzas
             // 
-            this.numCzas.Location = new System.Drawing.Point(157, 103);
+            this.numCzas.Location = new System.Drawing.Point(165, 118);
             this.numCzas.Name = "numCzas";
             this.numCzas.Size = new System.Drawing.Size(120, 20);
             this.numCzas.TabIndex = 7;
             // 
             // numKosztKm
             // 
-            this.numKosztKm.Location = new System.Drawing.Point(158, 129);
+            this.numKosztKm.Location = new System.Drawing.Point(166, 145);
             this.numKosztKm.Name = "numKosztKm";
             this.numKosztKm.Size = new System.Drawing.Size(120, 20);
             this.numKosztKm.TabIndex = 8;
             // 
             // numKosztStaly
             // 
-            this.numKosztStaly.Location = new System.Drawing.Point(157, 155);
+            this.numKosztStaly.Location = new System.Drawing.Point(165, 171);
             this.numKosztStaly.Name = "numKosztStaly";
             this.numKosztStaly.Size = new System.Drawing.Size(120, 20);
             this.numKosztStaly.TabIndex = 9;
@@ -128,16 +129,16 @@
             // dtpDataZawarcia
             // 
             this.dtpDataZawarcia.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataZawarcia.Location = new System.Drawing.Point(157, 76);
+            this.dtpDataZawarcia.Location = new System.Drawing.Point(165, 92);
             this.dtpDataZawarcia.Name = "dtpDataZawarcia";
             this.dtpDataZawarcia.Size = new System.Drawing.Size(120, 20);
             this.dtpDataZawarcia.TabIndex = 10;
             // 
             // btnWstecz
             // 
-            this.btnWstecz.Location = new System.Drawing.Point(74, 200);
+            this.btnWstecz.Location = new System.Drawing.Point(29, 205);
             this.btnWstecz.Name = "btnWstecz";
-            this.btnWstecz.Size = new System.Drawing.Size(75, 23);
+            this.btnWstecz.Size = new System.Drawing.Size(94, 36);
             this.btnWstecz.TabIndex = 11;
             this.btnWstecz.Text = "Powrót";
             this.btnWstecz.UseVisualStyleBackColor = true;
@@ -145,9 +146,9 @@
             // 
             // btnZapisz
             // 
-            this.btnZapisz.Location = new System.Drawing.Point(203, 200);
+            this.btnZapisz.Location = new System.Drawing.Point(234, 205);
             this.btnZapisz.Name = "btnZapisz";
-            this.btnZapisz.Size = new System.Drawing.Size(75, 23);
+            this.btnZapisz.Size = new System.Drawing.Size(94, 36);
             this.btnZapisz.TabIndex = 12;
             this.btnZapisz.Text = "Zapisz";
             this.btnZapisz.UseVisualStyleBackColor = true;
@@ -158,7 +159,7 @@
             this.cmbKurier.DataSource = this.kurierzyBindingSource;
             this.cmbKurier.DisplayMember = "Nazwa";
             this.cmbKurier.FormattingEnabled = true;
-            this.cmbKurier.Location = new System.Drawing.Point(157, 50);
+            this.cmbKurier.Location = new System.Drawing.Point(165, 67);
             this.cmbKurier.Name = "cmbKurier";
             this.cmbKurier.Size = new System.Drawing.Size(121, 21);
             this.cmbKurier.TabIndex = 6;
@@ -168,7 +169,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(387, 246);
+            this.ClientSize = new System.Drawing.Size(355, 250);
             this.Controls.Add(this.btnZapisz);
             this.Controls.Add(this.btnWstecz);
             this.Controls.Add(this.dtpDataZawarcia);

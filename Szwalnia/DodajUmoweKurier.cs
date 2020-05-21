@@ -20,9 +20,9 @@ namespace Szwalnia
             db = Start.szwalnia;
             InitializeComponent();
             cmbKurier.DataSource = db.Kurierzy.ToList();
-
+            cmbKurier.ValueMember = "ID_Kurier";
+            cmbKurier.DisplayMember = "Nazwa";
         }
-
 
         private void btnWstecz_Click(object sender, EventArgs e)
         {
@@ -32,12 +32,12 @@ namespace Szwalnia
 
         private void btnZapisz_Click(object sender, EventArgs e)
         {
-            umowaNowa.ID_Kurier = cmbKurier.SelectedIndex;
+            umowaNowa.ID_Kurier = Convert.ToInt32(cmbKurier.SelectedIndex);
             umowaNowa.Data_Zawarcia = dtpDataZawarcia.Value;
             umowaNowa.Czas_Dostawy = Decimal.ToInt32(numCzas.Value);
             umowaNowa.Koszt_Km = Decimal.ToInt32(numKosztKm.Value);
             umowaNowa.Koszt_Staly = Decimal.ToInt32(numKosztStaly.Value);
-            //
+
             db.Umowy_Kurierzy.Add(umowaNowa);
             db.SaveChanges();
             MessageBox.Show("Dodano nową umowę.");

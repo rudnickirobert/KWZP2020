@@ -1,6 +1,16 @@
 USE szwalnia
 GO
 
+-- widok elementów nie-w³asnych
+CREATE VIEW [dbo].[vElementy_Nie_Wlasne]
+AS
+SELECT        TOP (100) PERCENT dbo.Elementy.ID_Element, dbo.Elementy.Element_Nazwa
+FROM            dbo.Elementy INNER JOIN
+                         dbo.Elementy_Typy ON dbo.Elementy.ID_Element_Typ = dbo.Elementy_Typy.ID_Element_Typ
+WHERE        (dbo.Elementy_Typy.Czy_wlasne = 0)
+ORDER BY dbo.Elementy.Element_Nazwa
+GO
+
 ---- Widok cech elementu
 CREATE VIEW [dbo].[vCechyElementu]
 AS

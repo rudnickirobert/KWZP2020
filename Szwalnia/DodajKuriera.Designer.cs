@@ -46,16 +46,17 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(82, 24);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(37, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 13);
+            this.label1.Size = new System.Drawing.Size(277, 31);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Wprowadź dane nowego kuriera.";
+            this.label1.Text = "Dodaj nowego kuriera";
             // 
             // chkTel2
             // 
             this.chkTel2.AutoSize = true;
-            this.chkTel2.Location = new System.Drawing.Point(39, 124);
+            this.chkTel2.Location = new System.Drawing.Point(42, 119);
             this.chkTel2.Name = "chkTel2";
             this.chkTel2.Size = new System.Drawing.Size(15, 14);
             this.chkTel2.TabIndex = 22;
@@ -64,9 +65,9 @@
             // 
             // btnWstecz
             // 
-            this.btnWstecz.Location = new System.Drawing.Point(63, 208);
+            this.btnWstecz.Location = new System.Drawing.Point(30, 191);
             this.btnWstecz.Name = "btnWstecz";
-            this.btnWstecz.Size = new System.Drawing.Size(75, 23);
+            this.btnWstecz.Size = new System.Drawing.Size(96, 36);
             this.btnWstecz.TabIndex = 21;
             this.btnWstecz.Text = "Powrót";
             this.btnWstecz.UseVisualStyleBackColor = true;
@@ -74,20 +75,20 @@
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(194, 208);
+            this.btnDodaj.Location = new System.Drawing.Point(217, 191);
             this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(75, 23);
+            this.btnDodaj.Size = new System.Drawing.Size(96, 36);
             this.btnDodaj.TabIndex = 20;
-            this.btnDodaj.Text = "Dodaj";
+            this.btnDodaj.Text = "Zapisz";
             this.btnDodaj.UseVisualStyleBackColor = true;
             this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
             // 
             // mtxtTel2
             // 
-            this.mtxtTel2.Location = new System.Drawing.Point(157, 122);
+            this.mtxtTel2.Location = new System.Drawing.Point(160, 116);
             this.mtxtTel2.Mask = "000-000-000";
             this.mtxtTel2.Name = "mtxtTel2";
-            this.mtxtTel2.Size = new System.Drawing.Size(100, 20);
+            this.mtxtTel2.Size = new System.Drawing.Size(135, 20);
             this.mtxtTel2.TabIndex = 19;
             this.mtxtTel2.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.mtxtTel2.ValidatingType = typeof(int);
@@ -95,32 +96,31 @@
             // mtxtTel1
             // 
             this.mtxtTel1.AllowDrop = true;
-            this.mtxtTel1.Location = new System.Drawing.Point(157, 83);
+            this.mtxtTel1.Location = new System.Drawing.Point(160, 86);
             this.mtxtTel1.Mask = "000-000-000";
             this.mtxtTel1.Name = "mtxtTel1";
-            this.mtxtTel1.Size = new System.Drawing.Size(100, 20);
+            this.mtxtTel1.Size = new System.Drawing.Size(135, 20);
             this.mtxtTel1.TabIndex = 18;
-            this.mtxtTel1.Text = "000000000";
             this.mtxtTel1.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(157, 160);
+            this.txtEmail.Location = new System.Drawing.Point(160, 147);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(100, 20);
+            this.txtEmail.Size = new System.Drawing.Size(135, 20);
             this.txtEmail.TabIndex = 17;
             // 
             // txtNazwa
             // 
-            this.txtNazwa.Location = new System.Drawing.Point(157, 50);
+            this.txtNazwa.Location = new System.Drawing.Point(160, 58);
             this.txtNazwa.Name = "txtNazwa";
-            this.txtNazwa.Size = new System.Drawing.Size(100, 20);
+            this.txtNazwa.Size = new System.Drawing.Size(135, 20);
             this.txtNazwa.TabIndex = 16;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(60, 160);
+            this.label5.Location = new System.Drawing.Point(63, 151);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 13);
             this.label5.TabIndex = 15;
@@ -129,7 +129,7 @@
             // lblTelefon2
             // 
             this.lblTelefon2.AutoSize = true;
-            this.lblTelefon2.Location = new System.Drawing.Point(60, 125);
+            this.lblTelefon2.Location = new System.Drawing.Point(63, 120);
             this.lblTelefon2.Name = "lblTelefon2";
             this.lblTelefon2.Size = new System.Drawing.Size(52, 13);
             this.lblTelefon2.TabIndex = 14;
@@ -138,7 +138,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(60, 91);
+            this.label3.Location = new System.Drawing.Point(63, 90);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 13;
@@ -147,7 +147,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(60, 58);
+            this.label2.Location = new System.Drawing.Point(63, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 12;
@@ -157,7 +157,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(328, 264);
+            this.ClientSize = new System.Drawing.Size(346, 238);
             this.Controls.Add(this.chkTel2);
             this.Controls.Add(this.btnWstecz);
             this.Controls.Add(this.btnDodaj);

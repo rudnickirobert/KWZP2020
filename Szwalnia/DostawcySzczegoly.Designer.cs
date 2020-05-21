@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DostawcySzczegoly));
             this.btnWstecz = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtNazwa = new System.Windows.Forms.TextBox();
@@ -42,7 +43,7 @@
             // 
             // btnWstecz
             // 
-            this.btnWstecz.Location = new System.Drawing.Point(76, 226);
+            this.btnWstecz.Location = new System.Drawing.Point(79, 213);
             this.btnWstecz.Name = "btnWstecz";
             this.btnWstecz.Size = new System.Drawing.Size(75, 23);
             this.btnWstecz.TabIndex = 21;
@@ -52,14 +53,14 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(167, 178);
+            this.txtEmail.Location = new System.Drawing.Point(126, 176);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(100, 20);
             this.txtEmail.TabIndex = 17;
             // 
             // txtNazwa
             // 
-            this.txtNazwa.Location = new System.Drawing.Point(167, 68);
+            this.txtNazwa.Location = new System.Drawing.Point(126, 66);
             this.txtNazwa.Name = "txtNazwa";
             this.txtNazwa.Size = new System.Drawing.Size(100, 20);
             this.txtNazwa.TabIndex = 16;
@@ -67,7 +68,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(70, 178);
+            this.label5.Location = new System.Drawing.Point(29, 176);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 13);
             this.label5.TabIndex = 15;
@@ -76,7 +77,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(70, 143);
+            this.label4.Location = new System.Drawing.Point(29, 141);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 14;
@@ -85,7 +86,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(70, 109);
+            this.label3.Location = new System.Drawing.Point(29, 107);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 13;
@@ -94,7 +95,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(70, 76);
+            this.label2.Location = new System.Drawing.Point(29, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 12;
@@ -103,22 +104,23 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(127, 26);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(26, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 13);
+            this.label1.Size = new System.Drawing.Size(209, 31);
             this.label1.TabIndex = 11;
             this.label1.Text = "Dane dostawcy:";
             // 
             // txtTel1
             // 
-            this.txtTel1.Location = new System.Drawing.Point(167, 106);
+            this.txtTel1.Location = new System.Drawing.Point(126, 104);
             this.txtTel1.Name = "txtTel1";
             this.txtTel1.Size = new System.Drawing.Size(100, 20);
             this.txtTel1.TabIndex = 22;
             // 
             // txtTel2
             // 
-            this.txtTel2.Location = new System.Drawing.Point(167, 140);
+            this.txtTel2.Location = new System.Drawing.Point(126, 138);
             this.txtTel2.Name = "txtTel2";
             this.txtTel2.Size = new System.Drawing.Size(100, 20);
             this.txtTel2.TabIndex = 23;
@@ -127,7 +129,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(348, 272);
+            this.ClientSize = new System.Drawing.Size(275, 251);
             this.Controls.Add(this.txtTel2);
             this.Controls.Add(this.txtTel1);
             this.Controls.Add(this.btnWstecz);
@@ -138,6 +140,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DostawcySzczegoly";
             this.Text = "Podgląd dostawcy";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DostawcySzczegoly_FormClosed);

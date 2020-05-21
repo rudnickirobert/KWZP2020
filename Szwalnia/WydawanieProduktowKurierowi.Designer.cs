@@ -42,7 +42,7 @@
             // cmbPracownik
             // 
             this.cmbPracownik.FormattingEnabled = true;
-            this.cmbPracownik.Location = new System.Drawing.Point(214, 225);
+            this.cmbPracownik.Location = new System.Drawing.Point(214, 220);
             this.cmbPracownik.Name = "cmbPracownik";
             this.cmbPracownik.Size = new System.Drawing.Size(183, 21);
             this.cmbPracownik.TabIndex = 24;
@@ -51,7 +51,7 @@
             // 
             this.btnWydajProdukty.Enabled = false;
             this.btnWydajProdukty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnWydajProdukty.Location = new System.Drawing.Point(187, 262);
+            this.btnWydajProdukty.Location = new System.Drawing.Point(184, 256);
             this.btnWydajProdukty.Name = "btnWydajProdukty";
             this.btnWydajProdukty.Size = new System.Drawing.Size(162, 32);
             this.btnWydajProdukty.TabIndex = 23;
@@ -62,7 +62,7 @@
             // lblPracownik
             // 
             this.lblPracownik.AutoSize = true;
-            this.lblPracownik.Location = new System.Drawing.Point(137, 228);
+            this.lblPracownik.Location = new System.Drawing.Point(137, 223);
             this.lblPracownik.Name = "lblPracownik";
             this.lblPracownik.Size = new System.Drawing.Size(60, 13);
             this.lblPracownik.TabIndex = 22;
@@ -109,7 +109,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(525, 313);
+            this.ClientSize = new System.Drawing.Size(525, 302);
             this.Controls.Add(this.cmbZamowienie);
             this.Controls.Add(this.lblZamowienieInfo);
             this.Controls.Add(this.cmbPracownik);
