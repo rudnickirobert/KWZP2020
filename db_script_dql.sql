@@ -849,7 +849,27 @@ FROM            dbo.Proces_Produkcyjny INNER JOIN
                          dbo.Proces_Zamowienie ON dbo.Zamowienie_Element.ID_Zamowienie_Element = dbo.Proces_Zamowienie.ID_Zamowienie_Element
 GO
 
+CREATE VIEW vWszystkieZamowienieElement
+AS
+SELECT dbo.Zamowienie_Element.ID_Zamowienie_Element AS 'zamowienie1', CAST(dbo.Zamowienie_Element.ID_Zamowienie_Element as varchar(10)) + '  ' + dbo.Elementy.Element_Nazwa AS 'Zamowienie_element'
+FROM     dbo.Zamowienie_Element INNER JOIN
+                  dbo.Elementy ON dbo.Zamowienie_Element.ID_Element = dbo.Elementy.ID_Element INNER JOIN
+                  dbo.Zamowienia ON dbo.Zamowienie_Element.ID_Zamowienia = dbo.Zamowienia.ID_Zamowienia
 
+GO
+CREATE VIEW vRealizowaneZamowienieElement
+AS
+SELECT dbo.Zamowienie_Element.ID_Zamowienie_Element AS 'zamowienie2', dbo.Proces_Produkcyjny.ID_Procesu_Produkcyjnego
+FROM     dbo.Proces_Produkcyjny INNER JOIN
+                  dbo.Zamowienie_Element ON dbo.Proces_Produkcyjny.ID_Zamowienie_Element = dbo.Zamowienie_Element.ID_Zamowienie_Element
+GO
+CREATE VIEW vNierealizowaneZamowienieElement
+AS
+SELECT dbo.vWszystkieZamowienieElement.zamowienie1, dbo.vRealizowaneZamowienieElement.zamowienie2, dbo.vWszystkieZamowienieElement.Zamowienie_element
+FROM     dbo.vWszystkieZamowienieElement LEFT JOIN
+                  dbo.vRealizowaneZamowienieElement ON dbo.vWszystkieZamowienieElement.zamowienie1 = dbo.vRealizowaneZamowienieElement.zamowienie2
+WHERE dbo.vRealizowaneZamowienieElement.zamowienie2 is NULL
+GO
 
 ---------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------

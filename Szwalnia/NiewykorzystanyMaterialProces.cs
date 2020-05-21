@@ -49,6 +49,7 @@ namespace Szwalnia
         {
             NowyNiewykorzystanyMaterialOdpad nowyNiewykorzystanyMaterialOdpad = new NowyNiewykorzystanyMaterialOdpad(db, idProcesu);
             nowyNiewykorzystanyMaterialOdpad.Show();
+            this.Close();
         }
 
         private void btnEdycja_Click(object sender, EventArgs e)

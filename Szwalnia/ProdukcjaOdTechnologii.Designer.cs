@@ -38,10 +38,12 @@
             this.lblOpis = new System.Windows.Forms.Label();
             this.dgvPotrzebnaDokumentacjaDoProcesuProdukcyjnego = new System.Windows.Forms.DataGridView();
             this.lblGotowe = new System.Windows.Forms.Label();
+            this.dgvUkryty = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPotrzebnyMaterialDoProcesuProdukcyjnego)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPotrzebneEtapyDoProcesuProdukcyjnego)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPotrzebneMaszynyDoProcesuProdukcyjnego)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPotrzebnaDokumentacjaDoProcesuProdukcyjnego)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUkryty)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvPotrzebnyMaterialDoProcesuProdukcyjnego
@@ -49,13 +51,13 @@
             this.dgvPotrzebnyMaterialDoProcesuProdukcyjnego.AllowUserToAddRows = false;
             this.dgvPotrzebnyMaterialDoProcesuProdukcyjnego.AllowUserToDeleteRows = false;
             this.dgvPotrzebnyMaterialDoProcesuProdukcyjnego.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPotrzebnyMaterialDoProcesuProdukcyjnego.Location = new System.Drawing.Point(415, 123);
-            this.dgvPotrzebnyMaterialDoProcesuProdukcyjnego.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvPotrzebnyMaterialDoProcesuProdukcyjnego.Location = new System.Drawing.Point(553, 151);
+            this.dgvPotrzebnyMaterialDoProcesuProdukcyjnego.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvPotrzebnyMaterialDoProcesuProdukcyjnego.Name = "dgvPotrzebnyMaterialDoProcesuProdukcyjnego";
             this.dgvPotrzebnyMaterialDoProcesuProdukcyjnego.ReadOnly = true;
             this.dgvPotrzebnyMaterialDoProcesuProdukcyjnego.RowHeadersWidth = 51;
             this.dgvPotrzebnyMaterialDoProcesuProdukcyjnego.RowTemplate.Height = 24;
-            this.dgvPotrzebnyMaterialDoProcesuProdukcyjnego.Size = new System.Drawing.Size(476, 165);
+            this.dgvPotrzebnyMaterialDoProcesuProdukcyjnego.Size = new System.Drawing.Size(635, 203);
             this.dgvPotrzebnyMaterialDoProcesuProdukcyjnego.TabIndex = 0;
             // 
             // dgvPotrzebneEtapyDoProcesuProdukcyjnego
@@ -63,13 +65,13 @@
             this.dgvPotrzebneEtapyDoProcesuProdukcyjnego.AllowUserToAddRows = false;
             this.dgvPotrzebneEtapyDoProcesuProdukcyjnego.AllowUserToDeleteRows = false;
             this.dgvPotrzebneEtapyDoProcesuProdukcyjnego.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPotrzebneEtapyDoProcesuProdukcyjnego.Location = new System.Drawing.Point(33, 374);
-            this.dgvPotrzebneEtapyDoProcesuProdukcyjnego.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvPotrzebneEtapyDoProcesuProdukcyjnego.Location = new System.Drawing.Point(44, 460);
+            this.dgvPotrzebneEtapyDoProcesuProdukcyjnego.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvPotrzebneEtapyDoProcesuProdukcyjnego.Name = "dgvPotrzebneEtapyDoProcesuProdukcyjnego";
             this.dgvPotrzebneEtapyDoProcesuProdukcyjnego.ReadOnly = true;
             this.dgvPotrzebneEtapyDoProcesuProdukcyjnego.RowHeadersWidth = 51;
             this.dgvPotrzebneEtapyDoProcesuProdukcyjnego.RowTemplate.Height = 24;
-            this.dgvPotrzebneEtapyDoProcesuProdukcyjnego.Size = new System.Drawing.Size(312, 263);
+            this.dgvPotrzebneEtapyDoProcesuProdukcyjnego.Size = new System.Drawing.Size(416, 324);
             this.dgvPotrzebneEtapyDoProcesuProdukcyjnego.TabIndex = 1;
             // 
             // dgvPotrzebneMaszynyDoProcesuProdukcyjnego
@@ -77,23 +79,22 @@
             this.dgvPotrzebneMaszynyDoProcesuProdukcyjnego.AllowUserToAddRows = false;
             this.dgvPotrzebneMaszynyDoProcesuProdukcyjnego.AllowUserToDeleteRows = false;
             this.dgvPotrzebneMaszynyDoProcesuProdukcyjnego.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPotrzebneMaszynyDoProcesuProdukcyjnego.Location = new System.Drawing.Point(33, 123);
-            this.dgvPotrzebneMaszynyDoProcesuProdukcyjnego.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvPotrzebneMaszynyDoProcesuProdukcyjnego.Location = new System.Drawing.Point(44, 151);
+            this.dgvPotrzebneMaszynyDoProcesuProdukcyjnego.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvPotrzebneMaszynyDoProcesuProdukcyjnego.Name = "dgvPotrzebneMaszynyDoProcesuProdukcyjnego";
             this.dgvPotrzebneMaszynyDoProcesuProdukcyjnego.ReadOnly = true;
             this.dgvPotrzebneMaszynyDoProcesuProdukcyjnego.RowHeadersWidth = 51;
             this.dgvPotrzebneMaszynyDoProcesuProdukcyjnego.RowTemplate.Height = 24;
-            this.dgvPotrzebneMaszynyDoProcesuProdukcyjnego.Size = new System.Drawing.Size(312, 165);
+            this.dgvPotrzebneMaszynyDoProcesuProdukcyjnego.Size = new System.Drawing.Size(416, 203);
             this.dgvPotrzebneMaszynyDoProcesuProdukcyjnego.TabIndex = 2;
             // 
             // lblMaterial
             // 
             this.lblMaterial.AutoSize = true;
             this.lblMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblMaterial.Location = new System.Drawing.Point(412, 86);
-            this.lblMaterial.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMaterial.Location = new System.Drawing.Point(549, 106);
             this.lblMaterial.Name = "lblMaterial";
-            this.lblMaterial.Size = new System.Drawing.Size(60, 18);
+            this.lblMaterial.Size = new System.Drawing.Size(79, 24);
             this.lblMaterial.TabIndex = 3;
             this.lblMaterial.Text = "Materiał";
             // 
@@ -101,10 +102,9 @@
             // 
             this.lblEtapy.AutoSize = true;
             this.lblEtapy.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblEtapy.Location = new System.Drawing.Point(34, 335);
-            this.lblEtapy.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblEtapy.Location = new System.Drawing.Point(45, 412);
             this.lblEtapy.Name = "lblEtapy";
-            this.lblEtapy.Size = new System.Drawing.Size(45, 18);
+            this.lblEtapy.Size = new System.Drawing.Size(57, 24);
             this.lblEtapy.TabIndex = 4;
             this.lblEtapy.Text = "Etapy";
             // 
@@ -112,10 +112,9 @@
             // 
             this.lblMaszyny.AutoSize = true;
             this.lblMaszyny.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblMaszyny.Location = new System.Drawing.Point(30, 86);
-            this.lblMaszyny.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMaszyny.Location = new System.Drawing.Point(40, 106);
             this.lblMaszyny.Name = "lblMaszyny";
-            this.lblMaszyny.Size = new System.Drawing.Size(67, 18);
+            this.lblMaszyny.Size = new System.Drawing.Size(83, 24);
             this.lblMaszyny.TabIndex = 5;
             this.lblMaszyny.Text = "Maszyny";
             // 
@@ -123,10 +122,9 @@
             // 
             this.lblDokumentacja.AutoSize = true;
             this.lblDokumentacja.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblDokumentacja.Location = new System.Drawing.Point(412, 335);
-            this.lblDokumentacja.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDokumentacja.Location = new System.Drawing.Point(549, 412);
             this.lblDokumentacja.Name = "lblDokumentacja";
-            this.lblDokumentacja.Size = new System.Drawing.Size(104, 18);
+            this.lblDokumentacja.Size = new System.Drawing.Size(130, 24);
             this.lblDokumentacja.TabIndex = 6;
             this.lblDokumentacja.Text = "Dokumentacja";
             // 
@@ -134,9 +132,10 @@
             // 
             this.lblOpis.AutoSize = true;
             this.lblOpis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblOpis.Location = new System.Drawing.Point(195, 27);
+            this.lblOpis.Location = new System.Drawing.Point(260, 33);
+            this.lblOpis.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOpis.Name = "lblOpis";
-            this.lblOpis.Size = new System.Drawing.Size(51, 20);
+            this.lblOpis.Size = new System.Drawing.Size(64, 25);
             this.lblOpis.TabIndex = 7;
             this.lblOpis.Text = "label1";
             // 
@@ -145,29 +144,43 @@
             this.dgvPotrzebnaDokumentacjaDoProcesuProdukcyjnego.AllowUserToAddRows = false;
             this.dgvPotrzebnaDokumentacjaDoProcesuProdukcyjnego.AllowUserToDeleteRows = false;
             this.dgvPotrzebnaDokumentacjaDoProcesuProdukcyjnego.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPotrzebnaDokumentacjaDoProcesuProdukcyjnego.Location = new System.Drawing.Point(415, 374);
+            this.dgvPotrzebnaDokumentacjaDoProcesuProdukcyjnego.Location = new System.Drawing.Point(553, 460);
+            this.dgvPotrzebnaDokumentacjaDoProcesuProdukcyjnego.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvPotrzebnaDokumentacjaDoProcesuProdukcyjnego.Name = "dgvPotrzebnaDokumentacjaDoProcesuProdukcyjnego";
             this.dgvPotrzebnaDokumentacjaDoProcesuProdukcyjnego.ReadOnly = true;
             this.dgvPotrzebnaDokumentacjaDoProcesuProdukcyjnego.RowHeadersWidth = 51;
-            this.dgvPotrzebnaDokumentacjaDoProcesuProdukcyjnego.Size = new System.Drawing.Size(374, 263);
+            this.dgvPotrzebnaDokumentacjaDoProcesuProdukcyjnego.Size = new System.Drawing.Size(499, 324);
             this.dgvPotrzebnaDokumentacjaDoProcesuProdukcyjnego.TabIndex = 8;
             // 
             // lblGotowe
             // 
             this.lblGotowe.AutoSize = true;
             this.lblGotowe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblGotowe.Location = new System.Drawing.Point(34, 690);
+            this.lblGotowe.Location = new System.Drawing.Point(44, 808);
+            this.lblGotowe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGotowe.Name = "lblGotowe";
-            this.lblGotowe.Size = new System.Drawing.Size(57, 20);
+            this.lblGotowe.Size = new System.Drawing.Size(70, 25);
             this.lblGotowe.TabIndex = 9;
             this.lblGotowe.Text = "label1";
             // 
+            // dgvUkryty
+            // 
+            this.dgvUkryty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUkryty.Location = new System.Drawing.Point(1003, 34);
+            this.dgvUkryty.Name = "dgvUkryty";
+            this.dgvUkryty.RowHeadersWidth = 51;
+            this.dgvUkryty.RowTemplate.Height = 24;
+            this.dgvUkryty.Size = new System.Drawing.Size(82, 40);
+            this.dgvUkryty.TabIndex = 10;
+            this.dgvUkryty.Visible = false;
+            // 
             // ProdukcjaOdTechnologii
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(960, 743);
+            this.ClientSize = new System.Drawing.Size(1280, 914);
+            this.Controls.Add(this.dgvUkryty);
             this.Controls.Add(this.lblGotowe);
             this.Controls.Add(this.dgvPotrzebnaDokumentacjaDoProcesuProdukcyjnego);
             this.Controls.Add(this.lblOpis);
@@ -178,7 +191,7 @@
             this.Controls.Add(this.dgvPotrzebneMaszynyDoProcesuProdukcyjnego);
             this.Controls.Add(this.dgvPotrzebneEtapyDoProcesuProdukcyjnego);
             this.Controls.Add(this.dgvPotrzebnyMaterialDoProcesuProdukcyjnego);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ProdukcjaOdTechnologii";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Technologia";
@@ -186,6 +199,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPotrzebneEtapyDoProcesuProdukcyjnego)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPotrzebneMaszynyDoProcesuProdukcyjnego)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPotrzebnaDokumentacjaDoProcesuProdukcyjnego)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUkryty)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,5 +217,6 @@
         private System.Windows.Forms.Label lblOpis;
         private System.Windows.Forms.DataGridView dgvPotrzebnaDokumentacjaDoProcesuProdukcyjnego;
         private System.Windows.Forms.Label lblGotowe;
+        private System.Windows.Forms.DataGridView dgvUkryty;
     }
 }
