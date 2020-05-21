@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WybierzZamowienie));
             this.cmbListaZamowien = new System.Windows.Forms.ComboBox();
             this.btnAkceptuj = new System.Windows.Forms.Button();
             this.lblInfo = new System.Windows.Forms.Label();
@@ -68,8 +69,9 @@
             this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.btnAkceptuj);
             this.Controls.Add(this.cmbListaZamowien);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "WybierzZamowienie";
-            this.Text = "WybierzZamowienie";
+            this.Text = "Wybierz zamówienie";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.WybierzZamowienie_FormClosed);
             this.ResumeLayout(false);
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Kontrahenci));
             this.btnOferty = new System.Windows.Forms.Button();
             this.btnDostawcy = new System.Windows.Forms.Button();
             this.btnUmowyKur = new System.Windows.Forms.Button();
@@ -36,9 +37,9 @@
             // 
             // btnOferty
             // 
-            this.btnOferty.Location = new System.Drawing.Point(71, 12);
+            this.btnOferty.Location = new System.Drawing.Point(23, 12);
             this.btnOferty.Name = "btnOferty";
-            this.btnOferty.Size = new System.Drawing.Size(147, 55);
+            this.btnOferty.Size = new System.Drawing.Size(172, 74);
             this.btnOferty.TabIndex = 0;
             this.btnOferty.Text = "Oferty";
             this.btnOferty.UseVisualStyleBackColor = true;
@@ -46,9 +47,9 @@
             // 
             // btnDostawcy
             // 
-            this.btnDostawcy.Location = new System.Drawing.Point(71, 78);
+            this.btnDostawcy.Location = new System.Drawing.Point(23, 99);
             this.btnDostawcy.Name = "btnDostawcy";
-            this.btnDostawcy.Size = new System.Drawing.Size(147, 55);
+            this.btnDostawcy.Size = new System.Drawing.Size(172, 74);
             this.btnDostawcy.TabIndex = 1;
             this.btnDostawcy.Text = "Dostawcy";
             this.btnDostawcy.UseVisualStyleBackColor = true;
@@ -56,9 +57,9 @@
             // 
             // btnUmowyKur
             // 
-            this.btnUmowyKur.Location = new System.Drawing.Point(71, 148);
+            this.btnUmowyKur.Location = new System.Drawing.Point(23, 186);
             this.btnUmowyKur.Name = "btnUmowyKur";
-            this.btnUmowyKur.Size = new System.Drawing.Size(147, 55);
+            this.btnUmowyKur.Size = new System.Drawing.Size(172, 74);
             this.btnUmowyKur.TabIndex = 2;
             this.btnUmowyKur.Text = "Umowy z kurierami";
             this.btnUmowyKur.UseVisualStyleBackColor = true;
@@ -66,9 +67,9 @@
             // 
             // btnKurierzy
             // 
-            this.btnKurierzy.Location = new System.Drawing.Point(71, 220);
+            this.btnKurierzy.Location = new System.Drawing.Point(23, 273);
             this.btnKurierzy.Name = "btnKurierzy";
-            this.btnKurierzy.Size = new System.Drawing.Size(147, 55);
+            this.btnKurierzy.Size = new System.Drawing.Size(172, 74);
             this.btnKurierzy.TabIndex = 3;
             this.btnKurierzy.Text = "Kurierzy";
             this.btnKurierzy.UseVisualStyleBackColor = true;
@@ -78,11 +79,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(288, 306);
+            this.ClientSize = new System.Drawing.Size(216, 359);
             this.Controls.Add(this.btnKurierzy);
             this.Controls.Add(this.btnUmowyKur);
             this.Controls.Add(this.btnDostawcy);
             this.Controls.Add(this.btnOferty);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Kontrahenci";
             this.Text = "Kontrahenci";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Kontrahenci_FormClosed);
