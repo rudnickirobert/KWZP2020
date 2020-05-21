@@ -31,13 +31,16 @@ namespace Szwalnia
             InitializeComponent();
             db = Start.szwalnia;
             this.czyProdukty = czyProdukty;
-            if (czyProdukty==true)
+            if (czyProdukty)
             {
-                //cmb typ daje tylko produkty "czy_wlasne 1"
+                //cmb typ daje tylko produkty 
                 List<Elementy_Typy> produkty = db.Elementy_Typy.Where(typ => typ.Czy_wlasne == true).ToList();
                 cmbTyp.DataSource = produkty.ToList();
                 cmbTyp.ValueMember = "ID_Element_Typ";
-                cmbTyp.DisplayMember = "Typ";                
+                cmbTyp.DisplayMember = "Typ";
+                chbOkres.Checked = true;
+                numOkres.Enabled = false;
+
             }
             else
             {
@@ -46,6 +49,8 @@ namespace Szwalnia
                 cmbTyp.DataSource = nieProdukty.ToList();
                 cmbTyp.ValueMember = "ID_Element_Typ";
                 cmbTyp.DisplayMember = "Typ";
+                chbOkres.Checked = true;
+                numOkres.Enabled = false;
             }
         }
 
@@ -63,7 +68,7 @@ namespace Szwalnia
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
-        {
+        {            
             List<Elementy> powtorzenie = db.Elementy.Where(nazwa => nazwa.Element_Nazwa.ToLower() == txtNazwa.Text).ToList();
             bool blad=false;
             if(powtorzenie.Any())
@@ -77,15 +82,6 @@ namespace Szwalnia
             { MessageBox.Show("Już istnieje taki element"); }
             else
             {
-                List<Typy_cechy_rejestr> nazwa = db.Typy_cechy_rejestr.Where(typ => typ.ID_typ == cmbTyp.SelectedIndex).ToList();
-                Elementy_Cechy nowaCecha = new Elementy_Cechy();
-                foreach (Typy_cechy_rejestr wierszWybrany in nazwa)
-                {
-                    nowaCecha.ID_Cecha = wierszWybrany.ID_cecha;
-                    db.Elementy_Cechy.Add(nowaCecha);
-                    db.SaveChanges();
-                    Start.DataBaseRefresh();               
-                }
                 elementNew.Element_Nazwa = txtNazwa.Text;           
                 elementNew.ID_Element_Typ =Convert.ToInt32(cmbTyp.SelectedValue);
                 if (chbOkres.Checked == false)

@@ -44,6 +44,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnWstecz = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnRejestr = new System.Windows.Forms.Button();
+            this.txtTyp = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaCech)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaJednostek)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCecha)).BeginInit();
@@ -75,18 +78,18 @@
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(19, 250);
+            this.btnDodaj.Location = new System.Drawing.Point(12, 312);
             this.btnDodaj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(85, 30);
+            this.btnDodaj.Size = new System.Drawing.Size(174, 30);
             this.btnDodaj.TabIndex = 14;
-            this.btnDodaj.Text = "Dodaj";
+            this.btnDodaj.Text = "Dodaj ceche elemntowi";
             this.btnDodaj.UseVisualStyleBackColor = true;
             this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
             // 
             // txtSlowna
             // 
-            this.txtSlowna.Location = new System.Drawing.Point(170, 143);
+            this.txtSlowna.Location = new System.Drawing.Point(170, 169);
             this.txtSlowna.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSlowna.Name = "txtSlowna";
             this.txtSlowna.Size = new System.Drawing.Size(151, 22);
@@ -95,7 +98,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 146);
+            this.label1.Location = new System.Drawing.Point(16, 172);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(148, 17);
             this.label1.TabIndex = 12;
@@ -112,7 +115,7 @@
             // 
             // numCecha
             // 
-            this.numCecha.Location = new System.Drawing.Point(170, 171);
+            this.numCecha.Location = new System.Drawing.Point(170, 197);
             this.numCecha.Name = "numCecha";
             this.numCecha.Size = new System.Drawing.Size(120, 22);
             this.numCecha.TabIndex = 15;
@@ -120,7 +123,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(63, 173);
+            this.label2.Location = new System.Drawing.Point(63, 199);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(101, 17);
             this.label2.TabIndex = 16;
@@ -148,7 +151,7 @@
             // txtCechy
             // 
             this.txtCechy.Enabled = false;
-            this.txtCechy.Location = new System.Drawing.Point(170, 117);
+            this.txtCechy.Location = new System.Drawing.Point(170, 143);
             this.txtCechy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCechy.Name = "txtCechy";
             this.txtCechy.ReadOnly = true;
@@ -158,7 +161,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(73, 120);
+            this.label4.Location = new System.Drawing.Point(73, 146);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 17);
             this.label4.TabIndex = 19;
@@ -167,7 +170,7 @@
             // txtJednostka
             // 
             this.txtJednostka.Enabled = false;
-            this.txtJednostka.Location = new System.Drawing.Point(170, 198);
+            this.txtJednostka.Location = new System.Drawing.Point(170, 224);
             this.txtJednostka.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtJednostka.Name = "txtJednostka";
             this.txtJednostka.ReadOnly = true;
@@ -177,7 +180,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(91, 201);
+            this.label5.Location = new System.Drawing.Point(91, 227);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(73, 17);
             this.label5.TabIndex = 21;
@@ -185,9 +188,9 @@
             // 
             // btnWstecz
             // 
-            this.btnWstecz.Location = new System.Drawing.Point(280, 250);
+            this.btnWstecz.Location = new System.Drawing.Point(12, 381);
             this.btnWstecz.Name = "btnWstecz";
-            this.btnWstecz.Size = new System.Drawing.Size(77, 30);
+            this.btnWstecz.Size = new System.Drawing.Size(174, 28);
             this.btnWstecz.TabIndex = 23;
             this.btnWstecz.Text = "Wstecz";
             this.btnWstecz.UseVisualStyleBackColor = true;
@@ -202,11 +205,44 @@
             this.label6.TabIndex = 24;
             this.label6.Text = "Wybierz nazwe cechy i jednostki:";
             // 
+            // btnRejestr
+            // 
+            this.btnRejestr.Location = new System.Drawing.Point(12, 346);
+            this.btnRejestr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRejestr.Name = "btnRejestr";
+            this.btnRejestr.Size = new System.Drawing.Size(174, 30);
+            this.btnRejestr.TabIndex = 25;
+            this.btnRejestr.Text = "Dodaj ceche do typu";
+            this.btnRejestr.UseVisualStyleBackColor = true;
+            this.btnRejestr.Click += new System.EventHandler(this.btnRejestr_Click);
+            // 
+            // txtTyp
+            // 
+            this.txtTyp.Enabled = false;
+            this.txtTyp.Location = new System.Drawing.Point(170, 117);
+            this.txtTyp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTyp.Name = "txtTyp";
+            this.txtTyp.ReadOnly = true;
+            this.txtTyp.Size = new System.Drawing.Size(151, 22);
+            this.txtTyp.TabIndex = 27;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(83, 120);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(81, 17);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "Nazwa typu";
+            // 
             // DodoawanieCechElementowi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(745, 431);
+            this.Controls.Add(this.txtTyp);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.btnRejestr);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnWstecz);
             this.Controls.Add(this.txtJednostka);
@@ -250,5 +286,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnWstecz;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnRejestr;
+        private System.Windows.Forms.TextBox txtTyp;
+        private System.Windows.Forms.Label label7;
     }
 }

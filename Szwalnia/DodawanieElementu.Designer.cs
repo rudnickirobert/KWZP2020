@@ -64,11 +64,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(59, 122);
+            this.label2.Location = new System.Drawing.Point(16, 123);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(130, 17);
+            this.label2.Size = new System.Drawing.Size(171, 17);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Okres przydatności";
+            this.label2.Text = "Okres przydatności [mies]";
             // 
             // numOkres
             // 
@@ -93,7 +93,7 @@
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(52, 202);
+            this.btnDodaj.Location = new System.Drawing.Point(39, 190);
             this.btnDodaj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(75, 30);
@@ -104,7 +104,7 @@
             // 
             // btnWstecz
             // 
-            this.btnWstecz.Location = new System.Drawing.Point(375, 202);
+            this.btnWstecz.Location = new System.Drawing.Point(362, 190);
             this.btnWstecz.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnWstecz.Name = "btnWstecz";
             this.btnWstecz.Size = new System.Drawing.Size(77, 30);
@@ -125,9 +125,9 @@
             // cmbTyp
             // 
             this.cmbTyp.FormattingEnabled = true;
-            this.cmbTyp.Location = new System.Drawing.Point(193, 147);
+            this.cmbTyp.Location = new System.Drawing.Point(195, 147);
             this.cmbTyp.Name = "cmbTyp";
-            this.cmbTyp.Size = new System.Drawing.Size(153, 24);
+            this.cmbTyp.Size = new System.Drawing.Size(151, 24);
             this.cmbTyp.TabIndex = 27;
             // 
             // chbOkres
@@ -145,7 +145,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(493, 249);
+            this.ClientSize = new System.Drawing.Size(493, 243);
             this.Controls.Add(this.chbOkres);
             this.Controls.Add(this.cmbTyp);
             this.Controls.Add(this.label3);

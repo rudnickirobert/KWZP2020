@@ -17,6 +17,7 @@ namespace Szwalnia
         Typy_cechy_rejestr rejestrNew = new Typy_cechy_rejestr();
         public int IDElement;
         public int IDCechy;
+        public int IDTyp;
         public DodoawanieCechElementowi(int numIDElementu)
         {
             InitializeComponent();
@@ -36,7 +37,8 @@ namespace Szwalnia
             cechaElementuNew.ID_Element = numIDElementu;
             IDElement = numIDElementu;
             Elementy element = db.Elementy.Where(wybranyElement => wybranyElement.ID_Element == numIDElementu).First();
-            txtNazwa.Text = element.Element_Nazwa;
+            txtNazwa.Text = element.Element_Nazwa;            
+            IDTyp = Convert.ToInt32(element.ID_Element_Typ);
         }
 
         private void dgvListaCech_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -58,29 +60,59 @@ namespace Szwalnia
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            if (txtCechy.TextLength == 0)
+            List<Elementy_Cechy> powtorzenie = db.Elementy_Cechy.Where(wybrany => wybrany.ID_Cecha == IDCechy && wybrany.ID_Element==IDElement).ToList();
+            bool blad = false;
+            if (powtorzenie.Any())
+            { blad = true; }
+
+            if (blad)
+            { MessageBox.Show("Ta cecha została już przypisana"); }           
+            else if (txtCechy.TextLength == 0)
             { MessageBox.Show("Dodaj cechy"); }
             else if (txtJednostka.TextLength == 0)
             {MessageBox.Show("Dodaj jednostka");}
             else
             {
-                Elementy element = db.Elementy.Where(wybrany => wybrany.ID_Element == IDElement).First();
-                rejestrNew.ID_typ = element.ID_Element_Typ;
-                rejestrNew.ID_cecha = IDCechy;
-                db.Typy_cechy_rejestr.Add(rejestrNew);
-
                 if (txtSlowna.TextLength == 0)
                 { cechaElementuNew.Wartosc_Cechy_Slowna = null; }
                 else
                 { cechaElementuNew.Wartosc_Cechy_Slowna = txtSlowna.Text; }
+
                 if (numCecha.Value == 0)
                 { cechaElementuNew.Wartosc_Cechy_Liczbowa = null; }
                 else
                 { cechaElementuNew.Wartosc_Cechy_Liczbowa = Decimal.ToInt32(numCecha.Value); }
 
+                List<Typy_cechy_rejestr> nazwaListy = db.Typy_cechy_rejestr.Where(typ => typ.ID_typ == IDTyp).ToList();
+                foreach (Typy_cechy_rejestr wierszWybrany in nazwaListy)
+                {
+                    cechaElementuNew.ID_Cecha = wierszWybrany.ID_cecha;
+                    db.Elementy_Cechy.Add(cechaElementuNew);
+                    db.SaveChanges();
+                    Start.DataBaseRefresh();
+                }
+
                 MessageBox.Show("Pomyślnie dodano nowy rekord do bazy danych.");
-                db.Elementy_Cechy.Add(cechaElementuNew);
-                db.SaveChanges();
+            }
+        }
+
+        private void btnRejestr_Click(object sender, EventArgs e)
+        {
+
+            List<Typy_cechy_rejestr> nazwaListy = db.Typy_cechy_rejestr.Where(typ => typ.ID_typ == IDTyp).ToList();            
+            foreach (Typy_cechy_rejestr wierszWybrany in nazwaListy)
+            {
+                if(wierszWybrany.ID_cecha == IDCechy)
+                { MessageBox.Show("Ta cecha juz jest przypisana do podanego typu elemntu"); }
+                else
+                {
+                    rejestrNew.ID_typ = IDTyp;
+                    rejestrNew.ID_cecha = IDCechy;
+                    db.Typy_cechy_rejestr.Add(rejestrNew);
+                    db.SaveChanges();
+                    Start.DataBaseRefresh();
+                }
+
             }
 
         }
@@ -94,5 +126,6 @@ namespace Szwalnia
             Application.OpenForms[typeof(ElementyForm).Name].Show();
             this.Hide();
         }
+
     }
 }
