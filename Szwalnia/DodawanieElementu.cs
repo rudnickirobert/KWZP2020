@@ -95,19 +95,19 @@ namespace Szwalnia
                 }
                 db.Elementy.Add(elementNew);
                 db.SaveChanges();
-                Start.DataBaseRefresh();
-                MessageBox.Show("Pomyślnie dodano nowy rekord do bazy danych.");
+                Start.DataBaseRefresh();                
 
-                List<Typy_cechy_rejestr> nazwa = db.Typy_cechy_rejestr.Where(typ => typ.ID_typ == 0).ToList();
+                List<Typy_cechy_rejestr> nazwa = db.Typy_cechy_rejestr.Where(typ => typ.ID_typ == intTypID).ToList();
                 Elementy_Cechy nowaCecha = new Elementy_Cechy();
                 foreach (Typy_cechy_rejestr wierszWybrany in nazwa)
                 {
                     nowaCecha.ID_Cecha = wierszWybrany.ID_cecha;
+                    nowaCecha.ID_Element = elementNew.ID_Element;
                     db.Elementy_Cechy.Add(nowaCecha);
                     db.SaveChanges();
                     Start.DataBaseRefresh();
-                }
-
+               }
+                MessageBox.Show("Pomyślnie dodano nowy rekord do bazy danych.");
             }
         }
 
