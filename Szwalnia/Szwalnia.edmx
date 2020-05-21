@@ -2031,13 +2031,13 @@ warning 6002: The table/view 'Szwalnia.dbo.vWszystkie_Maszyny' does not have a p
         <EntityType Name="vWszystkie_Maszyny">
           <Key>
             <PropertyRef Name="Numer maszyny" />
+            <PropertyRef Name="Rodzaj maszyny" />
             <PropertyRef Name="Producent" />
-            <PropertyRef Name="Nazwa" />
             <PropertyRef Name="Numer seryjny" />
           </Key>
           <Property Name="Numer maszyny" Type="int" Nullable="false" />
+          <Property Name="Rodzaj maszyny" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Producent" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Nazwa" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Numer seryjny" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -4234,8 +4234,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <EntitySet Name="vWszystkie_Maszyny" EntityType="Self.vWszystkie_Maszyny" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vWszystkie_Maszyny].[Numer maszyny] AS [Numer maszyny], 
+    [vWszystkie_Maszyny].[Rodzaj maszyny] AS [Rodzaj maszyny], 
     [vWszystkie_Maszyny].[Producent] AS [Producent], 
-    [vWszystkie_Maszyny].[Nazwa] AS [Nazwa], 
     [vWszystkie_Maszyny].[Numer seryjny] AS [Numer seryjny]
     FROM [dbo].[vWszystkie_Maszyny] AS [vWszystkie_Maszyny]</DefiningQuery>
           </EntitySet>
@@ -6652,13 +6652,13 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
         <EntityType Name="vWszystkie_Maszyny">
           <Key>
             <PropertyRef Name="Numer_maszyny" />
+            <PropertyRef Name="Rodzaj_maszyny" />
             <PropertyRef Name="Producent" />
-            <PropertyRef Name="Nazwa" />
             <PropertyRef Name="Numer_seryjny" />
           </Key>
           <Property Name="Numer_maszyny" Type="Int32" Nullable="false" />
+          <Property Name="Rodzaj_maszyny" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Producent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Numer_seryjny" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="vWszystkieMaszyny">
@@ -10168,8 +10168,8 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <EntityTypeMapping TypeName="SzwalniaModel.vWszystkie_Maszyny">
               <MappingFragment StoreEntitySet="vWszystkie_Maszyny">
                 <ScalarProperty Name="Numer_maszyny" ColumnName="Numer maszyny" />
+                <ScalarProperty Name="Rodzaj_maszyny" ColumnName="Rodzaj maszyny" />
                 <ScalarProperty Name="Producent" ColumnName="Producent" />
-                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
                 <ScalarProperty Name="Numer_seryjny" ColumnName="Numer seryjny" />
               </MappingFragment>
             </EntityTypeMapping>

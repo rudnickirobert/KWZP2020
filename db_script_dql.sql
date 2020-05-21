@@ -1017,7 +1017,7 @@ SELECT        dbo.Proces_Technologiczny.ID_Proces_Technologiczny, dbo.Rodzaj_Eta
 FROM            dbo.Proces_Technologiczny INNER JOIN
                          dbo.Etapy_W_Procesie ON dbo.Proces_Technologiczny.ID_Proces_Technologiczny = dbo.Etapy_W_Procesie.ID_Proces_Technologiczny INNER JOIN
                          dbo.Rodzaj_Etapu ON dbo.Etapy_W_Procesie.ID_Etapu = dbo.Rodzaj_Etapu.ID_Etapu
-GROUP BY dbo.Proces_Technologiczny.ID_Proces_Technologiczny, dbo.Rodzaj_Etapu.Nazwa, dbo.Etapy_W_Procesie.Czas
+GROUP BY dbo.Proces_Technologiczny.ID_Proces_Technologiczny, dbo.Etapy_W_Procesie.ID_Etapy_W_Procesie, dbo.Rodzaj_Etapu.Nazwa, dbo.Etapy_W_Procesie.Czas
 GO
 
 CREATE VIEW vProces_Maszyna AS
@@ -1035,7 +1035,7 @@ FROM            dbo.Elementy
 GO
 
 CREATE VIEW vWszystkie_Maszyny AS
-SELECT        dbo.Maszyny.ID_Maszyny AS [Numer maszyny], dbo.Srodki_Trwale.Producent, dbo.Srodki_Trwale.Nazwa, dbo.Srodki_Trwale.Numer_seryjny AS [Numer seryjny]
+SELECT        dbo.Maszyny.ID_Maszyny AS [Numer maszyny], dbo.Rodzaj_Maszyny.Rodzaj_Maszyny AS [Rodzaj maszyny], dbo.Srodki_Trwale.Producent, dbo.Srodki_Trwale.Numer_seryjny AS [Numer seryjny]
 FROM            dbo.Srodki_Trwale INNER JOIN
                          dbo.Maszyny ON dbo.Srodki_Trwale.ID_Srodki_trwale = dbo.Maszyny.ID_Srodki_Trwale INNER JOIN
                          dbo.Rodzaj_Maszyny ON dbo.Maszyny.ID_Rodzaj_Maszyny = dbo.Rodzaj_Maszyny.ID_Rodzaj_Maszyny

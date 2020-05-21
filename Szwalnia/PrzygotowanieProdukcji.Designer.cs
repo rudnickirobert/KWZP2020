@@ -31,6 +31,20 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tab_Proces_technologiczny = new System.Windows.Forms.TabControl();
             this.tabpProcesTechnologiczny = new System.Windows.Forms.TabPage();
             this.tabcWyszukajObsluge = new System.Windows.Forms.TabControl();
@@ -39,23 +53,23 @@
             this.tabResurs_Maszyn = new System.Windows.Forms.TabPage();
             this.dgvResursMaszyny = new System.Windows.Forms.DataGridView();
             this.tabZnajdz_dodaj_obsluge = new System.Windows.Forms.TabPage();
-            this.btnDodaj_Obsluge = new System.Windows.Forms.Button();
-            this.dtpData_Zakonczenia = new System.Windows.Forms.DateTimePicker();
-            this.dtpData_Rozpoczecia = new System.Windows.Forms.DateTimePicker();
-            this.cmbRodzaj_Obslugi = new System.Windows.Forms.ComboBox();
-            this.cmbID_Maszyny = new System.Windows.Forms.ComboBox();
-            this.cmbPracownik = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dgvObsluga = new System.Windows.Forms.DataGridView();
-            this.lblDataWykoania = new System.Windows.Forms.Label();
-            this.lblPracownik = new System.Windows.Forms.Label();
-            this.lblMaszyna = new System.Windows.Forms.Label();
-            this.lblRodzaj = new System.Windows.Forms.Label();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.cmbRodzajObslugi = new System.Windows.Forms.ComboBox();
-            this.lblOpis = new System.Windows.Forms.Label();
             this.btnWyszukaj_Obsluge = new System.Windows.Forms.Button();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.cmbRodzaj_Obslugi = new System.Windows.Forms.ComboBox();
+            this.btnDodaj_Obsluge = new System.Windows.Forms.Button();
+            this.lblRodzaj = new System.Windows.Forms.Label();
+            this.dtpData_Zakonczenia = new System.Windows.Forms.DateTimePicker();
+            this.lblMaszyna = new System.Windows.Forms.Label();
+            this.dtpData_Rozpoczecia = new System.Windows.Forms.DateTimePicker();
+            this.lblPracownik = new System.Windows.Forms.Label();
+            this.lblDataWykoania = new System.Windows.Forms.Label();
+            this.cmbID_Maszyny = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbPracownik = new System.Windows.Forms.ComboBox();
+            this.dgvObsluga = new System.Windows.Forms.DataGridView();
             this.tabDodaj_nowa_maszyne = new System.Windows.Forms.TabPage();
-            this.btnOdswiez_Maszyny = new System.Windows.Forms.Button();
             this.dtpGwarancja = new System.Windows.Forms.DateTimePicker();
             this.cmbDzial = new System.Windows.Forms.ComboBox();
             this.cmbRodzaj_Maszyny = new System.Windows.Forms.ComboBox();
@@ -84,7 +98,6 @@
             this.dgvProcesy66 = new System.Windows.Forms.DataGridView();
             this.btnOdswiez_Ogolny = new System.Windows.Forms.Button();
             this.dgvProcesy = new System.Windows.Forms.DataGridView();
-            this.btnSzukajZamowienie = new System.Windows.Forms.Button();
             this.nudNumerZamowienia = new System.Windows.Forms.NumericUpDown();
             this.lblNapis = new System.Windows.Forms.Label();
             this.tabcZamowienia = new System.Windows.Forms.TabControl();
@@ -128,7 +141,20 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tabDodaj_etap = new System.Windows.Forms.TabPage();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.cmbRodzaj_Maszyny2 = new System.Windows.Forms.ComboBox();
+            this.dgvMaszyny_Proces = new System.Windows.Forms.DataGridView();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.txtLiczba_Maszyn = new System.Windows.Forms.TextBox();
+            this.nudDodaj_Maszyne = new System.Windows.Forms.NumericUpDown();
+            this.btnDodaj_Maszyne_Proces = new System.Windows.Forms.Button();
+            this.txtLiczba_Rbh_Maszyn = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.lblNumerProcesu = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvEtapy_proces = new System.Windows.Forms.DataGridView();
@@ -137,39 +163,20 @@
             this.btnDodaj_Etap = new System.Windows.Forms.Button();
             this.nudDodaj_Etap = new System.Windows.Forms.NumericUpDown();
             this.cmbNazwa_Etapu = new System.Windows.Forms.ComboBox();
-            this.dgvMaszyny_Proces = new System.Windows.Forms.DataGridView();
-            this.cmbRodzaj_Maszyny2 = new System.Windows.Forms.ComboBox();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.nudDodaj_Maszyne = new System.Windows.Forms.NumericUpDown();
-            this.txtLiczba_Rbh_Maszyn = new System.Windows.Forms.TextBox();
-            this.btnDodaj_Maszyne_Proces = new System.Windows.Forms.Button();
-            this.txtLiczba_Maszyn = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
             this.tabDodaj_utworz_element = new System.Windows.Forms.TabPage();
-            this.nudNumerProcesu2 = new System.Windows.Forms.NumericUpDown();
-            this.btnOdswiez_Element2 = new System.Windows.Forms.Button();
-            this.label20 = new System.Windows.Forms.Label();
-            this.cmbTyp_Elementu2 = new System.Windows.Forms.ComboBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.btnUtworz_Element = new System.Windows.Forms.Button();
-            this.txtNazwa_Elementu = new System.Windows.Forms.TextBox();
-            this.txtMiesiace_Przydatnosci = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.dgvElement_Proces = new System.Windows.Forms.DataGridView();
             this.dgvWszystkie_Elementy = new System.Windows.Forms.DataGridView();
-            this.cmbTyp_Elementu = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbJednostka = new System.Windows.Forms.ComboBox();
-            this.btnDodaj_Element = new System.Windows.Forms.Button();
-            this.txtLiczba_Elementow = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
+            this.nudNumerProcesu2 = new System.Windows.Forms.NumericUpDown();
             this.label43 = new System.Windows.Forms.Label();
+            this.btnUtworz_Element = new System.Windows.Forms.Button();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cmbTyp_Elementu = new System.Windows.Forms.ComboBox();
+            this.txtLiczba_Elementow = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnDodaj_Element = new System.Windows.Forms.Button();
+            this.cmbJednostka = new System.Windows.Forms.ComboBox();
             this.tabZnajdz_dodaj_proces_technologiczny = new System.Windows.Forms.TabPage();
             this.label47 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
@@ -177,7 +184,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.dgvUkryty2 = new System.Windows.Forms.DataGridView();
             this.btnKompletny_Proces = new System.Windows.Forms.Button();
-            this.btnOdswiez_Znajdz = new System.Windows.Forms.Button();
             this.dgvUkryty = new System.Windows.Forms.DataGridView();
             this.chbKompletny_Proces = new System.Windows.Forms.CheckBox();
             this.dgvProcesy5 = new System.Windows.Forms.DataGridView();
@@ -198,6 +204,8 @@
             this.tabResurs_Maszyn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResursMaszyny)).BeginInit();
             this.tabZnajdz_dodaj_obsluge.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObsluga)).BeginInit();
             this.tabDodaj_nowa_maszyne.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWszystkie_Maszyny)).BeginInit();
@@ -218,15 +226,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDokumentacja)).BeginInit();
             this.tabDodaj_etap.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMaszyny_Proces)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDodaj_Maszyne)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtapy_proces)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDodaj_Etap)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMaszyny_Proces)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDodaj_Maszyne)).BeginInit();
             this.tabDodaj_utworz_element.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudNumerProcesu2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvElement_Proces)).BeginInit();
+            this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWszystkie_Elementy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNumerProcesu2)).BeginInit();
             this.tabZnajdz_dodaj_proces_technologiczny.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUkryty2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUkryty)).BeginInit();
@@ -298,6 +307,14 @@
             this.dgvSerwis.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvSerwis.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvSerwis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSerwis.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvSerwis.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSerwis.Location = new System.Drawing.Point(3, 3);
             this.dgvSerwis.Name = "dgvSerwis";
@@ -321,6 +338,14 @@
             this.dgvResursMaszyny.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvResursMaszyny.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvResursMaszyny.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvResursMaszyny.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvResursMaszyny.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvResursMaszyny.Location = new System.Drawing.Point(0, 0);
             this.dgvResursMaszyny.Name = "dgvResursMaszyny";
@@ -330,21 +355,9 @@
             // 
             // tabZnajdz_dodaj_obsluge
             // 
-            this.tabZnajdz_dodaj_obsluge.Controls.Add(this.btnDodaj_Obsluge);
-            this.tabZnajdz_dodaj_obsluge.Controls.Add(this.dtpData_Zakonczenia);
-            this.tabZnajdz_dodaj_obsluge.Controls.Add(this.dtpData_Rozpoczecia);
-            this.tabZnajdz_dodaj_obsluge.Controls.Add(this.cmbRodzaj_Obslugi);
-            this.tabZnajdz_dodaj_obsluge.Controls.Add(this.cmbID_Maszyny);
-            this.tabZnajdz_dodaj_obsluge.Controls.Add(this.cmbPracownik);
-            this.tabZnajdz_dodaj_obsluge.Controls.Add(this.label2);
+            this.tabZnajdz_dodaj_obsluge.Controls.Add(this.groupBox9);
+            this.tabZnajdz_dodaj_obsluge.Controls.Add(this.groupBox8);
             this.tabZnajdz_dodaj_obsluge.Controls.Add(this.dgvObsluga);
-            this.tabZnajdz_dodaj_obsluge.Controls.Add(this.lblDataWykoania);
-            this.tabZnajdz_dodaj_obsluge.Controls.Add(this.lblPracownik);
-            this.tabZnajdz_dodaj_obsluge.Controls.Add(this.lblMaszyna);
-            this.tabZnajdz_dodaj_obsluge.Controls.Add(this.lblRodzaj);
-            this.tabZnajdz_dodaj_obsluge.Controls.Add(this.cmbRodzajObslugi);
-            this.tabZnajdz_dodaj_obsluge.Controls.Add(this.lblOpis);
-            this.tabZnajdz_dodaj_obsluge.Controls.Add(this.btnWyszukaj_Obsluge);
             this.tabZnajdz_dodaj_obsluge.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tabZnajdz_dodaj_obsluge.Location = new System.Drawing.Point(4, 43);
             this.tabZnajdz_dodaj_obsluge.Name = "tabZnajdz_dodaj_obsluge";
@@ -354,154 +367,26 @@
             this.tabZnajdz_dodaj_obsluge.Text = "Znajdź / dodaj obsługę techniczą";
             this.tabZnajdz_dodaj_obsluge.UseVisualStyleBackColor = true;
             // 
-            // btnDodaj_Obsluge
+            // groupBox9
             // 
-            this.btnDodaj_Obsluge.BackColor = System.Drawing.Color.Yellow;
-            this.btnDodaj_Obsluge.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnDodaj_Obsluge.FlatAppearance.BorderSize = 2;
-            this.btnDodaj_Obsluge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDodaj_Obsluge.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDodaj_Obsluge.Location = new System.Drawing.Point(814, 426);
-            this.btnDodaj_Obsluge.Margin = new System.Windows.Forms.Padding(2);
-            this.btnDodaj_Obsluge.Name = "btnDodaj_Obsluge";
-            this.btnDodaj_Obsluge.Size = new System.Drawing.Size(232, 33);
-            this.btnDodaj_Obsluge.TabIndex = 55;
-            this.btnDodaj_Obsluge.Text = "Dodaj obsługę";
-            this.btnDodaj_Obsluge.UseVisualStyleBackColor = false;
-            this.btnDodaj_Obsluge.Click += new System.EventHandler(this.btnDodaj_Obsluge_Click);
-            // 
-            // dtpData_Zakonczenia
-            // 
-            this.dtpData_Zakonczenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dtpData_Zakonczenia.Location = new System.Drawing.Point(855, 370);
-            this.dtpData_Zakonczenia.Name = "dtpData_Zakonczenia";
-            this.dtpData_Zakonczenia.Size = new System.Drawing.Size(274, 26);
-            this.dtpData_Zakonczenia.TabIndex = 54;
-            // 
-            // dtpData_Rozpoczecia
-            // 
-            this.dtpData_Rozpoczecia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dtpData_Rozpoczecia.Location = new System.Drawing.Point(856, 322);
-            this.dtpData_Rozpoczecia.Name = "dtpData_Rozpoczecia";
-            this.dtpData_Rozpoczecia.Size = new System.Drawing.Size(273, 26);
-            this.dtpData_Rozpoczecia.TabIndex = 53;
-            // 
-            // cmbRodzaj_Obslugi
-            // 
-            this.cmbRodzaj_Obslugi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cmbRodzaj_Obslugi.FormattingEnabled = true;
-            this.cmbRodzaj_Obslugi.Location = new System.Drawing.Point(855, 152);
-            this.cmbRodzaj_Obslugi.Name = "cmbRodzaj_Obslugi";
-            this.cmbRodzaj_Obslugi.Size = new System.Drawing.Size(274, 28);
-            this.cmbRodzaj_Obslugi.TabIndex = 52;
-            // 
-            // cmbID_Maszyny
-            // 
-            this.cmbID_Maszyny.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cmbID_Maszyny.FormattingEnabled = true;
-            this.cmbID_Maszyny.Location = new System.Drawing.Point(814, 208);
-            this.cmbID_Maszyny.Name = "cmbID_Maszyny";
-            this.cmbID_Maszyny.Size = new System.Drawing.Size(315, 28);
-            this.cmbID_Maszyny.TabIndex = 51;
-            // 
-            // cmbPracownik
-            // 
-            this.cmbPracownik.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cmbPracownik.FormattingEnabled = true;
-            this.cmbPracownik.Location = new System.Drawing.Point(814, 272);
-            this.cmbPracownik.Name = "cmbPracownik";
-            this.cmbPracownik.Size = new System.Drawing.Size(315, 28);
-            this.cmbPracownik.TabIndex = 50;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(710, 373);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(145, 20);
-            this.label2.TabIndex = 49;
-            this.label2.Text = "Data zakończenia :";
-            // 
-            // dgvObsluga
-            // 
-            this.dgvObsluga.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvObsluga.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvObsluga.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvObsluga.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvObsluga.Location = new System.Drawing.Point(10, 73);
-            this.dgvObsluga.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvObsluga.Name = "dgvObsluga";
-            this.dgvObsluga.RowHeadersWidth = 51;
-            this.dgvObsluga.RowTemplate.Height = 24;
-            this.dgvObsluga.Size = new System.Drawing.Size(672, 503);
-            this.dgvObsluga.TabIndex = 48;
-            // 
-            // lblDataWykoania
-            // 
-            this.lblDataWykoania.AutoSize = true;
-            this.lblDataWykoania.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblDataWykoania.Location = new System.Drawing.Point(710, 325);
-            this.lblDataWykoania.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDataWykoania.Name = "lblDataWykoania";
-            this.lblDataWykoania.Size = new System.Drawing.Size(141, 20);
-            this.lblDataWykoania.TabIndex = 43;
-            this.lblDataWykoania.Text = "Data rozpoczęcia :";
-            // 
-            // lblPracownik
-            // 
-            this.lblPracownik.AutoSize = true;
-            this.lblPracownik.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblPracownik.Location = new System.Drawing.Point(710, 272);
-            this.lblPracownik.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblPracownik.Name = "lblPracownik";
-            this.lblPracownik.Size = new System.Drawing.Size(89, 20);
-            this.lblPracownik.TabIndex = 42;
-            this.lblPracownik.Text = "Pracownik :";
-            // 
-            // lblMaszyna
-            // 
-            this.lblMaszyna.AutoSize = true;
-            this.lblMaszyna.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblMaszyna.Location = new System.Drawing.Point(710, 214);
-            this.lblMaszyna.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblMaszyna.Name = "lblMaszyna";
-            this.lblMaszyna.Size = new System.Drawing.Size(80, 20);
-            this.lblMaszyna.TabIndex = 41;
-            this.lblMaszyna.Text = "Maszyna :";
-            // 
-            // lblRodzaj
-            // 
-            this.lblRodzaj.AutoSize = true;
-            this.lblRodzaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblRodzaj.Location = new System.Drawing.Point(708, 155);
-            this.lblRodzaj.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblRodzaj.Name = "lblRodzaj";
-            this.lblRodzaj.Size = new System.Drawing.Size(122, 20);
-            this.lblRodzaj.TabIndex = 40;
-            this.lblRodzaj.Text = "Rodzaj obsługi :";
+            this.groupBox9.Controls.Add(this.cmbRodzajObslugi);
+            this.groupBox9.Controls.Add(this.btnWyszukaj_Obsluge);
+            this.groupBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.groupBox9.Location = new System.Drawing.Point(76, 22);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(355, 146);
+            this.groupBox9.TabIndex = 57;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Wyszukaj obsługę po rodzaju :";
             // 
             // cmbRodzajObslugi
             // 
             this.cmbRodzajObslugi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbRodzajObslugi.FormattingEnabled = true;
-            this.cmbRodzajObslugi.Location = new System.Drawing.Point(364, 34);
+            this.cmbRodzajObslugi.Location = new System.Drawing.Point(100, 41);
             this.cmbRodzajObslugi.Name = "cmbRodzajObslugi";
-            this.cmbRodzajObslugi.Size = new System.Drawing.Size(147, 28);
+            this.cmbRodzajObslugi.Size = new System.Drawing.Size(173, 28);
             this.cmbRodzajObslugi.TabIndex = 22;
-            // 
-            // lblOpis
-            // 
-            this.lblOpis.AutoSize = true;
-            this.lblOpis.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblOpis.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblOpis.Location = new System.Drawing.Point(5, 34);
-            this.lblOpis.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblOpis.Name = "lblOpis";
-            this.lblOpis.Size = new System.Drawing.Size(354, 24);
-            this.lblOpis.TabIndex = 21;
-            this.lblOpis.Text = "Wybierz rodzaj osbługi jaki szukasz :";
             // 
             // btnWyszukaj_Obsluge
             // 
@@ -511,18 +396,175 @@
             this.btnWyszukaj_Obsluge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWyszukaj_Obsluge.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnWyszukaj_Obsluge.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnWyszukaj_Obsluge.Location = new System.Drawing.Point(550, 30);
+            this.btnWyszukaj_Obsluge.Location = new System.Drawing.Point(100, 84);
             this.btnWyszukaj_Obsluge.Margin = new System.Windows.Forms.Padding(2);
             this.btnWyszukaj_Obsluge.Name = "btnWyszukaj_Obsluge";
-            this.btnWyszukaj_Obsluge.Size = new System.Drawing.Size(183, 33);
+            this.btnWyszukaj_Obsluge.Size = new System.Drawing.Size(173, 33);
             this.btnWyszukaj_Obsluge.TabIndex = 18;
             this.btnWyszukaj_Obsluge.Text = "Szukaj";
             this.btnWyszukaj_Obsluge.UseVisualStyleBackColor = false;
             this.btnWyszukaj_Obsluge.Click += new System.EventHandler(this.btnWyszukaj_Obsluge_Click);
             // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.cmbRodzaj_Obslugi);
+            this.groupBox8.Controls.Add(this.btnDodaj_Obsluge);
+            this.groupBox8.Controls.Add(this.lblRodzaj);
+            this.groupBox8.Controls.Add(this.dtpData_Zakonczenia);
+            this.groupBox8.Controls.Add(this.lblMaszyna);
+            this.groupBox8.Controls.Add(this.dtpData_Rozpoczecia);
+            this.groupBox8.Controls.Add(this.lblPracownik);
+            this.groupBox8.Controls.Add(this.lblDataWykoania);
+            this.groupBox8.Controls.Add(this.cmbID_Maszyny);
+            this.groupBox8.Controls.Add(this.label2);
+            this.groupBox8.Controls.Add(this.cmbPracownik);
+            this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.groupBox8.Location = new System.Drawing.Point(526, 22);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(475, 259);
+            this.groupBox8.TabIndex = 56;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Dodaj nową obsługę :";
+            // 
+            // cmbRodzaj_Obslugi
+            // 
+            this.cmbRodzaj_Obslugi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cmbRodzaj_Obslugi.FormattingEnabled = true;
+            this.cmbRodzaj_Obslugi.Location = new System.Drawing.Point(179, 41);
+            this.cmbRodzaj_Obslugi.Name = "cmbRodzaj_Obslugi";
+            this.cmbRodzaj_Obslugi.Size = new System.Drawing.Size(274, 28);
+            this.cmbRodzaj_Obslugi.TabIndex = 52;
+            // 
+            // btnDodaj_Obsluge
+            // 
+            this.btnDodaj_Obsluge.BackColor = System.Drawing.Color.Yellow;
+            this.btnDodaj_Obsluge.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnDodaj_Obsluge.FlatAppearance.BorderSize = 2;
+            this.btnDodaj_Obsluge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDodaj_Obsluge.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnDodaj_Obsluge.Location = new System.Drawing.Point(128, 212);
+            this.btnDodaj_Obsluge.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDodaj_Obsluge.Name = "btnDodaj_Obsluge";
+            this.btnDodaj_Obsluge.Size = new System.Drawing.Size(232, 33);
+            this.btnDodaj_Obsluge.TabIndex = 55;
+            this.btnDodaj_Obsluge.Text = "Dodaj obsługę";
+            this.btnDodaj_Obsluge.UseVisualStyleBackColor = false;
+            this.btnDodaj_Obsluge.Click += new System.EventHandler(this.btnDodaj_Obsluge_Click);
+            // 
+            // lblRodzaj
+            // 
+            this.lblRodzaj.AutoSize = true;
+            this.lblRodzaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblRodzaj.Location = new System.Drawing.Point(52, 44);
+            this.lblRodzaj.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblRodzaj.Name = "lblRodzaj";
+            this.lblRodzaj.Size = new System.Drawing.Size(122, 20);
+            this.lblRodzaj.TabIndex = 40;
+            this.lblRodzaj.Text = "Rodzaj obsługi :";
+            // 
+            // dtpData_Zakonczenia
+            // 
+            this.dtpData_Zakonczenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dtpData_Zakonczenia.Location = new System.Drawing.Point(179, 175);
+            this.dtpData_Zakonczenia.Name = "dtpData_Zakonczenia";
+            this.dtpData_Zakonczenia.Size = new System.Drawing.Size(274, 26);
+            this.dtpData_Zakonczenia.TabIndex = 54;
+            // 
+            // lblMaszyna
+            // 
+            this.lblMaszyna.AutoSize = true;
+            this.lblMaszyna.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblMaszyna.Location = new System.Drawing.Point(53, 78);
+            this.lblMaszyna.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMaszyna.Name = "lblMaszyna";
+            this.lblMaszyna.Size = new System.Drawing.Size(80, 20);
+            this.lblMaszyna.TabIndex = 41;
+            this.lblMaszyna.Text = "Maszyna :";
+            // 
+            // dtpData_Rozpoczecia
+            // 
+            this.dtpData_Rozpoczecia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dtpData_Rozpoczecia.Location = new System.Drawing.Point(179, 143);
+            this.dtpData_Rozpoczecia.Name = "dtpData_Rozpoczecia";
+            this.dtpData_Rozpoczecia.Size = new System.Drawing.Size(273, 26);
+            this.dtpData_Rozpoczecia.TabIndex = 53;
+            // 
+            // lblPracownik
+            // 
+            this.lblPracownik.AutoSize = true;
+            this.lblPracownik.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblPracownik.Location = new System.Drawing.Point(44, 112);
+            this.lblPracownik.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPracownik.Name = "lblPracownik";
+            this.lblPracownik.Size = new System.Drawing.Size(89, 20);
+            this.lblPracownik.TabIndex = 42;
+            this.lblPracownik.Text = "Pracownik :";
+            // 
+            // lblDataWykoania
+            // 
+            this.lblDataWykoania.AutoSize = true;
+            this.lblDataWykoania.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblDataWykoania.Location = new System.Drawing.Point(33, 148);
+            this.lblDataWykoania.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDataWykoania.Name = "lblDataWykoania";
+            this.lblDataWykoania.Size = new System.Drawing.Size(141, 20);
+            this.lblDataWykoania.TabIndex = 43;
+            this.lblDataWykoania.Text = "Data rozpoczęcia :";
+            // 
+            // cmbID_Maszyny
+            // 
+            this.cmbID_Maszyny.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cmbID_Maszyny.FormattingEnabled = true;
+            this.cmbID_Maszyny.Location = new System.Drawing.Point(138, 75);
+            this.cmbID_Maszyny.Name = "cmbID_Maszyny";
+            this.cmbID_Maszyny.Size = new System.Drawing.Size(315, 28);
+            this.cmbID_Maszyny.TabIndex = 51;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(29, 180);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(145, 20);
+            this.label2.TabIndex = 49;
+            this.label2.Text = "Data zakończenia :";
+            // 
+            // cmbPracownik
+            // 
+            this.cmbPracownik.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cmbPracownik.FormattingEnabled = true;
+            this.cmbPracownik.Location = new System.Drawing.Point(138, 109);
+            this.cmbPracownik.Name = "cmbPracownik";
+            this.cmbPracownik.Size = new System.Drawing.Size(315, 28);
+            this.cmbPracownik.TabIndex = 50;
+            // 
+            // dgvObsluga
+            // 
+            this.dgvObsluga.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvObsluga.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvObsluga.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvObsluga.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvObsluga.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvObsluga.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvObsluga.Location = new System.Drawing.Point(3, 298);
+            this.dgvObsluga.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvObsluga.Name = "dgvObsluga";
+            this.dgvObsluga.RowHeadersWidth = 51;
+            this.dgvObsluga.RowTemplate.Height = 24;
+            this.dgvObsluga.Size = new System.Drawing.Size(1203, 342);
+            this.dgvObsluga.TabIndex = 48;
+            // 
             // tabDodaj_nowa_maszyne
             // 
-            this.tabDodaj_nowa_maszyne.Controls.Add(this.btnOdswiez_Maszyny);
             this.tabDodaj_nowa_maszyne.Controls.Add(this.dtpGwarancja);
             this.tabDodaj_nowa_maszyne.Controls.Add(this.cmbDzial);
             this.tabDodaj_nowa_maszyne.Controls.Add(this.cmbRodzaj_Maszyny);
@@ -547,6 +589,7 @@
             this.tabDodaj_nowa_maszyne.Controls.Add(this.label6);
             this.tabDodaj_nowa_maszyne.Controls.Add(this.label34);
             this.tabDodaj_nowa_maszyne.Controls.Add(this.label33);
+            this.tabDodaj_nowa_maszyne.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tabDodaj_nowa_maszyne.Location = new System.Drawing.Point(4, 43);
             this.tabDodaj_nowa_maszyne.Name = "tabDodaj_nowa_maszyne";
             this.tabDodaj_nowa_maszyne.Size = new System.Drawing.Size(1209, 643);
@@ -554,23 +597,9 @@
             this.tabDodaj_nowa_maszyne.Text = "Dodaj nową maszynę";
             this.tabDodaj_nowa_maszyne.UseVisualStyleBackColor = true;
             // 
-            // btnOdswiez_Maszyny
-            // 
-            this.btnOdswiez_Maszyny.BackColor = System.Drawing.Color.Yellow;
-            this.btnOdswiez_Maszyny.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnOdswiez_Maszyny.FlatAppearance.BorderSize = 2;
-            this.btnOdswiez_Maszyny.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOdswiez_Maszyny.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnOdswiez_Maszyny.Location = new System.Drawing.Point(347, 580);
-            this.btnOdswiez_Maszyny.Name = "btnOdswiez_Maszyny";
-            this.btnOdswiez_Maszyny.Size = new System.Drawing.Size(318, 42);
-            this.btnOdswiez_Maszyny.TabIndex = 67;
-            this.btnOdswiez_Maszyny.Text = "Odśwież";
-            this.btnOdswiez_Maszyny.UseVisualStyleBackColor = false;
-            this.btnOdswiez_Maszyny.Click += new System.EventHandler(this.btnOdswiez_Maszyny_Click);
-            // 
             // dtpGwarancja
             // 
+            this.dtpGwarancja.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dtpGwarancja.Location = new System.Drawing.Point(23, 532);
             this.dtpGwarancja.Name = "dtpGwarancja";
             this.dtpGwarancja.Size = new System.Drawing.Size(318, 27);
@@ -578,6 +607,7 @@
             // 
             // cmbDzial
             // 
+            this.cmbDzial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbDzial.FormattingEnabled = true;
             this.cmbDzial.Location = new System.Drawing.Point(162, 351);
             this.cmbDzial.Name = "cmbDzial";
@@ -586,6 +616,7 @@
             // 
             // cmbRodzaj_Maszyny
             // 
+            this.cmbRodzaj_Maszyny.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbRodzaj_Maszyny.FormattingEnabled = true;
             this.cmbRodzaj_Maszyny.Location = new System.Drawing.Point(182, 77);
             this.cmbRodzaj_Maszyny.Name = "cmbRodzaj_Maszyny";
@@ -597,6 +628,14 @@
             this.dgvWszystkie_Maszyny.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvWszystkie_Maszyny.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvWszystkie_Maszyny.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvWszystkie_Maszyny.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvWszystkie_Maszyny.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvWszystkie_Maszyny.Location = new System.Drawing.Point(424, 63);
             this.dgvWszystkie_Maszyny.Name = "dgvWszystkie_Maszyny";
@@ -621,6 +660,7 @@
             // 
             // txtZamortyzowane
             // 
+            this.txtZamortyzowane.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtZamortyzowane.Location = new System.Drawing.Point(185, 217);
             this.txtZamortyzowane.Name = "txtZamortyzowane";
             this.txtZamortyzowane.Size = new System.Drawing.Size(223, 27);
@@ -628,6 +668,7 @@
             // 
             // txtAmortyzacja
             // 
+            this.txtAmortyzacja.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtAmortyzacja.Location = new System.Drawing.Point(272, 438);
             this.txtAmortyzacja.Name = "txtAmortyzacja";
             this.txtAmortyzacja.Size = new System.Drawing.Size(136, 27);
@@ -635,6 +676,7 @@
             // 
             // txtKoszt_Zakupu
             // 
+            this.txtKoszt_Zakupu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtKoszt_Zakupu.Location = new System.Drawing.Point(272, 394);
             this.txtKoszt_Zakupu.Name = "txtKoszt_Zakupu";
             this.txtKoszt_Zakupu.Size = new System.Drawing.Size(136, 27);
@@ -642,6 +684,7 @@
             // 
             // txtSerwis
             // 
+            this.txtSerwis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtSerwis.Location = new System.Drawing.Point(272, 307);
             this.txtSerwis.Name = "txtSerwis";
             this.txtSerwis.Size = new System.Drawing.Size(136, 27);
@@ -649,6 +692,7 @@
             // 
             // txtResurs_Rbh
             // 
+            this.txtResurs_Rbh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtResurs_Rbh.Location = new System.Drawing.Point(272, 268);
             this.txtResurs_Rbh.Name = "txtResurs_Rbh";
             this.txtResurs_Rbh.Size = new System.Drawing.Size(136, 27);
@@ -656,6 +700,7 @@
             // 
             // txtNumer_Seryjny
             // 
+            this.txtNumer_Seryjny.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtNumer_Seryjny.Location = new System.Drawing.Point(182, 169);
             this.txtNumer_Seryjny.Name = "txtNumer_Seryjny";
             this.txtNumer_Seryjny.Size = new System.Drawing.Size(226, 27);
@@ -663,6 +708,7 @@
             // 
             // txtProducent
             // 
+            this.txtProducent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtProducent.Location = new System.Drawing.Point(182, 124);
             this.txtProducent.Name = "txtProducent";
             this.txtProducent.Size = new System.Drawing.Size(226, 27);
@@ -795,7 +841,6 @@
             this.tabpZarzadzanieParkiemMaszynowym.Controls.Add(this.dgvProcesy66);
             this.tabpZarzadzanieParkiemMaszynowym.Controls.Add(this.btnOdswiez_Ogolny);
             this.tabpZarzadzanieParkiemMaszynowym.Controls.Add(this.dgvProcesy);
-            this.tabpZarzadzanieParkiemMaszynowym.Controls.Add(this.btnSzukajZamowienie);
             this.tabpZarzadzanieParkiemMaszynowym.Controls.Add(this.nudNumerZamowienia);
             this.tabpZarzadzanieParkiemMaszynowym.Controls.Add(this.lblNapis);
             this.tabpZarzadzanieParkiemMaszynowym.Controls.Add(this.tabcZamowienia);
@@ -813,21 +858,21 @@
             this.dgvProcesy66.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvProcesy66.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvProcesy66.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(1);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProcesy66.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(1);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProcesy66.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvProcesy66.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProcesy66.Location = new System.Drawing.Point(658, 47);
+            this.dgvProcesy66.Location = new System.Drawing.Point(747, 47);
             this.dgvProcesy66.Name = "dgvProcesy66";
             this.dgvProcesy66.RowHeadersWidth = 51;
             this.dgvProcesy66.RowTemplate.Height = 60;
-            this.dgvProcesy66.Size = new System.Drawing.Size(569, 95);
+            this.dgvProcesy66.Size = new System.Drawing.Size(557, 106);
             this.dgvProcesy66.TabIndex = 9;
             // 
             // btnOdswiez_Ogolny
@@ -837,7 +882,7 @@
             this.btnOdswiez_Ogolny.FlatAppearance.BorderSize = 2;
             this.btnOdswiez_Ogolny.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOdswiez_Ogolny.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnOdswiez_Ogolny.Location = new System.Drawing.Point(646, 5);
+            this.btnOdswiez_Ogolny.Location = new System.Drawing.Point(522, 6);
             this.btnOdswiez_Ogolny.Name = "btnOdswiez_Ogolny";
             this.btnOdswiez_Ogolny.Size = new System.Drawing.Size(118, 40);
             this.btnOdswiez_Ogolny.TabIndex = 8;
@@ -850,38 +895,23 @@
             this.dgvProcesy.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvProcesy.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvProcesy.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(1);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProcesy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(1);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProcesy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvProcesy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProcesy.Location = new System.Drawing.Point(9, 47);
             this.dgvProcesy.Name = "dgvProcesy";
             this.dgvProcesy.RowHeadersWidth = 51;
             this.dgvProcesy.RowTemplate.Height = 60;
-            this.dgvProcesy.Size = new System.Drawing.Size(643, 95);
+            this.dgvProcesy.Size = new System.Drawing.Size(739, 106);
             this.dgvProcesy.TabIndex = 7;
             this.dgvProcesy.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProcesy_CellDoubleClick);
-            // 
-            // btnSzukajZamowienie
-            // 
-            this.btnSzukajZamowienie.BackColor = System.Drawing.Color.Yellow;
-            this.btnSzukajZamowienie.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnSzukajZamowienie.FlatAppearance.BorderSize = 2;
-            this.btnSzukajZamowienie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSzukajZamowienie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnSzukajZamowienie.Location = new System.Drawing.Point(522, 5);
-            this.btnSzukajZamowienie.Name = "btnSzukajZamowienie";
-            this.btnSzukajZamowienie.Size = new System.Drawing.Size(118, 40);
-            this.btnSzukajZamowienie.TabIndex = 6;
-            this.btnSzukajZamowienie.Text = "Szukaj";
-            this.btnSzukajZamowienie.UseVisualStyleBackColor = false;
-            this.btnSzukajZamowienie.Click += new System.EventHandler(this.btnSzukajZamowienie_Click);
             // 
             // nudNumerZamowienia
             // 
@@ -911,13 +941,13 @@
             this.tabcZamowienia.Controls.Add(this.tabDodaj_utworz_element);
             this.tabcZamowienia.Controls.Add(this.tabZnajdz_dodaj_proces_technologiczny);
             this.tabcZamowienia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tabcZamowienia.Location = new System.Drawing.Point(0, 145);
+            this.tabcZamowienia.Location = new System.Drawing.Point(0, 151);
             this.tabcZamowienia.Margin = new System.Windows.Forms.Padding(6);
             this.tabcZamowienia.Name = "tabcZamowienia";
             this.tabcZamowienia.Padding = new System.Drawing.Point(8, 8);
             this.tabcZamowienia.RightToLeftLayout = true;
             this.tabcZamowienia.SelectedIndex = 0;
-            this.tabcZamowienia.Size = new System.Drawing.Size(1439, 562);
+            this.tabcZamowienia.Size = new System.Drawing.Size(1439, 556);
             this.tabcZamowienia.TabIndex = 0;
             // 
             // tabZamowienia
@@ -925,7 +955,7 @@
             this.tabZamowienia.Controls.Add(this.dgvZamowienia);
             this.tabZamowienia.Location = new System.Drawing.Point(4, 39);
             this.tabZamowienia.Name = "tabZamowienia";
-            this.tabZamowienia.Size = new System.Drawing.Size(1431, 519);
+            this.tabZamowienia.Size = new System.Drawing.Size(1431, 513);
             this.tabZamowienia.TabIndex = 8;
             this.tabZamowienia.Text = "Zamówienia";
             this.tabZamowienia.UseVisualStyleBackColor = true;
@@ -935,8 +965,24 @@
             this.dgvZamowienia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvZamowienia.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvZamowienia.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvZamowienia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvZamowienia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvZamowienia.Cursor = System.Windows.Forms.Cursors.Default;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvZamowienia.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvZamowienia.Location = new System.Drawing.Point(3, 0);
             this.dgvZamowienia.Margin = new System.Windows.Forms.Padding(6);
             this.dgvZamowienia.Name = "dgvZamowienia";
@@ -953,7 +999,7 @@
             this.tabPrzypisz_proces_do_zamowienia.Controls.Add(this.groupBox1);
             this.tabPrzypisz_proces_do_zamowienia.Location = new System.Drawing.Point(4, 39);
             this.tabPrzypisz_proces_do_zamowienia.Name = "tabPrzypisz_proces_do_zamowienia";
-            this.tabPrzypisz_proces_do_zamowienia.Size = new System.Drawing.Size(1431, 519);
+            this.tabPrzypisz_proces_do_zamowienia.Size = new System.Drawing.Size(1431, 513);
             this.tabPrzypisz_proces_do_zamowienia.TabIndex = 6;
             this.tabPrzypisz_proces_do_zamowienia.Text = "Proces / Zamówienie";
             // 
@@ -1109,7 +1155,7 @@
             this.tabZnajdz_dodaj_dokumentacje.Location = new System.Drawing.Point(4, 39);
             this.tabZnajdz_dodaj_dokumentacje.Name = "tabZnajdz_dodaj_dokumentacje";
             this.tabZnajdz_dodaj_dokumentacje.Padding = new System.Windows.Forms.Padding(3);
-            this.tabZnajdz_dodaj_dokumentacje.Size = new System.Drawing.Size(1431, 519);
+            this.tabZnajdz_dodaj_dokumentacje.Size = new System.Drawing.Size(1431, 513);
             this.tabZnajdz_dodaj_dokumentacje.TabIndex = 1;
             this.tabZnajdz_dodaj_dokumentacje.Text = "Dokumentacja";
             this.tabZnajdz_dodaj_dokumentacje.UseVisualStyleBackColor = true;
@@ -1122,9 +1168,9 @@
             this.groupBox4.Controls.Add(this.cmbID_Proces_Technologiczny);
             this.groupBox4.Controls.Add(this.nud_Numer_Dokumentacji);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBox4.Location = new System.Drawing.Point(632, 330);
+            this.groupBox4.Location = new System.Drawing.Point(548, 230);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(533, 149);
+            this.groupBox4.Size = new System.Drawing.Size(387, 149);
             this.groupBox4.TabIndex = 82;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Przypisz dokumentację do procesu :";
@@ -1195,7 +1241,7 @@
             this.groupBox3.Controls.Add(this.dtpData_Wykonania_Dokumentacja);
             this.groupBox3.Controls.Add(this.cmbRodzaj_Dokumentacji);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBox3.Location = new System.Drawing.Point(632, 60);
+            this.groupBox3.Location = new System.Drawing.Point(9, 230);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(533, 252);
             this.groupBox3.TabIndex = 81;
@@ -1208,9 +1254,9 @@
             this.lblNumerDokumentacji.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblNumerDokumentacji.Location = new System.Drawing.Point(185, 35);
             this.lblNumerDokumentacji.Name = "lblNumerDokumentacji";
-            this.lblNumerDokumentacji.Size = new System.Drawing.Size(62, 20);
+            this.lblNumerDokumentacji.Size = new System.Drawing.Size(14, 20);
             this.lblNumerDokumentacji.TabIndex = 80;
-            this.lblNumerDokumentacji.Text = "label46";
+            this.lblNumerDokumentacji.Text = " ";
             // 
             // label11
             // 
@@ -1339,10 +1385,18 @@
             this.dgvDokumentacja.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvDokumentacja.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvDokumentacja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDokumentacja.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgvDokumentacja.Location = new System.Drawing.Point(5, 71);
             this.dgvDokumentacja.Name = "dgvDokumentacja";
             this.dgvDokumentacja.RowHeadersWidth = 51;
-            this.dgvDokumentacja.Size = new System.Drawing.Size(621, 408);
+            this.dgvDokumentacja.Size = new System.Drawing.Size(930, 153);
             this.dgvDokumentacja.TabIndex = 1;
             // 
             // label8
@@ -1368,28 +1422,158 @@
             // 
             // tabDodaj_etap
             // 
+            this.tabDodaj_etap.Controls.Add(this.groupBox6);
             this.tabDodaj_etap.Controls.Add(this.groupBox5);
-            this.tabDodaj_etap.Controls.Add(this.dgvMaszyny_Proces);
-            this.tabDodaj_etap.Controls.Add(this.cmbRodzaj_Maszyny2);
-            this.tabDodaj_etap.Controls.Add(this.label44);
-            this.tabDodaj_etap.Controls.Add(this.label27);
-            this.tabDodaj_etap.Controls.Add(this.nudDodaj_Maszyne);
-            this.tabDodaj_etap.Controls.Add(this.txtLiczba_Rbh_Maszyn);
-            this.tabDodaj_etap.Controls.Add(this.btnDodaj_Maszyne_Proces);
-            this.tabDodaj_etap.Controls.Add(this.txtLiczba_Maszyn);
-            this.tabDodaj_etap.Controls.Add(this.label29);
-            this.tabDodaj_etap.Controls.Add(this.label30);
-            this.tabDodaj_etap.Controls.Add(this.label31);
             this.tabDodaj_etap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tabDodaj_etap.Location = new System.Drawing.Point(4, 39);
             this.tabDodaj_etap.Name = "tabDodaj_etap";
-            this.tabDodaj_etap.Size = new System.Drawing.Size(1431, 519);
+            this.tabDodaj_etap.Size = new System.Drawing.Size(1431, 513);
             this.tabDodaj_etap.TabIndex = 3;
             this.tabDodaj_etap.Text = "Dodaj etap / maszynę";
             this.tabDodaj_etap.UseVisualStyleBackColor = true;
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label21);
+            this.groupBox6.Controls.Add(this.cmbRodzaj_Maszyny2);
+            this.groupBox6.Controls.Add(this.dgvMaszyny_Proces);
+            this.groupBox6.Controls.Add(this.label31);
+            this.groupBox6.Controls.Add(this.label44);
+            this.groupBox6.Controls.Add(this.label29);
+            this.groupBox6.Controls.Add(this.label27);
+            this.groupBox6.Controls.Add(this.txtLiczba_Maszyn);
+            this.groupBox6.Controls.Add(this.nudDodaj_Maszyne);
+            this.groupBox6.Controls.Add(this.btnDodaj_Maszyne_Proces);
+            this.groupBox6.Controls.Add(this.txtLiczba_Rbh_Maszyn);
+            this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.groupBox6.Location = new System.Drawing.Point(559, 12);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(687, 476);
+            this.groupBox6.TabIndex = 57;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Dodaj maszynę :";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label21.Location = new System.Drawing.Point(17, 210);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(282, 16);
+            this.label21.TabIndex = 82;
+            this.label21.Text = "Maszyny w danym procesie technologicznym :";
+            // 
+            // cmbRodzaj_Maszyny2
+            // 
+            this.cmbRodzaj_Maszyny2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cmbRodzaj_Maszyny2.FormattingEnabled = true;
+            this.cmbRodzaj_Maszyny2.Location = new System.Drawing.Point(264, 69);
+            this.cmbRodzaj_Maszyny2.Name = "cmbRodzaj_Maszyny2";
+            this.cmbRodzaj_Maszyny2.Size = new System.Drawing.Size(199, 28);
+            this.cmbRodzaj_Maszyny2.TabIndex = 54;
+            // 
+            // dgvMaszyny_Proces
+            // 
+            this.dgvMaszyny_Proces.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvMaszyny_Proces.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvMaszyny_Proces.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvMaszyny_Proces.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMaszyny_Proces.DefaultCellStyle = dataGridViewCellStyle10;
+            this.dgvMaszyny_Proces.Location = new System.Drawing.Point(6, 229);
+            this.dgvMaszyny_Proces.Name = "dgvMaszyny_Proces";
+            this.dgvMaszyny_Proces.RowHeadersWidth = 51;
+            this.dgvMaszyny_Proces.Size = new System.Drawing.Size(675, 236);
+            this.dgvMaszyny_Proces.TabIndex = 55;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label31.Location = new System.Drawing.Point(135, 41);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(125, 20);
+            this.label31.TabIndex = 46;
+            this.label31.Text = "Numer procesu :";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label44.Location = new System.Drawing.Point(93, 138);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(171, 20);
+            this.label44.TabIndex = 53;
+            this.label44.Text = "Liczba roboczogodzin :";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label29.Location = new System.Drawing.Point(132, 74);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(132, 20);
+            this.label29.TabIndex = 48;
+            this.label29.Text = "Rodzaj maszyny :";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label27.Location = new System.Drawing.Point(143, 106);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(121, 20);
+            this.label27.TabIndex = 53;
+            this.label27.Text = "Liczba maszyn :";
+            // 
+            // txtLiczba_Maszyn
+            // 
+            this.txtLiczba_Maszyn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtLiczba_Maszyn.Location = new System.Drawing.Point(264, 103);
+            this.txtLiczba_Maszyn.Name = "txtLiczba_Maszyn";
+            this.txtLiczba_Maszyn.Size = new System.Drawing.Size(199, 26);
+            this.txtLiczba_Maszyn.TabIndex = 49;
+            // 
+            // nudDodaj_Maszyne
+            // 
+            this.nudDodaj_Maszyne.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nudDodaj_Maszyne.Location = new System.Drawing.Point(264, 37);
+            this.nudDodaj_Maszyne.Name = "nudDodaj_Maszyne";
+            this.nudDodaj_Maszyne.Size = new System.Drawing.Size(199, 26);
+            this.nudDodaj_Maszyne.TabIndex = 51;
+            // 
+            // btnDodaj_Maszyne_Proces
+            // 
+            this.btnDodaj_Maszyne_Proces.BackColor = System.Drawing.Color.Yellow;
+            this.btnDodaj_Maszyne_Proces.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnDodaj_Maszyne_Proces.FlatAppearance.BorderSize = 2;
+            this.btnDodaj_Maszyne_Proces.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDodaj_Maszyne_Proces.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnDodaj_Maszyne_Proces.Location = new System.Drawing.Point(294, 167);
+            this.btnDodaj_Maszyne_Proces.Name = "btnDodaj_Maszyne_Proces";
+            this.btnDodaj_Maszyne_Proces.Size = new System.Drawing.Size(143, 34);
+            this.btnDodaj_Maszyne_Proces.TabIndex = 50;
+            this.btnDodaj_Maszyne_Proces.Text = "Dodaj";
+            this.btnDodaj_Maszyne_Proces.UseVisualStyleBackColor = false;
+            this.btnDodaj_Maszyne_Proces.Click += new System.EventHandler(this.btnDodaj_Maszyne_Proces_Click);
+            // 
+            // txtLiczba_Rbh_Maszyn
+            // 
+            this.txtLiczba_Rbh_Maszyn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtLiczba_Rbh_Maszyn.Location = new System.Drawing.Point(264, 135);
+            this.txtLiczba_Rbh_Maszyn.Name = "txtLiczba_Rbh_Maszyn";
+            this.txtLiczba_Rbh_Maszyn.Size = new System.Drawing.Size(199, 26);
+            this.txtLiczba_Rbh_Maszyn.TabIndex = 49;
+            // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.label20);
             this.groupBox5.Controls.Add(this.lblNumerProcesu);
             this.groupBox5.Controls.Add(this.label5);
             this.groupBox5.Controls.Add(this.dgvEtapy_proces);
@@ -1401,16 +1585,26 @@
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.groupBox5.Location = new System.Drawing.Point(16, 12);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(527, 476);
+            this.groupBox5.Size = new System.Drawing.Size(519, 476);
             this.groupBox5.TabIndex = 56;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Dodaj etap :";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label20.Location = new System.Drawing.Point(68, 210);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(264, 16);
+            this.label20.TabIndex = 82;
+            this.label20.Text = "Etapy w danym procesie technologicznym :";
             // 
             // lblNumerProcesu
             // 
             this.lblNumerProcesu.AutoSize = true;
             this.lblNumerProcesu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblNumerProcesu.Location = new System.Drawing.Point(68, 33);
+            this.lblNumerProcesu.Location = new System.Drawing.Point(67, 65);
             this.lblNumerProcesu.Name = "lblNumerProcesu";
             this.lblNumerProcesu.Size = new System.Drawing.Size(125, 20);
             this.lblNumerProcesu.TabIndex = 26;
@@ -1420,7 +1614,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(87, 65);
+            this.label5.Location = new System.Drawing.Point(86, 97);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(110, 20);
             this.label5.TabIndex = 28;
@@ -1432,17 +1626,25 @@
             this.dgvEtapy_proces.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvEtapy_proces.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvEtapy_proces.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEtapy_proces.Location = new System.Drawing.Point(152, 168);
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEtapy_proces.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dgvEtapy_proces.Location = new System.Drawing.Point(71, 229);
             this.dgvEtapy_proces.Name = "dgvEtapy_proces";
             this.dgvEtapy_proces.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dgvEtapy_proces.Size = new System.Drawing.Size(271, 236);
+            this.dgvEtapy_proces.Size = new System.Drawing.Size(366, 236);
             this.dgvEtapy_proces.TabIndex = 55;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(21, 98);
+            this.label4.Location = new System.Drawing.Point(20, 130);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(176, 20);
             this.label4.TabIndex = 27;
@@ -1452,7 +1654,7 @@
             // txtCzas_Etapu
             // 
             this.txtCzas_Etapu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtCzas_Etapu.Location = new System.Drawing.Point(197, 98);
+            this.txtCzas_Etapu.Location = new System.Drawing.Point(196, 130);
             this.txtCzas_Etapu.Name = "txtCzas_Etapu";
             this.txtCzas_Etapu.Size = new System.Drawing.Size(199, 26);
             this.txtCzas_Etapu.TabIndex = 29;
@@ -1464,7 +1666,7 @@
             this.btnDodaj_Etap.FlatAppearance.BorderSize = 2;
             this.btnDodaj_Etap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDodaj_Etap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDodaj_Etap.Location = new System.Drawing.Point(214, 130);
+            this.btnDodaj_Etap.Location = new System.Drawing.Point(196, 167);
             this.btnDodaj_Etap.Name = "btnDodaj_Etap";
             this.btnDodaj_Etap.Size = new System.Drawing.Size(143, 32);
             this.btnDodaj_Etap.TabIndex = 31;
@@ -1475,7 +1677,7 @@
             // nudDodaj_Etap
             // 
             this.nudDodaj_Etap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nudDodaj_Etap.Location = new System.Drawing.Point(197, 29);
+            this.nudDodaj_Etap.Location = new System.Drawing.Point(196, 61);
             this.nudDodaj_Etap.Name = "nudDodaj_Etap";
             this.nudDodaj_Etap.Size = new System.Drawing.Size(199, 26);
             this.nudDodaj_Etap.TabIndex = 34;
@@ -1484,276 +1686,52 @@
             // 
             this.cmbNazwa_Etapu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbNazwa_Etapu.FormattingEnabled = true;
-            this.cmbNazwa_Etapu.Location = new System.Drawing.Point(197, 61);
+            this.cmbNazwa_Etapu.Location = new System.Drawing.Point(196, 93);
             this.cmbNazwa_Etapu.Name = "cmbNazwa_Etapu";
             this.cmbNazwa_Etapu.Size = new System.Drawing.Size(199, 28);
             this.cmbNazwa_Etapu.TabIndex = 35;
             // 
-            // dgvMaszyny_Proces
-            // 
-            this.dgvMaszyny_Proces.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvMaszyny_Proces.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvMaszyny_Proces.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvMaszyny_Proces.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMaszyny_Proces.Location = new System.Drawing.Point(579, 220);
-            this.dgvMaszyny_Proces.Name = "dgvMaszyny_Proces";
-            this.dgvMaszyny_Proces.RowHeadersWidth = 51;
-            this.dgvMaszyny_Proces.Size = new System.Drawing.Size(644, 236);
-            this.dgvMaszyny_Proces.TabIndex = 55;
-            // 
-            // cmbRodzaj_Maszyny2
-            // 
-            this.cmbRodzaj_Maszyny2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cmbRodzaj_Maszyny2.FormattingEnabled = true;
-            this.cmbRodzaj_Maszyny2.Location = new System.Drawing.Point(812, 82);
-            this.cmbRodzaj_Maszyny2.Name = "cmbRodzaj_Maszyny2";
-            this.cmbRodzaj_Maszyny2.Size = new System.Drawing.Size(199, 28);
-            this.cmbRodzaj_Maszyny2.TabIndex = 54;
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label44.Location = new System.Drawing.Point(641, 151);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(171, 20);
-            this.label44.TabIndex = 53;
-            this.label44.Text = "Liczba roboczogodzin :";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label27.Location = new System.Drawing.Point(691, 119);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(121, 20);
-            this.label27.TabIndex = 53;
-            this.label27.Text = "Liczba maszyn :";
-            // 
-            // nudDodaj_Maszyne
-            // 
-            this.nudDodaj_Maszyne.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nudDodaj_Maszyne.Location = new System.Drawing.Point(812, 50);
-            this.nudDodaj_Maszyne.Name = "nudDodaj_Maszyne";
-            this.nudDodaj_Maszyne.Size = new System.Drawing.Size(199, 26);
-            this.nudDodaj_Maszyne.TabIndex = 51;
-            // 
-            // txtLiczba_Rbh_Maszyn
-            // 
-            this.txtLiczba_Rbh_Maszyn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtLiczba_Rbh_Maszyn.Location = new System.Drawing.Point(812, 148);
-            this.txtLiczba_Rbh_Maszyn.Name = "txtLiczba_Rbh_Maszyn";
-            this.txtLiczba_Rbh_Maszyn.Size = new System.Drawing.Size(199, 26);
-            this.txtLiczba_Rbh_Maszyn.TabIndex = 49;
-            // 
-            // btnDodaj_Maszyne_Proces
-            // 
-            this.btnDodaj_Maszyne_Proces.BackColor = System.Drawing.Color.Yellow;
-            this.btnDodaj_Maszyne_Proces.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnDodaj_Maszyne_Proces.FlatAppearance.BorderSize = 2;
-            this.btnDodaj_Maszyne_Proces.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDodaj_Maszyne_Proces.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDodaj_Maszyne_Proces.Location = new System.Drawing.Point(842, 180);
-            this.btnDodaj_Maszyne_Proces.Name = "btnDodaj_Maszyne_Proces";
-            this.btnDodaj_Maszyne_Proces.Size = new System.Drawing.Size(143, 34);
-            this.btnDodaj_Maszyne_Proces.TabIndex = 50;
-            this.btnDodaj_Maszyne_Proces.Text = "Dodaj";
-            this.btnDodaj_Maszyne_Proces.UseVisualStyleBackColor = false;
-            this.btnDodaj_Maszyne_Proces.Click += new System.EventHandler(this.btnDodaj_Maszyne_Proces_Click);
-            // 
-            // txtLiczba_Maszyn
-            // 
-            this.txtLiczba_Maszyn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtLiczba_Maszyn.Location = new System.Drawing.Point(812, 116);
-            this.txtLiczba_Maszyn.Name = "txtLiczba_Maszyn";
-            this.txtLiczba_Maszyn.Size = new System.Drawing.Size(199, 26);
-            this.txtLiczba_Maszyn.TabIndex = 49;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label29.Location = new System.Drawing.Point(680, 87);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(132, 20);
-            this.label29.TabIndex = 48;
-            this.label29.Text = "Rodzaj maszyny :";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label30.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label30.Location = new System.Drawing.Point(821, 12);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(164, 24);
-            this.label30.TabIndex = 45;
-            this.label30.Text = "Dodaj maszynę :";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label31.Location = new System.Drawing.Point(683, 54);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(125, 20);
-            this.label31.TabIndex = 46;
-            this.label31.Text = "Numer procesu :";
-            // 
             // tabDodaj_utworz_element
             // 
-            this.tabDodaj_utworz_element.Controls.Add(this.nudNumerProcesu2);
-            this.tabDodaj_utworz_element.Controls.Add(this.btnOdswiez_Element2);
-            this.tabDodaj_utworz_element.Controls.Add(this.label20);
-            this.tabDodaj_utworz_element.Controls.Add(this.cmbTyp_Elementu2);
-            this.tabDodaj_utworz_element.Controls.Add(this.label19);
-            this.tabDodaj_utworz_element.Controls.Add(this.btnUtworz_Element);
-            this.tabDodaj_utworz_element.Controls.Add(this.txtNazwa_Elementu);
-            this.tabDodaj_utworz_element.Controls.Add(this.txtMiesiace_Przydatnosci);
-            this.tabDodaj_utworz_element.Controls.Add(this.label21);
-            this.tabDodaj_utworz_element.Controls.Add(this.label22);
-            this.tabDodaj_utworz_element.Controls.Add(this.label23);
-            this.tabDodaj_utworz_element.Controls.Add(this.dgvElement_Proces);
-            this.tabDodaj_utworz_element.Controls.Add(this.dgvWszystkie_Elementy);
-            this.tabDodaj_utworz_element.Controls.Add(this.cmbTyp_Elementu);
-            this.tabDodaj_utworz_element.Controls.Add(this.label3);
-            this.tabDodaj_utworz_element.Controls.Add(this.cmbJednostka);
-            this.tabDodaj_utworz_element.Controls.Add(this.btnDodaj_Element);
-            this.tabDodaj_utworz_element.Controls.Add(this.txtLiczba_Elementow);
-            this.tabDodaj_utworz_element.Controls.Add(this.label10);
-            this.tabDodaj_utworz_element.Controls.Add(this.label28);
-            this.tabDodaj_utworz_element.Controls.Add(this.label43);
+            this.tabDodaj_utworz_element.Controls.Add(this.groupBox7);
             this.tabDodaj_utworz_element.Location = new System.Drawing.Point(4, 39);
             this.tabDodaj_utworz_element.Name = "tabDodaj_utworz_element";
-            this.tabDodaj_utworz_element.Size = new System.Drawing.Size(1431, 519);
+            this.tabDodaj_utworz_element.Size = new System.Drawing.Size(1431, 513);
             this.tabDodaj_utworz_element.TabIndex = 9;
             this.tabDodaj_utworz_element.Text = "Dodaj / Utwórz element";
             this.tabDodaj_utworz_element.UseVisualStyleBackColor = true;
             // 
-            // nudNumerProcesu2
+            // groupBox7
             // 
-            this.nudNumerProcesu2.Location = new System.Drawing.Point(202, 57);
-            this.nudNumerProcesu2.Name = "nudNumerProcesu2";
-            this.nudNumerProcesu2.Size = new System.Drawing.Size(168, 27);
-            this.nudNumerProcesu2.TabIndex = 80;
-            // 
-            // btnOdswiez_Element2
-            // 
-            this.btnOdswiez_Element2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnOdswiez_Element2.Location = new System.Drawing.Point(1001, 54);
-            this.btnOdswiez_Element2.Name = "btnOdswiez_Element2";
-            this.btnOdswiez_Element2.Size = new System.Drawing.Size(104, 24);
-            this.btnOdswiez_Element2.TabIndex = 79;
-            this.btnOdswiez_Element2.Text = "Odśwież";
-            this.btnOdswiez_Element2.UseVisualStyleBackColor = true;
-            this.btnOdswiez_Element2.Click += new System.EventHandler(this.btnOdswiez_Element2_Click);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label20.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label20.Location = new System.Drawing.Point(206, 17);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(157, 24);
-            this.label20.TabIndex = 77;
-            this.label20.Text = "Dodaj element :";
-            // 
-            // cmbTyp_Elementu2
-            // 
-            this.cmbTyp_Elementu2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cmbTyp_Elementu2.FormattingEnabled = true;
-            this.cmbTyp_Elementu2.Location = new System.Drawing.Point(827, 55);
-            this.cmbTyp_Elementu2.Name = "cmbTyp_Elementu2";
-            this.cmbTyp_Elementu2.Size = new System.Drawing.Size(168, 28);
-            this.cmbTyp_Elementu2.TabIndex = 76;
+            this.groupBox7.Controls.Add(this.label19);
+            this.groupBox7.Controls.Add(this.dgvWszystkie_Elementy);
+            this.groupBox7.Controls.Add(this.nudNumerProcesu2);
+            this.groupBox7.Controls.Add(this.label43);
+            this.groupBox7.Controls.Add(this.btnUtworz_Element);
+            this.groupBox7.Controls.Add(this.label28);
+            this.groupBox7.Controls.Add(this.label10);
+            this.groupBox7.Controls.Add(this.cmbTyp_Elementu);
+            this.groupBox7.Controls.Add(this.txtLiczba_Elementow);
+            this.groupBox7.Controls.Add(this.label3);
+            this.groupBox7.Controls.Add(this.btnDodaj_Element);
+            this.groupBox7.Controls.Add(this.cmbJednostka);
+            this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.groupBox7.Location = new System.Drawing.Point(216, 15);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(733, 498);
+            this.groupBox7.TabIndex = 81;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Dodaj elementy :";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label19.ForeColor = System.Drawing.Color.Red;
-            this.label19.Location = new System.Drawing.Point(686, 92);
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label19.Location = new System.Drawing.Point(82, 220);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(135, 20);
-            this.label19.TabIndex = 75;
-            this.label19.Text = "Nazwa elementu :";
-            // 
-            // btnUtworz_Element
-            // 
-            this.btnUtworz_Element.BackColor = System.Drawing.Color.Yellow;
-            this.btnUtworz_Element.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnUtworz_Element.FlatAppearance.BorderSize = 2;
-            this.btnUtworz_Element.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUtworz_Element.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnUtworz_Element.Location = new System.Drawing.Point(833, 158);
-            this.btnUtworz_Element.Name = "btnUtworz_Element";
-            this.btnUtworz_Element.Size = new System.Drawing.Size(151, 34);
-            this.btnUtworz_Element.TabIndex = 72;
-            this.btnUtworz_Element.Text = "Dodaj";
-            this.btnUtworz_Element.UseVisualStyleBackColor = false;
-            this.btnUtworz_Element.Click += new System.EventHandler(this.btnUtworz_Element_Click);
-            // 
-            // txtNazwa_Elementu
-            // 
-            this.txtNazwa_Elementu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtNazwa_Elementu.Location = new System.Drawing.Point(827, 90);
-            this.txtNazwa_Elementu.Name = "txtNazwa_Elementu";
-            this.txtNazwa_Elementu.Size = new System.Drawing.Size(168, 26);
-            this.txtNazwa_Elementu.TabIndex = 71;
-            // 
-            // txtMiesiace_Przydatnosci
-            // 
-            this.txtMiesiace_Przydatnosci.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtMiesiace_Przydatnosci.Location = new System.Drawing.Point(827, 126);
-            this.txtMiesiace_Przydatnosci.Name = "txtMiesiace_Przydatnosci";
-            this.txtMiesiace_Przydatnosci.Size = new System.Drawing.Size(168, 26);
-            this.txtMiesiace_Przydatnosci.TabIndex = 71;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label21.ForeColor = System.Drawing.Color.Red;
-            this.label21.Location = new System.Drawing.Point(593, 126);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(228, 20);
-            this.label21.TabIndex = 70;
-            this.label21.Text = "Okres przydatności (miesiące) :";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label22.ForeColor = System.Drawing.Color.Red;
-            this.label22.Location = new System.Drawing.Point(828, 17);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(166, 24);
-            this.label22.TabIndex = 67;
-            this.label22.Text = "Utwórz element :";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label23.ForeColor = System.Drawing.Color.Red;
-            this.label23.Location = new System.Drawing.Point(709, 58);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(112, 20);
-            this.label23.TabIndex = 68;
-            this.label23.Text = "Typ elementu :";
-            // 
-            // dgvElement_Proces
-            // 
-            this.dgvElement_Proces.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvElement_Proces.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvElement_Proces.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvElement_Proces.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvElement_Proces.Location = new System.Drawing.Point(604, 232);
-            this.dgvElement_Proces.Name = "dgvElement_Proces";
-            this.dgvElement_Proces.RowHeadersWidth = 51;
-            this.dgvElement_Proces.Size = new System.Drawing.Size(592, 234);
-            this.dgvElement_Proces.TabIndex = 66;
+            this.label19.Size = new System.Drawing.Size(285, 16);
+            this.label19.TabIndex = 81;
+            this.label19.Text = "Elementy w danym procesie technologicznym :";
             // 
             // dgvWszystkie_Elementy
             // 
@@ -1761,39 +1739,100 @@
             this.dgvWszystkie_Elementy.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvWszystkie_Elementy.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvWszystkie_Elementy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvWszystkie_Elementy.Location = new System.Drawing.Point(6, 232);
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvWszystkie_Elementy.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dgvWszystkie_Elementy.Location = new System.Drawing.Point(86, 243);
             this.dgvWszystkie_Elementy.Name = "dgvWszystkie_Elementy";
             this.dgvWszystkie_Elementy.RowHeadersWidth = 51;
             this.dgvWszystkie_Elementy.Size = new System.Drawing.Size(592, 234);
             this.dgvWszystkie_Elementy.TabIndex = 66;
             // 
+            // nudNumerProcesu2
+            // 
+            this.nudNumerProcesu2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nudNumerProcesu2.Location = new System.Drawing.Point(297, 41);
+            this.nudNumerProcesu2.Name = "nudNumerProcesu2";
+            this.nudNumerProcesu2.Size = new System.Drawing.Size(168, 27);
+            this.nudNumerProcesu2.TabIndex = 80;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label43.Location = new System.Drawing.Point(167, 43);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(125, 20);
+            this.label43.TabIndex = 57;
+            this.label43.Text = "Numer procesu :";
+            // 
+            // btnUtworz_Element
+            // 
+            this.btnUtworz_Element.BackColor = System.Drawing.Color.Yellow;
+            this.btnUtworz_Element.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnUtworz_Element.FlatAppearance.BorderSize = 2;
+            this.btnUtworz_Element.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUtworz_Element.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnUtworz_Element.Location = new System.Drawing.Point(471, 70);
+            this.btnUtworz_Element.Name = "btnUtworz_Element";
+            this.btnUtworz_Element.Size = new System.Drawing.Size(163, 34);
+            this.btnUtworz_Element.TabIndex = 72;
+            this.btnUtworz_Element.Text = "Stwórz nowy element";
+            this.btnUtworz_Element.UseVisualStyleBackColor = false;
+            this.btnUtworz_Element.Click += new System.EventHandler(this.btnUtworz_Element_Click);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label28.Location = new System.Drawing.Point(233, 109);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(63, 20);
+            this.label28.TabIndex = 59;
+            this.label28.Text = "Liczba :";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label10.Location = new System.Drawing.Point(205, 141);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(91, 20);
+            this.label10.TabIndex = 58;
+            this.label10.Text = "Jednostka :";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // cmbTyp_Elementu
             // 
-            this.cmbTyp_Elementu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cmbTyp_Elementu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbTyp_Elementu.FormattingEnabled = true;
-            this.cmbTyp_Elementu.Location = new System.Drawing.Point(202, 88);
+            this.cmbTyp_Elementu.Location = new System.Drawing.Point(297, 72);
             this.cmbTyp_Elementu.Name = "cmbTyp_Elementu";
             this.cmbTyp_Elementu.Size = new System.Drawing.Size(168, 28);
             this.cmbTyp_Elementu.TabIndex = 65;
+            // 
+            // txtLiczba_Elementow
+            // 
+            this.txtLiczba_Elementow.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtLiczba_Elementow.Location = new System.Drawing.Point(297, 106);
+            this.txtLiczba_Elementow.Name = "txtLiczba_Elementow";
+            this.txtLiczba_Elementow.Size = new System.Drawing.Size(168, 27);
+            this.txtLiczba_Elementow.TabIndex = 60;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(66, 93);
+            this.label3.Location = new System.Drawing.Point(161, 77);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(135, 20);
             this.label3.TabIndex = 64;
             this.label3.Text = "Nazwa elementu :";
-            // 
-            // cmbJednostka
-            // 
-            this.cmbJednostka.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cmbJednostka.FormattingEnabled = true;
-            this.cmbJednostka.Location = new System.Drawing.Point(202, 154);
-            this.cmbJednostka.Name = "cmbJednostka";
-            this.cmbJednostka.Size = new System.Drawing.Size(168, 28);
-            this.cmbJednostka.TabIndex = 63;
             // 
             // btnDodaj_Element
             // 
@@ -1802,7 +1841,7 @@
             this.btnDodaj_Element.FlatAppearance.BorderSize = 2;
             this.btnDodaj_Element.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDodaj_Element.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDodaj_Element.Location = new System.Drawing.Point(210, 189);
+            this.btnDodaj_Element.Location = new System.Drawing.Point(305, 173);
             this.btnDodaj_Element.Name = "btnDodaj_Element";
             this.btnDodaj_Element.Size = new System.Drawing.Size(151, 34);
             this.btnDodaj_Element.TabIndex = 61;
@@ -1810,44 +1849,14 @@
             this.btnDodaj_Element.UseVisualStyleBackColor = false;
             this.btnDodaj_Element.Click += new System.EventHandler(this.btnDodaj_Element_Click);
             // 
-            // txtLiczba_Elementow
+            // cmbJednostka
             // 
-            this.txtLiczba_Elementow.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtLiczba_Elementow.Location = new System.Drawing.Point(202, 122);
-            this.txtLiczba_Elementow.Name = "txtLiczba_Elementow";
-            this.txtLiczba_Elementow.Size = new System.Drawing.Size(168, 26);
-            this.txtLiczba_Elementow.TabIndex = 60;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label10.Location = new System.Drawing.Point(110, 157);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(91, 20);
-            this.label10.TabIndex = 58;
-            this.label10.Text = "Jednostka :";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label28.Location = new System.Drawing.Point(138, 125);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(63, 20);
-            this.label28.TabIndex = 59;
-            this.label28.Text = "Liczba :";
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label43.Location = new System.Drawing.Point(72, 59);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(125, 20);
-            this.label43.TabIndex = 57;
-            this.label43.Text = "Numer procesu :";
+            this.cmbJednostka.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cmbJednostka.FormattingEnabled = true;
+            this.cmbJednostka.Location = new System.Drawing.Point(297, 138);
+            this.cmbJednostka.Name = "cmbJednostka";
+            this.cmbJednostka.Size = new System.Drawing.Size(168, 28);
+            this.cmbJednostka.TabIndex = 63;
             // 
             // tabZnajdz_dodaj_proces_technologiczny
             // 
@@ -1857,7 +1866,6 @@
             this.tabZnajdz_dodaj_proces_technologiczny.Controls.Add(this.label9);
             this.tabZnajdz_dodaj_proces_technologiczny.Controls.Add(this.dgvUkryty2);
             this.tabZnajdz_dodaj_proces_technologiczny.Controls.Add(this.btnKompletny_Proces);
-            this.tabZnajdz_dodaj_proces_technologiczny.Controls.Add(this.btnOdswiez_Znajdz);
             this.tabZnajdz_dodaj_proces_technologiczny.Controls.Add(this.dgvUkryty);
             this.tabZnajdz_dodaj_proces_technologiczny.Controls.Add(this.chbKompletny_Proces);
             this.tabZnajdz_dodaj_proces_technologiczny.Controls.Add(this.dgvProcesy5);
@@ -1871,7 +1879,7 @@
             this.tabZnajdz_dodaj_proces_technologiczny.Location = new System.Drawing.Point(4, 39);
             this.tabZnajdz_dodaj_proces_technologiczny.Name = "tabZnajdz_dodaj_proces_technologiczny";
             this.tabZnajdz_dodaj_proces_technologiczny.Padding = new System.Windows.Forms.Padding(6);
-            this.tabZnajdz_dodaj_proces_technologiczny.Size = new System.Drawing.Size(1431, 519);
+            this.tabZnajdz_dodaj_proces_technologiczny.Size = new System.Drawing.Size(1431, 513);
             this.tabZnajdz_dodaj_proces_technologiczny.TabIndex = 0;
             this.tabZnajdz_dodaj_proces_technologiczny.Text = "Znajdź / Zatwierdź ";
             this.tabZnajdz_dodaj_proces_technologiczny.UseVisualStyleBackColor = true;
@@ -1879,36 +1887,40 @@
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(872, 209);
+            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label47.Location = new System.Drawing.Point(905, 209);
             this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(294, 20);
+            this.label47.Size = new System.Drawing.Size(233, 18);
             this.label47.TabIndex = 37;
             this.label47.Text = "Etapy w wyszukiwanym procesie :";
             // 
             // label46
             // 
             this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label46.Location = new System.Drawing.Point(223, 349);
             this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(320, 20);
+            this.label46.Size = new System.Drawing.Size(255, 18);
             this.label46.TabIndex = 36;
             this.label46.Text = "Maszyny w wyszukiwanym procesie :";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label15.Location = new System.Drawing.Point(215, 209);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(366, 20);
+            this.label15.Size = new System.Drawing.Size(292, 18);
             this.label15.TabIndex = 35;
             this.label15.Text = "Dokumentacja w wyszukiwanym procesie :";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label9.Location = new System.Drawing.Point(219, 68);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(324, 20);
+            this.label9.Size = new System.Drawing.Size(257, 18);
             this.label9.TabIndex = 34;
             this.label9.Text = "Elementy w wyszukiwanym procesie :";
             // 
@@ -1930,28 +1942,13 @@
             this.btnKompletny_Proces.FlatAppearance.BorderSize = 2;
             this.btnKompletny_Proces.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKompletny_Proces.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnKompletny_Proces.Location = new System.Drawing.Point(969, 139);
+            this.btnKompletny_Proces.Location = new System.Drawing.Point(968, 146);
             this.btnKompletny_Proces.Name = "btnKompletny_Proces";
             this.btnKompletny_Proces.Size = new System.Drawing.Size(92, 30);
             this.btnKompletny_Proces.TabIndex = 32;
             this.btnKompletny_Proces.Text = "Zapisz";
             this.btnKompletny_Proces.UseVisualStyleBackColor = false;
             this.btnKompletny_Proces.Click += new System.EventHandler(this.btnKompletny_Proces_Click);
-            // 
-            // btnOdswiez_Znajdz
-            // 
-            this.btnOdswiez_Znajdz.BackColor = System.Drawing.Color.Yellow;
-            this.btnOdswiez_Znajdz.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnOdswiez_Znajdz.FlatAppearance.BorderSize = 2;
-            this.btnOdswiez_Znajdz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOdswiez_Znajdz.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnOdswiez_Znajdz.Location = new System.Drawing.Point(484, 27);
-            this.btnOdswiez_Znajdz.Name = "btnOdswiez_Znajdz";
-            this.btnOdswiez_Znajdz.Size = new System.Drawing.Size(92, 30);
-            this.btnOdswiez_Znajdz.TabIndex = 31;
-            this.btnOdswiez_Znajdz.Text = "Odśwież";
-            this.btnOdswiez_Znajdz.UseVisualStyleBackColor = false;
-            this.btnOdswiez_Znajdz.Click += new System.EventHandler(this.btnOdswiez_Znajdz_Click);
             // 
             // dgvUkryty
             // 
@@ -1967,7 +1964,7 @@
             // chbKompletny_Proces
             // 
             this.chbKompletny_Proces.AutoSize = true;
-            this.chbKompletny_Proces.Location = new System.Drawing.Point(1008, 119);
+            this.chbKompletny_Proces.Location = new System.Drawing.Point(1007, 126);
             this.chbKompletny_Proces.Name = "chbKompletny_Proces";
             this.chbKompletny_Proces.Size = new System.Drawing.Size(15, 14);
             this.chbKompletny_Proces.TabIndex = 29;
@@ -1979,6 +1976,14 @@
             this.dgvProcesy5.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvProcesy5.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvProcesy5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProcesy5.DefaultCellStyle = dataGridViewCellStyle13;
             this.dgvProcesy5.Location = new System.Drawing.Point(9, 372);
             this.dgvProcesy5.Name = "dgvProcesy5";
             this.dgvProcesy5.RowHeadersWidth = 51;
@@ -1991,6 +1996,14 @@
             this.dgvProcesy4.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvProcesy4.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvProcesy4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProcesy4.DefaultCellStyle = dataGridViewCellStyle14;
             this.dgvProcesy4.Location = new System.Drawing.Point(9, 232);
             this.dgvProcesy4.Name = "dgvProcesy4";
             this.dgvProcesy4.RowHeadersWidth = 51;
@@ -2003,6 +2016,14 @@
             this.dgvProcesy3.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvProcesy3.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvProcesy3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProcesy3.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvProcesy3.Location = new System.Drawing.Point(9, 91);
             this.dgvProcesy3.Name = "dgvProcesy3";
             this.dgvProcesy3.RowHeadersWidth = 51;
@@ -2014,7 +2035,7 @@
             this.lblOpisNumer.AutoSize = true;
             this.lblOpisNumer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblOpisNumer.ForeColor = System.Drawing.Color.Red;
-            this.lblOpisNumer.Location = new System.Drawing.Point(910, 91);
+            this.lblOpisNumer.Location = new System.Drawing.Point(909, 98);
             this.lblOpisNumer.Name = "lblOpisNumer";
             this.lblOpisNumer.Size = new System.Drawing.Size(228, 25);
             this.lblOpisNumer.TabIndex = 10;
@@ -2060,6 +2081,14 @@
             this.dgvProcesy2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvProcesy2.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvProcesy2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProcesy2.DefaultCellStyle = dataGridViewCellStyle16;
             this.dgvProcesy2.Location = new System.Drawing.Point(796, 232);
             this.dgvProcesy2.Name = "dgvProcesy2";
             this.dgvProcesy2.RowHeadersWidth = 51;
@@ -2093,7 +2122,9 @@
             this.tabResurs_Maszyn.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResursMaszyny)).EndInit();
             this.tabZnajdz_dodaj_obsluge.ResumeLayout(false);
-            this.tabZnajdz_dodaj_obsluge.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObsluga)).EndInit();
             this.tabDodaj_nowa_maszyne.ResumeLayout(false);
             this.tabDodaj_nowa_maszyne.PerformLayout();
@@ -2121,18 +2152,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDokumentacja)).EndInit();
             this.tabDodaj_etap.ResumeLayout(false);
-            this.tabDodaj_etap.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMaszyny_Proces)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDodaj_Maszyne)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtapy_proces)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDodaj_Etap)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMaszyny_Proces)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDodaj_Maszyne)).EndInit();
             this.tabDodaj_utworz_element.ResumeLayout(false);
-            this.tabDodaj_utworz_element.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudNumerProcesu2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvElement_Proces)).EndInit();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWszystkie_Elementy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNumerProcesu2)).EndInit();
             this.tabZnajdz_dodaj_proces_technologiczny.ResumeLayout(false);
             this.tabZnajdz_dodaj_proces_technologiczny.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUkryty2)).EndInit();
@@ -2160,7 +2192,6 @@
         private System.Windows.Forms.Label lblMaszyna;
         private System.Windows.Forms.Label lblRodzaj;
         private System.Windows.Forms.ComboBox cmbRodzajObslugi;
-        private System.Windows.Forms.Label lblOpis;
         private System.Windows.Forms.Button btnWyszukaj_Obsluge;
         private System.Windows.Forms.TabPage tabpZarzadzanieParkiemMaszynowym;
         private System.Windows.Forms.TabPage tabDodaj_nowa_maszyne;
@@ -2171,7 +2202,6 @@
         private System.Windows.Forms.TabPage tabPrzypisz_proces_do_zamowienia;
         private System.Windows.Forms.TabPage tabZamowienia;
         private System.Windows.Forms.DataGridView dgvZamowienia;
-        private System.Windows.Forms.Button btnSzukajZamowienie;
         private System.Windows.Forms.NumericUpDown nudNumerZamowienia;
         private System.Windows.Forms.Label lblNapis;
         private System.Windows.Forms.DataGridView dgvProcesy;
@@ -2218,7 +2248,6 @@
         private System.Windows.Forms.Button btnDodaj_Maszyne_Proces;
         private System.Windows.Forms.TextBox txtLiczba_Maszyn;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Button btnPrzypisz_Proces_Zamowienie;
@@ -2254,46 +2283,23 @@
         private System.Windows.Forms.ComboBox cmbRodzaj_Dokumentacji;
         private System.Windows.Forms.ComboBox cmbTechnolodzy2;
         private System.Windows.Forms.TabPage tabDodaj_utworz_element;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Button btnUtworz_Element;
-        private System.Windows.Forms.TextBox txtMiesiace_Przydatnosci;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.DataGridView dgvWszystkie_Elementy;
-        private System.Windows.Forms.ComboBox cmbTyp_Elementu;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cmbJednostka;
-        private System.Windows.Forms.Button btnDodaj_Element;
-        private System.Windows.Forms.TextBox txtLiczba_Elementow;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.TextBox txtLiczba_Rbh_Maszyn;
-        private System.Windows.Forms.DataGridView dgvElement_Proces;
         private System.Windows.Forms.DataGridView dgvSerwis;
         private System.Windows.Forms.TabPage tabResurs_Maszyn;
         private System.Windows.Forms.DataGridView dgvResursMaszyny;
         private System.Windows.Forms.NumericUpDown nud_Numer_Dokumentacji;
         private System.Windows.Forms.ComboBox cmbID_Proces_Technologiczny;
-        private System.Windows.Forms.ComboBox cmbTyp_Elementu2;
-        private System.Windows.Forms.TextBox txtNazwa_Elementu;
         private System.Windows.Forms.ComboBox cmbID_Proces_Technologiczny3;
         private System.Windows.Forms.ComboBox cmbTechnolodzy;
         private System.Windows.Forms.Label lblNumer_Procesu;
         private System.Windows.Forms.Button btnUtworz_Proces;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.Button btnOdswiez_Element2;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.CheckBox chbKompletny_Proces;
         private System.Windows.Forms.DataGridView dgvUkryty;
-        private System.Windows.Forms.Button btnOdswiez_Maszyny;
         private System.Windows.Forms.Button btnOdswiez_Ogolny;
-        private System.Windows.Forms.Button btnOdswiez_Znajdz;
         private System.Windows.Forms.Button btnKompletny_Proces;
-        private System.Windows.Forms.NumericUpDown nudNumerProcesu2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -2308,5 +2314,23 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label lblNumerZamowieniaElement;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.DataGridView dgvWszystkie_Elementy;
+        private System.Windows.Forms.NumericUpDown nudNumerProcesu2;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Button btnUtworz_Element;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cmbTyp_Elementu;
+        private System.Windows.Forms.TextBox txtLiczba_Elementow;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnDodaj_Element;
+        private System.Windows.Forms.ComboBox cmbJednostka;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
     }
 }
