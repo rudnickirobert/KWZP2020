@@ -20,7 +20,7 @@ namespace Szwalnia
             
             cbPracownik.DataSource = db.vImieNazwiskoPracownika.ToList();
             cbPracownik.ValueMember = "ID_Pracownika";
-            cbPracownik.DisplayMember = "['Imie i nazwisko pracownika']";
+            cbPracownik.DisplayMember = "Imie_i_nazwisko_pracownika";
             cbRodzaj.Refresh();
 
             cbRodzaj.DataSource = db.Rodzaj_Urlopu.ToList();
