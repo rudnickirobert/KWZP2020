@@ -41,14 +41,14 @@
             this.dgvFakturyWystawione.Name = "dgvFakturyWystawione";
             this.dgvFakturyWystawione.RowHeadersWidth = 51;
             this.dgvFakturyWystawione.RowTemplate.Height = 24;
-            this.dgvFakturyWystawione.Size = new System.Drawing.Size(777, 265);
+            this.dgvFakturyWystawione.Size = new System.Drawing.Size(1119, 265);
             this.dgvFakturyWystawione.TabIndex = 1;
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblTitle.Location = new System.Drawing.Point(202, 37);
+            this.lblTitle.Location = new System.Drawing.Point(380, 37);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(377, 32);
             this.lblTitle.TabIndex = 5;
@@ -59,7 +59,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1142, 450);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.dgvFakturyWystawione);
             this.Name = "FaktoryWystawiane";

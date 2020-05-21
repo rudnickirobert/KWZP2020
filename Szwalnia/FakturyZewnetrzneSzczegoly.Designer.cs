@@ -50,7 +50,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(200, 28);
+            this.label1.Location = new System.Drawing.Point(251, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(261, 32);
             this.label1.TabIndex = 2;
@@ -58,9 +58,9 @@
             // 
             // btnZamknij
             // 
-            this.btnZamknij.Location = new System.Drawing.Point(710, 38);
+            this.btnZamknij.Location = new System.Drawing.Point(699, 29);
             this.btnZamknij.Name = "btnZamknij";
-            this.btnZamknij.Size = new System.Drawing.Size(75, 23);
+            this.btnZamknij.Size = new System.Drawing.Size(86, 32);
             this.btnZamknij.TabIndex = 3;
             this.btnZamknij.Text = "Zamknij";
             this.btnZamknij.UseVisualStyleBackColor = true;

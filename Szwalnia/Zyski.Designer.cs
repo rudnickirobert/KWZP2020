@@ -34,6 +34,7 @@
             // 
             // dgvZyski
             // 
+            this.dgvZyski.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvZyski.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvZyski.Location = new System.Drawing.Point(27, 32);
             this.dgvZyski.Name = "dgvZyski";
@@ -46,6 +47,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(413, 450);
             this.Controls.Add(this.dgvZyski);
             this.Name = "Zyski";
