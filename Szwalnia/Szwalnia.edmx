@@ -1037,9 +1037,10 @@ warning 6002: The table/view 'Szwalnia.dbo.vKlienciZamowienie' does not have a p
 warning 6002: The table/view 'Szwalnia.dbo.vKompletnyProces' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vKompletnyProces">
           <Key>
-            <PropertyRef Name="ID_Procesu_Produkcyjnego" />
+            <PropertyRef Name="ID_Zamowienie_Element" />
           </Key>
-          <Property Name="ID_Procesu_Produkcyjnego" Type="int" Nullable="false" />
+          <Property Name="ID_Zamowienie_Element" Type="int" Nullable="false" />
+          <Property Name="ID_Procesu_Produkcyjnego" Type="int" />
           <Property Name="Kompletny_Proces" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -3629,6 +3630,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           </EntitySet>
           <EntitySet Name="vKompletnyProces" EntityType="Self.vKompletnyProces" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [vKompletnyProces].[ID_Zamowienie_Element] AS [ID_Zamowienie_Element], 
     [vKompletnyProces].[ID_Procesu_Produkcyjnego] AS [ID_Procesu_Produkcyjnego], 
     [vKompletnyProces].[Kompletny_Proces] AS [Kompletny_Proces]
     FROM [dbo].[vKompletnyProces] AS [vKompletnyProces]</DefiningQuery>
@@ -6412,9 +6414,10 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
         </EntityType>
         <EntityType Name="vKompletnyProces">
           <Key>
-            <PropertyRef Name="ID_Procesu_Produkcyjnego" />
+            <PropertyRef Name="ID_Zamowienie_Element" />
           </Key>
-          <Property Name="ID_Procesu_Produkcyjnego" Type="Int32" Nullable="false" />
+          <Property Name="ID_Zamowienie_Element" Type="Int32" Nullable="false" />
+          <Property Name="ID_Procesu_Produkcyjnego" Type="Int32" />
           <Property Name="Kompletny_Proces" Type="Boolean" />
         </EntityType>
         <EntityType Name="vKontrolaProcesu">
@@ -9458,6 +9461,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
               <MappingFragment StoreEntitySet="vKompletnyProces">
                 <ScalarProperty Name="Kompletny_Proces" ColumnName="Kompletny_Proces" />
                 <ScalarProperty Name="ID_Procesu_Produkcyjnego" ColumnName="ID_Procesu_Produkcyjnego" />
+                <ScalarProperty Name="ID_Zamowienie_Element" ColumnName="ID_Zamowienie_Element" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

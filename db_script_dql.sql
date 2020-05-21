@@ -833,10 +833,10 @@ GO
 
 CREATE VIEW vKompletnyProces
 AS
-SELECT        dbo.Proces_Produkcyjny.ID_Procesu_Produkcyjnego, dbo.Proces_Zamowienie.Kompletny_Proces
-FROM            dbo.Proces_Produkcyjny INNER JOIN
-                         dbo.Zamowienie_Element ON dbo.Proces_Produkcyjny.ID_Zamowienie_Element = dbo.Zamowienie_Element.ID_Zamowienie_Element INNER JOIN
-                         dbo.Proces_Zamowienie ON dbo.Zamowienie_Element.ID_Zamowienie_Element = dbo.Proces_Zamowienie.ID_Zamowienie_Element
+SELECT dbo.Zamowienie_Element.ID_Zamowienie_Element, dbo.Proces_Produkcyjny.ID_Procesu_Produkcyjnego, dbo.Proces_Zamowienie.Kompletny_Proces
+FROM     dbo.Zamowienie_Element LEFT JOIN
+                  dbo.Proces_Zamowienie ON dbo.Zamowienie_Element.ID_Zamowienie_Element = dbo.Proces_Zamowienie.ID_Zamowienie_Element LEFT JOIN
+                  dbo.Proces_Produkcyjny ON dbo.Zamowienie_Element.ID_Zamowienie_Element = dbo.Proces_Produkcyjny.ID_Zamowienie_Element
 GO
 
 CREATE VIEW vWszystkieZamowienieElement
