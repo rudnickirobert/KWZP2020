@@ -16,6 +16,9 @@ namespace Szwalnia
     {
         public int ID_Pracownika { get; set; }
         public string Pracownik { get; set; }
+        public string Imie { get; set; }
+        public string Nazwisko { get; set; }
+        public string Stanowisko { get; set; }
         public int ID_Dzialu { get; set; }
         public string Nazwa_dzialu { get; set; }
         public System.DateTime Data_Zatrudnienia { get; set; }

@@ -33,7 +33,7 @@ namespace Szwalnia
             cbxEtap.DataSource = db.Rodzaj_Etapu.ToList();
             cbxEtap.DisplayMember = "Nazwa";
             cbxEtap.ValueMember = "Nazwa";
-            cbxMaszyna.DataSource = db.vWszystkieMaszyny.ToList();
+            cbxMaszyna.DataSource = db.vWszystkieMaszynyProdukcja.ToList();
             cbxMaszyna.DisplayMember = "Maszyna";
             cbxMaszyna.ValueMember = "ID_Maszyny";
         }

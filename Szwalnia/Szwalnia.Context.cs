@@ -87,6 +87,7 @@ namespace Szwalnia
         public virtual DbSet<Zamowienie_Element> Zamowienie_Element { get; set; }
         public virtual DbSet<Zawartosc> Zawartosc { get; set; }
         public virtual DbSet<Znajomosc_Jezykow> Znajomosc_Jezykow { get; set; }
+        public virtual DbSet<vAktywnoscPracownikaTeraz> vAktywnoscPracownikaTeraz { get; set; }
         public virtual DbSet<vCalkowityKosztZamowienia> vCalkowityKosztZamowienia { get; set; }
         public virtual DbSet<vCechyElementu> vCechyElementu { get; set; }
         public virtual DbSet<vCenaZaMaterial> vCenaZaMaterial { get; set; }
@@ -137,6 +138,7 @@ namespace Szwalnia
         public virtual DbSet<vNieodebraneMaterialyWgDostawy> vNieodebraneMaterialyWgDostawy { get; set; }
         public virtual DbSet<vNieodebraneMaterialyWgDostawyZNazwa> vNieodebraneMaterialyWgDostawyZNazwa { get; set; }
         public virtual DbSet<vNieodebraneMaterialyWgZamowienieElement> vNieodebraneMaterialyWgZamowienieElement { get; set; }
+        public virtual DbSet<vNierealizowaneZamowienieElement> vNierealizowaneZamowienieElement { get; set; }
         public virtual DbSet<vNieuzytyMaterialOdpad> vNieuzytyMaterialOdpad { get; set; }
         public virtual DbSet<vNiezuzytyMaterialNaProdukcji> vNiezuzytyMaterialNaProdukcji { get; set; }
         public virtual DbSet<vObsluga> vObsluga { get; set; }
@@ -165,6 +167,7 @@ namespace Szwalnia
         public virtual DbSet<vPrzydzialZasobow> vPrzydzialZasobow { get; set; }
         public virtual DbSet<vPrzydzialZasobowEtap> vPrzydzialZasobowEtap { get; set; }
         public virtual DbSet<vRealizacjaProcesuProdukcyjnego> vRealizacjaProcesuProdukcyjnego { get; set; }
+        public virtual DbSet<vRealizowaneZamowienieElement> vRealizowaneZamowienieElement { get; set; }
         public virtual DbSet<vRegaly_alfabetycznie> vRegaly_alfabetycznie { get; set; }
         public virtual DbSet<vResurs> vResurs { get; set; }
         public virtual DbSet<vRodzaj_Maszyny> vRodzaj_Maszyny { get; set; }
@@ -189,13 +192,14 @@ namespace Szwalnia
         public virtual DbSet<vUmowyKurierzy> vUmowyKurierzy { get; set; }
         public virtual DbSet<vUmowyKurierzyNazwyKurierow> vUmowyKurierzyNazwyKurierow { get; set; }
         public virtual DbSet<vUrlopPracownika> vUrlopPracownika { get; set; }
-        public virtual DbSet<vWolneMaszyny> vWolneMaszyny { get; set; }
+        public virtual DbSet<vWolneMaszynyProdukcja> vWolneMaszynyProdukcja { get; set; }
         public virtual DbSet<vWolnePolki> vWolnePolki { get; set; }
         public virtual DbSet<vWolniPracownicyProdukcji> vWolniPracownicyProdukcji { get; set; }
         public virtual DbSet<vWszyscyPracownicyProdukcji> vWszyscyPracownicyProdukcji { get; set; }
         public virtual DbSet<vWszystkie_Elementy> vWszystkie_Elementy { get; set; }
         public virtual DbSet<vWszystkie_Maszyny> vWszystkie_Maszyny { get; set; }
-        public virtual DbSet<vWszystkieMaszyny> vWszystkieMaszyny { get; set; }
+        public virtual DbSet<vWszystkieMaszynyProdukcja> vWszystkieMaszynyProdukcja { get; set; }
+        public virtual DbSet<vWszystkieZamowienieElement> vWszystkieZamowienieElement { get; set; }
         public virtual DbSet<vWydawanie_Zamowien_Kurierowi> vWydawanie_Zamowien_Kurierowi { get; set; }
         public virtual DbSet<vWynagrodzenia> vWynagrodzenia { get; set; }
         public virtual DbSet<vZamowienia_Do_Wydania> vZamowienia_Do_Wydania { get; set; }

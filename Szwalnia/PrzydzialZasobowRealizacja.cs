@@ -39,14 +39,14 @@ namespace Szwalnia
             dgvPrzydzialZasobowRealizacja.Columns[9].HeaderText = "Nazwa maszyny";
             dgvPrzydzialZasobowRealizacja.Columns[10].HeaderText = "Data rozpoczęcia";
             dgvPrzydzialZasobowRealizacja.Columns[11].HeaderText = "Data zakończenia";
-
+                        
         }
 
         private void btnNowy_Click(object sender, EventArgs e)
         {
-            NowyPrzydzialZasobow nowyPrzydzialZasobow = new NowyPrzydzialZasobow(db, idEtapu);
+            NowyPrzydzialZasobow nowyPrzydzialZasobow = new NowyPrzydzialZasobow(db, idEtapu, nazwaEtapu);
             nowyPrzydzialZasobow.Show();
-
+            this.Close();
         }
 
 

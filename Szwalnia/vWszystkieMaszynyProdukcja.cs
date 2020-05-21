@@ -12,10 +12,10 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vWolniPracownicyProdukcji
+    public partial class vWszystkieMaszynyProdukcja
     {
-        public int ID_Pracownika { get; set; }
-        public string Pracownik { get; set; }
-        public Nullable<int> ID_PracownikaAk { get; set; }
+        public int ID_Maszyny { get; set; }
+        public string Maszyna { get; set; }
+        public string Nazwa { get; set; }
     }
 }

@@ -785,6 +785,9 @@
     <Compile Include="Urlop.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vAktywnoscPracownikaTeraz.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vCalkowityKosztZamowienia.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -935,6 +938,9 @@
     <Compile Include="vNieodebraneMaterialyWgZamowienieElement.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vNierealizowaneZamowienieElement.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vNieuzytyMaterialOdpad.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -1019,6 +1025,9 @@
     <Compile Include="vRealizacjaProcesuProdukcyjnego.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vRealizowaneZamowienieElement.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vRegaly_alfabetycznie.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -1091,7 +1100,7 @@
     <Compile Include="vUrlopPracownika.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vWolneMaszyny.cs">
+    <Compile Include="vWolneMaszynyProdukcja.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vWolnePolki.cs">
@@ -1103,7 +1112,10 @@
     <Compile Include="vWszyscyPracownicyProdukcji.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vWszystkieMaszyny.cs">
+    <Compile Include="vWszystkieMaszynyProdukcja.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vWszystkieZamowienieElement.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vWszystkie_Elementy.cs">
