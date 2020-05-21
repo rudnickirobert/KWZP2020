@@ -62,9 +62,9 @@ namespace Szwalnia
                 dgvListaOfert.DataSource = informacjaOBrakuOfert;
             }
             //petla dla drugiego dgv
-            if (db.vZawartoscMagazynuDoPrzydzialu.Where(element => element.ID_Element == intElement).Any() == true)
+            if (db.vZawartoscMagazynuDoPrzydzialuZabezpieczona.Where(element => element.ID_Element == intElement).Any() == true)
             {
-                dgvMagazynZawartosc.DataSource = db.vZawartoscMagazynuDoPrzydzialu.Where(element => element.ID_Element == intElement).ToList();
+                dgvMagazynZawartosc.DataSource = db.vZawartoscMagazynuDoPrzydzialuZabezpieczona.Where(element => element.ID_Element == intElement).ToList();
                 dgvMagazynZawartosc.Columns[0].Visible = false;
                 dgvMagazynZawartosc.Columns[1].Visible = false;
                 dgvMagazynZawartosc.Columns[2].Visible = false;
@@ -123,6 +123,12 @@ namespace Szwalnia
                 PopupAcceptDeny popupAkceptujOdrzuc = new PopupAcceptDeny(intPolka, intDostawa, intElement, intIlosc, intZamowienie);
                 popupAkceptujOdrzuc.Show();
             }
+        }
+
+        private void btnPrzypiszCalyMagazyn_Click(object sender, EventArgs e)
+        {
+            PopupAcceptDeny popupAkceptujOdrzuc = new PopupAcceptDeny(intElement,intZamowienie);
+            popupAkceptujOdrzuc.Show();
         }
     }
 }

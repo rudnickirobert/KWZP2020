@@ -12,14 +12,11 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vDostawyNiewydaneZPolkami
+    public partial class vDostawyIloscDoWydania
     {
         public int ID_Zamowienia { get; set; }
         public int ID_Dostawy { get; set; }
-        public int ID_Element { get; set; }
-        public string Element_Nazwa { get; set; }
-        public Nullable<int> Ilosc { get; set; }
-        public Nullable<System.DateTime> Proponowana_data_dostawy_materialu { get; set; }
-        public int ID_Polka { get; set; }
+        public Nullable<int> ID_Element { get; set; }
+        public Nullable<float> Ilosc { get; set; }
     }
 }
