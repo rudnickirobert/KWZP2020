@@ -43,6 +43,7 @@
             this.txtJednostka = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnWstecz = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaCech)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaJednostek)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCecha)).BeginInit();
@@ -52,7 +53,7 @@
             // 
             this.dgvListaCech.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaCech.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaCech.Location = new System.Drawing.Point(399, 208);
+            this.dgvListaCech.Location = new System.Drawing.Point(403, 229);
             this.dgvListaCech.Name = "dgvListaCech";
             this.dgvListaCech.RowHeadersWidth = 51;
             this.dgvListaCech.RowTemplate.Height = 24;
@@ -64,7 +65,7 @@
             // 
             this.dgvListaJednostek.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaJednostek.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaJednostek.Location = new System.Drawing.Point(399, 12);
+            this.dgvListaJednostek.Location = new System.Drawing.Point(403, 33);
             this.dgvListaJednostek.Name = "dgvListaJednostek";
             this.dgvListaJednostek.RowHeadersWidth = 51;
             this.dgvListaJednostek.RowTemplate.Height = 24;
@@ -192,11 +193,21 @@
             this.btnWstecz.UseVisualStyleBackColor = true;
             this.btnWstecz.Click += new System.EventHandler(this.btnWstecz_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(403, 10);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(215, 17);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "Wybierz nazwe cechy i jednostki:";
+            // 
             // DodoawanieCechElementowi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 417);
+            this.ClientSize = new System.Drawing.Size(745, 431);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnWstecz);
             this.Controls.Add(this.txtJednostka);
             this.Controls.Add(this.label5);
@@ -238,5 +249,6 @@
         private System.Windows.Forms.TextBox txtJednostka;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnWstecz;
+        private System.Windows.Forms.Label label6;
     }
 }

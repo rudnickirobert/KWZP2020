@@ -21,6 +21,7 @@ namespace Szwalnia
             dgvListaTypow.DataSource = db.Elementy_Typy.ToList();
             dgvListaTypow.Columns[3].Visible = false;
             dgvListaTypow.Columns[4].Visible = false;
+            dgvListaTypow.ReadOnly = true;
         }
 
         private void dgvListaTypow_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -30,8 +31,13 @@ namespace Szwalnia
             Elementy_Typy typ = db.Elementy_Typy.Where(wybrany => wybrany.ID_Element_Typ == ID).First();
             txtNazwa.Text =typ.Typ;
             if(typ.Czy_wlasne==true)
-            { txtWlasny.Text = "TAK"; }
-            else { txtWlasny.Text = "NIE"; }
+            { 
+                txtWlasny.Text = "TAK";
+            }
+            else 
+            { 
+                txtWlasny.Text = "NIE";                
+            }
         }
 
         private void btnWstecz_Click(object sender, EventArgs e)
@@ -51,8 +57,10 @@ namespace Szwalnia
         {
             Elementy_Typy typUsun = db.Elementy_Typy.Where(wybrany => wybrany.ID_Element_Typ == ID).First();
             db.Elementy_Typy.Remove(typUsun);
-            db.SaveChanges();            
+            db.SaveChanges();
+            dgvListaTypow.Refresh();
             MessageBox.Show("Pomyślnie usunięto element");            
         }
+
     }
 }

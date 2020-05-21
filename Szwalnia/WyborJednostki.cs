@@ -22,6 +22,7 @@ namespace Szwalnia
             dgvListaJednostek.Columns[2].Visible = false;
             dgvListaJednostek.Columns[3].Visible = false;
             dgvListaJednostek.Columns[4].Visible = false;
+            dgvListaJednostek.ReadOnly = true;
         }
 
         private void dgvListaJednostek_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)

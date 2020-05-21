@@ -38,14 +38,15 @@
             this.txtWlasny = new System.Windows.Forms.TextBox();
             this.txtNazwa = new System.Windows.Forms.TextBox();
             this.btnDodawanie = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaTypow)).BeginInit();
             this.SuspendLayout();
             // 
             // btnWstecz
             // 
-            this.btnWstecz.Location = new System.Drawing.Point(403, 128);
+            this.btnWstecz.Location = new System.Drawing.Point(387, 128);
             this.btnWstecz.Name = "btnWstecz";
-            this.btnWstecz.Size = new System.Drawing.Size(107, 30);
+            this.btnWstecz.Size = new System.Drawing.Size(123, 30);
             this.btnWstecz.TabIndex = 28;
             this.btnWstecz.Text = "Wstecz";
             this.btnWstecz.UseVisualStyleBackColor = true;
@@ -88,9 +89,9 @@
             // 
             // btnUsun
             // 
-            this.btnUsun.Location = new System.Drawing.Point(403, 92);
+            this.btnUsun.Location = new System.Drawing.Point(387, 92);
             this.btnUsun.Name = "btnUsun";
-            this.btnUsun.Size = new System.Drawing.Size(107, 30);
+            this.btnUsun.Size = new System.Drawing.Size(123, 30);
             this.btnUsun.TabIndex = 29;
             this.btnUsun.Text = "Usuń typ";
             this.btnUsun.UseVisualStyleBackColor = true;
@@ -121,6 +122,7 @@
             this.txtWlasny.Location = new System.Drawing.Point(185, 117);
             this.txtWlasny.Margin = new System.Windows.Forms.Padding(4);
             this.txtWlasny.Name = "txtWlasny";
+            this.txtWlasny.ReadOnly = true;
             this.txtWlasny.Size = new System.Drawing.Size(77, 22);
             this.txtWlasny.TabIndex = 31;
             // 
@@ -129,24 +131,35 @@
             this.txtNazwa.Location = new System.Drawing.Point(185, 87);
             this.txtNazwa.Margin = new System.Windows.Forms.Padding(4);
             this.txtNazwa.Name = "txtNazwa";
+            this.txtNazwa.ReadOnly = true;
             this.txtNazwa.Size = new System.Drawing.Size(132, 22);
             this.txtNazwa.TabIndex = 32;
             // 
             // btnDodawanie
             // 
-            this.btnDodawanie.Location = new System.Drawing.Point(403, 56);
+            this.btnDodawanie.Location = new System.Drawing.Point(387, 56);
             this.btnDodawanie.Name = "btnDodawanie";
-            this.btnDodawanie.Size = new System.Drawing.Size(107, 30);
+            this.btnDodawanie.Size = new System.Drawing.Size(123, 30);
             this.btnDodawanie.TabIndex = 30;
-            this.btnDodawanie.Text = "Dodaj typ";
+            this.btnDodawanie.Text = "Dodaj nowy typ";
             this.btnDodawanie.UseVisualStyleBackColor = true;
             this.btnDodawanie.Click += new System.EventHandler(this.btnDodawanie_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 157);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 17);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Wybierz typ z listy:";
             // 
             // WyborTypu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(530, 396);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblOkres);
             this.Controls.Add(this.lblNazwa);
             this.Controls.Add(this.txtWlasny);
@@ -177,5 +190,6 @@
         private System.Windows.Forms.TextBox txtWlasny;
         private System.Windows.Forms.TextBox txtNazwa;
         private System.Windows.Forms.Button btnDodawanie;
+        private System.Windows.Forms.Label label1;
     }
 }

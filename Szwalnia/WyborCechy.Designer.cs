@@ -36,6 +36,7 @@
             this.dgvListaCech = new System.Windows.Forms.DataGridView();
             this.lblError = new System.Windows.Forms.Label();
             this.lblInfo = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaCech)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,6 +55,7 @@
             this.txtNazwa.Location = new System.Drawing.Point(127, 78);
             this.txtNazwa.Margin = new System.Windows.Forms.Padding(4);
             this.txtNazwa.Name = "txtNazwa";
+            this.txtNazwa.ReadOnly = true;
             this.txtNazwa.Size = new System.Drawing.Size(132, 22);
             this.txtNazwa.TabIndex = 42;
             // 
@@ -91,7 +93,7 @@
             // 
             this.dgvListaCech.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaCech.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaCech.Location = new System.Drawing.Point(14, 194);
+            this.dgvListaCech.Location = new System.Drawing.Point(13, 208);
             this.dgvListaCech.Margin = new System.Windows.Forms.Padding(4);
             this.dgvListaCech.Name = "dgvListaCech";
             this.dgvListaCech.RowHeadersWidth = 51;
@@ -122,11 +124,21 @@
             this.lblInfo.TabIndex = 35;
             this.lblInfo.Text = "Wybierz ceche z listy";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(10, 187);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(143, 17);
+            this.label1.TabIndex = 45;
+            this.label1.Text = "Wybierz cechy z listy:";
+            // 
             // WyborCechy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(432, 403);
+            this.ClientSize = new System.Drawing.Size(432, 413);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblNazwa);
             this.Controls.Add(this.txtNazwa);
             this.Controls.Add(this.btnDodawanie);
@@ -152,5 +164,6 @@
         private System.Windows.Forms.DataGridView dgvListaCech;
         private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.Label label1;
     }
 }

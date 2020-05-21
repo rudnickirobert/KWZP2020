@@ -21,6 +21,7 @@ namespace Szwalnia
             dgvListaCech.DataSource = db.Elementy_Cechy_Slownik.ToList();
             dgvListaCech.Columns[2].Visible = false;
             dgvListaCech.Columns[3].Visible = false;
+            dgvListaCech.ReadOnly = true;
         }
         private void dgvListaCech_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {

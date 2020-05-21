@@ -25,11 +25,13 @@ namespace Szwalnia
             dgvListaCech.DataSource = db.Elementy_Cechy_Slownik.ToList();
             dgvListaCech.Columns[2].Visible = false;
             dgvListaCech.Columns[3].Visible = false;
+            dgvListaCech.ReadOnly = true;
 
             dgvListaJednostek.DataSource = db.Elementy_Jednostki.ToList();           
             dgvListaJednostek.Columns[2].Visible = false;
             dgvListaJednostek.Columns[3].Visible = false;
             dgvListaJednostek.Columns[4].Visible = false;
+            dgvListaJednostek.ReadOnly = true;
 
             cechaElementuNew.ID_Element = numIDElementu;
             IDElement = numIDElementu;

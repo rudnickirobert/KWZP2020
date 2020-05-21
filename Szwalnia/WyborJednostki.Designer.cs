@@ -36,6 +36,7 @@
             this.dgvListaJednostek = new System.Windows.Forms.DataGridView();
             this.lblError = new System.Windows.Forms.Label();
             this.lblInfo = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaJednostek)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,6 +55,7 @@
             this.txtNazwa.Location = new System.Drawing.Point(135, 82);
             this.txtNazwa.Margin = new System.Windows.Forms.Padding(4);
             this.txtNazwa.Name = "txtNazwa";
+            this.txtNazwa.ReadOnly = true;
             this.txtNazwa.Size = new System.Drawing.Size(93, 22);
             this.txtNazwa.TabIndex = 51;
             // 
@@ -91,11 +93,11 @@
             // 
             this.dgvListaJednostek.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaJednostek.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaJednostek.Location = new System.Drawing.Point(13, 195);
+            this.dgvListaJednostek.Location = new System.Drawing.Point(17, 212);
             this.dgvListaJednostek.Margin = new System.Windows.Forms.Padding(4);
             this.dgvListaJednostek.Name = "dgvListaJednostek";
             this.dgvListaJednostek.RowHeadersWidth = 51;
-            this.dgvListaJednostek.Size = new System.Drawing.Size(397, 202);
+            this.dgvListaJednostek.Size = new System.Drawing.Size(397, 203);
             this.dgvListaJednostek.TabIndex = 47;
             this.dgvListaJednostek.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaJednostek_CellContentDoubleClick);
             // 
@@ -122,11 +124,21 @@
             this.lblInfo.TabIndex = 45;
             this.lblInfo.Text = "Wybierz jednostkę z listy";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 187);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(167, 17);
+            this.label1.TabIndex = 53;
+            this.label1.Text = "Wybierz jednostkę z listy:";
+            // 
             // WyborJednostki
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 418);
+            this.ClientSize = new System.Drawing.Size(432, 428);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblNazwa);
             this.Controls.Add(this.txtNazwa);
             this.Controls.Add(this.btnDodawanie);
@@ -153,5 +165,6 @@
         private System.Windows.Forms.DataGridView dgvListaJednostek;
         private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.Label label1;
     }
 }
