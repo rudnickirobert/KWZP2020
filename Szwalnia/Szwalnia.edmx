@@ -2132,8 +2132,18 @@ warning 6002: The table/view 'Szwalnia.dbo.vZamowieniaKompletneNiewydaneNaPolkac
             <PropertyRef Name="ID_Polka" />
           </Key>
           <Property Name="ID_Zamowienia" Type="int" Nullable="false" />
-          <Property Name="ID_Polka" Type="int" Nullable="false" />
           <Property Name="ID_Element" Type="int" />
+          <Property Name="Element_Nazwa" Type="varchar" MaxLength="35" />
+          <Property Name="ID_Polka" Type="int" Nullable="false" />
+          <Property Name="Regal" Type="varchar" MaxLength="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vZamowieniaKompletneNiewydaneNaPolkachCaleNumery' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vZamowieniaKompletneNiewydaneNaPolkachCaleNumery">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia" />
+          </Key>
+          <Property Name="ID_Zamowienia" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vZamowieniaNieprzypisaneDoPracownikaIKuriera' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -4315,9 +4325,16 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <EntitySet Name="vZamowieniaKompletneNiewydaneNaPolkachCale" EntityType="Self.vZamowieniaKompletneNiewydaneNaPolkachCale" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vZamowieniaKompletneNiewydaneNaPolkachCale].[ID_Zamowienia] AS [ID_Zamowienia], 
+    [vZamowieniaKompletneNiewydaneNaPolkachCale].[ID_Element] AS [ID_Element], 
+    [vZamowieniaKompletneNiewydaneNaPolkachCale].[Element_Nazwa] AS [Element_Nazwa], 
     [vZamowieniaKompletneNiewydaneNaPolkachCale].[ID_Polka] AS [ID_Polka], 
-    [vZamowieniaKompletneNiewydaneNaPolkachCale].[ID_Element] AS [ID_Element]
+    [vZamowieniaKompletneNiewydaneNaPolkachCale].[Regal] AS [Regal]
     FROM [dbo].[vZamowieniaKompletneNiewydaneNaPolkachCale] AS [vZamowieniaKompletneNiewydaneNaPolkachCale]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vZamowieniaKompletneNiewydaneNaPolkachCaleNumery" EntityType="Self.vZamowieniaKompletneNiewydaneNaPolkachCaleNumery" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vZamowieniaKompletneNiewydaneNaPolkachCaleNumery].[ID_Zamowienia] AS [ID_Zamowienia]
+    FROM [dbo].[vZamowieniaKompletneNiewydaneNaPolkachCaleNumery] AS [vZamowieniaKompletneNiewydaneNaPolkachCaleNumery]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vZamowieniaNieprzypisaneDoPracownikaIKuriera" EntityType="Self.vZamowieniaNieprzypisaneDoPracownikaIKuriera" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -4904,6 +4921,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <EntitySet Name="vZamowieniaDystans" EntityType="SzwalniaModel.vZamowieniaDystans" />
           <EntitySet Name="vZamowieniaKomplenteNiewydaneNaPolkach" EntityType="SzwalniaModel.vZamowieniaKomplenteNiewydaneNaPolkach" />
           <EntitySet Name="vZamowieniaKompletneNiewydaneNaPolkachCale" EntityType="SzwalniaModel.vZamowieniaKompletneNiewydaneNaPolkachCale" />
+          <EntitySet Name="vZamowieniaKompletneNiewydaneNaPolkachCaleNumery" EntityType="SzwalniaModel.vZamowieniaKompletneNiewydaneNaPolkachCaleNumery" />
           <EntitySet Name="vZamowieniaNieprzypisaneDoPracownikaIKuriera" EntityType="SzwalniaModel.vZamowieniaNieprzypisaneDoPracownikaIKuriera" />
           <EntitySet Name="vZamowienie" EntityType="SzwalniaModel.vZamowienie" />
           <EntitySet Name="vZamowienieProcesyProdukcyjne" EntityType="SzwalniaModel.vZamowienieProcesyProdukcyjne" />
@@ -7301,8 +7319,16 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
             <PropertyRef Name="ID_Polka" />
           </Key>
           <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
-          <Property Name="ID_Polka" Type="Int32" Nullable="false" />
           <Property Name="ID_Element" Type="Int32" />
+          <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Polka" Type="Int32" Nullable="false" />
+          <Property Name="Regal" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vZamowieniaKompletneNiewydaneNaPolkachCaleNumery">
+          <Key>
+            <PropertyRef Name="ID_Zamowienia" />
+          </Key>
+          <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="vZamowieniaNieprzypisaneDoPracownikaIKuriera">
           <Key>
@@ -10296,8 +10322,17 @@ warning 6002: The table/view 'Szwalnia.dbo.vZawartoscMagazynuDoPrzydzialu' does 
           <EntitySetMapping Name="vZamowieniaKompletneNiewydaneNaPolkachCale">
             <EntityTypeMapping TypeName="SzwalniaModel.vZamowieniaKompletneNiewydaneNaPolkachCale">
               <MappingFragment StoreEntitySet="vZamowieniaKompletneNiewydaneNaPolkachCale">
-                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="Regal" ColumnName="Regal" />
                 <ScalarProperty Name="ID_Polka" ColumnName="ID_Polka" />
+                <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vZamowieniaKompletneNiewydaneNaPolkachCaleNumery">
+            <EntityTypeMapping TypeName="SzwalniaModel.vZamowieniaKompletneNiewydaneNaPolkachCaleNumery">
+              <MappingFragment StoreEntitySet="vZamowieniaKompletneNiewydaneNaPolkachCaleNumery">
                 <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
               </MappingFragment>
             </EntityTypeMapping>

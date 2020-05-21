@@ -513,15 +513,27 @@ GO
 
 CREATE VIEW [dbo].[vZamowieniaKompletneNiewydaneNaPolkachCale]
 AS
-SELECT DISTINCT dbo.vZamowieniaKomplenteNiewydaneNaPolkach.ID_Zamowienia, dbo.vZamowieniaKomplenteNiewydaneNaPolkach.ID_Polka, dbo.vZamowieniaKomplenteNiewydaneNaPolkach.ID_Element
-FROM            dbo.vZamowieniaKomplenteNiewydaneNaPolkach LEFT OUTER JOIN
-                             (SELECT DISTINCT dbo.Zamowienie_Element.ID_Zamowienia
-                               FROM            dbo.Zamowienie_Element LEFT OUTER JOIN
-                                                         dbo.vZamowieniaKomplenteNiewydaneNaPolkach AS vZamowieniaKomplenteNiewydaneNaPolkach_1 ON dbo.Zamowienie_Element.ID_Element = vZamowieniaKomplenteNiewydaneNaPolkach_1.ID_Element AND
-                                                          dbo.Zamowienie_Element.ID_Zamowienia = vZamowieniaKomplenteNiewydaneNaPolkach_1.ID_Zamowienia
-                               WHERE        (vZamowieniaKomplenteNiewydaneNaPolkach_1.ID_Element IS NULL)) AS Zamowienia_niebedace_kompletne_na_polce ON 
-                         dbo.vZamowieniaKomplenteNiewydaneNaPolkach.ID_Zamowienia = Zamowienia_niebedace_kompletne_na_polce.ID_Zamowienia
+SELECT DISTINCT 
+                         dbo.vZamowieniaKomplenteNiewydaneNaPolkach.ID_Zamowienia, dbo.vZamowieniaKomplenteNiewydaneNaPolkach.ID_Element, dbo.Elementy.Element_Nazwa, dbo.vZamowieniaKomplenteNiewydaneNaPolkach.ID_Polka, 
+                         dbo.Regaly.Oznaczenie AS Regal
+FROM            (SELECT DISTINCT dbo.Zamowienie_Element.ID_Zamowienia
+                          FROM            dbo.Zamowienie_Element LEFT OUTER JOIN
+                                                    dbo.vZamowieniaKomplenteNiewydaneNaPolkach AS vZamowieniaKomplenteNiewydaneNaPolkach_1 ON dbo.Zamowienie_Element.ID_Element = vZamowieniaKomplenteNiewydaneNaPolkach_1.ID_Element AND 
+                                                    dbo.Zamowienie_Element.ID_Zamowienia = vZamowieniaKomplenteNiewydaneNaPolkach_1.ID_Zamowienia
+                          WHERE        (vZamowieniaKomplenteNiewydaneNaPolkach_1.ID_Element IS NULL)) AS Zamowienia_niebedace_kompletne_na_polce RIGHT OUTER JOIN
+                         dbo.vZamowieniaKomplenteNiewydaneNaPolkach INNER JOIN
+                         dbo.Elementy ON dbo.vZamowieniaKomplenteNiewydaneNaPolkach.ID_Element = dbo.Elementy.ID_Element INNER JOIN
+                         dbo.Polki_regaly INNER JOIN
+                         dbo.Regaly ON dbo.Polki_regaly.ID_regal = dbo.Regaly.ID_regal ON dbo.vZamowieniaKomplenteNiewydaneNaPolkach.ID_Polka = dbo.Polki_regaly.ID_Polka ON 
+                         Zamowienia_niebedace_kompletne_na_polce.ID_Zamowienia = dbo.vZamowieniaKomplenteNiewydaneNaPolkach.ID_Zamowienia
 WHERE        (Zamowienia_niebedace_kompletne_na_polce.ID_Zamowienia IS NULL)
+GO
+
+
+CREATE VIEW [dbo].[vZamowieniaKompletneNiewydaneNaPolkachCaleNumery]
+AS
+SELECT DISTINCT ID_Zamowienia
+FROM            dbo.vZamowieniaKomplenteNiewydaneNaPolkach
 GO
 
 

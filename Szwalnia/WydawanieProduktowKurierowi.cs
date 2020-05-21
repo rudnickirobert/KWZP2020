@@ -20,22 +20,23 @@ namespace Szwalnia
             InitializeComponent();
             db = Start.szwalnia;
             dgvGotoweProdukty.ReadOnly = true;
-            if (db.vZamowieniaKompletneNiewydaneNaPolkachCale.Any())
+            if (db.vZamowieniaKompletneNiewydaneNaPolkachCaleNumery.Any())
             {
-                cmbZamowienie.DataSource = db.vZamowieniaKompletneNiewydaneNaPolkachCale.ToList();
+                cmbZamowienie.DataSource = db.vZamowieniaKompletneNiewydaneNaPolkachCaleNumery.ToList();
                 cmbZamowienie.DisplayMember = "ID_Zamowienia";
                 cmbZamowienie.ValueMember = "ID_Zamowienia";
                 int numerZamowienia = Convert.ToInt32(cmbZamowienie.SelectedValue);
                 dgvGotoweProdukty.DataSource = db.vZamowieniaKompletneNiewydaneNaPolkachCale.Where(zamowienie => zamowienie.ID_Zamowienia == numerZamowienia).ToList();
+                dgvGotoweProdukty.Columns[0].Visible = false;
                 dgvGotoweProdukty.ReadOnly = true;
             }
             else
             {
                 DataTable brakProduktow = new DataTable();
                 brakProduktow.Columns.Add("Informacja");
-                brakProduktow.Rows.Add("Brak produktów do przyjęcia");
+                brakProduktow.Rows.Add("Brak zamówień do wydania");
                 dgvGotoweProdukty.DataSource = brakProduktow;
-                dgvGotoweProdukty.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvGotoweProdukty.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;   
                 dgvGotoweProdukty.ReadOnly = true;
                 cmbZamowienie.DataSource = brakProduktow;
                 cmbZamowienie.DisplayMember = "Informacja";
@@ -57,13 +58,15 @@ namespace Szwalnia
 
         private void cmbZamowienie_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (czyZainicjowane)
+           if (czyZainicjowane)
             {
                 if (db.vZamowieniaKompletneNiewydaneNaPolkachCale.Any())
                 {
                     int numerZamowienia = Convert.ToInt32(cmbZamowienie.SelectedValue);
                     dgvGotoweProdukty.DataSource = db.vZamowieniaKompletneNiewydaneNaPolkachCale.Where(zamowienie => zamowienie.ID_Zamowienia == numerZamowienia).ToList();
+                    dgvGotoweProdukty.Columns[0].Visible = false;
                     dgvGotoweProdukty.ReadOnly = true;
+                    btnWydajProdukty.Enabled = true;
                 }
                 else
                 {
@@ -74,9 +77,8 @@ namespace Szwalnia
                     dgvGotoweProdukty.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     dgvGotoweProdukty.ReadOnly = true;
                 }
-
-                btnWydajProdukty.Enabled = true;
             }
+            
         }
         private void btnWydajProdukty_Click(object sender, EventArgs e)
         {
@@ -96,7 +98,7 @@ namespace Szwalnia
                     noweWydanie.ID_Miejsca = intIDMiejsca;
                     int intIDPolka = wierszWybrany.ID_Polka;
                     Zawartosc wybranaPolka = db.Zawartosc.Where(polkaWybrana => polkaWybrana.ID_Polka == intIDPolka).First();
-                    noweWydanie.Ilosc_Dostarczona = wybranaPolka.Ilosc_Paczek;
+                    noweWydanie.Ilosc_Dostarczona = -wybranaPolka.Ilosc_Paczek;
                     noweWydanie.Data_Dostarczenia = Convert.ToString(DateTime.Now).Substring(0, 10);
                     db.Dostarczenia_Zewn.Add(noweWydanie);
                     db.Zawartosc.Remove(wybranaPolka);

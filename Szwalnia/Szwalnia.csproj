@@ -1127,6 +1127,9 @@
     <Compile Include="vZamowieniaKompletneNiewydaneNaPolkachCale.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vZamowieniaKompletneNiewydaneNaPolkachCaleNumery.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vZamowieniaNieprzypisaneDoPracownikaIKuriera.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
