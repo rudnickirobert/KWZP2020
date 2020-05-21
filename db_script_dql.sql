@@ -1311,7 +1311,7 @@ FROM     dbo.Klienci
 GO
 
 
-drop view vWolniPracownicyZarzadzanie
+
 CREATE VIEW vWolniPracownicyZarzadzanie
 AS 
 SELECT dbo.Pracownicy.ID_Pracownika, dbo.Pracownicy.Imie + (' ')  +  dbo.Pracownicy.Nazwisko AS 'Pracownik',
@@ -1351,4 +1351,18 @@ SELECT dbo.Elementy_Typy.Czy_wlasne, dbo.Elementy.ID_Element, dbo.Elementy.Eleme
 FROM     dbo.Elementy INNER JOIN
                   dbo.Elementy_Typy ON dbo.Elementy.ID_Element_Typ = dbo.Elementy_Typy.ID_Element_Typ
 WHERE  (dbo.Elementy_Typy.Czy_wlasne = 1)
+GO
+
+CREATE VIEW vZyskZZamowienia
+AS
+SELECT ISNULL(ROW_NUMBER() OVER(ORDER BY (SELECT NULL)), -1) as 'id', ID_Zamowienia, FLOOR([Cena netto] * '0.2') AS [Zysk z zamowienia]
+FROM     dbo.vFaktury
+GO
+
+CREATE VIEW vSrodkiWszystkie
+AS
+SELECT dbo.Srodki_Trwale.ID_Srodki_trwale, dbo.Srodki_Trwale.Nazwa, dbo.Srodki_Trwale.Producent, dbo.Srodki_Trwale.Numer_seryjny, dbo.Dzialy.Nazwa_dzialu, dbo.Srodki_Trwale.Koszt_zakupu, 
+                  dbo.Srodki_Trwale.Roczny_stopien_amortyzacji, dbo.Srodki_Trwale.Gwarancja, dbo.Srodki_Trwale.Zamortyzowane
+FROM     dbo.Srodki_Trwale INNER JOIN
+                  dbo.Dzialy ON dbo.Srodki_Trwale.ID_Dzialu = dbo.Dzialy.ID_Dzialu
 GO
