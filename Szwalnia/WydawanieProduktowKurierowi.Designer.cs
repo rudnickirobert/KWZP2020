@@ -42,15 +42,16 @@
             // cmbPracownik
             // 
             this.cmbPracownik.FormattingEnabled = true;
-            this.cmbPracownik.Location = new System.Drawing.Point(224, 222);
+            this.cmbPracownik.Location = new System.Drawing.Point(214, 225);
             this.cmbPracownik.Name = "cmbPracownik";
             this.cmbPracownik.Size = new System.Drawing.Size(183, 21);
             this.cmbPracownik.TabIndex = 24;
             // 
             // btnWydajProdukty
             // 
+            this.btnWydajProdukty.Enabled = false;
             this.btnWydajProdukty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnWydajProdukty.Location = new System.Drawing.Point(197, 259);
+            this.btnWydajProdukty.Location = new System.Drawing.Point(187, 262);
             this.btnWydajProdukty.Name = "btnWydajProdukty";
             this.btnWydajProdukty.Size = new System.Drawing.Size(162, 32);
             this.btnWydajProdukty.TabIndex = 23;
@@ -61,7 +62,7 @@
             // lblPracownik
             // 
             this.lblPracownik.AutoSize = true;
-            this.lblPracownik.Location = new System.Drawing.Point(147, 225);
+            this.lblPracownik.Location = new System.Drawing.Point(137, 228);
             this.lblPracownik.Name = "lblPracownik";
             this.lblPracownik.Size = new System.Drawing.Size(60, 13);
             this.lblPracownik.TabIndex = 22;
@@ -71,7 +72,7 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.lblTitle.Location = new System.Drawing.Point(80, 27);
+            this.lblTitle.Location = new System.Drawing.Point(70, 30);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(399, 31);
             this.lblTitle.TabIndex = 21;
@@ -79,25 +80,26 @@
             // 
             // dgvGotoweProdukty
             // 
+            this.dgvGotoweProdukty.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvGotoweProdukty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGotoweProdukty.Location = new System.Drawing.Point(15, 117);
+            this.dgvGotoweProdukty.Location = new System.Drawing.Point(12, 117);
             this.dgvGotoweProdukty.Name = "dgvGotoweProdukty";
-            this.dgvGotoweProdukty.Size = new System.Drawing.Size(523, 84);
+            this.dgvGotoweProdukty.Size = new System.Drawing.Size(501, 84);
             this.dgvGotoweProdukty.TabIndex = 20;
             // 
             // cmbZamowienie
             // 
             this.cmbZamowienie.FormattingEnabled = true;
-            this.cmbZamowienie.Location = new System.Drawing.Point(308, 76);
+            this.cmbZamowienie.Location = new System.Drawing.Point(250, 81);
             this.cmbZamowienie.Name = "cmbZamowienie";
-            this.cmbZamowienie.Size = new System.Drawing.Size(99, 21);
+            this.cmbZamowienie.Size = new System.Drawing.Size(160, 21);
             this.cmbZamowienie.TabIndex = 26;
             this.cmbZamowienie.SelectedIndexChanged += new System.EventHandler(this.cmbZamowienie_SelectedIndexChanged);
             // 
             // lblZamowienieInfo
             // 
             this.lblZamowienieInfo.AutoSize = true;
-            this.lblZamowienieInfo.Location = new System.Drawing.Point(133, 79);
+            this.lblZamowienieInfo.Location = new System.Drawing.Point(75, 84);
             this.lblZamowienieInfo.Name = "lblZamowienieInfo";
             this.lblZamowienieInfo.Size = new System.Drawing.Size(160, 13);
             this.lblZamowienieInfo.TabIndex = 25;
@@ -107,7 +109,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 319);
+            this.ClientSize = new System.Drawing.Size(525, 313);
             this.Controls.Add(this.cmbZamowienie);
             this.Controls.Add(this.lblZamowienieInfo);
             this.Controls.Add(this.cmbPracownik);

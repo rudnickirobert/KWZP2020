@@ -18,6 +18,5 @@ namespace Szwalnia
         public string Rodzaj_maszyny { get; set; }
         public int Liczba_maszyn { get; set; }
         public int Liczba_roboczogodzin_maszyny { get; set; }
-        public int Koszt_roboczogodziny_maszyny { get; set; }
     }
 }

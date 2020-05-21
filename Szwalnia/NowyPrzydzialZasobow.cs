@@ -14,42 +14,20 @@ namespace Szwalnia
     {
         public SzwalniaEntities db;
         public int idEtapu;
+        public string nazwaEtapu;
         
         public const string pustePole = "  .  .       :  :";
-        public NowyPrzydzialZasobow(SzwalniaEntities db, int idEtapu)
+        public NowyPrzydzialZasobow(SzwalniaEntities db, int idEtapu, string nazwaEtapu)
         {
             InitializeComponent();
             this.db = db;
             this.idEtapu = idEtapu;
+            this.nazwaEtapu = nazwaEtapu;
             cbxPracownik.Enabled = false;
             cbxMaszyna.Enabled = false;
 
         }
-
-        private void btnDzisRozpoczecie_Click(object sender, EventArgs e)
-        {
-            mtbDataRozpoczecia.Text= DateTime.Now.ToString();
-        }
-
-        private void btnDzisZakonczenie_Click(object sender, EventArgs e)
-        {
-            mtbDataZakonczenia.Text = DateTime.Now.ToString();
-        }
-
-        private void btnWyzeruj_Click(object sender, EventArgs e)
-        {
-            cbxPracownik.Text = "";
-            cbxMaszyna.Text = "";
-            mtbDataRozpoczecia.Text = "";
-            mtbDataZakonczenia.Text = "";
-        }
-
-        private void btnAnuluj_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnZapisz_Click(object sender, EventArgs e)
+        void nowy()
         {
             Przydzial_Zasobow przydzial = new Przydzial_Zasobow();
             if (string.IsNullOrEmpty(cbxPracownik.Text))
@@ -78,13 +56,43 @@ namespace Szwalnia
                         przydzial.Data_Zakonczenia = Convert.ToDateTime(mtbDataZakonczenia.Text);
                     }
 
-
                     db.Przydzial_Zasobow.Add(przydzial);
                     db.SaveChanges();
                     MessageBox.Show("Dodano nowy przydział zasobów");
 
-                } 
+                }
             }
+        }
+        private void btnDzisRozpoczecie_Click(object sender, EventArgs e)
+        {
+            mtbDataRozpoczecia.Text= DateTime.Now.ToString();
+        }
+
+        private void btnDzisZakonczenie_Click(object sender, EventArgs e)
+        {
+            mtbDataZakonczenia.Text = DateTime.Now.ToString();
+        }
+
+        private void btnWyzeruj_Click(object sender, EventArgs e)
+        {
+            cbxPracownik.Text = "";
+            cbxMaszyna.Text = "";
+            mtbDataRozpoczecia.Text = "";
+            mtbDataZakonczenia.Text = "";
+        }
+
+        private void btnAnuluj_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnZapisz_Click(object sender, EventArgs e)
+        {
+            nowy();
+            cbxPracownik.Text = "";
+            cbxMaszyna.Text = "";
+            mtbDataRozpoczecia.Text = "";
+            mtbDataZakonczenia.Text = "";
         }
 
         private void btnWszyscyPracownicy_Click(object sender, EventArgs e)
@@ -106,7 +114,7 @@ namespace Szwalnia
         private void btnWszystkieMaszyny_Click(object sender, EventArgs e)
         {
             cbxMaszyna.Enabled = true;
-            cbxMaszyna.DataSource = db.vWszystkieMaszyny.ToList();
+            cbxMaszyna.DataSource = db.vWszystkieMaszynyProdukcja.ToList();
             cbxMaszyna.DisplayMember = "Maszyna";
             cbxMaszyna.ValueMember = "ID_Maszyny";
 
@@ -115,11 +123,22 @@ namespace Szwalnia
         private void btnWolneMaszyny_Click(object sender, EventArgs e)
         {
             cbxMaszyna.Enabled = true;
-            cbxMaszyna.DataSource = db.vWolneMaszyny.ToList();
+            cbxMaszyna.DataSource = db.vWolneMaszynyProdukcja.ToList();
             cbxMaszyna.DisplayMember = "Maszyna";
             cbxMaszyna.ValueMember = "ID_Maszyny";
 
         }
 
+        private void NowyPrzydzialZasobow_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            PrzydzialZasobowRealizacja przydzialZasobowRealizacja = new PrzydzialZasobowRealizacja(db, idEtapu, nazwaEtapu);
+            przydzialZasobowRealizacja.Show();
+        }
+
+        private void btnZapiszZamknij_Click(object sender, EventArgs e)
+        {
+            nowy();
+            this.Close();
+        }
     }
 }

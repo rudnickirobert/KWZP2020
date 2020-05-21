@@ -17,11 +17,14 @@ namespace Szwalnia
         Typy_cechy_rejestr rejestrNew = new Typy_cechy_rejestr();
         public int IDElement;
         public int IDCechy;
+
         public DodoawanieCechElementowi(int numIDElementu)
         {
             InitializeComponent();
-            db = Start.szwalnia;   
-            
+            db = Start.szwalnia;  
+            dgvListaCech.ReadOnly = true;
+            dgvListaJednostek.ReadOnly = true;
+
             dgvListaCech.DataSource = db.Elementy_Cechy_Slownik.ToList();
             dgvListaCech.Columns[2].Visible = false;
             dgvListaCech.Columns[3].Visible = false;

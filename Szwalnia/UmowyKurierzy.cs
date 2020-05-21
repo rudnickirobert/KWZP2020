@@ -18,6 +18,7 @@ namespace Szwalnia
         {
             db = Start.szwalnia;
             InitializeComponent();
+            dgvUmowy.ReadOnly = true;
             dgvUmowy.DataSource = db.vUmowyKurierzy.ToList();
         }
 

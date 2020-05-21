@@ -14,13 +14,12 @@ namespace Szwalnia
     {
         public SzwalniaEntities db;
         public int ostatniNumerZamowienia;
-        Proces_Produkcyjny proces = new Proces_Produkcyjny();
         public PrzegladProcesowProdukcyjnych(SzwalniaEntities db)
         {
             InitializeComponent();
-            this.db = db; 
+            this.db = db;
         }
-
+       
         private void btnWszystkieProcesy_Click(object sender, EventArgs e)
         {
             dgvProcesyProdukcyjne.DataSource = db.vZamowienieProcesyProdukcyjne.ToList();

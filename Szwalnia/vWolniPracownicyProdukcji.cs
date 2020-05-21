@@ -14,15 +14,8 @@ namespace Szwalnia
     
     public partial class vWolniPracownicyProdukcji
     {
-        public Nullable<int> ID_Pracownika { get; set; }
+        public int ID_Pracownika { get; set; }
         public string Pracownik { get; set; }
-        public string ID_Działu__Nazwa { get; set; }
-        public Nullable<System.DateTime> Data_Rozpoczęcia_Urlopu { get; set; }
-        public Nullable<System.DateTime> Data_Zakończenia_Urlopu { get; set; }
-        public Nullable<System.DateTime> Data_Rozpoczęcia { get; set; }
-        public Nullable<System.DateTime> Data_Zakończenia { get; set; }
-        public string ID_Stanowiska__Nazwa_Stanowiska { get; set; }
-        public System.DateTime Data_Zatrudnienia { get; set; }
-        public System.DateTime Koniec_umowy { get; set; }
+        public Nullable<int> ID_PracownikaAk { get; set; }
     }
 }

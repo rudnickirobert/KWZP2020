@@ -12,14 +12,9 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vStan_magazynowy_polki
+    public partial class vWszystkieZamowienieElement
     {
-        public int ID_Zawartosc { get; set; }
-        public Nullable<int> ID_Polka { get; set; }
-        public string Oznaczenie { get; set; }
-        public string Element_Nazwa { get; set; }
-        public Nullable<int> ID_Element { get; set; }
-        public string Ile { get; set; }
-        public string Przydatnosc { get; set; }
+        public int zamowienie1 { get; set; }
+        public string Zamowienie_element { get; set; }
     }
 }

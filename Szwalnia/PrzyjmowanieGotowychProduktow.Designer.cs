@@ -40,9 +40,9 @@
             this.dgvGotoweProdukty.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvGotoweProdukty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGotoweProdukty.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvGotoweProdukty.Location = new System.Drawing.Point(18, 111);
+            this.dgvGotoweProdukty.Location = new System.Drawing.Point(12, 103);
             this.dgvGotoweProdukty.Name = "dgvGotoweProdukty";
-            this.dgvGotoweProdukty.Size = new System.Drawing.Size(570, 191);
+            this.dgvGotoweProdukty.Size = new System.Drawing.Size(582, 191);
             this.dgvGotoweProdukty.TabIndex = 0;
             this.dgvGotoweProdukty.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGotoweProdukty_CellDoubleClick);
             // 
@@ -58,9 +58,9 @@
             // 
             // lblInfo
             // 
-            this.lblInfo.Location = new System.Drawing.Point(73, 64);
+            this.lblInfo.Location = new System.Drawing.Point(12, 56);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(459, 44);
+            this.lblInfo.Size = new System.Drawing.Size(582, 44);
             this.lblInfo.TabIndex = 19;
             this.lblInfo.Text = "Wybierz produkty, które chcesz przyjąć";
             this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -69,7 +69,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(606, 314);
+            this.ClientSize = new System.Drawing.Size(606, 304);
             this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.dgvGotoweProdukty);

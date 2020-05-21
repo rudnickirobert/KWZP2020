@@ -42,9 +42,9 @@
             // 
             // btnWyborElementu
             // 
-            this.btnWyborElementu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnWyborElementu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnWyborElementu.Location = new System.Drawing.Point(213, 9);
-            this.btnWyborElementu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnWyborElementu.Margin = new System.Windows.Forms.Padding(2);
             this.btnWyborElementu.Name = "btnWyborElementu";
             this.btnWyborElementu.Size = new System.Drawing.Size(187, 50);
             this.btnWyborElementu.TabIndex = 1;
@@ -54,9 +54,9 @@
             // 
             // btnElement
             // 
-            this.btnElement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnElement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnElement.Location = new System.Drawing.Point(9, 9);
-            this.btnElement.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnElement.Margin = new System.Windows.Forms.Padding(2);
             this.btnElement.Name = "btnElement";
             this.btnElement.Size = new System.Drawing.Size(187, 50);
             this.btnElement.TabIndex = 0;
@@ -66,9 +66,9 @@
             // 
             // btnTyp
             // 
-            this.btnTyp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnTyp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnTyp.Location = new System.Drawing.Point(9, 63);
-            this.btnTyp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTyp.Margin = new System.Windows.Forms.Padding(2);
             this.btnTyp.Name = "btnTyp";
             this.btnTyp.Size = new System.Drawing.Size(187, 50);
             this.btnTyp.TabIndex = 2;
@@ -78,9 +78,9 @@
             // 
             // btnCecha
             // 
-            this.btnCecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnCecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnCecha.Location = new System.Drawing.Point(9, 118);
-            this.btnCecha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCecha.Margin = new System.Windows.Forms.Padding(2);
             this.btnCecha.Name = "btnCecha";
             this.btnCecha.Size = new System.Drawing.Size(187, 50);
             this.btnCecha.TabIndex = 4;
@@ -90,9 +90,9 @@
             // 
             // btnJednostka
             // 
-            this.btnJednostka.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnJednostka.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnJednostka.Location = new System.Drawing.Point(8, 172);
-            this.btnJednostka.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnJednostka.Margin = new System.Windows.Forms.Padding(2);
             this.btnJednostka.Name = "btnJednostka";
             this.btnJednostka.Size = new System.Drawing.Size(187, 50);
             this.btnJednostka.TabIndex = 6;
@@ -102,9 +102,9 @@
             // 
             // btnWstecz
             // 
-            this.btnWstecz.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnWstecz.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnWstecz.Location = new System.Drawing.Point(321, 246);
-            this.btnWstecz.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnWstecz.Margin = new System.Windows.Forms.Padding(2);
             this.btnWstecz.Name = "btnWstecz";
             this.btnWstecz.Size = new System.Drawing.Size(79, 31);
             this.btnWstecz.TabIndex = 8;
@@ -114,9 +114,9 @@
             // 
             // btnWyborTypu
             // 
-            this.btnWyborTypu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnWyborTypu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnWyborTypu.Location = new System.Drawing.Point(213, 63);
-            this.btnWyborTypu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnWyborTypu.Margin = new System.Windows.Forms.Padding(2);
             this.btnWyborTypu.Name = "btnWyborTypu";
             this.btnWyborTypu.Size = new System.Drawing.Size(187, 50);
             this.btnWyborTypu.TabIndex = 3;
@@ -126,9 +126,9 @@
             // 
             // btnWyborCechy
             // 
-            this.btnWyborCechy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnWyborCechy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnWyborCechy.Location = new System.Drawing.Point(213, 118);
-            this.btnWyborCechy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnWyborCechy.Margin = new System.Windows.Forms.Padding(2);
             this.btnWyborCechy.Name = "btnWyborCechy";
             this.btnWyborCechy.Size = new System.Drawing.Size(187, 50);
             this.btnWyborCechy.TabIndex = 5;
@@ -138,9 +138,9 @@
             // 
             // btnWyborJednostki
             // 
-            this.btnWyborJednostki.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnWyborJednostki.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnWyborJednostki.Location = new System.Drawing.Point(213, 172);
-            this.btnWyborJednostki.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnWyborJednostki.Margin = new System.Windows.Forms.Padding(2);
             this.btnWyborJednostki.Name = "btnWyborJednostki";
             this.btnWyborJednostki.Size = new System.Drawing.Size(187, 50);
             this.btnWyborJednostki.TabIndex = 7;
@@ -163,7 +163,7 @@
             this.Controls.Add(this.btnElement);
             this.Controls.Add(this.btnWyborElementu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ElementyForm";
             this.Text = "Elementy";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ElementyForm_FormClosed);

@@ -12,14 +12,11 @@ namespace Szwalnia
     using System;
     using System.Collections.Generic;
     
-    public partial class vWolneMaszyny
+    public partial class vProces_technologicznyy
     {
-        public int ID_Maszyny { get; set; }
-        public string Maszyna { get; set; }
-        public Nullable<int> ID_Środki_Trwałe { get; set; }
-        public Nullable<System.DateTime> Data_Zakończenia { get; set; }
-        public Nullable<System.DateTime> Data_Rozpoczęcia_ { get; set; }
-        public Nullable<System.DateTime> Data_Rozpoczęcia_Naprawy_Serwisu { get; set; }
-        public Nullable<System.DateTime> Data_Zakończenia_Naprawy_Serwisu { get; set; }
+        public Nullable<int> ID_Zamowienia { get; set; }
+        public int Numer_elementu { get; set; }
+        public int Numer_procesu { get; set; }
+        public Nullable<bool> Kompletny_proces { get; set; }
     }
 }

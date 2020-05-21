@@ -17,6 +17,7 @@ namespace Szwalnia
         {
             InitializeComponent();
             db = Start.szwalnia;
+            dgvEwidencjaMatarialow.ReadOnly = true;
             dgvEwidencjaMatarialow.DataSource = db.vEwidencja_dostaw_wewnetrznych.ToList();
             dgvEwidencjaMatarialow.Columns[0].Visible = false;
         }
