@@ -797,10 +797,10 @@
     <Compile Include="Urlopy pracowników.Designer.cs">
       <DependentUpon>Urlopy pracowników.cs</DependentUpon>
     </Compile>
-    <Compile Include="vBilans.cs">
+    <Compile Include="vAktywnoscPracownikaTeraz.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
-    <Compile Include="vAktywnoscPracownikaTeraz.cs">
+    <Compile Include="vBilans.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vCalkowityKosztZamowienia.cs">
