@@ -157,6 +157,7 @@ namespace Szwalnia
         public virtual DbSet<vProces_Etapy> vProces_Etapy { get; set; }
         public virtual DbSet<vProces_Maszyna> vProces_Maszyna { get; set; }
         public virtual DbSet<vProces_technologiczny> vProces_technologiczny { get; set; }
+        public virtual DbSet<vProces_technologicznyy> vProces_technologicznyy { get; set; }
         public virtual DbSet<vProcesy> vProcesy { get; set; }
         public virtual DbSet<vProduktyDoWykonania> vProduktyDoWykonania { get; set; }
         public virtual DbSet<vProduktyNiewykonane> vProduktyNiewykonane { get; set; }
