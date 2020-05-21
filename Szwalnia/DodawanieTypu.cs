@@ -26,11 +26,20 @@ namespace Szwalnia
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            typNew.Typ = txtNazwa.Text;
-            typNew.Czy_wlasne = chBoxWlasny.Checked;
-            MessageBox.Show("Pomyślnie dodano nowy rekord do bazy danych.");
-            db.Elementy_Typy.Add(typNew);
-            db.SaveChanges();
+            List<Elementy_Typy> powtorzenie = db.Elementy_Typy.Where(nazwa => nazwa.Typ == txtNazwa.Text).ToList();
+            bool blad = powtorzenie.Any();            
+
+            if (blad)
+            { MessageBox.Show("Już istnieje taki typ"); }
+            else
+            {
+                typNew.Typ = txtNazwa.Text;
+                typNew.Czy_wlasne = chBoxWlasny.Checked;
+                MessageBox.Show("Pomyślnie dodano nowy rekord do bazy danych.");
+                db.Elementy_Typy.Add(typNew);
+                db.SaveChanges();
+                Start.DataBaseRefresh();
+            }
         }
 
         private void DodawanieTypu_FormClosed(object sender, FormClosedEventArgs e)

@@ -21,11 +21,20 @@ namespace Szwalnia
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            Elementy_Cechy_Slownik cechaNew = new Elementy_Cechy_Slownik();
-            cechaNew.Cecha = txtNazwa.Text;
-            MessageBox.Show("Pomyślnie dodano nowy rekord do bazy danych.");
-            db.Elementy_Cechy_Slownik.Add(cechaNew);
-            db.SaveChanges();
+            List<Elementy_Cechy_Slownik> powtorzenie = db.Elementy_Cechy_Slownik.Where(nazwa => nazwa.Cecha == txtNazwa.Text).ToList();
+            bool blad = powtorzenie.Any();
+
+            if (blad)
+            { MessageBox.Show("Już istnieje taka cecha"); }
+            else
+            {
+                Elementy_Cechy_Slownik cechaNew = new Elementy_Cechy_Slownik();
+                cechaNew.Cecha = txtNazwa.Text;
+                MessageBox.Show("Pomyślnie dodano nowy rekord do bazy danych.");
+                db.Elementy_Cechy_Slownik.Add(cechaNew);
+                db.SaveChanges();
+                Start.DataBaseRefresh();
+            }
         }
 
         private void DodawanieCechy_FormClosed(object sender, FormClosedEventArgs e)
