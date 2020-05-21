@@ -56,6 +56,12 @@ namespace Szwalnia
             PanelFinansow panelFinansow = new PanelFinansow(db);
             panelFinansow.Show();
         }
+
+        private void btnSrodki_Click(object sender, EventArgs e)
+        {
+            SrodkiTrwale srodkiTrwale = new SrodkiTrwale(db);
+            srodkiTrwale.Show();
+        }
     }
 }
 

@@ -338,6 +338,12 @@
     <Compile Include="Nowy urlop.Designer.cs">
       <DependentUpon>Nowy urlop.cs</DependentUpon>
     </Compile>
+    <Compile Include="Nowy środek trwały.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nowy środek trwały.Designer.cs">
+      <DependentUpon>Nowy środek trwały.cs</DependentUpon>
+    </Compile>
     <Compile Include="NowyNiewykorzystanyMaterialOdpad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1070,6 +1076,9 @@
     <Compile Include="vSredniCzasWedlugElementu.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vSrodkiWszystkie.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vSrodkiZamortyzowane.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -1321,6 +1330,12 @@
     <Compile Include="Zyski.Designer.cs">
       <DependentUpon>Zyski.cs</DependentUpon>
     </Compile>
+    <Compile Include="Środki trwałe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Środki trwałe.Designer.cs">
+      <DependentUpon>Środki trwałe.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DodajDostawce.resx">
       <DependentUpon>DodajDostawce.cs</DependentUpon>
     </EmbeddedResource>
@@ -1413,6 +1428,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Nowy urlop.resx">
       <DependentUpon>Nowy urlop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nowy środek trwały.resx">
+      <DependentUpon>Nowy środek trwały.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NowyKlient.resx">
       <DependentUpon>NowyKlient.cs</DependentUpon>
@@ -1672,6 +1690,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Zyski.resx">
       <DependentUpon>Zyski.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Środki trwałe.resx">
+      <DependentUpon>Środki trwałe.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.Config" />
     <None Include="packages.config" />

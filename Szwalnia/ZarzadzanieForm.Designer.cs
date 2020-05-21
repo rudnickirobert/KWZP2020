@@ -35,6 +35,7 @@
             this.btnFakturyWewnetrzne = new System.Windows.Forms.Button();
             this.btnFinanse = new System.Windows.Forms.Button();
             this.btnZamowienie = new System.Windows.Forms.Button();
+            this.btnSrodki = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnKlienciForm
@@ -113,12 +114,24 @@
             this.btnZamowienie.UseVisualStyleBackColor = true;
             this.btnZamowienie.Click += new System.EventHandler(this.btnZamowienie_Click);
             // 
+            // btnSrodki
+            // 
+            this.btnSrodki.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnSrodki.Location = new System.Drawing.Point(24, 401);
+            this.btnSrodki.Name = "btnSrodki";
+            this.btnSrodki.Size = new System.Drawing.Size(211, 93);
+            this.btnSrodki.TabIndex = 7;
+            this.btnSrodki.Text = "Środki trwałe";
+            this.btnSrodki.UseVisualStyleBackColor = true;
+            this.btnSrodki.Click += new System.EventHandler(this.btnSrodki_Click);
+            // 
             // ZarzadzanieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(522, 506);
+            this.Controls.Add(this.btnSrodki);
             this.Controls.Add(this.btnZamowienie);
             this.Controls.Add(this.btnFinanse);
             this.Controls.Add(this.btnFakturyWewnetrzne);
@@ -142,5 +155,6 @@
         private System.Windows.Forms.Button btnFakturyWewnetrzne;
         private System.Windows.Forms.Button btnFinanse;
         private System.Windows.Forms.Button btnZamowienie;
+        private System.Windows.Forms.Button btnSrodki;
     }
 }

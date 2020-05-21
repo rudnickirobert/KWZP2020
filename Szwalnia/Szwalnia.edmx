@@ -1255,6 +1255,14 @@ warning 6002: The table/view 'Szwalnia.dbo.vMaterialyZamowione' does not have a 
           <Property Name="Ilosc" Type="real" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6013: The table/view 'Szwalnia.dbo.vMaterialyZMagazynu' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="vMaterialyZMagazynu">
+          <Property Name="ID_Dostawy" Type="int" />
+          <Property Name="ID_Zamowienia" Type="int" />
+          <Property Name="ID_Element" Type="int" />
+          <Property Name="Ilosc" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vMechanicy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vMechanicy">
           <Key>
@@ -1834,6 +1842,30 @@ warning 6002: The table/view 'Szwalnia.dbo.vSredniCzasWedlugElementu' does not h
           <Property Name="id" Type="bigint" Nullable="false" />
           <Property Name="Nazwa_produktu" Type="varchar" MaxLength="35" />
           <Property Name="Sredni_czas" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vSrodkiWszystkie' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vSrodkiWszystkie">
+          <Key>
+            <PropertyRef Name="ID_Srodki_trwale" />
+            <PropertyRef Name="Nazwa" />
+            <PropertyRef Name="Producent" />
+            <PropertyRef Name="Numer_seryjny" />
+            <PropertyRef Name="Nazwa_dzialu" />
+            <PropertyRef Name="Koszt_zakupu" />
+            <PropertyRef Name="Roczny_stopien_amortyzacji" />
+            <PropertyRef Name="Gwarancja" />
+            <PropertyRef Name="Zamortyzowane" />
+          </Key>
+          <Property Name="ID_Srodki_trwale" Type="int" Nullable="false" />
+          <Property Name="Nazwa" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Producent" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Numer_seryjny" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nazwa_dzialu" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Koszt_zakupu" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Roczny_stopien_amortyzacji" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Gwarancja" Type="date" Nullable="false" />
+          <Property Name="Zamortyzowane" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vSrodkiZamortyzowane' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -4178,6 +4210,19 @@ warning 6002: The table/view 'Szwalnia.dbo.vZyskZZamowienia' does not have a pri
     [vSredniCzasWedlugElementu].[Nazwa_produktu] AS [Nazwa_produktu], 
     [vSredniCzasWedlugElementu].[Sredni_czas] AS [Sredni_czas]
     FROM [dbo].[vSredniCzasWedlugElementu] AS [vSredniCzasWedlugElementu]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vSrodkiWszystkie" EntityType="Self.vSrodkiWszystkie" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vSrodkiWszystkie].[ID_Srodki_trwale] AS [ID_Srodki_trwale], 
+    [vSrodkiWszystkie].[Nazwa] AS [Nazwa], 
+    [vSrodkiWszystkie].[Producent] AS [Producent], 
+    [vSrodkiWszystkie].[Numer_seryjny] AS [Numer_seryjny], 
+    [vSrodkiWszystkie].[Nazwa_dzialu] AS [Nazwa_dzialu], 
+    [vSrodkiWszystkie].[Koszt_zakupu] AS [Koszt_zakupu], 
+    [vSrodkiWszystkie].[Roczny_stopien_amortyzacji] AS [Roczny_stopien_amortyzacji], 
+    [vSrodkiWszystkie].[Gwarancja] AS [Gwarancja], 
+    [vSrodkiWszystkie].[Zamortyzowane] AS [Zamortyzowane]
+    FROM [dbo].[vSrodkiWszystkie] AS [vSrodkiWszystkie]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vSrodkiZamortyzowane" EntityType="Self.vSrodkiZamortyzowane" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -8487,6 +8532,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZyskZZamowienia' does not have a pri
           <EntitySet Name="vWolniPracownicyZarzadzanie" EntityType="SzwalniaModel.vWolniPracownicyZarzadzanie" />
           <EntitySet Name="vElementyDlaZamowien" EntityType="SzwalniaModel.vElementyDlaZamowien" />
           <EntitySet Name="vZyskZZamowienia" EntityType="SzwalniaModel.vZyskZZamowienia" />
+          <EntitySet Name="vSrodkiWszystkie" EntityType="SzwalniaModel.vSrodkiWszystkie" />
         </EntityContainer>
         <EntityType Name="vPrzychody">
           <Key>
@@ -8566,6 +8612,28 @@ warning 6002: The table/view 'Szwalnia.dbo.vZyskZZamowienia' does not have a pri
           <Property Name="id" Type="Int64" Nullable="false" />
           <Property Name="ID_Zamowienia" Type="Int32" Nullable="false" />
           <Property Name="Zysk_z_zamowienia" Type="Double" />
+        </EntityType>
+        <EntityType Name="vSrodkiWszystkie">
+          <Key>
+            <PropertyRef Name="ID_Srodki_trwale" />
+            <PropertyRef Name="Nazwa" />
+            <PropertyRef Name="Producent" />
+            <PropertyRef Name="Numer_seryjny" />
+            <PropertyRef Name="Nazwa_dzialu" />
+            <PropertyRef Name="Koszt_zakupu" />
+            <PropertyRef Name="Roczny_stopien_amortyzacji" />
+            <PropertyRef Name="Gwarancja" />
+            <PropertyRef Name="Zamortyzowane" />
+          </Key>
+          <Property Name="ID_Srodki_trwale" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Producent" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Numer_seryjny" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nazwa_dzialu" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Koszt_zakupu" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Roczny_stopien_amortyzacji" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Gwarancja" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Zamortyzowane" Type="Boolean" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -10565,6 +10633,21 @@ warning 6002: The table/view 'Szwalnia.dbo.vZyskZZamowienia' does not have a pri
                 <ScalarProperty Name="Zysk_z_zamowienia" ColumnName="Zysk z zamowienia" />
                 <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vSrodkiWszystkie">
+            <EntityTypeMapping TypeName="SzwalniaModel.vSrodkiWszystkie">
+              <MappingFragment StoreEntitySet="vSrodkiWszystkie">
+                <ScalarProperty Name="Zamortyzowane" ColumnName="Zamortyzowane" />
+                <ScalarProperty Name="Gwarancja" ColumnName="Gwarancja" />
+                <ScalarProperty Name="Roczny_stopien_amortyzacji" ColumnName="Roczny_stopien_amortyzacji" />
+                <ScalarProperty Name="Koszt_zakupu" ColumnName="Koszt_zakupu" />
+                <ScalarProperty Name="Nazwa_dzialu" ColumnName="Nazwa_dzialu" />
+                <ScalarProperty Name="Numer_seryjny" ColumnName="Numer_seryjny" />
+                <ScalarProperty Name="Producent" ColumnName="Producent" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="ID_Srodki_trwale" ColumnName="ID_Srodki_trwale" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

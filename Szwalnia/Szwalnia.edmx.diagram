@@ -280,6 +280,7 @@
         <EntityTypeShape EntityType="SzwalniaModel.vWolniPracownicyZarzadzanie" Width="1.5" PointX="34.375" PointY="25.75" />
         <EntityTypeShape EntityType="SzwalniaModel.vElementyDlaZamowien" Width="1.5" PointX="25.375" PointY="34.75" />
         <EntityTypeShape EntityType="SzwalniaModel.vZyskZZamowienia" Width="1.5" PointX="34.375" PointY="29.75" />
+        <EntityTypeShape EntityType="SzwalniaModel.vSrodkiWszystkie" Width="1.5" PointX="35.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
