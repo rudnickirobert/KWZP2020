@@ -14,30 +14,65 @@ namespace Szwalnia
     {
         public SzwalniaEntities db;
         public bool czyZainicjowane;
+       
         public WydawanieProduktowKurierowi()
         {
             InitializeComponent();
             db = Start.szwalnia;
 
-            cmbZamowienie.DataSource = db.vZamowienia_Do_Wydania_Kompletne.ToList();
-            cmbZamowienie.DisplayMember = "ID_Zamowienia";
-            cmbZamowienie.ValueMember = "ID_Zamowienia";
+            if (db.vZamowieniaKompletneNiewydaneNaPolkachCaleNumery.Any())
+            {
+                cmbZamowienie.DataSource = db.vZamowieniaKompletneNiewydaneNaPolkachCaleNumery.ToList();
+                cmbZamowienie.DisplayMember = "ID_Zamowienia";
+                cmbZamowienie.ValueMember = "ID_Zamowienia";
+                int numerZamowienia = Convert.ToInt32(cmbZamowienie.SelectedValue);
+                dgvGotoweProdukty.DataSource = db.vZamowieniaKompletneNiewydaneNaPolkachCale.Where(zamowienie => zamowienie.ID_Zamowienia == numerZamowienia).ToList();
+                dgvGotoweProdukty.Columns[0].Visible = false;
+                dgvGotoweProdukty.ReadOnly = true;
+            }
+            else
+            {
+                DataTable brakProduktow = new DataTable();
+                brakProduktow.Columns.Add("Informacja");
+                brakProduktow.Rows.Add("Brak zamówień do wydania");
+                dgvGotoweProdukty.DataSource = brakProduktow;
+                dgvGotoweProdukty.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;   
+                dgvGotoweProdukty.ReadOnly = true;
+                cmbZamowienie.DataSource = brakProduktow;
+                cmbZamowienie.DisplayMember = "Informacja";
+                cmbZamowienie.ValueMember = "Informacja";
+            }
 
-            cmbPracownik.DataSource = db.vPracownicyMagazynu.ToList();
-            cmbPracownik.DisplayMember = "Dane_osobowe";
-            cmbPracownik.ValueMember = "ID_Pracownika";
+            if (db.vPracownicyMagazynu.Any())
+            {
+                cmbPracownik.DataSource = db.vPracownicyMagazynu.ToList();
+                cmbPracownik.DisplayMember = "Dane_osobowe";
+                cmbPracownik.ValueMember = "ID_Pracownika";
+            }
+            else
+            {
+                DataTable brakPracownikow = new DataTable();
+                brakPracownikow.Columns.Add("Informacja");
+                brakPracownikow.Rows.Add("Brak dostępnego pracownika");
+                cmbPracownik.DataSource = brakPracownikow;
+                cmbPracownik.DisplayMember = "Informacja";
+                cmbPracownik.ValueMember = "Informacja";
+            }
             czyZainicjowane = true;
             btnWydajProdukty.Enabled = true;
         } 
 
         private void cmbZamowienie_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (czyZainicjowane)
+           if (czyZainicjowane)
             {
-                if (db.vWydawanie_Zamowien_Kurierowi.Any())
+                if (db.vZamowieniaKompletneNiewydaneNaPolkachCale.Any())
                 {
                     int numerZamowienia = Convert.ToInt32(cmbZamowienie.SelectedValue);
-                    dgvGotoweProdukty.DataSource = db.vWydawanie_Zamowien_Kurierowi.Where(zamowienie => zamowienie.ID_Zamowienia == numerZamowienia).ToList();
+                    dgvGotoweProdukty.DataSource = db.vZamowieniaKompletneNiewydaneNaPolkachCale.Where(zamowienie => zamowienie.ID_Zamowienia == numerZamowienia).ToList();
+                    dgvGotoweProdukty.Columns[0].Visible = false;
+                    dgvGotoweProdukty.ReadOnly = true;
+                    btnWydajProdukty.Enabled = true;
                 }
                 else
                 {
@@ -46,34 +81,42 @@ namespace Szwalnia
                     brakProduktow.Rows.Add("Brak produktów do przyjęcia");
                     dgvGotoweProdukty.DataSource = brakProduktow;
                     dgvGotoweProdukty.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dgvGotoweProdukty.ReadOnly = true;
                 }
-
-                btnWydajProdukty.Enabled = true;
-            }
+            } 
         }
         private void btnWydajProdukty_Click(object sender, EventArgs e)
         {
+            if (db.vZamowieniaKompletneNiewydaneNaPolkachCale.Any())
+            {
+                int numerZamowienia = Convert.ToInt32(cmbZamowienie.SelectedValue);
+                List<vZamowieniaKompletneNiewydaneNaPolkachCale> listaDoWydania = db.vZamowieniaKompletneNiewydaneNaPolkachCale.Where(wybraneDoWydania => wybraneDoWydania.ID_Zamowienia == numerZamowienia).ToList();
+                Dostarczenia_Zewn noweWydanie = new Dostarczenia_Zewn();
+                Miejsca wysylka = db.Miejsca.Where(miejsce => miejsce.Nazwa == "Wysylka").FirstOrDefault();
+                int intIDMiejsca = wysylka.ID_Miejsca;
 
-            Dostarczenia_Zewn dostarczenia = new Dostarczenia_Zewn();
-
-            dostarczenia.ID_Pracownicy = Convert.ToInt32(cmbPracownik.SelectedValue);
-            dostarczenia.ID_Zamowienia = Convert.ToInt32(dgvGotoweProdukty.CurrentRow.Cells[0].Value);
-            dostarczenia.ID_element = Convert.ToInt32(dgvGotoweProdukty.CurrentRow.Cells[3].Value);
-            dostarczenia.Ilosc_Dostarczona = -Convert.ToInt32(dgvGotoweProdukty.CurrentRow.Cells[4].Value);
-
-            Miejsca wysylka = db.Miejsca.Where(miejsce => miejsce.Nazwa == "Wysylka").FirstOrDefault();
-            dostarczenia.ID_Miejsca = wysylka.ID_Miejsca;
-            string dataDzis = Convert.ToString(DateTime.Now).Substring(0, 10);
-            dostarczenia.Data_Dostarczenia = dataDzis;
-            db.Dostarczenia_Zewn.Add(dostarczenia);
-            db.SaveChanges();
-            Start.DataBaseRefresh();
-
-            Zawartosc polkaDoWyczyszczenia = db.Zawartosc.Where(polka => polka.ID_Zamowienia == dostarczenia.ID_Zamowienia).First();
-            db.Zawartosc.Remove(polkaDoWyczyszczenia);
-
-            MessageBox.Show("Pomyślnie wydano produkty kurierowi.");
-            this.Close();
+                foreach (vZamowieniaKompletneNiewydaneNaPolkachCale wierszWybrany in listaDoWydania)
+                {
+                    noweWydanie.ID_Pracownicy = Convert.ToInt32(cmbPracownik.SelectedValue);
+                    noweWydanie.ID_Zamowienia = wierszWybrany.ID_Zamowienia;
+                    noweWydanie.ID_element = wierszWybrany.ID_Element;
+                    noweWydanie.ID_Miejsca = intIDMiejsca;
+                    int intIDPolka = wierszWybrany.ID_Polka;
+                    Zawartosc wybranaPolka = db.Zawartosc.Where(polkaWybrana => polkaWybrana.ID_Polka == intIDPolka).First();
+                    noweWydanie.Ilosc_Dostarczona = -wybranaPolka.Ilosc_Paczek;
+                    noweWydanie.Data_Dostarczenia = Convert.ToString(DateTime.Now).Substring(0, 10);
+                    db.Dostarczenia_Zewn.Add(noweWydanie);
+                    db.Zawartosc.Remove(wybranaPolka);
+                    db.SaveChanges();
+                    Start.DataBaseRefresh();                    
+                }
+                MessageBox.Show("Pomyślnie wydano produkty kurierowi i usnięto z magazynu.");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Brak produktów do wydania.");
+            }   
         }
 
         private void WydawanieProduktowKurierowi_FormClosed(object sender, FormClosedEventArgs e)

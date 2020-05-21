@@ -1004,6 +1004,9 @@
     <Compile Include="vProces_technologiczny.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vProces_technologicznyy.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vProduktyDoWykonania.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -1133,6 +1136,15 @@
     <Compile Include="vZamowieniaDystans.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vZamowieniaKomplenteNiewydaneNaPolkach.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vZamowieniaKompletneNiewydaneNaPolkachCale.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vZamowieniaKompletneNiewydaneNaPolkachCaleNumery.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vZamowieniaNieprzypisaneDoPracownikaIKuriera.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
@@ -1140,6 +1152,9 @@
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vZamowienia_Do_Wydania_Kompletne.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vZamowienia_Do_Wydania_Kompletne_Niewydane.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
     <Compile Include="vZamowienie.cs">

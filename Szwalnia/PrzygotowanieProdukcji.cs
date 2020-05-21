@@ -28,19 +28,25 @@ namespace Szwalnia
             cmbRodzajObslugi.ValueMember = "Nazwa";
 
             dgvProcesy.DataSource = szwalnia.vProces_technologiczny.ToList();
+            dgvProcesy66.DataSource = szwalnia.vProces_technologicznyy.ToList();
+            dgvProcesy66.Columns["ID_zamowienia"].Visible = false;
             dgvZamowienia.DataSource = szwalnia.vProces_technologiczny.ToList();
             dgvProcesy2.DataSource = szwalnia.vProcesy.ToList();
             dgvProcesy3.DataSource = szwalnia.vElementy_proces.ToList();
+            dgvProcesy3.Columns["Numer_procesu"].Visible = false;
             dgvProcesy4.DataSource = szwalnia.vDokumentacja_proces.ToList();
-            
+            dgvProcesy4.Columns["Numer_procesu"].Visible = false;
+            dgvProcesy5.DataSource = szwalnia.vMaszyny_proces.ToList();
+            dgvProcesy5.Columns["Numer_procesu"].Visible = false;
 
             int ostatniNumer = dgvProcesy.Rows.Cast<DataGridViewRow>().Max(wartosc => Convert.ToInt32(wartosc.Cells["Numer_zamówienia"].Value));
             ostatniNumerZamowienia = ostatniNumer;
 
+            int ostatniNumer66 = dgvProcesy66.Rows.Cast<DataGridViewRow>().Max(wartosc => Convert.ToInt32(wartosc.Cells["ID_zamowienia"].Value));
+            ostatniNumerZamowienia = ostatniNumer66;
+
             int ostatniNumerP = dgvProcesy2.Rows.Cast<DataGridViewRow>().Max(wartosc => Convert.ToInt32(wartosc.Cells["ID_Proces_Technologiczny"].Value));
             ostatniNumerProcesu = ostatniNumerP;
-
-         
 
             cmbRodzaj_Obslugi.ValueMember = "ID_Rodzaj_Obslugi";
             cmbRodzaj_Obslugi.DisplayMember = "Nazwa";
@@ -49,12 +55,12 @@ namespace Szwalnia
 
             cmbPracownik.ValueMember = "ID_Pracownika";
             cmbPracownik.DisplayMember = "Imię_i_nazwisko";
-            cmbPracownik.DataSource = szwalnia.vMechanicy.Distinct().ToList(); //Widok gdzie jest pelne imie
+            cmbPracownik.DataSource = szwalnia.vMechanicy.Distinct().ToList();
             cmbPracownik.Invalidate();
 
             cmbID_Maszyny.ValueMember = "ID_Maszyny";
-            cmbID_Maszyny.DisplayMember = "Suma"; // zmienic na pelna (nie ma widoku)
-            cmbID_Maszyny.DataSource = szwalnia.vMaszyny_numer_seryjny.Distinct().ToList(); //tutaj wstawiamy widok ID_Maszyny+NrSeryjny
+            cmbID_Maszyny.DisplayMember = "Suma";
+            cmbID_Maszyny.DataSource = szwalnia.vMaszyny_numer_seryjny.Distinct().ToList();
             cmbID_Maszyny.Invalidate();
 
             cmbTechnolodzy.DataSource = szwalnia.vTechnolodzy.ToList();
@@ -105,47 +111,22 @@ namespace Szwalnia
             cmbJednostka.DataSource = szwalnia.Elementy_Jednostki.Distinct().ToList();
             cmbJednostka.Invalidate();
 
-            cmbTyp_Elementu2.ValueMember = "ID_Element_Typ";
-            cmbTyp_Elementu2.DisplayMember = "Typ";
-            cmbTyp_Elementu2.DataSource = szwalnia.Elementy_Typy.Distinct().ToList();
-            cmbTyp_Elementu2.Invalidate();
-
             cmbID_Proces_Technologiczny3.DataSource = szwalnia.Proces_Technologiczny.Distinct().ToList();
             cmbID_Proces_Technologiczny3.DisplayMember = "ID_Proces_Technologiczny";
             cmbID_Proces_Technologiczny3.ValueMember = "ID_Proces_Technologiczny";
             cmbID_Proces_Technologiczny3.Invalidate();
 
-            cmbID_Zamowienie_Element.DataSource = szwalnia.Zamowienia.Distinct().ToList();
-            cmbID_Zamowienie_Element.DisplayMember = "ID_Zamowienia";
-            cmbID_Zamowienie_Element.ValueMember = "ID_Zamowienia";
-            cmbID_Zamowienie_Element.Invalidate();
-
-
-
-
             dgvUkryty.DataSource = szwalnia.Proces_Technologiczny.ToList();
             int numerOstatniegoProcesu = dgvUkryty.Rows.Count;
             lblNumer_Procesu.Text = (numerOstatniegoProcesu + 1).ToString();
 
-            dgvEtapy_proces.DataSource = szwalnia.vProces_Etapy.Where(etap => etap.ID_Proces_Technologiczny == nudDodaj_Etap.Value).ToList();
-            dgvEtapy_proces.Columns ["ID_Proces_Technologiczny"].Visible=false;
-            //nudDodaj_Etap.Value = numerOstatniegoProcesu;
+            dgvUkryty2.DataSource = szwalnia.Dokumentacje.ToList();
+            int numerOstatniejDokumentacji = dgvUkryty2.Rows.Count;
+            lblNumerDokumentacji.Text = (numerOstatniejDokumentacji + 1).ToString();
 
             dgvDokumentacja.DataSource = szwalnia.vDokumentacja_info.ToList();
 
-            dgvMaszyny_Proces.DataSource = szwalnia.vMaszynownia.ToList();
-            dgvMaszyny_Proces.Columns["Numer_procesu_technologicznego"].Visible = false;
-
-            dgvElement_Proces.DataSource = szwalnia.vMaterialy.ToList();
-            //dgvElement_Proces.Columns["ID_Proces_Technologiczny"].Visible = false;
-
             dgvWszystkie_Maszyny.DataSource = szwalnia.vWszystkie_Maszyny.ToList();
-            //dgvWszystkie_Maszyny.Columns["Nazwa"].Visible = false;
-
-
-            dgvWszystkie_Elementy.DataSource = szwalnia.vWszystkie_Elementy.ToList();
-
-
         }
 
         private void btnWyszukaj_Obsluge_Click(object sender, EventArgs e)
@@ -153,24 +134,6 @@ namespace Szwalnia
            
             dgvObsluga.DataSource = szwalnia.vObsluga.Where(nazwa => nazwa.Rodzaj_obsługi == cmbRodzajObslugi.Text).ToList();
             
-        }
-
-        private void btnSzukajZamowienie_Click(object sender, EventArgs e)
-           
-        {
-            if (nudNumerZamowienia.Value > 0)
-            {
-                if (nudNumerZamowienia.Value <= ostatniNumerZamowienia)
-                {
-                    dgvProcesy.DataSource = szwalnia.vProces_technologiczny.Where(zamowienie => zamowienie.Numer_zamówienia == nudNumerZamowienia.Value).ToList();
-                    
-                }
-                else
-                    MessageBox.Show("Nie istnieje takie ID Zamowienia!");
-            }
-            else
-                MessageBox.Show("Wprowadź poprawne ID Zamowienia (wieksze od zera)!");
-
         }
 
         private void tab_Proces_technologiczny_MouseClick(object sender, MouseEventArgs e)
@@ -181,7 +144,7 @@ namespace Szwalnia
                 if (nudNumerZamowienia.Value <= ostatniNumerZamowienia)
                 {
                     dgvProcesy.DataSource = szwalnia.vProces_technologiczny.Where(zamowienie => zamowienie.Numer_zamówienia == nudNumerZamowienia.Value).ToList();
-
+                    dgvProcesy66.DataSource = szwalnia.vProces_technologicznyy.Where(cx => cx.ID_Zamowienia == nudNumerZamowienia.Value).ToList();
                 }
                 else
                     MessageBox.Show("Nie istnieje takie ID Zamowienia!");
@@ -216,7 +179,7 @@ namespace Szwalnia
                     dgvProcesy3.DataSource = szwalnia.vElementy_proces.Where(zamowienie1 => zamowienie1.Numer_procesu == nudNumerProcesu.Value).ToList();
                     dgvProcesy4.DataSource = szwalnia.vDokumentacja_proces.Where(zamowienie => zamowienie.Numer_procesu == nudNumerProcesu.Value).ToList();
                     dgvProcesy5.DataSource = szwalnia.vMaszyny_proces.Where(zamowienie => zamowienie.Numer_procesu == nudNumerProcesu.Value).ToList();
-                }
+            }
                 else
                     MessageBox.Show("Nie istnieje taki numer procesu!");
         }
@@ -236,7 +199,7 @@ namespace Szwalnia
             szwalnia.Obsluga_Techniczna.Add(obsluga_Techniczna);
             szwalnia.SaveChanges();
             MessageBox.Show("Zmiany wprowadzone pomyślnie");
-            //populateDataGridView();           
+            dgvObsluga.DataSource = szwalnia.vObsluga.Where(nazwa => nazwa.Rodzaj_obsługi == cmbRodzajObslugi.Text).ToList();
         }
 
         private void btnZapisz_Nowy_Proces_Click(object sender, EventArgs e)
@@ -270,12 +233,12 @@ namespace Szwalnia
             srodki_Trwale.Koszt_zakupu = txtKoszt_Zakupu.Text;
             srodki_Trwale.Roczny_stopien_amortyzacji = txtAmortyzacja.Text;
             srodki_Trwale.Gwarancja = dtpGwarancja.Value;
-           // srodki_Trwale.Zamortyzowane = Convert.ToByte(txtZamortyzowane.Text); // tutaj nie bardzo wiem jak to ugryźć
             szwalnia.Maszyny.Add(maszyny);
 
             szwalnia.Srodki_Trwale.Add(srodki_Trwale);
             szwalnia.SaveChanges();
             MessageBox.Show("Zmiany wprowadzone pomyślnie");
+            dgvWszystkie_Maszyny.DataSource = szwalnia.vWszystkie_Maszyny.ToList();
         }
 
         private void btnDodaj_Dokumentacja_Click(object sender, EventArgs e)
@@ -288,7 +251,10 @@ namespace Szwalnia
             szwalnia.Dokumentacje.Add(dokumentacje);
             szwalnia.SaveChanges();
             MessageBox.Show("Dokumentacja dodana do bazy");
-    
+            dgvUkryty2.DataSource = szwalnia.Dokumentacje.ToList();
+            int numerOstatniejDokumentacji = dgvUkryty2.Rows.Count;
+            lblNumerDokumentacji.Text = (numerOstatniejDokumentacji + 1).ToString();
+            dgvDokumentacja.DataSource = szwalnia.vDokumentacja_info.ToList();
         }
 
         private void btnDodaj_Etap_Click(object sender, EventArgs e)
@@ -300,6 +266,8 @@ namespace Szwalnia
             szwalnia.Etapy_W_Procesie.Add(etapy_W_Procesie);
             szwalnia.SaveChanges();
             MessageBox.Show("Dodano nowy etap");
+            dgvEtapy_proces.DataSource = szwalnia.vProces_Etapy.Where(etap => etap.ID_Proces_Technologiczny == nudDodaj_Etap.Value).ToList();
+            dgvEtapy_proces.Columns["ID_Proces_Technologiczny"].Visible = false;
         }
 
         private void btnDodaj_Maszyne_Proces_Click(object sender, EventArgs e)
@@ -312,6 +280,8 @@ namespace Szwalnia
             szwalnia.Maszyny_Proces.Add(maszyny_proces);
             szwalnia.SaveChanges();
             MessageBox.Show("Dodano maszynę do procesu");
+            dgvMaszyny_Proces.DataSource = szwalnia.vMaszynownia.Where(maszyna => maszyna.Numer_procesu_technologicznego == nudDodaj_Maszyne.Value).ToList();
+            dgvMaszyny_Proces.Columns["Numer_procesu_technologicznego"].Visible = false;
         }
 
   
@@ -337,129 +307,41 @@ namespace Szwalnia
             szwalnia.Elementy_Proces.Add(elementy_Proces);
             szwalnia.SaveChanges();
             MessageBox.Show("Dodano element do procesu");
+            dgvWszystkie_Elementy.DataSource = szwalnia.vElemntyy.Where(kx => kx.Numer_procesu == nudNumerProcesu2.Value).ToList();
         }
 
         private void btnUtworz_Element_Click(object sender, EventArgs e)
         {
-            Elementy elementy = new Elementy();
-            elementy.ID_Element_Typ = Convert.ToInt32(cmbTyp_Elementu2.SelectedValue);
-            elementy.Element_Nazwa = txtNazwa_Elementu.Text;
-            elementy.Okres_Przydatnosci_Miesiace = Convert.ToInt32(txtMiesiace_Przydatnosci.Text);
-            szwalnia.Elementy.Add(elementy);
-            szwalnia.SaveChanges();
-            MessageBox.Show("Utworzono element");
+            DodawanieElementu element = new DodawanieElementu();
+            element.Show();
         }
 
         private void btnPrzypisz_Proces_Zamowienie_Click(object sender, EventArgs e)
         {
             Proces_Zamowienie proces_Zamowienie = new Proces_Zamowienie();
+            proces_Zamowienie.ID_Zamowienie_Element = Convert.ToInt32(lblNumerZamowieniaElement.Text);
             proces_Zamowienie.ID_Proces_Technologiczny = Convert.ToInt32(cmbID_Proces_Technologiczny3.SelectedValue);
-            proces_Zamowienie.ID_Zamowienie_Element = Convert.ToInt32(cmbID_Zamowienie_Element.SelectedValue);
             szwalnia.Proces_Zamowienie.Add(proces_Zamowienie);
             szwalnia.SaveChanges();
-            MessageBox.Show("przypisano proces technologiczny do zamówienia");
-
+            MessageBox.Show("Przypisano proces technologiczny do zamówienia");
+            tabcZamowienia.SelectTab(2);
+            dgvProcesy.DataSource = null;
+            dgvProcesy66.DataSource = null;
+            dgvProcesy.DataSource = szwalnia.vProces_technologiczny.Where(zamowienie => zamowienie.Numer_zamówienia == nudNumerZamowienia.Value).ToList();
+            dgvProcesy66.DataSource = szwalnia.vProces_technologicznyy.Where(cx => cx.ID_Zamowienia == nudNumerZamowienia.Value).ToList();
         }
 
         private void tab_Proces_technologiczny_Click(object sender, EventArgs e)
         {
             dgvSerwis.DataSource = szwalnia.vCzas_do_serwisu.ToList();
-
             dgvResursMaszyny.DataSource = szwalnia.vResurs.ToList();
-
-        }
-
-        private void btnPokazEtapyWProcesie_Click(object sender, EventArgs e)
-        {
-                if (nudNumerProcesu.Value <= ostatniNumerProcesu && nudNumerProcesu.Value > 0)
-                {
-                    dgvEtapy_proces.DataSource = szwalnia.vProces_Etapy.Where(etap => etap.ID_Proces_Technologiczny == nudNumerProcesu.Value).ToList();
-                    dgvEtapy_proces.Columns["ID_Proces_Technologiczny"].Visible = false;
-                }
-                else
-                    MessageBox.Show("Nie istnieje taki numer procesu technologicznego!");
-
-        }
-
-        private void btnOdswiez_Obsluge_Click(object sender, EventArgs e)
-        {
-            dgvObsluga.DataSource = szwalnia.vObsluga.Where(nazwa => nazwa.Rodzaj_obsługi == cmbRodzajObslugi.Text).ToList();
-
-            cmbRodzajObslugi.DataSource = szwalnia.Rodzaj_Obslugi.ToList();
-            cmbRodzajObslugi.DisplayMember = "Nazwa";
-            cmbRodzajObslugi.ValueMember = "Nazwa";
-
-            cmbRodzaj_Obslugi.DataSource = szwalnia.Rodzaj_Obslugi.Distinct().ToList();
-            cmbRodzaj_Obslugi.ValueMember = "ID_Rodzaj_Obslugi";
-            cmbRodzaj_Obslugi.DisplayMember = "Nazwa";
-
-            cmbID_Maszyny.DataSource = szwalnia.vMaszyny_numer_seryjny.Distinct().ToList();
-            cmbID_Maszyny.ValueMember = "ID_Maszyny";
-            cmbID_Maszyny.DisplayMember = "Suma";
-
-            cmbPracownik.DataSource = szwalnia.Pracownicy.Distinct().ToList();//ZMIANA?
-            cmbPracownik.ValueMember = "ID_Pracownika";
-            cmbPracownik.DisplayMember = "Nazwisko";
-        }
-
-        private void btnOdswiez_Maszyny_Click(object sender, EventArgs e)
-        {
-            dgvWszystkie_Maszyny.DataSource = szwalnia.vWszystkie_Maszyny.ToList();
-            dgvWszystkie_Maszyny.Columns["Nazwa"].Visible = false;
-
-            cmbRodzaj_Maszyny.DataSource = szwalnia.vRodzaj_Maszyny.Distinct().ToList();
-            cmbRodzaj_Maszyny.ValueMember = "ID_Rodzaj_Maszyny";
-            cmbRodzaj_Maszyny.DisplayMember = "Rodzaj_Maszyny";
-
-            cmbDzial.DataSource = szwalnia.Dzialy.Distinct().ToList();
-            cmbDzial.ValueMember = "ID_Dzialu";
-            cmbDzial.DisplayMember = "Nazwa_dzialu";
         }
 
         private void btnOdswiez_Ogolny_Click(object sender, EventArgs e)
         {
             dgvProcesy.DataSource = szwalnia.vProces_technologiczny.Where(zamowienie => zamowienie.Numer_zamówienia == nudNumerZamowienia.Value).ToList();
-        }
-
-        private void btnOdswiez_Proces_Zamowienie_Click(object sender, EventArgs e)
-        {
-            cmbID_Zamowienie_Element.DataSource = szwalnia.Zamowienie_Element.Distinct().ToList();
-            cmbID_Zamowienie_Element.DisplayMember = "ID_Zamowienie_Element";
-            cmbID_Zamowienie_Element.ValueMember = "ID_Zamowienie_Element";
-
-            cmbID_Proces_Technologiczny3.DataSource = szwalnia.Proces_Technologiczny.Distinct().ToList();
-            cmbID_Proces_Technologiczny3.DisplayMember = "ID_Proces_Technologiczny";
-            cmbID_Proces_Technologiczny3.ValueMember = "ID_Proces_Technologiczny";
-        }
-
-        private void btnOdswiez_Dokumentacja_Click(object sender, EventArgs e)
-        {
-            dgvDokumentacja.DataSource = szwalnia.vDokumentacja_info.ToList();
-
-            cmbRodzaj_Dokumentacji.DataSource = szwalnia.Rodzaj_Dokumentacji.Distinct().ToList();
-            cmbRodzaj_Dokumentacji.ValueMember = "ID_Rodzaj_Dokumentacji";
-            cmbRodzaj_Dokumentacji.DisplayMember = "Nazwa";
-
-            cmbID_Proces_Technologiczny.DataSource = szwalnia.Dokumentacje.Distinct().ToList();
-            cmbID_Proces_Technologiczny.ValueMember = "ID_Dokumentacji";
-            cmbID_Proces_Technologiczny.DisplayMember = "ID_Dokumentacji";
-        }
-
-        private void btnOdswiez_Dodaj_Maszyne_Click(object sender, EventArgs e)
-        {
-            dgvMaszyny_Proces.DataSource = szwalnia.vMaszynownia.Where(maszyna => maszyna.Numer_procesu_technologicznego==nudDodaj_Maszyne.Value).ToList();
-            dgvMaszyny_Proces.Columns["Numer_procesu_technologicznego"].Visible = false;
-        }
-
-        private void btnOdswiez_Element_Click(object sender, EventArgs e)
-        {
-            dgvWszystkie_Elementy.DataSource = szwalnia.vElemntyy.Where(kx => kx.Numer_procesu == nudNumerProcesu2.Value).ToList();
-        }
-
-        private void btnOdswiez_Element2_Click(object sender, EventArgs e)
-        {
-            dgvElement_Proces.DataSource = szwalnia.vMaterialy.ToList();
-            dgvElement_Proces.Columns["ID_Proces_Technologiczny"].Visible = false;
+            dgvZamowienia.DataSource = szwalnia.vProces_technologiczny.ToList();
+            dgvProcesy66.DataSource = szwalnia.vProces_technologicznyy.Where(cx => cx.ID_Zamowienia == nudNumerZamowienia.Value).ToList();
         }
 
         private void btnOdswiez_Znajdz_Click(object sender, EventArgs e)
@@ -488,10 +370,18 @@ namespace Szwalnia
             dgvUkryty.DataSource = szwalnia.Proces_Technologiczny.ToList();
             int numerOstatniegoProcesu1 = dgvUkryty.Rows.Count;
             lblNumer_Procesu.Text = (numerOstatniegoProcesu1 + 1).ToString();
+            cmbID_Proces_Technologiczny3.DataSource = szwalnia.Proces_Technologiczny.Distinct().ToList();
+            cmbID_Proces_Technologiczny3.SelectedValue = szwalnia.Proces_Technologiczny.Max(xv => xv.ID_Proces_Technologiczny);
+            cmbID_Proces_Technologiczny.DataSource = szwalnia.Proces_Technologiczny.Distinct().ToList();
+            cmbID_Proces_Technologiczny.SelectedValue = szwalnia.Proces_Technologiczny.Max(xz => xz.ID_Proces_Technologiczny);
+            nudDodaj_Etap.Value = szwalnia.Proces_Technologiczny.Max(xb => xb.ID_Proces_Technologiczny);
+            nudDodaj_Maszyne.Value = szwalnia.Proces_Technologiczny.Max(xf => xf.ID_Proces_Technologiczny);
+            nudNumerProcesu2.Value = szwalnia.Proces_Technologiczny.Max(xg => xg.ID_Proces_Technologiczny);
+            nudNumerProcesu.Value = szwalnia.Proces_Technologiczny.Max(xh => xh.ID_Proces_Technologiczny);
         }
         private void btnKompletny_Proces_Click(object sender, EventArgs e)
         {
-            Proces_Zamowienie proces_Zamowienie = szwalnia.Proces_Zamowienie.Where(xd=>xd.ID_Proces_Zamowienie==(int)nudNumerProcesu.Value).SingleOrDefault();
+            Proces_Zamowienie proces_Zamowienie = szwalnia.Proces_Zamowienie.Where(xd=>xd.ID_Proces_Technologiczny==(int)nudNumerProcesu.Value).SingleOrDefault();
             if (proces_Zamowienie == null)
             {
                 MessageBox.Show("Nie ma takiego procesu","BŁĄD",MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -500,8 +390,13 @@ namespace Szwalnia
             proces_Zamowienie.Kompletny_Proces = chbKompletny_Proces.Checked;
             szwalnia.SaveChanges();
             MessageBox.Show("Zatwierdzono proces");
-            dgvZamowienia.DataSource = null;
-            dgvZamowienia.DataSource = szwalnia.vProces_technologiczny.ToList();
+            dgvProcesy66.DataSource = szwalnia.vProces_technologicznyy.Where(cx => cx.ID_Zamowienia == nudNumerZamowienia.Value).ToList();
+        }
+
+        private void dgvProcesy_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvProcesy.CurrentCell.Selected = true;
+            lblNumerZamowieniaElement.Text = dgvProcesy.CurrentCell.Value.ToString();
         }
 
      

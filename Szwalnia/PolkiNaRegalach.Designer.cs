@@ -33,7 +33,6 @@
             this.cmbOznaczenie = new System.Windows.Forms.ComboBox();
             this.lblOznaczenie = new System.Windows.Forms.Label();
             this.dgvPolkiNaRegale = new System.Windows.Forms.DataGridView();
-            this.btnSzukaj = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPolkiNaRegale)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -53,15 +52,16 @@
             // 
             this.cmbOznaczenie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbOznaczenie.FormattingEnabled = true;
-            this.cmbOznaczenie.Location = new System.Drawing.Point(82, 73);
+            this.cmbOznaczenie.Location = new System.Drawing.Point(82, 75);
             this.cmbOznaczenie.Name = "cmbOznaczenie";
             this.cmbOznaczenie.Size = new System.Drawing.Size(104, 28);
             this.cmbOznaczenie.TabIndex = 1;
+            this.cmbOznaczenie.SelectedIndexChanged += new System.EventHandler(this.cmbOznaczenie_SelectedIndexChanged);
             // 
             // lblOznaczenie
             // 
             this.lblOznaczenie.AutoSize = true;
-            this.lblOznaczenie.Location = new System.Drawing.Point(23, 81);
+            this.lblOznaczenie.Location = new System.Drawing.Point(23, 83);
             this.lblOznaczenie.Name = "lblOznaczenie";
             this.lblOznaczenie.Size = new System.Drawing.Size(40, 13);
             this.lblOznaczenie.TabIndex = 16;
@@ -71,30 +71,19 @@
             // 
             this.dgvPolkiNaRegale.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPolkiNaRegale.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dgvPolkiNaRegale.Location = new System.Drawing.Point(22, 157);
+            this.dgvPolkiNaRegale.Location = new System.Drawing.Point(22, 118);
             this.dgvPolkiNaRegale.MultiSelect = false;
             this.dgvPolkiNaRegale.Name = "dgvPolkiNaRegale";
-            this.dgvPolkiNaRegale.Size = new System.Drawing.Size(266, 217);
+            this.dgvPolkiNaRegale.Size = new System.Drawing.Size(266, 210);
             this.dgvPolkiNaRegale.TabIndex = 3;
             this.dgvPolkiNaRegale.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPolkiNaRegale_CellDoubleClick);
             // 
-            // btnSzukaj
-            // 
-            this.btnSzukaj.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSzukaj.Location = new System.Drawing.Point(82, 109);
-            this.btnSzukaj.Name = "btnSzukaj";
-            this.btnSzukaj.Size = new System.Drawing.Size(104, 33);
-            this.btnSzukaj.TabIndex = 18;
-            this.btnSzukaj.Text = "Szukaj";
-            this.btnSzukaj.UseVisualStyleBackColor = true;
-            this.btnSzukaj.Click += new System.EventHandler(this.btnSzukaj_Click);
-            // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Szwalnia.Properties.Resources.Legenda;
-            this.pictureBox1.Location = new System.Drawing.Point(193, 72);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(192, 65);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(108, 78);
+            this.pictureBox1.Size = new System.Drawing.Size(108, 47);
             this.pictureBox1.TabIndex = 24;
             this.pictureBox1.TabStop = false;
             // 
@@ -102,9 +91,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(310, 386);
+            this.ClientSize = new System.Drawing.Size(310, 340);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnSzukaj);
             this.Controls.Add(this.dgvPolkiNaRegale);
             this.Controls.Add(this.cmbOznaczenie);
             this.Controls.Add(this.lblOznaczenie);
@@ -125,7 +113,6 @@
         private System.Windows.Forms.ComboBox cmbOznaczenie;
         private System.Windows.Forms.Label lblOznaczenie;
         private System.Windows.Forms.DataGridView dgvPolkiNaRegale;
-        private System.Windows.Forms.Button btnSzukaj;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DodawanieDostaw));
             this.dgvListaMaterialow = new System.Windows.Forms.DataGridView();
             this.lblInfoText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaMaterialow)).BeginInit();
@@ -61,8 +62,9 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dgvListaMaterialow);
             this.Controls.Add(this.lblInfoText);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DodawanieDostaw";
-            this.Text = "DodawanieDostaw";
+            this.Text = "Dodawanie dostaw";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DodawanieDostaw_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaMaterialow)).EndInit();
             this.ResumeLayout(false);

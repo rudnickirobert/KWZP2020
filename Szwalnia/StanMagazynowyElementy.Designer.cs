@@ -48,7 +48,7 @@
             // 
             this.dgvStanMagazynowyElementy.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStanMagazynowyElementy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStanMagazynowyElementy.Location = new System.Drawing.Point(17, 70);
+            this.dgvStanMagazynowyElementy.Location = new System.Drawing.Point(12, 79);
             this.dgvStanMagazynowyElementy.Name = "dgvStanMagazynowyElementy";
             this.dgvStanMagazynowyElementy.Size = new System.Drawing.Size(485, 255);
             this.dgvStanMagazynowyElementy.TabIndex = 13;
