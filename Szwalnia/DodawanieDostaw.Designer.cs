@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DodawanieDostaw));
             this.dgvListaMaterialow = new System.Windows.Forms.DataGridView();
             this.lblInfoText = new System.Windows.Forms.Label();
+            this.lblInfo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaMaterialow)).BeginInit();
             this.SuspendLayout();
             // 
@@ -38,9 +39,9 @@
             // 
             this.dgvListaMaterialow.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaMaterialow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaMaterialow.Location = new System.Drawing.Point(12, 12);
+            this.dgvListaMaterialow.Location = new System.Drawing.Point(12, 43);
             this.dgvListaMaterialow.Name = "dgvListaMaterialow";
-            this.dgvListaMaterialow.Size = new System.Drawing.Size(776, 426);
+            this.dgvListaMaterialow.Size = new System.Drawing.Size(776, 395);
             this.dgvListaMaterialow.TabIndex = 0;
             this.dgvListaMaterialow.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaMaterialow_CellDoubleClick);
             // 
@@ -55,11 +56,22 @@
             this.lblInfoText.Text = "WSZYSTKIE WYMAGANE MATERIAŁY ZOSTAŁY ZAMÓWIONE";
             this.lblInfoText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lblInfo
+            // 
+            this.lblInfo.Location = new System.Drawing.Point(9, 9);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(779, 31);
+            this.lblInfo.TabIndex = 20;
+            this.lblInfo.Text = "Wybierz dostawę, którą chcesz przyjąć na magazyn ";
+            this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblInfo.Visible = false;
+            // 
             // DodawanieDostaw
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.dgvListaMaterialow);
             this.Controls.Add(this.lblInfoText);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -75,5 +87,6 @@
 
         private System.Windows.Forms.DataGridView dgvListaMaterialow;
         private System.Windows.Forms.Label lblInfoText;
+        private System.Windows.Forms.Label lblInfo;
     }
 }

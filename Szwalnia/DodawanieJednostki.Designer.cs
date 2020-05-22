@@ -39,10 +39,11 @@
             // txtNazwa
             // 
             this.txtNazwa.Location = new System.Drawing.Point(135, 75);
-            this.txtNazwa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNazwa.Margin = new System.Windows.Forms.Padding(2);
             this.txtNazwa.Name = "txtNazwa";
             this.txtNazwa.Size = new System.Drawing.Size(114, 20);
             this.txtNazwa.TabIndex = 9;
+            this.txtNazwa.TextChanged += new System.EventHandler(this.txtNazwa_TextChanged);
             // 
             // label1
             // 
@@ -67,8 +68,9 @@
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(252, 108);
-            this.btnDodaj.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDodaj.Enabled = false;
+            this.btnDodaj.Location = new System.Drawing.Point(33, 110);
+            this.btnDodaj.Margin = new System.Windows.Forms.Padding(2);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(56, 28);
             this.btnDodaj.TabIndex = 10;
@@ -78,8 +80,8 @@
             // 
             // btnWstecz
             // 
-            this.btnWstecz.Location = new System.Drawing.Point(49, 108);
-            this.btnWstecz.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnWstecz.Location = new System.Drawing.Point(261, 110);
+            this.btnWstecz.Margin = new System.Windows.Forms.Padding(2);
             this.btnWstecz.Name = "btnWstecz";
             this.btnWstecz.Size = new System.Drawing.Size(58, 28);
             this.btnWstecz.TabIndex = 25;
@@ -98,7 +100,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DodawanieJednostki";
             this.Text = "DodawanieJednostki";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DodawanieJednostki_FormClosed);

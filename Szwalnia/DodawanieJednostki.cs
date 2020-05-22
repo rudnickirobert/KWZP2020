@@ -14,29 +14,45 @@ namespace Szwalnia
     {
         public SzwalniaEntities db;
         public Elementy_Jednostki jednostkaNew = new Elementy_Jednostki();
+
+        private bool isNotEmpty()
+        {
+            return txtNazwa.TextLength > 0;
+        }
+
+        private bool isUnique()
+        {
+            return !db.Elementy_Jednostki.Where(nazwa => nazwa.Jednostka == txtNazwa.Text).Any();
+        }
+
+        private void txtNazwa_TextChanged(object sender, EventArgs e)
+        {
+            if (isNotEmpty())
+                btnDodaj.Enabled = true;
+            else
+                btnDodaj.Enabled = false;
+        }
+
         public DodawanieJednostki()
         {
             InitializeComponent();
-            db = Start.szwalnia;                    
+            db = Start.szwalnia;
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            List<Elementy_Jednostki> powtorzenie = db.Elementy_Jednostki.Where(nazwa => nazwa.Jednostka.ToLower() == txtNazwa.Text).ToList();
-            bool blad = powtorzenie.Any();
+            txtNazwa.Text = txtNazwa.Text.ToLower();
 
-            if (blad)
-            {
-                MessageBox.Show("Już istnieje taka jednostka");
-            }
-            else
+            if (isUnique())
             {
                 jednostkaNew.Jednostka = txtNazwa.Text;
-                MessageBox.Show("Pomyślnie dodano nowy rekord do bazy danych.");
                 db.Elementy_Jednostki.Add(jednostkaNew);
                 db.SaveChanges();
                 Start.DataBaseRefresh();
+                MessageBox.Show("Pomyślnie dodano nowy rekord do bazy danych.");
             }
+            else
+                MessageBox.Show("Już istnieje taka jednostka");
         }
 
         private void DodawanieJednostki_FormClosed(object sender, FormClosedEventArgs e)
