@@ -717,6 +717,8 @@ FROM     dbo.Elementy_Typy INNER JOIN
 Group BY dbo.Elementy_Typy.Typ
 GO
 
+
+
 ------------Szacowany czas wykonania zamowienia wersja 2
 
 CREATE VIEW vSredniCzasSztuki
@@ -822,6 +824,7 @@ OR (dbo.Przydzial_Zasobow.Data_Zakonczenia IS NULL AND dbo.Przydzial_Zasobow.Dat
 OR (dbo.Przydzial_Zasobow.Data_Zakonczenia >= GETDATE() AND dbo.Przydzial_Zasobow.Data_Rozpoczecia <= GETDATE()) 
 OR (dbo.Urlop.Data_zakonczenia > GETDATE() AND dbo.Urlop.Data_rozpoczecia < GETDATE())	  
 GO
+Select *From dbo.vWolniPracownicyZarzadzanie
 
 CREATE VIEW vWolniPracownicyProdukcji
 AS
@@ -1465,38 +1468,35 @@ GO
 
 
 
-CREATE VIEW vWolniPracownicyZarzadzanie
-AS 
-SELECT dbo.Pracownicy.ID_Pracownika, dbo.Pracownicy.Imie + (' ')  +  dbo.Pracownicy.Nazwisko AS 'Pracownik',
-       (CAST (dbo.Dzialy.ID_Dzialu AS varchar (10)) + (' Dzia³ ') + dbo.Dzialy.Nazwa_dzialu) AS 'ID Dzia³u, Nazwa',
-	   dbo.Urlop.Data_rozpoczecia AS 'Data Rozpoczêcia Urlopu', dbo.Urlop.Data_zakonczenia AS 'Data Zakoñczenia Urlopu', 
-       dbo.Przydzial_Zasobow.Data_Rozpoczecia AS 'Data Rozpoczêcia' , dbo.Przydzial_Zasobow.Data_Zakonczenia AS 'Data Zakoñczenia',
-	   (CAST(dbo.Stanowisko.ID_Stanowiska AS varchar(10)) + ('    ') +  dbo.Stanowisko.Stanowisko) AS 'ID Stanowiska, Nazwa Stanowiska', dbo.Pracownicy_Zatrudnienie.Data_Zatrudnienia, dbo.Pracownicy_Zatrudnienie.Koniec_umowy
-FROM   
-
-	   dbo.Pracownicy_Zatrudnienie LEFT JOIN
-
-       dbo.Pracownicy ON dbo.Pracownicy_Zatrudnienie.ID_Pracownika = dbo.Pracownicy.ID_Pracownika LEFT JOIN
-
-	   dbo.Dzialy ON dbo.Pracownicy_Zatrudnienie.ID_Dzialu = dbo.Dzialy.ID_Dzialu LEFT JOIN
-
-       dbo.Stanowisko ON dbo.Pracownicy_Zatrudnienie.ID_Stanowiska = dbo.Stanowisko.ID_Stanowiska LEFT JOIN
-	   
-	   dbo.Urlop ON dbo.Pracownicy.ID_Pracownika = dbo.Urlop.ID_Pracownika 
-			AND (dbo.Urlop.Data_zakonczenia > GETDATE() AND dbo.Urlop.Data_rozpoczecia < GETDATE())
-			
-	   LEFT JOIN dbo.Przydzial_Zasobow ON dbo.Pracownicy.ID_Pracownika = dbo.Przydzial_Zasobow.ID_Pracownika 
-			AND (dbo.Przydzial_Zasobow.Data_Zakonczenia > GETDATE() AND dbo.Przydzial_Zasobow.Data_Rozpoczecia < GETDATE())
-
-WHERE ((dbo.Urlop.Data_zakonczenia < GETDATE() OR dbo.Urlop.Data_rozpoczecia > GETDATE()) 
-	  OR dbo.Urlop.Data_zakonczenia IS NULL OR dbo.Urlop.Data_rozpoczecia IS NULL) 
+CREATE VIEW vWolniPracownicyZarzadzanie as
+SELECT
+	p.ID_Pracownika,
+	p.Imie + (' ')  +  p.Nazwisko AS 'Pracownik',
+    (CAST (d.ID_Dzialu AS varchar (10)) + (' Dzia³ ') + d.Nazwa_dzialu) AS 'ID Dzia³u, Nazwa',
+	u.Data_rozpoczecia AS 'Data Rozpoczêcia Urlopu',
+	u.Data_zakonczenia AS 'Data Zakoñczenia Urlopu', 
+    ppz.Data_Rozpoczecia AS 'Data Rozpoczêcia',
+	ppz.Data_Zakonczenia AS 'Data Zakoñczenia',
+	(CAST(s.ID_Stanowiska AS varchar(10)) + ('    ') +  s.Stanowisko) AS 'ID Stanowiska, Nazwa Stanowiska',
+	pz.Data_Zatrudnienia,
+	pz.Koniec_umowy
+FROM dbo.Pracownicy_Zatrudnienie as pz
+	LEFT JOIN dbo.Pracownicy p ON pz.ID_Pracownika = p.ID_Pracownika
+	LEFT JOIN dbo.Dzialy d ON pz.ID_Dzialu = d.ID_Dzialu
+	LEFT JOIN dbo.Stanowisko s ON pz.ID_Stanowiska = s.ID_Stanowiska
+	LEFT JOIN dbo.Urlop u ON p.ID_Pracownika = u.ID_Pracownika 
+		AND (u.Data_zakonczenia > GETDATE() AND u.Data_rozpoczecia < GETDATE())
+	LEFT JOIN dbo.Przydzial_Zasobow ppz ON p.ID_Pracownika = ppz.ID_Pracownika 
+		AND (ppz.Data_Zakonczenia > GETDATE() AND ppz.Data_Rozpoczecia < GETDATE())
+WHERE ((u.Data_zakonczenia < GETDATE() OR u.Data_rozpoczecia > GETDATE()) 
+	  OR u.Data_zakonczenia IS NULL OR u.Data_rozpoczecia IS NULL) 
 	  AND
-	  ((dbo.Przydzial_Zasobow.Data_Zakonczenia < GETDATE() OR dbo.Przydzial_Zasobow.Data_Rozpoczecia > GETDATE()) 
-	  OR dbo.Przydzial_Zasobow.Data_Zakonczenia IS NULL OR dbo.Przydzial_Zasobow.Data_Rozpoczecia IS NULL)
+	  ((ppz.Data_Zakonczenia < GETDATE() OR ppz.Data_Rozpoczecia > GETDATE()) 
+	  OR ppz.Data_Zakonczenia IS NULL OR ppz.Data_Rozpoczecia IS NULL)
 	 AND
-	 (dbo.Pracownicy_Zatrudnienie.Koniec_umowy > GETDATE() AND dbo.Pracownicy_Zatrudnienie.Data_Zatrudnienia < GETDATE())
+	 (pz.Koniec_umowy > GETDATE() AND pz.Data_Zatrudnienia < GETDATE())
 	 AND
-	 dbo.Dzialy.ID_Dzialu = 1
+	 d.ID_Dzialu = 1
 GO
 
 CREATE VIEW vElementyDlaZamowien AS
@@ -1518,4 +1518,11 @@ SELECT dbo.Srodki_Trwale.ID_Srodki_trwale, dbo.Srodki_Trwale.Nazwa, dbo.Srodki_T
                   dbo.Srodki_Trwale.Roczny_stopien_amortyzacji, dbo.Srodki_Trwale.Gwarancja, dbo.Srodki_Trwale.Zamortyzowane
 FROM     dbo.Srodki_Trwale INNER JOIN
                   dbo.Dzialy ON dbo.Srodki_Trwale.ID_Dzialu = dbo.Dzialy.ID_Dzialu
+GO
+
+CREATE VIEW vUrlopyWszyskie AS
+SELECT dbo.Pracownicy.ID_Pracownika, dbo.Pracownicy.Imie + ' ' + dbo.Pracownicy.Nazwisko AS [Imie i nazwisko], dbo.Urlop.Data_rozpoczecia, dbo.Urlop.Data_zakonczenia, dbo.Rodzaj_Urlopu.Nazwa
+FROM     dbo.Urlop INNER JOIN
+                  dbo.Pracownicy ON dbo.Urlop.ID_Pracownika = dbo.Pracownicy.ID_Pracownika INNER JOIN
+                  dbo.Rodzaj_Urlopu ON dbo.Urlop.ID_Rodzaj_Urlopu = dbo.Rodzaj_Urlopu.ID_Rodzaj_Urlopu
 GO

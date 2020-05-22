@@ -48,8 +48,6 @@
             this.btnZapisz = new System.Windows.Forms.Button();
             this.btnAnuluj = new System.Windows.Forms.Button();
             this.lblNumer = new System.Windows.Forms.Label();
-            this.dgvUkryty = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUkryty)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNazwa
@@ -241,23 +239,11 @@
             this.lblNumer.TabIndex = 19;
             this.lblNumer.Text = "label1";
             // 
-            // dgvUkryty
-            // 
-            this.dgvUkryty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUkryty.Location = new System.Drawing.Point(17, 2);
-            this.dgvUkryty.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
-            this.dgvUkryty.Name = "dgvUkryty";
-            this.dgvUkryty.RowHeadersWidth = 51;
-            this.dgvUkryty.Size = new System.Drawing.Size(42, 29);
-            this.dgvUkryty.TabIndex = 20;
-            this.dgvUkryty.Visible = false;
-            // 
             // NowySrodekTrwaly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 558);
-            this.Controls.Add(this.dgvUkryty);
             this.Controls.Add(this.lblNumer);
             this.Controls.Add(this.btnAnuluj);
             this.Controls.Add(this.btnZapisz);
@@ -280,7 +266,6 @@
             this.Controls.Add(this.txtNazwa);
             this.Name = "NowySrodekTrwaly";
             this.Text = "Nowy_środek_trwały";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUkryty)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,6 +293,5 @@
         private System.Windows.Forms.Button btnZapisz;
         private System.Windows.Forms.Button btnAnuluj;
         private System.Windows.Forms.Label lblNumer;
-        private System.Windows.Forms.DataGridView dgvUkryty;
     }
 }
