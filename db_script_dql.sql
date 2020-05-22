@@ -824,7 +824,6 @@ OR (dbo.Przydzial_Zasobow.Data_Zakonczenia IS NULL AND dbo.Przydzial_Zasobow.Dat
 OR (dbo.Przydzial_Zasobow.Data_Zakonczenia >= GETDATE() AND dbo.Przydzial_Zasobow.Data_Rozpoczecia <= GETDATE()) 
 OR (dbo.Urlop.Data_zakonczenia > GETDATE() AND dbo.Urlop.Data_rozpoczecia < GETDATE())	  
 GO
-Select *From dbo.vWolniPracownicyZarzadzanie
 
 CREATE VIEW vWolniPracownicyProdukcji
 AS

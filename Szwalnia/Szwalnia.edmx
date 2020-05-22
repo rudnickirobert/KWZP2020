@@ -2134,6 +2134,22 @@ warning 6002: The table/view 'Szwalnia.dbo.vUrlopPracownika' does not have a pri
           <Property Name="Nazwa" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vUrlopyWszyskie' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vUrlopyWszyskie">
+          <Key>
+            <PropertyRef Name="ID_Pracownika" />
+            <PropertyRef Name="Imie i nazwisko" />
+            <PropertyRef Name="Data_rozpoczecia" />
+            <PropertyRef Name="Data_zakonczenia" />
+            <PropertyRef Name="Nazwa" />
+          </Key>
+          <Property Name="ID_Pracownika" Type="int" Nullable="false" />
+          <Property Name="Imie i nazwisko" Type="varchar" MaxLength="101" Nullable="false" />
+          <Property Name="Data_rozpoczecia" Type="date" Nullable="false" />
+          <Property Name="Data_zakonczenia" Type="date" Nullable="false" />
+          <Property Name="Nazwa" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vWidokPomocniczyDoNiewydaneBezDat' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vWidokPomocniczyDoNiewydaneBezDat">
           <Key>
@@ -4593,6 +4609,15 @@ warning 6002: The table/view 'Szwalnia.dbo.vZyskZZamowienia' does not have a pri
     [vUrlopPracownika].[Nazwa] AS [Nazwa]
     FROM [dbo].[vUrlopPracownika] AS [vUrlopPracownika]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vUrlopyWszyskie" EntityType="Self.vUrlopyWszyskie" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vUrlopyWszyskie].[ID_Pracownika] AS [ID_Pracownika], 
+    [vUrlopyWszyskie].[Imie i nazwisko] AS [Imie i nazwisko], 
+    [vUrlopyWszyskie].[Data_rozpoczecia] AS [Data_rozpoczecia], 
+    [vUrlopyWszyskie].[Data_zakonczenia] AS [Data_zakonczenia], 
+    [vUrlopyWszyskie].[Nazwa] AS [Nazwa]
+    FROM [dbo].[vUrlopyWszyskie] AS [vUrlopyWszyskie]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vWidokPomocniczyDoNiewydaneBezDat" EntityType="Self.vWidokPomocniczyDoNiewydaneBezDat" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vWidokPomocniczyDoNiewydaneBezDat].[ID_Zamowienie_Element] AS [ID_Zamowienie_Element], 
@@ -5362,6 +5387,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZyskZZamowienia' does not have a pri
           <EntitySet Name="vUmowyKurierzy" EntityType="SzwalniaModel.vUmowyKurierzy" />
           <EntitySet Name="vUmowyKurierzyNazwyKurierow" EntityType="SzwalniaModel.vUmowyKurierzyNazwyKurierow" />
           <EntitySet Name="vUrlopPracownika" EntityType="SzwalniaModel.vUrlopPracownika" />
+          <EntitySet Name="vUrlopyWszyskie" EntityType="SzwalniaModel.vUrlopyWszyskie" />
           <EntitySet Name="vWidokPomocniczyDoNiewydaneBezDat" EntityType="SzwalniaModel.vWidokPomocniczyDoNiewydaneBezDat" />
           <EntitySet Name="vWolneMaszynyProdukcja" EntityType="SzwalniaModel.vWolneMaszynyProdukcja" />
           <EntitySet Name="vWolnePolki" EntityType="SzwalniaModel.vWolnePolki" />
@@ -7785,6 +7811,20 @@ warning 6002: The table/view 'Szwalnia.dbo.vZyskZZamowienia' does not have a pri
           <Property Name="Data_zakonczenia" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Nazwa" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="vUrlopyWszyskie">
+          <Key>
+            <PropertyRef Name="ID_Pracownika" />
+            <PropertyRef Name="Imie_i_nazwisko" />
+            <PropertyRef Name="Data_rozpoczecia" />
+            <PropertyRef Name="Data_zakonczenia" />
+            <PropertyRef Name="Nazwa" />
+          </Key>
+          <Property Name="ID_Pracownika" Type="Int32" Nullable="false" />
+          <Property Name="Imie_i_nazwisko" Type="String" Nullable="false" MaxLength="101" FixedLength="false" Unicode="false" />
+          <Property Name="Data_rozpoczecia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Data_zakonczenia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Nazwa" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="vWidokPomocniczyDoNiewydaneBezDat">
           <Key>
             <PropertyRef Name="ID_Zamowienie_Element" />
@@ -9132,7 +9172,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZyskZZamowienia' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -11003,6 +11043,17 @@ warning 6002: The table/view 'Szwalnia.dbo.vZyskZZamowienia' does not have a pri
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
                 <ScalarProperty Name="Data_zakonczenia" ColumnName="Data_zakonczenia" />
                 <ScalarProperty Name="Data_rozpoczecia" ColumnName="Data_rozpoczecia" />
+                <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vUrlopyWszyskie">
+            <EntityTypeMapping TypeName="SzwalniaModel.vUrlopyWszyskie">
+              <MappingFragment StoreEntitySet="vUrlopyWszyskie">
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Data_zakonczenia" ColumnName="Data_zakonczenia" />
+                <ScalarProperty Name="Data_rozpoczecia" ColumnName="Data_rozpoczecia" />
+                <ScalarProperty Name="Imie_i_nazwisko" ColumnName="Imie i nazwisko" />
                 <ScalarProperty Name="ID_Pracownika" ColumnName="ID_Pracownika" />
               </MappingFragment>
             </EntityTypeMapping>
