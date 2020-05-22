@@ -83,5 +83,11 @@ namespace Szwalnia
         {
             this.Close();
         }
+
+        private void btnNowyTyp_Click(object sender, EventArgs e)
+        {
+            DodawanieTypu typForm = new DodawanieTypu(true);
+            typForm.Show();
+        }
     }
 }

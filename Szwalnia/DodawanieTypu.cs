@@ -14,14 +14,30 @@ namespace Szwalnia
     {
         public SzwalniaEntities db;
         public Elementy_Typy typNew = new Elementy_Typy();
+        public bool czyZamowienie;
+        public bool zamykanie;
         public DodawanieTypu()
         {
             InitializeComponent();
             db = Start.szwalnia;
             typNew.Typ = txtNazwa.Text;
+            zamykanie = true;
             if (chBoxWlasny.Checked == true)
-            { typNew.Czy_wlasne = true; }
-            else { typNew.Czy_wlasne = false; }
+                typNew.Czy_wlasne = true;
+            else
+                typNew.Czy_wlasne = false;
+            
+        }
+        public DodawanieTypu(bool czyZamowienie)
+        {
+            InitializeComponent();
+            db = Start.szwalnia;
+            typNew.Typ = txtNazwa.Text;
+            zamykanie = false;
+            if (chBoxWlasny.Checked == true)
+                typNew.Czy_wlasne = true;
+            else 
+                typNew.Czy_wlasne = false;  
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
@@ -44,13 +60,21 @@ namespace Szwalnia
 
         private void DodawanieTypu_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Start.GetForm.Show();
+            if (zamykanie)
+                Start.GetForm.Show();
+            else 
+                this.Hide();
         }
 
         private void btnWstecz_Click(object sender, EventArgs e)
         {
-            Application.OpenForms[typeof(ElementyForm).Name].Show();
-            this.Hide();
+            if (zamykanie)
+            {
+                Application.OpenForms[typeof(ElementyForm).Name].Show();
+                this.Hide();
+            }
+            else 
+                this.Hide();
         }
 
         private void txtNazwa_TextChanged(object sender, EventArgs e)
