@@ -58,11 +58,11 @@
             this.dgvPrzydzialZasobowRealizacja.AllowUserToDeleteRows = false;
             this.dgvPrzydzialZasobowRealizacja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPrzydzialZasobowRealizacja.Location = new System.Drawing.Point(16, 94);
-            this.dgvPrzydzialZasobowRealizacja.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvPrzydzialZasobowRealizacja.Margin = new System.Windows.Forms.Padding(4);
             this.dgvPrzydzialZasobowRealizacja.Name = "dgvPrzydzialZasobowRealizacja";
             this.dgvPrzydzialZasobowRealizacja.ReadOnly = true;
             this.dgvPrzydzialZasobowRealizacja.RowHeadersWidth = 51;
-            this.dgvPrzydzialZasobowRealizacja.Size = new System.Drawing.Size(1204, 411);
+            this.dgvPrzydzialZasobowRealizacja.Size = new System.Drawing.Size(1066, 411);
             this.dgvPrzydzialZasobowRealizacja.TabIndex = 0;
             this.dgvPrzydzialZasobowRealizacja.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrzydzialZasobowRealizacja_CellClick);
             // 
@@ -81,7 +81,7 @@
             // 
             this.btnNowy.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnNowy.Location = new System.Drawing.Point(393, 575);
-            this.btnNowy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNowy.Margin = new System.Windows.Forms.Padding(4);
             this.btnNowy.Name = "btnNowy";
             this.btnNowy.Size = new System.Drawing.Size(107, 62);
             this.btnNowy.TabIndex = 9;
@@ -93,7 +93,7 @@
             // 
             this.btnAnuluj.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnAnuluj.Location = new System.Drawing.Point(556, 575);
-            this.btnAnuluj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAnuluj.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnuluj.Name = "btnAnuluj";
             this.btnAnuluj.Size = new System.Drawing.Size(107, 62);
             this.btnAnuluj.TabIndex = 7;
@@ -104,8 +104,8 @@
             // btnEdycja
             // 
             this.btnEdycja.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnEdycja.Location = new System.Drawing.Point(1489, 386);
-            this.btnEdycja.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEdycja.Location = new System.Drawing.Point(1341, 385);
+            this.btnEdycja.Margin = new System.Windows.Forms.Padding(4);
             this.btnEdycja.Name = "btnEdycja";
             this.btnEdycja.Size = new System.Drawing.Size(107, 62);
             this.btnEdycja.TabIndex = 8;
@@ -117,7 +117,7 @@
             // 
             this.mtbDataZakonczenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.mtbDataZakonczenia.Location = new System.Drawing.Point(243, 149);
-            this.mtbDataZakonczenia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mtbDataZakonczenia.Margin = new System.Windows.Forms.Padding(4);
             this.mtbDataZakonczenia.Mask = "00/00/0000 00:00:00";
             this.mtbDataZakonczenia.Name = "mtbDataZakonczenia";
             this.mtbDataZakonczenia.Size = new System.Drawing.Size(197, 29);
@@ -127,7 +127,7 @@
             // 
             this.btnDzisZakonczenie.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnDzisZakonczenie.Location = new System.Drawing.Point(475, 149);
-            this.btnDzisZakonczenie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDzisZakonczenie.Margin = new System.Windows.Forms.Padding(4);
             this.btnDzisZakonczenie.Name = "btnDzisZakonczenie";
             this.btnDzisZakonczenie.Size = new System.Drawing.Size(57, 28);
             this.btnDzisZakonczenie.TabIndex = 44;
@@ -139,7 +139,7 @@
             // 
             this.mtbDataRozpoczecia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.mtbDataRozpoczecia.Location = new System.Drawing.Point(243, 112);
-            this.mtbDataRozpoczecia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mtbDataRozpoczecia.Margin = new System.Windows.Forms.Padding(4);
             this.mtbDataRozpoczecia.Mask = "00/00/0000 00:00:00";
             this.mtbDataRozpoczecia.Name = "mtbDataRozpoczecia";
             this.mtbDataRozpoczecia.Size = new System.Drawing.Size(197, 29);
@@ -149,7 +149,7 @@
             // 
             this.btnDzisRozpoczecie.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnDzisRozpoczecie.Location = new System.Drawing.Point(475, 112);
-            this.btnDzisRozpoczecie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDzisRozpoczecie.Margin = new System.Windows.Forms.Padding(4);
             this.btnDzisRozpoczecie.Name = "btnDzisRozpoczecie";
             this.btnDzisRozpoczecie.Size = new System.Drawing.Size(57, 28);
             this.btnDzisRozpoczecie.TabIndex = 42;
@@ -238,7 +238,7 @@
             // 
             this.tbMaszyna.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbMaszyna.Location = new System.Drawing.Point(243, 75);
-            this.tbMaszyna.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbMaszyna.Margin = new System.Windows.Forms.Padding(4);
             this.tbMaszyna.Name = "tbMaszyna";
             this.tbMaszyna.Size = new System.Drawing.Size(132, 29);
             this.tbMaszyna.TabIndex = 58;
@@ -247,7 +247,7 @@
             // 
             this.tbPracownik.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbPracownik.Location = new System.Drawing.Point(243, 38);
-            this.tbPracownik.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPracownik.Margin = new System.Windows.Forms.Padding(4);
             this.tbPracownik.Name = "tbPracownik";
             this.tbPracownik.Size = new System.Drawing.Size(132, 29);
             this.tbPracownik.TabIndex = 59;
@@ -268,10 +268,10 @@
             this.gbxEdycja.Controls.Add(this.lblDataZakonczenia);
             this.gbxEdycja.Controls.Add(this.lblDataRozpoczecia);
             this.gbxEdycja.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.gbxEdycja.Location = new System.Drawing.Point(1247, 119);
-            this.gbxEdycja.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbxEdycja.Location = new System.Drawing.Point(1099, 118);
+            this.gbxEdycja.Margin = new System.Windows.Forms.Padding(4);
             this.gbxEdycja.Name = "gbxEdycja";
-            this.gbxEdycja.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbxEdycja.Padding = new System.Windows.Forms.Padding(4);
             this.gbxEdycja.Size = new System.Drawing.Size(568, 240);
             this.gbxEdycja.TabIndex = 60;
             this.gbxEdycja.TabStop = false;
@@ -292,8 +292,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1855, 672);
+            this.ClientSize = new System.Drawing.Size(1680, 707);
             this.Controls.Add(this.lblOpis);
             this.Controls.Add(this.gbxEdycja);
             this.Controls.Add(this.btnNowy);
@@ -301,7 +302,7 @@
             this.Controls.Add(this.btnEdycja);
             this.Controls.Add(this.lblRealizacja);
             this.Controls.Add(this.dgvPrzydzialZasobowRealizacja);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PrzydzialZasobowRealizacja";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Przydział zasobów";
