@@ -95,7 +95,7 @@ namespace Szwalnia
         }
 
         private void PrzegladProcesowProdukcyjnych_Load(object sender, EventArgs e)
-        {
+        {            
             dgvProcesyProdukcyjne.DataSource = db.vZamowienieProcesyProdukcyjne.ToList();
             dgvProcesyProdukcyjne.Columns.OfType<DataGridViewColumn>().ToList().ForEach(kolumna => kolumna.Visible = true);
             int ostatniNumer = dgvProcesyProdukcyjne.Rows.Cast<DataGridViewRow>().Max(wartosc => Convert.ToInt32(wartosc.Cells["ID_Zamowienia"].Value));
