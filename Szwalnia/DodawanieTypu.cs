@@ -52,5 +52,13 @@ namespace Szwalnia
             Application.OpenForms[typeof(ElementyForm).Name].Show();
             this.Hide();
         }
+
+        private void txtNazwa_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNazwa.TextLength > 0)
+                btnDodaj.Enabled = true;
+            else
+                btnDodaj.Enabled = false;
+        }
     }
 }

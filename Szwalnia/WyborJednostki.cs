@@ -57,5 +57,10 @@ namespace Szwalnia
             Application.OpenForms[typeof(ElementyForm).Name].Show();
             this.Hide();
         }
+
+        private void WyborJednostki_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Start.GetForm.Show();
+        }
     }
 }

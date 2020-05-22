@@ -76,7 +76,7 @@
             // numOkres
             // 
             this.numOkres.Location = new System.Drawing.Point(146, 98);
-            this.numOkres.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numOkres.Margin = new System.Windows.Forms.Padding(2);
             this.numOkres.Name = "numOkres";
             this.numOkres.Size = new System.Drawing.Size(113, 20);
             this.numOkres.TabIndex = 3;
@@ -89,7 +89,7 @@
             // txtNazwa
             // 
             this.txtNazwa.Location = new System.Drawing.Point(146, 76);
-            this.txtNazwa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNazwa.Margin = new System.Windows.Forms.Padding(2);
             this.txtNazwa.Name = "txtNazwa";
             this.txtNazwa.Size = new System.Drawing.Size(114, 20);
             this.txtNazwa.TabIndex = 4;
@@ -98,8 +98,8 @@
             // btnDodaj
             // 
             this.btnDodaj.Enabled = false;
-            this.btnDodaj.Location = new System.Drawing.Point(29, 154);
-            this.btnDodaj.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDodaj.Location = new System.Drawing.Point(282, 154);
+            this.btnDodaj.Margin = new System.Windows.Forms.Padding(2);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(56, 24);
             this.btnDodaj.TabIndex = 6;
@@ -109,8 +109,8 @@
             // 
             // btnWstecz
             // 
-            this.btnWstecz.Location = new System.Drawing.Point(272, 154);
-            this.btnWstecz.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnWstecz.Location = new System.Drawing.Point(32, 154);
+            this.btnWstecz.Margin = new System.Windows.Forms.Padding(2);
             this.btnWstecz.Name = "btnWstecz";
             this.btnWstecz.Size = new System.Drawing.Size(58, 24);
             this.btnWstecz.TabIndex = 24;
@@ -132,7 +132,7 @@
             // 
             this.cmbTyp.FormattingEnabled = true;
             this.cmbTyp.Location = new System.Drawing.Point(146, 119);
-            this.cmbTyp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbTyp.Margin = new System.Windows.Forms.Padding(2);
             this.cmbTyp.Name = "cmbTyp";
             this.cmbTyp.Size = new System.Drawing.Size(114, 21);
             this.cmbTyp.TabIndex = 27;
@@ -141,7 +141,7 @@
             // 
             this.chbOkres.AutoSize = true;
             this.chbOkres.Location = new System.Drawing.Point(272, 99);
-            this.chbOkres.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chbOkres.Margin = new System.Windows.Forms.Padding(2);
             this.chbOkres.Name = "chbOkres";
             this.chbOkres.Size = new System.Drawing.Size(81, 17);
             this.chbOkres.TabIndex = 28;
@@ -165,10 +165,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DodawanieElementu";
             this.Text = "Dodawanie elementu";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DodawanieElementu_FormClosed);      
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DodawanieElementu_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.numOkres)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

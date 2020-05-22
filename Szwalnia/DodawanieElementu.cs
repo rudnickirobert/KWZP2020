@@ -15,7 +15,6 @@ namespace Szwalnia
     public partial class DodawanieElementu : Form
     {
         public SzwalniaEntities db;
-        //public int intTypID; niezbedne?
         public Elementy elementNew = new Elementy();
         public bool czyProdukty;
         public bool czyMagazynUzywa;
@@ -97,7 +96,7 @@ namespace Szwalnia
                 Start.DataBaseRefresh();
             }
             else
-                MessageBox.Show("Już istnieje taki element");
+                MessageBox.Show("Już istnieje element o takiej nazwie!");
 
         }
 

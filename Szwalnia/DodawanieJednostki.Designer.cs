@@ -69,10 +69,10 @@
             // btnDodaj
             // 
             this.btnDodaj.Enabled = false;
-            this.btnDodaj.Location = new System.Drawing.Point(33, 110);
+            this.btnDodaj.Location = new System.Drawing.Point(245, 110);
             this.btnDodaj.Margin = new System.Windows.Forms.Padding(2);
             this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(56, 28);
+            this.btnDodaj.Size = new System.Drawing.Size(63, 28);
             this.btnDodaj.TabIndex = 10;
             this.btnDodaj.Text = "Dodaj";
             this.btnDodaj.UseVisualStyleBackColor = true;
@@ -80,10 +80,10 @@
             // 
             // btnWstecz
             // 
-            this.btnWstecz.Location = new System.Drawing.Point(261, 110);
+            this.btnWstecz.Location = new System.Drawing.Point(27, 110);
             this.btnWstecz.Margin = new System.Windows.Forms.Padding(2);
             this.btnWstecz.Name = "btnWstecz";
-            this.btnWstecz.Size = new System.Drawing.Size(58, 28);
+            this.btnWstecz.Size = new System.Drawing.Size(65, 28);
             this.btnWstecz.TabIndex = 25;
             this.btnWstecz.Text = "Wstecz";
             this.btnWstecz.UseVisualStyleBackColor = true;

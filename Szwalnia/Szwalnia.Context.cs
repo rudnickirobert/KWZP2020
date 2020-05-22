@@ -110,6 +110,7 @@ namespace Szwalnia
         public virtual DbSet<vDostawyNiewydaneZPolkami> vDostawyNiewydaneZPolkami { get; set; }
         public virtual DbSet<vDostawyNiewydaneZPolkamiNiesumowane> vDostawyNiewydaneZPolkamiNiesumowane { get; set; }
         public virtual DbSet<vDostawyZawartoscInformacjeDostawcy> vDostawyZawartoscInformacjeDostawcy { get; set; }
+        public virtual DbSet<vElementy_Nie_Wlasne> vElementy_Nie_Wlasne { get; set; }
         public virtual DbSet<vElementy_proces> vElementy_proces { get; set; }
         public virtual DbSet<vElementyDlaZamowien> vElementyDlaZamowien { get; set; }
         public virtual DbSet<vElementyProcesProdukcyjny> vElementyProcesProdukcyjny { get; set; }
@@ -232,6 +233,6 @@ namespace Szwalnia
         public virtual DbSet<vZawartoscMagazynuDoPrzydzialuZabezpieczona> vZawartoscMagazynuDoPrzydzialuZabezpieczona { get; set; }
         public virtual DbSet<vZawartoscZIloscia> vZawartoscZIloscia { get; set; }
         public virtual DbSet<vZyskZZamowienia> vZyskZZamowienia { get; set; }
-        public virtual DbSet<vElementy_Nie_Wlasne> vElementy_Nie_Wlasne { get; set; }
+        public virtual DbSet<vElementy_wszystkie_alfabetycznie> vElementy_wszystkie_alfabetycznie { get; set; }
     }
 }

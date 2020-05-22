@@ -878,6 +878,9 @@
     <Compile Include="vElementy_proces.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vElementy_wszystkie_alfabetycznie.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vElemntyy.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
