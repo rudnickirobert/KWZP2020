@@ -14,7 +14,7 @@ namespace Szwalnia
     public partial class DodawanieElementu : Form
     {
         public SzwalniaEntities db;
-        public Elementy elementNew = new Elementy();
+        public int intTypID;
         public bool czyProdukty;
         public bool czyMagazynUzywa=false;
         public DodawanieElementu()
@@ -68,18 +68,21 @@ namespace Szwalnia
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
-        {            
-            List<Elementy> powtorzenie = db.Elementy.Where(nazwa => nazwa.Element_Nazwa.ToLower() == txtNazwa.Text).ToList();
-            bool blad=powtorzenie.Any();
+        {       
+            
+            if (db.Elementy.Where(nazwa => nazwa.Element_Nazwa.ToLower() == txtNazwa.Text.ToLower()).Any())
+            {
+                MessageBox.Show("Już istnieje taki element");
+                return;
+            }
 
             if (txtNazwa.TextLength == 0)
             {
                 MessageBox.Show("Nazwa nie może być pusta");
-            }
-            else if(blad)
-            { MessageBox.Show("Już istnieje taki element"); }
+            }            
             else
             {
+                Elementy elementNew = new Elementy();
                 elementNew.Element_Nazwa = txtNazwa.Text;           
                 elementNew.ID_Element_Typ =Convert.ToInt32(cmbTyp.SelectedValue);
                 if (chbOkres.Checked == false)
@@ -90,10 +93,21 @@ namespace Szwalnia
                 {
                     elementNew.Okres_Przydatnosci_Miesiace = 0;
                 }
-                MessageBox.Show("Pomyślnie dodano nowy rekord do bazy danych.");
                 db.Elementy.Add(elementNew);
                 db.SaveChanges();
-                Start.DataBaseRefresh();
+                Start.DataBaseRefresh();                
+
+                List<Typy_cechy_rejestr> nazwa = db.Typy_cechy_rejestr.Where(typ => typ.ID_typ == intTypID).ToList();
+                Elementy_Cechy nowaCecha = new Elementy_Cechy();
+                foreach (Typy_cechy_rejestr wierszWybrany in nazwa)
+                {
+                    nowaCecha.ID_Cecha = wierszWybrany.ID_cecha;
+                    nowaCecha.ID_Element = elementNew.ID_Element;
+                    db.Elementy_Cechy.Add(nowaCecha);
+                    db.SaveChanges();
+                    Start.DataBaseRefresh();
+               }
+                MessageBox.Show("Pomyślnie dodano nowy rekord do bazy danych.");
             }
         }
 
@@ -102,7 +116,9 @@ namespace Szwalnia
             if (czyMagazynUzywa)
             {
                 Start.GetForm.Show();
-            }            
+            }   
+            else
+            { this.Hide(); }
         }
 
         private void btnWstecz_Click(object sender, EventArgs e)
@@ -114,7 +130,7 @@ namespace Szwalnia
             }
             else
             {
-                this.Close();
+                this.Hide();
             }    
         }
 

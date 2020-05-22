@@ -50,7 +50,7 @@ namespace Szwalnia
 
         private void btnNowy_Click(object sender, EventArgs e)
         {
-            ElementyForm elementyForm = new ElementyForm();
+            DodawanieElementu elementyForm = new DodawanieElementu(true);
             elementyForm.Show();
         }
 

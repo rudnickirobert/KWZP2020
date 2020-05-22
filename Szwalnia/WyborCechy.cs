@@ -20,6 +20,7 @@ namespace Szwalnia
             db = Start.szwalnia;
             dgvListaCech.ReadOnly = true;
             dgvListaCech.DataSource = db.Elementy_Cechy_Slownik.ToList();
+            dgvListaCech.Columns[0].Visible = false;
             dgvListaCech.Columns[2].Visible = false;
             dgvListaCech.Columns[3].Visible = false;
             dgvListaCech.ReadOnly = true;
