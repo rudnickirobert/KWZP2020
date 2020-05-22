@@ -12,16 +12,13 @@ namespace Szwalnia
 {
     public partial class NowySrodekTrwaly : Form
     {
-        public SzwalniaEntities db;
-        public int ostatniNumerSrodka;
+        private SzwalniaEntities db;
         public NowySrodekTrwaly(SzwalniaEntities db)
         {
             InitializeComponent();
             this.db = db;
 
-            dgvUkryty.DataSource = db.Srodki_Trwale.ToList();
-            int ostatniNumerSrodkaa = dgvUkryty.Rows.Count;
-            lblNumer.Text = (ostatniNumerSrodka + 1).ToString();
+            lblNumer.Text = (db.Srodki_Trwale.Count() + 1).ToString();
 
 
             cbDzial.DataSource = db.Dzialy.ToList();
@@ -39,6 +36,8 @@ namespace Szwalnia
             srodkiTrwale.Zamortyzowane = Convert.ToBoolean(chbAmortyzacja.Checked);
             srodkiTrwale.ID_Dzialu = Convert.ToInt32(cbDzial.SelectedValue);
             srodkiTrwale.Gwarancja = Convert.ToDateTime(dtpGwarancja.Value);
+            srodkiTrwale.Koszt_zakupu = txtKoszt.Text;
+
             db.Srodki_Trwale.Add(srodkiTrwale);
             db.SaveChanges();
             MessageBox.Show("Dodano nowy środek trwały");
@@ -59,6 +58,7 @@ namespace Szwalnia
             srodkiTrwale.Zamortyzowane = Convert.ToBoolean(chbAmortyzacja.Checked);
             srodkiTrwale.ID_Dzialu = Convert.ToInt32(cbDzial.SelectedValue);
             srodkiTrwale.Gwarancja = Convert.ToDateTime(dtpGwarancja.Value);
+            srodkiTrwale.Koszt_zakupu = txtKoszt.Text;
             db.Srodki_Trwale.Add(srodkiTrwale);
             db.SaveChanges();
             MessageBox.Show("Dodano nowy środek trwały");

@@ -146,6 +146,7 @@
             // 
             // dgvKlienciSzczegoly
             // 
+            this.dgvKlienciSzczegoly.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvKlienciSzczegoly.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKlienciSzczegoly.Location = new System.Drawing.Point(12, 303);
             this.dgvKlienciSzczegoly.Name = "dgvKlienciSzczegoly";

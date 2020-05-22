@@ -168,7 +168,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "DodawanieElementu";
             this.Text = "Dodawanie elementu";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DodawanieElementu_FormClosed);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DodawanieElementu_FormClosed);      
             ((System.ComponentModel.ISupportInitialize)(this.numOkres)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -21,18 +21,40 @@ namespace Szwalnia
             dgvUkryty.DataSource = db.Zamowienia.ToList();
             int numerOstatniegoZamowienia = dgvUkryty.Rows.Count;
             lblNumerZamowienia.Text = (numerOstatniegoZamowienia + 1).ToString();
-            
-            
+            uzupelnijcbNazwa();
+            uzupelnijcbPracownik();
+        }
+
+        public NoweZamowienie(SzwalniaEntities db, int id_klienta)
+        {
+            InitializeComponent();
+            this.db = db;
+            dgvUkryty.DataSource = db.Zamowienia.ToList();
+            int numerOstatniegoZamowienia = dgvUkryty.Rows.Count;
+            lblNumerZamowienia.Text = (numerOstatniegoZamowienia + 1).ToString();
+            uzupelnijcbNazwa(id_klienta);
+            uzupelnijcbPracownik();
+        }
+
+        private void uzupelnijcbNazwa()
+        {
             cbNazwa.DataSource = db.Klienci.ToList();
             cbNazwa.ValueMember = "ID_Klienta";
             cbNazwa.DisplayMember = "Nazwa_Firmy";
+        }
 
+        private void uzupelnijcbNazwa(int id_klienta)
+        {
+            cbNazwa.DataSource = db.Klienci.Where(k => k.ID_Klienta == id_klienta).ToList();
+            cbNazwa.ValueMember = "ID_Klienta";
+            cbNazwa.DisplayMember = "Nazwa_Firmy";
+        }
+
+        private void uzupelnijcbPracownik()
+        {
             cbPracownik.DataSource = db.vWolniPracownicyZarzadzanie.ToList();
             cbPracownik.ValueMember = "ID_Pracownika";
             cbPracownik.DisplayMember = "Pracownik";
-            cbPracownik.Refresh();
-           
-            
         }
         private void btnDalej_Click(object sender, EventArgs e)
         {
@@ -46,7 +68,7 @@ namespace Szwalnia
             MessageBox.Show("Dodano nowe zamówienie, wybierz elementy zamówienia");
             this.Close();
 
-            ElementyZamowienia elementyZamowienia = new ElementyZamowienia(db);
+            ElementyZamowienia elementyZamowienia = new ElementyZamowienia(db, zamowienia.ID_Zamowienia);
             elementyZamowienia.Show();
         }
     }

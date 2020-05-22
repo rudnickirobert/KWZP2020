@@ -1145,6 +1145,9 @@
     <Compile Include="vUrlopPracownika.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>
+    <Compile Include="vUrlopyWszyskie.cs">
+      <DependentUpon>Szwalnia.tt</DependentUpon>
+    </Compile>
     <Compile Include="vWidokPomocniczyDoNiewydaneBezDat.cs">
       <DependentUpon>Szwalnia.tt</DependentUpon>
     </Compile>

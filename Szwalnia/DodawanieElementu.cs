@@ -8,12 +8,14 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms;
 
 namespace Szwalnia
 {
     public partial class DodawanieElementu : Form
     {
         public SzwalniaEntities db;
+        //public int intTypID; niezbedne?
         public Elementy elementNew = new Elementy();
         public bool czyProdukty;
         public bool czyMagazynUzywa;
