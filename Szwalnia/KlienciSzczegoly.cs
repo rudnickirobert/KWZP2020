@@ -12,11 +12,13 @@ namespace Szwalnia
 {
     public partial class KlienciSzczegoly : Form
     {
-        public SzwalniaEntities db;
+        private SzwalniaEntities db;
+        private int id_klienta;
         public KlienciSzczegoly(SzwalniaEntities db, int ID)
         {
             InitializeComponent();
             this.db = db;
+            this.id_klienta = ID;
             Klienci customer = db.Klienci.Where(wybrane => wybrane.ID_Klienta == ID).First();
             txtNazwa.Text = customer.Nazwa_Firmy;
             txtNIP.Text = customer.NIP;
@@ -35,7 +37,7 @@ namespace Szwalnia
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            NoweZamowienie noweZamowienie = new NoweZamowienie(db);
+            NoweZamowienie noweZamowienie = new NoweZamowienie(this.db, this.id_klienta);
             noweZamowienie.Show();
         }
     }

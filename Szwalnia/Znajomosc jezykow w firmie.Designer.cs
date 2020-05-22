@@ -34,6 +34,7 @@
             // 
             // dgvJezyki
             // 
+            this.dgvJezyki.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvJezyki.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvJezyki.Location = new System.Drawing.Point(12, 48);
             this.dgvJezyki.Name = "dgvJezyki";

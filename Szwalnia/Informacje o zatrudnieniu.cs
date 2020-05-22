@@ -23,7 +23,7 @@ namespace Szwalnia
             cbUmowa.DisplayMember = "Rodzaj_Umowy";
             cbUmowa.Invalidate();
             
-            cbImieNazwisko.DataSource = db.vImieNazwiskoPracownika.ToList();
+            cbImieNazwisko.DataSource = db.vImieNazwiskoPracownika.OrderByDescending(x => x.ID_Pracownika).ToList();
             cbImieNazwisko.ValueMember = "ID_Pracownika";
             cbImieNazwisko.DisplayMember = "Imie_i_nazwisko_pracownika";
             cbImieNazwisko.Invalidate();

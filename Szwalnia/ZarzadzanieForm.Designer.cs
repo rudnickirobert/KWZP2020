@@ -41,9 +41,9 @@
             // btnKlienciForm
             // 
             this.btnKlienciForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnKlienciForm.Location = new System.Drawing.Point(24, 150);
+            this.btnKlienciForm.Location = new System.Drawing.Point(35, 170);
             this.btnKlienciForm.Name = "btnKlienciForm";
-            this.btnKlienciForm.Size = new System.Drawing.Size(211, 93);
+            this.btnKlienciForm.Size = new System.Drawing.Size(391, 121);
             this.btnKlienciForm.TabIndex = 0;
             this.btnKlienciForm.Text = "Panel klienta";
             this.btnKlienciForm.UseVisualStyleBackColor = true;
@@ -52,9 +52,9 @@
             // btnPracownicy
             // 
             this.btnPracownicy.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnPracownicy.Location = new System.Drawing.Point(24, 285);
+            this.btnPracownicy.Location = new System.Drawing.Point(35, 308);
             this.btnPracownicy.Name = "btnPracownicy";
-            this.btnPracownicy.Size = new System.Drawing.Size(211, 93);
+            this.btnPracownicy.Size = new System.Drawing.Size(391, 125);
             this.btnPracownicy.TabIndex = 1;
             this.btnPracownicy.Text = "Panel pracownika";
             this.btnPracownicy.UseVisualStyleBackColor = true;
@@ -63,9 +63,9 @@
             // btnFakturyZewnetrzne
             // 
             this.btnFakturyZewnetrzne.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnFakturyZewnetrzne.Location = new System.Drawing.Point(304, 14);
+            this.btnFakturyZewnetrzne.Location = new System.Drawing.Point(522, 33);
             this.btnFakturyZewnetrzne.Name = "btnFakturyZewnetrzne";
-            this.btnFakturyZewnetrzne.Size = new System.Drawing.Size(208, 91);
+            this.btnFakturyZewnetrzne.Size = new System.Drawing.Size(391, 125);
             this.btnFakturyZewnetrzne.TabIndex = 2;
             this.btnFakturyZewnetrzne.Text = "Faktury Zewnętrzne";
             this.btnFakturyZewnetrzne.UseVisualStyleBackColor = true;
@@ -73,9 +73,9 @@
             // 
             // btnZamknij
             // 
-            this.btnZamknij.Location = new System.Drawing.Point(403, 456);
+            this.btnZamknij.Location = new System.Drawing.Point(768, 512);
             this.btnZamknij.Name = "btnZamknij";
-            this.btnZamknij.Size = new System.Drawing.Size(109, 38);
+            this.btnZamknij.Size = new System.Drawing.Size(145, 62);
             this.btnZamknij.TabIndex = 3;
             this.btnZamknij.Text = "Zamknij";
             this.btnZamknij.UseVisualStyleBackColor = true;
@@ -84,9 +84,9 @@
             // btnFakturyWewnetrzne
             // 
             this.btnFakturyWewnetrzne.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnFakturyWewnetrzne.Location = new System.Drawing.Point(304, 150);
+            this.btnFakturyWewnetrzne.Location = new System.Drawing.Point(522, 170);
             this.btnFakturyWewnetrzne.Name = "btnFakturyWewnetrzne";
-            this.btnFakturyWewnetrzne.Size = new System.Drawing.Size(208, 89);
+            this.btnFakturyWewnetrzne.Size = new System.Drawing.Size(391, 125);
             this.btnFakturyWewnetrzne.TabIndex = 4;
             this.btnFakturyWewnetrzne.Text = "Faktury Wystawione";
             this.btnFakturyWewnetrzne.UseVisualStyleBackColor = true;
@@ -95,9 +95,9 @@
             // btnFinanse
             // 
             this.btnFinanse.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnFinanse.Location = new System.Drawing.Point(304, 285);
+            this.btnFinanse.Location = new System.Drawing.Point(522, 308);
             this.btnFinanse.Name = "btnFinanse";
-            this.btnFinanse.Size = new System.Drawing.Size(208, 93);
+            this.btnFinanse.Size = new System.Drawing.Size(391, 125);
             this.btnFinanse.TabIndex = 5;
             this.btnFinanse.Text = "Finanse";
             this.btnFinanse.UseVisualStyleBackColor = true;
@@ -106,9 +106,9 @@
             // btnZamowienie
             // 
             this.btnZamowienie.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnZamowienie.Location = new System.Drawing.Point(24, 12);
+            this.btnZamowienie.Location = new System.Drawing.Point(35, 33);
             this.btnZamowienie.Name = "btnZamowienie";
-            this.btnZamowienie.Size = new System.Drawing.Size(211, 93);
+            this.btnZamowienie.Size = new System.Drawing.Size(391, 125);
             this.btnZamowienie.TabIndex = 6;
             this.btnZamowienie.Text = "Panel zamówień";
             this.btnZamowienie.UseVisualStyleBackColor = true;
@@ -117,9 +117,9 @@
             // btnSrodki
             // 
             this.btnSrodki.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnSrodki.Location = new System.Drawing.Point(24, 401);
+            this.btnSrodki.Location = new System.Drawing.Point(35, 449);
             this.btnSrodki.Name = "btnSrodki";
-            this.btnSrodki.Size = new System.Drawing.Size(211, 93);
+            this.btnSrodki.Size = new System.Drawing.Size(391, 125);
             this.btnSrodki.TabIndex = 7;
             this.btnSrodki.Text = "Środki trwałe";
             this.btnSrodki.UseVisualStyleBackColor = true;
@@ -130,7 +130,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.ClientSize = new System.Drawing.Size(522, 506);
+            this.ClientSize = new System.Drawing.Size(944, 610);
             this.Controls.Add(this.btnSrodki);
             this.Controls.Add(this.btnZamowienie);
             this.Controls.Add(this.btnFinanse);
