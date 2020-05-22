@@ -14,25 +14,34 @@ namespace Szwalnia
     {
         public SzwalniaEntities db;
         public Elementy_Typy typNew = new Elementy_Typy();
+        public bool czyZamowienie;
+        public bool czyWracacDoStart;
+
+        private bool isUnique()
+        {
+            return !db.Elementy_Typy.Where(nazwa => nazwa.Typ == txtNazwa.Text).Any();
+        }
         public DodawanieTypu()
         {
             InitializeComponent();
             db = Start.szwalnia;
             typNew.Typ = txtNazwa.Text;
-            if (chBoxWlasny.Checked == true)
-            { typNew.Czy_wlasne = true; }
-            else { typNew.Czy_wlasne = false; }
+            czyWracacDoStart = true;
+            typNew.Czy_wlasne = chBoxWlasny.Checked;
+        }
+        public DodawanieTypu(bool czyZamowienie)
+        {
+            InitializeComponent();
+            db = Start.szwalnia;
+            typNew.Typ = txtNazwa.Text;
+            czyWracacDoStart = false;
+            typNew.Czy_wlasne = chBoxWlasny.Checked;
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            List<Elementy_Typy> powtorzenie = db.Elementy_Typy.Where(nazwa => nazwa.Typ == txtNazwa.Text).ToList();
-            bool blad = powtorzenie.Any();            
-
-            if (blad)
-            { MessageBox.Show("Już istnieje taki typ"); }
-            else
-            {
+            if (isUnique())
+            { 
                 typNew.Typ = txtNazwa.Text;
                 typNew.Czy_wlasne = chBoxWlasny.Checked;
                 MessageBox.Show("Pomyślnie dodano nowy rekord do bazy danych.");
@@ -40,17 +49,32 @@ namespace Szwalnia
                 db.SaveChanges();
                 Start.DataBaseRefresh();
             }
+            else
+                MessageBox.Show("Już istnieje typ o takiej nazwie");
         }
 
         private void DodawanieTypu_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Start.GetForm.Show();
+            if (czyWracacDoStart)
+                Start.GetForm.Show();
+            else 
+                this.Hide();
         }
 
         private void btnWstecz_Click(object sender, EventArgs e)
         {
-            Application.OpenForms[typeof(ElementyForm).Name].Show();
-            this.Hide();
+            if (czyWracacDoStart)
+            {
+                Application.OpenForms[typeof(ElementyForm).Name].Show();
+                this.Hide();
+            }
+            else 
+                this.Close();
+        }
+
+        private void txtNazwa_TextChanged(object sender, EventArgs e)
+        {
+            btnDodaj.Enabled = txtNazwa.TextLength > 0;
         }
     }
 }

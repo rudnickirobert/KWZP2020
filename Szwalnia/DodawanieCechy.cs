@@ -25,7 +25,7 @@ namespace Szwalnia
             bool blad = powtorzenie.Any();
 
             if (blad)
-            { MessageBox.Show("Już istnieje taka cecha"); }
+            { MessageBox.Show("Już istnieje cecha o takiej nazwie"); }
             else
             {
                 Elementy_Cechy_Slownik cechaNew = new Elementy_Cechy_Slownik();
@@ -46,6 +46,14 @@ namespace Szwalnia
         {
             Application.OpenForms[typeof(ElementyForm).Name].Show();
             this.Hide();
+        }
+
+        private void txtNazwa_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNazwa.TextLength > 0)
+                btnDodaj.Enabled = true;
+            else
+                btnDodaj.Enabled = false;
         }
     }
 }

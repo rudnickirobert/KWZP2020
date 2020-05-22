@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SzwalniaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SzwalniaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Czesci_Obsluga">
           <Key>
             <PropertyRef Name="ID_Czesci_Obsluga" />
@@ -911,6 +911,15 @@ warning 6002: The table/view 'Szwalnia.dbo.vDostawyZawartoscInformacjeDostawcy' 
           <Property Name="Jednostka" Type="varchar" MaxLength="10" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vElementy_Nie_Wlasne' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vElementy_Nie_Wlasne">
+          <Key>
+            <PropertyRef Name="ID_Element" />
+          </Key>
+          <Property Name="ID_Element" Type="int" Nullable="false" />
+          <Property Name="Element_Nazwa" Type="varchar" MaxLength="35" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vElementy_proces' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vElementy_proces">
           <Key>
@@ -921,6 +930,19 @@ warning 6002: The table/view 'Szwalnia.dbo.vElementy_proces' does not have a pri
           <Property Name="Nazwa elementu" Type="varchar" MaxLength="35" />
           <Property Name="Liczba" Type="int" Nullable="false" />
           <Property Name="Jednostka" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Szwalnia.dbo.vElementy_wszystkie_alfabetycznie' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vElementy_wszystkie_alfabetycznie">
+          <Key>
+            <PropertyRef Name="ID_Element" />
+            <PropertyRef Name="Czy_wlasne" />
+          </Key>
+          <Property Name="Element_Nazwa" Type="varchar" MaxLength="35" />
+          <Property Name="ID_Element" Type="int" Nullable="false" />
+          <Property Name="Typ" Type="varchar" MaxLength="35" />
+          <Property Name="Czy_wlasne" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="Przydatnosc" Type="varchar" MaxLength="19" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Szwalnia.dbo.vElementyDlaZamowien' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -3827,6 +3849,12 @@ warning 6002: The table/view 'Szwalnia.dbo.vZyskZZamowienia' does not have a pri
     [vDostawyZawartoscInformacjeDostawcy].[Jednostka] AS [Jednostka]
     FROM [dbo].[vDostawyZawartoscInformacjeDostawcy] AS [vDostawyZawartoscInformacjeDostawcy]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vElementy_Nie_Wlasne" EntityType="Self.vElementy_Nie_Wlasne" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vElementy_Nie_Wlasne].[ID_Element] AS [ID_Element], 
+    [vElementy_Nie_Wlasne].[Element_Nazwa] AS [Element_Nazwa]
+    FROM [dbo].[vElementy_Nie_Wlasne] AS [vElementy_Nie_Wlasne]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vElementy_proces" EntityType="Self.vElementy_proces" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vElementy_proces].[Numer_procesu] AS [Numer_procesu], 
@@ -3834,6 +3862,15 @@ warning 6002: The table/view 'Szwalnia.dbo.vZyskZZamowienia' does not have a pri
     [vElementy_proces].[Liczba] AS [Liczba], 
     [vElementy_proces].[Jednostka] AS [Jednostka]
     FROM [dbo].[vElementy_proces] AS [vElementy_proces]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vElementy_wszystkie_alfabetycznie" EntityType="Self.vElementy_wszystkie_alfabetycznie" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vElementy_wszystkie_alfabetycznie].[Element_Nazwa] AS [Element_Nazwa], 
+    [vElementy_wszystkie_alfabetycznie].[ID_Element] AS [ID_Element], 
+    [vElementy_wszystkie_alfabetycznie].[Typ] AS [Typ], 
+    [vElementy_wszystkie_alfabetycznie].[Czy_wlasne] AS [Czy_wlasne], 
+    [vElementy_wszystkie_alfabetycznie].[Przydatnosc] AS [Przydatnosc]
+    FROM [dbo].[vElementy_wszystkie_alfabetycznie] AS [vElementy_wszystkie_alfabetycznie]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vElementyDlaZamowien" EntityType="Self.vElementyDlaZamowien" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -5205,8 +5242,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZyskZZamowienia' does not have a pri
             <End Role="Znajomosc_Jezykow" EntitySet="Znajomosc_Jezykow" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SzwalniaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -6233,6 +6269,13 @@ warning 6002: The table/view 'Szwalnia.dbo.vZyskZZamowienia' does not have a pri
           <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="Deklarowany_czas_dostawy" Type="Int32" />
           <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vElementy_Nie_Wlasne">
+          <Key>
+            <PropertyRef Name="ID_Element" />
+          </Key>
+          <Property Name="ID_Element" Type="Int32" Nullable="false" />
+          <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="vElementy_proces">
           <Key>
@@ -8702,6 +8745,7 @@ warning 6002: The table/view 'Szwalnia.dbo.vZyskZZamowienia' does not have a pri
           <EntitySet Name="vDostawyNiewydaneZPolkami" EntityType="Self.vDostawyNiewydaneZPolkami" />
           <EntitySet Name="vDostawyNiewydaneZPolkamiNiesumowane" EntityType="Self.vDostawyNiewydaneZPolkamiNiesumowane" />
           <EntitySet Name="vDostawyZawartoscInformacjeDostawcy" EntityType="Self.vDostawyZawartoscInformacjeDostawcy" />
+          <EntitySet Name="vElementy_Nie_Wlasne" EntityType="Self.vElementy_Nie_Wlasne" />
           <EntitySet Name="vElementy_proces" EntityType="Self.vElementy_proces" />
           <EntitySet Name="vElementyDlaZamowien" EntityType="Self.vElementyDlaZamowien" />
           <EntitySet Name="vElementyProcesProdukcyjny" EntityType="Self.vElementyProcesProdukcyjny" />
@@ -9172,7 +9216,19 @@ warning 6002: The table/view 'Szwalnia.dbo.vZyskZZamowienia' does not have a pri
             <End Role="Zamowienia_Dostawy" EntitySet="Zamowienia_Dostawy" />
             <End Role="Zawartosc" EntitySet="Zawartosc" />
           </AssociationSet>
+          <EntitySet Name="vElementy_wszystkie_alfabetycznie" EntityType="SzwalniaModel.vElementy_wszystkie_alfabetycznie" />
         </EntityContainer>
+        <EntityType Name="vElementy_wszystkie_alfabetycznie">
+          <Key>
+            <PropertyRef Name="ID_Element" />
+            <PropertyRef Name="Czy_wlasne" />
+          </Key>
+          <Property Name="Element_Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Element" Type="Int32" Nullable="false" />
+          <Property Name="Typ" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="Czy_wlasne" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Przydatnosc" Type="String" MaxLength="19" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -10079,6 +10135,14 @@ warning 6002: The table/view 'Szwalnia.dbo.vZyskZZamowienia' does not have a pri
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Deklarowany_czas_dostawy" ColumnName="Deklarowany_czas_dostawy" />
                 <ScalarProperty Name="Jednostka" ColumnName="Jednostka" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vElementy_Nie_Wlasne">
+            <EntityTypeMapping TypeName="SzwalniaModel.vElementy_Nie_Wlasne">
+              <MappingFragment StoreEntitySet="vElementy_Nie_Wlasne">
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -11352,6 +11416,17 @@ warning 6002: The table/view 'Szwalnia.dbo.vZyskZZamowienia' does not have a pri
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="ID_Zamowienia" ColumnName="ID_Zamowienia" />
                 <ScalarProperty Name="Zysk_z_zamowienia" ColumnName="Zysk z zamowienia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vElementy_wszystkie_alfabetycznie">
+            <EntityTypeMapping TypeName="SzwalniaModel.vElementy_wszystkie_alfabetycznie">
+              <MappingFragment StoreEntitySet="vElementy_wszystkie_alfabetycznie">
+                <ScalarProperty Name="Przydatnosc" ColumnName="Przydatnosc" />
+                <ScalarProperty Name="Czy_wlasne" ColumnName="Czy_wlasne" />
+                <ScalarProperty Name="Typ" ColumnName="Typ" />
+                <ScalarProperty Name="ID_Element" ColumnName="ID_Element" />
+                <ScalarProperty Name="Element_Nazwa" ColumnName="Element_Nazwa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -46,16 +46,17 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(69, 27);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(24, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(194, 13);
+            this.label1.Size = new System.Drawing.Size(310, 31);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Wprowadź dane dla nowego dostawcy.";
+            this.label1.Text = "Dodaj nowego dostawcę";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(66, 79);
+            this.label2.Location = new System.Drawing.Point(91, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 1;
@@ -64,7 +65,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(66, 112);
+            this.label3.Location = new System.Drawing.Point(79, 104);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 2;
@@ -73,7 +74,8 @@
             // lblTelefon2
             // 
             this.lblTelefon2.AutoSize = true;
-            this.lblTelefon2.Location = new System.Drawing.Point(66, 146);
+            this.lblTelefon2.Enabled = false;
+            this.lblTelefon2.Location = new System.Drawing.Point(79, 136);
             this.lblTelefon2.Name = "lblTelefon2";
             this.lblTelefon2.Size = new System.Drawing.Size(52, 13);
             this.lblTelefon2.TabIndex = 3;
@@ -82,7 +84,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(66, 181);
+            this.label5.Location = new System.Drawing.Point(99, 169);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 13);
             this.label5.TabIndex = 4;
@@ -90,54 +92,54 @@
             // 
             // txtNazwa
             // 
-            this.txtNazwa.Location = new System.Drawing.Point(163, 71);
+            this.txtNazwa.Location = new System.Drawing.Point(147, 68);
             this.txtNazwa.Name = "txtNazwa";
-            this.txtNazwa.Size = new System.Drawing.Size(100, 20);
+            this.txtNazwa.Size = new System.Drawing.Size(122, 20);
             this.txtNazwa.TabIndex = 5;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(163, 181);
+            this.txtEmail.Location = new System.Drawing.Point(147, 165);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(100, 20);
+            this.txtEmail.Size = new System.Drawing.Size(122, 20);
             this.txtEmail.TabIndex = 6;
             // 
             // mtxtTel1
             // 
             this.mtxtTel1.AllowDrop = true;
-            this.mtxtTel1.Location = new System.Drawing.Point(163, 104);
+            this.mtxtTel1.Location = new System.Drawing.Point(147, 100);
             this.mtxtTel1.Mask = "000-000-000";
             this.mtxtTel1.Name = "mtxtTel1";
-            this.mtxtTel1.Size = new System.Drawing.Size(100, 20);
+            this.mtxtTel1.Size = new System.Drawing.Size(122, 20);
             this.mtxtTel1.TabIndex = 7;
-            this.mtxtTel1.Text = "000000000";
             this.mtxtTel1.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // mtxtTel2
             // 
-            this.mtxtTel2.Location = new System.Drawing.Point(163, 143);
+            this.mtxtTel2.Enabled = false;
+            this.mtxtTel2.Location = new System.Drawing.Point(147, 132);
             this.mtxtTel2.Mask = "000-000-000";
             this.mtxtTel2.Name = "mtxtTel2";
-            this.mtxtTel2.Size = new System.Drawing.Size(100, 20);
+            this.mtxtTel2.Size = new System.Drawing.Size(122, 20);
             this.mtxtTel2.TabIndex = 8;
             this.mtxtTel2.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.mtxtTel2.ValidatingType = typeof(int);
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(200, 229);
+            this.btnDodaj.Location = new System.Drawing.Point(235, 204);
             this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(75, 23);
+            this.btnDodaj.Size = new System.Drawing.Size(88, 38);
             this.btnDodaj.TabIndex = 9;
-            this.btnDodaj.Text = "Dodaj";
+            this.btnDodaj.Text = "Zapisz";
             this.btnDodaj.UseVisualStyleBackColor = true;
             this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
             // 
             // btnWstecz
             // 
-            this.btnWstecz.Location = new System.Drawing.Point(72, 229);
+            this.btnWstecz.Location = new System.Drawing.Point(30, 204);
             this.btnWstecz.Name = "btnWstecz";
-            this.btnWstecz.Size = new System.Drawing.Size(75, 23);
+            this.btnWstecz.Size = new System.Drawing.Size(88, 38);
             this.btnWstecz.TabIndex = 10;
             this.btnWstecz.Text = "Powrót";
             this.btnWstecz.UseVisualStyleBackColor = true;
@@ -146,7 +148,7 @@
             // chkTel2
             // 
             this.chkTel2.AutoSize = true;
-            this.chkTel2.Location = new System.Drawing.Point(45, 145);
+            this.chkTel2.Location = new System.Drawing.Point(55, 135);
             this.chkTel2.Name = "chkTel2";
             this.chkTel2.Size = new System.Drawing.Size(15, 14);
             this.chkTel2.TabIndex = 11;
@@ -157,7 +159,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(346, 279);
+            this.ClientSize = new System.Drawing.Size(346, 256);
             this.Controls.Add(this.chkTel2);
             this.Controls.Add(this.btnWstecz);
             this.Controls.Add(this.btnDodaj);

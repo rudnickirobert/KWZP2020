@@ -21,10 +21,8 @@ namespace Szwalnia
             db = Start.szwalnia;
             db.SaveChanges();
             Start.DataBaseRefresh();
-            dgvListaElementow.DataSource = db.Elementy.ToList();
-            dgvListaElementow.Columns[0].Visible = false;
-            for (int i = 4; i < 14; i++)
-            { dgvListaElementow.Columns[i].Visible = false;}
+            dgvListaElementow.DataSource = db.vElementy_wszystkie_alfabetycznie.ToList();
+            dgvListaElementow.ReadOnly = true;
         }
 
         private void dgvListaElementow_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

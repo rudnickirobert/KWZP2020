@@ -36,10 +36,12 @@ namespace Szwalnia
             if (czyPuste) 
             {
                 dgvListaMaterialow.Visible = false;
+                lblInfo.Visible = false;
             }
             else
             {
                 dgvListaMaterialow.Visible = true;
+                lblInfo.Visible = true;
                 dgvListaMaterialow.DataSource = null;
                 dgvListaMaterialow.DataSource = db.vMaterialyDoZamowieniaBrak.ToList();
                 dgvListaMaterialow.Columns[0].HeaderText = "Numer zamówienia";

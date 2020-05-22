@@ -8,15 +8,22 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms;
 
 namespace Szwalnia
 {
     public partial class DodawanieElementu : Form
     {
         public SzwalniaEntities db;
-        public int intTypID;
+        public Elementy elementNew = new Elementy();
         public bool czyProdukty;
-        public bool czyMagazynUzywa=false;
+        public bool czyMagazynUzywa;
+
+        private bool isUnique()
+        {
+            return !db.Elementy.Where(nazwa => nazwa.Element_Nazwa == txtNazwa.Text).Any();
+        }
+
         public DodawanieElementu()
         {
             InitializeComponent();
@@ -26,11 +33,13 @@ namespace Szwalnia
             cmbTyp.ValueMember = "ID_Element_Typ";
             cmbTyp.DisplayMember = "Typ";
         }
+
         public DodawanieElementu(bool czyProdukty)
         {
             InitializeComponent();
             db = Start.szwalnia;
             this.czyProdukty = czyProdukty;
+            czyMagazynUzywa = false;
             if (czyProdukty)
             {
                 //cmb typ daje tylko produkty 
@@ -40,7 +49,6 @@ namespace Szwalnia
                 cmbTyp.DisplayMember = "Typ";
                 chbOkres.Checked = true;
                 numOkres.Enabled = false;
-
             }
             else
             {
@@ -54,71 +62,50 @@ namespace Szwalnia
             }
         }
 
-
         private void chbOkres_CheckedChanged(object sender, EventArgs e)
         {
             if (chbOkres.Checked == false)
-            {
                 numOkres.Enabled = true;
-            }
             else
-            {
                 numOkres.Enabled = false;
-            }
+        }
+
+        private void txtNazwa_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNazwa.TextLength > 0)
+                btnDodaj.Enabled = true;
+            else
+                btnDodaj.Enabled = false;
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
-        {       
-            
-            if (db.Elementy.Where(nazwa => nazwa.Element_Nazwa.ToLower() == txtNazwa.Text.ToLower()).Any())
+        {            
+            if (isUnique())
             {
-                MessageBox.Show("Już istnieje taki element");
-                return;
-            }
+                elementNew.Element_Nazwa = txtNazwa.Text;
+                elementNew.ID_Element_Typ = Convert.ToInt32(cmbTyp.SelectedValue);
 
-            if (txtNazwa.TextLength == 0)
-            {
-                MessageBox.Show("Nazwa nie może być pusta");
-            }            
-            else
-            {
-                Elementy elementNew = new Elementy();
-                elementNew.Element_Nazwa = txtNazwa.Text;           
-                elementNew.ID_Element_Typ =Convert.ToInt32(cmbTyp.SelectedValue);
                 if (chbOkres.Checked == false)
-                {                    
-                    elementNew.Okres_Przydatnosci_Miesiace = Decimal.ToInt32(numOkres.Value);
-                }
+                    elementNew.Okres_Przydatnosci_Miesiace = Convert.ToInt32(numOkres.Value);
                 else
-                {
                     elementNew.Okres_Przydatnosci_Miesiace = 0;
-                }
+
+                MessageBox.Show("Pomyślnie dodano nowy rekord do bazy danych.");
                 db.Elementy.Add(elementNew);
                 db.SaveChanges();
-                Start.DataBaseRefresh();                
-
-                List<Typy_cechy_rejestr> nazwa = db.Typy_cechy_rejestr.Where(typ => typ.ID_typ == intTypID).ToList();
-                Elementy_Cechy nowaCecha = new Elementy_Cechy();
-                foreach (Typy_cechy_rejestr wierszWybrany in nazwa)
-                {
-                    nowaCecha.ID_Cecha = wierszWybrany.ID_cecha;
-                    nowaCecha.ID_Element = elementNew.ID_Element;
-                    db.Elementy_Cechy.Add(nowaCecha);
-                    db.SaveChanges();
-                    Start.DataBaseRefresh();
-               }
-                MessageBox.Show("Pomyślnie dodano nowy rekord do bazy danych.");
+                Start.DataBaseRefresh();
             }
+            else
+                MessageBox.Show("Już istnieje element o takiej nazwie!");
+
         }
 
         private void DodawanieElementu_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (czyMagazynUzywa)
-            {
-                Start.GetForm.Show();
-            }   
+                Start.GetForm.Show(); 
             else
-            { this.Hide(); }
+                this.Hide();
         }
 
         private void btnWstecz_Click(object sender, EventArgs e)
@@ -129,10 +116,7 @@ namespace Szwalnia
                 this.Hide();
             }
             else
-            {
-                this.Hide();
-            }    
+                this.Close();  
         }
-
     }
 }

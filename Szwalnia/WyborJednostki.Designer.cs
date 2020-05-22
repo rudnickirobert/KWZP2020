@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WyborJednostki));
             this.lblNazwa = new System.Windows.Forms.Label();
             this.txtNazwa = new System.Windows.Forms.TextBox();
             this.btnDodawanie = new System.Windows.Forms.Button();
@@ -43,27 +44,26 @@
             // lblNazwa
             // 
             this.lblNazwa.AutoSize = true;
-            this.lblNazwa.Location = new System.Drawing.Point(17, 82);
-            this.lblNazwa.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNazwa.Location = new System.Drawing.Point(13, 70);
             this.lblNazwa.Name = "lblNazwa";
-            this.lblNazwa.Size = new System.Drawing.Size(110, 17);
+            this.lblNazwa.Size = new System.Drawing.Size(85, 13);
             this.lblNazwa.TabIndex = 52;
             this.lblNazwa.Text = "Nazwa jednostki";
             // 
             // txtNazwa
             // 
-            this.txtNazwa.Location = new System.Drawing.Point(135, 82);
-            this.txtNazwa.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNazwa.Location = new System.Drawing.Point(101, 67);
             this.txtNazwa.Name = "txtNazwa";
             this.txtNazwa.ReadOnly = true;
-            this.txtNazwa.Size = new System.Drawing.Size(93, 22);
+            this.txtNazwa.Size = new System.Drawing.Size(71, 20);
             this.txtNazwa.TabIndex = 51;
             // 
             // btnDodawanie
             // 
-            this.btnDodawanie.Location = new System.Drawing.Point(268, 75);
+            this.btnDodawanie.Location = new System.Drawing.Point(184, 61);
+            this.btnDodawanie.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDodawanie.Name = "btnDodawanie";
-            this.btnDodawanie.Size = new System.Drawing.Size(146, 30);
+            this.btnDodawanie.Size = new System.Drawing.Size(110, 24);
             this.btnDodawanie.TabIndex = 50;
             this.btnDodawanie.Text = "Dodaj jednostkę";
             this.btnDodawanie.UseVisualStyleBackColor = true;
@@ -71,9 +71,10 @@
             // 
             // btnUsun
             // 
-            this.btnUsun.Location = new System.Drawing.Point(268, 111);
+            this.btnUsun.Location = new System.Drawing.Point(184, 90);
+            this.btnUsun.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUsun.Name = "btnUsun";
-            this.btnUsun.Size = new System.Drawing.Size(146, 30);
+            this.btnUsun.Size = new System.Drawing.Size(110, 24);
             this.btnUsun.TabIndex = 49;
             this.btnUsun.Text = "Usuń jednostkę";
             this.btnUsun.UseVisualStyleBackColor = true;
@@ -81,9 +82,10 @@
             // 
             // btnWstecz
             // 
-            this.btnWstecz.Location = new System.Drawing.Point(268, 147);
+            this.btnWstecz.Location = new System.Drawing.Point(184, 119);
+            this.btnWstecz.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnWstecz.Name = "btnWstecz";
-            this.btnWstecz.Size = new System.Drawing.Size(146, 30);
+            this.btnWstecz.Size = new System.Drawing.Size(110, 24);
             this.btnWstecz.TabIndex = 48;
             this.btnWstecz.Text = "Wstecz";
             this.btnWstecz.UseVisualStyleBackColor = true;
@@ -93,11 +95,10 @@
             // 
             this.dgvListaJednostek.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaJednostek.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaJednostek.Location = new System.Drawing.Point(17, 212);
-            this.dgvListaJednostek.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvListaJednostek.Location = new System.Drawing.Point(13, 172);
             this.dgvListaJednostek.Name = "dgvListaJednostek";
             this.dgvListaJednostek.RowHeadersWidth = 51;
-            this.dgvListaJednostek.Size = new System.Drawing.Size(397, 203);
+            this.dgvListaJednostek.Size = new System.Drawing.Size(281, 165);
             this.dgvListaJednostek.TabIndex = 47;
             this.dgvListaJednostek.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaJednostek_CellContentDoubleClick);
             // 
@@ -106,8 +107,7 @@
             this.lblError.AutoSize = true;
             this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(238)));
             this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(127, 44);
-            this.lblError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblError.Location = new System.Drawing.Point(95, 36);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(0, 18);
             this.lblError.TabIndex = 46;
@@ -116,28 +116,28 @@
             // lblInfo
             // 
             this.lblInfo.AutoSize = true;
-            this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblInfo.Location = new System.Drawing.Point(25, 16);
-            this.lblInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblInfo.Location = new System.Drawing.Point(16, 19);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(389, 39);
+            this.lblInfo.Size = new System.Drawing.Size(274, 29);
             this.lblInfo.TabIndex = 45;
             this.lblInfo.Text = "Wybierz jednostkę z listy";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 187);
+            this.label1.Location = new System.Drawing.Point(13, 152);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(167, 17);
+            this.label1.Size = new System.Drawing.Size(122, 13);
             this.label1.TabIndex = 53;
-            this.label1.Text = "Wybierz jednostkę z listy:";
+            this.label1.Text = "Wybierz jednostkę z listy";
             // 
             // WyborJednostki
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(432, 428);
+            this.ClientSize = new System.Drawing.Size(306, 348);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblNazwa);
             this.Controls.Add(this.txtNazwa);
@@ -147,8 +147,11 @@
             this.Controls.Add(this.dgvListaJednostek);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.lblInfo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "WyborJednostki";
-            this.Text = "WyborJednostki";
+            this.Text = "Wybór jednostki";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.WyborJednostki_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaJednostek)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

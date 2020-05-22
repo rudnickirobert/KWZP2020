@@ -110,6 +110,10 @@ namespace Szwalnia
                     db.SaveChanges();
                     Start.DataBaseRefresh();                    
                 }
+                Zamowienia dodajZakonczoneData = db.Zamowienia.Where(zakonczone => zakonczone.ID_Zamowienia == numerZamowienia).First();
+                dodajZakonczoneData.Data_Zakonczenia = DateTime.Now;
+                db.SaveChanges();
+                Start.DataBaseRefresh();
                 MessageBox.Show("Pomyślnie wydano produkty kurierowi i usnięto z magazynu.");
                 this.Close();
             }

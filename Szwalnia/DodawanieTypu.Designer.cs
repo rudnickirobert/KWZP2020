@@ -40,10 +40,11 @@
             // txtNazwa
             // 
             this.txtNazwa.Location = new System.Drawing.Point(105, 64);
-            this.txtNazwa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNazwa.Margin = new System.Windows.Forms.Padding(2);
             this.txtNazwa.Name = "txtNazwa";
             this.txtNazwa.Size = new System.Drawing.Size(114, 20);
             this.txtNazwa.TabIndex = 9;
+            this.txtNazwa.TextChanged += new System.EventHandler(this.txtNazwa_TextChanged);
             // 
             // label1
             // 
@@ -70,7 +71,7 @@
             // 
             this.chBoxWlasny.AutoSize = true;
             this.chBoxWlasny.Location = new System.Drawing.Point(106, 89);
-            this.chBoxWlasny.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chBoxWlasny.Margin = new System.Windows.Forms.Padding(2);
             this.chBoxWlasny.Name = "chBoxWlasny";
             this.chBoxWlasny.Size = new System.Drawing.Size(119, 17);
             this.chBoxWlasny.TabIndex = 10;
@@ -79,8 +80,9 @@
             // 
             // btnDodaj
             // 
+            this.btnDodaj.Enabled = false;
             this.btnDodaj.Location = new System.Drawing.Point(194, 138);
-            this.btnDodaj.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDodaj.Margin = new System.Windows.Forms.Padding(2);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(62, 24);
             this.btnDodaj.TabIndex = 11;
@@ -91,7 +93,7 @@
             // btnWstecz
             // 
             this.btnWstecz.Location = new System.Drawing.Point(31, 138);
-            this.btnWstecz.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnWstecz.Margin = new System.Windows.Forms.Padding(2);
             this.btnWstecz.Name = "btnWstecz";
             this.btnWstecz.Size = new System.Drawing.Size(58, 24);
             this.btnWstecz.TabIndex = 25;
@@ -111,7 +113,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DodawanieTypu";
             this.Text = "Dodawanie typu elementu";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DodawanieTypu_FormClosed);

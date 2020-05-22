@@ -312,7 +312,7 @@ namespace Szwalnia
 
         private void btnUtworz_Element_Click(object sender, EventArgs e)
         {
-            DodawanieElementu element = new DodawanieElementu();
+            DodawanieElementu element = new DodawanieElementu(false); //bedzie pokazywalo dodawanie tylko elementow potrzebnych do produkcji (np. guzik)
             element.Show();
         }
 

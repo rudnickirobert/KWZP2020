@@ -55,5 +55,9 @@ namespace Szwalnia
             this.Hide();
         }
 
+        private void WyborCechy_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Start.GetForm.Show();
+        }
     }
 }
