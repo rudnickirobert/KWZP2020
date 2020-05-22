@@ -27,11 +27,7 @@ namespace Szwalnia
             db = Start.szwalnia;
             typNew.Typ = txtNazwa.Text;
             czyWracacDoStart = true;
-            if (chBoxWlasny.Checked == true)
-                typNew.Czy_wlasne = true;
-            else
-                typNew.Czy_wlasne = false;
-            
+            typNew.Czy_wlasne = chBoxWlasny.Checked;
         }
         public DodawanieTypu(bool czyZamowienie)
         {
@@ -81,10 +77,7 @@ namespace Szwalnia
 
         private void txtNazwa_TextChanged(object sender, EventArgs e)
         {
-            if (txtNazwa.TextLength > 0)
-                btnDodaj.Enabled = true;
-            else
-                btnDodaj.Enabled = false;
+            btnDodaj.Enabled = txtNazwa.TextLength > 0;
         }
     }
 }
