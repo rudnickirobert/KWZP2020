@@ -60,6 +60,11 @@ namespace Szwalnia
         {
             Elementy elementUsun = db.Elementy.Where(wybrany => wybrany.ID_Element == numID).First();
             db.Elementy.Remove(elementUsun);
+            List<Elementy_Cechy> listaUsun = db.Elementy_Cechy.Where(wybrany => wybrany.ID_Element == numID).ToList();
+            foreach (Elementy_Cechy wierszWybrany in listaUsun)
+            {
+                db.Elementy_Cechy.Remove(wierszWybrany);                
+            }            
             db.SaveChanges();
             Start.DataBaseRefresh();
             MessageBox.Show("Pomyślnie usunięto element");

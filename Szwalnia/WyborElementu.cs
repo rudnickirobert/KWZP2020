@@ -22,6 +22,7 @@ namespace Szwalnia
             db.SaveChanges();
             Start.DataBaseRefresh();
             dgvListaElementow.DataSource = db.Elementy.ToList();
+            dgvListaElementow.Columns[0].Visible = false;
             for (int i = 4; i < 14; i++)
             { dgvListaElementow.Columns[i].Visible = false;}
         }

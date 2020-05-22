@@ -12,25 +12,45 @@ namespace Szwalnia
 {
     public partial class ElementyZamowienia : Form
     {
-        public SzwalniaEntities db;
+        private SzwalniaEntities db;
         public ElementyZamowienia(SzwalniaEntities db)
         {
             InitializeComponent();
             this.db = db;
+            uzupelnijcbElement();
+            uzupelmnijcbIDZamowienia();
+        }
 
-            cbElement.DataSource = db.vElementyDlaZamowien.ToList();
-            cbElement.ValueMember = "ID_Element";
-            cbElement.DisplayMember = "Element_Nazwa";
-            cbElement.Refresh();
-
+        public ElementyZamowienia(SzwalniaEntities db, int id_zamowienia)
+        {
+            InitializeComponent();
+            this.db = db;
+            uzupelnijcbElement();
+            uzupelmnijcbIDZamowienia(id_zamowienia);
+        }
+        private void uzupelmnijcbIDZamowienia(int id_zamowienia)
+        {
+            cbIDZamowienia.DataSource = db.Zamowienia.Where(z => z.ID_Zamowienia == id_zamowienia).ToList();
+            cbIDZamowienia.ValueMember = "ID_Zamowienia";
+            cbIDZamowienia.DisplayMember = "ID_Zamowienia";
+        }
+        private void uzupelmnijcbIDZamowienia()
+        {
             cbIDZamowienia.DataSource = db.Zamowienia.ToList();
             cbIDZamowienia.ValueMember = "ID_Zamowienia";
             cbIDZamowienia.DisplayMember = "ID_Zamowienia";
         }
+        private void uzupelnijcbElement()
+        {
+            cbElement.DataSource = db.vElementyDlaZamowien.ToList();
+            cbElement.ValueMember = "ID_Element";
+            cbElement.DisplayMember = "Element_Nazwa";
+            cbElement.Refresh();
+        }
 
         private void btnNowy_Click(object sender, EventArgs e)
         {
-            ElementyForm elementyForm = new ElementyForm();
+            DodawanieElementu elementyForm = new DodawanieElementu(true);
             elementyForm.Show();
         }
 
@@ -57,6 +77,11 @@ namespace Szwalnia
             MessageBox.Show("Dodano element zamówienia");
             cbElement.Text = "";
             txtIlosc.Text = "";
+        }
+
+        private void btnAnuluj_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
