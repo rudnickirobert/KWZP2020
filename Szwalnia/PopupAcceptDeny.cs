@@ -220,7 +220,6 @@ namespace Szwalnia
                                 intIloscMaterialowZBrakiem++;
                                 intArrayCzyIloscToZero[intNumerPetli, 0] = wierszWybrany.ID_Zamowienie_Element;
                                 intArrayCzyIloscToZero[intNumerPetli, 1] = intIloscCalkowita;
-                                break; 
                             }    
                             if (czyTrue)
                             {

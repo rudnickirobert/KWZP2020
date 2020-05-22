@@ -202,6 +202,7 @@ namespace Szwalnia
         public virtual DbSet<vUmowyKurierzy> vUmowyKurierzy { get; set; }
         public virtual DbSet<vUmowyKurierzyNazwyKurierow> vUmowyKurierzyNazwyKurierow { get; set; }
         public virtual DbSet<vUrlopPracownika> vUrlopPracownika { get; set; }
+        public virtual DbSet<vUrlopyWszyskie> vUrlopyWszyskie { get; set; }
         public virtual DbSet<vWidokPomocniczyDoNiewydaneBezDat> vWidokPomocniczyDoNiewydaneBezDat { get; set; }
         public virtual DbSet<vWolneMaszynyProdukcja> vWolneMaszynyProdukcja { get; set; }
         public virtual DbSet<vWolnePolki> vWolnePolki { get; set; }
@@ -231,6 +232,5 @@ namespace Szwalnia
         public virtual DbSet<vZawartoscMagazynuDoPrzydzialuZabezpieczona> vZawartoscMagazynuDoPrzydzialuZabezpieczona { get; set; }
         public virtual DbSet<vZawartoscZIloscia> vZawartoscZIloscia { get; set; }
         public virtual DbSet<vZyskZZamowienia> vZyskZZamowienia { get; set; }
-        public virtual DbSet<vUrlopyWszyskie> vUrlopyWszyskie { get; set; }
     }
 }
