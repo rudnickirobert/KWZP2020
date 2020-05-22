@@ -101,7 +101,7 @@ namespace Szwalnia
             List<Typy_cechy_rejestr> listaTypy = db.Typy_cechy_rejestr.Where(typ => typ.ID_typ == IDTyp && typ.ID_cecha == IDCechy).ToList();
             if (listaTypy.Any())
             {
-                MessageBox.Show("Takie przypianie juz istnieje");
+                MessageBox.Show("Takie przypisanie już istnieje");
                 return;
             }
             else
