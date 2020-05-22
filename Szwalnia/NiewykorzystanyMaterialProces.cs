@@ -18,7 +18,6 @@ namespace Szwalnia
         Material_Na_Produkcji material = new Material_Na_Produkcji();
         public NiewykorzystanyMaterialProces(SzwalniaEntities db, int idProcesu )
         {
-            db = Start.szwalnia;
             InitializeComponent();
             this.db = db;
             this.idProcesu = idProcesu;
