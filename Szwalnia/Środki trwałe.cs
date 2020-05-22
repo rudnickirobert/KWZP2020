@@ -17,9 +17,7 @@ namespace Szwalnia
         {
             InitializeComponent();
             this.db = db;
-
-            dgvSrodki.DataSource = db.vSrodkiWszystkie.ToList();
-            dgvZamortyzowane.DataSource = db.vSrodkiZamortyzowane.ToList();
+            uzupelnijdgv();
         }
 
         private void btnZamknij_Click(object sender, EventArgs e)
@@ -31,6 +29,17 @@ namespace Szwalnia
         {
             NowySrodekTrwaly nowySrodekTrwaly = new NowySrodekTrwaly(db);
             nowySrodekTrwaly.Show();
+        }
+
+        private void uzupelnijdgv()
+        {
+            dgvSrodki.DataSource = db.vSrodkiWszystkie.ToList();
+            dgvZamortyzowane.DataSource = db.vSrodkiZamortyzowane.ToList();
+        }
+
+        private void SrodkiTrwale_Activated(object sender, EventArgs e)
+        {
+            uzupelnijdgv();
         }
     }
 }

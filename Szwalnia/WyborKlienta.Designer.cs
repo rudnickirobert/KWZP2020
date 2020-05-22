@@ -47,6 +47,7 @@
             // 
             // dgvListaKlientow
             // 
+            this.dgvListaKlientow.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaKlientow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaKlientow.Location = new System.Drawing.Point(12, 81);
             this.dgvListaKlientow.Name = "dgvListaKlientow";
@@ -88,6 +89,7 @@
             this.Controls.Add(this.LblWyborKlienta);
             this.Name = "WyborKlienta";
             this.Text = "Wybór klienta";
+            this.Activated += new System.EventHandler(this.WyborKlienta_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaKlientow)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

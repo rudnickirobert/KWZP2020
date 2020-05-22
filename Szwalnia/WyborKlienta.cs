@@ -18,6 +18,11 @@ namespace Szwalnia
         {
             InitializeComponent();
             db = szwalnia;
+            uzuplenijdgvListaKlientow();
+        }
+
+        private void uzuplenijdgvListaKlientow()
+        {
             dgvListaKlientow.DataSource = db.vKlienci.ToList();
         }
 
@@ -26,7 +31,6 @@ namespace Szwalnia
             int numerIDKlienta = Convert.ToInt32(dgvListaKlientow.CurrentRow.Cells[0].Value);
             KlienciSzczegoly klienciSzczegoly = new KlienciSzczegoly(db, Decimal.ToInt32(numerIDKlienta));
             klienciSzczegoly.Show();
-            this.Close();
         }
 
         private void btnZamknij_Click(object sender, EventArgs e)
@@ -38,6 +42,11 @@ namespace Szwalnia
         {
             NowyKlient nowyKlient = new NowyKlient(db);
             nowyKlient.Show();
+        }
+
+        private void WyborKlienta_Activated(object sender, EventArgs e)
+        {
+            uzuplenijdgvListaKlientow();
         }
     }
 }
