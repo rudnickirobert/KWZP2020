@@ -79,11 +79,6 @@ namespace Szwalnia
                 informacjaOBrakuNaMagazynie.Rows.Add("Na magazynie nie ma produktów spełniających wymagania");
                 dgvMagazynZawartosc.DataSource = informacjaOBrakuNaMagazynie;
             }
-
-
-
-
-
         }
 
         private void WyborOferty_FormClosed(object sender, FormClosedEventArgs e)
