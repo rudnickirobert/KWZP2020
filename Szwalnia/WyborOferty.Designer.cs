@@ -69,7 +69,7 @@
             this.dgvMagazynZawartosc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMagazynZawartosc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMagazynZawartosc.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvMagazynZawartosc.Location = new System.Drawing.Point(12, 287);
+            this.dgvMagazynZawartosc.Location = new System.Drawing.Point(12, 302);
             this.dgvMagazynZawartosc.Name = "dgvMagazynZawartosc";
             this.dgvMagazynZawartosc.Size = new System.Drawing.Size(776, 190);
             this.dgvMagazynZawartosc.TabIndex = 0;
@@ -77,7 +77,7 @@
             // 
             // lblListaProduktowWMagazynie
             // 
-            this.lblListaProduktowWMagazynie.Location = new System.Drawing.Point(12, 271);
+            this.lblListaProduktowWMagazynie.Location = new System.Drawing.Point(12, 286);
             this.lblListaProduktowWMagazynie.Name = "lblListaProduktowWMagazynie";
             this.lblListaProduktowWMagazynie.Size = new System.Drawing.Size(776, 13);
             this.lblListaProduktowWMagazynie.TabIndex = 1;
@@ -86,7 +86,7 @@
             // 
             // btnPrzypiszCalyMagazyn
             // 
-            this.btnPrzypiszCalyMagazyn.Location = new System.Drawing.Point(555, 483);
+            this.btnPrzypiszCalyMagazyn.Location = new System.Drawing.Point(555, 273);
             this.btnPrzypiszCalyMagazyn.Name = "btnPrzypiszCalyMagazyn";
             this.btnPrzypiszCalyMagazyn.Size = new System.Drawing.Size(233, 23);
             this.btnPrzypiszCalyMagazyn.TabIndex = 2;
@@ -98,7 +98,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 514);
+            this.ClientSize = new System.Drawing.Size(800, 504);
             this.Controls.Add(this.btnPrzypiszCalyMagazyn);
             this.Controls.Add(this.lblListaProduktowWMagazynie);
             this.Controls.Add(this.lblListaOfert);
