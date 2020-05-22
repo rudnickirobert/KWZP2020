@@ -43,66 +43,61 @@
             // 
             // txtNazwa
             // 
-            this.txtNazwa.Location = new System.Drawing.Point(159, 71);
-            this.txtNazwa.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNazwa.Location = new System.Drawing.Point(119, 58);
             this.txtNazwa.Name = "txtNazwa";
-            this.txtNazwa.Size = new System.Drawing.Size(132, 22);
+            this.txtNazwa.Size = new System.Drawing.Size(100, 20);
             this.txtNazwa.TabIndex = 2;
             // 
             // lblElement
             // 
             this.lblElement.AutoSize = true;
             this.lblElement.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblElement.Location = new System.Drawing.Point(17, 11);
-            this.lblElement.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblElement.Location = new System.Drawing.Point(13, 14);
             this.lblElement.Name = "lblElement";
-            this.lblElement.Size = new System.Drawing.Size(109, 39);
+            this.lblElement.Size = new System.Drawing.Size(86, 31);
             this.lblElement.TabIndex = 3;
             this.lblElement.Text = "label1";
             // 
             // dgvSzczegol
             // 
             this.dgvSzczegol.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSzczegol.Location = new System.Drawing.Point(16, 167);
-            this.dgvSzczegol.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvSzczegol.Location = new System.Drawing.Point(12, 136);
             this.dgvSzczegol.Name = "dgvSzczegol";
             this.dgvSzczegol.RowHeadersWidth = 51;
-            this.dgvSzczegol.Size = new System.Drawing.Size(656, 383);
+            this.dgvSzczegol.Size = new System.Drawing.Size(492, 189);
             this.dgvSzczegol.TabIndex = 4;
             // 
             // txtOkres
             // 
-            this.txtOkres.Location = new System.Drawing.Point(159, 101);
-            this.txtOkres.Margin = new System.Windows.Forms.Padding(4);
+            this.txtOkres.Location = new System.Drawing.Point(119, 82);
             this.txtOkres.Name = "txtOkres";
-            this.txtOkres.Size = new System.Drawing.Size(132, 22);
+            this.txtOkres.Size = new System.Drawing.Size(100, 20);
             this.txtOkres.TabIndex = 2;
             // 
             // lblNazwa
             // 
             this.lblNazwa.AutoSize = true;
-            this.lblNazwa.Location = new System.Drawing.Point(21, 80);
-            this.lblNazwa.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNazwa.Location = new System.Drawing.Point(16, 65);
             this.lblNazwa.Name = "lblNazwa";
-            this.lblNazwa.Size = new System.Drawing.Size(50, 17);
+            this.lblNazwa.Size = new System.Drawing.Size(40, 13);
             this.lblNazwa.TabIndex = 5;
             this.lblNazwa.Text = "Nazwa";
             // 
             // lblOkres
             // 
             this.lblOkres.AutoSize = true;
-            this.lblOkres.Location = new System.Drawing.Point(21, 105);
-            this.lblOkres.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblOkres.Location = new System.Drawing.Point(16, 85);
             this.lblOkres.Name = "lblOkres";
-            this.lblOkres.Size = new System.Drawing.Size(130, 17);
+            this.lblOkres.Size = new System.Drawing.Size(97, 13);
             this.lblOkres.TabIndex = 5;
             this.lblOkres.Text = "Okres przydatnosci";
             // 
             // btnWstecz
             // 
-            this.btnWstecz.Location = new System.Drawing.Point(541, 119);
+            this.btnWstecz.Location = new System.Drawing.Point(406, 97);
+            this.btnWstecz.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnWstecz.Name = "btnWstecz";
-            this.btnWstecz.Size = new System.Drawing.Size(131, 30);
+            this.btnWstecz.Size = new System.Drawing.Size(98, 24);
             this.btnWstecz.TabIndex = 25;
             this.btnWstecz.Text = "Wstecz";
             this.btnWstecz.UseVisualStyleBackColor = true;
@@ -110,9 +105,10 @@
             // 
             // btnUsun
             // 
-            this.btnUsun.Location = new System.Drawing.Point(541, 83);
+            this.btnUsun.Location = new System.Drawing.Point(406, 67);
+            this.btnUsun.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUsun.Name = "btnUsun";
-            this.btnUsun.Size = new System.Drawing.Size(131, 30);
+            this.btnUsun.Size = new System.Drawing.Size(98, 24);
             this.btnUsun.TabIndex = 26;
             this.btnUsun.Text = "Usuń rekord";
             this.btnUsun.UseVisualStyleBackColor = true;
@@ -120,9 +116,10 @@
             // 
             // btnDodawanieCech
             // 
-            this.btnDodawanieCech.Location = new System.Drawing.Point(541, 47);
+            this.btnDodawanieCech.Location = new System.Drawing.Point(406, 38);
+            this.btnDodawanieCech.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDodawanieCech.Name = "btnDodawanieCech";
-            this.btnDodawanieCech.Size = new System.Drawing.Size(131, 30);
+            this.btnDodawanieCech.Size = new System.Drawing.Size(98, 24);
             this.btnDodawanieCech.TabIndex = 27;
             this.btnDodawanieCech.Text = "Dodaj cechy";
             this.btnDodawanieCech.UseVisualStyleBackColor = true;
@@ -130,9 +127,9 @@
             // 
             // ElementSzczegoly
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 554);
+            this.ClientSize = new System.Drawing.Size(515, 337);
             this.Controls.Add(this.btnDodawanieCech);
             this.Controls.Add(this.btnUsun);
             this.Controls.Add(this.btnWstecz);
@@ -143,7 +140,6 @@
             this.Controls.Add(this.txtOkres);
             this.Controls.Add(this.txtNazwa);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ElementSzczegoly";
             this.Text = "Okno szczegolow elementow";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ElementSzczegoly_FormClosed);

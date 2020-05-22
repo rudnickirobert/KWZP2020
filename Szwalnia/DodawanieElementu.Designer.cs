@@ -79,7 +79,7 @@
             this.numOkres.Margin = new System.Windows.Forms.Padding(2);
             this.numOkres.Name = "numOkres";
             this.numOkres.Size = new System.Drawing.Size(113, 20);
-            this.numOkres.TabIndex = 3;
+            this.numOkres.TabIndex = 2;
             this.numOkres.Value = new decimal(new int[] {
             24,
             0,
@@ -92,7 +92,7 @@
             this.txtNazwa.Margin = new System.Windows.Forms.Padding(2);
             this.txtNazwa.Name = "txtNazwa";
             this.txtNazwa.Size = new System.Drawing.Size(114, 20);
-            this.txtNazwa.TabIndex = 4;
+            this.txtNazwa.TabIndex = 1;
             this.txtNazwa.TextChanged += new System.EventHandler(this.txtNazwa_TextChanged);
             // 
             // btnDodaj
@@ -102,7 +102,7 @@
             this.btnDodaj.Margin = new System.Windows.Forms.Padding(2);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(56, 24);
-            this.btnDodaj.TabIndex = 6;
+            this.btnDodaj.TabIndex = 5;
             this.btnDodaj.Text = "Dodaj";
             this.btnDodaj.UseVisualStyleBackColor = true;
             this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
@@ -135,7 +135,7 @@
             this.cmbTyp.Margin = new System.Windows.Forms.Padding(2);
             this.cmbTyp.Name = "cmbTyp";
             this.cmbTyp.Size = new System.Drawing.Size(114, 21);
-            this.cmbTyp.TabIndex = 27;
+            this.cmbTyp.TabIndex = 4;
             // 
             // chbOkres
             // 
@@ -144,7 +144,7 @@
             this.chbOkres.Margin = new System.Windows.Forms.Padding(2);
             this.chbOkres.Name = "chbOkres";
             this.chbOkres.Size = new System.Drawing.Size(81, 17);
-            this.chbOkres.TabIndex = 28;
+            this.chbOkres.TabIndex = 3;
             this.chbOkres.Text = "Nie dotyczy";
             this.chbOkres.UseVisualStyleBackColor = true;
             this.chbOkres.CheckedChanged += new System.EventHandler(this.chbOkres_CheckedChanged);

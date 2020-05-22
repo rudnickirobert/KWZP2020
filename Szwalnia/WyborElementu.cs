@@ -27,7 +27,7 @@ namespace Szwalnia
 
         private void dgvListaElementow_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            int numID = Convert.ToInt32(dgvListaElementow.CurrentRow.Cells[0].Value);
+            int numID = Convert.ToInt32(dgvListaElementow.CurrentRow.Cells[1].Value);
             ElementSzczegoly szczegolyElement = new ElementSzczegoly(Decimal.ToInt32(numID));
             szczegolyElement.Show();
             this.Hide();
