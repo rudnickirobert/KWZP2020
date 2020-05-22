@@ -489,7 +489,7 @@ GO
 CREATE VIEW [dbo].[vZawartoscMagazynuDoPrzydzialuZabezpieczona]
 AS
 SELECT        dbo.vZawartoscMagazynuDoPrzydzialu.ID_Polka, dbo.vZawartoscMagazynuDoPrzydzialu.ID_Element, dbo.Zamowienia_Dostawy.ID_Dostawy, dbo.vZawartoscMagazynuDoPrzydzialu.Element_Oznaczenie, 
-                         dbo.vZawartoscMagazynuDoPrzydzialu.Ilosc, dbo.vZawartoscMagazynuDoPrzydzialu.Cena
+                         CAST(dbo.vZawartoscMagazynuDoPrzydzialu.Ilosc AS DECIMAL(18, 2)) AS Ilosc, dbo.vZawartoscMagazynuDoPrzydzialu.Cena
 FROM            dbo.vZawartoscMagazynuDoPrzydzialu RIGHT OUTER JOIN
                          dbo.vDostawyKtoreMoznaPonowniePrzypisac ON dbo.vZawartoscMagazynuDoPrzydzialu.ID_Dostawy = dbo.vDostawyKtoreMoznaPonowniePrzypisac.ID_Dostawy INNER JOIN
                          dbo.Zamowienia_Dostawy ON dbo.vZawartoscMagazynuDoPrzydzialu.ID_Dostawy = dbo.Zamowienia_Dostawy.ID_Dostawy
@@ -824,7 +824,6 @@ OR (dbo.Przydzial_Zasobow.Data_Zakonczenia IS NULL AND dbo.Przydzial_Zasobow.Dat
 OR (dbo.Przydzial_Zasobow.Data_Zakonczenia >= GETDATE() AND dbo.Przydzial_Zasobow.Data_Rozpoczecia <= GETDATE()) 
 OR (dbo.Urlop.Data_zakonczenia > GETDATE() AND dbo.Urlop.Data_rozpoczecia < GETDATE())	  
 GO
-Select *From dbo.vWolniPracownicyZarzadzanie
 
 CREATE VIEW vWolniPracownicyProdukcji
 AS
