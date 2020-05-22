@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ZawartoscPolki));
             this.lblIloscTekst = new System.Windows.Forms.Label();
             this.lbIDTekst = new System.Windows.Forms.Label();
-            this.btnSzczegoly = new System.Windows.Forms.Button();
             this.lblNazwaTekst = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblPrzydatnoscTekst = new System.Windows.Forms.Label();
@@ -58,16 +57,6 @@
             this.lbIDTekst.Size = new System.Drawing.Size(70, 13);
             this.lbIDTekst.TabIndex = 44;
             this.lbIDTekst.Text = "ID_elementu:";
-            // 
-            // btnSzczegoly
-            // 
-            this.btnSzczegoly.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnSzczegoly.Location = new System.Drawing.Point(57, 230);
-            this.btnSzczegoly.Name = "btnSzczegoly";
-            this.btnSzczegoly.Size = new System.Drawing.Size(257, 32);
-            this.btnSzczegoly.TabIndex = 43;
-            this.btnSzczegoly.Text = "Pokaż  szczegóły elementu";
-            this.btnSzczegoly.UseVisualStyleBackColor = true;
             // 
             // lblNazwaTekst
             // 
@@ -112,7 +101,7 @@
             this.lblPrzydatnosc.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblPrzydatnosc.AutoSize = true;
             this.lblPrzydatnosc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblPrzydatnosc.Location = new System.Drawing.Point(158, 191);
+            this.lblPrzydatnosc.Location = new System.Drawing.Point(158, 194);
             this.lblPrzydatnosc.Name = "lblPrzydatnosc";
             this.lblPrzydatnosc.Size = new System.Drawing.Size(101, 20);
             this.lblPrzydatnosc.TabIndex = 48;
@@ -143,7 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(372, 278);
+            this.ClientSize = new System.Drawing.Size(372, 230);
             this.Controls.Add(this.lblIdElementu);
             this.Controls.Add(this.lblIloscJednostka);
             this.Controls.Add(this.lblPrzydatnosc);
@@ -151,7 +140,6 @@
             this.Controls.Add(this.lblPrzydatnoscTekst);
             this.Controls.Add(this.lblIloscTekst);
             this.Controls.Add(this.lbIDTekst);
-            this.Controls.Add(this.btnSzczegoly);
             this.Controls.Add(this.lblNazwaTekst);
             this.Controls.Add(this.lblTitle);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -166,7 +154,6 @@
 
         private System.Windows.Forms.Label lblIloscTekst;
         private System.Windows.Forms.Label lbIDTekst;
-        private System.Windows.Forms.Button btnSzczegoly;
         private System.Windows.Forms.Label lblNazwaTekst;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblPrzydatnoscTekst;
